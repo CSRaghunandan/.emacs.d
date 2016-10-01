@@ -1,17 +1,17 @@
 ;; hydra for window management
 
 ;; split window and move there.
-(defun sk/split-below-and-move ()
+(defun rag/split-below-and-move ()
   (interactive)
   (split-window-below)
   (other-window 1))
-(defun sk/split-right-and-move ()
+(defun rag/split-right-and-move ()
   (interactive)
   (split-window-right)
   (other-window 1))
 
 ;; toggle frame fullscreen
-(defun sk/toggle-frame-fullscreen-non-native ()
+(defun rag/toggle-frame-fullscreen-non-native ()
   "Toggle full screen non-natively. Uses the `fullboth' frame paramerter
    rather than `fullscreen'. Useful to fullscreen on OSX w/o animations."
   (interactive)
@@ -43,11 +43,12 @@
   ("W" shrink-window)
   ("S" enlarge-window)
   ("D" enlarge-window-horizontally)
-  ("h" sk/split-right-and-move)
-  ("v" sk/split-down-and-move)
+  ("h" rag/split-right-and-move)
+  ("v" rag/split-below-and-move)
   ("x" delete-window)
   ("p" ace-swap-window)
   ("z" delete-other-windows)
+  ("f" rag/toggle-frame-fullscreen-non-native :color blue)
   ("u" (progn
          (winner-undo)
          (setq this-command 'winner-undo)))
@@ -56,6 +57,9 @@
   ("-" text-scale-decrease)
   ("q" nil :color blue))
 
-(bind-key "C-x o" 'hydra-window/body)
+(bind-keys*
+ ("C-x 2" . rag/split-below-and-move)
+ ("C-x 3" . rag/split-right-and-move)
+ ("C-x o" . hydra-window/body))
 
 (provide 'setup-windmove)

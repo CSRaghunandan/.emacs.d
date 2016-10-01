@@ -5,7 +5,7 @@
         bm-highlight-style 'bm-highlight-line-and-fringe)
   (setq-default bm-buffer-persistence t)
 
-  (defun modi/bm-bookmark-regexp ()
+  (defun rag/bm-bookmark-regexp ()
     (interactive)
     (if (use-region-p)
         (progn
@@ -27,7 +27,7 @@ Bookmark _n_ext (_N_ in lifo order)            toggle book_m_ark        ^^_/_ bm
     ("N"   bm-lifo-next)
     ("p"   bm-common-previous)
     ("P"   bm-lifo-previous)
-    ("/"   modi/bm-bookmark-regexp :color blue)
+    ("/"   rag/bm-bookmark-regexp :color blue)
     ("s"   bm-toggle-buffer-persistence)
     ("x"   bm-remove-all-current-buffer :color blue)
     ("X"   bm-remove-all-all-buffers :color blue)

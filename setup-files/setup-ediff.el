@@ -6,7 +6,7 @@
     ;; Split windows horizontally in ediff (instead of vertically)
     (setq ediff-split-window-function #'split-window-horizontally)
 
-    (defun modi/ediff-dwim ()
+    (defun rag/ediff-dwim ()
       "Do ediff as I mean.
 If a region is active, call `ediff-regions-wordwise'.
 Else if the frame has 2 windows with identical major modes,

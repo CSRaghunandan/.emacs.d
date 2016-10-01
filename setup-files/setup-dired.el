@@ -21,14 +21,14 @@
     ;;       '/' to directories, etc.
     ;; default value for dired: "-al"
     (setq dired-listing-switches "-alGhvF --group-directories-first")
-    (defun modi/dired-rename-buffer-name ()
+    (defun rag/dired-rename-buffer-name ()
       "Rename the dired buffer name to distinguish it from file buffers.
 It added extra strings at the front and back of the default dired buffer name."
       (let ((name (buffer-name)))
 	(if (not (string-match "/$" name))
 	    (rename-buffer (concat "*Dired* " name "/") t))))
 
-    (add-hook 'dired-mode-hook #'modi/dired-rename-buffer-name)))
+    (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name)))
 
 (use-package dired-x :ensure nil
   :config

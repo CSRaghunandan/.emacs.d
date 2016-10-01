@@ -1,6 +1,6 @@
 ;;;; Pull Up Line
 ;; http://emacs.stackexchange.com/q/7519/115
-(defun modi/pull-up-line ()
+(defun rag/pull-up-line ()
   "Join the following line onto the current one (analogous to `C-e', `C-d') or
 `C-u M-^' or `C-u M-x join-line'.
 If the current line is a comment and the pulled-up line is also a comment,
@@ -19,7 +19,7 @@ remove the comment characters from that line."
       (insert-char ? )))) ; insert space
 
 ;;;; Open Line
-(defun modi/smart-open-line (&optional n)
+(defun rag/smart-open-line (&optional n)
   "Move the current line down if there are no word chars between the start of
 line and the cursor. Else, insert empty line after the current line."
   (interactive "p")
@@ -99,18 +99,18 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
   (next-line 1)
   (sk/smarter-move-beginning-of-line 1))
 
-(defun align-whitespace (start end)
+(defun rag/align-whitespace (start end)
   "Align columns by whitespace"
   (interactive "r")
   (align-regexp start end
                 "\\(\\s-*\\)\\s-" 1 1 t))
-(defun align-equals (start end)
+(defun rag/align-equals (start end)
   "Align columns by equals sign"
   (interactive "r")
   (align-regexp start end
                 "\\(\\s-*\\)=" 1 1 t))
 
-(defun modi/align-columns (begin end)
+(defun rag/align-columns (begin end)
   "Align text columns"
   (interactive "r")
   ;; align-regexp syntax:  align-regexp (beg end regexp &optional group spacing repeat)
@@ -139,8 +139,8 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
   :config (electric-operator-add-rules-for-mode 'haskell-mode (cons "|" "| ")))
 
 (bind-keys*
- ("C-o" . modi/smart-open-line)
- ("M-j" . modi/pull-up-line)
+ ("C-o" . rag/smart-open-line)
+ ("M-j" . rag/pull-up-line)
  ("s-j" . delete-indentation)
  ("C-M-SPC" . cycle-spacing)
  ("M-?" . mark-paragraph)
@@ -148,7 +148,6 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
  ("C-M-h" . backward-kill-word)
  ("C-w" . xah-cut-line-or-region)
  ("M-w" . xah-copy-line-or-region)
- ("C-c b n" . copy-buffer-file-name-as-kill)
  ("M-;" . comment-line)
  ("C-c s l" . sk/select-inside-line)
  ("C-c s n" . sk/select-around-line))

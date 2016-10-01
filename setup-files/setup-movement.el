@@ -1,4 +1,4 @@
-(defun smarter-move-beginning-of-line (arg)
+(defun rag/smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
 
 Move point to the first non-whitespace character on this line.
@@ -21,14 +21,14 @@ point reaches the beginning or end of the buffer, stop there."
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
 
-(defun modi/multi-pop-to-mark (orig-fun &rest args)
+(defun rag/multi-pop-to-mark (orig-fun &rest args)
   "When popping the mark, continue popping until the cursor actually moves.
 Try the repeated popping up to 10 times."
   (let ((p (point)))
     (dotimes (i 10)
       (when (= p (point))
         (apply orig-fun args)))))
-(advice-add 'pop-to-mark-command :around #'modi/multi-pop-to-mark)
+(advice-add 'pop-to-mark-command :around #'rag/multi-pop-to-mark)
 
 ;; hydra for movement keys
 (defhydra hydra-move
@@ -48,9 +48,6 @@ Try the repeated popping up to 10 times."
   ("l" recenter-top-bottom))
 (bind-key "M-m" 'hydra-move/body)
 
-(bind-keys*
- ("C-x 2" . sk/split-below-and-move)
- ("C-x 3" . sk/split-right-and-move)
- ("C-a" . smarter-move-beginning-of-line))
+(bind-key* "C-a" 'rag/smarter-move-beginning-of-line)
 
 (provide 'setup-movement)

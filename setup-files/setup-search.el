@@ -17,7 +17,7 @@
 ;; off-screen. So you can even use C-v/M-v without worrying that you'll lose
 ;; the current match location.
 
-(defun modi/isearch-backward-symbol-at-point ()
+(defun rag/isearch-backward-symbol-at-point ()
   "Do incremental search backward for a symbol found near point.
 Like ordinary incremental search except that the symbol found at point
 is added to the search string initially as a regexp surrounded
@@ -38,7 +38,7 @@ See the command `isearch-forward-symbol' for more information."
 
 (bind-keys*
  ("C-S-s" . isearch-forward-symbol-at-point)
- ("C-S-r" . modi/isearch-backward-symbol-at-point))
+ ("C-S-r" . rag/isearch-backward-symbol-at-point))
 
 (use-package visual-regexp-steroids
   :bind* (("C-c q" . vr/query-replace)

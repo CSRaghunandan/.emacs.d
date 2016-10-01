@@ -57,21 +57,21 @@
                                               "\\|" eww-buf-regexp)))
 
   ;; http://emacs.stackexchange.com/a/20036/115
-  (defun modi/bury-star-buffers ()
+  (defun rag/bury-star-buffers ()
     "Bury all star buffers."
     (mapc (lambda (buf)
             (when (string-match-p "\\`\\*.*\\*\\'" (buffer-name buf))
               (bury-buffer buf)))
           (buffer-list)))
-  (add-hook 'desktop-after-read-hook #'modi/bury-star-buffers)
+  (add-hook 'desktop-after-read-hook #'rag/bury-star-buffers)
 
-  (defun modi/restore-last-saved-desktop ()
+  (defun rag/restore-last-saved-desktop ()
     "Enable `desktop-save-mode' and restore the last saved desktop."
     (interactive)
     (desktop-save-mode 1)
     (desktop-read))
 
   :bind* (("<S-f2>" . desktop-save-in-desktop-dir)
-          ("<C-f2>" . modi/restore-last-saved-desktop)))
+          ("<C-f2>" . rag/restore-last-saved-desktop)))
 
 (provide 'setup-desktop)

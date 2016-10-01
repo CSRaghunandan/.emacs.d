@@ -10,7 +10,7 @@
   (untabify (point-min) (point-max))
   nil)
 
-(defun copy-buffer-file-name-as-kill (choice)
+(defun rag/copy-buffer-file-name-as-kill (choice)
   "Copy the buffer-file-name to the kill-ring"
   (interactive "cCopy Buffer Name (F) Full, (D) Directory, (N) Name")
   (let ((new-kill-string)
@@ -28,7 +28,7 @@
       (message "%s copied" new-kill-string)
       (kill-new new-kill-string))))
 
-(defun modi/make-backup ()
+(defun rag/make-backup ()
   "Make a backup copy of current file.
 The backup file name has the form ‹name›~‹timestamp›~, in the same dir.
 If such a file already exist, it's overwritten.
@@ -55,14 +55,14 @@ If the current buffer is not associated with a file, nothing's done."
 
 (add-hook 'kill-buffer-hook #'add-file-to-killed-file-list)
 
-(defun reopen-killed-file ()
+(defun rag/reopen-killed-file ()
   "Reopen the most recently killed file, if one exists."
   (interactive)
   (if killed-file-list
       (find-file (pop killed-file-list))
     (message "No recently killed file found to reopen.")))
 
-(defun reopen-killed-file-fancy ()
+(defun rag/reopen-killed-file-fancy ()
   "Pick a file to revisit from a list of files killed during this
 Emacs session."
   (interactive)
@@ -74,7 +74,7 @@ Emacs session."
           (find-file file)))
     (error "No recently-killed files to reopen")))
 
-(defun narrow-or-widen-dwim (p)
+(defun rag/narrow-or-widen-dwim (p)
   "Widen if buffer is narrowed, narrow-dwim otherwise.
 Dwim means: region, org-src-block, org-subtree, or
 defun, whichever applies first. Narrowing to
@@ -102,7 +102,7 @@ is already narrowed."
 
 ;; with no prefix, kill the current buffer without prompt
 ;; with prefix, select which buffer to kill
-(defun jcs-kill-a-buffer (askp)
+(defun rag/kill-a-buffer (askp)
   (interactive "P")
   (if askp
       (kill-buffer (funcall completing-read-function
@@ -110,7 +110,7 @@ is already narrowed."
                             (mapcar #'buffer-name (buffer-list))))
     (kill-this-buffer)))
 
-(defun delete-file-visited-by-buffer (buffername)
+(defun rag/delete-file-visited-by-buffer (buffername)
   "Delete the file visited by the buffer named BUFFERNAME."
   (interactive "b")
   (let* ((buffer (get-buffer buffername))
@@ -120,12 +120,13 @@ is already narrowed."
       (kill-buffer-ask buffer))))
 
 (bind-keys*
- ("C-c o k" . reopen-killed-file)
- ("C-c d f" . delete-file-visited-by-buffer)
- ("C-x k" . jcs-kill-a-buffer)
+ ("C-c o k" . rag/reopen-killed-file)
+ ("C-c d f" . rag/delete-file-visited-by-buffer)
+ ("C-x k" . rag/kill-a-buffer)
  ("C-c n n" . rename-file)
  ("C-c m d" . make-directory)
- ("C-c b f" . modi/make-backup)
- ("C-c n d" . narrow-or-widen-dwim))
+ ("C-c b f" . rag/make-backup)
+ ("C-c b n" . rag/copy-buffer-file-name-as-kill)
+ ("C-c n d" . rag/narrow-or-widen-dwim))
 
 (provide 'setup-buffers)
