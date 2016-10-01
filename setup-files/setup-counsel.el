@@ -1,7 +1,4 @@
-(use-package counsel-projectile
-  :bind* (("C-c p p" . counsel-projectile)
-	  ("C-c s p" . counsel-projectile-switch-project))
-  :config (counsel-projectile-on))
+;;my config for counsel
 
 (use-package counsel
   :bind
@@ -22,6 +19,12 @@
    ("C-c d s" . describe-symbol)
    :map ivy-minibuffer-map
    ("M-y" . ivy-next-line-and-call))
+
+  :init
+  (with-eval-after-load 'org
+    (bind-key "C-c C-q" #'counsel-org-tag org-mode-map))
+  (with-eval-after-load 'org-agenda
+    (bind-key "C-c C-q" #'counsel-org-tag-agenda org-agenda-mode-map))
 
   :config
   (defun reloading (cmd)
@@ -62,6 +65,8 @@
 	 ;; File names beginning with # or .
 	 "\\(?:\\`[#.]\\)"
 	 ;; File names ending with # or ~
-	 "\\|\\(?:\\`.+?[#~]\\'\\)")))
+	 "\\|\\(?:\\`.+?[#~]\\'\\)"))
+  ;; show parent directory in prompt
+  (ivy-set-prompt 'counsel-ag #'counsel-prompt-function-dir))
 
 (provide 'setup-counsel)

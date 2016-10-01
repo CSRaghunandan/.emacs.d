@@ -18,29 +18,22 @@ remove the comment characters from that line."
         (delete-forward-char 1))
       (insert-char ? )))) ; insert space
 
-;;;; Open Line
-(defun rag/smart-open-line (&optional n)
-  "Move the current line down if there are no word chars between the start of
-line and the cursor. Else, insert empty line after the current line."
-  (interactive "p")
-  (if (derived-mode-p 'org-mode)
-      (dotimes (cnt n)
-        (org-open-line 1))
-    ;; Get the substring from start of line to current cursor position
-    (let ((str-before-point (buffer-substring (line-beginning-position) (point))))
-      ;; (message "%s" str-before-point)
-      (if (not (string-match "\\w" str-before-point))
-          (progn
-            (dotimes (cnt n)
-              (newline-and-indent))
-            ;; (open-line 1)
-            (previous-line n)
-            (indent-relative-maybe))
-        (progn
-          (move-end-of-line nil)
-          (dotimes (cnt n)
-            (newline-and-indent))
-          (previous-line (- n 1)))))))
+(defun rag/smart-open-line ()
+  "Insert an empty line after the current line.
+Position the cursor at its beginning, according to the current mode."
+  (interactive)
+  (move-end-of-line nil)
+  (newline-and-indent))
+
+(defun rag/smart-open-line-above ()
+  "Insert an empty line above the current line.
+Position the cursor at it's beginning, according to the current mode."
+  (interactive)
+  (move-beginning-of-line nil)
+  (newline-and-indent)
+  (forward-line -1)
+  (indent-according-to-mode))
+
 
 (defun xah-copy-line-or-region ()
   "Copy current line, or text selection.
@@ -85,19 +78,19 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
         (kill-region (line-beginning-position) (line-beginning-position 2))
         (back-to-indentation)))))
 
-(defun sk/select-inside-line ()
+(defun rag/select-inside-line ()
   "Select the current line."
   (interactive)
   (smarter-move-beginning-of-line 1)
   (set-mark (line-end-position))
   (exchange-point-and-mark))
 
-(defun sk/select-around-line ()
+(defun rag/select-around-line ()
   "Select line including the newline character"
   (interactive)
-  (sk/select-inside-line)
+  (rag/select-inside-line)
   (next-line 1)
-  (sk/smarter-move-beginning-of-line 1))
+  (rag/smarter-move-beginning-of-line 1))
 
 (defun rag/align-whitespace (start end)
   "Align columns by whitespace"
@@ -140,6 +133,7 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 
 (bind-keys*
  ("C-o" . rag/smart-open-line)
+ ("C-S-o" . rag/smart-open-line-above)
  ("M-j" . rag/pull-up-line)
  ("s-j" . delete-indentation)
  ("C-M-SPC" . cycle-spacing)
@@ -149,7 +143,7 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
  ("C-w" . xah-cut-line-or-region)
  ("M-w" . xah-copy-line-or-region)
  ("M-;" . comment-line)
- ("C-c s l" . sk/select-inside-line)
- ("C-c s n" . sk/select-around-line))
+ ("C-c s l" . rag/select-inside-line)
+ ("C-c s n" . rag/select-around-line))
 
 (provide 'setup-editing)

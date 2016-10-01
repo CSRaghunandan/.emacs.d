@@ -103,6 +103,56 @@ With prefix argument (`C-u'), also kill the special buffers."
               (unless (string-match "^\\*\\(\\scratch\\|Messages\\)" buf-name)
                 (message "Killing buffer %s" buf-name)
                 (kill-buffer buf))))))))
+
+  (defhydra hydra-projectile-other-window (:color teal)
+    "projectile-other-window"
+    ("f"  projectile-find-file-other-window        "file")
+    ("g"  projectile-find-file-dwim-other-window   "file dwim")
+    ("d"  projectile-find-dir-other-window         "dir")
+    ("b"  projectile-switch-to-buffer-other-window "buffer")
+    ("q"  nil                                      "cancel" :color blue))
+
+  (defhydra hydra-projectile (:color teal
+                                     :hint  nil)
+    "
+     PROJECTILE: %(if (fboundp 'projectile-project-root) (projectile-project-root) \"TBD\")
+^^^^       Find               ^^   Search/Tags       ^^^^       Buffers               ^^   Cache                     ^^^^       Other
+^^^^--------------------------^^---------------------^^^^-----------------------------^^------------------------------------------------------------------
+_f_/_s-f_: file               _a_: counsel-ag        ^^    _i_: Ibuffer               _c_: cache clear               ^^    _E_: edit project's .dir-locals.el
+^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      _s-p_/_p_: switch to any other project
+^^    _d_: file curr dir      _o_: multi-occur       _K_/_s-k_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
+^^    _r_: recent file        _G_: git-grep          ^^^^                             _z_: cache current
+^^    _D_: dir                _A_: counsel-ag-root
+"
+    ("a"   counsel-ag)
+    ("A"   counsel-ag-root)
+    ("G"   counsel-git-grep)
+    ("b"   projectile-switch-to-buffer)
+    ("c"   projectile-invalidate-cache)
+    ("d"   projectile-find-file-in-directory)
+    ("f"   projectile-find-file)
+    ("s-f" projectile-find-file)
+    ("F"   projectile-find-file-dwim)
+    ("D"   projectile-find-dir)
+    ("E"   projectile-edit-dir-locals)
+    ("g"   ggtags-update-tags)
+    ("i"   projectile-ibuffer)
+    ("K"   projectile-kill-buffers)
+    ("s-k" projectile-kill-buffers)
+    ("m"   projectile-multi-occur)
+    ("o"   projectile-multi-occur)
+    ("p"   projectile-switch-project)
+    ("s-p" projectile-switch-project)
+    ("P"   projectile-switch-open-project)
+    ("s"   projectile-switch-project)
+    ("r"   projectile-recentf)
+    ("x"   projectile-remove-known-project)
+    ("X"   projectile-cleanup-known-projects)
+    ("z"   projectile-cache-current-file)
+    ("4"   hydra-projectile-other-window/body "other window")
+    ("q"   nil "cancel" :color blue))
+  (bind-key "C-c p h" 'hydra-projectile/body)
+
   (projectile-global-mode))
 
 (provide 'setup-projectile)

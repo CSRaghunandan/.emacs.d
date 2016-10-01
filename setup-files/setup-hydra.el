@@ -1,5 +1,5 @@
 ;; hydras:- flycheck, ibuffer, fold, google this, move, yasnippet,
-;;          window management, bm
+;;          window management, bm, projectile
 
 (use-package hydra
   :config
