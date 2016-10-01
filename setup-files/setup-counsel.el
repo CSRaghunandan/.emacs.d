@@ -4,7 +4,7 @@
   :config (counsel-projectile-on))
 
 (use-package counsel
-  :bind*
+  :bind
   (("M-x" . counsel-M-x)
    ("C-c d d" . counsel-descbinds)
    ("C-c s s" . counsel-ag)

@@ -1,4 +1,5 @@
-;; defined hydras for :- flycheck, ibuffer, fold, google this, move, yasnippet
+;; hydras:- flycheck, ibuffer, fold, google this, move, yasnippet,
+;;          window management, bm
 
 (use-package hydra
   :config

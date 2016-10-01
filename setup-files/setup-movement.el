@@ -21,16 +21,6 @@ point reaches the beginning or end of the buffer, stop there."
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
 
-;; split window and move there.
-(defun sk/split-below-and-move ()
-  (interactive)
-  (split-window-below)
-  (other-window 1))
-(defun sk/split-right-and-move ()
-  (interactive)
-  (split-window-right)
-  (other-window 1))
-
 (defun modi/multi-pop-to-mark (orig-fun &rest args)
   "When popping the mark, continue popping until the cursor actually moves.
 Try the repeated popping up to 10 times."

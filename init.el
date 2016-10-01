@@ -190,7 +190,7 @@
 (require 'setup-duplicate-line)
 (require 'setup-editing)
 (require 'setup-google-this)
-
+(require 'setup-windmove)
 (bind-keys*
  ("C-c o b" . browse-url-of-file)
  ("C-?" . help-command)
