@@ -1,0 +1,28 @@
+(use-package flyspell
+  :diminish flyspell-mode
+  :config
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  (setq flyspell-issue-welcome-flag nil))
+
+(use-package flycheck
+  :config
+  (setq flycheck-check-syntax-automatically '(save mode-enabled new-line))
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
+  (defhydra hydra-flycheck
+    (:pre (progn (setq hydra-lv t) (flycheck-list-errors))
+          :post (progn (setq hydra-lv nil) (quit-windows-on "*Flycheck errors*"))
+          :hint nil)
+    "Errors"
+    ("f"  flycheck-error-list-set-filter                            "Filter")
+    ("j"  flycheck-next-error                                       "Next")
+    ("k"  flycheck-previous-error                                   "Previous")
+    ("gg" flycheck-first-error                                      "First")
+    ("G"  (progn (goto-char (point-max)) (flycheck-previous-error)) "Last")
+    ("q"  nil))
+  (bind-key "C-c h f" 'hydra-flycheck/body))
+
+(use-package flyspell-correct-ivy
+  :bind* (("C-;" . flyspell-correct-previous-word-generic)))
+
+(provide 'setup-fly)
