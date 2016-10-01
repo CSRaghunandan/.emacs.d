@@ -2,10 +2,10 @@
 
 (use-package ivy
   :diminish ivy-mode
+  :init (ivy-mode 1)
   :bind
   (:map ivy-mode-map ("C-'" . ivy-avy))
   :config
-  (ivy-mode 1)
   (setq ivy-use-virtual-buffers t
 	ivy-height 13
 	ivy-initial-inputs-alist nil
