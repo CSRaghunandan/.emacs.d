@@ -23,7 +23,8 @@
 		  (string= web-mode-cur-language "jsx"))
 	      (unless tern-mode (tern-mode))
 	    (if tern-mode (tern-mode -1))))))
-  (add-hook 'web-mode-hook 'company-mode))
+  (add-hook 'web-mode-hook 'company-mode)
+  :bind ("C-c o b" . browse-url-of-file))
 
 (use-package ac-html-angular :defer t)
 

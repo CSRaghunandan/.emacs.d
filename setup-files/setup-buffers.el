@@ -1,10 +1,16 @@
+;; prevent switching to a visible buffer
+(setq switch-to-visible-buffer nil)
+
 ;; make buffers with same name unique
 (setq uniquify-buffer-name-style 'forward)
 (setq uniquify-separator "/")
 (setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
-;; get rid of all the
+;; make emacs auto-refresh all buffers when files have changed on the disk
+(global-auto-revert-mode t)
+
+;; get rid of all the tabs in a buffer
 (defun rag/untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max))

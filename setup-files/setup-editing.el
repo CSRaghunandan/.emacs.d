@@ -1,3 +1,22 @@
+;; Kill ring
+(setq kill-ring-max 200
+      kill-do-not-save-duplicates t
+      save-interprogram-paste-before-kill t)
+(setq select-enable-primary t)
+(setq select-enable-clipboard t)
+
+;; when region is enabled, pressing a character will remove the region and enter the character instead
+(delete-selection-mode t)
+(setq-default indent-tabs-mode nil)
+(setq-default fill-column 80) ;; default is 70
+
+;; By default, Emacs thinks a sentence is a full-stop followed by 2 spaces.
+(setq sentence-end-double-space nil)
+
+;; Ensure that we can quickly pop the mark several times by typing
+;; C-u C-SPC C-SPC, instead of having to type C-u C-SPC C-u C-SPC.
+(setq set-mark-command-repeat-pop t)
+
 ;;;; Pull Up Line
 ;; http://emacs.stackexchange.com/q/7519/115
 (defun rag/pull-up-line ()

@@ -35,4 +35,21 @@ not prevent downloading the actual packages (obviously)."
     ;; Highlight today's date in the calendar
     (add-hook 'calendar-today-visible-hook 'calendar-mark-today)))
 
+;; remove all trailing whitespaces in a file after saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; enable disabled commands
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region   'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'narrow-to-defun  'disabled nil)
+(put 'set-goal-column  'disabled nil)
+
+(bind-keys*
+ ("C-?" . help-command)
+ ("s-l" . shell-command))
+
+;; set all yes or no prompts to y or n
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (provide 'setup-misc)

@@ -13,38 +13,6 @@
 ;; emacs setup file
 (add-to-list 'load-path (concat user-emacs-directory "setup-files/"))
 
-(delete-selection-mode t)
-(setq-default indent-tabs-mode nil)
-(setq-default fill-column 80) ;; default is 70
-;; make emacs auto-refresh all buffers when files have changed on the disk
-(global-auto-revert-mode t)
-;; set all yes or no prompts to y or n
-(fset 'yes-or-no-p 'y-or-n-p)
-;; By default, Emacs thinks a sentence is a full-stop followed by 2 spaces.
-(setq sentence-end-double-space nil)
-
-;; Ensure that we can quickly pop the mark several times by typing
-;; C-u C-SPC C-SPC, instead of having to type C-u C-SPC C-u C-SPC.
-(setq set-mark-command-repeat-pop t)
-;; enable disabled commands
-(put 'narrow-to-region 'disabled nil)
-(put 'upcase-region   'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'narrow-to-defun  'disabled nil)
-(put 'set-goal-column  'disabled nil)
-
-;; Kill ring
-(setq kill-ring-max 200
-      kill-do-not-save-duplicates t
-      save-interprogram-paste-before-kill t)
-(setq select-enable-primary t)
-(setq select-enable-clipboard t)
-
-;; remove all trailing whitespaces in a file after saving
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-(setq switch-to-visible-buffer nil)
-(setq scroll-preserve-screen-position t)
-
 ;; theme config ------------------------------------------------------------
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -191,10 +159,6 @@
 (require 'setup-editing)
 (require 'setup-google-this)
 (require 'setup-windmove)
-(bind-keys*
- ("C-c o b" . browse-url-of-file)
- ("C-?" . help-command)
- ("s-l" . shell-command))
 
 (setq gc-cons-threshold 800000)
 ;;; init.el ends here

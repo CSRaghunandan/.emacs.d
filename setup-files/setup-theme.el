@@ -29,4 +29,7 @@
 (set-face-attribute 'fringe nil :background "gray21")
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box 'nil)
+;; prevent cursor from moving when scrolling
+(setq scroll-preserve-screen-position t)
+
 (provide 'setup-theme)
