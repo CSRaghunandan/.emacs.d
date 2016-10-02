@@ -1,5 +1,4 @@
-(use-package zenburn-theme
-  :config (load-theme 'zenburn t))
+(use-package zenburn-theme)
 
 (use-package rainbow-delimiters
   :config (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))

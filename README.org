@@ -1,3 +1,16 @@
-* Rag emacs config
+* Rag .emacs.d
 Here is my emacs config.
+** A few notes to consider
+- This is a work in progress and is subject to frequent changes.
+- After playing around with helm for a month, I switched to a combination of Ivy + Swiper + Counsel largely due to how snappy and consistent they feel.
+  If you want to use helm, comment out the following lines in =init.el= :-
+  - =(require 'setup-ivy)=
+  - =(require 'setup-counsel)=
+  - =(require 'setup-swiper)=
+  And after, add this line to =init.el= :- =(require 'setup-helm)=
+- I run a very minimal theme with no toolbar, no scrollbars, no line numbers(I found emacs solution for line numbers to be lackluster, especially for handling long lines).
+  I use ~PragmataPro~ as the preferred font and zenburn theme. These are all tuned for my preference, feel free to change them to your liking.
 
+* Feedback
+Open to any feedback, corrections.
+Thanks :)

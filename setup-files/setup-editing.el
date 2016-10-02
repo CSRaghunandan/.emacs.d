@@ -110,6 +110,15 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
   (align-regexp begin end "\\(\\s-+\\)[a-zA-Z0-9=(),?':`\.{}]" 1 1 t)
   (indent-region begin end)) ; indent the region correctly after alignment
 
+(defun rag/kill-rectangle-replace-with-space (start end)
+  "Kill the rectangle and replace it with spaces."
+  (interactive "r")
+  (setq killed-rectangle (extract-rectangle start end))
+  (clear-rectangle start end)
+  (setq deactivate-mark t)
+  (if (called-interactively-p 'interactive)
+      (indicate-copied-region (length (car killed-rectangle)))))
+
 (use-package goto-chg
   :bind* (("C-c g l" . goto-last-change)
           ("C-c g r" . goto-last-change-reverse)))
