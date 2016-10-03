@@ -19,7 +19,7 @@
   ;; https://github.com/ggreer/the_silver_searcher
   (defconst modi/ag-arguments
     '("--nogroup" ; mandatory argument for ag.el as per https://github.com/Wilfred/ag.el/issues/41
-      "--skip-vcs-ignores"               ; Ignore files/dirs ONLY from `.ignore'
+      ;;"--skip-vcs-ignores"               ; Ignore files/dirs ONLY from `.ignore'
       "--numbers"                        ; line numbers
       "--smart-case"
       ;; "--one-device"                      ; do not cross mounts when searching
@@ -30,7 +30,7 @@ packages.")
 ;;; Default rg arguments
   ;; https://github.com/BurntSushi/ripgrep
   (defconst modi/rg-arguments
-    '("--no-ignore-vcs"                  ; Ignore files/dirs ONLY from `.ignore'
+    '(;;"--no-ignore-vcs"                  ; Ignore files/dirs ONLY from `.ignore'
       "--line-number"                    ; line numbers
       "--smart-case"
       "--follow")                        ; follow symlinks
@@ -54,18 +54,19 @@ packages.")
 		       '("--null" ; output null separated results,
 			 "--files")) ; get file names matching the regex '' (all files)
   	       " "))
+  ;; ;; Use `rg' all the time if available
+  ;; (if (executable-find "rg")
+  ;;     (progn
+  ;; 	(advice-remove 'projectile-get-ext-command #'modi/advice-projectile-use-ag)
+  ;; 	  (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg))
+  ;;   ;; Else use `ag' if available
+  ;;   (when (executable-find "ag")
+  ;;     (advice-remove 'projectile-get-ext-command #'modi/advice-projectile-use-rg)
+  ;;     (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-ag)))
 
-  ;; Use `rg' all the time if available
-  (if (executable-find "rg")
-      (progn
-  	(advice-remove 'projectile-get-ext-command #'modi/advice-projectile-use-ag)
-  	(advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg))
-    ;; Else use `ag' if available
-    (when (executable-find "ag")
-      (advice-remove 'projectile-get-ext-command #'modi/advice-projectile-use-rg)
-      (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-ag)))
+  (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)
 
-  ;; Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
+  Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
   (defun modi/advice-projectile-no-sub-project-files ()
     "Directly call `projectile-get-ext-command'. No need to try to get a
   list of sub-project files if the vcs is git."

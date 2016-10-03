@@ -156,8 +156,8 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 (use-package saveplace
   :init (save-place-mode 1))
 
-(use-package electric-operator
-  :config (electric-operator-add-rules-for-mode 'haskell-mode (cons "|" "| ")))
+;; (use-package electric-operator
+;; :config (electric-operator-add-rules-for-mode 'haskell-mode (cons "|" "| ")))
 
 (bind-keys*
  ("C-o" . rag/smart-open-line)

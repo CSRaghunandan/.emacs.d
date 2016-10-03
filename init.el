@@ -74,5 +74,6 @@
 (require 'setup-google-this)
 (require 'setup-windmove)
 (require 'electric-operator)
+
 (setq gc-cons-threshold 800000)
 ;;; init.el ends here

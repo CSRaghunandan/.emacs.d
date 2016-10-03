@@ -4,7 +4,7 @@ recentf
 smex-items
 projectile-bookmarks.eld
 projectile.cache
-auto-save-list
+auto-save-list/
 backup/
 desktop/
 elpa/
@@ -21,3 +21,5 @@ tutorial/
 url/
 diminish-modes-1.el
 history
+irony/
+semanticdb/

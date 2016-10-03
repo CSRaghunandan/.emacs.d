@@ -12,4 +12,7 @@
 
 (use-package diminish :demand t)
 
+(use-package eldoc
+  :diminish eldoc-mode)
+
 (provide 'setup-mode-line)
