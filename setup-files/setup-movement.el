@@ -32,20 +32,44 @@ Try the repeated popping up to 10 times."
 
 ;; hydra for movement keys
 (defhydra hydra-move
-  (:body-pre (next-line))
-  "move"
+  (:body-pre (next-line)
+             :hint nil)
+  "
+_f_: -> char        _F_: -> word         _n_: -> line       _a_: beginning-of-line
+_b_: <- char        _B_: <- word         _p_: <- line       _e_: end-of-line
+
+_m_: set mark       _v_: scroll down     _l_: recenter      _'_: avy
+_j_: goto mark      _V_: scroll up       _w_: ace-window    _._: -> buffer _,_: <- buffer
+
+_s_: -> sentence    _a_: -> paragraph    _g_: -> page       _>_: end-of-buffer
+_S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-buffer
+ "
   ("n" next-line)
   ("p" previous-line)
   ("f" forward-char)
   ("b" backward-char)
-  ("a" beginning-of-line)
+  ("a" rag/smarter-move-beginning-of-line)
   ("e" move-end-of-line)
   ("v" scroll-up-command)
-  ("k" forward-word)
-  ("j" backward-word)
-  ;; Converting M-v to V here by analogy.
   ("V" scroll-down-command)
-  ("l" recenter-top-bottom))
+  ("F" forward-word)
+  ("B" backward-word)
+  ("l" recenter-top-bottom)
+  ("<" beginning-of-buffer)
+  (">" end-of-buffer)
+  ("g" forward-page)
+  ("G" backward-page)
+  ("s" forward-sentence)
+  ("S" backward-sentence)
+  ("a" forward-paragraph)
+  ("A" backward-paragraph)
+  ("'" avy-goto-char-timer)
+  ("w" ace-window)
+  ("m" org-mark-ring-push)
+  ("j" org-mark-ring-goto)
+  ("." next-buffer)
+  ("," previous-buffer)
+  ("q" nil "quit" :color blue))
 (bind-key "M-m" 'hydra-move/body)
 
 (bind-key* "C-a" 'rag/smarter-move-beginning-of-line)
