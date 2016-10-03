@@ -66,7 +66,7 @@ packages.")
 
   (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)
 
-  Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
+  ;; Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
   (defun modi/advice-projectile-no-sub-project-files ()
     "Directly call `projectile-get-ext-command'. No need to try to get a
   list of sub-project files if the vcs is git."

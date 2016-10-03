@@ -8,14 +8,11 @@ auto-save-list/
 backup/
 desktop/
 elpa/
-eshell
-.emacs.desktop
+eshell/
 anaconda-mode/
-games/
 bookmarks
 company-statistics-cache.el
 .mc-lists.el
-.saved-places
 tutorial/
 url/
 diminish-modes-1.el
