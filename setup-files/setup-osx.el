@@ -11,7 +11,8 @@
   (setq delete-by-moving-to-trash t))
 
 (use-package exec-path-from-shell
-  :init (exec-path-from-shell-initialize)
+  :init (when (memq window-system '(mac ns x))
+          (exec-path-from-shell-initialize))
   :config (add-hook 'eshell-mode-hook '(lambda ()(exec-path-from-shell-initialize))))
 
 (provide 'setup-osx)

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: let mut
+# key: lm
+# --
+let mut ${1:x} = $0;

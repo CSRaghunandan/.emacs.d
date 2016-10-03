@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: enum
+# key: e
+# binding: direct-keybinding
+# --
+enum ${1:Name} {
+    $0
+}

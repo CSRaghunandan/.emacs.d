@@ -1,0 +1,4 @@
+# key: u
+# name: use
+# --
+use ${1:ident};

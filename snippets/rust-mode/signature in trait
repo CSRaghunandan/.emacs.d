@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: signature in trait
+# key: sig
+# binding: direct-keybinding
+# --
+fn ${1:name}(${2:&self})${3: -> ${4:T}};

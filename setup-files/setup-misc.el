@@ -51,5 +51,6 @@ not prevent downloading the actual packages (obviously)."
 
 ;; set all yes or no prompts to y or n
 (fset 'yes-or-no-p 'y-or-n-p)
+(setq apropos-do-all t)
 
 (provide 'setup-misc)

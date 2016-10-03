@@ -1,7 +1,10 @@
 (setq auto-save-default nil)
 
+;; No need for ~ files when editing
+(setq create-lockfiles nil)
+
 (setq version-control t     ;; Use version numbers for backups.
-      kept-new-versions 6   ;; Number of newest versions to keep.
+      kept-new-versions 5   ;; Number of newest versions to keep.
       kept-old-versions 2   ;; Number of oldest versions to keep.
       delete-old-versions t ;; Don't ask to delete excess backup versions.
       backup-by-copying t)  ;; Copy all files, don't rename them.

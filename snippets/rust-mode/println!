@@ -1,0 +1,4 @@
+# key: pr
+# name: println!
+# --
+println!("$0");

@@ -13,6 +13,7 @@
   :diminish racer-mode
   :config
   (setq racer-cmd "~/.cargo/bin/racer") ;; Rustup binaries PATH
+  ;; place the rustc source directory in your HOME.
   (setq racer-rust-src-path "~/rustc-1.11.0/src")
   (defun my-racer-mode-hook ()
     (set (make-local-variable 'company-backends)

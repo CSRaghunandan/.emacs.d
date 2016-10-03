@@ -1,0 +1,16 @@
+*~
+places
+recentf
+smex-items
+projectile-bookmarks.eld
+projectile.cache
+auto-save-list
+backup/
+desktop/
+elpa/
+eshell
+.emacs.desktop
+anaconda-mode/
+games/
+bookmarks
+company-statistics-cache.el
