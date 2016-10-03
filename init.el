@@ -1,5 +1,3 @@
-;;; -*- lexical-binding: t -*-
-
 (setq gc-cons-threshold 100000000)
 
 (require 'package)

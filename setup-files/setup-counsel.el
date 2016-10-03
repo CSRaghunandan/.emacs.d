@@ -1,5 +1,6 @@
-;;my config for counsel
+;;; -*- lexical-binding: t -*-
 
+;;my config for counsel
 (use-package counsel
   :bind
   (("M-x" . counsel-M-x)

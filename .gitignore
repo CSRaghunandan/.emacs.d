@@ -14,3 +14,8 @@ anaconda-mode/
 games/
 bookmarks
 company-statistics-cache.el
+.mc-lists.el
+.saved-places
+profile-dotemacs.el
+tutorial/
+url/
