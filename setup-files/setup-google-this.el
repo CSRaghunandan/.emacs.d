@@ -1,5 +1,6 @@
 
 (use-package google-this
+  :diminish google-this-mode
   :config (google-this-mode 1)
   (defhydra hydra-google (:color blue
                                  :hint nil)

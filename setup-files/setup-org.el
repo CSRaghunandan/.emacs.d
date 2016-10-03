@@ -37,7 +37,9 @@
     ;; own buffers when left clicked on by mistake. I can still intentionally
     ;; open links and such images in new buffers by doing C-c C-o.
     (setq org-mouse-1-follows-link nil))
+
   :mode ("\\.org\\'" . org-mode)
+
   :config
   (progn
     ;; set org-agenda files folder
@@ -51,6 +53,21 @@
        (python . t)))
 
 ;;; Org Variables
+
+    ;; Non-nil means insert state change notes and time stamps into a drawer.
+    (setq org-log-into-drawer t)
+    ;; insert a note after changing deadline for a TODO
+    (setq org-log-redeadline 'note)
+    ;; insert a note after rescheduling a TODO
+    (setq org-log-reschedule 'note)
+    ;; Insert only timestamp when closing an org TODO item
+    (setq org-log-done 'timestamp)
+
+    ;; refile settings
+    (setq org-refile-allow-creating-parent-nodes 'confirm)
+    (setq org-refile-use-outline-path 'file)
+    (setq org-refile-targets '(org-agenda-files :level . 1))
+
     (setq org-agenda-archives-mode nil) ; required in org 8.0+
     (setq org-agenda-skip-comment-trees nil)
     (setq org-agenda-skip-function nil)
@@ -82,7 +99,6 @@
 
     ;; enable org-indent mode on startup
     (setq org-startup-indented t)
-    (setq org-log-done 'timestamp) ; Insert only timestamp when closing an org TODO item
     ;; make sure org mode starts with flyspell mode enabled
     (add-hook 'org-mode-hook 'flyspell-mode)
 
@@ -192,6 +208,16 @@ this with to-do items than with projects or headings."
      ("C-c c" . org-capture)
      ("C-c i" . org-store-link))
 
-    (use-package org-journal)))
+    (use-package org-journal)
+
+    (custom-set-faces
+     '(org-document-title ((t (:height 1.3))))
+     '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
+     '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
+     '(org-level-1 ((t (:inherit outline-1 :foreground "#DFAF8F" :height 1.2))))
+     '(org-level-2 ((t (:inherit outline-2 :foreground "#BFEBBF" :height 1.15))))
+     '(org-level-3 ((t (:inherit outline-3 :foreground "#7CB8BB" :height 1.1))))
+     '(org-level-4 ((t (:inherit outline-4 :foreground "#D0BF8F" :height 1.05))))
+     '(org-level-5 ((t (:inherit outline-5 :foreground "#93E0E3" :height 1)))))))
 
 (provide 'setup-org)
