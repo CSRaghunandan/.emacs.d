@@ -27,6 +27,9 @@
     (bind-key "C-c C-q" #'counsel-org-tag-agenda org-agenda-mode-map))
 
   :config
+  ;; ignore case sensitivity for counsel grep
+  (setq counsel-grep-base-command "grep -nEi \"%s\" %s")
+
   (defun reloading (cmd)
     (lambda (x)
       (funcall cmd x)
