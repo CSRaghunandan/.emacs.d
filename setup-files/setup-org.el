@@ -101,6 +101,7 @@
     (setq org-startup-indented t)
     ;; make sure org mode starts with flyspell mode enabled
     (add-hook 'org-mode-hook 'flyspell-mode)
+    (add-hook 'org-mode-hook 'auto-fill-mode)
 
     ;; strike through done headlines
     (setq org-fontify-done-headline t)

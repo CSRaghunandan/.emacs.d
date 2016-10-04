@@ -5,8 +5,6 @@
 (setq select-enable-primary t)
 (setq select-enable-clipboard t)
 
-;; when region is enabled, pressing a character will remove the region and enter the character instead
-(delete-selection-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 80) ;; default is 70
 

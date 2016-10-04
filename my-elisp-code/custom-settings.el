@@ -26,7 +26,7 @@
      ("org" . "http://orgmode.org/elpa/"))))
  '(package-selected-packages
    (quote
-    (wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent osx-trash avy-zap dired-hacks-utlis flyspell-correct-ivy ibuffer-projectile reveal-in-osx-finder imenu-anywhere flx counsel swiper company-statistics pytest racket racket-mode volatile-highlights org-journal intero ac-html-angular company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib dired-narrow js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode goto-chg flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
+    (region-bindings-mode wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent osx-trash avy-zap dired-hacks-utlis flyspell-correct-ivy ibuffer-projectile reveal-in-osx-finder imenu-anywhere flx counsel swiper company-statistics pytest racket racket-mode volatile-highlights org-journal intero ac-html-angular company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib dired-narrow js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode goto-chg flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(python-shell-completion-native-enable nil)
  '(send-mail-function (quote sendmail-send-it))
@@ -59,4 +59,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(highlight-symbol-face ((t (:background "DarkSeaGreen4"))))
+ '(org-document-title ((t (:height 1.3))))
+ '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
+ '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
+ '(org-level-1 ((t (:inherit outline-1 :foreground "#DFAF8F" :height 1.2))))
+ '(org-level-2 ((t (:inherit outline-2 :foreground "#BFEBBF" :height 1.15))))
+ '(org-level-3 ((t (:inherit outline-3 :foreground "#7CB8BB" :height 1.1))))
+ '(org-level-4 ((t (:inherit outline-4 :foreground "#D0BF8F" :height 1.05))))
+ '(org-level-5 ((t (:inherit outline-5 :foreground "#93E0E3" :height 1))))
  '(vhl/default-face ((t (:background "gray40")))))
