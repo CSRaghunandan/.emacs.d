@@ -34,4 +34,12 @@
 ;; prevent cursor from moving when scrolling
 (setq scroll-preserve-screen-position t)
 
+;; set continuation indicators to right fringe only
+(setf (cdr (assq 'continuation fringe-indicator-alist))
+      ;; '(nil nil) ;; no continuation indicators
+      '(nil right-arrow) ;; right indicator only
+      ;; '(left-curly-arrow nil) ;; left indicator only
+      ;; '(left-curly-arrow right-curly-arrow) ;; default
+      )
+
 (provide 'setup-theme)

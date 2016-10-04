@@ -4,6 +4,13 @@
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)
 
+  ;; Do not barf when I try to do `projectile-switch-project' while in a
+  ;; buffer containing a non-projectile file.
+  (setq projectile-require-project-root nil)
+
+  ;; Don't consider my home dir as a project
+  (add-to-list 'projectile-ignored-projects `,(concat (getenv "HOME") "/"))
+
   ;; Git projects should be marked as projects in top-down fashion,
   ;; so that each git submodule can be a projectile project.
   (setq projectile-project-root-files-bottom-up

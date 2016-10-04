@@ -7,7 +7,6 @@
 (use-package flycheck
   :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled new-line))
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
   (defhydra hydra-flycheck
     (:pre (progn (setq hydra-lv t) (flycheck-list-errors))

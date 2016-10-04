@@ -12,7 +12,6 @@
    ("C-c g g" . counsel-git)
    ("C-c g G" . counsel-git-grep)
    ("C-x l" . counsel-locate)
-   ("C-c g s" . counsel-grep-or-swiper)
    ("C-M-y" . counsel-yank-pop)
    ("C-c C-r" . ivy-resume)
    ("C-c i m" . counsel-imenu)

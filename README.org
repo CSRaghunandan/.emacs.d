@@ -18,10 +18,10 @@ Here is my emacs config.
 - Certain packages will only work if you have the associated applications installed
   - =ag=
   - =rg=
-  - =git= [for magit]
+  - =git=    [for magit]
   - =ispell= [for spell check]
-  - =racer= [for rust completions]
-  - =jedi= [for python completions]
+  - =racer=  [for rust completions]
+  - =jedi=   [for python completions]
 
 * Feedback
 Open to any feedback, corrections.
