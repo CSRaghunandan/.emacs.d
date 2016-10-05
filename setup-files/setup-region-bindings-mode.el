@@ -19,8 +19,8 @@
      ("\"" . wrap-with-double-quotes)
      ("d" . duplicate-current-line-or-region)
      ("N" . rag/narrow-or-widen-dwim)
-     ("e" . eval-region)
+     ("E" . eval-region)
+     ("e" . er/expand-region)
      ("q" . query-replace))))
-
 
 (provide 'setup-region-bindings-mode)

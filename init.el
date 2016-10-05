@@ -40,7 +40,6 @@
 (require 'setup-company)
 (require 'setup-beacon)
 (require 'setup-smartparens)
-(require 'setup-mc)
 (require 'setup-git-stuff)
 (require 'setup-undo-tree)
 (require 'setup-avy)
@@ -74,6 +73,8 @@
 (require 'setup-google-this)
 (require 'setup-windmove)
 (require 'electric-operator)
+(require 'setup-region-bindings-mode)
+(require 'setup-mc)
 
 (setq gc-cons-threshold 800000)
 ;;; init.el ends here
