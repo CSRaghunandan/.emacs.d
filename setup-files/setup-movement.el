@@ -30,6 +30,10 @@ Try the repeated popping up to 10 times."
         (apply orig-fun args)))))
 (advice-add 'pop-to-mark-command :around #'rag/multi-pop-to-mark)
 
+;; Ensure that we can quickly pop the mark several times by typing
+;; C-u C-SPC C-SPC, instead of having to type C-u C-SPC C-u C-SPC.
+(setq set-mark-command-repeat-pop t)
+
 ;; hydra for movement keys
 (defhydra hydra-move
   (:body-pre (next-line)

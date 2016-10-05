@@ -1,3 +1,4 @@
+;; configuration for all the editing stuff in emacs
 ;; Kill ring
 (setq kill-ring-max 200
       kill-do-not-save-duplicates t
@@ -10,10 +11,6 @@
 
 ;; By default, Emacs thinks a sentence is a full-stop followed by 2 spaces.
 (setq sentence-end-double-space nil)
-
-;; Ensure that we can quickly pop the mark several times by typing
-;; C-u C-SPC C-SPC, instead of having to type C-u C-SPC C-u C-SPC.
-(setq set-mark-command-repeat-pop t)
 
 ;;;; Pull Up Line
 ;; http://emacs.stackexchange.com/q/7519/115
@@ -50,7 +47,6 @@ Position the cursor at it's beginning, according to the current mode."
   (newline-and-indent)
   (forward-line -1)
   (indent-according-to-mode))
-
 
 (defun xah-copy-line-or-region ()
   "Copy current line, or text selection.
@@ -109,6 +105,7 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
   (next-line 1)
   (rag/smarter-move-beginning-of-line 1))
 
+;; align commands
 (defun rag/align-whitespace (start end)
   "Align columns by whitespace"
   (interactive "r")
@@ -119,7 +116,6 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
   (interactive "r")
   (align-regexp start end
                 "\\(\\s-*\\)=" 1 1 t))
-
 (defun rag/align-columns (begin end)
   "Align text columns"
   (interactive "r")
@@ -136,10 +132,12 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
   (if (called-interactively-p 'interactive)
       (indicate-copied-region (length (car killed-rectangle)))))
 
+;; go to the last changed cursor position
 (use-package goto-chg
   :bind* (("C-c g l" . goto-last-change)
           ("C-c g r" . goto-last-change-reverse)))
 
+;; expand region semantically
 (use-package expand-region
   :bind* ("C-c e" . er/expand-region)
   :config
@@ -147,15 +145,20 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
     (setq expand-region-contract-fast-key "|")
     (setq expand-region-reset-fast-key "<ESC><ESC>")))
 
+;; allow forward and backword movements to move between camelCase words
 (use-package subword
   :diminish subword-mode
   :config (subword-mode +1))
 
+;; save and restore the previous cursor position when the buffer was killed
 (use-package saveplace
   :init (save-place-mode 1))
 
 ;; (use-package electric-operator
 ;; :config (electric-operator-add-rules-for-mode 'haskell-mode (cons "|" "| ")))
+
+;; remove all trailing whitespaces in a file after saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (bind-keys*
  ("C-o" . rag/smart-open-line)

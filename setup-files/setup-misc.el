@@ -35,8 +35,7 @@ not prevent downloading the actual packages (obviously)."
     ;; Highlight today's date in the calendar
     (add-hook 'calendar-today-visible-hook 'calendar-mark-today)))
 
-;; remove all trailing whitespaces in a file after saving
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 
 ;; enable disabled commands
 (put 'narrow-to-region 'disabled nil)

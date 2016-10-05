@@ -1,3 +1,5 @@
+;; configure bookmark
+
 (use-package bm
   :config
   (setq bm-cycle-all-buffers t

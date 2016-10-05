@@ -1,3 +1,5 @@
+;; configuration for company mode
+
 (use-package company
   :diminish company-mode
   :config

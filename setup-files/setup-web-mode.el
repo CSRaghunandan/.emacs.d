@@ -25,7 +25,6 @@
 	      (unless tern-mode (tern-mode))
 	    (if tern-mode (tern-mode -1))))))
   (add-hook 'web-mode-hook 'company-mode)
-  :bind ("C-c o b" . browse-url-of-file)
 
   ;; to get completion data for angularJS
   (use-package ac-html-angular :defer t)
@@ -40,7 +39,9 @@
     :init (setq emmet-move-cursor-between-quotes t) ;; default nil
     :diminish (emmet-mode . " 𝛆")
     :bind* (("C->" . emmet-next-edit-point)
-            ("C-<" . emmet-prev-edit-point))))
+            ("C-<" . emmet-prev-edit-point)))
+
+  :bind ("C-c o b" . browse-url-of-file))
 
 ;; impatient mode - Live refresh of web pages
 (use-package impatient-mode
