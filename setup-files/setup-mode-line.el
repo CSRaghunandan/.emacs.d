@@ -15,6 +15,7 @@
     (spaceline-toggle-buffer-size-off)))
 
 (use-package eldoc
-  :diminish eldoc-mode)
+  :diminish eldoc-mode
+  :diminish auto-revert-mode)
 
 (provide 'setup-mode-line)

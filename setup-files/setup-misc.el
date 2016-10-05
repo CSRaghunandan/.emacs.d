@@ -25,7 +25,9 @@ not prevent downloading the actual packages (obviously)."
 
 (use-package erc :defer t
   :config
+  ;; don't show messages when a users quits or joins
   (setq erc-hide-list '("PART" "QUIT" "JOIN"))
+  ;; defaults for ERC mode
   (setq erc-server "irc.freenode.net"
 	erc-nick "Rag1212"))
 
@@ -34,8 +36,6 @@ not prevent downloading the actual packages (obviously)."
   (progn
     ;; Highlight today's date in the calendar
     (add-hook 'calendar-today-visible-hook 'calendar-mark-today)))
-
-
 
 ;; enable disabled commands
 (put 'narrow-to-region 'disabled nil)

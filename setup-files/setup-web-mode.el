@@ -3,6 +3,7 @@
 (use-package web-mode
   :mode (("\\.html$" . web-mode)
 	 ("\\.djhtml$" . web-mode))
+  :bind ("C-c o b" . browse-url-of-file)
   :config
   (add-hook 'web-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook (lambda() (highlight-indent-guides-mode -1)))
@@ -39,9 +40,7 @@
     :init (setq emmet-move-cursor-between-quotes t) ;; default nil
     :diminish (emmet-mode . " 𝛆")
     :bind* (("C->" . emmet-next-edit-point)
-            ("C-<" . emmet-prev-edit-point)))
-
-  :bind ("C-c o b" . browse-url-of-file))
+            ("C-<" . emmet-prev-edit-point))))
 
 ;; impatient mode - Live refresh of web pages
 (use-package impatient-mode
