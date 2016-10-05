@@ -46,4 +46,8 @@ See the command `isearch-forward-symbol' for more information."
   :config
   (setq vr/default-feedback-limit 300))
 
+;; useful for refactoring in ivy-occur where we can edit search results
+;; from multiple files
+(use-package wgrep)
+
 (provide 'setup-search)

@@ -1,3 +1,5 @@
+;; configuration for undo tree-mode
+
 (use-package undo-tree
   :diminish undo-tree-mode
   :bind* (("C-c u" . undo-tree-undo)

@@ -2,7 +2,12 @@
   :diminish flyspell-mode
   :config
   (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-  (setq flyspell-issue-welcome-flag nil))
+  (setq flyspell-issue-welcome-flag nil)
+
+  ;; correct typos using ivy
+  (use-package flyspell-correct-ivy
+    :bind* (("C-;" . flyspell-correct-previous-word-generic))))
+
 
 (use-package flycheck
   :config
@@ -20,8 +25,5 @@
     ("G"  (progn (goto-char (point-max)) (flycheck-previous-error)) "Last")
     ("q"  nil))
   (bind-key "C-c h f" 'hydra-flycheck/body))
-
-(use-package flyspell-correct-ivy
-  :bind* (("C-;" . flyspell-correct-previous-word-generic)))
 
 (provide 'setup-fly)

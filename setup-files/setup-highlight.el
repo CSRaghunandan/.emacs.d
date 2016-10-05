@@ -6,9 +6,11 @@
   :init (add-hook 'prog-mode-hook 'highlight-symbol-mode)
   :config
   (setq highlight-symbol-idle-delay 1
+        ;; auto-highlight symbols when cursor moves over it
         highlight-symbol-on-navigation-p t)
   (highlight-symbol-nav-mode))
 
+;; highlight specific operations like undo, yank
 (use-package volatile-highlights
   :diminish volatile-highlights-mode
   :config (volatile-highlights-mode t))
@@ -16,6 +18,7 @@
 (use-package hl-line
   :config
   (global-hl-line-mode 1)
+  ;; make hl-line highlight only in the current active window
   (setq hl-line-sticky-flag nil))
 
 (use-package highlight-indent-guides :defer t

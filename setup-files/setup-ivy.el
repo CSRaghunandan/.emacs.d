@@ -1,10 +1,6 @@
 ;; needed for sorting the results from fuzzy search in ivy
 (use-package flx)
 
-;; useful for refactoring in ivy-occur where we can edit search results
-;; from multiple files
-(use-package wgrep)
-
 (use-package ivy
   :diminish ivy-mode
   :init (ivy-mode 1)

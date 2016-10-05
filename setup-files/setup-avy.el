@@ -1,3 +1,5 @@
+;; manage avy, avy-zap and ace-window
+
 (use-package avy
   :init
   (setq avy-keys-alist

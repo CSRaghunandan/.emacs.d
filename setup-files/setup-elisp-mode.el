@@ -1,3 +1,5 @@
+;; Configuration for emacs-lisp-mode
+
 (use-package elisp-mode :ensure nil
   :config
   (defun my-elisp-mode-hook ()

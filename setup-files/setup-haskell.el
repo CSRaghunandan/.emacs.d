@@ -10,10 +10,10 @@
   (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
   (add-hook 'haskell-mode-hook 'company-mode)
   (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
-  (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode))
+  (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
 
-(use-package intero
-  :diminish intero-mode
-  :config (add-hook 'haskell-mode-hook 'intero-mode))
+  (use-package intero
+    :diminish intero-mode
+    :config (add-hook 'haskell-mode-hook 'intero-mode)))
 
 (provide 'setup-haskell)

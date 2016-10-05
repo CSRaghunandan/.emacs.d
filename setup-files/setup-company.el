@@ -17,13 +17,13 @@
 	company-selection-wrap-around t
 	company-show-numbers t
 	company-auto-complete nil
-        company-tooltip-align-annotations t))
+        company-tooltip-align-annotations t)
 
-(use-package company-quickhelp
-  :config (company-quickhelp-mode 1))
+  (use-package company-quickhelp
+    :config (company-quickhelp-mode 1))
 
-(use-package company-statistics
-  :defer 1
-  :config (company-statistics-mode))
+  (use-package company-statistics
+    :defer 1
+    :config (company-statistics-mode)))
 
 (provide 'setup-company)

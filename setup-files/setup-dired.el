@@ -28,17 +28,17 @@ It added extra strings at the front and back of the default dired buffer name."
 	(if (not (string-match "/$" name))
 	    (rename-buffer (concat "*Dired* " name "/") t))))
 
-    (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name)))
+    (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name))
 
-(use-package dired-x :ensure nil
-  :config
-  (progn
-    (setq dired-omit-verbose nil)
-    ;; hide backup, autosave, *.*~ files
-    ;; omit mode can be toggled using `C-x M-o' in dired buffer.
-    (add-hook 'dired-mode-hook #'dired-omit-mode)
-    (setq dired-omit-files
-	  (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$"))))
+  (use-package dired-x :ensure nil
+    :config
+    (progn
+      (setq dired-omit-verbose nil)
+      ;; hide backup, autosave, *.*~ files
+      ;; omit mode can be toggled using `C-x M-o' in dired buffer.
+      (add-hook 'dired-mode-hook #'dired-omit-mode)
+      (setq dired-omit-files
+            (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$")))))
 
 (use-package dired-narrow
   :bind (:map dired-mode-map ("/" . dired-narrow)))
