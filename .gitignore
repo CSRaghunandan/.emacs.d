@@ -12,7 +12,7 @@ eshell/
 anaconda-mode/
 bookmarks
 company-statistics-cache.el
-.mc-lists.el
+mc-lists
 tutorial/
 url/
 diminish-modes-1.el

@@ -21,8 +21,6 @@
 
   (use-package js2-refactor
     :diminish js2-refactor
-    :bind* ("C-c j r" . js2r-add-keybindings-with-prefix))
-
-  (use-package skewer :defer t))
+    :bind* ("C-c j r" . js2r-add-keybindings-with-prefix)))
 
 (provide 'setup-js)

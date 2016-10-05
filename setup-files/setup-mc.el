@@ -5,8 +5,7 @@
   :bind (("C-S-c C-S-c" . mc/edit-lines)
          ("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
-         ("C-c C-<" . mc/mark-all-like-this)
-         ("C-S-<mouse-1>" . mc/add-cursor-on-click))
+         ("C-x C-m" . mc/mark-all-dwim))
   :bind (:map region-bindings-mode-map
               ("a" . mc/mark-all-like-this)
               ("p" . mc/mark-previous-like-this)
