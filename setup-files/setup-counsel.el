@@ -6,7 +6,7 @@
   (("M-x" . counsel-M-x)
    ("C-c d d" . counsel-descbinds)
    ("C-c s s" . counsel-ag)
-   ("C-c s d" . counsel-ag-projectile)
+   ("C-c s d" . rag/counsel-ag-project-at-point)
    ("C-x C-f" . counsel-find-file)
    ("M-o" . counsel-recentf)
    ("C-c g g" . counsel-git)
@@ -56,10 +56,10 @@
      ("m" ,(reloading (given-file #'rename-file "Move")) "move")
      ("b" counsel-find-file-cd-bookmark-action "cd bookmark")))
 
-  ;; to make counsel-ag search the root projectile directory.
-  (defun counsel-ag-projectile ()
+  (defun rag/counsel-ag-project-at-point ()
+    "use counsel ag to search for the word at point in the project"
     (interactive)
-    (counsel-ag nil (projectile-project-root)))
+    (counsel-ag (thing-at-point 'symbol) (projectile-project-root)))
 
   (setq counsel-find-file-at-point t)
   ;; ignore . files or temporary files

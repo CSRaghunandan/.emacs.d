@@ -16,7 +16,7 @@
     :diminish racer-mode
     :config
     ;; place the rustc source directory in your HOME.
-    (setq racer-rust-src-path "~/rustc-1.11.0/src")
+    (setq racer-rust-src-path "~/rustc-1.12.0/src")
     (defun my-racer-mode-hook ()
       (set (make-local-variable 'company-backends)
            '((company-capf company-dabbrev-code company-yasnippet company-files))))

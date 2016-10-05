@@ -39,8 +39,8 @@
   (use-package emmet-mode
     :init (setq emmet-move-cursor-between-quotes t) ;; default nil
     :diminish (emmet-mode . " 𝛆")
-    :bind* (("C->" . emmet-next-edit-point)
-            ("C-<" . emmet-prev-edit-point))))
+    :bind (("C-]" . emmet-next-edit-point)
+           ("C-[" . emmet-prev-edit-point))))
 
 ;; impatient mode - Live refresh of web pages
 (use-package impatient-mode

@@ -18,7 +18,7 @@
      ("'" . wrap-with-single-quotes)
      ("\"" . wrap-with-double-quotes)
      ("d" . duplicate-current-line-or-region)
-     ("n" . rag/narrow-or-widen-dwim)
+     ("N" . rag/narrow-or-widen-dwim)
      ("e" . eval-region)
      ("q" . query-replace))))
 
