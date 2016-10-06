@@ -14,9 +14,10 @@
 
   (use-package racer
     :diminish racer-mode
+    :init
+    ;; set the RUST_SRC_PATH to point to the rust source directory
+    (setenv "RUST_SRC_PATH" "/Users/csraghunandan/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
     :config
-    ;; place the rustc source directory in your HOME.
-    (setq racer-rust-src-path "~/rustc-1.12.0/src")
     (defun my-racer-mode-hook ()
       (set (make-local-variable 'company-backends)
            '((company-capf company-dabbrev-code company-yasnippet company-files))))

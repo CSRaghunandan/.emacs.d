@@ -231,7 +231,7 @@ Whitespace before the operator is captured for possible use later.
         (when spaced-string
 
           ;; Record the fact we are inserting something for passing fixup functions
-          (set 'operator-just-inserted t)
+          (setq operator-just-inserted t)
 
           ;; Delete the characters matching this rule before point
           (delete-region op-match-beginning op-match-end)
@@ -822,6 +822,9 @@ Using `cc-mode''s syntactic analysis."
         "^" "**" "^^"
         ))
 
+(defconst haskell-mode-special-infix-binary-operators
+  (list "/" "-"))
+
 (defun haskell-mode-infix-action (op)
   (lambda ()
     (let ((after-paren (looking-back-locally "(\\s-*"))
@@ -836,7 +839,7 @@ Using `cc-mode''s syntactic analysis."
 
 (defun haskell-mode-fixup-partial-operator-parens (operator-just-inserted)
   (when (not operator-just-inserted)
-    (-each haskell-mode-infix-binary-operators
+    (-each (-concat haskell-mode-infix-binary-operators haskell-mode-special-infix-binary-operators)
       (lambda (op)
         ;; If another character was typed between an operator and `)', make sure
         ;; these's a single space there.

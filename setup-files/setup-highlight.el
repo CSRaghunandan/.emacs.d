@@ -3,11 +3,7 @@
   :bind (("M-n" . highlight-symbol-next)
 	 ("M-p" . highlight-symbol-prev)
 	 ("C-c h s" . highlight-symbol))
-  :init (add-hook 'prog-mode-hook 'highlight-symbol-mode)
   :config
-  (setq highlight-symbol-idle-delay 1
-        ;; auto-highlight symbols when cursor moves over it
-        highlight-symbol-on-navigation-p t)
   (highlight-symbol-nav-mode))
 
 ;; highlight specific operations like undo, yank
@@ -21,9 +17,9 @@
   ;; make hl-line highlight only in the current active window
   (setq hl-line-sticky-flag nil))
 
-(use-package highlight-indent-guides :defer t
+(use-package highlight-indent-guides
   :config
-  ;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (setq highlight-indent-guides-method 'character
 	highlight-indent-guides-character ?ا)
   (set-face-foreground 'highlight-indent-guides-character-face "#696969"))
