@@ -15,6 +15,8 @@
   (use-package racer
     :diminish racer-mode
     :config
+    ;; set racer rust source path environment variable
+    (setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
     (defun my-racer-mode-hook ()
       (set (make-local-variable 'company-backends)
            '((company-capf company-dabbrev-code company-yasnippet company-files))))
