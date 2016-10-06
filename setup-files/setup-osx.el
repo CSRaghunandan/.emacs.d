@@ -11,8 +11,10 @@
   (setq delete-by-moving-to-trash t))
 
 (use-package exec-path-from-shell
-  :init (when (memq window-system '(mac ns x))
-          (exec-path-from-shell-initialize))
+  :init
+  (exec-path-from-shell-copy-env "RUST_SRC_PATH")
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
   :config (add-hook 'eshell-mode-hook '(lambda ()(exec-path-from-shell-initialize))))
 
 (provide 'setup-osx)
