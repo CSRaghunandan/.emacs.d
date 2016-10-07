@@ -3,9 +3,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-modes
-   (quote
-    (emacs-lisp-mode lisp-mode lisp-interaction-mode slime-repl-mode nim-mode c-mode cc-mode c++-mode go-mode java-mode malabar-mode clojure-mode clojurescript-mode scala-mode scheme-mode ocaml-mode tuareg-mode coq-mode haskell-mode agda-mode agda2-mode perl-mode cperl-mode ruby-mode lua-mode tcl-mode ecmascript-mode javascript-mode js-mode js-jsx-mode js2-mode js2-jsx-mode php-mode css-mode scss-mode less-css-mode makefile-mode sh-mode fortran-mode f90-mode ada-mode xml-mode sgml-mode web-mode ts-mode sclang-mode verilog-mode qml-mode apples-mode)))
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(custom-enabled-themes (quote (zenburn)))
@@ -26,11 +23,10 @@
      ("org" . "http://orgmode.org/elpa/"))))
  '(package-selected-packages
    (quote
-    (setup-desktop mwim skewer manage-minor-mode region-bindings-mode wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent osx-trash avy-zap dired-hacks-utlis flyspell-correct-ivy ibuffer-projectile reveal-in-osx-finder imenu-anywhere flx counsel swiper company-statistics pytest racket racket-mode volatile-highlights org-journal intero ac-html-angular company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib dired-narrow js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode goto-chg flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
+    (mwim skewer manage-minor-mode region-bindings-mode wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent osx-trash avy-zap dired-hacks-utlis flyspell-correct-ivy ibuffer-projectile reveal-in-osx-finder imenu-anywhere flx counsel swiper company-statistics pytest racket racket-mode volatile-highlights org-journal intero ac-html-angular company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib dired-narrow js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode goto-chg flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(python-shell-completion-native-enable nil)
  '(send-mail-function (quote sendmail-send-it))
- '(sp-ignore-modes-list (quote (minibuffer-inactive-mode web-mode org-mode)))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
    (quote

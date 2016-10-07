@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 13:02:42 csraghunandan>
+;; Time-stamp: <2016-10-07 17:38:52 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/

@@ -1,9 +1,10 @@
-;; Time-stamp: <2016-10-07 11:21:16 csraghunandan>
+;; Time-stamp: <2016-10-07 17:43:30 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
 (use-package smartparens
   :config
+  (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode web-mode org-mode)))
   (defmacro def-pairs (pairs)
     `(progn
        ,@(cl-loop for (key . val) in pairs

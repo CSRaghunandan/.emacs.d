@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:18:48 csraghunandan>
+;; Time-stamp: <2016-10-07 17:41:17 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -47,4 +47,6 @@
       ;; '(left-curly-arrow right-curly-arrow) ;; default
       )
 
+;; make emacs start with full screen
+(setq initial-frame-alist (quote ((fullscreen . maximized))))
 (provide 'setup-theme)

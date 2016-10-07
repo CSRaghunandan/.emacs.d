@@ -1,9 +1,8 @@
-;; Time-stamp: <2016-10-07 11:12:59 csraghunandan>
+;; Time-stamp: <2016-10-07 17:49:56 csraghunandan>
 
 ;; yasnippet - snippets tool for emacs
 ;; https://github.com/capitaomorte/yasnippet
 (use-package yasnippet
-  :defer 20
   :bind (("C-c y" . hydra-yas/body))
   :bind* (("<backtab>" . yas-expand))
   :diminish yas-minor-mode
