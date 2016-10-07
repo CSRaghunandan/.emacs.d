@@ -1,3 +1,7 @@
+;; Time-stamp: <2016-10-06 22:58:32 csraghunandan>
+
+;; ibuffer
+;; for easy management of buffers
 (use-package ibuffer
   :bind* (("C-x C-b" . ibuffer))
   :config

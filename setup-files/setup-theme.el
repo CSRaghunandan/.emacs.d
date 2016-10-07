@@ -1,5 +1,10 @@
+;; Time-stamp: <2016-10-07 11:18:48 csraghunandan>
+
+;; Theme configuration for emacs
+;; https://github.com/bbatsov/zenburn-emacs
 (use-package zenburn-theme)
 
+;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
   :config
   (progn

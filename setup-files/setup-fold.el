@@ -1,3 +1,8 @@
+;; Time-stamp: <2016-10-07 11:09:54 csraghunandan>
+
+;; fold-dwim
+;; https://github.com/emacsmirror/fold-dwim
+;; fold based on syntax aka, fold do what I mean
 (use-package fold-dwim
   :bind* ("C-c C-f" . fold-dwim-toggle)
   :config

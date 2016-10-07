@@ -1,3 +1,7 @@
+;; Time-stamp: <2016-10-07 11:55:25 csraghunandan>
+
+;; configuration for buffers
+
 ;; prevent switching to a visible buffer
 (setq switch-to-visible-buffer nil)
 
@@ -134,5 +138,9 @@ is already narrowed."
  ("C-c b f" . rag/make-backup)
  ("C-c b n" . rag/copy-buffer-file-name-as-kill)
  ("C-c n d" . rag/narrow-or-widen-dwim))
+
+;; diminish auto-revert-mode emacs
+(use-package autorevert
+  :diminish auto-revert-mode)
 
 (provide 'setup-buffers)

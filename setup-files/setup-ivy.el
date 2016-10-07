@@ -1,6 +1,13 @@
+;; Time-stamp: <2016-10-06 22:57:10 csraghunandan>
+
+;; flx, ivy
+
+;; flx - fuzzy sorting heuristics algorithm
 ;; needed for sorting the results from fuzzy search in ivy
 (use-package flx)
 
+;; ivy
+;; incremental narrowing framework for emacs
 (use-package ivy
   :diminish ivy-mode
   :init (ivy-mode 1)

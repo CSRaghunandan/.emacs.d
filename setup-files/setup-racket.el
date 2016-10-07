@@ -1,3 +1,7 @@
+;; Time-stamp: <2016-10-07 11:35:25 csraghunandan>
+
+;; racket-mode
+;; https://github.com/greghendershott/racket-mode
 (use-package racket-mode
   :config
   (defun my-racket-mode-hook ()

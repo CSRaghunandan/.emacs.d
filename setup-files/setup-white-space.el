@@ -1,5 +1,7 @@
-;; config for whitespace mode to highlight characters above 80 columns
+;; Time-stamp: <2016-10-06 22:21:09 csraghunandan>
 
+;; whitespace
+;; config for whitespace mode to highlight characters above 80 columns
 (use-package whitespace :defer t
   :diminish whitespace-mode
   :config

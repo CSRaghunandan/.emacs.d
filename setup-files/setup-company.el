@@ -1,5 +1,10 @@
-;; configuration for company mode
+;; Time-stamp: <2016-10-07 11:03:48 csraghunandan>
 
+;; company, company-quickhelp, company-statistics
+
+;; company
+;; http://company-mode.github.io/
+;; auto-completion backend for emacs
 (use-package company
   :diminish company-mode
   :config
@@ -10,9 +15,7 @@
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "<tab>") 'company-complete-common))
 
-  (add-to-list 'company-backends 'company-dabbrev-code)
-  (add-to-list 'company-backends 'company-yasnippet)
-  (add-to-list 'company-backends 'company-files)
+  ;; set defaults for company-mode
   (setq company-tooltip-flip-when-above t
 	company-minimum-prefix-length 2
 	company-idle-delay 0.2
@@ -21,9 +24,14 @@
 	company-auto-complete nil
         company-tooltip-align-annotations t)
 
+  ;; company-quickhelp
+  ;; https://github.com/expez/company-quickhelp
+  ;; pop-up documentation for completion candidates
   (use-package company-quickhelp
     :config (company-quickhelp-mode 1))
-
+  ;; company-statistics
+  ;; https://github.com/company-mode/company-statistics
+  ;; sort the company candidates by the statistics
   (use-package company-statistics
     :defer 1
     :config (company-statistics-mode)))

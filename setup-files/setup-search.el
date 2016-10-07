@@ -1,3 +1,5 @@
+;; Time-stamp: <2016-10-07 11:22:39 csraghunandan>
+
 ;; isearch config
 ;; ignore cases while searching
 (setq-default case-fold-search t)
@@ -40,14 +42,15 @@ See the command `isearch-forward-symbol' for more information."
  ("C-S-s" . isearch-forward-symbol-at-point)
  ("C-S-r" . rag/isearch-backward-symbol-at-point))
 
+;; https://github.com/benma/visual-regexp-steroids.el/
 (use-package visual-regexp-steroids
   :bind* (("C-c q" . vr/query-replace)
           ("C-c M" . vr/mc-mark))
   :config
   (setq vr/default-feedback-limit 300))
 
-;; useful for refactoring in ivy-occur where we can edit search results
-;; from multiple files
+;; useful for refactoring in ivy-occur where we can edit search results from multiple files
+;; https://github.com/mhayashi1120/Emacs-wgrep
 (use-package wgrep)
 
 (provide 'setup-search)

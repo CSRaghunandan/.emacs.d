@@ -1,12 +1,12 @@
+;; Time-stamp: <2016-10-06 23:03:23 csraghunandan>
+
+;; Projectile
+;; https://github.com/bbatsov/projectile
 (use-package projectile
   :diminish projectile-mode
   :config
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)
-
-  ;; Do not barf when I try to do `projectile-switch-project' while in a
-  ;; buffer containing a non-projectile file.
-  (setq projectile-require-project-root nil)
 
   ;; Don't consider my home dir as a project
   (add-to-list 'projectile-ignored-projects `,(concat (getenv "HOME") "/"))

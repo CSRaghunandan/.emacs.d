@@ -1,3 +1,5 @@
+;; Time-stamp: <2016-10-07 12:24:43 csraghunandan>
+
 ;; to get pragmatapro ligatures to work in emacs.
 ;; This is just a workaround as emacs still has no official support for ligatures.
 

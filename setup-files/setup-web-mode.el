@@ -1,13 +1,15 @@
-;; config for Web-mode, css-mode
+;; Time-stamp: <2016-10-07 11:16:23 csraghunandan>
 
+;; web-mode
+;; http://web-mode.org/ , https://github.com/fxbois/web-mode
 (use-package web-mode
   :mode (("\\.html$" . web-mode)
 	 ("\\.djhtml$" . web-mode))
   :bind ("C-c o b" . browse-url-of-file)
   :config
+  ;; start emmet mode after web-mode launches
   (add-hook 'web-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook (lambda() (highlight-indent-guides-mode -1)))
-  (add-hook 'web-mode-hook (lambda() (whitespace-mode -1)))
   (defun my-web-mode-hook ()
     "Hook for `web-mode'."
     (set (make-local-variable 'company-backends)
@@ -33,9 +35,11 @@
   (use-package ac-html-bootstrap :defer t)
 
   ;; to get completion for HTML stuff
+  ;; https://github.com/osv/company-web
   (use-package company-web)
 
   ;; snippets for HTML
+  ;; https://github.com/smihica/emmet-mode
   (use-package emmet-mode
     :init (setq emmet-move-cursor-between-quotes t) ;; default nil
     :diminish (emmet-mode . " 𝛆")
@@ -43,6 +47,7 @@
            ("C-[" . emmet-prev-edit-point))))
 
 ;; impatient mode - Live refresh of web pages
+;; https://github.com/skeeto/impatient-mode
 (use-package impatient-mode
   :diminish (impatient-mode . " 𝖎")
   :commands (impatient-mode))

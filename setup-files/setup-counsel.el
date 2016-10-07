@@ -1,6 +1,9 @@
 ;;; -*- lexical-binding: t -*-
+;; Time-stamp: <2016-10-06 23:00:06 csraghunandan>
 
-;;my config for counsel
+;; counsel
+;; https://github.com/abo-abo/swiper
+;; provides incremental completion backends for a lot of emacs stuff using ivy
 (use-package counsel
   :bind
   (("M-x" . counsel-M-x)

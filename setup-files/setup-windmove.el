@@ -1,4 +1,4 @@
-;; hydra for window management
+;; Time-stamp: <2016-10-06 22:20:29 csraghunandan>
 
 ;; split window and move there.
 (defun rag/split-below-and-move ()
@@ -26,6 +26,7 @@
                  'maximized)
            'fullboth)))))
 
+;; hydra for window management
 (defhydra hydra-window (:color red
                                :hint nil)
   "

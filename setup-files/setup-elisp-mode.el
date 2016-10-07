@@ -1,5 +1,7 @@
-;; Configuration for emacs-lisp-mode
+;; Time-stamp: <2016-10-06 22:18:58 csraghunandan>
 
+;; emacs-lisp-mpde
+;; configure company mode for emacs-lisp-mode
 (use-package elisp-mode :ensure nil
   :config
   (defun my-elisp-mode-hook ()

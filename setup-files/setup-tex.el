@@ -1,3 +1,7 @@
+;; Time-stamp: <2016-10-07 11:19:54 csraghunandan>
+
+;; LaTeX
+;; https://www.gnu.org/software/auctex/
 (use-package auctex
   :mode ("\\.tex\\'" . latex-mode)
   :init

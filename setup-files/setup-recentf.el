@@ -1,3 +1,6 @@
+;; Time-stamp: <2016-10-07 11:31:35 csraghunandan>
+
+;; view the list recently opened files
 (use-package recentf
   :defer 1
   :config

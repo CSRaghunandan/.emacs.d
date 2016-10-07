@@ -1,6 +1,7 @@
+;; Time-stamp: <2016-10-07 12:24:10 csraghunandan>
+
 ;; Multiple Cursors
 ;; https://github.com/magnars/multiple-cursors.el
-
 (use-package multiple-cursors
   :bind (("C-S-c C-S-c" . mc/edit-lines)
          ("C->" . mc/mark-next-like-this)

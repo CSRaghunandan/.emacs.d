@@ -1,3 +1,7 @@
+;; Time-stamp: <2016-10-07 11:08:08 csraghunandan>
+
+;; all the editing configuration for emacs
+
 ;; configuration for all the editing stuff in emacs
 ;; Kill ring
 (setq kill-ring-max 200
@@ -133,11 +137,13 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
       (indicate-copied-region (length (car killed-rectangle)))))
 
 ;; go to the last changed cursor position
+;; https://www.emacswiki.org/emacs/GotoChg
 (use-package goto-chg
   :bind* (("C-c g l" . goto-last-change)
           ("C-c g r" . goto-last-change-reverse)))
 
 ;; expand region semantically
+;; https://www.emacswiki.org/emacs/GotoChg
 (use-package expand-region
   :bind* ("C-c e" . er/expand-region)
   :config
@@ -159,6 +165,9 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 
 ;; remove all trailing whitespaces in a file after saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Update the timestamp before saving a file
+(add-hook 'before-save-hook #'time-stamp)
 
 (bind-keys*
  ("C-o" . rag/smart-open-line)

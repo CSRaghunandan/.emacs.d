@@ -1,3 +1,5 @@
+;; Time-stamp: <2016-10-07 11:27:17 csraghunandan>
+
 ;; Region Bindings Mode
 ;; https://github.com/fgallina/region-bindings-mode
 

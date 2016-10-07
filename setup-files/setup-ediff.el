@@ -1,3 +1,7 @@
+;; Time-stamp: <2016-10-06 22:17:42 csraghunandan>
+
+;; ediff
+;; show the difference between two files intearctively
 (use-package ediff
   :config
   (progn

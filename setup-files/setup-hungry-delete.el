@@ -1,3 +1,7 @@
+;; Time-stamp: <2016-10-07 12:06:51 csraghunandan>
+
+;; hungry-delete
+;; https://github.com/nflath/hungry-delete
 (use-package hungry-delete
   :diminish hungry-delete-mode "h"
   :config

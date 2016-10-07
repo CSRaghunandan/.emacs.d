@@ -1,3 +1,7 @@
+;; Time-stamp: <2016-10-07 11:05:34 csraghunandan>
+
+;; dired
+;; file system manager for emacs
 (use-package dired :ensure nil
   :config
   (progn
@@ -25,11 +29,12 @@
       "Rename the dired buffer name to distinguish it from file buffers.
 It added extra strings at the front and back of the default dired buffer name."
       (let ((name (buffer-name)))
-	(if (not (string-match "/$" name))
-	    (rename-buffer (concat "*Dired* " name "/") t))))
+        (if (not (string-match "/$" name))
+            (rename-buffer (concat "*Dired* " name "/") t))))
 
     (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name))
 
+  ;; dired-x - to hide uninteresting files in dired
   (use-package dired-x :ensure nil
     :config
     (progn
@@ -40,6 +45,8 @@ It added extra strings at the front and back of the default dired buffer name."
       (setq dired-omit-files
             (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$")))))
 
+;; dired-narrow
+;; https://github.com/Fuco1/dired-hacks
 (use-package dired-narrow
   :bind (:map dired-mode-map ("/" . dired-narrow)))
 

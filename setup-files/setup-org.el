@@ -1,4 +1,7 @@
+;; Time-stamp: <2016-10-07 11:41:28 csraghunandan>
 
+;; Org-mode configuration
+;; http://orgmode.org/
 (use-package org
   :preface
   (progn

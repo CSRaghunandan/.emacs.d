@@ -1,3 +1,6 @@
+;; Time-stamp: <2016-10-07 12:26:39 csraghunandan>
+
+;; automatically upgrade all packages
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
 This function is equivalent to `list-packages', followed by a
@@ -23,6 +26,7 @@ not prevent downloading the actual packages (obviously)."
     (insert (format-time-string format))))
 (bind-key "C-c i d" 'sk/insert-date)
 
+;; ERC - the irc client for emacs
 (use-package erc :defer t
   :config
   ;; don't show messages when a users quits or joins
@@ -50,6 +54,7 @@ not prevent downloading the actual packages (obviously)."
 
 ;; set all yes or no prompts to y or n
 (fset 'yes-or-no-p 'y-or-n-p)
+;; more info in apropos
 (setq apropos-do-all t)
 
 (provide 'setup-misc)

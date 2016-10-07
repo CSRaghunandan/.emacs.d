@@ -1,6 +1,7 @@
+;; Time-stamp: <2016-10-07 11:05:47 csraghunandan>
+
 ;; duplicate line or region
 ;; if prefixed with an argument, line or region will be duplicated that many times
-
 (defun duplicate-region (&optional num start end)
   "Duplicates the region bounded by START and END NUM times.
 If no START and END is provided, the current region-beginning and

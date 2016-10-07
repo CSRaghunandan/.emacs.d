@@ -1,3 +1,8 @@
+;; Time-stamp: <2016-10-06 22:00:51 csraghunandan>
+
+;; Backup settings for emacs.
+
+;; no autosaving by default
 (setq auto-save-default nil)
 
 ;; No need for ~ files when editing
@@ -8,7 +13,7 @@
       kept-old-versions 2   ;; Number of oldest versions to keep.
       delete-old-versions t ;; Don't ask to delete excess backup versions.
       backup-by-copying t)  ;; Copy all files, don't rename them.
-;;backup version files
+;; Backup version files
 (setq vc-make-backup-files t)
 
 ;; Default and per-save backups go here:

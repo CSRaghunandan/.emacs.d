@@ -1,3 +1,9 @@
+;; Time-stamp: <2016-10-07 11:09:21 csraghunandan>
+
+;; flyspell, flycheck
+
+;; flypsell
+;; on the fly spell checking
 (use-package flyspell
   :diminish flyspell-mode
   :config
@@ -8,7 +14,9 @@
   (use-package flyspell-correct-ivy
     :bind* (("C-;" . flyspell-correct-previous-word-generic))))
 
-
+;; flycheck
+;; http://www.flycheck.org/en/latest/
+;; on the fly syntax checking
 (use-package flycheck
   :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled new-line))
