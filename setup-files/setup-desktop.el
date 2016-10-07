@@ -1,8 +1,8 @@
-;; Time-stamp: <2016-10-07 11:04:31 csraghunandan>
+;; Time-stamp: <2016-10-07 12:58:08 csraghunandan>
 
 ;; desktop
 ;; save the current emacs session under `desktop' to be restored later
-(use-package desktop
+(use-package desktop :defer 1
   :config
   (setq desktop-dirname             "~/.emacs.d/desktop/"
         desktop-base-file-name      "emacs.desktop"

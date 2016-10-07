@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:08:08 csraghunandan>
+;; Time-stamp: <2016-10-07 13:07:30 csraghunandan>
 
 ;; all the editing configuration for emacs
 
@@ -158,6 +158,7 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 
 ;; save and restore the previous cursor position when the buffer was killed
 (use-package saveplace
+  :defer t
   :init (save-place-mode 1))
 
 ;; (use-package electric-operator

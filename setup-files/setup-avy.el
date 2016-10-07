@@ -1,6 +1,6 @@
-;; Time-stamp: <2016-10-06 22:32:29 csraghunandan>
+;; Time-stamp: <2016-10-07 12:59:01 csraghunandan>
 
-;; avy, avy-zap and ace-window
+;; avy, avy-zap
 
 ;; avy
 ;; https://github.com/abo-abo/avy
@@ -19,13 +19,5 @@
 (use-package avy-zap
   :bind* (("M-z" . avy-zap-to-char-dwim)
 	  ("M-Z" . avy-zap-up-to-char-dwim)))
-
-;; ace-window
-;; https://github.com/abo-abo/ace-window
-;; allows for quick switching of windows within the current emacs frame
-(use-package ace-window
-  :commands (ace-window)
-  :bind* ("C-c w" . ace-window)
-  :config (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (provide 'setup-avy)

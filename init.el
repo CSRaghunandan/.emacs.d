@@ -1,4 +1,9 @@
-(setq gc-cons-threshold 100000000)
+;; Time-stamp: <2016-10-07 13:02:42 csraghunandan>
+;; Author: C S Raghunandan
+
+;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
+(defvar gc-cons-threshold--orig gc-cons-threshold)
+(setq gc-cons-threshold (* 100 1024 1024))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -23,6 +28,7 @@
 (setq use-package-always-ensure t)
 
 (require 'setup-pragmatapro)
+(require 'setup-theme)
 (require 'setup-org)
 (require 'setup-backup)
 (require 'setup-search)
@@ -43,6 +49,7 @@
 (require 'setup-git-stuff)
 (require 'setup-undo-tree)
 (require 'setup-avy)
+(require 'setup-ace-window)
 (require 'setup-smex)
 (require 'setup-projectile)
 (require 'setup-web-mode)
@@ -65,7 +72,6 @@
 (require 'setup-misc)
 (require 'setup-fold)
 (require 'setup-buffers)
-(require 'setup-theme)
 (require 'setup-aggresive-indent)
 (require 'setup-move-line)
 (require 'setup-duplicate-line)
@@ -76,5 +82,6 @@
 (require 'setup-region-bindings-mode)
 (require 'setup-mc)
 
-(setq gc-cons-threshold 800000)
+;; set gc-cons-threshold back to original value
+(setq gc-cons-threshold gc-cons-threshold--orig)
 ;;; init.el ends here
