@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 12:26:39 csraghunandan>
+;; Time-stamp: <2016-10-07 19:17:54 csraghunandan>
 
 ;; automatically upgrade all packages
 (defun my/package-upgrade-packages (&optional no-fetch)
@@ -24,7 +24,7 @@ not prevent downloading the actual packages (obviously)."
                  ((equal prefix '(4)) "%A, %d %B %Y")
                  ((equal prefix '(16)) "%Y-%m-%d %H:%M:%S"))))
     (insert (format-time-string format))))
-(bind-key "C-c i d" 'sk/insert-date)
+(bind-key "s-d" 'sk/insert-date)
 
 ;; ERC - the irc client for emacs
 (use-package erc :defer t

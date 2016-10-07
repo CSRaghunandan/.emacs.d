@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 17:38:52 csraghunandan>
+;; Time-stamp: <2016-10-07 19:19:28 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -81,7 +81,7 @@
 (require 'electric-operator)
 (require 'setup-region-bindings-mode)
 (require 'setup-mc)
-
+(require 'setup-page-break-lines)
 ;; set gc-cons-threshold back to original value
 (setq gc-cons-threshold gc-cons-threshold--orig)
 ;;; init.el ends here
