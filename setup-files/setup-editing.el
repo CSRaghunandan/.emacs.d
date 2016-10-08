@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 09:21:55 csraghunandan>
+;; Time-stamp: <2016-10-08 16:34:03 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -51,6 +51,8 @@ Position the cursor at it's beginning, according to the current mode."
   (forward-line -1)
   (indent-according-to-mode))
 
+
+
 (defun xah-copy-line-or-region ()
   "Copy current line, or text selection.
 When called repeatedly, append copy subsequent lines.
@@ -93,6 +95,8 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
       (progn
         (kill-region (line-beginning-position) (line-beginning-position 2))
         (back-to-indentation)))))
+
+
 
 (defun rag/select-inside-line ()
   "Select the current line."
@@ -164,6 +168,8 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 ;; (use-package electric-operator
 ;; :config (electric-operator-add-rules-for-mode 'haskell-mode (cons "|" "| ")))
 
+
+
 (defun xah-clean-empty-lines (&optional *begin *end *n)
   "Replace repeated blank lines to just 1.
 Works on whole buffer or text selection, respects `narrow-to-region'.
@@ -217,7 +223,110 @@ Version 2016-10-07"
 ;; remove the buffer of trailing whitespaces and multiple blank lines are collapsed to 1
 (add-hook 'before-save-hook 'xah-clean-whitespace)
 
-;; Update the timestamp before saving a file
+
+
+;;; Space Adjustment After Word Kills
+(defun modi/just-one-space-post-kill-word (&rest _)
+  "Function to manage white space after `kill-word' operations.
+1. If point is at the beginning of the line after possibly some white space,
+   remove that white space and re-indent that line.
+2. If there is space before or after the point, ensure that there is only
+   one white space around the point.
+3. Otherwise, do nothing.
+During the whole operation do not change the point position with respect to the
+surrounding white space.
+abc|   def  ghi <-- point on the left of white space after 'abc'
+abc| ghi        <-- point still before white space after calling this function
+abc   |def  ghi <-- point on the right of white space before 'def'
+abc |ghi        <-- point still after white space after calling this function."
+  (cond ((looking-back "^ *") ; remove extra space at beginning of line
+         (save-excursion ; maintain the initial position of the pt w.r.t. space
+           (just-one-space 0))
+         (indent-according-to-mode))
+        ((or (looking-at   " ")
+             (looking-back " ")) ; adjust space only if it exists
+         (save-excursion ; maintain the initial position of the pt w.r.t. space
+           (just-one-space 1)))
+        (t ; do nothing otherwise, includes the case where the point is at EOL
+         )))
+;; Delete extra horizontal white space after `kill-word' and `backward-kill-word'
+(advice-add 'kill-word :after #'modi/just-one-space-post-kill-word)
+
+
+
+(defun xah-cycle-letter-case (arg)
+  "Cycle the letter case of the selected region or the current word.
+Cycles from 'lower' -> 'Capitalize' -> 'UPPER' -> 'lower' -> ..
+        C-u M-x xah-cycle-letter-case -> Force convert to upper case.
+    C-u C-u M-x xah-cycle-letter-case -> Force convert to lower case.
+C-u C-u C-u M-x xah-cycle-letter-case -> Force capitalize."
+  (interactive "p")
+  (let (p1 p2
+           (deactivate-mark nil)
+           (case-fold-search nil))
+    (if (use-region-p)
+        (setq p1 (region-beginning)
+              p2 (region-end))
+      (let ((bds (bounds-of-thing-at-point 'word)))
+        (setq p1 (car bds)
+              p2 (cdr bds))))
+
+    (cl-case arg
+      (4  (put this-command 'next-state "UPPER"))      ; Force convert to upper case
+      (16 (put this-command 'next-state "lower"))      ; Force convert to lower case
+      (64 (put this-command 'next-state "Capitalize")) ; Force capitalize
+      (t (when (not (eq last-command this-command))
+           (save-excursion
+             (goto-char p1)
+             (cond
+              ;; lower -> Capitalize
+              ((looking-at "[[:lower:]]")            (put this-command 'next-state "Capitalize"))
+              ;; Capitalize -> UPPER
+              ((looking-at "[[:upper:]][[:lower:]]") (put this-command 'next-state "UPPER"))
+              ;; Default: UPPER -> lower
+              (t                                     (put this-command 'next-state "lower")))))))
+
+    (cl-case (string-to-char (get this-command 'next-state)) ; `string-to-char' returns first character in string
+      (?U (upcase-region p1 p2)
+          ;; UPPER -> lower
+          (put this-command 'next-state "lower"))
+      (?l (downcase-region p1 p2)
+          ;; lower -> Capitalize
+          (put this-command 'next-state "Capitalize"))
+      ;; Capitalization is a better Option here than upcasing the initials
+      ;; because (upcase-initials "abc") -> "Abc" (good)
+      ;;         (upcase-initials "ABC") -> "ABC" (not what I expect most of the times)
+      ;;         (capitalize "abc")      -> "Abc" (good)
+      ;;         (capitalize "ABC")      -> "Abc" (good)
+      (t (capitalize-region p1 p2)
+         ;; Capitalize -> UPPER
+         (put this-command 'next-state "UPPER")))))
+
+(defun modi/upcase ()     (interactive) (xah-cycle-letter-case 4))
+(defun modi/downcase ()   (interactive) (xah-cycle-letter-case 16))
+(defun modi/capitalize () (interactive) (xah-cycle-letter-case 64))
+
+(bind-keys
+ :map region-bindings-mode-map
+ ("~" . xah-cycle-letter-case))
+
+(defhydra hydra-change-case (:color blue
+                             :hint nil)
+  "
+_c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down→
+"
+  ("c"     modi/capitalize)
+  ("U"     modi/upcase)
+  ("u"     modi/upcase)
+  ("d"     modi/downcase)
+  ("<SPC>" xah-cycle-letter-case :color red)
+  ("q"     nil "cancel" :color blue))
+
+(bind-key* "M-c" 'hydra-change-case/body)
+
+
+
+;; UpdAte The Timestamp Before saving a file
 (add-hook 'before-save-hook #'time-stamp)
 
 (bind-keys*
