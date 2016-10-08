@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 08:29:17 csraghunandan>
+;; Time-stamp: <2016-10-08 08:38:42 csraghunandan>
 
 ;; aggressive-indent
 ;; https://github.com/Malabarba/aggressive-indent-mode
@@ -18,6 +18,8 @@
    '(and (derived-mode-p 'css-mode 'js2-mode 'rust-mode)
          (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
                              (thing-at-point 'line)))))
+  ;; don't indent for page break lines
+  (add-to-list 'aggressive-indent-dont-indent-if "")
 
   (global-aggressive-indent-mode))
 
