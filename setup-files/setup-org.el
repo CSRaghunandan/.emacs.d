@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 22:04:32 csraghunandan>
+;; Time-stamp: <2016-10-09 02:28:18 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -214,6 +214,26 @@ this with to-do items than with projects or headings."
      ("C-c c" . org-capture)
      ("C-c i" . org-store-link))
 
-    (use-package org-journal)))
+    (use-package org-journal)
+
+    (use-package langtool :defer 1
+      :config
+      (setq langtool-language-tool-jar "~/LanguageTool-3.5/languagetool-commandline.jar")
+      (setq langtool-default-language "en-GB")
+
+      ;; hydra for langtool check
+      (defhydra hydra-langtool (:color pink
+                                       :hint nil)
+"
+_c_: check    _n_: next error
+_C_: correct  _p_: prev error _d_: done checking
+"
+        ("n"  langtool-goto-next-error)
+        ("p"  langtool-goto-previous-error)
+        ("c"  langtool-check)
+        ("C"  langtool-correct-buffer)
+        ("d"  langtool-check-done :color blue)
+        ("q" nil "quit" :color blue))
+      (bind-key "C-c l" 'hydra-langtool/body org-mode-map))))
 
 (provide 'setup-org)

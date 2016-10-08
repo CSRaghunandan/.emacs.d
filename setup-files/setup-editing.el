@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 22:02:01 csraghunandan>
+;; Time-stamp: <2016-10-09 02:50:52 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -98,19 +98,35 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 
 
 
+(defun smarter-move-beginning-of-line (arg)
+  "Move point back to indentation of beginning of line.
+
+Move point to the first non-whitespace character on this line.
+If point is already there, move to the beginning of the line.
+Effectively toggle between the first non-whitespace character and
+the beginning of the line.
+
+If ARG is not nil or 1, move forward ARG - 1 lines first.  If
+point reaches the beginning or end of the buffer, stop there."
+  (interactive "^p")
+  (setq arg (or arg 1))
+
+  ;; Move lines first
+  (when (/= arg 1)
+    (let ((line-move-visual nil))
+      (forward-line (1- arg))))
+
+  (let ((orig-point (point)))
+    (back-to-indentation)
+    (when (= orig-point (point))
+      (move-beginning-of-line 1))))
+
 (defun rag/select-inside-line ()
   "Select the current line."
   (interactive)
   (smarter-move-beginning-of-line 1)
   (set-mark (line-end-position))
   (exchange-point-and-mark))
-
-(defun rag/select-around-line ()
-  "Select line including the newline character"
-  (interactive)
-  (rag/select-inside-line)
-  (next-line 1)
-  (rag/smarter-move-beginning-of-line 1))
 
 ;; align commands
 (defun rag/align-whitespace (start end)
@@ -251,6 +267,7 @@ abc |ghi        <-- point still after white space after calling this function."
          )))
 ;; Delete extra horizontal white space after `kill-word' and `backward-kill-word'
 (advice-add 'kill-word :after #'modi/just-one-space-post-kill-word)
+(advice-add 'sp-kill-sexp :after #'modi/just-one-space-post-kill-word)
 
 
 
@@ -342,7 +359,6 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
  ("M-w" . xah-copy-line-or-region)
  ("M-;" . comment-line)
  ("C-c s l" . rag/select-inside-line)
- ("C-c s n" . rag/select-around-line)
  ("C-x C-S-o" . xah-clean-whitespace))
 
 (provide 'setup-editing)

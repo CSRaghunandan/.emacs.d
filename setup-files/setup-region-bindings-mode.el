@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:27:17 csraghunandan>
+;; Time-stamp: <2016-10-09 02:51:54 csraghunandan>
 
 ;; Region Bindings Mode
 ;; https://github.com/fgallina/region-bindings-mode
@@ -23,6 +23,7 @@
      ("N" . rag/narrow-or-widen-dwim)
      ("E" . eval-region)
      ("e" . er/expand-region)
+     ("f" . fill-region)
      ("q" . query-replace))))
 
 (provide 'setup-region-bindings-mode)

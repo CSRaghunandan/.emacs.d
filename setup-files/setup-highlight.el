@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 12:05:58 csraghunandan>
+;; Time-stamp: <2016-10-09 00:39:44 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -21,7 +21,7 @@
 ;; configure hl-line-mode
 (use-package hl-line
   :config
-  (global-hl-line-mode 1)
+  (global-hl-line-mode)
   ;; make hl-line highlight only in the current active window
   (setq hl-line-sticky-flag nil))
 
