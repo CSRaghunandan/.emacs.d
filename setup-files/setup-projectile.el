@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-06 23:03:23 csraghunandan>
+;; Time-stamp: <2016-10-08 08:22:53 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -73,6 +73,8 @@ packages.")
 
   (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)
 
+
+
   ;; Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
   (defun modi/advice-projectile-no-sub-project-files ()
     "Directly call `projectile-get-ext-command'. No need to try to get a
@@ -84,16 +86,19 @@ packages.")
   (defun modi/projectile-known-projects-sort ()
     "Move the now current project to the top of the `projectile-known-projects' list."
     (let* ((prj (projectile-project-root))
-           (prj-true (file-truename prj))
-           (prj-abbr (abbreviate-file-name prj-true)))
-      ;; First remove the current project from `projectile-known-projects'.
-      ;; Also make sure that duplicate instance of the project name in form of symlink
-      ;; name, true name and abbreviated name, if any, are also removed.
-      (setq projectile-known-projects
-            (delete prj (delete prj-true (delete prj-abbr projectile-known-projects))))
-      ;; Then add back only the abbreviated true name to the beginning of
-      ;; `projectile-known-projects'.
-      (add-to-list 'projectile-known-projects prj-abbr)))
+           ;; Set `prj' to nil if that project is supposed to be ignored
+           (prj (and (not (projectile-ignored-project-p prj)) prj))
+           (prj-true (and prj (file-truename prj)))
+           (prj-abbr (and prj (abbreviate-file-name prj-true))))
+      (when prj
+        ;; First remove the current project from `projectile-known-projects'.
+        ;; Also make sure that duplicate instance of the project name in form of symlink
+        ;; name, true name and abbreviated name, if any, are also removed.
+        (setq projectile-known-projects
+              (delete prj (delete prj-true (delete prj-abbr projectile-known-projects))))
+        ;; Then add back only the abbreviated true name to the beginning of
+        ;; `projectile-known-projects'.
+        (add-to-list 'projectile-known-projects prj-abbr))))
   (add-hook 'projectile-after-switch-project-hook #'modi/projectile-known-projects-sort)
 
   (defun modi/kill-non-project-buffers (&optional kill-special)
@@ -112,6 +117,7 @@ With prefix argument (`C-u'), also kill the special buffers."
                 (message "Killing buffer %s" buf-name)
                 (kill-buffer buf))))))))
 
+
   (defhydra hydra-projectile-other-window (:color teal)
     "projectile-other-window"
     ("f"  projectile-find-file-other-window        "file")

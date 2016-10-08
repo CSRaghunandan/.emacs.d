@@ -1,5 +1,4 @@
-;; Time-stamp: <2016-10-07 13:07:30 csraghunandan>
-
+;; Time-stamp: <2016-10-08 08:06:38 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -161,11 +160,39 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
   :defer t
   :init (save-place-mode 1))
 
+;; wait for electric operator author to push haskell fix onto master branch <2016-10-07 23:16:59>
 ;; (use-package electric-operator
 ;; :config (electric-operator-add-rules-for-mode 'haskell-mode (cons "|" "| ")))
 
-;; remove all trailing whitespaces in a file after saving
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(defun xah-clean-whitespace (*begin *end)
+  "Delete trailing whitespace, and replace repeated blank lines into just 1.
+Only space and tab is considered whitespace here.
+Works on whole buffer or text selection, respects `narrow-to-region'.
+
+URL `http://ergoemacs.org/emacs/elisp_compact_empty_lines.html'
+Version 2016-10-04"
+  (interactive
+   (if (region-active-p)
+       (list (region-beginning) (region-end))
+     (list (point-min) (point-max))))
+  (save-excursion
+    (save-restriction
+      (narrow-to-region *begin *end)
+      (progn
+        (goto-char (point-min))
+        (while (search-forward-regexp "[ \t]+\n" nil "noerror")
+          (replace-match "\n")))
+      (progn
+        (goto-char (point-min))
+        (while (search-forward-regexp "\n\n\n+" nil "noerror")
+          (replace-match "\n\n")))
+      (progn
+        (goto-char (point-max))
+        (while (equal (char-before) 32) ; ascii 32 is space
+          (delete-char -1))))))
+
+;; remove the buffer of trailing whitespaces and multiple blank lines are collapsed to 1
+(add-hook 'before-save-hook '(lambda() (xah-clean-whitespace (point-min) (point-max))))
 
 ;; Update the timestamp before saving a file
 (add-hook 'before-save-hook #'time-stamp)
@@ -183,6 +210,7 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
  ("M-w" . xah-copy-line-or-region)
  ("M-;" . comment-line)
  ("C-c s l" . rag/select-inside-line)
- ("C-c s n" . rag/select-around-line))
+ ("C-c s n" . rag/select-around-line)
+ ("C-x C-S-o" . xah-clean-whitespace))
 
 (provide 'setup-editing)

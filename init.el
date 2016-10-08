@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 19:19:28 csraghunandan>
+;; Time-stamp: <2016-10-07 22:40:55 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -20,7 +20,8 @@
 (setq custom-file "~/.emacs.d/my-elisp-code/custom-settings.el")
 (load custom-file :noerror :nomessage)
 
-;; all use packages declarations -----------------------------------------------
+
+;; all use packages declarations
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; updage packages archive
   (package-install 'use-package)) ; and install the most recent version of use-package
@@ -82,6 +83,9 @@
 (require 'setup-region-bindings-mode)
 (require 'setup-mc)
 (require 'setup-page-break-lines)
+
+
+
 ;; set gc-cons-threshold back to original value
 (setq gc-cons-threshold gc-cons-threshold--orig)
 ;;; init.el ends here
