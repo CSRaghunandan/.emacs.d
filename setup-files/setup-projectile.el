@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 08:22:53 csraghunandan>
+;; Time-stamp: <2016-10-08 21:04:54 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -73,7 +73,7 @@ packages.")
 
   (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)
 
-
+  
 
   ;; Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
   (defun modi/advice-projectile-no-sub-project-files ()
@@ -117,7 +117,7 @@ With prefix argument (`C-u'), also kill the special buffers."
                 (message "Killing buffer %s" buf-name)
                 (kill-buffer buf))))))))
 
-
+  
   (defhydra hydra-projectile-other-window (:color teal)
     "projectile-other-window"
     ("f"  projectile-find-file-other-window        "file")
@@ -167,6 +167,6 @@ _f_/_s-f_: file               _a_: counsel-ag        ^^    _i_: Ibuffer         
     ("q"   nil "cancel" :color blue))
   (bind-key "C-c p h" 'hydra-projectile/body)
 
-  (projectile-global-mode))
+  (projectile-mode +1))
 
 (provide 'setup-projectile)

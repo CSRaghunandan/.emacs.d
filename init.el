@@ -32,6 +32,7 @@
 (require 'setup-theme)
 (require 'setup-org)
 (require 'setup-backup)
+(require 'setup-region-bindings-mode)
 (require 'setup-search)
 (require 'setup-ibuffer)
 (require 'setup-recentf)
@@ -80,7 +81,6 @@
 (require 'setup-google-this)
 (require 'setup-windmove)
 (require 'electric-operator)
-(require 'setup-region-bindings-mode)
 (require 'setup-mc)
 (require 'setup-page-break-lines)
 
