@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 21:04:54 csraghunandan>
+;; Time-stamp: <2016-10-08 22:09:45 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -21,6 +21,8 @@
   	'(projectile-root-local
   	  projectile-root-top-down ; First look for projects in top-down order
   	  projectile-root-bottom-up)) ; Then in bottom-up order
+
+
 
   ;;; Default ag arguments
   ;; https://github.com/ggreer/the_silver_searcher
@@ -73,7 +75,7 @@ packages.")
 
   (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)
 
-  
+
 
   ;; Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
   (defun modi/advice-projectile-no-sub-project-files ()
@@ -117,7 +119,8 @@ With prefix argument (`C-u'), also kill the special buffers."
                 (message "Killing buffer %s" buf-name)
                 (kill-buffer buf))))))))
 
-  
+
+
   (defhydra hydra-projectile-other-window (:color teal)
     "projectile-other-window"
     ("f"  projectile-find-file-other-window        "file")
@@ -139,7 +142,7 @@ _f_/_s-f_: file               _a_: counsel-ag        ^^    _i_: Ibuffer         
 ^^    _D_: dir                _A_: counsel-ag-root
 "
     ("a"   counsel-ag)
-    ("A"   counsel-ag-root)
+    ("A"   rag/counsel-ag-projectile-at-point)
     ("G"   counsel-git-grep)
     ("b"   projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)

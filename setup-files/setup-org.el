@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 13:04:40 csraghunandan>
+;; Time-stamp: <2016-10-08 22:04:32 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -40,6 +40,8 @@
     ;; own buffers when left clicked on by mistake. I can still intentionally
     ;; open links and such images in new buffers by doing C-c C-o.
     (setq org-mouse-1-follows-link nil))
+
+
 
   :mode ("\\.org\\'" . org-mode)
 
@@ -212,16 +214,6 @@ this with to-do items than with projects or headings."
      ("C-c c" . org-capture)
      ("C-c i" . org-store-link))
 
-    (use-package org-journal)
-
-    (custom-set-faces
-     '(org-document-title ((t (:height 1.3))))
-     '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
-     '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
-     '(org-level-1 ((t (:inherit outline-1 :foreground "#DFAF8F" :height 1.2))))
-     '(org-level-2 ((t (:inherit outline-2 :foreground "#BFEBBF" :height 1.15))))
-     '(org-level-3 ((t (:inherit outline-3 :foreground "#7CB8BB" :height 1.1))))
-     '(org-level-4 ((t (:inherit outline-4 :foreground "#D0BF8F" :height 1.05))))
-     '(org-level-5 ((t (:inherit outline-5 :foreground "#93E0E3" :height 1)))))))
+    (use-package org-journal)))
 
 (provide 'setup-org)

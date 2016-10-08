@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 16:34:03 csraghunandan>
+;; Time-stamp: <2016-10-08 22:02:01 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -326,7 +326,7 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 
 
 
-;; UpdAte The Timestamp Before saving a file
+;; Update The Timestamp Before saving a file
 (add-hook 'before-save-hook #'time-stamp)
 
 (bind-keys*

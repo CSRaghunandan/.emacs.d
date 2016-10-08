@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:50:18 csraghunandan>
+;; Time-stamp: <2016-10-09 00:16:13 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -60,7 +60,8 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
 ;; move to the beginning or end of line smartly
 ;; https://github.com/alezost/mwim.el
 (use-package mwim
-  :bind* (("C-a" . mwim-beginning-of-code-or-line)
-          ("C-e" . mwim-end-of-code-or-line)))
+  :bind (:map prog-mode-map
+                ("C-a" . mwim-beginning-of-code-or-line)
+                ("C-e" . mwim-end-of-code-or-line)))
 
 (provide 'setup-movement)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 08:38:42 csraghunandan>
+;; Time-stamp: <2016-10-08 21:54:04 csraghunandan>
 
 ;; aggressive-indent
 ;; https://github.com/Malabarba/aggressive-indent-mode
@@ -6,7 +6,7 @@
 ;; This makes sure all the lines of code will strictly align to the indentation level.
 ;; Just one minor caveat, this does not work for major modes that rely on whitespace
 ;; for indenting code blocks like python or haskell-mode
-(use-package aggressive-indent
+(use-package aggressive-indent :defer t
   :config
   (add-to-list 'aggressive-indent-excluded-modes 'web-mode)
 
@@ -17,10 +17,6 @@
    'aggressive-indent-dont-indent-if
    '(and (derived-mode-p 'css-mode 'js2-mode 'rust-mode)
          (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
-                             (thing-at-point 'line)))))
-  ;; don't indent for page break lines
-  (add-to-list 'aggressive-indent-dont-indent-if "")
-
-  (global-aggressive-indent-mode))
+                             (thing-at-point 'line))))))
 
 (provide 'setup-aggresive-indent)
