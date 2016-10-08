@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-06 22:57:10 csraghunandan>
+;; Time-stamp: <2016-10-08 09:11:30 csraghunandan>
 
 ;; flx, ivy
 
@@ -13,6 +13,8 @@
   :init (ivy-mode 1)
   :bind
   (:map ivy-mode-map ("C-'" . ivy-avy))
+  :bind* (("C-c C-w" . ivy-push-view)
+          ("C-c C-S-w" . ivy-pop-view))
   :config
   (setq ivy-use-virtual-buffers t
 	ivy-height 13

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 08:06:38 csraghunandan>
+;; Time-stamp: <2016-10-08 09:21:55 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -164,35 +164,58 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 ;; (use-package electric-operator
 ;; :config (electric-operator-add-rules-for-mode 'haskell-mode (cons "|" "| ")))
 
-(defun xah-clean-whitespace (*begin *end)
-  "Delete trailing whitespace, and replace repeated blank lines into just 1.
-Only space and tab is considered whitespace here.
+(defun xah-clean-empty-lines (&optional *begin *end *n)
+  "Replace repeated blank lines to just 1.
 Works on whole buffer or text selection, respects `narrow-to-region'.
 
+*N is the number of newline chars to use in replacement.
+If 0, it means lines will be joined.
+By befault, *N is 2. It means, 1 visible blank line.
+
 URL `http://ergoemacs.org/emacs/elisp_compact_empty_lines.html'
-Version 2016-10-04"
+Version 2016-10-07"
   (interactive
    (if (region-active-p)
        (list (region-beginning) (region-end))
      (list (point-min) (point-max))))
+  (when (null *begin)
+    (setq *begin (point-min) *end (point-max)))
   (save-excursion
     (save-restriction
       (narrow-to-region *begin *end)
       (progn
         (goto-char (point-min))
+        (while (search-forward-regexp "\n\n\n+" nil "noerror")
+          (replace-match (make-string (if (null *n) 2 *n ) 10)))))))
+
+(defun xah-clean-whitespace (&optional *begin *end)
+  "Delete trailing whitespace, and replace repeated blank lines to just 1.
+Only space and tab is considered whitespace here.
+Works on whole buffer or text selection, respects `narrow-to-region'.
+
+URL `http://ergoemacs.org/emacs/elisp_compact_empty_lines.html'
+Version 2016-10-07"
+  (interactive
+   (if (region-active-p)
+       (list (region-beginning) (region-end))
+     (list (point-min) (point-max))))
+  (when (null *begin)
+    (setq *begin (point-min)  *end (point-max)))
+  (save-excursion
+    (save-restriction
+      (narrow-to-region *begin *end)
+      (xah-clean-empty-lines (point-min) (point-max) )
+      (progn
+        (goto-char (point-min))
         (while (search-forward-regexp "[ \t]+\n" nil "noerror")
           (replace-match "\n")))
       (progn
-        (goto-char (point-min))
-        (while (search-forward-regexp "\n\n\n+" nil "noerror")
-          (replace-match "\n\n")))
-      (progn
         (goto-char (point-max))
-        (while (equal (char-before) 32) ; ascii 32 is space
+        (while (equal (char-before) 32) ; char 32 is space
           (delete-char -1))))))
 
 ;; remove the buffer of trailing whitespaces and multiple blank lines are collapsed to 1
-(add-hook 'before-save-hook '(lambda() (xah-clean-whitespace (point-min) (point-max))))
+(add-hook 'before-save-hook 'xah-clean-whitespace)
 
 ;; Update the timestamp before saving a file
 (add-hook 'before-save-hook #'time-stamp)
