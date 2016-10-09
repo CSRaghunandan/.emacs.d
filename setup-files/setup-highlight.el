@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-09 00:39:44 csraghunandan>
+;; Time-stamp: <2016-10-09 09:34:16 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -20,10 +20,7 @@
 
 ;; configure hl-line-mode
 (use-package hl-line
-  :config
-  (global-hl-line-mode)
-  ;; make hl-line highlight only in the current active window
-  (setq hl-line-sticky-flag nil))
+  :config (global-hl-line-mode))
 
 ;; best solution for highlighting indent guides so far in emacs
 ;; https://github.com/DarthFennec/highlight-indent-guides

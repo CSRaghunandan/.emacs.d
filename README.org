@@ -12,16 +12,15 @@ Here is my emacs config.
   I use ~PragmataPro~ as the preferred font and zenburn theme. These are all tuned for my preference, feel free to change them to your liking.
 - Tested to work with emacs 25.1.1 on macOS, I only used emacs 24.5 for a month before shifting to emacs 25. Everything should work similarly, if any problem please report.
 
-
 ** Key points
 - use of =use-package= for faster load times and loading packages only when necessary.
 - Certain packages will only work if you have the associated applications installed
-  - =ag=
-  - =rg=
+  - =ag= or =rg= [to generate projectile cache]
   - =git=    [for magit]
   - =ispell= [for spell check]
   - =racer=  [for rust completions]
   - =jedi=   [for python completions]
+  - =LanguageTools= [for grammar check in org-mode]
 
 * Feedback
 Open to any feedback, corrections.

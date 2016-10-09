@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-10-08 09:00:59 csraghunandan>
+;; Time-stamp: <2016-10-09 19:54:16 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -13,11 +13,10 @@
    ("C-x C-f" . counsel-find-file)
    ("C-c g g" . counsel-git)
    ("C-c g G" . counsel-git-grep)
-   ("C-x l" . counsel-locate)
    ("C-M-y" . counsel-yank-pop)
    ("C-c C-r" . ivy-resume)
-   ("C-c i m" . counsel-imenu)
-   ("C-c i M" . ivy-imenu-anywhere)
+   ("C-c f" . counsel-imenu)
+   ("C-c F" . ivy-imenu-anywhere)
    ("C-c d s" . describe-symbol)
    :map ivy-minibuffer-map
    ("M-y" . ivy-next-line-and-call))
@@ -72,6 +71,18 @@
 	 ;; File names ending with # or ~
 	 "\\|\\(?:\\`.+?[#~]\\'\\)"))
   ;; show parent directory in prompt
-  (ivy-set-prompt 'counsel-ag #'counsel-prompt-function-dir))
+  (ivy-set-prompt 'counsel-ag #'counsel-prompt-function-dir)
+
+  (defun counsel-goto-recent-directory ()
+    "Open recent directory with dired"
+    (interactive)
+    (unless recentf-mode (recentf-mode 1))
+    (let ((collection
+           (delete-dups
+            (append (mapcar 'file-name-directory recentf-list)
+                    ;; fasd history
+                    (if (executable-find "fasd")
+                        (split-string (shell-command-to-string "fasd -ld") "\n" t))))))
+      (ivy-read "directories:" collection :action 'dired))))
 
 (provide 'setup-counsel)

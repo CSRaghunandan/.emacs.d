@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:38:00 csraghunandan>
+;; Time-stamp: <2016-10-09 19:30:34 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -11,7 +11,6 @@
   ;; anaconda-mode :- bring IDE like features for python-mode
   ;; https://github.com/proofit404/anaconda-mode
   (use-package anaconda-mode
-    :bind* (("C-x a d" . anaconda-mode-show-doc))
     :diminish anaconda-mode
     :config
     (add-hook 'python-mode-hook 'anaconda-mode)

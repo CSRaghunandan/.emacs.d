@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 12:31:06 csraghunandan>
+;; Time-stamp: <2016-10-09 19:29:23 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -12,8 +12,6 @@
   ;; tern :- IDE like features for javascript and completion
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package tern
-    :bind* (("C-x t t" . tern-get-type)
-            ("C-x t d" . tern-get-docs))
     :config
     (add-hook 'js2-mode-hook 'tern-mode)
     (defun my-js-mode-hook ()
@@ -31,6 +29,6 @@
   ;; https://github.com/magnars/js2-refactor.el
   (use-package js2-refactor :defer t
     :diminish js2-refactor
-    :bind* ("C-c j r" . js2r-add-keybindings-with-prefix)))
+    :bind ("C-c j r" . js2r-add-keybindings-with-prefix)))
 
 (provide 'setup-js)
