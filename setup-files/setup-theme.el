@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 17:41:17 csraghunandan>
+;; Time-stamp: <2016-10-10 13:23:21 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -22,7 +22,6 @@
 (setq ring-bell-function 'ignore)
 ;; resize minibuffer window to accommodate text
 (setq resize-mini-window t)
-;; (setq enable-recursive-minibuffers t)
 (setq inhibit-splash-screen t)
 (setq initial-scratch-message ";; Let the games begin.\n\n")
 (setq-default cursor-type '(bar . 1))

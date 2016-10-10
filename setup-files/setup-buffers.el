@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:55:25 csraghunandan>
+;; Time-stamp: <2016-10-10 13:30:56 csraghunandan>
 
 ;; configuration for buffers
 
@@ -11,8 +11,12 @@
 (setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
+;; resize windows proportionally
+(setq window-combination-resize t)
+
 ;; make emacs auto-refresh all buffers when files have changed on the disk
 (global-auto-revert-mode t)
+(setq auto-revert-verbose nil)
 
 ;; get rid of all the tabs in a buffer
 (defun rag/untabify-buffer ()

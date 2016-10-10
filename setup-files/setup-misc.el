@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 19:17:54 csraghunandan>
+;; Time-stamp: <2016-10-10 13:21:11 csraghunandan>
 
 ;; automatically upgrade all packages
 (defun my/package-upgrade-packages (&optional no-fetch)
@@ -56,5 +56,9 @@ not prevent downloading the actual packages (obviously)."
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; more info in apropos
 (setq apropos-do-all t)
+;; always select help window when opened
+(setq-default help-window-select t)
+;; garbage collect when focus out
+(add-hook 'focus-out-hook 'garbage-collect)
 
 (provide 'setup-misc)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:05:34 csraghunandan>
+;; Time-stamp: <2016-10-10 13:28:07 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -25,6 +25,8 @@
     ;;       '/' to directories, etc.
     ;; default value for dired: "-al"
     (setq dired-listing-switches "-alGhvF --group-directories-first")
+    ;; auto-revert dired
+    (setq dired-auto-revert-buffer t)
     (defun rag/dired-rename-buffer-name ()
       "Rename the dired buffer name to distinguish it from file buffers.
 It added extra strings at the front and back of the default dired buffer name."

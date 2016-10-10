@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-09 02:28:18 csraghunandan>
+;; Time-stamp: <2016-10-10 12:53:37 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -59,6 +59,8 @@
 
 ;;; Org Variables
 
+    ;; this looks better in my opinion
+    (setq org-ellipsis " •••")
     ;; Non-nil means insert state change notes and time stamps into a drawer.
     (setq org-log-into-drawer t)
     ;; insert a note after changing deadline for a TODO
