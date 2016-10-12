@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-09 01:10:40 csraghunandan>
+;; Time-stamp: <2016-10-10 18:01:40 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -60,7 +60,6 @@
 (require 'setup-counsel)
 (require 'setup-swiper)
 (require 'setup-movement)
-(require 'setup-js)
 (require 'setup-markdown)
 (require 'setup-highlight)
 (require 'setup-mode-line)
@@ -83,6 +82,8 @@
 (require 'setup-mc)
 (require 'setup-page-break-lines)
 (require 'setup-aggresive-indent)
+(require 'setup-js)
+(require 'setup-tags)
 
 
 

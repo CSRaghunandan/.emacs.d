@@ -21,6 +21,7 @@ Here is my emacs config.
   - =racer=  [for rust completions]
   - =jedi=   [for python completions]
   - =LanguageTools= [for grammar check in org-mode]
+  - =global= & =ctags= [for ggtags]
 
 * Feedback
 Open to any feedback, corrections.

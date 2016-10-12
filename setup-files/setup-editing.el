@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-10 12:19:36 csraghunandan>
+;; Time-stamp: <2016-10-11 00:05:27 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -320,7 +320,12 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 
 
 
-(defvar yank-indent-modes '(prog-mode)
+(defvar yank-indent-modes '(js2-mode
+                            emacs-lisp-mode
+                            rust-mode
+                            web-mode
+                            css-mode
+                            python-mode)
   "Modes in which to indent regions that are yanked (or yank-popped)")
 
 (defvar yank-advised-indent-threshold 5000

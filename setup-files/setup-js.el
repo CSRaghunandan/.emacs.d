@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-09 19:29:23 csraghunandan>
+;; Time-stamp: <2016-10-10 18:56:05 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -13,7 +13,6 @@
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package tern
     :config
-    (add-hook 'js2-mode-hook 'tern-mode)
     (defun my-js-mode-hook ()
       "Hook for `js-mode'."
       (set (make-local-variable 'company-backends)
@@ -21,6 +20,8 @@
     (add-hook 'js2-mode-hook 'my-js-mode-hook)
     (add-hook 'js2-mode-hook 'company-mode))
 
+  (add-hook 'js2-mode-hook 'tern-mode)
+  (add-hook 'js2-mode-hook 'ggtags-mode)
   ;; company backend for tern
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package company-tern)
