@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-10 12:53:37 csraghunandan>
+;; Time-stamp: <2016-10-13 00:07:32 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -71,9 +71,6 @@
     (setq org-log-done 'timestamp)
 
     ;; refile settings
-    (setq org-refile-allow-creating-parent-nodes 'confirm)
-    (setq org-refile-use-outline-path 'file)
-    (setq org-refile-targets '(org-agenda-files :level . 1))
 
     (setq org-agenda-archives-mode nil) ; required in org 8.0+
     (setq org-agenda-skip-comment-trees nil)
@@ -215,6 +212,17 @@ this with to-do items than with projects or headings."
      ("C-c a" . org-agenda)
      ("C-c c" . org-capture)
      ("C-c i" . org-store-link))
+
+    (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "SOMEDAY(s)" "WAITING(w)" "|" "CANCELED(c)" "DONE(d)")))
+    (setq org-todo-keyword-faces
+          '(("TODO" . org-todo)
+            ("NEXT" . (:foreground "black" :weight bold :background "cyan"))
+            ("WAITING" . (:foreground "black" :weight bold :background "pink"))
+            ("SOMEDAY"  . (:foreground "black" :weight bold :background "#FFEF9F"))
+            ("CANCELED" . (:foreground "red" :weight bold :strike-through t))
+            ("DONE"     . (:foreground "black" :weight bold :background "#91ba31"))))
+
+    (setq org-tag-alist '(("WORK" . ?w) ("HOME" . ?h) ("PROJECT" . ?p) ("MATH" . ?m) ("CS" . ?c)))
 
     (use-package org-journal)
 

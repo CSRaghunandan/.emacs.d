@@ -55,12 +55,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(highlight-symbol-face ((t (:background "DarkSeaGreen4"))))
+ '(org-refile-use-outline-path 'file)
+ '(org-refile-targets '(org-agenda-files :level . 1))
+ '(org-refile-allow-creating-parent-nodes 'confirm)
  '(org-document-title ((t (:height 1.3))))
- '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
- '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "LightSalmon" :strike-through t))))
  '(org-level-1 ((t (:inherit outline-1 :foreground "#DFAF8F" :height 1.2))))
  '(org-level-2 ((t (:inherit outline-2 :foreground "#BFEBBF" :height 1.15))))
  '(org-level-3 ((t (:inherit outline-3 :foreground "#7CB8BB" :height 1.1))))
- '(org-level-4 ((t (:inherit outline-4 :foreground "#D0BF8F" :height 1.05))))
- '(org-level-5 ((t (:inherit outline-5 :foreground "#93E0E3" :height 1))))
  '(vhl/default-face ((t (:background "gray40")))))

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-10 12:26:16 csraghunandan>
+;; Time-stamp: <2016-10-12 17:18:09 csraghunandan>
 
 ;; avy, avy-zap
 
@@ -10,7 +10,7 @@
   (setq avy-keys-alist
         `((avy-goto-char-timer . (?a ?s ?d ?f ?g ?h ?j ?k ?l))))
   (setq avy-style 'pre)
-  :bind (("C-:" . avy-goto-char-timer)
+  :bind (("C-'" . avy-goto-char-timer)
           ("C-`" . avy-goto-word-1)))
 
 ;; avy-zap
