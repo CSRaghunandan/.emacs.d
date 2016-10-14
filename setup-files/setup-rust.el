@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:26:11 csraghunandan>
+;; Time-stamp: <2016-10-13 17:49:52 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -29,7 +29,7 @@
         (setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
         (defun my-racer-mode-hook ()
           (set (make-local-variable 'company-backends)
-               '((company-capf company-dabbrev-code company-yasnippet company-files))))
+               '((company-capf company-files company-yasnippet))))
         (add-hook 'racer-mode-hook 'my-racer-mode-hook)
         (add-hook 'racer-mode-hook #'company-mode)
         (add-hook 'rust-mode-hook #'racer-mode)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-12 17:18:09 csraghunandan>
+;; Time-stamp: <2016-10-13 18:58:35 csraghunandan>
 
 ;; avy, avy-zap
 
@@ -17,7 +17,6 @@
 ;; https://github.com/cute-jumper/avy-zap
 ;; Use avy frontend to yank till the match entered by user
 (use-package avy-zap
-  :bind (("M-z" . avy-zap-to-char-dwim)
-	  ("M-Z" . avy-zap-up-to-char-dwim)))
+  :bind (("C-c z" . avy-zap-to-char-dwim)))
 
 (provide 'setup-avy)

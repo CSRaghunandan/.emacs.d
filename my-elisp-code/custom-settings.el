@@ -3,16 +3,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("0e219d63550634bc5b0c214aced55eb9528640377daf486e13fb18a32bf39856" "cdbd0a803de328a4986659d799659939d13ec01da1f482d838b68038c1bb35e8" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "44048f3a208ccfa3286b426a995696871e6403d951b23d7b55a1af850d7aec93" "bcc6775934c9adf5f3bd1f428326ce0dcd34d743a92df48c128e6438b815b44f" "40f6a7af0dfad67c0d4df2a1dd86175436d79fc69ea61614d668a635c2cd94ab" default)))
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "0e219d63550634bc5b0c214aced55eb9528640377daf486e13fb18a32bf39856" "cdbd0a803de328a4986659d799659939d13ec01da1f482d838b68038c1bb35e8" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "44048f3a208ccfa3286b426a995696871e6403d951b23d7b55a1af850d7aec93" "bcc6775934c9adf5f3bd1f428326ce0dcd34d743a92df48c128e6438b815b44f" "40f6a7af0dfad67c0d4df2a1dd86175436d79fc69ea61614d668a635c2cd94ab" default)))
  '(erc-modules
    (quote
     (autoaway autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands notifications readonly ring sound stamp spelling track)))
  '(fci-rule-color "#383838")
+ '(hl-sexp-background-color "#efebe9")
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
@@ -55,11 +58,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(highlight-symbol-face ((t (:background "DarkSeaGreen4"))))
- '(org-refile-use-outline-path 'file)
- '(org-refile-targets '(org-agenda-files :level . 1))
- '(org-refile-allow-creating-parent-nodes 'confirm)
  '(org-document-title ((t (:height 1.3))))
  '(org-level-1 ((t (:inherit outline-1 :foreground "#DFAF8F" :height 1.2))))
  '(org-level-2 ((t (:inherit outline-2 :foreground "#BFEBBF" :height 1.15))))
  '(org-level-3 ((t (:inherit outline-3 :foreground "#7CB8BB" :height 1.1))))
+ '(org-refile-allow-creating-parent-nodes (quote confirm))
+ '(org-refile-targets (quote (org-agenda-files :level . 1)))
+ '(org-refile-use-outline-path (quote file))
  '(vhl/default-face ((t (:background "gray40")))))

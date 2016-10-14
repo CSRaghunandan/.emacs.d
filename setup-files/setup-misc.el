@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-12 16:03:24 csraghunandan>
+;; Time-stamp: <2016-10-13 11:35:26 csraghunandan>
 
 ;; automatically upgrade all packages
 (defun my/package-upgrade-packages (&optional no-fetch)
@@ -46,6 +46,7 @@ not prevent downloading the actual packages (obviously)."
 (put 'upcase-region   'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-defun  'disabled nil)
+(put 'narrow-to-page 'disabled nil)
 (put 'set-goal-column  'disabled nil)
 
 (bind-keys*

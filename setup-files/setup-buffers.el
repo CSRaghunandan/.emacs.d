@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-10 13:30:56 csraghunandan>
+;; Time-stamp: <2016-10-13 14:48:31 csraghunandan>
 
 ;; configuration for buffers
 
@@ -146,5 +146,9 @@ is already narrowed."
 ;; diminish auto-revert-mode emacs
 (use-package autorevert
   :diminish auto-revert-mode)
+
+;; make C-x <left> and C-x <right> only switch between buffers which have files
+;; associated with them
+(set-frame-parameter (selected-frame) 'buffer-predicate #'buffer-file-name)
 
 (provide 'setup-buffers)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-09 17:33:42 csraghunandan>
+;; Time-stamp: <2016-10-13 17:56:36 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -13,7 +13,7 @@
   (defun my-web-mode-hook ()
     "Hook for `web-mode'."
     (set (make-local-variable 'company-backends)
-         '((company-tern company-css company-web-html company-yasnippet company-files))))
+         '((company-tern company-css company-web-html company-files))))
   (add-hook 'web-mode-hook 'my-web-mode-hook)
 
   ;; Enable JavaScript completion between <script>...</script> etc.

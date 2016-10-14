@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-11 00:05:27 csraghunandan>
+;; Time-stamp: <2016-10-13 19:24:55 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -150,7 +150,7 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 ;; allow forward and backword movements to move between camelCase words
 (use-package subword
   :diminish subword-mode
-  :config (subword-mode +1))
+  :config (global-subword-mode))
 
 ;; save and restore the previous cursor position when the buffer was killed
 (use-package saveplace
@@ -213,8 +213,8 @@ Version 2016-10-07"
         (while (equal (char-before) 32) ; char 32 is space
           (delete-char -1))))))
 
-;; remove the buffer of trailing whitespaces and multiple blank lines are collapsed to 1
-(add-hook 'before-save-hook 'xah-clean-whitespace)
+;; remove trailing whitespace in the buffer
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
 
