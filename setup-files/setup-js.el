@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-13 17:54:01 csraghunandan>
+;; Time-stamp: <2016-10-15 02:34:21 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -21,7 +21,7 @@
     (add-hook 'js2-mode-hook 'company-mode))
 
   (add-hook 'js2-mode-hook 'tern-mode)
-  (add-hook 'js2-mode-hook 'ggtags-mode)
+
   ;; company backend for tern
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package company-tern)

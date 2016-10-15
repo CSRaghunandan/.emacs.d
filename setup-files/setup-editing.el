@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-13 19:24:55 csraghunandan>
+;; Time-stamp: <2016-10-15 15:19:56 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -193,7 +193,7 @@ Only space and tab is considered whitespace here.
 Works on whole buffer or text selection, respects `narrow-to-region'.
 
 URL `http://ergoemacs.org/emacs/elisp_compact_empty_lines.html'
-Version 2016-10-07"
+Version 2016-10-15"
   (interactive
    (if (region-active-p)
        (list (region-beginning) (region-end))
@@ -203,18 +203,18 @@ Version 2016-10-07"
   (save-excursion
     (save-restriction
       (narrow-to-region *begin *end)
-      (xah-clean-empty-lines (point-min) (point-max) )
       (progn
         (goto-char (point-min))
         (while (search-forward-regexp "[ \t]+\n" nil "noerror")
           (replace-match "\n")))
+      (xah-clean-empty-lines (point-min) (point-max))
       (progn
         (goto-char (point-max))
         (while (equal (char-before) 32) ; char 32 is space
           (delete-char -1))))))
 
 ;; remove trailing whitespace in the buffer
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'xah-clean-whitespace)
 
 
 

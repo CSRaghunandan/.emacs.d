@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-14 12:36:41 csraghunandan>
+;; Time-stamp: <2016-10-14 12:44:01 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
@@ -18,7 +18,6 @@
   ;; intero-mode for a complete IDE solution to haskell
   ;; commercialhaskell.github.io/intero
   (use-package intero
-    :diminish intero-mode
     :config (add-hook 'haskell-mode-hook 'intero-mode)))
 
 (provide 'setup-haskell)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-13 11:34:46 csraghunandan>
+;; Time-stamp: <2016-10-15 11:10:14 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -83,7 +83,8 @@
 (require 'setup-page-break-lines)
 (require 'setup-aggresive-indent)
 (require 'setup-js)
-(require 'setup-tags)
+;; come back when you can get `universal-ctags' to work for `global'
+;; (require 'setup-tags)
 
 
 
