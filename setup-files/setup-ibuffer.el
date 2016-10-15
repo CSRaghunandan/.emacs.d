@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-06 22:58:32 csraghunandan>
+;; Time-stamp: <2016-10-15 22:35:33 csraghunandan>
 
 ;; ibuffer
 ;; for easy management of buffers
@@ -8,6 +8,11 @@
   (progn
     (setq ibuffer-default-sorting-mode 'major-mode)
 
+    ;; hide all * files in ibuffer
+    (add-to-list 'ibuffer-never-show-predicates "^\\*")
+
+    ;; group ibuffer list by projectile projects
+    ;; https://github.com/purcell/ibuffer-projectile
     (use-package ibuffer-projectile
       :config
       (progn
@@ -19,6 +24,7 @@
             (ibuffer-do-sort-by-major-mode))))) ; then do major-mode sort
     ;; ibuffer-projectile setup
     (add-hook 'ibuffer-hook #'my/ibuffer-customization))
+
   (defhydra hydra-ibuffer-main (:color pink :hint nil)
     "
  ^Navigation^ | ^Mark^        | ^Actions^        | ^View^
