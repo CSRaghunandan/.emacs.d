@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-16 13:15:24 csraghunandan>
+;; Time-stamp: <2016-10-16 15:01:40 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -85,7 +85,7 @@
 (require 'setup-js)
 ;; use this when `ggtags.el' has proper support for `universal-ctags'
 ;; (require 'setup-tags)
-(require 'setup-zones)
+(require 'setup-recursive-narrow)
 
 
 
