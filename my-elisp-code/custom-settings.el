@@ -10,7 +10,7 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "0e219d63550634bc5b0c214aced55eb9528640377daf486e13fb18a32bf39856" "cdbd0a803de328a4986659d799659939d13ec01da1f482d838b68038c1bb35e8" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "44048f3a208ccfa3286b426a995696871e6403d951b23d7b55a1af850d7aec93" "bcc6775934c9adf5f3bd1f428326ce0dcd34d743a92df48c128e6438b815b44f" "40f6a7af0dfad67c0d4df2a1dd86175436d79fc69ea61614d668a635c2cd94ab" default)))
+    ("3693403316f0127326fa08067c2e3013eda29216829e1478e1656ea4fbbc6560" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "0e219d63550634bc5b0c214aced55eb9528640377daf486e13fb18a32bf39856" "cdbd0a803de328a4986659d799659939d13ec01da1f482d838b68038c1bb35e8" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "44048f3a208ccfa3286b426a995696871e6403d951b23d7b55a1af850d7aec93" "bcc6775934c9adf5f3bd1f428326ce0dcd34d743a92df48c128e6438b815b44f" "40f6a7af0dfad67c0d4df2a1dd86175436d79fc69ea61614d668a635c2cd94ab" default)))
  '(erc-modules
    (quote
     (autoaway autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands notifications readonly ring sound stamp spelling track)))
@@ -26,7 +26,7 @@
      ("org" . "http://orgmode.org/elpa/"))))
  '(package-selected-packages
    (quote
-    (langtool pyvenv bm page-break-lines mwim skewer manage-minor-mode region-bindings-mode wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent osx-trash avy-zap dired-hacks-utlis flyspell-correct-ivy ibuffer-projectile reveal-in-osx-finder imenu-anywhere flx counsel swiper company-statistics pytest racket racket-mode volatile-highlights org-journal intero ac-html-angular company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib dired-narrow js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
+    (zones langtool pyvenv bm page-break-lines mwim skewer manage-minor-mode region-bindings-mode wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent osx-trash avy-zap dired-hacks-utlis flyspell-correct-ivy ibuffer-projectile reveal-in-osx-finder imenu-anywhere flx counsel swiper company-statistics pytest racket racket-mode volatile-highlights org-journal intero ac-html-angular company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib dired-narrow js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(python-shell-completion-native-enable nil)
  '(send-mail-function (quote sendmail-send-it))

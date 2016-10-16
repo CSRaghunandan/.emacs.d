@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-15 22:35:33 csraghunandan>
+;; Time-stamp: <2016-10-15 22:45:03 csraghunandan>
 
 ;; ibuffer
 ;; for easy management of buffers
@@ -7,9 +7,6 @@
   :config
   (progn
     (setq ibuffer-default-sorting-mode 'major-mode)
-
-    ;; hide all * files in ibuffer
-    (add-to-list 'ibuffer-never-show-predicates "^\\*")
 
     ;; group ibuffer list by projectile projects
     ;; https://github.com/purcell/ibuffer-projectile
