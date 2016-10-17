@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-16 15:28:52 csraghunandan>
+;; Time-stamp: <2016-10-17 21:01:55 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -62,6 +62,7 @@
 (require 'setup-movement)
 (require 'setup-markdown)
 (require 'setup-highlight)
+(require 'setup-info-plus)
 (require 'setup-mode-line)
 (require 'setup-racket)
 (require 'setup-hungry-delete)
@@ -86,7 +87,7 @@
 ;; use this when `ggtags.el' has proper support for `universal-ctags'
 ;; (require 'setup-tags)
 (require 'setup-recursive-narrow)
-(require 'setup-info-plus)
+(require 'setup-eshell)
 
 
 

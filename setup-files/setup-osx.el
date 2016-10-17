@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:40:35 csraghunandan>
+;; Time-stamp: <2016-10-17 21:00:38 csraghunandan>
 
 ;; All the macOS related configuration
 
@@ -24,7 +24,6 @@
   :init
   (exec-path-from-shell-copy-env "RUST_SRC_PATH")
   (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize))
-  :config (add-hook 'eshell-mode-hook '(lambda ()(exec-path-from-shell-initialize))))
+    (exec-path-from-shell-initialize)))
 
 (provide 'setup-osx)

@@ -99,7 +99,6 @@ Returns a modified copy of the rule list."
 Returns a modified copy of the rule list."
   (-add-rule-list initial new-rules))
 
-
 ;; All rule manipulation should be done through these functions and not by
 ;; using puthash/gethash directly because it's plausible that the
 ;; underlying data structure could be changed (e.g. to an alist).
@@ -397,7 +396,6 @@ Any better ideas would be welcomed."
 
                     )
 
-
 ;; Use the same rules for c++
 (apply #'add-rules-for-mode 'c++-mode (get-rules-for-mode 'c-mode))
 
@@ -428,7 +426,6 @@ Any better ideas would be welcomed."
 (--> (get-rules-for-mode 'c++-mode)
      (-map (lambda (p) (cons (concat "operator" (car p)) nil)) it)
      (apply #'add-rules-for-mode 'c++-mode it))
-
 
 (defvar c-user-types-regex
   "_t"
@@ -502,7 +499,6 @@ Using `cc-mode''s syntactic analysis."
 
    ;; probably a case statement
    (t ":" )))
-
 
 (defun c-mode-++ ()
   "Handle ++ operator pre/postfix"
@@ -913,7 +909,6 @@ Using `cc-mode''s syntactic analysis."
                     (cons "<?" "<?")
                     )
 
-
 ;; Coffee script support based on http://coffeescript.org/#operators
 (apply #'add-rules-for-mode 'coffee-mode prog-mode-rules)
 (add-rules-for-mode 'coffee-mode
@@ -939,7 +934,6 @@ Using `cc-mode''s syntactic analysis."
 (add-rules-for-mode 'css-mode
                     (cons ":" ": ")
                     (cons "," ", "))
-
 
 
 ) ; end of namespace

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-13 17:49:52 csraghunandan>
+;; Time-stamp: <2016-10-16 17:05:25 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -23,6 +23,7 @@
     ;; https://github.com/racer-rust/emacs-racer
     (use-package racer
       :diminish racer-mode
+      :bind (("C-c C-t" . racer-describe))
       :config
       (progn
         ;; set racer rust source path environment variable
