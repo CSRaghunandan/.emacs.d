@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-13 00:07:32 csraghunandan>
+;; Time-stamp: <2016-10-19 19:06:40 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -61,6 +61,8 @@
 
     ;; this looks better in my opinion
     (setq org-ellipsis " •••")
+    ;; hide emphasis markup characters
+    (setq org-hide-emphasis-markers t)
     ;; Non-nil means insert state change notes and time stamps into a drawer.
     (setq org-log-into-drawer t)
     ;; insert a note after changing deadline for a TODO
@@ -244,6 +246,47 @@ _C_: correct  _p_: prev error _d_: done checking
         ("C"  langtool-correct-buffer)
         ("d"  langtool-check-done :color blue)
         ("q" nil "quit" :color blue))
-      (bind-key "C-c l" 'hydra-langtool/body org-mode-map))))
+      (bind-key "C-c l" 'hydra-langtool/body org-mode-map))
+
+
+
+    (define-key org-mode-map "\"" #'endless/round-quotes)
+
+    (defun endless/round-quotes (italicize)
+      "Insert “” and leave point in the middle.
+With prefix argument ITALICIZE, insert /“”/ instead
+\(meant for org-mode).
+Inside a code-block, just call `self-insert-command'."
+      (interactive "P")
+      (if (and (derived-mode-p 'org-mode)
+               (org-in-block-p '("src" "latex" "html")))
+          (call-interactively #'self-insert-command)
+        (if (looking-at "”[/=_\\*]?")
+            (goto-char (match-end 0))
+          (when italicize
+            (if (derived-mode-p 'markdown-mode)
+                (insert "__")
+              (insert "//"))
+            (forward-char -1))
+          (insert "“”")
+          (forward-char -1))))
+
+    (define-key org-mode-map "'" #'endless/apostrophe)
+
+    (defun endless/apostrophe (opening)
+      "Insert ’ in prose or `self-insert-command' in code.
+With prefix argument OPENING, insert ‘’ instead and
+leave point in the middle.
+Inside a code-block, just call `self-insert-command'."
+      (interactive "P")
+      (if (and (derived-mode-p 'org-mode)
+               (org-in-block-p '("src" "latex" "html")))
+          (call-interactively #'self-insert-command)
+        (if (looking-at "['’][=_/\\*]?")
+            (goto-char (match-end 0))
+          (if (null opening)
+              (insert "’")
+            (insert "‘’")
+            (forward-char -1)))))))
 
 (provide 'setup-org)

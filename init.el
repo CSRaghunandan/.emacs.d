@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-17 21:01:55 csraghunandan>
+;; Time-stamp: <2016-10-17 23:29:34 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -25,7 +25,7 @@
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; updage packages archive
   (package-install 'use-package)) ; and install the most recent version of use-package
-(require 'use-package)
+(eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
 (require 'setup-pragmatapro)
