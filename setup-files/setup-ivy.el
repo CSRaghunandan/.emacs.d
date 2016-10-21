@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-12 17:19:06 csraghunandan>
+;; Time-stamp: <2016-10-21 19:54:56 csraghunandan>
 
 ;; flx, ivy
 
@@ -24,6 +24,10 @@
   (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
 				(counsel-ag . ivy--regex-plus)
 				(counsel-grep-or-swiper . ivy--regex-plus)
-				(t . ivy--regex-fuzzy))))
+				(t . ivy--regex-fuzzy)))
+
+  ;; use ivy to jump between pages defined in the buffer
+  ;; https://github.com/igorepst/ivy-pages
+  (use-package ivy-pages))
 
 (provide 'setup-ivy)

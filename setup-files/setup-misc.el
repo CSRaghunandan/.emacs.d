@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-16 15:28:05 csraghunandan>
+;; Time-stamp: <2016-10-19 22:06:06 csraghunandan>
 
 ;; automatically upgrade all packages
 (defun my/package-upgrade-packages (&optional no-fetch)
@@ -40,6 +40,10 @@ not prevent downloading the actual packages (obviously)."
   (progn
     ;; Highlight today's date in the calendar
     (add-hook 'calendar-today-visible-hook 'calendar-mark-today)))
+
+;; to list all the keys-chord not bound to a command
+;; https://github.com/Fuco1/free-keys
+(use-package free-keys)
 
 ;; enable disabled commands
 (put 'narrow-to-region 'disabled nil)

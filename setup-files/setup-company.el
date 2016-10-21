@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 11:03:48 csraghunandan>
+;; Time-stamp: <2016-10-21 18:12:54 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -29,6 +29,7 @@
   ;; pop-up documentation for completion candidates
   (use-package company-quickhelp
     :config (company-quickhelp-mode 1))
+
   ;; company-statistics
   ;; https://github.com/company-mode/company-statistics
   ;; sort the company candidates by the statistics

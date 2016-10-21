@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-17 21:02:54 csraghunandan>
+;; Time-stamp: <2016-10-21 09:36:23 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -7,7 +7,7 @@
   (add-hook 'eshell-mode-hook
             (lambda ()
               (define-key eshell-mode-map (kbd "<tab>")
-                (lambda () (interactive) (pcomplete-std-complete)))))
+                'completion-at-point)))
   ;; fetch the $PATH variable to eshell
   (add-hook 'eshell-mode-hook '(lambda ()(exec-path-from-shell-initialize))))
 

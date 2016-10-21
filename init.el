@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-19 21:24:26 csraghunandan>
+;; Time-stamp: <2016-10-21 23:58:50 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -28,7 +28,7 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
-(require 'setup-pragmatapro)
+;; (require 'setup-pragmatapro)
 (require 'setup-theme)
 (require 'setup-org)
 (require 'setup-backup)

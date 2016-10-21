@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-15 15:57:31 csraghunandan>
+;; Time-stamp: <2016-10-21 23:31:20 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -42,6 +42,7 @@ Position the cursor at its beginning, according to the current mode."
   (move-end-of-line nil)
   (newline-and-indent))
 
+;; does not work for `haskell-mode'
 (defun rag/smart-open-line-above ()
   "Insert an empty line above the current line.
 Position the cursor at it's beginning, according to the current mode."
@@ -148,8 +149,7 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 
 ;; save and restore the previous cursor position when the buffer was killed
 (use-package saveplace
-  :defer t
-  :init (save-place-mode 1))
+  :config (save-place-mode 1))
 
 ;; wait for electric operator author to push haskell fix onto master branch <2016-10-07 23:16:59>
 ;; (use-package electric-operator
