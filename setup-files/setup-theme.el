@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-15 10:07:30 csraghunandan>
+;; Time-stamp: <2016-10-22 17:27:46 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -14,10 +14,6 @@
 (column-number-mode t)
 (line-number-mode t)
 (tool-bar-mode -1)
-(setq display-time-day-and-date t)
-(setq display-time-default-load-average nil)
-(display-time-mode t)
-(display-battery-mode t)
 (set-frame-font "PragmataPro 13")
 (setq ring-bell-function 'ignore)
 ;; resize minibuffer window to accommodate text
