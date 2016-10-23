@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-10 13:28:07 csraghunandan>
+;; Time-stamp: <2016-10-23 23:42:21 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -47,9 +47,21 @@ It added extra strings at the front and back of the default dired buffer name."
       (setq dired-omit-files
             (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$")))))
 
-;; dired-narrow
-;; https://github.com/Fuco1/dired-hacks
-(use-package dired-narrow
-  :bind (:map dired-mode-map ("/" . dired-narrow)))
+;; extensions for `dired-mode'
+;; https://www.emacswiki.org/emacs/DiredPlus
+(use-package dired+
+  :config
+  (require 'dired+)
+  ;; reuse dired directories instead of opening a thousand `dired' buffers
+  (diredp-toggle-find-file-reuse-dir 1)
+
+  ;; show more details by default
+  (setq diredp-hide-details-initially-flag nil)
+  (setq diredp-hide-details-propagate-flag nil)
+  ;; rewise multiple open files so that it only opens one window
+  (define-key dired-mode-map (kbd "F")
+    (lambda ()
+      (interactive)
+      (mapc #'find-file (reverse (dired-get-marked-files))))))
 
 (provide 'setup-dired)

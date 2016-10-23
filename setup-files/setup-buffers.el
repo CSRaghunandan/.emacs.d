@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-16 15:03:47 csraghunandan>
+;; Time-stamp: <2016-10-24 00:12:00 csraghunandan>
 
 ;; configuration for buffers
 
@@ -123,5 +123,9 @@ Emacs session."
 ;; make C-x <left> and C-x <right> only switch between buffers which have files
 ;; associated with them
 (set-frame-parameter (selected-frame) 'buffer-predicate #'buffer-file-name)
+
+;; hide uninteresting buffers in `ibuffer-mode'
+(add-to-list 'ibuffer-never-show-predicates "^\\*scratch")
+(add-to-list 'ibuffer-never-show-predicates "^\\*Messages")
 
 (provide 'setup-buffers)

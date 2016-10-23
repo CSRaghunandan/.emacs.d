@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-22 10:17:47 csraghunandan>
+;; Time-stamp: <2016-10-23 23:51:51 csraghunandan>
 
 ;; automatically upgrade all packages
 (defun my/package-upgrade-packages (&optional no-fetch)
@@ -56,9 +56,6 @@ not prevent downloading the actual packages (obviously)."
 (bind-keys*
  ("C-?" . help-command)
  ("s-l" . shell-command))
-
-;; hide all * files in ibuffer
-(add-to-list 'ibuffer-never-show-predicates "^\\*")
 
 ;; set all yes or no prompts to y or n
 (fset 'yes-or-no-p 'y-or-n-p)
