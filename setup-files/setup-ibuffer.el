@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-24 00:12:03 csraghunandan>
+;; Time-stamp: <2016-10-24 00:31:39 csraghunandan>
 
 ;; ibuffer
 ;; for easy management of buffers
@@ -48,7 +48,7 @@
     ("/" hydra-ibuffer-filter/body :color blue)
 
     ("o" ibuffer-visit-buffer-other-window "other window" :color blue)
-    ("q" ibuffer-quit "quit ibuffer" :color blue)
+    ("q" quit-window "quit ibuffer" :color blue)
     ("." nil "toggle hydra" :color blue))
 
   (defhydra hydra-ibuffer-mark (:color teal :columns 5
@@ -111,6 +111,31 @@
     ("<" ibuffer-filter-by-size-lt "size")
     ("/" ibuffer-filter-disable "disable")
     ("b" hydra-ibuffer-main/body "back" :color blue))
-  (define-key ibuffer-mode-map "." 'hydra-ibuffer-main/body))
+  (define-key ibuffer-mode-map "." 'hydra-ibuffer-main/body)
+
+  ;; Use human readable Size column instead of original one
+  (define-ibuffer-column size-h
+    (:name "Size" :inline t)
+    (cond
+     ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
+     ((> (buffer-size) 100000) (format "%7.0fk" (/ (buffer-size) 1000.0)))
+     ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
+     (t (format "%8d" (buffer-size)))))
+
+  ;; Modify the default ibuffer-formats
+  (setq ibuffer-formats
+	'((mark modified read-only " "
+		(name 18 18 :left :elide)
+		" "
+		(size-h 9 -1 :right)
+		" "
+		(mode 16 16 :left :elide)
+		" "
+		filename-and-process)))
+
+  ;; dont ask for confirmation whenever killing a buffer
+  (setq ibuffer-expert t)
+  ;; hide filter groups which are empty
+  (setq ibuffer-show-empty-filter-groups nil))
 
 (provide 'setup-ibuffer)
