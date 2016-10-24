@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-23 21:29:22 csraghunandan>
+;; Time-stamp: <2016-10-24 13:20:42 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -32,7 +32,7 @@ remove the comment characters from that line."
       (while (looking-at (concat "\\s<" ; comment-start char as per syntax table
                                  "\\|" (substring comment-start 0 1) ; first char of `comment-start'
                                  "\\|" "\\s-")) ; extra spaces
-        (delete-forward-char 1))
+        (delete-char 1))
       (insert-char ? )))) ; insert space
 
 (defun rag/smart-open-line ()
@@ -365,5 +365,12 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
  ("M-;" . comment-line)
  ("C-x l" . rag/select-inside-line)
  ("C-x C-S-o" . xah-clean-whitespace))
+
+(use-package simple :ensure nil
+  :diminish auto-fill-mode
+  :config
+  (setq comment-auto-fill-only-comments t)
+  (add-hook 'prog-mode-hook 'auto-fill-mode)
+  (add-hook 'org-mode-hook 'auto-fill-mode))
 
 (provide 'setup-editing)

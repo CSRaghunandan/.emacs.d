@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-19 19:06:40 csraghunandan>
+;; Time-stamp: <2016-10-24 13:24:09 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -8,7 +8,7 @@
     ;; If `org-load-version-dev' is non-nil, remove the older versions of org
     ;; from the `load-path'.
     (when (bound-and-true-p org-load-version-dev)
-      (>=e "25.0" ; `directory-files-recursively' is not available in older emacsen
+      (>= "25.0" ; `directory-files-recursively' is not available in older emacsen
            (let ((org-stable-install-path (car (directory-files-recursively
                                                 package-user-dir
                                                 "org-plus-contrib-[0-9]+"
@@ -105,9 +105,6 @@
 
     ;; enable org-indent mode on startup
     (setq org-startup-indented t)
-    ;; make sure org mode starts with flyspell mode enabled
-    (add-hook 'org-mode-hook 'flyspell-mode)
-    (add-hook 'org-mode-hook 'auto-fill-mode)
 
     ;; strike through done headlines
     (setq org-fontify-done-headline t)

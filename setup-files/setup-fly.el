@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 17:56:50 csraghunandan>
+;; Time-stamp: <2016-10-24 13:23:49 csraghunandan>
 
 ;; flyspell, flycheck
 
@@ -8,7 +8,7 @@
   :diminish flyspell-mode
   :config
   (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-  (setq flyspell-issue-welcome-flag nil)
+  (add-hook 'org-mode-hook 'flyspell-mode)
 
   ;; correct typos using ivy
   (use-package flyspell-correct-ivy
