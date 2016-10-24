@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-24 13:24:09 csraghunandan>
+;; Time-stamp: <2016-10-24 18:47:58 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -222,8 +222,6 @@ this with to-do items than with projects or headings."
             ("DONE"     . (:foreground "black" :weight bold :background "#91ba31"))))
 
     (setq org-tag-alist '(("WORK" . ?w) ("HOME" . ?h) ("PROJECT" . ?p) ("MATH" . ?m) ("CS" . ?c)))
-
-    (use-package org-journal)
 
     (use-package langtool :defer 1
       :config

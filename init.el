@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-23 21:30:26 csraghunandan>
+;; Time-stamp: <2016-10-24 18:47:47 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -31,6 +31,7 @@
 ;; (require 'setup-pragmatapro)
 (require 'setup-theme)
 (require 'setup-org)
+(require 'setup-org-journal)
 (require 'setup-backup)
 (require 'setup-region-bindings-mode)
 (require 'setup-search)
