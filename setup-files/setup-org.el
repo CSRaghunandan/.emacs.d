@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-24 18:47:58 csraghunandan>
+;; Time-stamp: <2016-10-24 19:24:38 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -135,6 +135,8 @@
     ;; But you can still using ‘C-c =’ to evaluate it manually when needed.
     (setq org-table-formula-evaluate-inline nil) ; default = t
 
+
+
     ;; http://sachachua.com/blog/2013/01/emacs-org-task-related-keyboard-shortcuts-agenda/
     (defun sacha/org-agenda-done (&optional arg)
       "Mark current TODO as done.
@@ -221,7 +223,7 @@ this with to-do items than with projects or headings."
             ("CANCELED" . (:foreground "red" :weight bold :strike-through t))
             ("DONE"     . (:foreground "black" :weight bold :background "#91ba31"))))
 
-    (setq org-tag-alist '(("WORK" . ?w) ("HOME" . ?h) ("PROJECT" . ?p) ("MATH" . ?m) ("CS" . ?c)))
+    (setq org-tag-alist '(("WORK" . ?w) ("HOME" . ?h) ("PROJECT" . ?p) ("MATH" . ?m) ("CS" . ?c) ("Journal" .?j)))
 
     (use-package langtool :defer 1
       :config
@@ -282,6 +284,13 @@ Inside a code-block, just call `self-insert-command'."
           (if (null opening)
               (insert "’")
             (insert "‘’")
-            (forward-char -1)))))))
+            (forward-char -1)))))
+
+
+
+    ;; pomodoro implementation in org
+    ;; https://github.com/lolownia/org-pomodoro
+    (use-package org-pomodoro
+      :bind ("C-c o p" . org-pomodoro))))
 
 (provide 'setup-org)

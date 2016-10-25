@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-23 23:42:21 csraghunandan>
+;; Time-stamp: <2016-10-25 13:00:46 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -46,6 +46,12 @@ It added extra strings at the front and back of the default dired buffer name."
       (add-hook 'dired-mode-hook #'dired-omit-mode)
       (setq dired-omit-files
             (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$")))))
+
+;; filter dired lists by regexp, fuzzy matching or string
+;; https://github.com/Fuco1/dired-hacks#dired-filter
+(use-package dired-narrow
+  :bind (:map dired-mode-map
+         ("/" . dired-narrow-regexp)))
 
 ;; extensions for `dired-mode'
 ;; https://www.emacswiki.org/emacs/DiredPlus

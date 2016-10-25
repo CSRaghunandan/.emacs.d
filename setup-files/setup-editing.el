@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-24 13:20:42 csraghunandan>
+;; Time-stamp: <2016-10-25 12:58:16 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -35,6 +35,10 @@ remove the comment characters from that line."
         (delete-char 1))
       (insert-char ? )))) ; insert space
 
+(bind-keys*
+ ("M-j" . rag/pull-up-line)
+ ("s-j" . delete-indentation))
+
 (defun rag/smart-open-line ()
   "Insert an empty line after the current line.
 Position the cursor at its beginning, according to the current mode."
@@ -51,6 +55,10 @@ Position the cursor at it's beginning, according to the current mode."
   (newline-and-indent)
   (forward-line -1)
   (indent-according-to-mode))
+
+(bind-keys
+ ("C-o" . rag/smart-open-line)
+ ("C-S-o" . rag/smart-open-line-above))
 
 
 
@@ -97,6 +105,9 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
         (kill-region (line-beginning-position) (line-beginning-position 2))
         (back-to-indentation)))))
 
+(bind-key "C-w" 'xah-cut-line-or-region)
+(bind-key "M-w" 'xah-copy-line-or-region)
+
 
 
 (defun rag/select-inside-line ()
@@ -105,6 +116,8 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
   (mwim-beginning-of-code-or-line)
   (set-mark (line-end-position))
   (exchange-point-and-mark))
+
+(bind-key "C-c l" 'rag/select-inside-line)
 
 ;; align commands
 (defun rag/align-whitespace (start end)
@@ -352,22 +365,15 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 (add-hook 'before-save-hook #'time-stamp)
 
 (bind-keys*
- ("C-o" . rag/smart-open-line)
- ("C-S-o" . rag/smart-open-line-above)
- ("M-j" . rag/pull-up-line)
- ("s-j" . delete-indentation)
  ("C-M-SPC" . cycle-spacing)
  ("M-?" . mark-paragraph)
  ("C-h" . delete-backward-char)
  ("C-M-h" . backward-kill-word)
- ("C-w" . xah-cut-line-or-region)
- ("M-w" . xah-copy-line-or-region)
  ("M-;" . comment-line)
- ("C-x l" . rag/select-inside-line)
  ("C-x C-S-o" . xah-clean-whitespace))
 
 (use-package simple :ensure nil
-  :diminish auto-fill-mode
+  :diminish auto-fill-function
   :config
   (setq comment-auto-fill-only-comments t)
   (add-hook 'prog-mode-hook 'auto-fill-mode)

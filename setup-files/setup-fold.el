@@ -1,10 +1,10 @@
-;; Time-stamp: <2016-10-07 11:09:54 csraghunandan>
+;; Time-stamp: <2016-10-24 19:18:27 csraghunandan>
 
 ;; fold-dwim
 ;; https://github.com/emacsmirror/fold-dwim
 ;; fold based on syntax aka, fold do what I mean
 (use-package fold-dwim
-  :bind* ("C-c C-f" . fold-dwim-toggle)
+  :bind ("C-c t f" . fold-dwim-toggle)
   :config
   (defhydra hydra-fold (:pre (hs-minor-mode 1))
     "fold"
