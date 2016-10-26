@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-24 19:24:38 csraghunandan>
+;; Time-stamp: <2016-10-25 19:03:35 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -223,7 +223,7 @@ this with to-do items than with projects or headings."
             ("CANCELED" . (:foreground "red" :weight bold :strike-through t))
             ("DONE"     . (:foreground "black" :weight bold :background "#91ba31"))))
 
-    (setq org-tag-alist '(("WORK" . ?w) ("HOME" . ?h) ("PROJECT" . ?p) ("MATH" . ?m) ("CS" . ?c) ("Journal" .?j)))
+    (setq org-tag-alist '(("WORK" . ?w) ("LIFE" . ?h) ("PROJECT" . ?p) ("MATH" . ?m) ("CS" . ?c) ("Journal" .?j)))
 
     (use-package langtool :defer 1
       :config

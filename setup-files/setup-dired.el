@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-25 13:00:46 csraghunandan>
+;; Time-stamp: <2016-10-26 09:10:21 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -53,6 +53,11 @@ It added extra strings at the front and back of the default dired buffer name."
   :bind (:map dired-mode-map
          ("/" . dired-narrow-regexp)))
 
+;; a hydra to sort files in dired easily
+;; https://gitlab.com/xuhdev/dired-quick-sort
+(use-package dired-quick-sort
+  :config (dired-quick-sort-setup))
+
 ;; extensions for `dired-mode'
 ;; https://www.emacswiki.org/emacs/DiredPlus
 (use-package dired+
@@ -64,6 +69,7 @@ It added extra strings at the front and back of the default dired buffer name."
   ;; show more details by default
   (setq diredp-hide-details-initially-flag nil)
   (setq diredp-hide-details-propagate-flag nil)
+
   ;; rewise multiple open files so that it only opens one window
   (define-key dired-mode-map (kbd "F")
     (lambda ()

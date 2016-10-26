@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-08 22:09:45 csraghunandan>
+;; Time-stamp: <2016-10-25 13:19:09 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -119,6 +119,8 @@ With prefix argument (`C-u'), also kill the special buffers."
                 (message "Killing buffer %s" buf-name)
                 (kill-buffer buf))))))))
 
+  (bind-key "C-c p K" 'modi/kill-non-project-buffers)
+
 
 
   (defhydra hydra-projectile-other-window (:color teal)
@@ -142,7 +144,7 @@ _f_/_s-f_: file               _a_: counsel-ag        ^^    _i_: Ibuffer         
 ^^    _D_: dir                _A_: counsel-ag-root
 "
     ("a"   counsel-ag)
-    ("A"   rag/counsel-ag-projectile-at-point)
+    ("A"   rag/counsel-ag-project-at-point)
     ("G"   counsel-git-grep)
     ("b"   projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)

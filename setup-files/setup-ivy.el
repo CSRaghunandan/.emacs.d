@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-25 12:27:42 csraghunandan>
+;; Time-stamp: <2016-10-25 15:40:30 csraghunandan>
 
 ;; flx, ivy
 
@@ -12,7 +12,7 @@
   :diminish ivy-mode
   :init (ivy-mode 1)
   :bind
-  (:map ivy-mode-map (("C-:" . ivy-avy)))
+  (:map ivy-mode-map ("C-:" . ivy-avy))
   :config
   ;; M-w when in ivy minibuffer will copy all the completion candidates to kill ring.
   (bind-key "M-w" 'ivy-kill-ring-save ivy-mode-map)
