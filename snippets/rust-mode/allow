@@ -1,4 +1,0 @@
-# key: #a
-# name: allow dead_code
-# --
-#[allow(dead_code)]

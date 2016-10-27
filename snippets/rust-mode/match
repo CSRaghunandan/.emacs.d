@@ -1,7 +1,0 @@
-# key: m
-# name: match
-# expand-env: ((yas-wrap-around-region 't))
-# --
-match ${1:expr} {
-    $0
-}

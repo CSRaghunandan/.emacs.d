@@ -1,4 +1,0 @@
-# key: #cf
-# name: cfg flag
-# --
-#[cfg(${1:flag})]

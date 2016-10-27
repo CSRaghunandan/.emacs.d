@@ -1,6 +1,0 @@
-# key: i
-# name: if
-# --
-if ${1:pred} {
-    $0
-}

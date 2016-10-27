@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-25 12:58:16 csraghunandan>
+;; Time-stamp: <2016-10-27 13:18:22 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -106,7 +106,7 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
         (back-to-indentation)))))
 
 (bind-key "C-w" 'xah-cut-line-or-region)
-(bind-key "M-w" 'xah-copy-line-or-region)
+(bind-key* "M-w" 'xah-copy-line-or-region)
 
 
 

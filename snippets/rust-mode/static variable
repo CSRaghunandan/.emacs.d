@@ -1,6 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: static variable
-# key: static
-# binding: direct-keybinding
-# --
-static ${1:NAME$(upcase yas/text)}: ${2:type} = ${3:val};

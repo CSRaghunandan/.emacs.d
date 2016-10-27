@@ -1,6 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: extern crate
-# key: ec
-# binding: direct-keybinding
-# --
-extern crate ${1:name};

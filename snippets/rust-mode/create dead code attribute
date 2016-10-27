@@ -1,4 +1,0 @@
-# key: #!d
-# name: crate allow(dead_code)
-# --
-#![allow(dead_code)]

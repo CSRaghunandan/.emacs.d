@@ -1,6 +1,0 @@
-# key: mod
-# name: module
-# --
-mod ${1:name} {
-    $0
-}

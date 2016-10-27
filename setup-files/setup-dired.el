@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-26 09:10:21 csraghunandan>
+;; Time-stamp: <2016-10-26 13:16:51 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -36,6 +36,17 @@ It added extra strings at the front and back of the default dired buffer name."
 
     (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name))
 
+  ;; filter dired lists by regexp, fuzzy matching or string
+  ;; https://github.com/Fuco1/dired-hacks#dired-filter
+  (use-package dired-narrow
+    :bind (:map dired-mode-map
+                ("/" . dired-narrow-regexp)))
+
+  ;; a hydra to sort files in dired easily
+  ;; https://gitlab.com/xuhdev/dired-quick-sort
+  (use-package dired-quick-sort
+    :config (dired-quick-sort-setup))
+
   ;; dired-x - to hide uninteresting files in dired
   (use-package dired-x :ensure nil
     :config
@@ -46,17 +57,6 @@ It added extra strings at the front and back of the default dired buffer name."
       (add-hook 'dired-mode-hook #'dired-omit-mode)
       (setq dired-omit-files
             (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$")))))
-
-;; filter dired lists by regexp, fuzzy matching or string
-;; https://github.com/Fuco1/dired-hacks#dired-filter
-(use-package dired-narrow
-  :bind (:map dired-mode-map
-         ("/" . dired-narrow-regexp)))
-
-;; a hydra to sort files in dired easily
-;; https://gitlab.com/xuhdev/dired-quick-sort
-(use-package dired-quick-sort
-  :config (dired-quick-sort-setup))
 
 ;; extensions for `dired-mode'
 ;; https://www.emacswiki.org/emacs/DiredPlus
