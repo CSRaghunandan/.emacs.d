@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-14 12:44:01 csraghunandan>
+;; Time-stamp: <2016-10-29 01:18:53 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
@@ -10,7 +10,7 @@
   (defun my-haskell-mode-hook ()
     "Hook for `haskell-mode'."
     (set (make-local-variable 'company-backends)
-         '((company-intero company-files company-yasnippet))))
+         '((company-intero company-files))))
   (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
   (add-hook 'haskell-mode-hook 'company-mode)
   (add-hook 'haskell-mode-hook 'haskell-indentation-mode)

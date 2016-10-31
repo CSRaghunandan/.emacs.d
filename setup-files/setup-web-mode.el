@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-13 17:56:36 csraghunandan>
+;; Time-stamp: <2016-10-29 01:20:45 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -57,7 +57,7 @@
   :config
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)
-         '((company-css company-dabbrev-code company-yasnippet company-files))))
+         '((company-css company-dabbrev-code company-files))))
   (add-hook 'css-mode-hook 'my-css-mode-hook)
   (add-hook 'css-mode-hook 'company-mode))
 

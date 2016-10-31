@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-22 14:12:52 csraghunandan>
+;; Time-stamp: <2016-10-29 01:18:41 csraghunandan>
 
 ;; emacs-lisp-mpde
 ;; configure company mode for emacs-lisp-mode
@@ -7,7 +7,7 @@
   (defun my-elisp-mode-hook ()
     "Hook for `emacs-lisp-mode'"
     (set (make-local-variable 'company-backends)
-         '((company-capf company-dabbrev-code company-yasnippet company-files))))
+         '((company-capf company-dabbrev-code company-files))))
   (add-hook 'emacs-lisp-mode-hook 'my-elisp-mode-hook)
   (add-hook 'emacs-lisp-mode-hook 'company-mode)
 

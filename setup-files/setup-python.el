@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-15 02:34:30 csraghunandan>
+;; Time-stamp: <2016-10-29 01:19:09 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -23,7 +23,7 @@
     (defun my-anaconda-mode-hook ()
       "Hook for `web-mode'."
       (set (make-local-variable 'company-backends)
-           '((company-anaconda company-files company-yasnippet))))
+           '((company-anaconda company-files))))
     (add-hook 'python-mode-hook 'my-anaconda-mode-hook))
 
   ;; for testing python code

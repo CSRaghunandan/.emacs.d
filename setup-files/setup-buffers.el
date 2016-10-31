@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-24 00:12:00 csraghunandan>
+;; Time-stamp: <2016-10-29 00:56:19 csraghunandan>
 
 ;; configuration for buffers
 
@@ -107,13 +107,18 @@ Emacs session."
       (delete-file filename)
       (kill-buffer-ask buffer))))
 
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive) (revert-buffer t t))
+
 (bind-keys*
  ("C-c o k" . rag/reopen-killed-file)
  ("C-c d f" . rag/delete-file-visited-by-buffer)
  ("C-x k" . rag/kill-a-buffer)
  ("C-c n n" . rename-file)
  ("C-c m d" . make-directory)
- ("C-c b f" . rag/make-backup)
+ ("<f6>" . rag/make-backup)
+ ("<f5>" . revert-buffer-no-confirm)
  ("C-c b n" . rag/copy-buffer-file-name-as-kill))
 
 ;; diminish auto-revert-mode emacs

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-18 16:37:30 csraghunandan>
+;; Time-stamp: <2016-10-31 09:47:27 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -9,7 +9,7 @@
   (progn
     (add-hook 'rust-mode-hook 'flycheck-mode)
     (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
-    (add-hook 'rust-mode-hook 'electric-operator-mode)
+    ;; (add-hook 'rust-mode-hook 'electric-operator-mode)
     (add-hook 'rust-mode-hook #'racer-mode)
     (add-hook 'rust-mode-hook 'cargo-minor-mode)
     (add-hook 'rust-mode-hook
@@ -29,8 +29,8 @@
         (setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
         (defun my-racer-mode-hook ()
           (set (make-local-variable 'company-backends)
-               '((company-capf company-files company-yasnippet))))
-        (add-hook 'racer-mode-hook 'my-racer-mode-hook)
+               '((company-capf company-files))))
+
         (add-hook 'racer-mode-hook #'company-mode)
         (add-hook 'racer-mode-hook #'eldoc-mode)))))
 

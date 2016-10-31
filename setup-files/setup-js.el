@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-15 02:34:21 csraghunandan>
+;; Time-stamp: <2016-10-29 01:19:22 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -16,7 +16,7 @@
     (defun my-js-mode-hook ()
       "Hook for `js-mode'."
       (set (make-local-variable 'company-backends)
-           '((company-tern company-files company-yasnippet))))
+           '((company-tern company-files))))
     (add-hook 'js2-mode-hook 'my-js-mode-hook)
     (add-hook 'js2-mode-hook 'company-mode))
 
