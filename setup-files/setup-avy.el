@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-13 18:58:35 csraghunandan>
+;; Time-stamp: <2016-11-03 21:04:27 csraghunandan>
 
 ;; avy, avy-zap
 
@@ -18,5 +18,11 @@
 ;; Use avy frontend to yank till the match entered by user
 (use-package avy-zap
   :bind (("C-c z" . avy-zap-to-char-dwim)))
+
+;; ace-link
+;; https://github.com/abo-abo/ace-link
+;; quickly traverse through links in buffers
+(use-package ace-link
+  :config (ace-link-setup-default))
 
 (provide 'setup-avy)
