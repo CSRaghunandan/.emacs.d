@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-06 13:44:38 csraghunandan>
+;; Time-stamp: <2016-11-10 10:19:50 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -299,6 +299,10 @@ Inside a code-block, just call `self-insert-command'."
             (forward-char -1)))))
 
 
+
+    ;; export to twitter bootstrap
+    (use-package ox-twbs
+      :config (require 'ox-twbs))
 
     ;; pomodoro implementation in org
     ;; https://github.com/lolownia/org-pomodoro
