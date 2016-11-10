@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-29 01:20:45 csraghunandan>
+;; Time-stamp: <2016-11-10 10:17:44 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -10,6 +10,10 @@
   ;; start emmet mode after web-mode launches
   (add-hook 'web-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook (lambda() (highlight-indent-guides-mode -1)))
+
+  ;; highlight matching tag
+  (setq web-mode-enable-current-element-highlight t)
+
   (defun my-web-mode-hook ()
     "Hook for `web-mode'."
     (set (make-local-variable 'company-backends)

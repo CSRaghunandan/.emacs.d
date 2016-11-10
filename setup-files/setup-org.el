@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-25 19:03:35 csraghunandan>
+;; Time-stamp: <2016-11-06 13:44:38 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -119,7 +119,13 @@
 
     ;; http://emacs.stackexchange.com/a/17513/115
     (setq org-special-ctrl-a/e '(t ; For C-a. Possible values: nil, t, 'reverse
-                                 . t)) ; For C-e. Possible values: nil, t, 'reverse
+                                 . t)) ; For C-e. Possible values: nil, t,
+                                        ; 'reverse
+    ;; special keys for killing headline
+    (setq org-special-ctrl-k t)
+    ;; preserve indentation inside of source blocks
+    (setq org-src-preserve-indentation t)
+
     (setq org-catch-invisible-edits 'smart) ; http://emacs.stackexchange.com/a/2091/115
     (setq org-indent-indentation-per-level 1) ; default = 2
 
@@ -134,6 +140,12 @@
     ;; set to nil, formula will not be automatically evaluated when hitting TAB.
     ;; But you can still using ‘C-c =’ to evaluate it manually when needed.
     (setq org-table-formula-evaluate-inline nil) ; default = t
+
+    ;; imenu should use a depth of 3 instead of 2
+    (setq org-imenu-depth 3)
+
+    ;; blank lines are removed when exiting code edit buffer
+    (setq org-src-strip-leading-and-trailing-blank-lines t)
 
 
 
