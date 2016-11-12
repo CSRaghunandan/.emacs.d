@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-25 13:19:09 csraghunandan>
+;; Time-stamp: <2016-11-12 10:11:41 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -10,6 +10,7 @@
 
   ;; Don't consider my home dir as a project
   (add-to-list 'projectile-ignored-projects `,(concat (getenv "HOME") "/"))
+  (add-to-list 'projectile-ignored-projects "~/.stack/global-project")
 
   ;; Git projects should be marked as projects in top-down fashion,
   ;; so that each git submodule can be a projectile project.
@@ -42,7 +43,8 @@ packages.")
     '(;;"--no-ignore-vcs"                  ; Ignore files/dirs ONLY from `.ignore'
       "--line-number"                    ; line numbers
       "--smart-case"
-      "--follow")                        ; follow symlinks
+      "--follow"
+      ,(concat "--ignore-file /home/" (getenv "USER") "/.ignore"))                        ; follow symlinks
     "Default rg arguments used in the functions in `projectile' package.")
 
   ;; Use `ag' all the time if available
