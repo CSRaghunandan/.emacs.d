@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-12 10:11:41 csraghunandan>
+;; Time-stamp: <2016-11-15 18:52:48 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -10,7 +10,6 @@
 
   ;; Don't consider my home dir as a project
   (add-to-list 'projectile-ignored-projects `,(concat (getenv "HOME") "/"))
-  (add-to-list 'projectile-ignored-projects "~/.stack/global-project")
 
   ;; Git projects should be marked as projects in top-down fashion,
   ;; so that each git submodule can be a projectile project.
@@ -40,31 +39,30 @@ packages.")
 ;;; Default rg arguments
   ;; https://github.com/BurntSushi/ripgrep
   (defconst modi/rg-arguments
-    '(;;"--no-ignore-vcs"                  ; Ignore files/dirs ONLY from `.ignore'
-      "--line-number"                    ; line numbers
+    `("--line-number"                     ; line numbers
       "--smart-case"
-      "--follow"
-      ,(concat "--ignore-file /home/" (getenv "USER") "/.ignore"))                        ; follow symlinks
+      "--follow")                          ; follow symlinks
     "Default rg arguments used in the functions in `projectile' package.")
 
   ;; Use `ag' all the time if available
   (defun modi/advice-projectile-use-ag ()
     "Always use `ag' for getting a list of all files in the project."
     (mapconcat 'identity
-  	       (append '("\\ag") ; used unaliased version of `ag': \ag
-  		       modi/ag-arguments
-  		       '("-0" ; output null separated results
-  			 "-g ''")) ; get file names matching the regex '' (all files)
-  	       " "))
+               (append '("\\ag") ; used unaliased version of `ag': \ag
+                       modi/ag-arguments
+                       '("-0" ; output null separated results
+                         "-g ''")) ; get file names matching the regex '' (all files)
+               " "))
 
   (defun modi/advice-projectile-use-rg ()
     "Always use `rg' for getting a list of all files in the project."
     (mapconcat 'identity
-  	       (append '("\\rg") ; used unaliased version of `rg': \rg
-  		       modi/rg-arguments
-		       '("--null" ; output null separated results,
-			 "--files")) ; get file names matching the regex '' (all files)
-  	       " "))
+               (append '("\\rg") ; used unaliased version of `rg': \rg
+                       modi/rg-arguments
+                       '("--null" ; output null separated results,
+                         "--files")) ; get file names matching the regex '' (all files)
+               " "))
+
   ;; ;; Use `rg' all the time if available
   ;; (if (executable-find "rg")
   ;;     (progn

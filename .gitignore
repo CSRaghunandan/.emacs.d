@@ -18,3 +18,4 @@ url/
 diminish-modes-1.el
 history
 *.elc
+setup-files/.tern-port
