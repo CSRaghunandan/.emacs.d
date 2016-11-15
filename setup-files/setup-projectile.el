@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-15 18:52:48 csraghunandan>
+;; Time-stamp: <2016-11-15 23:33:26 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -11,30 +11,7 @@
   ;; Don't consider my home dir as a project
   (add-to-list 'projectile-ignored-projects `,(concat (getenv "HOME") "/"))
 
-  ;; Git projects should be marked as projects in top-down fashion,
-  ;; so that each git submodule can be a projectile project.
-  (setq projectile-project-root-files-bottom-up
-  	(delete ".git" projectile-project-root-files-bottom-up))
-  (add-to-list 'projectile-project-root-files ".git")
-
-  (setq projectile-project-root-files-functions
-  	'(projectile-root-local
-  	  projectile-root-top-down ; First look for projects in top-down order
-  	  projectile-root-bottom-up)) ; Then in bottom-up order
-
 
-
-  ;;; Default ag arguments
-  ;; https://github.com/ggreer/the_silver_searcher
-  (defconst modi/ag-arguments
-    '("--nogroup" ; mandatory argument for ag.el as per https://github.com/Wilfred/ag.el/issues/41
-      ;;"--skip-vcs-ignores"               ; Ignore files/dirs ONLY from `.ignore'
-      "--numbers"                        ; line numbers
-      "--smart-case"
-      ;; "--one-device"                      ; do not cross mounts when searching
-      "--follow")                        ; follow symlinks
-    "Default ag arguments used in the functions in `ag', `counsel' and `projectile'
-packages.")
 
 ;;; Default rg arguments
   ;; https://github.com/BurntSushi/ripgrep
@@ -44,16 +21,6 @@ packages.")
       "--follow")                          ; follow symlinks
     "Default rg arguments used in the functions in `projectile' package.")
 
-  ;; Use `ag' all the time if available
-  (defun modi/advice-projectile-use-ag ()
-    "Always use `ag' for getting a list of all files in the project."
-    (mapconcat 'identity
-               (append '("\\ag") ; used unaliased version of `ag': \ag
-                       modi/ag-arguments
-                       '("-0" ; output null separated results
-                         "-g ''")) ; get file names matching the regex '' (all files)
-               " "))
-
   (defun modi/advice-projectile-use-rg ()
     "Always use `rg' for getting a list of all files in the project."
     (mapconcat 'identity
@@ -62,16 +29,6 @@ packages.")
                        '("--null" ; output null separated results,
                          "--files")) ; get file names matching the regex '' (all files)
                " "))
-
-  ;; ;; Use `rg' all the time if available
-  ;; (if (executable-find "rg")
-  ;;     (progn
-  ;; 	(advice-remove 'projectile-get-ext-command #'modi/advice-projectile-use-ag)
-  ;; 	  (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg))
-  ;;   ;; Else use `ag' if available
-  ;;   (when (executable-find "ag")
-  ;;     (advice-remove 'projectile-get-ext-command #'modi/advice-projectile-use-rg)
-  ;;     (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-ag)))
 
   (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)
 
