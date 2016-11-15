@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-10 10:17:44 csraghunandan>
+;; Time-stamp: <2016-11-15 18:04:52 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -41,6 +41,11 @@
   ;; to get completion for HTML stuff
   ;; https://github.com/osv/company-web
   (use-package company-web)
+
+  ;; editing enhancements for web-mode
+  ;; https://github.com/jtkDvlp/web-mode-edit-element
+  (use-package web-mode-edit-element
+    :config (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
 
   ;; snippets for HTML
   ;; https://github.com/smihica/emmet-mode
