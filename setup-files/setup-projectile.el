@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-15 23:33:26 csraghunandan>
+;; Time-stamp: <2016-11-18 12:25:37 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -10,6 +10,17 @@
 
   ;; Don't consider my home dir as a project
   (add-to-list 'projectile-ignored-projects `,(concat (getenv "HOME") "/"))
+
+  ;; Git projects should be marked as projects in top-down fashion,
+  ;; so that each git submodule can be a projectile project.
+  (setq projectile-project-root-files-bottom-up
+        (delete ".git" projectile-project-root-files-bottom-up))
+  (add-to-list 'projectile-project-root-files ".git")
+
+  (setq projectile-project-root-files-functions
+        '(projectile-root-local
+          projectile-root-top-down ; First look for projects in top-down order
+          projectile-root-bottom-up)) ; Then in bottom-up order
 
 
 
