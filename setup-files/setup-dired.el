@@ -1,8 +1,10 @@
-;; Time-stamp: <2016-10-31 09:42:50 csraghunandan>
+;; Time-stamp: <2016-11-18 13:02:11 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
 (use-package dired :ensure nil
+  :bind (:map dired-mode-map
+              ("/" . dired-narrow-regexp))
   :config
   (progn
     (setq delete-by-moving-to-trash t)
@@ -38,9 +40,7 @@ It added extra strings at the front and back of the default dired buffer name."
 
   ;; filter dired lists by regexp, fuzzy matching or string
   ;; https://github.com/Fuco1/dired-hacks#dired-filter
-  (use-package dired-narrow
-    :bind (:map dired-mode-map
-                ("/" . dired-narrow-regexp)))
+  (use-package dired-narrow)
 
   ;; a hydra to sort files in dired easily
   ;; https://gitlab.com/xuhdev/dired-quick-sort

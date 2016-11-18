@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-09 09:34:16 csraghunandan>
+;; Time-stamp: <2016-11-18 12:58:21 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -28,7 +28,7 @@
   :config
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (setq highlight-indent-guides-method 'character
-	highlight-indent-guides-character ?ا)
+	highlight-indent-guides-character ?∣)
   (set-face-foreground 'highlight-indent-guides-character-face "#696969"))
 
 (provide 'setup-highlight)
