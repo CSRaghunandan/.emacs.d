@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-18 13:02:11 csraghunandan>
+;; Time-stamp: <2016-11-18 15:47:30 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -16,7 +16,9 @@
     (setq dired-recursive-deletes 'always)
     ;; fix `ls' for macOS.
     (setq insert-directory-program "gls" dired-use-ls-dired t)
+    ;; makes dired guess the target directory
     (setq dired-dwim-target t)
+
     ;; Dired listing switches
     ;;  -a : Do not ignore entries starting with .
     ;;  -l : Use long listing format.
@@ -27,8 +29,10 @@
     ;;       '/' to directories, etc.
     ;; default value for dired: "-al"
     (setq dired-listing-switches "-alGhvF --group-directories-first")
+
     ;; auto-revert dired
     (setq dired-auto-revert-buffer t)
+
     (defun rag/dired-rename-buffer-name ()
       "Rename the dired buffer name to distinguish it from file buffers.
 It added extra strings at the front and back of the default dired buffer name."

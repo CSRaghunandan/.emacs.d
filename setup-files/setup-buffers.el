@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-29 00:56:19 csraghunandan>
+;; Time-stamp: <2016-11-18 15:49:27 csraghunandan>
 
 ;; configuration for buffers
 
@@ -88,9 +88,9 @@ Emacs session."
           (find-file file)))
     (error "No recently-killed files to reopen")))
 
-;; with no prefix, kill the current buffer without prompt
-;; with prefix, select which buffer to kill
 (defun rag/kill-a-buffer (askp)
+  "with no prefix, kill the current buffer without prompt
+with prefix, select which buffer to kill"
   (interactive "P")
   (if askp
       (kill-buffer (funcall completing-read-function
@@ -124,10 +124,6 @@ Emacs session."
 ;; diminish auto-revert-mode emacs
 (use-package autorevert
   :diminish auto-revert-mode)
-
-;; make C-x <left> and C-x <right> only switch between buffers which have files
-;; associated with them
-(set-frame-parameter (selected-frame) 'buffer-predicate #'buffer-file-name)
 
 ;; hide uninteresting buffers in `ibuffer-mode'
 (add-to-list 'ibuffer-never-show-predicates "^\\*scratch")
