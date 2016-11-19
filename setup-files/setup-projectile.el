@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-19 13:58:56 csraghunandan>
+;; Time-stamp: <2016-11-19 19:14:00 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -9,8 +9,9 @@
         projectile-enable-caching t)
 
   ;; Don't consider my home dir as a project
-  (add-to-list 'projectile-ignored-projects `,(concat (getenv "HOME") "/"))
+  (add-to-list 'projectile-ignored-projects "~/")
   (add-to-list 'projectile-ignored-projects "~/.stack/global-project")
+  (add-to-list 'projectile-ignored-projects ".*\.git$")
 
   ;; don't shout when not in a projectile project
   (setq projectile-require-project-root nil)
