@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-11-19 19:31:37 csraghunandan>
+;; Time-stamp: <2016-11-19 22:49:14 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -9,7 +9,7 @@
   (("M-x" . counsel-M-x)
    ("C-c r d" . counsel-goto-recent-directory)
    ("C-c d d" . counsel-descbinds)
-   ("C-c s s" . counsel-ag)
+   ("C-c r g" . counsel-rg)
    ("C-c s d" . rag/counsel-ag-project-at-point)
    ("C-x C-f" . counsel-find-file)
    ("C-c g g" . counsel-git)
