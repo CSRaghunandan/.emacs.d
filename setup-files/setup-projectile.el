@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-19 19:41:05 csraghunandan>
+;; Time-stamp: <2016-11-19 20:13:39 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -8,23 +8,7 @@
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)
 
-  ;; Don't consider my home dir as a project
-  (add-to-list 'projectile-ignored-projects "/Users/csraghunandan/")
   (add-to-list 'projectile-ignored-projects "~/.stack/global-project")
-
-  ;; don't shout when not in a projectile project
-  (setq projectile-require-project-root nil)
-
-  ;; Git projects should be marked as projects in top-down fashion,
-  ;; so that each git submodule can be a projectile project.
-  (setq projectile-project-root-files-bottom-up
-        (delete ".git/" projectile-project-root-files-bottom-up))
-  (add-to-list 'projectile-project-root-files ".git")
-
-  (setq projectile-project-root-files-functions
-        '(projectile-root-local
-          projectile-root-top-down ; First look for projects in top-down order
-          projectile-root-bottom-up)) ; Then in bottom-up order
 
 
 
