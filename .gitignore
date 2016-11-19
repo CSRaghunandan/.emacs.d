@@ -19,3 +19,5 @@ diminish-modes-1.el
 history
 *.elc
 setup-files/.tern-port
+git/
+.DS_STORE
