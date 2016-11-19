@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-11-18 15:45:38 csraghunandan>
+;; Time-stamp: <2016-11-18 15:53:13 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -7,7 +7,7 @@
 (use-package counsel :defer t
   :bind*
   (("M-x" . counsel-M-x)
-   ("C-c r d" counsel-goto-recent-directory)
+   ("C-c r d" . counsel-goto-recent-directory)
    ("C-c d d" . counsel-descbinds)
    ("C-c s s" . counsel-ag)
    ("C-c s d" . rag/counsel-ag-project-at-point)
@@ -63,7 +63,9 @@
     (interactive)
     (counsel-ag (thing-at-point 'symbol) (projectile-project-root)))
 
+  ;; find file at point
   (setq counsel-find-file-at-point t)
+
   ;; ignore . files or temporary files
   (setq counsel-find-file-ignore-regexp
 	(concat

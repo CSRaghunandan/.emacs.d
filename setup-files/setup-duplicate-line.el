@@ -1,7 +1,6 @@
-;; Time-stamp: <2016-10-07 11:05:47 csraghunandan>
+;; Time-stamp: <2016-11-18 16:28:30 csraghunandan>
 
 ;; duplicate line or region
-;; if prefixed with an argument, line or region will be duplicated that many times
 (defun duplicate-region (&optional num start end)
   "Duplicates the region bounded by START and END NUM times.
 If no START and END is provided, the current region-beginning and
@@ -44,6 +43,7 @@ If there's no region, the current line will be duplicated."
         (one-shot-keybinding "d" (λ (duplicate-region 1 beg end))))
     (duplicate-current-line arg)
     (one-shot-keybinding "d" 'duplicate-current-line)))
+
 (bind-key "C-c d r" 'duplicate-current-line-or-region)
 
 (provide 'setup-duplicate-line)

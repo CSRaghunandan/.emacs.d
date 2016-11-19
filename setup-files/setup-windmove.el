@@ -1,16 +1,16 @@
-;; Time-stamp: <2016-10-06 22:20:29 csraghunandan>
+;; Time-stamp: <2016-11-18 16:20:20 csraghunandan>
 
-;; split window and move there.
 (defun rag/split-below-and-move ()
+  "split window below and move there"
   (interactive)
   (split-window-below)
   (other-window 1))
 (defun rag/split-right-and-move ()
+  "split window right and move there"
   (interactive)
   (split-window-right)
   (other-window 1))
 
-;; toggle frame fullscreen
 (defun rag/toggle-frame-fullscreen-non-native ()
   "Toggle full screen non-natively. Uses the `fullboth' frame paramerter
    rather than `fullscreen'. Useful to fullscreen on OSX w/o animations."

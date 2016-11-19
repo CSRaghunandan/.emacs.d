@@ -1,6 +1,5 @@
-;; Time-stamp: <2016-10-23 23:51:51 csraghunandan>
+;; Time-stamp: <2016-11-18 16:31:00 csraghunandan>
 
-;; automatically upgrade all packages
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
 This function is equivalent to `list-packages', followed by a

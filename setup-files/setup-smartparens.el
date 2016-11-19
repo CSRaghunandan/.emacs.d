@@ -1,10 +1,11 @@
-;; Time-stamp: <2016-11-18 12:18:33 csraghunandan>
+;; Time-stamp: <2016-11-18 16:27:57 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
 (use-package smartparens
   :config
   (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode web-mode org-mode)))
+
   (defmacro def-pairs (pairs)
     `(progn
        ,@(cl-loop for (key . val) in pairs
@@ -22,6 +23,7 @@
               (single-quote . "'")
               (double-quote . "\"")
               (back-quote   . "")))
+
   (bind-keys
    :map smartparens-mode-map
    ("C-M-a" . sp-beginning-of-sexp)
@@ -72,7 +74,8 @@
   (smartparens-global-mode 1)
 
   (require 'smartparens-config)
-  ;; fix indentation for braces.
+
+  ;; indent with braces for C like languages
   (sp-with-modes '(rust-mode js2-mode css-mode)
     (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
     (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")

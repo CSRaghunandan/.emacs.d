@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-29 00:58:42 csraghunandan>
+;; Time-stamp: <2016-11-18 16:25:51 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -18,16 +18,20 @@
 (setq ring-bell-function 'ignore)
 ;; resize minibuffer window to accommodate text
 (setq resize-mini-window t)
+;; don't show splash screen when starting emacs
 (setq inhibit-splash-screen t)
-(setq initial-scratch-message ";; Let the games begin.\n\n")
+
+;; cursor settings
 (setq-default cursor-type '(bar . 1))
 (blink-cursor-mode -1)
+
+;; disable the ugly scrollbars
 (scroll-bar-mode -1)
 (fringe-mode '(8 . 8))
 ;; Do not make mouse wheel accelerate its action (example: scrolling)
 (setq mouse-wheel-progressive-speed nil)
 
-;; Remove background for fringe
+;; make fringe blends into the background
 (set-face-attribute 'fringe nil :background "gray21")
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box 'nil)
@@ -44,4 +48,5 @@
 
 ;; make emacs start with full screen
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
+
 (provide 'setup-theme)

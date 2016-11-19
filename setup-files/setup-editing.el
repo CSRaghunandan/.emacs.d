@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-27 13:18:22 csraghunandan>
+;; Time-stamp: <2016-11-18 15:56:46 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -6,9 +6,13 @@
 (setq kill-ring-max 200
       kill-do-not-save-duplicates t
       save-interprogram-paste-before-kill t)
+
+;; cutting and pasting uses primary clipboard
 (setq select-enable-primary t)
+;; cutting and pasting uses the clipboard
 (setq select-enable-clipboard t)
 
+;; always insert spaces, do not insert tabs
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 80) ;; default is 70
 

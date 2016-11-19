@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-06 22:17:42 csraghunandan>
+;; Time-stamp: <2016-11-18 15:57:10 csraghunandan>
 
 ;; ediff
 ;; show the difference between two files intearctively
@@ -10,7 +10,7 @@
     ;; Split windows horizontally in ediff (instead of vertically)
     (setq ediff-split-window-function #'split-window-horizontally)
 
-    (defun rag/ediff-dwim ()
+    (defun modi/ediff-dwim ()
       "Do ediff as I mean.
 If a region is active, call `ediff-regions-wordwise'.
 Else if the frame has 2 windows with identical major modes,

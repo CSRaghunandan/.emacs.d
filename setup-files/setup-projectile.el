@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-18 13:23:55 csraghunandan>
+;; Time-stamp: <2016-11-18 16:38:45 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -10,6 +10,7 @@
 
   ;; Don't consider my home dir as a project
   (add-to-list 'projectile-ignored-projects `,(concat (getenv "HOME") "/"))
+  (add-to-list 'projectile-ignored-projects "~/.stack/global-project")
 
   ;; Git projects should be marked as projects in top-down fashion,
   ;; so that each git submodule can be a projectile project.
