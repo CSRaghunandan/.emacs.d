@@ -20,3 +20,4 @@ history
 *.elc
 setup-files/.tern-port
 .DS_STORE
+.git/
