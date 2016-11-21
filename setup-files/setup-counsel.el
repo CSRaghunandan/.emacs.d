@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-11-21 14:30:52 csraghunandan>
+;; Time-stamp: <2016-11-21 14:55:36 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -56,6 +56,20 @@
      ("d" ,(reloading #'confirm-delete-file) "delete")
      ("m" ,(reloading (given-file #'rename-file "Move")) "move")
      ("b" counsel-find-file-cd-bookmark-action "cd bookmark")))
+
+  ;; counsel-rg
+  ;; Redefine `counsel-rg-base-command' with my required options, especially
+  ;; the `--follow' option to allow search through symbolic links (part of
+  ;; `modi/rg-arguments').
+  (setq counsel-rg-base-command
+        (mapconcat 'identity
+                   (append '("\\rg") ; used unaliased version of `rg': \rg
+                           modi/rg-arguments
+                           '("--no-heading" ; no file names above matching content
+                             "%s" ; This MUST be %s, not %S
+                                        ; https://github.com/abo-abo/swiper/issues/427
+                             ))
+                   " ")))
 
   (defun rag/counsel-rg-project-at-point ()
     "use counsel rg to search for the word at point in the project"
