@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-11-19 22:49:14 csraghunandan>
+;; Time-stamp: <2016-11-21 14:26:59 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -10,7 +10,7 @@
    ("C-c r d" . counsel-goto-recent-directory)
    ("C-c d d" . counsel-descbinds)
    ("C-c r g" . counsel-rg)
-   ("C-c s d" . rag/counsel-ag-project-at-point)
+   ("C-c s p" . rag/counsel-rg-project-at-point)
    ("C-x C-f" . counsel-find-file)
    ("C-c g g" . counsel-git)
    ("C-c g G" . counsel-git-grep)
@@ -58,10 +58,11 @@
      ("m" ,(reloading (given-file #'rename-file "Move")) "move")
      ("b" counsel-find-file-cd-bookmark-action "cd bookmark")))
 
-  (defun rag/counsel-ag-project-at-point ()
-    "use counsel ag to search for the word at point in the project"
+  (defun rag/counsel-rg-project-at-point ()
+    "use counsel rg to search for the word at point in the project"
     (interactive)
-    (counsel-ag (thing-at-point 'symbol) (projectile-project-root)))
+    (let ((counsel-ag-base-command counsel-rg-base-command))
+      (counsel-ag (thing-at-point 'symbol) (projectile-project-root))))
 
   ;; find file at point
   (setq counsel-find-file-at-point t)
