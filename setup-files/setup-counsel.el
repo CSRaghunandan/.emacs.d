@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-11-21 14:26:59 csraghunandan>
+;; Time-stamp: <2016-11-21 14:30:52 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -12,8 +12,7 @@
    ("C-c r g" . counsel-rg)
    ("C-c s p" . rag/counsel-rg-project-at-point)
    ("C-x C-f" . counsel-find-file)
-   ("C-c g g" . counsel-git)
-   ("C-c g G" . counsel-git-grep)
+   ("C-c g g" . counsel-git-grep)
    ("C-M-y" . counsel-yank-pop)
    ("C-c C-r" . ivy-resume)
    ("C-c f" . counsel-imenu)
