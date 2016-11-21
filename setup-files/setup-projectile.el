@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-19 20:13:39 csraghunandan>
+;; Time-stamp: <2016-11-21 14:14:33 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -8,7 +8,7 @@
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)
 
-  (add-to-list 'projectile-ignored-projects "~/.stack/global-project")
+  (add-to-list 'projectile-ignored-projects "~/.stack/global-project/")
 
 
 
@@ -93,13 +93,13 @@ With prefix argument (`C-u'), also kill the special buffers."
      PROJECTILE: %(if (fboundp 'projectile-project-root) (projectile-project-root) \"TBD\")
 ^^^^       Find               ^^   Search/Tags       ^^^^       Buffers               ^^   Cache                     ^^^^       Other
 ^^^^--------------------------^^---------------------^^^^-----------------------------^^------------------------------------------------------------------
-_f_/_s-f_: file               _a_: counsel-ag        ^^    _i_: Ibuffer               _c_: cache clear               ^^    _E_: edit project's .dir-locals.el
+_f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer               _c_: cache clear               ^^    _E_: edit project's .dir-locals.el
 ^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      _s-p_/_p_: switch to any other project
 ^^    _d_: file curr dir      _o_: multi-occur       _K_/_s-k_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
 ^^    _r_: recent file        _G_: git-grep          ^^^^                             _z_: cache current
 ^^    _D_: dir                _A_: counsel-ag-root
 "
-    ("a"   counsel-ag)
+    ("r"   counsel-rg)
     ("A"   rag/counsel-ag-project-at-point)
     ("G"   counsel-git-grep)
     ("b"   projectile-switch-to-buffer)
