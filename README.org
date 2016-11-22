@@ -15,7 +15,7 @@ Here is my emacs config.
 ** Key points
 - use of =use-package= for faster load times and loading packages only when necessary.
 - Certain packages will only work if you have the associated applications installed
-  - =rg= [to generate projectile cache and search in projects or current working directory]
+  - =ripgrep= [to generate projectile cache and search in projects or current working directory]
   - =git=    [for magit]
   - =ispell= [for spell check]
   - =racer=  [for rust completions]

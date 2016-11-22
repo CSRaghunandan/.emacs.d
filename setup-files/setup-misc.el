@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-18 16:31:00 csraghunandan>
+;; Time-stamp: <2016-11-22 16:20:15 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -64,5 +64,7 @@ not prevent downloading the actual packages (obviously)."
 (setq-default help-window-select t)
 ;; garbage collect when focus out
 (add-hook 'focus-out-hook 'garbage-collect)
+;; make links clickable
+(add-hook 'prog-mode-hook 'goto-address-mode)
 
 (provide 'setup-misc)
