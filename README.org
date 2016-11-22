@@ -15,13 +15,12 @@ Here is my emacs config.
 ** Key points
 - use of =use-package= for faster load times and loading packages only when necessary.
 - Certain packages will only work if you have the associated applications installed
-  - =ag= or =rg= [to generate projectile cache]
+  - =rg= [to generate projectile cache and search in projects or current working directory]
   - =git=    [for magit]
   - =ispell= [for spell check]
   - =racer=  [for rust completions]
   - =jedi=   [for python completions]
   - =LanguageTools= [for grammar check in org-mode]
-  - =global= & =ctags= [for ggtags]
 
 * Feedback
 Open to any feedback, corrections.

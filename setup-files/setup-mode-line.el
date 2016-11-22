@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-18 12:51:11 csraghunandan>
+;; Time-stamp: <2016-11-22 14:28:52 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -19,6 +19,7 @@
     (require 'spaceline-config)
     (spaceline-emacs-theme)
     (spaceline-info-mode)
+    (spaceline-toggle-anzu-off)
     (spaceline-toggle-selection-info-off)
     (setq spaceline-toggle-buffer-modified t)
     (spaceline-toggle-buffer-size-off)))
