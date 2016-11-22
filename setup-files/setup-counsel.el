@@ -69,7 +69,7 @@
                              "%s" ; This MUST be %s, not %S
                                         ; https://github.com/abo-abo/swiper/issues/427
                              ))
-                   " ")))
+                   " "))
 
   (defun rag/counsel-rg-project-at-point ()
     "use counsel rg to search for the word at point in the project"

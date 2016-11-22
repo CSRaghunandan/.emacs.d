@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-18 15:56:46 csraghunandan>
+;; Time-stamp: <2016-11-22 14:15:41 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -167,12 +167,6 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 ;; save and restore the previous cursor position when the buffer was killed
 (use-package saveplace
   :config (save-place-mode 1))
-
-;; insert spaces around operators smartly
-;; https://github.com/davidshepherd7/electric-operator
-(use-package electric-operator
-  :config
-  (electric-operator-add-rules-for-mode 'haskell-mode (cons "|" "| ")))
 
 
 
