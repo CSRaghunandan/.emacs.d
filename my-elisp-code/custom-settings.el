@@ -19,6 +19,12 @@
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+ '(org-agenda-files
+   (quote
+    ("~/org-mode-files/life.org" "~/org-mode-files/work.org" "~/org-mode-files/math.org" "~/org-mode-files/computer-science.org")))
+ '(org-refile-allow-creating-parent-nodes (quote confirm))
+ '(org-refile-targets (quote ((org-agenda-files :level . 1))))
+ '(org-refile-use-outline-path (quote file))
  '(package-archives
    (quote
     (("melpa" . "https://melpa.org/packages/")
@@ -26,7 +32,7 @@
      ("org" . "http://orgmode.org/elpa/"))))
  '(package-selected-packages
    (quote
-    (anzu web-mode-edit-element ox-twbs ace-link dired-ranger flyspell-correct-ivy counsel swiper ivy dired-quick-sort dired-narrow org-pomodoro dired+ free-keys recursive-narrow langtool pyvenv bm page-break-lines mwim manage-minor-mode region-bindings-mode wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent osx-trash avy-zap dired-hacks-utlis ibuffer-projectile reveal-in-osx-finder imenu-anywhere flx company-statistics pytest racket racket-mode volatile-highlights org-journal intero ac-html-angular company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
+    (org-jekyll anzu web-mode-edit-element ox-twbs ace-link dired-ranger flyspell-correct-ivy counsel swiper ivy dired-quick-sort dired-narrow org-pomodoro dired+ free-keys recursive-narrow langtool pyvenv bm page-break-lines mwim manage-minor-mode region-bindings-mode wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent osx-trash avy-zap dired-hacks-utlis ibuffer-projectile reveal-in-osx-finder imenu-anywhere flx company-statistics pytest racket racket-mode volatile-highlights org-journal intero ac-html-angular company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(python-shell-completion-native-enable nil)
  '(send-mail-function (quote sendmail-send-it))
@@ -62,7 +68,4 @@
  '(org-level-1 ((t (:inherit outline-1 :foreground "#DFAF8F" :height 1.2))))
  '(org-level-2 ((t (:inherit outline-2 :foreground "#BFEBBF" :height 1.15))))
  '(org-level-3 ((t (:inherit outline-3 :foreground "#7CB8BB" :height 1.1))))
- '(org-refile-allow-creating-parent-nodes (quote confirm))
- '(org-refile-targets (quote (org-agenda-files :level . 1)))
- '(org-refile-use-outline-path (quote file))
  '(vhl/default-face ((t (:background "gray40")))))

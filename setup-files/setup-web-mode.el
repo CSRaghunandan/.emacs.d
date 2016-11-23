@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-15 18:04:52 csraghunandan>
+;; Time-stamp: <2016-11-23 19:07:58 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -52,8 +52,8 @@
   (use-package emmet-mode
     :init (setq emmet-move-cursor-between-quotes t) ;; default nil
     :diminish (emmet-mode . " 𝛆")
-    :bind (("C-]" . emmet-next-edit-point)
-           ("C-[" . emmet-prev-edit-point))))
+    :bind (("C-c ]" . emmet-next-edit-point)
+           ("C-c [" . emmet-prev-edit-point))))
 
 ;; impatient mode - Live refresh of web pages
 ;; https://github.com/skeeto/impatient-mode

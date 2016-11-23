@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-10 10:19:50 csraghunandan>
+;; Time-stamp: <2016-11-23 16:52:07 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -47,8 +47,6 @@
 
   :config
   (progn
-    ;; set org-agenda files folder
-    (setq org-agenda-files (quote ("~/Org-mode files")))
     ;; (setq org-babel-python-command "python3")
     (org-babel-do-load-languages
      'org-babel-load-languages
@@ -71,8 +69,6 @@
     (setq org-log-reschedule 'note)
     ;; Insert only timestamp when closing an org TODO item
     (setq org-log-done 'timestamp)
-
-    ;; refile settings
 
     (setq org-agenda-archives-mode nil) ; required in org 8.0+
     (setq org-agenda-skip-comment-trees nil)
@@ -110,8 +106,8 @@
     (setq org-fontify-done-headline t)
 
     ;; code to make jump to headline work. C-c C-j.
-    (setq org-goto-interface 'outline-path-completion
-          org-goto-max-level 10)
+    (setq org-goto-interface 'outline-path-completion)
+          ;; org-goto-max-level 10)
 
     ;; Block entries from changing state to DONE while they have children
     ;; that are not DONE - http://orgmode.org/manual/TODO-dependencies.html
@@ -235,7 +231,7 @@ this with to-do items than with projects or headings."
             ("CANCELED" . (:foreground "red" :weight bold :strike-through t))
             ("DONE"     . (:foreground "black" :weight bold :background "#91ba31"))))
 
-    (setq org-tag-alist '(("WORK" . ?w) ("LIFE" . ?h) ("PROJECT" . ?p) ("MATH" . ?m) ("CS" . ?c) ("Journal" .?j)))
+    (setq org-tag-alist '(("WORK" . ?w) ("LIFE" . ?h) ("PROJECT" . ?p) ("MATH" . ?m) ("CS" . ?c) ("JOURNAL" .?j)))
 
     (use-package langtool :defer 1
       :config
