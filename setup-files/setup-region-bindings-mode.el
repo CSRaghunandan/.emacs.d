@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-09 02:51:54 csraghunandan>
+;; Time-stamp: <2016-11-24 14:14:16 csraghunandan>
 
 ;; Region Bindings Mode
 ;; https://github.com/fgallina/region-bindings-mode
@@ -7,6 +7,7 @@
 ;; regions. This is a pretty good way to keep the global bindings clean.
 
 (use-package region-bindings-mode
+  :diminish region-bindings-mode
   :config
   (progn
     (region-bindings-mode-enable)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-21 14:14:33 csraghunandan>
+;; Time-stamp: <2016-11-25 19:21:59 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -17,7 +17,8 @@
   (defconst modi/rg-arguments
     `("--line-number"                     ; line numbers
       "--smart-case"
-      "--follow")                          ; follow symlinks
+      "--follow"                          ; follow symlinks
+      "--mmap")                           ; apply memory map optimization when possible
     "Default rg arguments used in the functions in `projectile' package.")
 
   (defun modi/advice-projectile-use-rg ()

@@ -64,6 +64,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(highlight-symbol-face ((t (:background "DarkSeaGreen4"))))
+ '(link ((t (:foreground "gray60" :underline t :weight normal))))
  '(org-document-title ((t (:height 1.3))))
  '(org-level-1 ((t (:inherit outline-1 :foreground "#DFAF8F" :height 1.2))))
  '(org-level-2 ((t (:inherit outline-2 :foreground "#BFEBBF" :height 1.15))))
