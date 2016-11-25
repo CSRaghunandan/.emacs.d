@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-11-21 14:55:36 csraghunandan>
+;; Time-stamp: <2016-11-25 22:26:07 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -74,8 +74,7 @@
   (defun rag/counsel-rg-project-at-point ()
     "use counsel rg to search for the word at point in the project"
     (interactive)
-    (let ((counsel-ag-base-command counsel-rg-base-command))
-      (counsel-ag (thing-at-point 'symbol) (projectile-project-root))))
+    (counsel-rg (thing-at-point 'symbol) (projectile-project-root)))
 
   ;; find file at point
   (setq counsel-find-file-at-point t)
