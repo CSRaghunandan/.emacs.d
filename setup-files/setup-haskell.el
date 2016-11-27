@@ -1,8 +1,9 @@
-;; Time-stamp: <2016-10-29 01:18:53 csraghunandan>
+;; Time-stamp: <2016-11-26 23:36:38 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
 (use-package haskell-mode
+  ;; haskell-mode swaps `C-m' and `C-j' behavior. Revert it back
   :bind (:map haskell-mode-map
               ("C-m" . newline)
               ("C-j" . electric-newline-and-maybe-indent))

@@ -1,9 +1,8 @@
-;; Time-stamp: <2016-10-29 01:19:09 csraghunandan>
+;; Time-stamp: <2016-11-27 19:14:01 csraghunandan>
 
 ;; Python configuration
 (use-package python
   :config
-  (add-hook 'python-mode-hook #'electric-operator-mode)
   (setq python-shell-interpreter "python3")
   (add-hook 'python-mode-hook 'company-mode)
   (add-hook 'python-mode-hook 'flycheck-mode)

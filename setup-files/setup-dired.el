@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-18 15:47:30 csraghunandan>
+;; Time-stamp: <2016-11-27 17:44:29 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -15,7 +15,8 @@
     ;; Never prompt for recursive deletes of a directory
     (setq dired-recursive-deletes 'always)
     ;; fix `ls' for macOS.
-    (setq insert-directory-program "gls" dired-use-ls-dired t)
+    (when (memq window-system '(mac ns x))
+      (setq insert-directory-program "gls" dired-use-ls-dired t))
     ;; makes dired guess the target directory
     (setq dired-dwim-target t)
 
@@ -47,6 +48,7 @@ It added extra strings at the front and back of the default dired buffer name."
   (use-package dired-narrow)
 
   ;; a hydra to sort files in dired easily
+  ;; Press `S' to invoke dired-quick-sort hydra
   ;; https://gitlab.com/xuhdev/dired-quick-sort
   (use-package dired-quick-sort
     :config (dired-quick-sort-setup))

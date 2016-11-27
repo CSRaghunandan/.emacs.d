@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-31 09:47:27 csraghunandan>
+;; Time-stamp: <2016-11-26 23:17:15 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -7,13 +7,9 @@
 (use-package rust-mode
   :config
   (progn
-    (add-hook 'rust-mode-hook 'flycheck-mode)
-    (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
-    ;; (add-hook 'rust-mode-hook 'electric-operator-mode)
-    (add-hook 'rust-mode-hook #'racer-mode)
-    (add-hook 'rust-mode-hook 'cargo-minor-mode)
-    (add-hook 'rust-mode-hook
-              (lambda () (local-set-key (kbd "C-c <tab>") #'rust-format-buffer)))
+    ;; add flycheck support for rust
+    ;; https://github.com/flycheck/flycheck-rust
+    (use-package flycheck-rust)
 
     ;; cargo-mode for all the cargo related operations
     ;; https://github.com/kwrooijen/cargo.el
@@ -31,7 +27,15 @@
           (set (make-local-variable 'company-backends)
                '((company-capf company-files))))
 
+        ;; enable company and eldoc minor modes in rust-mode
         (add-hook 'racer-mode-hook #'company-mode)
-        (add-hook 'racer-mode-hook #'eldoc-mode)))))
+        (add-hook 'racer-mode-hook #'eldoc-mode)))
+
+    (add-hook 'rust-mode-hook 'flycheck-mode)
+    (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
+    (add-hook 'rust-mode-hook #'racer-mode)
+    (add-hook 'rust-mode-hook 'cargo-minor-mode)
+    (add-hook 'rust-mode-hook
+              (lambda () (local-set-key (kbd "C-c <tab>") #'rust-format-buffer)))))
 
 (provide 'setup-rust)
