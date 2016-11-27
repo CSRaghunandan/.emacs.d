@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-27 19:14:19 csraghunandan>
+;; Time-stamp: <2016-11-27 20:43:51 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -39,7 +39,7 @@
                 (("C-x C-e" . js-send-last-sexp)
                  ("C-M-x" . js-send-last-sexp-and-go)
                  ("C-c C-b" . js-send-buffer-and-go)
-                 X("C-c C-l" . js-load-file-and-go)))
+                 ("C-c C-l" . js-load-file-and-go)))
     :config
     (setq inferior-js-program-command "node")))
 
