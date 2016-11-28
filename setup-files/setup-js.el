@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-27 20:43:51 csraghunandan>
+;; Time-stamp: <2016-11-28 16:17:38 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -6,8 +6,8 @@
 ;; https://github.com/mooz/js2-mode
 (use-package js2-mode
   :mode
-  ("\\.js$" . js2-mode)
-  ("\\.json$" . js2-jsx-mode)
+  (("\\.js$" . js2-mode)
+   ("\\.json$" . js2-jsx-mode))
   :config
   ;; tern :- IDE like features for javascript and completion
   ;; http://ternjs.net/doc/manual.html#emacs
@@ -32,15 +32,19 @@
     :diminish js2-refactor
     :bind ("C-c j r" . js2r-add-keybindings-with-prefix))
 
-  ;; Run a JavaScript interpreter in an inferior process window
-  ;; https://github.com/redguardtoo/js-comint
-  (use-package js-comint
+  ;; provides REPL and inspect, debug tools by connecting to a chrom(e|ium) process
+  ;; https://github.com/NicolasPetton/jade
+  (use-package jade
     :bind (:map js2-mode-map
-                (("C-x C-e" . js-send-last-sexp)
-                 ("C-M-x" . js-send-last-sexp-and-go)
-                 ("C-c C-b" . js-send-buffer-and-go)
-                 ("C-c C-l" . js-load-file-and-go)))
+                ("C-c C-l" . jade-eval-buffer))
     :config
-    (setq inferior-js-program-command "node")))
+    (require 'seq-25)
+    (add-hook 'js2-mode-hook #'jade-interaction-mode)))
 
 (provide 'setup-js)
+
+;; Jade
+;; evaluate `jade-scratch' to get a scratch JS buffer
+;; C-c C-l will evaluate the buffer
+;; C-x C-e will evaluate the expression at point
+;; C-c M-i will inspect the result
