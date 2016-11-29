@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-29 14:24:11 csraghunandan>
+;; Time-stamp: <2016-11-29 15:22:28 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -47,7 +47,7 @@
 (provide 'setup-js)
 
 ;; Jade
-;; evaluate `jade-scratch' to get a scratch JS buffer
+;; evaluate `jade-scratch' when in JS REPL to get a scratch JS buffer
 ;; C-c C-l will evaluate the buffer
 ;; C-x C-e will evaluate the expression at point
 ;; C-c M-i will inspect the result
