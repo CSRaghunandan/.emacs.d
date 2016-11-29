@@ -1,7 +1,11 @@
-;; Time-stamp: <2016-11-27 19:14:01 csraghunandan>
+;; Time-stamp: <2016-11-29 14:03:15 csraghunandan>
 
 ;; Python configuration
 (use-package python
+  :bind (:map python-mode-map
+              (("C-c C-t" . anaconda-mode-show-doc)
+               ("M-." . anaconda-mode-find-definitions)
+               ("M-," . anaconda-mode-go-back-definitions)))
   :config
   (setq python-shell-interpreter "python3")
   (add-hook 'python-mode-hook 'company-mode)

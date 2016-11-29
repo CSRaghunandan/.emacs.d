@@ -7,8 +7,8 @@
   :diminish which-key-mode
   :config
   (which-key-mode)
-  ;; show which-key pop on the side, if not possible popup at bottom instead
-  (which-key-setup-side-window-right-bottom)
+  ;; make which-key popup to the right
+  (which-key-setup-side-window-right)
 
   ;; List of "special" keys for which a KEY is displayed as just K but with
   ;; "inverted video" face.

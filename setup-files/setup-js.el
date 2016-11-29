@@ -1,10 +1,12 @@
-;; Time-stamp: <2016-11-28 20:14:02 csraghunandan>
+;; Time-stamp: <2016-11-29 14:24:11 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
 ;; js2-mode
 ;; https://github.com/mooz/js2-mode
 (use-package js2-mode
+  :bind (:map js2-mode-map
+              ("C-c C-l" . jade-eval-buffer))
   :mode
   (("\\.js$" . js2-mode)
    ("\\.json$" . js2-jsx-mode))
@@ -30,13 +32,14 @@
   ;; https://github.com/magnars/js2-refactor.el
   (use-package js2-refactor :defer t
     :diminish js2-refactor
-    :bind ("C-c j r" . js2r-add-keybindings-with-prefix))
+    :config
+    (js2r-add-keybindings-with-prefix "C-c j r"))
+
+  (add-hook 'js2-mode-hook 'js2-refactor-mode)
 
   ;; provides REPL and inspect, debug tools by connecting to a chrom(e|ium) process
   ;; https://github.com/NicolasPetton/jade
   (use-package jade
-    :bind (:map js2-mode-map
-                ("C-c C-l" . jade-eval-buffer))
     :init
     (require 'seq-25)
     (add-hook 'js2-mode-hook #'jade-interaction-mode)))

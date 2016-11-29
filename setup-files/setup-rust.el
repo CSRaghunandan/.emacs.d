@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-26 23:17:15 csraghunandan>
+;; Time-stamp: <2016-11-29 13:46:58 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -18,7 +18,8 @@
     ;; racer-mode for getting IDE like features for rust-mode
     ;; https://github.com/racer-rust/emacs-racer
     (use-package racer
-      :bind (("C-c C-t" . racer-describe))
+      :bind (:map rust-mode-map
+                  (("C-c C-t" . racer-describe)))
       :config
       (progn
         ;; set racer rust source path environment variable
