@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-29 10:46:15 csraghunandan>
+;; Time-stamp: <2016-11-29 12:59:16 csraghunandan>
 
 ;; hungry-delete
 ;; https://github.com/nflath/hungry-delete
@@ -6,13 +6,6 @@
   :diminish hungry-delete-mode "h"
   :config
   (global-hungry-delete-mode)
-  (setq hungry-delete-chars-to-skip " \t\r\f\v")
-
-  (defun modi/turn-off-hungry-delete-mode ()
-    "Turn off hungry delete mode."
-    (hungry-delete-mode -1))
-
-  (add-hook 'wdired-mode-hook #'modi/turn-off-hungry-delete-mode)
-  (add-hook 'minibuffer-setup-hook #'modi/turn-off-hungry-delete-mode))
+  (add-to-list 'hungry-delete-except-modes 'wdired-mode))
 
 (provide 'setup-hungry-delete)
