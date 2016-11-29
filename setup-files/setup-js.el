@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-28 16:17:38 csraghunandan>
+;; Time-stamp: <2016-11-28 20:14:02 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -37,7 +37,7 @@
   (use-package jade
     :bind (:map js2-mode-map
                 ("C-c C-l" . jade-eval-buffer))
-    :config
+    :init
     (require 'seq-25)
     (add-hook 'js2-mode-hook #'jade-interaction-mode)))
 
