@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-30 12:22:06 csraghunandan>
+;; Time-stamp: <2016-12-01 01:35:49 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -35,7 +35,6 @@
 (require 'setup-backup)
 (require 'setup-region-bindings-mode)
 (require 'setup-search)
-(require 'setup-buffers)
 (require 'setup-ibuffer)
 (require 'setup-recentf)
 (require 'setup-desktop)
@@ -76,6 +75,7 @@
   (require 'setup-osx))
 (require 'setup-misc)
 (require 'setup-fold)
+(require 'setup-buffers)
 (require 'setup-move-line)
 (require 'setup-duplicate-line)
 (require 'setup-editing)

@@ -1,10 +1,8 @@
-;; Time-stamp: <2016-12-01 00:21:51 csraghunandan>
+;; Time-stamp: <2016-12-01 01:41:23 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
 (use-package projectile
-  :bind* (("C-c p r" . projectile-replace-regexp)
-          ("C-c p h" . hydra-projectile/body))
   :diminish projectile-mode
   :config
   (setq projectile-completion-system 'ivy
@@ -79,7 +77,10 @@ With prefix argument (`C-u'), also kill the special buffers."
                 (message "Killing buffer %s" buf-name)
                 (kill-buffer buf))))))))
 
-  (bind-key "C-c p K" 'modi/kill-non-project-buffers)
+  (bind-keys*
+   ("C-c p K" . modi/kill-non-project-buffers)
+   ("C-c p h" . hydra-projectile/body)
+   ("C-c p r" . projectile-replace-regexp))
 
 
 

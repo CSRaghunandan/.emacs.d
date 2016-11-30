@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-24 00:31:39 csraghunandan>
+;; Time-stamp: <2016-12-01 01:30:32 csraghunandan>
 
 ;; ibuffer
 ;; for easy management of buffers
@@ -7,10 +7,6 @@
   :config
   (progn
     (setq ibuffer-default-sorting-mode 'major-mode)
-
-    ;; hide uninteresting buffers in `ibuffer-mode'
-    (add-to-list 'ibuffer-never-show-predicates "^\\*scratch")
-    (add-to-list 'ibuffer-never-show-predicates "^\\*Messages")
 
     ;; group ibuffer list by projectile projects
     ;; https://github.com/purcell/ibuffer-projectile
@@ -24,7 +20,12 @@
             (ibuffer-do-sort-by-alphabetic) ; first do alphabetic sort
             (ibuffer-do-sort-by-major-mode))))) ; then do major-mode sort
     ;; ibuffer-projectile setup
-    (add-hook 'ibuffer-hook #'my/ibuffer-customization))
+    (add-hook 'ibuffer-hook #'my/ibuffer-customization)
+
+    ;; hide uninteresting buffers in `ibuffer-mode'
+    (with-eval-after-load 'ibuffer
+      (add-to-list 'ibuffer-never-show-predicates "^\\*scratch")
+      (add-to-list 'ibuffer-never-show-predicates "^\\*Messages")))
 
   (defhydra hydra-ibuffer-main (:color pink :hint nil)
     "

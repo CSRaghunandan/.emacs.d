@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-11-25 22:26:07 csraghunandan>
+;; Time-stamp: <2016-12-01 01:21:35 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
