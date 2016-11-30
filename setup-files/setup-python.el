@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-29 14:03:15 csraghunandan>
+;; Time-stamp: <2016-12-01 01:08:29 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -31,6 +31,12 @@
 
   ;; for testing python code
   ;; https://github.com/ionrock/pytest-el
-  (use-package pytest :defer t))
+  (use-package pytest :defer t)
+
+  ;; yapfify: format python files automatically
+  ;; https://github.com/JorisE/yapfify
+  (use-package yapfify
+    :config
+    (add-hook 'python-mode-hook 'yapf-mode)))
 
 (provide 'setup-python)

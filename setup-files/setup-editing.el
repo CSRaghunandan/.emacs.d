@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-22 14:15:41 csraghunandan>
+;; Time-stamp: <2016-12-01 01:10:21 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -221,7 +221,10 @@ Version 2016-10-15"
           (delete-char -1))))))
 
 ;; remove trailing whitespace in the buffer
-(add-hook 'before-save-hook 'xah-clean-whitespace)
+(add-hook 'before-save-hook (lambda()
+                              (unless (or (eq major-mode 'python-mode)
+                                          (eq major-mode 'org-mode))
+                                (xah-clean-whitespace))))
 
 
 

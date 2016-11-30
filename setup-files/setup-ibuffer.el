@@ -8,6 +8,10 @@
   (progn
     (setq ibuffer-default-sorting-mode 'major-mode)
 
+    ;; hide uninteresting buffers in `ibuffer-mode'
+    (add-to-list 'ibuffer-never-show-predicates "^\\*scratch")
+    (add-to-list 'ibuffer-never-show-predicates "^\\*Messages")
+
     ;; group ibuffer list by projectile projects
     ;; https://github.com/purcell/ibuffer-projectile
     (use-package ibuffer-projectile

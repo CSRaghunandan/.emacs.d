@@ -125,8 +125,4 @@ with prefix, select which buffer to kill"
 (use-package autorevert
   :diminish auto-revert-mode)
 
-;; hide uninteresting buffers in `ibuffer-mode'
-(add-to-list 'ibuffer-never-show-predicates "^\\*scratch")
-(add-to-list 'ibuffer-never-show-predicates "^\\*Messages")
-
 (provide 'setup-buffers)

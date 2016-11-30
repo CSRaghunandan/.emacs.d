@@ -1,13 +1,16 @@
-;; Time-stamp: <2016-11-25 19:21:59 csraghunandan>
+;; Time-stamp: <2016-12-01 00:21:51 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
 (use-package projectile
+  :bind* (("C-c p r" . projectile-replace-regexp)
+          ("C-c p h" . hydra-projectile/body))
   :diminish projectile-mode
   :config
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)
 
+  ;; ignore stack directory as projectile project
   (add-to-list 'projectile-ignored-projects "~/.stack/global-project/")
 
 
@@ -98,10 +101,10 @@ _f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer         
 ^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      _s-p_/_p_: switch to any other project
 ^^    _d_: file curr dir      _o_: multi-occur       _K_/_s-k_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
 ^^    _r_: recent file        _G_: git-grep          ^^^^                             _z_: cache current
-^^    _D_: dir                _A_: counsel-ag-root
+^^    _D_: dir                _R_: counsel-ag-root
 "
     ("r"   counsel-rg)
-    ("A"   rag/counsel-ag-project-at-point)
+    ("R"   rag/counsel-rg-project-at-point)
     ("G"   counsel-git-grep)
     ("b"   projectile-switch-to-buffer)
     ("c"   projectile-invalidate-cache)
@@ -127,8 +130,20 @@ _f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer         
     ("z"   projectile-cache-current-file)
     ("4"   hydra-projectile-other-window/body "other window")
     ("q"   nil "cancel" :color blue))
-  (bind-key "C-c p h" 'hydra-projectile/body)
 
   (projectile-mode +1))
 
 (provide 'setup-projectile)
+
+;; projectile
+;; This configuration uses `rg'(ripgrep) to generate the project list
+;; * to clear the cache when searching for files in a project, prefix
+;;   `projectile-find-file' with `C-u'.
+;; * use `projectile-ibuffer' [C-c p I] to open `ibuffer' for the current project only
+;; * use `projectile-kill-buffers' [C-c p k] to kill all buffers related to a project
+;; * use `projectile-recentf' [C-c p e] to list all recently opened file in a project
+;; * use `projectile-switch-open-project' [C-c p q] to switch to an open project
+;; * use `projectile-replace-regexp' [C-c p r] to replace regexp in the project
+;; * use `projectile-find-dir' to select all the directories in a project
+;; * use `projectile-dired' to open the dired buffer of project root
+;; * run `C-c p h' to open the hydra for projectile
