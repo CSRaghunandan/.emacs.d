@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-29 15:37:16 csraghunandan>
+;; Time-stamp: <2016-11-30 12:22:06 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -71,7 +71,8 @@
 (require 'setup-haskell)
 (require 'setup-python)
 (require 'setup-tex)
-(require 'setup-osx)
+(when (memq window-system '(mac ns x))
+  (require 'setup-osx))
 (require 'setup-misc)
 (require 'setup-fold)
 (require 'setup-buffers)
