@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-29 13:46:58 csraghunandan>
+;; Time-stamp: <2016-12-01 02:21:52 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -36,7 +36,6 @@
     (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
     (add-hook 'rust-mode-hook #'racer-mode)
     (add-hook 'rust-mode-hook 'cargo-minor-mode)
-    (add-hook 'rust-mode-hook
-              (lambda () (local-set-key (kbd "C-c <tab>") #'rust-format-buffer)))))
+    (bind-key "C-c <tab>" 'rust-format-buffer rust-mode-map)))
 
 (provide 'setup-rust)
