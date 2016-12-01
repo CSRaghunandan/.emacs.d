@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 12:16:39 csraghunandan>
+;; Time-stamp: <2016-12-01 12:00:04 csraghunandan>
 
 ;; beacon :-  blink the cursor whenever scrolling or switching between windows
 ;; https://github.com/Malabarba/beacon
@@ -8,6 +8,7 @@
   :bind (("C-c b e" . beacon-blink))
   :config
   (beacon-mode 1)
-  (setq beacon-size 23))
+  (setq beacon-size 23)
+  (add-to-list 'beacon-dont-blink-major-modes 'shell-mode))
 
 (provide 'setup-beacon)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 01:30:04 csraghunandan>
+;; Time-stamp: <2016-12-01 12:01:45 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -32,7 +32,8 @@ not prevent downloading the actual packages (obviously)."
   (setq erc-hide-list '("PART" "QUIT" "JOIN"))
   ;; defaults for ERC mode
   (setq erc-server "irc.freenode.net"
-	erc-nick "Rag1212"))
+	erc-nick "Rag1212")
+  (setq erc-fill-column 100))
 
 (use-package calendar :defer t
   :config

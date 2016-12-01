@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-29 19:12:02 csraghunandan>
+;; Time-stamp: <2016-12-01 12:42:07 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -20,6 +20,9 @@
   (add-hook 'eshell-mode-hook
             '(lambda()
                (local-set-key (kbd "C-l") 'eshell-clear-buffer))))
+
+;; always insert at bottom
+(setq comint-scroll-to-bottom-on-input t)
 
 (provide 'setup-eshell)
 

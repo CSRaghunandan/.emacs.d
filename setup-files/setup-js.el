@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-29 15:22:28 csraghunandan>
+;; Time-stamp: <2016-12-01 13:00:37 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -11,6 +11,9 @@
   (("\\.js$" . js2-mode)
    ("\\.json$" . js2-jsx-mode))
   :config
+  ;; extra features for imenu
+  (js2-imenu-extras-setup)
+
   ;; tern :- IDE like features for javascript and completion
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package tern
@@ -31,7 +34,7 @@
   ;; js2-refactor :- refactoring options for emacs
   ;; https://github.com/magnars/js2-refactor.el
   (use-package js2-refactor :defer t
-    :diminish js2-refactor
+    :diminish js2-refactor-mode
     :config
     (js2r-add-keybindings-with-prefix "C-c j r"))
 
