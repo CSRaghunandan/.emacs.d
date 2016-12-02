@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-23 16:52:07 csraghunandan>
+;; Time-stamp: <2016-12-02 15:30:01 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -56,7 +56,9 @@
        (python . t)))
 
 ;;; Org Variables
-
+    ;; default of 100 fill-column for org-mode
+    (add-hook 'org-mode-hook (lambda()
+                               (setq-local fill-column 100)))
     ;; this looks better in my opinion
     (setq org-ellipsis " •••")
     ;; hide emphasis markup characters
@@ -119,6 +121,8 @@
                                         ; 'reverse
     ;; special keys for killing headline
     (setq org-special-ctrl-k t)
+    ;; don't split items when pressing `C-RET'. Always create new item
+    (setq org-M-RET-may-split-line nil)
     ;; preserve indentation inside of source blocks
     (setq org-src-preserve-indentation t)
 

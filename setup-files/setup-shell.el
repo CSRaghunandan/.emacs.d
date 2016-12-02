@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 12:42:07 csraghunandan>
+;; Time-stamp: <2016-12-02 15:37:52 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -23,9 +23,13 @@
 
 ;; always insert at bottom
 (setq comint-scroll-to-bottom-on-input t)
+;; remap up and down to previous and next commands
+(define-key comint-mode-map [up] 'comint-previous-input)
+(define-key comint-mode-map [down] 'comint-next-input)
 
-(provide 'setup-eshell)
+(provide 'setup-shell)
 
 ;; shell
 ;; executing `shell' with a prefix will create a new *shell* buffer
 ;; C-c M-o will clear the `shell' buffer
+;; `[up]' and `[down]' will cycle the previous and next inputs

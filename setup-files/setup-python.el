@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-02 13:24:05 csraghunandan>
+;; Time-stamp: <2016-12-02 13:47:31 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -53,3 +53,10 @@
     :config (add-hook 'python-mode-hook 'python-docstring-mode)))
 
 (provide 'setup-python)
+
+;; python anaconda-mode config
+;; `C-c C-t' to show documentation of the thing at point
+;; `M-.' to jump to the definition of a function
+;; `M-,' to jump back from definition of a function
+;; yapf will automatically format the buffer on save :)
+;; to add sphinx-docs to a function, press `C-c M-d' on a function definition

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 01:35:49 csraghunandan>
+;; Time-stamp: <2016-12-02 15:38:05 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -88,7 +88,7 @@
 ;; use this when `ggtags.el' has proper support for `universal-ctags'
 ;; (require 'setup-tags)
 (require 'setup-recursive-narrow)
-(require 'setup-eshell)
+(require 'setup-shell)
 (require 'setup-which-key)
 (require 'setup-kurecolor)
 
