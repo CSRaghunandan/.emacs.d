@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 01:08:29 csraghunandan>
+;; Time-stamp: <2016-12-02 13:24:05 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -36,7 +36,20 @@
   ;; yapfify: format python files automatically
   ;; https://github.com/JorisE/yapfify
   (use-package yapfify
+    :diminish yapf-mode
     :config
-    (add-hook 'python-mode-hook 'yapf-mode)))
+    (add-hook 'python-mode-hook 'yapf-mode))
+
+  ;; Add sphinx-doc comments easily
+  ;; https://github.com/naiquevin/sphinx-doc.el
+  (use-package sphinx-doc
+    :diminish sphinx-doc-mode
+    :config (add-hook 'python-mode-hook 'sphinx-doc-mode))
+
+  ;; format and highlight syntax for python docstrings
+  ;; https://github.com/glyph/python-docstring-mode
+  (use-package python-docstring
+    :diminish python-docstring-mode
+    :config (add-hook 'python-mode-hook 'python-docstring-mode)))
 
 (provide 'setup-python)
