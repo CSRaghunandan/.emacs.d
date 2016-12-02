@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 01:10:21 csraghunandan>
+;; Time-stamp: <2016-12-02 12:29:52 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -39,9 +39,26 @@ remove the comment characters from that line."
         (delete-char 1))
       (insert-char ? )))) ; insert space
 
+(defun rag/push-up-line()
+  "Join the current line onto the previous one.
+If the current line is comment and the previous line is also a comment, remove
+the comment characters from the joined line."
+  (interactive)
+  (join-line)
+  ;; If the current line is a comment
+  (when (nth 4 (syntax-ppss))
+    ;; Remove the comment prefix chars from the pulled-up line if present
+    (save-excursion
+      (forward-char)
+      ;; Delete all comment-start or space characters
+      (while (looking-at (concat "\\s<" ; comment-start char as per syntax table
+                                 "\\|" (substring comment-start 0 1) ; first char of `comment-start'
+                                 "\\|" "\\s-")) ; extra spaces
+        (delete-forward-char 1)))))
+
 (bind-keys*
  ("M-j" . rag/pull-up-line)
- ("s-j" . delete-indentation))
+ ("s-j" . rag/push-up-line))
 
 (defun rag/smart-open-line ()
   "Insert an empty line after the current line.
