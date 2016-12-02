@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-02 15:37:52 csraghunandan>
+;; Time-stamp: <2016-12-02 16:03:48 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -7,7 +7,8 @@
   (add-hook 'eshell-mode-hook
             (lambda ()
               (define-key eshell-mode-map (kbd "<tab>")
-                'completion-at-point)))
+                'completion-at-point)
+              (define-key eshell-mode-map (kbd "C-c M-o") #'eshell-clear-buffer)))
   ;; fetch the $PATH variable to eshell
   (add-hook 'eshell-mode-hook '(lambda ()(exec-path-from-shell-initialize)))
 
@@ -16,20 +17,20 @@
     (interactive)
     (let ((inhibit-read-only t))
       (erase-buffer)
-      (eshell-send-input)))
-  (add-hook 'eshell-mode-hook
-            '(lambda()
-               (local-set-key (kbd "C-l") 'eshell-clear-buffer))))
+      (eshell-send-input))))
 
-;; always insert at bottom
-(setq comint-scroll-to-bottom-on-input t)
-;; remap up and down to previous and next commands
-(define-key comint-mode-map [up] 'comint-previous-input)
-(define-key comint-mode-map [down] 'comint-next-input)
+;; handle all inferior processes/shell settings
+(use-package comint :ensure nil
+  :config
+  ;; always insert input at bottom
+  (setq comint-scroll-to-bottom-on-input t)
+  ;; remap up and down to previous and next commands in history
+  (define-key comint-mode-map [up] 'comint-previous-input)
+  (define-key comint-mode-map [down] 'comint-next-input))
 
 (provide 'setup-shell)
 
 ;; shell
 ;; executing `shell' with a prefix will create a new *shell* buffer
-;; C-c M-o will clear the `shell' buffer
+;; C-c M-o will clear comint buffers
 ;; `[up]' and `[down]' will cycle the previous and next inputs
