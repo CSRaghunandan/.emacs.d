@@ -1,10 +1,10 @@
-;; Time-stamp: <2016-11-18 16:27:57 csraghunandan>
+;; Time-stamp: <2016-12-02 20:53:00 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
 (use-package smartparens
   :config
-  (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode web-mode org-mode)))
+  (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode web-mode org-mode Info-mode)))
 
   (defmacro def-pairs (pairs)
     `(progn
@@ -57,7 +57,7 @@
    ("M-[" . sp-backward-unwrap-sexp)
    ("M-]" . sp-unwrap-sexp)
 
-   ("C-x C-t" . sp-transpose-hybrid-sexp)
+   ("C-c C-t" . sp-transpose-hybrid-sexp)
 
    ("C-c ("  . wrap-with-parens)
    ("C-c ["  . wrap-with-brackets)
@@ -67,7 +67,7 @@
    ("C-c \"" . wrap-with-double-quotes)
    ("C-c _"  . wrap-with-underscores)
    ("C-c `"  . wrap-with-back-quotes)
-   ("C-x w" . sp-select-next-thing))
+   ("C-c s s" . sp-select-next-thing))
 
   (eval-after-load "smartparens" '(diminish 'smartparens-mode "s"))
   (show-smartparens-global-mode +1)
@@ -82,3 +82,17 @@
                                               ("* ||\n[i]" "RET")))))
 
 (provide 'setup-smartparens)
+
+;; smartparens
+;; C-[up] -> Go to the end of a function `sp-up-sexp'
+;; C-M-[up] -> Go to the beginning of a function `sp-backward-up-sexp'
+;; C-k -> will now kill the sexp at point
+;; C-M-a -> go to the beginning of a sexp
+;; C-M-e -> go to the end of a sexp
+;; C-M-p -> previous sexp
+;; C-M-n -> next sexp
+;; C-M-w -> copy the sexp at point
+;; C-c s s -> select the sexp at point
+;; C-M-t -> transpose sexp
+;; to wrap the sexp with ( or [ use `C-c [' or `C-c ('
+;; M-[ unwrap sexp backward

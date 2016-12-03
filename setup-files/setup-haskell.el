@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-26 23:36:38 csraghunandan>
+;; Time-stamp: <2016-12-03 11:10:38 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
@@ -19,6 +19,24 @@
   ;; intero-mode for a complete IDE solution to haskell
   ;; commercialhaskell.github.io/intero
   (use-package intero
-    :config (add-hook 'haskell-mode-hook 'intero-mode)))
+    :config (add-hook 'haskell-mode-hook 'intero-mode))
+
+  ;; hindent - format haskell code automatically
+  ;; https://github.com/chrisdone/hindent
+  (use-package hindent
+    :diminish hindent-mode
+    :config
+    (add-hook 'haskell-mode-hook #'hindent-mode)
+    ;; reformat the buffer using hindent on save
+    (setq hindent-reformat-buffer-on-save t)))
 
 (provide 'setup-haskell)
+
+;; Haskell intero config
+;; `C-c C-l' to load the current file to stack GHCi
+;; `C-c C-z' to open stack GHCi
+;; `C-c C-t' to see the type of the thing at point
+;; `M-.' jump to definition
+;; `M-,' jump back from definition
+;; `M-q' to format the expression at point using hindent
+;; `C-M-\' to format the selected region using hindent

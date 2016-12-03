@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 02:21:52 csraghunandan>
+;; Time-stamp: <2016-12-03 11:23:18 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -36,6 +36,11 @@
     (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
     (add-hook 'rust-mode-hook #'racer-mode)
     (add-hook 'rust-mode-hook 'cargo-minor-mode)
-    (bind-key "C-c <tab>" 'rust-format-buffer rust-mode-map)))
+
+    ;; format rust buffers using rustfmt
+    (add-hook 'before-save-hook
+              (lambda ()
+                (when (eq major-mode 'rust-mode)
+                  (rust-format-buffer))))))
 
 (provide 'setup-rust)

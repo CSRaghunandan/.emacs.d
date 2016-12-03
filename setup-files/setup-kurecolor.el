@@ -1,10 +1,10 @@
-;; Time-stamp: <2016-11-29 15:34:08 csraghunandan>
+;; Time-stamp: <2016-12-03 11:24:36 csraghunandan>
 
 ;; Kurecolor
 ;; https://github.com/emacsfodder/kurecolor
 
 (use-package kurecolor
-  :bind (("C-c k" . hydra-kurecolor/body))
+  :bind (("s-K" . hydra-kurecolor/body))
   :config
   (progn
     (defhydra hydra-kurecolor (:color pink
@@ -32,6 +32,5 @@ Get          _gj_ ^^ brightness      _gk_ ^^ saturation      _gl_ ^^ hue
       ("hr" kurecolor-hexcolor-at-point-or-region-to-css-rgb :color blue)
       ("hR" kurecolor-hexcolor-at-point-or-region-to-css-rgba :color blue)
       ("q"  nil "cancel" :color blue))))
-
 
 (provide 'setup-kurecolor)
