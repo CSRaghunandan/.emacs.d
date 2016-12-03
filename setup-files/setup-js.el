@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 13:00:37 csraghunandan>
+;; Time-stamp: <2016-12-03 13:14:34 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -45,7 +45,20 @@
   (use-package jade
     :init
     (require 'seq-25)
-    (add-hook 'js2-mode-hook #'jade-interaction-mode)))
+    (add-hook 'js2-mode-hook #'jade-interaction-mode))
+
+  ;; web-beautify - Format HTML, CSS and JavaScript/JSON by js-beautify
+  ;; https://github.com/yasuyk/web-beautify
+  (when (executable-find "js-beautify")
+    (use-package web-beautify
+      :config
+      (add-hook 'js2-mode-hook
+                (lambda ()
+                  (add-hook 'before-save-hook
+                            (lambda ()
+                              (time-stamp)
+                              (web-beautify-js-buffer)
+                              (force-backup-of-buffer)) t t))))))
 
 (provide 'setup-js)
 
