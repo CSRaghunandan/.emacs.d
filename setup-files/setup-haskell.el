@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-03 11:10:38 csraghunandan>
+;; Time-stamp: <2016-12-03 12:12:54 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
@@ -23,12 +23,13 @@
 
   ;; hindent - format haskell code automatically
   ;; https://github.com/chrisdone/hindent
-  (use-package hindent
-    :diminish hindent-mode
-    :config
-    (add-hook 'haskell-mode-hook #'hindent-mode)
-    ;; reformat the buffer using hindent on save
-    (setq hindent-reformat-buffer-on-save t)))
+  (when (executable-find "hindent")
+    (use-package hindent
+      :diminish hindent-mode
+      :config
+      (add-hook 'haskell-mode-hook #'hindent-mode)
+      ;; reformat the buffer using hindent on save
+      (setq hindent-reformat-buffer-on-save t))))
 
 (provide 'setup-haskell)
 

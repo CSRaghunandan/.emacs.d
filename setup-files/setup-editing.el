@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-02 12:29:52 csraghunandan>
+;; Time-stamp: <2016-12-03 12:10:37 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -237,10 +237,11 @@ Version 2016-10-15"
         (while (equal (char-before) 32) ; char 32 is space
           (delete-char -1))))))
 
-;; remove trailing whitespace in the buffer
+;; clean whitespace in the buffer
 (add-hook 'before-save-hook (lambda()
                               (unless (or (eq major-mode 'python-mode)
-                                          (eq major-mode 'org-mode))
+                                          (eq major-mode 'org-mode)
+                                          (eq major-mode 'haskell-mode))
                                 (xah-clean-whitespace))))
 
 
