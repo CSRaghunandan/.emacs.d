@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-12-05 01:00:42 csraghunandan>
+;; Time-stamp: <2016-12-05 01:05:45 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -89,18 +89,6 @@
 	 ;; File names beginning with # or .
 	 "\\(?:\\`[#.]\\)"
 	 ;; File names ending with # or ~
-	 "\\|\\(?:\\`.+?[#~]\\'\\)"))
-
-  (defun counsel-goto-recent-directory ()
-    "Open recent directory with dired"
-    (interactive)
-    (unless recentf-mode (recentf-mode 1))
-    (let ((collection
-           (delete-dups
-            (append (mapcar 'file-name-directory recentf-list)
-                    ;; fasd history
-                    (if (executable-find "fasd")
-                        (split-string (shell-command-to-string "fasd -ld") "\n" t))))))
-      (ivy-read "directories:" collection :action 'dired))))
+	 "\\|\\(?:\\`.+?[#~]\\'\\)")))
 
 (provide 'setup-counsel)
