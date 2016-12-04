@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-04 22:06:21 csraghunandan>
+;; Time-stamp: <2016-12-04 23:05:23 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -11,7 +11,22 @@
     (custom-theme-set-faces
      'zenburn
      ;; original `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
-     `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg-05)))))))
+     `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg-05))))))
+
+  (custom-set-faces
+   ;; make function name face brighter so it's easily distinguishable from
+   ;; font-lock face for types
+   '(font-lock-function-name-face ((t (:foreground "#A5FBFF"))))
+   ;; set gray colours for comments
+   '(font-lock-comment-delimiter-face ((t (:foreground "gray55"))))
+   '(font-lock-comment-face ((t (:foreground "gray55" :slant italic))))
+   ;; make links appear gray as well
+   '(link ((t (:foreground "gray55" :underline t :weight normal))))
+   ;; fontify org headlines. Make them slightly bigger
+   '(org-document-title ((t (:height 1.3))))
+   '(org-level-1 ((t (:inherit outline-1 :foreground "#DFAF8F" :height 1.2))))
+   '(org-level-2 ((t (:inherit outline-2 :foreground "#BFEBBF" :height 1.15))))
+   '(org-level-3 ((t (:inherit outline-3 :foreground "#7CB8BB" :height 1.1))))))
 
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
