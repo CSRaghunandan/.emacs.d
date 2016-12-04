@@ -1,8 +1,14 @@
-;; Time-stamp: <2016-11-18 16:25:51 csraghunandan>
+;; Time-stamp: <2016-12-04 21:46:31 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
-(use-package zenburn-theme)
+(use-package zenburn-theme
+  :config
+  (zenburn-with-color-variables
+    (custom-theme-set-faces
+     'zenburn
+     ;; original `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
+     `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg-05)))))))
 
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters

@@ -66,6 +66,8 @@
  ;; If there is more than one, they won't work right.
  '(font-lock-comment-delimiter-face ((t (:foreground "gray55"))))
  '(font-lock-comment-face ((t (:foreground "gray55" :slant italic))))
+ '(font-lock-function-name-face ((t (:foreground "#A5FBFF"))))
+ '(fringe ((t (:background "gray27" :foreground "#DCDCCC"))))
  '(highlight-symbol-face ((t (:background "DarkSeaGreen4"))))
  '(link ((t (:foreground "gray55" :underline t :weight normal))))
  '(org-document-title ((t (:height 1.3))))
