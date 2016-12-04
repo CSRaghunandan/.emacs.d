@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-04 20:56:39 csraghunandan>
+;; Time-stamp: <2016-12-05 00:56:25 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
@@ -29,18 +29,19 @@
 
   ;; structured-haskell-mode - paredit like features for haskell code
   ;; https://github.com/chrisdone/structured-haskell-mode
-  (use-package shm
-    :config
-    (add-hook 'haskell-mode-hook (lambda ()
-                                   ;; shm has it's own indention rules. No need
-                                   ;; of `haskell-indentation-mode'
-                                   (haskell-indentation-mode -1)
-                                   ;; shm conflicts with smartparens. Hence, disable.
-                                   (smartparens-mode -1)))
-    (add-hook 'haskell-mode-hook 'structured-haskell-mode)
-    ;; add case splits for simple sum types
-    (require 'shm-case-split)
-    (bind-key "C-c |" 'shm/case-split haskell-mode-map)))
+  (when (executable-find "structured-haskell-mode")
+    (use-package shm
+      :config
+      (add-hook 'haskell-mode-hook (lambda ()
+                                     ;; shm has it's own indention rules. No need
+                                     ;; of `haskell-indentation-mode'
+                                     (haskell-indentation-mode -1)
+                                     ;; shm conflicts with smartparens. Hence, disable.
+                                     (smartparens-mode -1)))
+      (add-hook 'haskell-mode-hook 'structured-haskell-mode)
+      ;; add case splits for simple sum types
+      (require 'shm-case-split)
+      (bind-key "C-c |" 'shm/case-split haskell-mode-map))))
 
 (provide 'setup-haskell)
 
