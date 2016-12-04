@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-22 14:28:52 csraghunandan>
+;; Time-stamp: <2016-12-04 01:35:29 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -10,7 +10,7 @@
 ;; https://github.com/milkypostman/powerline
 (use-package powerline
   :config
-  (setq powerline-default-separator 'utf-8)
+  (setq powerline-default-separator 'alternate)
 
   ;; spaceline theme for powerline
   ;; https://github.com/TheBB/spaceline
@@ -22,7 +22,9 @@
     (spaceline-toggle-anzu-off)
     (spaceline-toggle-selection-info-off)
     (setq spaceline-toggle-buffer-modified t)
-    (spaceline-toggle-buffer-size-off)))
+    (spaceline-toggle-buffer-size-off)
+    (spaceline-toggle-erc-track-on)
+    (setq powerline-height 17)))
 
 ;; diminish eldoc-mode in mode-line
 (use-package eldoc
