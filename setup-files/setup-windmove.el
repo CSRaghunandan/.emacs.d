@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-18 16:20:20 csraghunandan>
+;; Time-stamp: <2016-12-04 00:01:35 csraghunandan>
 
 (defun rag/split-below-and-move ()
   "split window below and move there"
@@ -61,6 +61,6 @@
 (bind-keys*
  ("C-x 2" . rag/split-below-and-move)
  ("C-x 3" . rag/split-right-and-move)
- ("C-x o" . hydra-window/body))
+ ("C-c h w" . hydra-window/body))
 
 (provide 'setup-windmove)

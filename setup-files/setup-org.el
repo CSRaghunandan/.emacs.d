@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-02 15:30:01 csraghunandan>
+;; Time-stamp: <2016-12-04 00:03:48 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -255,7 +255,7 @@ _C_: correct  _p_: prev error _d_: done checking
         ("C"  langtool-correct-buffer)
         ("d"  langtool-check-done :color blue)
         ("q" nil "quit" :color blue))
-      (bind-key "C-c l" 'hydra-langtool/body org-mode-map))
+      (bind-key "C-c h l" 'hydra-langtool/body org-mode-map))
 
 
 

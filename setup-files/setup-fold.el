@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-24 19:18:27 csraghunandan>
+;; Time-stamp: <2016-12-04 00:08:20 csraghunandan>
 
 ;; fold-dwim
 ;; https://github.com/emacsmirror/fold-dwim
@@ -12,6 +12,6 @@
     ("h" fold-dwim-hide-all "hide-all")
     ("s" fold-dwim-show-all "show-all")
     ("q" nil "quit"))
-  (bind-key "C-c f t" 'hydra-fold/body))
+  (bind-key "C-c h d" 'hydra-fold/body))
 
 (provide 'setup-fold)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 12:01:33 csraghunandan>
+;; Time-stamp: <2016-12-04 00:14:07 csraghunandan>
 
 ;; google-this : google line, region, symbol, etc.
 ;; https://github.com/Malabarba/emacs-google-this
@@ -20,6 +20,6 @@
     ("g" google-this-search)
     ("c" google-this-cpp-reference)
     ("q" nil :color blue))
-  (bind-key "C-x g" 'hydra-google/body))
+  (bind-key "C-c h g" 'hydra-google/body))
 
 (provide 'setup-google-this)

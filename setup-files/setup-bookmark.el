@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 12:15:55 csraghunandan>
+;; Time-stamp: <2016-12-04 00:02:11 csraghunandan>
 
 ;; bm - visible bookmarks within a buffer
 ;; https://github.com/joodland/bm
@@ -63,6 +63,6 @@ Bookmark _n_ext (_N_ in lifo order)            toggle book_m_ark        ^^_/_ bm
       ("r"   pop-to-mark-command :color blue)
       ("RET" nil "cancel" :color blue)
       ("q"   nil "cancel" :color blue))
-    (bind-key* "s-h" 'hydra-bm/body)))
+    (bind-key* "C-c h b" 'hydra-bm/body)))
 
 (provide 'setup-bookmark)

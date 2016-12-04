@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 01:41:23 csraghunandan>
+;; Time-stamp: <2016-12-03 23:59:32 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -79,7 +79,7 @@ With prefix argument (`C-u'), also kill the special buffers."
 
   (bind-keys*
    ("C-c p K" . modi/kill-non-project-buffers)
-   ("C-c p h" . hydra-projectile/body)
+   ("C-c h p" . hydra-projectile/body)
    ("C-c p r" . projectile-replace-regexp))
 
 

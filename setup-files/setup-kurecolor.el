@@ -1,10 +1,10 @@
-;; Time-stamp: <2016-12-03 11:24:36 csraghunandan>
+;; Time-stamp: <2016-12-04 00:16:07 csraghunandan>
 
 ;; Kurecolor
 ;; https://github.com/emacsfodder/kurecolor
 
 (use-package kurecolor
-  :bind (("s-K" . hydra-kurecolor/body))
+  :bind (("C-c h k" . hydra-kurecolor/body))
   :config
   (progn
     (defhydra hydra-kurecolor (:color pink

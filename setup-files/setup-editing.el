@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-03 12:10:37 csraghunandan>
+;; Time-stamp: <2016-12-04 00:00:48 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -344,7 +344,7 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
   ("<SPC>" xah-cycle-letter-case :color red)
   ("q"     nil "cancel" :color blue))
 
-(bind-key* "M-c" 'hydra-change-case/body)
+(bind-key* "C-c h c" 'hydra-change-case/body)
 
 
 
