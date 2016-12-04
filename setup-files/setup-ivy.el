@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-18 15:42:45 csraghunandan>
+;; Time-stamp: <2016-12-05 00:27:00 csraghunandan>
 
 ;; flx, ivy
 
@@ -24,9 +24,7 @@
 	ivy-virtual-abbreviate 'full ; Show the full virtual file paths
 	ivy-extra-directories '("./") ; default value: ("../" "./")
 	ivy-wrap t)
-  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
-				(counsel-ag . ivy--regex-plus)
-				(counsel-grep-or-swiper . ivy--regex-plus)
+  (setq ivy-re-builders-alist '((counsel-grep-or-swiper . ivy--regex-plus)
 				(t . ivy--regex-fuzzy))))
 
 (provide 'setup-ivy)
