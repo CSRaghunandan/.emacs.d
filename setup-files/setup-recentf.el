@@ -1,12 +1,12 @@
-;; Time-stamp: <2016-12-01 12:59:15 csraghunandan>
+;; Time-stamp: <2016-12-04 22:01:29 csraghunandan>
 
 ;; view the list recently opened files
 (use-package recentf
   :defer 1
   :config
   (recentf-mode 1)
-  (setq recentf-max-menu-items 100)
-  (setq recentf-max-saved-items 100)
+  (setq recentf-max-menu-items 150)
+  (setq recentf-max-saved-items 150)
   (setq recentf-exclude '("/elpa/" ;; ignore all files in elpa directory
                           ".*?autoloads.el$"
                           "company-statistics-cache.el" ;; ignore company cache file
