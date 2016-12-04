@@ -1,9 +1,12 @@
-;; Time-stamp: <2016-12-04 21:46:31 csraghunandan>
+;; Time-stamp: <2016-12-04 22:06:21 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
 (use-package zenburn-theme
   :config
+  ;; make fringe blends into the background
+  (set-face-attribute 'fringe nil :background "gray27")
+
   (zenburn-with-color-variables
     (custom-theme-set-faces
      'zenburn
@@ -20,7 +23,9 @@
 (column-number-mode t)
 (line-number-mode t)
 (tool-bar-mode -1)
-(set-frame-font "PragmataPro 13")
+;; if PragmataPro font is available, use it
+(when (member "PragmataPro" (font-family-list))
+  (set-frame-font "PragmataPro 13"))
 (setq ring-bell-function 'ignore)
 ;; resize minibuffer window to accommodate text
 (setq resize-mini-window t)
@@ -37,8 +42,6 @@
 ;; Do not make mouse wheel accelerate its action (example: scrolling)
 (setq mouse-wheel-progressive-speed nil)
 
-;; make fringe blends into the background
-(set-face-attribute 'fringe nil :background "gray21")
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box 'nil)
 ;; prevent cursor from moving when scrolling
