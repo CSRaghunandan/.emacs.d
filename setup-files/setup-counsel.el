@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-12-01 01:21:35 csraghunandan>
+;; Time-stamp: <2016-12-05 01:00:42 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -26,6 +26,8 @@
     (bind-key "C-c C-q" #'counsel-org-tag org-mode-map))
   (with-eval-after-load 'org-agenda
     (bind-key "C-c C-q" #'counsel-org-tag-agenda org-agenda-mode-map))
+
+  (counsel-mode 1)
 
   :config
   ;; ignore case sensitivity for counsel grep
@@ -61,15 +63,17 @@
   ;; Redefine `counsel-rg-base-command' with my required options, especially
   ;; the `--follow' option to allow search through symbolic links (part of
   ;; `modi/rg-arguments').
-  (setq counsel-rg-base-command
-        (mapconcat 'identity
-                   (append '("\\rg") ; used unaliased version of `rg': \rg
-                           modi/rg-arguments
-                           '("--no-heading" ; no file names above matching content
-                             "%s" ; This MUST be %s, not %S
+  (when (executable-find "rg")
+    (progn
+      (setq counsel-rg-base-command
+            (mapconcat 'identity
+                       (append '("\\rg") ; used unaliased version of `rg': \rg
+                               modi/rg-arguments
+                               '("--no-heading" ; no file names above matching content
+                                 "%s" ; This MUST be %s, not %S
                                         ; https://github.com/abo-abo/swiper/issues/427
-                             ))
-                   " "))
+                                 ))
+                       " "))))
 
   (defun rag/counsel-rg-project-at-point ()
     "use counsel rg to search for the word at point in the project"
@@ -86,8 +90,6 @@
 	 "\\(?:\\`[#.]\\)"
 	 ;; File names ending with # or ~
 	 "\\|\\(?:\\`.+?[#~]\\'\\)"))
-  ;; show parent directory in prompt
-  (ivy-set-prompt 'counsel-ag #'counsel-prompt-function-dir)
 
   (defun counsel-goto-recent-directory ()
     "Open recent directory with dired"

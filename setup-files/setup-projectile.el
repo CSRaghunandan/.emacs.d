@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-03 23:59:32 csraghunandan>
+;; Time-stamp: <2016-12-05 00:59:53 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -15,24 +15,25 @@
 
 ;;; Default rg arguments
   ;; https://github.com/BurntSushi/ripgrep
-  (defconst modi/rg-arguments
-    `("--line-number"                     ; line numbers
-      "--smart-case"
-      "--follow"                          ; follow symlinks
-      "--mmap")                           ; apply memory map optimization when possible
-    "Default rg arguments used in the functions in `projectile' package.")
+  (when (executable-find "rg")
+    (progn
+      (defconst modi/rg-arguments
+        `("--line-number"                     ; line numbers
+          "--smart-case"
+          "--follow"                          ; follow symlinks
+          "--mmap")                           ; apply memory map optimization when possible
+        "Default rg arguments used in the functions in `projectile' package.")
 
-  (defun modi/advice-projectile-use-rg ()
-    "Always use `rg' for getting a list of all files in the project."
-    (mapconcat 'identity
-               (append '("\\rg") ; used unaliased version of `rg': \rg
-                       modi/rg-arguments
-                       '("--null" ; output null separated results,
-                         "--files")) ; get file names matching the regex '' (all files)
-               " "))
+      (defun modi/advice-projectile-use-rg ()
+        "Always use `rg' for getting a list of all files in the project."
+        (mapconcat 'identity
+                   (append '("\\rg") ; used unaliased version of `rg': \rg
+                           modi/rg-arguments
+                           '("--null" ; output null separated results,
+                             "--files")) ; get file names matching the regex '' (all files)
+                   " "))
 
-  (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)
-
+      (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)))
 
 
   ;; Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
@@ -102,7 +103,7 @@ _f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer         
 ^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      _s-p_/_p_: switch to any other project
 ^^    _d_: file curr dir      _o_: multi-occur       _K_/_s-k_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
 ^^    _r_: recent file        _G_: git-grep          ^^^^                             _z_: cache current
-^^    _D_: dir                _R_: counsel-ag-root
+^^    _D_: dir                _R_: counsel-rg-root
 "
     ("r"   counsel-rg)
     ("R"   rag/counsel-rg-project-at-point)

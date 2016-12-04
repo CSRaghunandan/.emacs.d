@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-04 01:39:21 csraghunandan>
+;; Time-stamp: <2016-12-05 00:44:01 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -30,6 +30,8 @@
 
 ;; (require 'setup-pragmatapro)
 (require 'setup-theme)
+(when (memq window-system '(mac ns x))
+  (require 'setup-osx))
 (require 'setup-org)
 (require 'setup-org-journal)
 (require 'setup-backup)
@@ -71,8 +73,6 @@
 (require 'setup-haskell)
 (require 'setup-python)
 (require 'setup-tex)
-(when (memq window-system '(mac ns x))
-  (require 'setup-osx))
 (require 'setup-misc)
 (require 'setup-fold)
 (require 'setup-buffers)
