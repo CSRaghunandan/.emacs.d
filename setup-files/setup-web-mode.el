@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-29 15:21:28 csraghunandan>
+;; Time-stamp: <2016-12-05 19:14:06 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -42,11 +42,6 @@
   ;; https://github.com/osv/company-web
   (use-package company-web)
 
-  ;; editing enhancements for web-mode
-  ;; https://github.com/jtkDvlp/web-mode-edit-element
-  (use-package web-mode-edit-element
-    :config (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
-
   ;; snippets for HTML
   ;; https://github.com/smihica/emmet-mode
   (use-package emmet-mode
@@ -68,6 +63,7 @@
     (set (make-local-variable 'company-backends)
          '((company-css company-dabbrev-code company-files))))
   (add-hook 'css-mode-hook 'my-css-mode-hook)
+  (add-hook 'css-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'company-mode))
 
 (provide 'setup-web-mode)
