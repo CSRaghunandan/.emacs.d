@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-02 16:03:48 csraghunandan>
+;; Time-stamp: <2016-12-06 00:38:25 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -26,7 +26,9 @@
   (setq comint-scroll-to-bottom-on-input t)
   ;; remap up and down to previous and next commands in history
   (define-key comint-mode-map [up] 'comint-previous-input)
-  (define-key comint-mode-map [down] 'comint-next-input))
+  (define-key comint-mode-map [down] 'comint-next-input)
+
+  (bind-key "<tab>" 'completion-at-point shell-mode-map))
 
 (provide 'setup-shell)
 
