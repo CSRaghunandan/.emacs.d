@@ -1,10 +1,11 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-12-05 01:05:45 csraghunandan>
+;; Time-stamp: <2016-12-05 10:11:06 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
 ;; provides incremental completion backends for a lot of emacs stuff using ivy
 (use-package counsel :defer t
+  :diminish counsel-mode
   :bind*
   (("M-x" . counsel-M-x)
    ("C-c r d" . counsel-goto-recent-directory)

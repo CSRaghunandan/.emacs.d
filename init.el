@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 00:44:01 csraghunandan>
+;; Time-stamp: <2016-12-05 17:18:07 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -29,7 +29,6 @@
 (setq use-package-always-ensure t)
 
 ;; (require 'setup-pragmatapro)
-(require 'setup-theme)
 (when (memq window-system '(mac ns x))
   (require 'setup-osx))
 (require 'setup-org)
@@ -92,6 +91,7 @@
 (require 'setup-which-key)
 (require 'setup-kurecolor)
 (require 'setup-erc)
+(require 'setup-theme)
 
 
 

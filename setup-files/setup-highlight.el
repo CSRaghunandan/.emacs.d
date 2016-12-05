@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 00:23:56 csraghunandan>
+;; Time-stamp: <2016-12-05 17:20:53 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -16,11 +16,13 @@
 ;; https://github.com/k-talo/volatile-highlights.el
 (use-package volatile-highlights
   :diminish volatile-highlights-mode
-  :config (volatile-highlights-mode t))
+  :config
+  (volatile-highlights-mode t))
 
 ;; configure hl-line-mode
 (use-package hl-line
-  :config (global-hl-line-mode))
+  :config
+  (global-hl-line-mode))
 
 ;; best solution for highlighting indent guides so far in emacs
 ;; https://github.com/DarthFennec/highlight-indent-guides
@@ -28,7 +30,6 @@
   :config
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (setq highlight-indent-guides-method 'character
-	highlight-indent-guides-character ?∣)
-  (set-face-foreground 'highlight-indent-guides-character-face "gray40"))
+	highlight-indent-guides-character ?∣))
 
 (provide 'setup-highlight)

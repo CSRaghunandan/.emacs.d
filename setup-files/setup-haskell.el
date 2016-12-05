@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 00:56:25 csraghunandan>
+;; Time-stamp: <2016-12-05 17:21:07 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
