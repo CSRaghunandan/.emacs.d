@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-02 13:47:31 csraghunandan>
+;; Time-stamp: <2016-12-05 23:29:43 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -10,6 +10,8 @@
   (setq python-shell-interpreter "python3")
   (add-hook 'python-mode-hook 'company-mode)
   (add-hook 'python-mode-hook 'flycheck-mode)
+  ;; enable company-mode completions in inferior python process
+  (add-hook 'inferior-python-mode-hook 'company-mode)
 
   ;; anaconda-mode :- bring IDE like features for python-mode
   ;; https://github.com/proofit404/anaconda-mode
