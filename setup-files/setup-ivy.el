@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 21:46:12 csraghunandan>
+;; Time-stamp: <2016-12-06 14:09:17 csraghunandan>
 
 ;; flx, ivy
 
@@ -24,7 +24,7 @@
 	ivy-virtual-abbreviate 'full ; Show the full virtual file paths
 	ivy-extra-directories '("./") ; default value: ("../" "./")
 	ivy-wrap t)
-  (setq ivy-re-builders-alist '((counsel-grep-or-swiper . ivy--regex-plus)
+  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
 				(t . ivy--regex-fuzzy))))
 
 (provide 'setup-ivy)
@@ -35,3 +35,5 @@
 ;; * press `C-x C-s' to save changes or `C-c C-k' to abort changes
 ;;   when in ivy-minibuffer, press `C-c C' to copy all the completion candidates to kill ring
 ;; * press C-' when in ivy-minibuffer to use avy to select completion candidates
+;; * press `~' when in `counsel-find-file' to go to home directory
+;; * press `//' when in `counsel-find-file' to go to root directory
