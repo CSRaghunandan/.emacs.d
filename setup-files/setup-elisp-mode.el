@@ -1,8 +1,10 @@
-;; Time-stamp: <2016-10-29 01:18:41 csraghunandan>
+;; Time-stamp: <2016-12-06 11:28:25 csraghunandan>
 
 ;; emacs-lisp-mpde
 ;; configure company mode for emacs-lisp-mode
 (use-package elisp-mode :ensure nil
+  :bind (:map emacs-lisp-mode-map
+              ("C-c C-l" . eval-buffer))
   :config
   (defun my-elisp-mode-hook ()
     "Hook for `emacs-lisp-mode'"

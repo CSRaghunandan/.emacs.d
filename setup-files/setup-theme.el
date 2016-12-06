@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 17:59:54 csraghunandan>
+;; Time-stamp: <2016-12-06 11:27:40 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -11,10 +11,11 @@
      `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg-05))))))
 
   ;; make function face brighter so it's easily distinguishable from font-lock face for types
-  (set-face-attribute 'font-lock-function-name-face nil :foreground "#A5FBFF")
+  (set-face-attribute 'font-lock-function-name-face nil :foreground "cadetblue1")
   ;; make everything look gray :)
   (set-face-attribute 'font-lock-comment-delimiter-face nil :foreground "gray55")
   (set-face-attribute 'font-lock-comment-face nil :foreground "gray55" :slant 'italic)
+  (set-face-attribute 'font-lock-doc-face nil :foreground "gray75" :slant 'italic)
   (set-face-attribute 'link nil :foreground "gray55" :underline t :weight 'normal)
   (set-face-background 'shm-current-face "#444444")
   (set-face-attribute 'hl-line nil :background "#444444")
