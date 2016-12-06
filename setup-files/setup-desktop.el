@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-07 12:58:08 csraghunandan>
+;; Time-stamp: <2016-12-06 20:27:26 csraghunandan>
 
 ;; desktop
 ;; save the current emacs session under `desktop' to be restored later
@@ -33,6 +33,7 @@
                   register-alist
                   (search-ring . 20)
                   (shell-command-history . 50)
+                  ivy-views
                   ;; tags-file-name
                   ;; tags-table-list
                   )))
