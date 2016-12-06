@@ -1,9 +1,8 @@
-;; Time-stamp: <2016-12-04 00:14:07 csraghunandan>
+;; Time-stamp: <2016-12-07 01:42:21 csraghunandan>
 
 ;; google-this : google line, region, symbol, etc.
 ;; https://github.com/Malabarba/emacs-google-this
 (use-package google-this
-  :defer 5
   :diminish google-this-mode
   :config (google-this-mode 1)
   (defhydra hydra-google (:color blue
