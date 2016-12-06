@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-03 13:14:34 csraghunandan>
+;; Time-stamp: <2016-12-06 09:41:46 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -44,7 +44,6 @@
   ;; https://github.com/NicolasPetton/jade
   (use-package jade
     :init
-    (require 'seq-25)
     (add-hook 'js2-mode-hook #'jade-interaction-mode))
 
   ;; web-beautify - Format HTML, CSS and JavaScript/JSON by js-beautify

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 17:18:07 csraghunandan>
+;; Time-stamp: <2016-12-06 10:51:16 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -8,9 +8,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
 ;; emacs setup file
@@ -28,7 +25,6 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
-;; (require 'setup-pragmatapro)
 (when (memq window-system '(mac ns x))
   (require 'setup-osx))
 (require 'setup-org)
@@ -84,8 +80,6 @@
 (require 'setup-page-break-lines)
 (require 'setup-aggresive-indent)
 (require 'setup-js)
-;; use this when `ggtags.el' has proper support for `universal-ctags'
-;; (require 'setup-tags)
 (require 'setup-recursive-narrow)
 (require 'setup-shell)
 (require 'setup-which-key)
