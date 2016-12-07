@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 19:15:07 csraghunandan>
+;; Time-stamp: <2016-12-07 19:49:18 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -57,5 +57,7 @@ not prevent downloading the actual packages (obviously)."
 (add-hook 'focus-out-hook 'garbage-collect)
 ;; make links clickable
 (add-hook 'prog-mode-hook 'goto-address-mode)
+;; use aspell for spell checking
+(setq ispell-program-name "aspell")
 
 (provide 'setup-misc)

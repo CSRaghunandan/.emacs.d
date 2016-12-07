@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 12:06:26 csraghunandan>
+;; Time-stamp: <2016-12-07 17:20:03 csraghunandan>
 
 ;; view the list recently opened files
 (use-package recentf
@@ -15,6 +15,7 @@
                           "/journal/" ;; ignore daily journal files
                           ".gitignore" ;; ignore `.gitignore' files in projects
                           "/tmp/" ;; ignore temporary files
+                          "NEWS" ;; don't include the NEWS file for recentf
                           "loaddefs.el")))
 
 (provide 'setup-recentf)
