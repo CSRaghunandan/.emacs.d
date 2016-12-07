@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-18 15:49:27 csraghunandan>
+;; Time-stamp: <2016-12-07 15:09:14 csraghunandan>
 
 ;; configuration for buffers
 
@@ -124,5 +124,20 @@ with prefix, select which buffer to kill"
 ;; diminish auto-revert-mode emacs
 (use-package autorevert
   :diminish auto-revert-mode)
+
+(defun rag/split-below-and-move ()
+  "split window below and move there"
+  (interactive)
+  (split-window-below)
+  (other-window 1))
+(defun rag/split-right-and-move ()
+  "split window right and move there"
+  (interactive)
+  (split-window-right)
+  (other-window 1))
+
+(bind-keys*
+ ("C-x 2" . rag/split-below-and-move)
+ ("C-x 3" . rag/split-right-and-move))
 
 (provide 'setup-buffers)

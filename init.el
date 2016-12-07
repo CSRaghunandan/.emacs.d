@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-06 10:51:16 csraghunandan>
+;; Time-stamp: <2016-12-07 15:12:29 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -75,7 +75,6 @@
 (require 'setup-duplicate-line)
 (require 'setup-editing)
 (require 'setup-google-this)
-(require 'setup-windmove)
 (require 'setup-mc)
 (require 'setup-page-break-lines)
 (require 'setup-aggresive-indent)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-19 19:30:01 csraghunandan>
+;; Time-stamp: <2016-12-07 15:22:11 csraghunandan>
 
 ;; ace-window
 ;; https://github.com/abo-abo/ace-window
@@ -10,7 +10,52 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
   ;; display the ace-window key to switch to in mode-line
-  (ace-window-display-mode 1))
+  (ace-window-display-mode 1)
+  ;; enable aw dispatch even for just one window
+  (setq aw-dispatch-always t)
+
+  (defhydra hydra-window-size (:color red)
+    "Windows size"
+    ("b" shrink-window-horizontally "shrink horizontal")
+    ("p" shrink-window "shrink vertical")
+    ("n" enlarge-window "enlarge vertical")
+    ("f" enlarge-window-horizontally "enlarge horizontal")
+    ("m" rag/toggle-frame-fullscreen-non-native "maximize frame")
+    ("r" balance-windows "balance windows")
+    ("q" nil :color blue))
+
+  (defhydra hydra-window-scroll (:color red)
+    "Scroll other window"
+    ("n" scroll-other-window "scroll")
+    ("p" scroll-other-window-down "scroll down")
+    ("q" nil :color blue))
+
+  (defun rag/toggle-frame-fullscreen-non-native ()
+    "Toggle full screen non-natively. Uses the `fullboth' frame paramerter
+   rather than `fullscreen'. Useful to fullscreen on OSX w/o animations."
+    (interactive)
+    (modify-frame-parameters
+     nil
+     `((maximized
+        . ,(unless (memq (frame-parameter nil 'fullscreen) '(fullscreen fullboth))
+             (frame-parameter nil 'fullscreen)))
+       (fullscreen
+        . ,(if (memq (frame-parameter nil 'fullscreen) '(fullscreen fullboth))
+               (if (eq (frame-parameter nil 'maximized) 'maximized)
+                   'maximized)
+             'fullboth)))))
+
+  ;; add hydras to control window size and scroll other window
+  (setq aw-dispatch-alist
+    '((?x aw-delete-window " Ace - Delete Window")
+      (?m aw-swap-window " Ace - Swap Window")
+      (?n aw-flip-window)
+      (?v aw-split-window-vert " Ace - Split Vert Window")
+      (?b aw-split-window-horz " Ace - Split Horz Window")
+      (?i delete-other-windows " Ace - Maximize Window")
+      (?o delete-other-windows)
+      (?c hydra-window-scroll/body)
+      (?y hydra-window-size/body))))
 
 (provide 'setup-ace-window)
 
