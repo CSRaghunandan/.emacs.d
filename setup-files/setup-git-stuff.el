@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-09 19:46:22 csraghunandan>
+;; Time-stamp: <2016-12-07 11:25:07 csraghunandan>
 
 ;; magit, git-timemachine, diff-hl
 ;; https://magit.vc , https://github.com/magit/magit
@@ -7,6 +7,9 @@
   :bind* (("C-c m s" . magit-status)
           ("C-c m b"   . magit-blame))
   :config (setq magit-completing-read-function 'ivy-completing-read))
+
+;; allows you to edit commit messages (needed by magit)
+(use-package git-commit)
 
 ;; git-timemachine
 ;; https://github.com/pidu/git-timemachine
