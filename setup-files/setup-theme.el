@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-06 11:49:40 csraghunandan>
+;; Time-stamp: <2016-12-07 23:50:18 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -23,8 +23,13 @@
   (set-face-attribute 'vhl/default-face nil :background "#444444")
   (set-face-foreground 'highlight-indent-guides-character-face "gray40")
   ;; remove ugly box around mode-line
-  (set-face-attribute 'mode-line nil :box nil :weight 'bold :foreground "gray65")
-  (set-face-attribute 'mode-line-inactive nil :box nil :weight 'normal :foreground "gray65"))
+  (set-face-attribute 'mode-line nil :box nil :weight 'bold :foreground "gray55")
+  (set-face-attribute 'mode-line-inactive nil :box nil :weight 'bold :foreground "gray55")
+  (set-face-attribute 'powerline-active2 nil :background "#645B5B")
+  (set-face-attribute 'powerline-active1 nil :background "#645B5B" :foreground "#F0DFAF")
+  (set-face-attribute 'mode-line-buffer-id nil :foreground "#F0DFAF")
+
+  )
 
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
