@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 12:05:51 csraghunandan>
+;; Time-stamp: <2016-12-07 16:29:34 csraghunandan>
 
 ;; flx, ivy
 
@@ -21,8 +21,8 @@
 	ivy-height 13
 	ivy-initial-inputs-alist nil
 	ivy-count-format ""
-	ivy-virtual-abbreviate 'name ; Show the full virtual file paths
-	ivy-extra-directories '("./") ; default value: ("../" "./")
+	ivy-virtual-abbreviate 'full ; Show the full virtual file paths
+	ivy-extra-directories nil ; default value: ("../" "./")
 	ivy-wrap t)
   (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
 				(t . ivy--regex-fuzzy))))
