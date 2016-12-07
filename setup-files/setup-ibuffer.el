@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 02:09:33 csraghunandan>
+;; Time-stamp: <2016-12-07 10:25:48 csraghunandan>
 
 ;; ibuffer
 ;; for easy management of buffers
@@ -33,7 +33,7 @@
                   " "
                   process))))
 
-  ;; hide uninteresting buffers in `ibuffer-mode'
+  ;; Don't show scratch and messages in iBuffer
   (require 'ibuf-ext)
   (add-to-list #'ibuffer-never-show-predicates "^\\*scratch")
   (add-to-list #'ibuffer-never-show-predicates "^\\*Messages")
