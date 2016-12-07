@@ -2,7 +2,7 @@
 My emacs config.
 ** Notes
 - This is a work in progress and is subject to frequent changes.
-- I prefer to use `ivy` as the completion frontend for emacs.
+- I prefer to use ivy as the completion frontend for emacs.
   If you want to use helm, add this line to =init.el= :- =(require 'setup-helm)=
 - I run a very minimal theme with no toolbar, no scrollbars, no line numbers and use zenburn theme.
 - Tested to work with emacs 25.1.1 on macOS Sierra.
