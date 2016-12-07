@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 16:01:08 csraghunandan>
+;; Time-stamp: <2016-12-08 00:35:43 csraghunandan>
 
 ;; configuration for buffers
 
@@ -98,40 +98,39 @@ with prefix, select which buffer to kill"
                             (mapcar #'buffer-name (buffer-list))))
     (kill-this-buffer)))
 
-(defun rag/delete-file-visited-by-buffer (buffername)
-  "Delete the file visited by the buffer named BUFFERNAME."
-  (interactive "b")
-  (let* ((buffer (get-buffer buffername))
-         (filename (buffer-file-name buffer)))
+(defun delete-file-and-buffer ()
+  "Kill the current buffer and deletes the file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
     (when filename
-      (delete-file filename)
-      (kill-buffer-ask buffer))))
+      (if (vc-backend filename)
+          (vc-delete-file filename)
+        (progn
+          (delete-file filename)
+          (message "Deleted file %s" filename)
+          (kill-buffer))))))
 
-(defun move-file (new-location)
-  "Write this file to NEW-LOCATION, and delete the old one."
-  (interactive (list (if buffer-file-name
-                         (read-file-name "Move file to: ")
-                       (read-file-name "Move file to: "
-                                       default-directory
-                                       (expand-file-name (file-name-nondirectory (buffer-name))
-                                                         default-directory)))))
-  (when (file-exists-p new-location)
-    (delete-file new-location))
-  (let ((old-location (buffer-file-name)))
-    (write-file new-location t)
-    (when (and old-location
-               (file-exists-p new-location))
-      (delete-file old-location))))
-
+(defun rename-file-and-buffer ()
+  "Rename the current buffer and file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (message "Buffer is not visiting a file!")
+      (let ((new-name (read-file-name "New name: " filename)))
+        (cond
+         ((vc-backend filename) (vc-rename-file filename new-name))
+         (t
+          (rename-file filename new-name t)
+          (set-visited-file-name new-name t t)))))))
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
   (interactive) (revert-buffer t t))
 
 (bind-keys*
  ("C-c o k" . rag/reopen-killed-file)
- ("C-c d f" . rag/delete-file-visited-by-buffer)
+ ("C-c d f" . delete-file-and-buffer)
  ("C-x k" . rag/kill-a-buffer)
- ("C-c m f" . move-file)
+ ("C-c m f" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
  ("<f6>" . rag/make-backup)
  ("<f5>" . revert-buffer-no-confirm)
