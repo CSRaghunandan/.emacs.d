@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-08 00:35:43 csraghunandan>
+;; Time-stamp: <2016-12-08 00:42:30 csraghunandan>
 
 ;; configuration for buffers
 
@@ -41,20 +41,6 @@
     (when new-kill-string
       (message "%s copied" new-kill-string)
       (kill-new new-kill-string))))
-
-(defun rag/make-backup ()
-  "Make a backup copy of current file.
-The backup file name has the form ‹name›~‹timestamp›~, in the same dir.
-If such a file already exist, it's overwritten.
-If the current buffer is not associated with a file, nothing's done."
-  (interactive)
-  (if (buffer-file-name)
-      (let* ((currentName (buffer-file-name))
-             (backupName (concat currentName
-                                 "." (format-time-string "%Y%m%d_%H%M") ".bkp")))
-        (copy-file currentName backupName :overwrite-if-already-exists)
-        (message (concat "Backup saved as: " (file-name-nondirectory backupName))))
-    (user-error "buffer is not a file.")))
 
 ;;; Reopen Killed File
 ;; http://emacs.stackexchange.com/a/3334/115
@@ -122,6 +108,7 @@ with prefix, select which buffer to kill"
          (t
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
+
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
   (interactive) (revert-buffer t t))
@@ -132,7 +119,6 @@ with prefix, select which buffer to kill"
  ("C-x k" . rag/kill-a-buffer)
  ("C-c m f" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
- ("<f6>" . rag/make-backup)
  ("<f5>" . revert-buffer-no-confirm)
  ("C-c b n" . rag/copy-buffer-file-name-as-kill))
 
