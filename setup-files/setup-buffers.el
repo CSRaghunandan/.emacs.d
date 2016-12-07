@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 15:09:14 csraghunandan>
+;; Time-stamp: <2016-12-07 16:01:08 csraghunandan>
 
 ;; configuration for buffers
 
@@ -107,6 +107,22 @@ with prefix, select which buffer to kill"
       (delete-file filename)
       (kill-buffer-ask buffer))))
 
+(defun move-file (new-location)
+  "Write this file to NEW-LOCATION, and delete the old one."
+  (interactive (list (if buffer-file-name
+                         (read-file-name "Move file to: ")
+                       (read-file-name "Move file to: "
+                                       default-directory
+                                       (expand-file-name (file-name-nondirectory (buffer-name))
+                                                         default-directory)))))
+  (when (file-exists-p new-location)
+    (delete-file new-location))
+  (let ((old-location (buffer-file-name)))
+    (write-file new-location t)
+    (when (and old-location
+               (file-exists-p new-location))
+      (delete-file old-location))))
+
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
   (interactive) (revert-buffer t t))
@@ -115,7 +131,7 @@ with prefix, select which buffer to kill"
  ("C-c o k" . rag/reopen-killed-file)
  ("C-c d f" . rag/delete-file-visited-by-buffer)
  ("C-x k" . rag/kill-a-buffer)
- ("C-c n n" . rename-file)
+ ("C-c m f" . move-file)
  ("C-c m d" . make-directory)
  ("<f6>" . rag/make-backup)
  ("<f5>" . revert-buffer-no-confirm)
