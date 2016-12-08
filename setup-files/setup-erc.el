@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-01 19:15:00 csraghunandan>
+;; Time-stamp: <2016-12-08 17:55:50 csraghunandan>
 
 ;; ERC - the irc client for emacs
 (use-package erc :defer t
@@ -34,6 +34,17 @@
          (concat "\\<" (nth 0 (erc-parse-user nick)) "> " message)))))
 
   (if (eq system-type 'darwin)
-      (add-hook 'erc-text-matched-hook 'erc-terminal-notifier-text-matched)))
+      (add-hook 'erc-text-matched-hook 'erc-terminal-notifier-text-matched))
+
+  ;; set directory to save erc log files
+  (setq erc-log-channels-directory "~/.erc/logs/")
+
+  ;; if log file exists, load it
+  (setq erc-log-insert-log-on-open t))
 
 (provide 'setup-erc)
+
+;; erc
+;; press `C-c C-p' to quit erc channel
+;; press `C-c C-l' to save the erc chat to log
+;; if there are any logs, they will be restored automatically upon login
