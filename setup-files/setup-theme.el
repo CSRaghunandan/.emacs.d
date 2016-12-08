@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-08 01:53:39 csraghunandan>
+;; Time-stamp: <2016-12-08 13:18:37 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -26,8 +26,8 @@
   ;; make mode line look pretty :)
   (set-face-attribute 'mode-line nil :box nil :weight 'bold :foreground "gray60")
   (set-face-attribute 'mode-line-inactive nil :box nil :weight 'bold :foreground "gray60")
-  (set-face-attribute 'powerline-active2 nil :background "#645B5B")
-  (set-face-attribute 'powerline-active1 nil :background "#645B5B" :foreground "#F0DFAF")
+  (set-face-attribute 'powerline-active2 nil :background "#3D4A44")
+  (set-face-attribute 'powerline-active1 nil :background "#3D4A44" :foreground "#F0DFAF")
   (set-face-attribute 'mode-line-buffer-id nil :foreground "#F0DFAF")
   ;; dim inactive modeline
   (set-face-attribute 'powerline-inactive2 nil :background "gray28")
