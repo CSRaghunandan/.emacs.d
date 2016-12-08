@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 19:14:06 csraghunandan>
+;; Time-stamp: <2016-12-09 02:09:58 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -33,8 +33,6 @@
 	    (if tern-mode (tern-mode -1))))))
   (add-hook 'web-mode-hook 'company-mode)
 
-  ;; to get completion data for angularJS
-  (use-package ac-html-angular :defer t)
   ;; to get completion for twitter bootstrap
   (use-package ac-html-bootstrap :defer t)
 
