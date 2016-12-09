@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 15:12:29 csraghunandan>
+;; Time-stamp: <2016-12-09 18:11:58 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -87,6 +87,9 @@
 (require 'setup-theme)
 
 
+
+;; start emacs server only it has not already been started
+(unless (server-running-p) (server-start))
 
 ;; set gc-cons-threshold back to original value
 (setq gc-cons-threshold gc-cons-threshold--orig)

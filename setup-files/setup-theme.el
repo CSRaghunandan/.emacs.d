@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 12:39:12 csraghunandan>
+;; Time-stamp: <2016-12-09 18:07:20 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -43,9 +43,7 @@
 (line-number-mode t)
 ;; disable the ugly toolbar
 (tool-bar-mode -1)
-;; if PragmataPro font is available, use it
-(when (member "PragmataPro" (font-family-list))
-  (set-frame-font "PragmataPro 13"))
+;; ignore bell rings
 (setq ring-bell-function 'ignore)
 ;; resize minibuffer window to accommodate text
 (setq resize-mini-window t)
@@ -59,8 +57,6 @@
 ;; disable annoying cursor blinks
 (blink-cursor-mode -1)
 
-;; disable the ugly scrollbars
-(scroll-bar-mode -1)
 (fringe-mode '(8 . 8))
 ;; Do not make mouse wheel accelerate its action (example: scrolling)
 (setq mouse-wheel-progressive-speed nil)
@@ -76,7 +72,12 @@
       ;; '(left-curly-arrow right-curly-arrow) ;; default
       )
 
-;; make emacs start with full screen
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+;; make sure emacsclient starts at fullscreen
+;; Use PragmataPro font as the default frame font
+(setq default-frame-alist '((font . "PragmataPro-13")
+                            (fullscreen . maximized)))
+
+;; remove ugly scrollbar
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 (provide 'setup-theme)
