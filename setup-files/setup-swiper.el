@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-06 14:03:48 csraghunandan>
+;; Time-stamp: <2016-12-09 12:28:41 csraghunandan>
 
 ;; swiper
 ;; https://github.com/abo-abo/swiper
@@ -8,7 +8,7 @@
               ("C-c s" . swiper-from-isearch)) ; isearch > swiper
   :bind
   (("C-s" . counsel-grep-or-swiper)
-   ("C-c s a" . swiper-all))
+   ("C-S-s" . swiper-all))
   :config
   (setq swiper-action-recenter t))
 
@@ -17,4 +17,4 @@
 ;; swiper
 ;; press `M-n' to select the symbol at point in swiper
 ;; press `C-c s' to search regexp from isearch to swiper
-;; press `C-c s a' to search all the open files(can be slow)
+;; press `C-S-s' to search all the open files(can be slow)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 02:07:27 csraghunandan>
+;; Time-stamp: <2016-12-09 12:39:12 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -36,8 +36,7 @@
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
   :config
-  (progn
-    (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)))
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 ;; Better defaults for emacs
 (column-number-mode t)

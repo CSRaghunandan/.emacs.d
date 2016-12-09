@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-06 13:28:05 csraghunandan>
+;; Time-stamp: <2016-12-09 12:12:12 csraghunandan>
 
 ;; isearch config
 ;; ignore cases while searching
@@ -41,6 +41,8 @@ See the command `isearch-forward-symbol' for more information."
 (bind-keys*
  ("s-F" . isearch-forward-symbol-at-point)
  ("s-r" . rag/isearch-backward-symbol-at-point))
+
+(bind-key "C-'" 'avy-isearch isearch-mode-map)
 
 ;;; Visual Regular Expression search/replace. Needed for visual-regex-steroids
 (use-package visual-regexp)

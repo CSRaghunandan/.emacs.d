@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 19:49:18 csraghunandan>
+;; Time-stamp: <2016-12-09 12:44:26 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -27,9 +27,8 @@ not prevent downloading the actual packages (obviously)."
 
 (use-package calendar :defer t
   :config
-  (progn
-    ;; Highlight today's date in the calendar
-    (add-hook 'calendar-today-visible-hook 'calendar-mark-today)))
+  ;; Highlight today's date in the calendar
+  (add-hook 'calendar-today-visible-hook 'calendar-mark-today))
 
 ;; to list all the keys-chord not bound to a command
 ;; https://github.com/Fuco1/free-keys

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 00:59:53 csraghunandan>
+;; Time-stamp: <2016-12-09 12:24:40 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -81,7 +81,7 @@ With prefix argument (`C-u'), also kill the special buffers."
   (bind-keys*
    ("C-c p K" . modi/kill-non-project-buffers)
    ("C-c h p" . hydra-projectile/body)
-   ("C-c p r" . projectile-replace-regexp))
+   ("C-c Q" . projectile-replace-regexp))
 
 
 
@@ -145,7 +145,7 @@ _f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer         
 ;; * use `projectile-kill-buffers' [C-c p k] to kill all buffers related to a project
 ;; * use `projectile-recentf' [C-c p e] to list all recently opened file in a project
 ;; * use `projectile-switch-open-project' [C-c p q] to switch to an open project
-;; * use `projectile-replace-regexp' [C-c p r] to replace regexp in the project
+;; * use `projectile-replace-regexp' [C-c Q] to replace regexp in the project
 ;; * use `projectile-find-dir' to select all the directories in a project
 ;; * use `projectile-dired' to open the dired buffer of project root
 ;; * run `C-c p h' to open the hydra for projectile

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-08 00:42:30 csraghunandan>
+;; Time-stamp: <2016-12-09 12:30:52 csraghunandan>
 
 ;; configuration for buffers
 
@@ -115,9 +115,10 @@ with prefix, select which buffer to kill"
 
 (bind-keys*
  ("C-c o k" . rag/reopen-killed-file)
- ("C-c d f" . delete-file-and-buffer)
+ ("C-c o K" . rag/reopen-killed-file-fancy)
+ ("C-c r m" . delete-file-and-buffer)
  ("C-x k" . rag/kill-a-buffer)
- ("C-c m f" . rename-file-and-buffer)
+ ("C-c m v" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
  ("<f5>" . revert-buffer-no-confirm)
  ("C-c b n" . rag/copy-buffer-file-name-as-kill))

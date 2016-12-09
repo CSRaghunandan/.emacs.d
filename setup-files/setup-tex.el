@@ -1,14 +1,12 @@
-;; Time-stamp: <2016-10-07 11:19:54 csraghunandan>
+;; Time-stamp: <2016-12-09 12:43:32 csraghunandan>
 
 ;; LaTeX
 ;; https://www.gnu.org/software/auctex/
 (use-package auctex
   :mode ("\\.tex\\'" . latex-mode)
   :init
-  (progn
-    (require 'tex-mode)
-    ;; (load "auctex")
-    )
+  (require 'tex-mode)
+  ;; (load "auctex")
   :config
   ;; http://www.gnu.org/software/auctex/manual/auctex/Multifile.html
   (setq TeX-PDF-mode   t)

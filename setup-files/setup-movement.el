@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-04 00:18:02 csraghunandan>
+;; Time-stamp: <2016-12-09 13:04:58 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -55,7 +55,7 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   ("." next-buffer)
   ("," previous-buffer)
   ("q" nil "quit" :color blue))
-(bind-key "C-c h m" 'hydra-move/body)
+(bind-key "M-m" 'hydra-move/body)
 
 ;; move to the beginning or end of line smartly
 ;; https://github.com/alezost/mwim.el

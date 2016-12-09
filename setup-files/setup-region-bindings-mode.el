@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-24 14:14:16 csraghunandan>
+;; Time-stamp: <2016-12-09 12:41:45 csraghunandan>
 
 ;; Region Bindings Mode
 ;; https://github.com/fgallina/region-bindings-mode
@@ -9,22 +9,21 @@
 (use-package region-bindings-mode
   :diminish region-bindings-mode
   :config
-  (progn
-    (region-bindings-mode-enable)
+  (region-bindings-mode-enable)
 
-    (bind-keys
-     :map region-bindings-mode-map
-     ("w" . xah-cut-line-or-region)
-     ("c" . xah-copy-line-or-region)
-     ("(" . wrap-wth-parens)
-     ("{" . wrap-with-braces)
-     ("'" . wrap-with-single-quotes)
-     ("\"" . wrap-with-double-quotes)
-     ("d" . duplicate-current-line-or-region)
-     ("N" . rag/narrow-or-widen-dwim)
-     ("E" . eval-region)
-     ("e" . er/expand-region)
-     ("f" . fill-region)
-     ("q" . query-replace))))
+  (bind-keys
+   :map region-bindings-mode-map
+   ("w" . xah-cut-line-or-region)
+   ("c" . xah-copy-line-or-region)
+   ("(" . wrap-wth-parens)
+   ("{" . wrap-with-braces)
+   ("'" . wrap-with-single-quotes)
+   ("\"" . wrap-with-double-quotes)
+   ("d" . duplicate-current-line-or-region)
+   ("N" . rag/narrow-or-widen-dwim)
+   ("E" . eval-region)
+   ("e" . er/expand-region)
+   ("f" . fill-region)
+   ("q" . query-replace)))
 
 (provide 'setup-region-bindings-mode)

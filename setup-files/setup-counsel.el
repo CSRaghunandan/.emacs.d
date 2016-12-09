@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-12-05 10:11:06 csraghunandan>
+;; Time-stamp: <2016-12-09 12:27:32 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -8,7 +8,7 @@
   :diminish counsel-mode
   :bind*
   (("M-x" . counsel-M-x)
-   ("C-c r d" . counsel-goto-recent-directory)
+   ("C-c d f" . counsel-faces)
    ("C-c d d" . counsel-descbinds)
    ("C-c r g" . counsel-rg)
    ("C-c s p" . rag/counsel-rg-project-at-point)

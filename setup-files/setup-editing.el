@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-06 20:08:10 csraghunandan>
+;; Time-stamp: <2016-12-09 13:04:00 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -172,9 +172,8 @@ When `universal-argument' is called first, cut whole buffer (respects `narrow-to
 (use-package expand-region
   :bind* ("C-c e" . er/expand-region)
   :config
-  (progn
-    (setq expand-region-contract-fast-key "|")
-    (setq expand-region-reset-fast-key "<ESC><ESC>")))
+  (setq expand-region-contract-fast-key "|")
+  (setq expand-region-reset-fast-key "<ESC><ESC>"))
 
 ;; allow forward and backword movements to move between camelCase words
 (use-package subword
@@ -330,7 +329,7 @@ C-u C-u C-u M-x xah-cycle-letter-case -> Force capitalize."
 
 (bind-keys
  :map region-bindings-mode-map
- ("~" . xah-cycle-letter-case))
+ ("~" . hydra-change-case/body))
 
 (defhydra hydra-change-case (:color blue
                              :hint nil)
@@ -344,7 +343,7 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
   ("<SPC>" xah-cycle-letter-case :color red)
   ("q"     nil "cancel" :color blue))
 
-(bind-key* "C-c h c" 'hydra-change-case/body)
+(bind-key* "M-c" 'hydra-change-case/body)
 
 
 
@@ -389,13 +388,15 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
  ("C-h" . delete-backward-char)
  ("C-M-h" . backward-kill-word)
  ("M-;" . comment-line)
- ("C-x C-S-o" . xah-clean-whitespace))
+ ("C-c o o" . xah-clean-whitespace))
 
+;; configuration for auto-fill-mode
 (use-package simple :ensure nil
   :diminish auto-fill-function
   :config
   (setq comment-auto-fill-only-comments t)
   (add-hook 'prog-mode-hook 'auto-fill-mode)
+  (add-hook 'text-mode-hook 'auto-fill-mode)
   (add-hook 'org-mode-hook 'auto-fill-mode))
 
 (provide 'setup-editing)
