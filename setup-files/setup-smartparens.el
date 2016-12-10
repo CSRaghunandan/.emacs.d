@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-02 20:53:00 csraghunandan>
+;; Time-stamp: <2016-12-11 01:22:54 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -22,7 +22,7 @@
               (brace        . "{")
               (single-quote . "'")
               (double-quote . "\"")
-              (back-quote   . "")))
+              (back-quote   . "`")))
 
   (bind-keys
    :map smartparens-mode-map
