@@ -16,7 +16,7 @@ My emacs config.
   - =racer=
   - =jedi=
   - =LanguageTools=
-  - =coreutils= (only if you’re on macOS. Needed by `dired`]
+  - =coreutils= (only if you’re on macOS. Needed by =dired=)
 
 * Feedback
 Open to any feedback, corrections.
