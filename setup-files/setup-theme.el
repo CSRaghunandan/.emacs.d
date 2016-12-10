@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-10 15:23:58 csraghunandan>
+;; Time-stamp: <2016-12-10 15:35:23 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -17,15 +17,15 @@
   (set-face-attribute 'font-lock-comment-delimiter-face nil :foreground "gray55")
   (set-face-attribute 'font-lock-comment-face nil :foreground "gray55" :slant 'italic)
   (set-face-attribute 'font-lock-doc-face nil :foreground "gray70" :slant 'italic)
-  (set-face-attribute 'link nil :foreground "gray55" :underline t :weight 'normal)
+  (set-face-attribute 'link nil :foreground "#C9B8A2" :underline nil :weight 'normal)
+  (set-face-attribute 'link-visited nil :foreground "#C9AE8C" :underline nil :weight 'normal)
   (set-face-background 'shm-current-face "#444444")
   (set-face-attribute 'hl-line nil :background "#444444")
   (set-face-attribute 'fringe nil :background "#444444")
   (set-face-attribute 'vhl/default-face nil :background "#444444")
   (set-face-foreground 'highlight-indent-guides-character-face "gray40")
   ;; make mode line look pretty :)
-  ;; (set-face-attribute 'mode-line nil :box nil :weight 'normal :foreground "#B4DEB4")
-  (set-face-attribute 'mode-line nil :box nil :weight 'normal :foreground "#A8DEDA")
+  (set-face-attribute 'mode-line nil :box nil :weight 'normal :foreground "#9ED1CD")
   (set-face-attribute 'mode-line-inactive nil :box nil :weight 'normal :foreground "gray60")
   (set-face-attribute 'powerline-active2 nil :background "#414D4D")
   (set-face-attribute 'powerline-active1 nil :background "#414D4D" :weight 'normal)
