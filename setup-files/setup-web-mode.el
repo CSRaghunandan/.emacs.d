@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-10 21:53:02 csraghunandan>
+;; Time-stamp: <2016-12-11 01:33:09 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -9,8 +9,6 @@
          ("C-c [" . emmet-prev-edit-point)
          ("C-c ]" . emmet-next-edit-point))
   :config
-  (add-hook 'web-mode-hook (lambda() (highlight-indent-guides-mode -1)))
-
   ;; highlight matching tag
   (setq web-mode-enable-current-element-highlight t)
 

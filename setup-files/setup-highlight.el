@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 17:20:53 csraghunandan>
+;; Time-stamp: <2016-12-11 01:30:51 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -28,7 +28,9 @@
 ;; https://github.com/DarthFennec/highlight-indent-guides
 (use-package highlight-indent-guides
   :config
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (add-hook 'prog-mode-hook (lambda ()
+                              (unless (eq major-mode 'web-mode)
+                                (highlight-indent-guides-mode))))
   (setq highlight-indent-guides-method 'character
 	highlight-indent-guides-character ?∣))
 
