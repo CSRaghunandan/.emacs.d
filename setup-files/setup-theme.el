@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 18:07:20 csraghunandan>
+;; Time-stamp: <2016-12-10 15:23:58 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -24,11 +24,12 @@
   (set-face-attribute 'vhl/default-face nil :background "#444444")
   (set-face-foreground 'highlight-indent-guides-character-face "gray40")
   ;; make mode line look pretty :)
-  (set-face-attribute 'mode-line nil :box nil :weight 'bold :foreground "gray60")
-  (set-face-attribute 'mode-line-inactive nil :box nil :weight 'bold :foreground "gray60")
-  (set-face-attribute 'powerline-active2 nil :background "#554A4A")
-  (set-face-attribute 'powerline-active1 nil :background "#554A4A" :foreground "#F0DFAF")
-  (set-face-attribute 'mode-line-buffer-id nil :foreground "#F0DFAF")
+  ;; (set-face-attribute 'mode-line nil :box nil :weight 'normal :foreground "#B4DEB4")
+  (set-face-attribute 'mode-line nil :box nil :weight 'normal :foreground "#A8DEDA")
+  (set-face-attribute 'mode-line-inactive nil :box nil :weight 'normal :foreground "gray60")
+  (set-face-attribute 'powerline-active2 nil :background "#414D4D")
+  (set-face-attribute 'powerline-active1 nil :background "#414D4D" :weight 'normal)
+  (set-face-attribute 'mode-line-buffer-id nil :foreground "#F0DFAF" :weight 'bold)
   ;; dim inactive modeline
   (set-face-attribute 'powerline-inactive2 nil :background "gray28")
   (set-face-attribute 'powerline-inactive1 nil :background "gray28"))
