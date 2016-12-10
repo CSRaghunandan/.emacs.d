@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-24 13:23:49 csraghunandan>
+;; Time-stamp: <2016-12-10 19:21:15 csraghunandan>
 
 ;; flyspell, flycheck
 
@@ -18,6 +18,7 @@
 ;; http://www.flycheck.org/en/latest/
 ;; on the fly syntax checking
 (use-package flycheck
+  :diminish flycheck-mode
   :config
   (setq flycheck-check-syntax-automatically '(save mode-enabled new-line))
 

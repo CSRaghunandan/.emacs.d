@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 02:09:58 csraghunandan>
+;; Time-stamp: <2016-12-10 19:49:47 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -46,7 +46,16 @@
     :init (setq emmet-move-cursor-between-quotes t) ;; default nil
     :diminish (emmet-mode . " 𝛆"))
   ;; start emmet mode after web-mode launches
-  (add-hook 'web-mode-hook 'emmet-mode))
+  (add-hook 'web-mode-hook 'emmet-mode)
+
+  ;; format HTML and other web related buffers on save
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook
+                        (lambda ()
+                          (time-stamp)
+                          (web-beautify-html-buffer)
+                          (force-backup-of-buffer)) nil t))))
 
 ;; impatient mode - Live refresh of web pages
 ;; https://github.com/skeeto/impatient-mode
@@ -61,7 +70,18 @@
     (set (make-local-variable 'company-backends)
          '((company-css company-dabbrev-code company-files))))
   (add-hook 'css-mode-hook 'my-css-mode-hook)
+  ;; fontify colors with `rainbow-mode'
   (add-hook 'css-mode-hook 'rainbow-mode)
-  (add-hook 'css-mode-hook 'company-mode))
+  (add-hook 'css-mode-hook 'company-mode)
+  (add-hook 'css-mode-hook 'flycheck-mode)
+
+  ;; format CSS buffers on save
+  (add-hook 'css-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook
+                        (lambda ()
+                          (time-stamp)
+                          (web-beautify-css-buffer)
+                          (force-backup-of-buffer)) nil t))))
 
 (provide 'setup-web-mode)

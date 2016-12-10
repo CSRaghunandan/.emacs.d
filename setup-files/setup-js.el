@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-06 09:41:46 csraghunandan>
+;; Time-stamp: <2016-12-10 19:44:54 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -51,13 +51,14 @@
   (when (executable-find "js-beautify")
     (use-package web-beautify
       :config
+      ;; format JS buffers on save
       (add-hook 'js2-mode-hook
                 (lambda ()
                   (add-hook 'before-save-hook
                             (lambda ()
                               (time-stamp)
                               (web-beautify-js-buffer)
-                              (force-backup-of-buffer)) t t))))))
+                              (force-backup-of-buffer)) nil t))))))
 
 (provide 'setup-js)
 

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 18:11:58 csraghunandan>
+;; Time-stamp: <2016-12-10 20:01:34 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -52,7 +52,6 @@
 (require 'setup-ace-window)
 (require 'setup-smex)
 (require 'setup-projectile)
-(require 'setup-web-mode)
 (require 'setup-yas)
 (require 'setup-ivy)
 (require 'setup-counsel)
@@ -79,6 +78,7 @@
 (require 'setup-page-break-lines)
 (require 'setup-aggresive-indent)
 (require 'setup-js)
+(require 'setup-web-mode)
 (require 'setup-recursive-narrow)
 (require 'setup-shell)
 (require 'setup-which-key)
