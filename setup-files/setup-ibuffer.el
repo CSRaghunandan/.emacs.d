@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 10:25:48 csraghunandan>
+;; Time-stamp: <2016-12-11 14:49:55 csraghunandan>
 
 ;; ibuffer
 ;; for easy management of buffers
@@ -11,7 +11,8 @@
               (lambda ()
                 (ibuffer-vc-set-filter-groups-by-vc-root)
                 (unless (eq ibuffer-sorting-mode 'alphabetic)
-                  (ibuffer-do-sort-by-alphabetic))))
+                  (ibuffer-do-sort-by-alphabetic))
+                (ibuffer-auto-mode 1)))
 
     (eval-after-load 'ibuffer
                 ;; Use human readable Size column instead of original one
