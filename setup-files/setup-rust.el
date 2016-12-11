@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 01:39:02 csraghunandan>
+;; Time-stamp: <2016-12-11 13:27:39 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -37,10 +37,13 @@
 
   ;; format rust buffers using rustfmt(if it is installed)
   (when (executable-find "rustfmt")
-    (add-hook 'before-save-hook
+    (add-hook 'rust-mode-hook
               (lambda ()
-                (when (eq major-mode 'rust-mode)
-                  (xah-clean-whitespace)
-                  (rust-format-buffer))))))
+                (add-hook 'before-save-hook
+                          (lambda ()
+                            (time-stamp)
+                            (xah-clean-whitespace)
+                            (rust-format-buffer)
+                            (force-backup-of-buffer)) nil t)))))
 
 (provide 'setup-rust)
