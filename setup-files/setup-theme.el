@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 01:08:23 csraghunandan>
+;; Time-stamp: <2016-12-12 01:51:44 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -29,15 +29,18 @@
   (eval-after-load 'web-mode
     (lambda ()
       (set-face-attribute 'web-mode-current-column-highlight-face nil :background "#444444")))
+
   ;; make mode line look pretty :)
-  (set-face-attribute 'mode-line nil :box '(:line-width 2 :color "gray30") :weight 'normal :foreground "#C8F7C8")
-  (set-face-attribute 'mode-line-inactive nil :box '(:line-width 2 :color "gray30") :weight 'normal :foreground "gray60")
+  (set-face-attribute 'mode-line nil :box '(:line-width 2 :color "gray30")
+                      :weight 'normal :foreground "#C8F7C8" :background "gray20")
+  (set-face-attribute 'mode-line-inactive nil :box '(:line-width 2 :color "gray25")
+                      :weight 'normal :foreground "gray60")
   (set-face-attribute 'powerline-active2 nil :background "gray32")
   (set-face-attribute 'powerline-active1 nil :background "gray32" :weight 'normal)
   (set-face-attribute 'mode-line-buffer-id nil :foreground "#FFECBA" :weight 'bold)
   ;; dim inactive modeline
   (set-face-attribute 'powerline-inactive2 nil :background "gray20")
-  (set-face-attribute 'powerline-inactive1 nil :background "gray30"))
+  (set-face-attribute 'powerline-inactive1 nil :background "gray32"))
 
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
