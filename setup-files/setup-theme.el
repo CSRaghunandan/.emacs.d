@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 13:53:05 csraghunandan>
+;; Time-stamp: <2016-12-11 14:04:54 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -25,7 +25,10 @@
   (set-face-attribute 'fringe nil :background "#444444")
   (set-face-attribute 'vhl/default-face nil :background "#444444")
   (set-face-foreground 'highlight-indent-guides-character-face "gray40")
-  (set-face-attribute 'web-mode-current-column-highlight-face nil :background "#444444")
+
+  (eval-after-load 'web-mode
+    (lambda ()
+      (set-face-attribute 'web-mode-current-column-highlight-face nil :background "#444444")))
   ;; make mode line look pretty :)
   (set-face-attribute 'mode-line nil :box nil :weight 'normal :foreground "#9ED1CD")
   (set-face-attribute 'mode-line-inactive nil :box nil :weight 'normal :foreground "gray60")
