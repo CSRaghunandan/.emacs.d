@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 01:22:54 csraghunandan>
+;; Time-stamp: <2016-12-12 02:40:36 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -69,7 +69,7 @@
    ("C-c `"  . wrap-with-back-quotes)
    ("C-c s s" . sp-select-next-thing))
 
-  (eval-after-load "smartparens" '(diminish 'smartparens-mode "s"))
+  (eval-after-load "smartparens" '(diminish 'smartparens-mode "𝐬"))
   (show-smartparens-global-mode +1)
   (smartparens-global-mode 1)
 

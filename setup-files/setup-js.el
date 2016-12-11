@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-10 19:44:54 csraghunandan>
+;; Time-stamp: <2016-12-12 03:19:59 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -17,6 +17,7 @@
   ;; tern :- IDE like features for javascript and completion
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package tern
+    :diminish tern-mode "𝐓𝐞"
     :config
     (defun my-js-mode-hook ()
       "Hook for `js-mode'."
@@ -34,7 +35,7 @@
   ;; js2-refactor :- refactoring options for emacs
   ;; https://github.com/magnars/js2-refactor.el
   (use-package js2-refactor :defer t
-    :diminish js2-refactor-mode
+    :diminish js2-refactor-mode "𝐉𝐫"
     :config
     (js2r-add-keybindings-with-prefix "C-c j r"))
 
@@ -43,6 +44,7 @@
   ;; provides REPL and inspect, debug tools by connecting to a chrom(e|ium) process
   ;; https://github.com/NicolasPetton/jade
   (use-package jade
+    :diminish (jade-interaction-mode . "𝐉𝐚")
     :init
     (add-hook 'js2-mode-hook #'jade-interaction-mode))
 

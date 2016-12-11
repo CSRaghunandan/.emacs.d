@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 23:58:53 csraghunandan>
+;; Time-stamp: <2016-12-12 02:44:24 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -23,7 +23,8 @@
     (spaceline-toggle-selection-info-off)
     (setq spaceline-toggle-buffer-modified t)
     (spaceline-toggle-buffer-size-off)
-    (spaceline-toggle-erc-track-on)))
+    (spaceline-toggle-erc-track-on)
+    (setq spaceline-minor-modes-separator " ")))
 
 ;; diminish eldoc-mode in mode-line
 (use-package eldoc

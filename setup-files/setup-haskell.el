@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 17:21:07 csraghunandan>
+;; Time-stamp: <2016-12-12 03:07:54 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
@@ -15,13 +15,14 @@
   ;; intero-mode for a complete IDE solution to haskell
   ;; commercialhaskell.github.io/intero
   (use-package intero
+    :diminish inter-mode "𝐈𝐧"
     :config (add-hook 'haskell-mode-hook 'intero-mode))
 
   ;; hindent - format haskell code automatically
   ;; https://github.com/chrisdone/hindent
   (when (executable-find "hindent")
     (use-package hindent
-      :diminish hindent-mode
+      :diminish hindent-mode "𝐇𝐢"
       :config
       (add-hook 'haskell-mode-hook #'hindent-mode)
       ;; reformat the buffer using hindent on save
@@ -31,6 +32,7 @@
   ;; https://github.com/chrisdone/structured-haskell-mode
   (when (executable-find "structured-haskell-mode")
     (use-package shm
+      :diminish (structured-haskell-mode . "𝐒𝐇𝐌")
       :config
       (add-hook 'haskell-mode-hook (lambda ()
                                      ;; shm has it's own indention rules. No need

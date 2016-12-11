@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 11:25:07 csraghunandan>
+;; Time-stamp: <2016-12-12 03:35:22 csraghunandan>
 
 ;; magit, git-timemachine, diff-hl
 ;; https://magit.vc , https://github.com/magit/magit
@@ -15,6 +15,7 @@
 ;; https://github.com/pidu/git-timemachine
 ;; to rollback to different commits of files
 (use-package git-timemachine :defer t
+  :diminish git-timemachine-mode "𝐓𝐦"
   :commands (git-timemachine-toggle
              git-timemachine-switch-branch)
   :bind* (("C-c t m" . git-timemachine-toggle))

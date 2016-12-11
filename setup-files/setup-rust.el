@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 13:27:39 csraghunandan>
+;; Time-stamp: <2016-12-12 03:26:53 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -12,11 +12,15 @@
 
   ;; cargo-mode for all the cargo related operations
   ;; https://github.com/kwrooijen/cargo.el
-  (use-package cargo)
+  (use-package cargo
+    :diminish (cargo-minor-mode . "𝐂𝐚")
+    :config
+    (add-hook 'rust-mode-hook 'cargo-minor-mode))
 
   ;; racer-mode for getting IDE like features for rust-mode
   ;; https://github.com/racer-rust/emacs-racer
   (use-package racer
+    :diminish racer-mode "𝐑𝐚"
     :bind (:map rust-mode-map
                 (("C-c C-t" . racer-describe)))
     :config
@@ -33,7 +37,6 @@
   (add-hook 'rust-mode-hook 'flycheck-mode)
   (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
   (add-hook 'rust-mode-hook #'racer-mode)
-  (add-hook 'rust-mode-hook 'cargo-minor-mode)
 
   ;; format rust buffers using rustfmt(if it is installed)
   (when (executable-find "rustfmt")

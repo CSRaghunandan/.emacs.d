@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 13:45:34 csraghunandan>
+;; Time-stamp: <2016-12-12 03:05:14 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -42,7 +42,7 @@
   ;; https://github.com/smihica/emmet-mode
   (use-package emmet-mode
     :init (setq emmet-move-cursor-between-quotes t) ;; default nil
-    :diminish (emmet-mode . " 𝛆"))
+    :diminish (emmet-mode . "𝐄𝐦"))
   ;; start emmet mode after web-mode launches
   (add-hook 'web-mode-hook 'emmet-mode)
 
@@ -65,7 +65,7 @@
 ;; impatient mode - Live refresh of web pages
 ;; https://github.com/skeeto/impatient-mode
 (use-package impatient-mode
-  :diminish (impatient-mode . " 𝖎")
+  :diminish (impatient-mode . "𝐈𝐦")
   :commands (impatient-mode))
 
 ;; configure CSS mode company backends

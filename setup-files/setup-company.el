@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 15:59:56 csraghunandan>
+;; Time-stamp: <2016-12-12 02:32:18 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -28,7 +28,6 @@
 	company-idle-delay 0.2
 	company-selection-wrap-around t
 	company-show-numbers t
-	company-auto-complete nil
         company-require-match nil
         company-tooltip-align-annotations t)
 

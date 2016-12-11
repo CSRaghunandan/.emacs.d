@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 13:42:26 csraghunandan>
+;; Time-stamp: <2016-12-12 03:12:57 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -37,6 +37,6 @@
 ;; colorize color names in buffers
 ;; https://github.com/emacsmirror/rainbow-mode/blob/master/rainbow-mode.el
 (use-package rainbow-mode
-  :diminish rainbow-mode)
+  :diminish (rainbow-mode . "𝐑𝐚"))
 
 (provide 'setup-highlight)

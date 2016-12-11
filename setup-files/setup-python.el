@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-05 23:29:43 csraghunandan>
+;; Time-stamp: <2016-12-12 03:26:44 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -16,7 +16,7 @@
   ;; anaconda-mode :- bring IDE like features for python-mode
   ;; https://github.com/proofit404/anaconda-mode
   (use-package anaconda-mode
-    :diminish anaconda-mode
+    :diminish (anaconda-mode . "𝐀𝐧")
     :config
     (add-hook 'python-mode-hook 'anaconda-mode)
     (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
@@ -38,7 +38,7 @@
   ;; yapfify: format python files automatically
   ;; https://github.com/JorisE/yapfify
   (use-package yapfify
-    :diminish yapf-mode
+    :diminish (yapf-mode . "𝐘𝐚")
     :config
     (add-hook 'python-mode-hook 'yapf-mode))
 
