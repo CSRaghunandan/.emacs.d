@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 01:37:24 csraghunandan>
+;; Time-stamp: <2016-12-11 13:07:06 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -83,51 +83,12 @@ Position the cursor at it's beginning, according to the current mode."
 
 
 
-(defun xah-copy-line-or-region ()
-  "Copy current line, or text selection.
-When called repeatedly, append copy subsequent lines.
-When `universal-argument' is called first, copy whole buffer (respects `narrow-to-region')."
-  (interactive)
-  (let (-p1 -p2)
-    (if current-prefix-arg
-        (setq -p1 (point-min) -p2 (point-max))
-      (if (use-region-p)
-          (setq -p1 (region-beginning) -p2 (region-end))
-        (setq -p1 (line-beginning-position) -p2 (line-end-position))))
-    (if (eq last-command this-command)
-        (progn
-          (progn ; hack. exit if there's no more next line
-            (end-of-line)
-            (forward-char)
-            (backward-char))
-          ;; (push-mark (point) "NOMSG" "ACTIVATE")
-          (kill-append "\n" nil)
-          (kill-append (buffer-substring-no-properties (line-beginning-position) (line-end-position)) nil)
-          (message "Line copy appended"))
-      (progn
-        (kill-ring-save -p1 -p2)
-        (if current-prefix-arg
-            (message "Buffer text copied")
-          (message "Text copied"))))
-    (end-of-line)
-    (forward-char)))
-
-(defun xah-cut-line-or-region ()
-  "Cut current line, or text selection.
-When `universal-argument' is called first, cut whole buffer (respects `narrow-to-region')."
-  (interactive)
-  (if current-prefix-arg
-      (progn ; not using kill-region because we don't want to include previous kill
-        (kill-new (buffer-string))
-        (delete-region (point-min) (point-max)))
-    (if (use-region-p)
-        (kill-region (region-beginning) (region-end) t)
-      (progn
-        (kill-region (line-beginning-position) (line-beginning-position 2))
-        (back-to-indentation)))))
-
-(bind-key* "C-w" 'xah-cut-line-or-region)
-(bind-key* "M-w" 'xah-copy-line-or-region)
+;; operate on current line if no region is defined
+;; https://github.com/purcell/whole-line-or-region/blob/master/whole-line-or-region.el
+(use-package whole-line-or-region
+  :diminish whole-line-or-region-mode
+  :config
+  (whole-line-or-region-mode))
 
 
 

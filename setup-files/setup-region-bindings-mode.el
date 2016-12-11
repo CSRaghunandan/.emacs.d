@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 12:41:45 csraghunandan>
+;; Time-stamp: <2016-12-11 13:08:15 csraghunandan>
 
 ;; Region Bindings Mode
 ;; https://github.com/fgallina/region-bindings-mode
@@ -13,8 +13,8 @@
 
   (bind-keys
    :map region-bindings-mode-map
-   ("w" . xah-cut-line-or-region)
-   ("c" . xah-copy-line-or-region)
+   ("w" . kill-region)
+   ("c" . copy-region-as-kill)
    ("(" . wrap-wth-parens)
    ("{" . wrap-with-braces)
    ("'" . wrap-with-single-quotes)
