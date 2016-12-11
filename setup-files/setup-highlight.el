@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 01:30:51 csraghunandan>
+;; Time-stamp: <2016-12-11 13:42:26 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -33,5 +33,10 @@
                                 (highlight-indent-guides-mode))))
   (setq highlight-indent-guides-method 'character
 	highlight-indent-guides-character ?∣))
+
+;; colorize color names in buffers
+;; https://github.com/emacsmirror/rainbow-mode/blob/master/rainbow-mode.el
+(use-package rainbow-mode
+  :diminish rainbow-mode)
 
 (provide 'setup-highlight)

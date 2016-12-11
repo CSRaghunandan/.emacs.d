@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 01:33:09 csraghunandan>
+;; Time-stamp: <2016-12-11 13:45:34 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -45,6 +45,12 @@
     :diminish (emmet-mode . " 𝛆"))
   ;; start emmet mode after web-mode launches
   (add-hook 'web-mode-hook 'emmet-mode)
+
+  ;; colorize colors in buffers
+  (setq web-mode-enable-css-colorization t)
+
+  ;; highlight the current column
+  (setq web-mode-enable-current-column-highlight t)
 
   ;; format HTML and other web related buffers on save
   (when (executable-find "js-beautify")
