@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 12:51:11 csraghunandan>
+;; Time-stamp: <2016-12-12 04:00:05 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -40,7 +40,7 @@
   ;; open links and such images in new buffers by doing C-c C-o.
   (setq org-mouse-1-follows-link nil)
 
-  
+
 
   :mode ("\\.org\\'" . org-mode)
 
@@ -145,7 +145,7 @@
   ;; blank lines are removed when exiting code edit buffer
   (setq org-src-strip-leading-and-trailing-blank-lines t)
 
-  
+
 
   ;; http://sachachua.com/blog/2013/01/emacs-org-task-related-keyboard-shortcuts-agenda/
   (defun sacha/org-agenda-done (&optional arg)
@@ -255,7 +255,7 @@ _C_: correct  _p_: prev error _d_: done checking
       ("q" nil "quit" :color blue))
     (bind-key "C-c h l" 'hydra-langtool/body org-mode-map))
 
-  
+
 
   (define-key org-mode-map "\"" #'endless/round-quotes)
 
@@ -296,11 +296,11 @@ Inside a code-block, just call `self-insert-command'."
           (insert "‘’")
           (forward-char -1)))))
 
-  
+
 
-  ;; export to twitter bootstrap
-  (use-package ox-twbs
-    :config (require 'ox-twbs))
+  ;; export to github flavored markdown
+  (use-package ox-gfm
+    :config (require 'ox-gfm))
 
   ;; pomodoro implementation in org
   ;; https://github.com/lolownia/org-pomodoro
