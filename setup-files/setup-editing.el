@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 13:07:06 csraghunandan>
+;; Time-stamp: <2016-12-11 16:02:07 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -196,6 +196,13 @@ Version 2016-10-15"
         (goto-char (point-max))
         (while (equal (char-before) 32) ; char 32 is space
           (delete-char -1))))))
+
+;; clean trailing whitespaces on the fly
+;; https://github.com/lewang/ws-butler
+(use-package ws-butler
+  :diminish ws-butler-mode
+  :config
+  (add-hook 'prog-mode-hook 'ws-butler-mode))
 
 
 

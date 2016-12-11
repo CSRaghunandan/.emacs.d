@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 15:45:31 csraghunandan>
+;; Time-stamp: <2016-12-11 15:59:56 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -11,7 +11,7 @@
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)
     (define-key company-active-map (kbd "M-p") nil)
-    (define-key company-active-map (kbd "C-m") nil)
+    (define-key company-active-map (kbd "RET") nil)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "<tab>") 'company-complete-common))
