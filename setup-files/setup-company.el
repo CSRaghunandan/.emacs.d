@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-11-30 23:02:01 csraghunandan>
+;; Time-stamp: <2016-12-11 15:45:31 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -11,13 +11,20 @@
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)
     (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "C-m") nil)
     (define-key company-active-map (kbd "C-n") 'company-select-next)
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "<tab>") 'company-complete-common))
 
+  ;; use numbers 0-9 to select company completion candidates
+  (let ((map company-active-map))
+    (mapc (lambda (x) (define-key map (format "%d" x)
+                        `(lambda () (interactive) (company-complete-number ,x))))
+          (number-sequence 0 9)))
+
   ;; set defaults for company-mode
   (setq company-tooltip-flip-when-above t
-	company-minimum-prefix-length 2
+	company-minimum-prefix-length 3
 	company-idle-delay 0.2
 	company-selection-wrap-around t
 	company-show-numbers t
