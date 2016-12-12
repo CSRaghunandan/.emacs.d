@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 12:44:26 csraghunandan>
+;; Time-stamp: <2016-12-12 13:07:06 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -58,5 +58,13 @@ not prevent downloading the actual packages (obviously)."
 (add-hook 'prog-mode-hook 'goto-address-mode)
 ;; use aspell for spell checking
 (setq ispell-program-name "aspell")
+
+;; delete files by moving to trash in macOS
+;; https://github.com/lunaryorn/osx-trash.el
+(use-package osx-trash
+  :init
+  (when (eq system-type 'darwin)
+    (osx-trash-setup))
+  (setq delete-by-moving-to-trash t))
 
 (provide 'setup-misc)

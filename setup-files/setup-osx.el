@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-10-17 21:00:38 csraghunandan>
+;; Time-stamp: <2016-12-12 13:06:57 csraghunandan>
 
 ;; All the macOS related configuration
 
@@ -7,15 +7,7 @@
 ;; open the current active buffer in finder
 ;; https://github.com/kaz-yos/reveal-in-osx-finder
 (use-package reveal-in-osx-finder
-  :bind ("s-z" . reveal-in-osx-finder))
-
-;; delete files by moving to trash
-;; https://github.com/lunaryorn/osx-trash.el
-(use-package osx-trash
-  :config
-  (when (eq system-type 'darwin)
-    (osx-trash-setup))
-  (setq delete-by-moving-to-trash t))
+  :bind ("C-c r f" . reveal-in-osx-finder))
 
 ;; to make sure emacs gets the $PATH variable from shell
 ;; emacs shell environment is different from the shell in mac
