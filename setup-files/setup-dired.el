@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 00:38:04 csraghunandan>
+;; Time-stamp: <2016-12-13 12:41:52 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -10,8 +10,6 @@
     ;; fix `ls' for macOS.
     (when (eq system-type 'darwin)
       (setq insert-directory-program "gls" dired-use-ls-dired t))
-    ;; delete files by moving it to trash
-    (setq delete-by-moving-to-trash t)
     ;; mark symlinks
     (setq dired-ls-F-marks-symlinks t)
     ;; Never prompt for recursive copies of a directory

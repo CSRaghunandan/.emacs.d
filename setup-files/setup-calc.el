@@ -1,9 +1,9 @@
-;; Time-stamp: <2016-10-06 22:06:39 csraghunandan>
+;; Time-stamp: <2016-12-12 22:39:47 csraghunandan>
 
 ;; calc config
 (use-package calc :defer t
   :bind* (("C-x c" . calc)
-	  ("C-x C" . quick-calc))
+          ("C-x ," . quick-calc))
   :config
   (setq calc-twos-complement-mode nil)
   ;; Calculator output value format

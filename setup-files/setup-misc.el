@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 13:07:06 csraghunandan>
+;; Time-stamp: <2016-12-12 22:13:18 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -42,9 +42,7 @@ not prevent downloading the actual packages (obviously)."
 (put 'narrow-to-page 'disabled nil)
 (put 'set-goal-column  'disabled nil)
 
-(bind-keys*
- ("C-?" . help-command)
- ("s-l" . shell-command))
+(bind-key* "C-?" 'help-command)
 
 ;; set all yes or no prompts to y or n
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -66,5 +64,9 @@ not prevent downloading the actual packages (obviously)."
   (when (eq system-type 'darwin)
     (osx-trash-setup))
   (setq delete-by-moving-to-trash t))
+
+;; view-mode. Used to view long files like `less' command
+(use-package view
+  :diminish (view-mode . "𝐕"))
 
 (provide 'setup-misc)
