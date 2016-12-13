@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 04:00:05 csraghunandan>
+;; Time-stamp: <2016-12-13 17:59:13 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -101,6 +101,8 @@
 
   ;; enable org-indent mode on startup
   (setq org-startup-indented t)
+  (use-package org-indent :ensure nil
+    :diminish (org-indent-mode . "𝐈"))
 
   ;; strike through done headlines
   (setq org-fontify-done-headline t)

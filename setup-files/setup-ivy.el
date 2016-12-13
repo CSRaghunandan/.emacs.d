@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 16:29:34 csraghunandan>
+;; Time-stamp: <2016-12-13 17:19:26 csraghunandan>
 
 ;; flx, ivy
 
@@ -23,7 +23,12 @@
 	ivy-count-format ""
 	ivy-virtual-abbreviate 'full ; Show the full virtual file paths
 	ivy-extra-directories nil ; default value: ("../" "./")
-	ivy-wrap t)
+        ivy-wrap t)
+
+  (bind-keys
+   ("C-c v p" . ivy-push-view)
+   ("C-c v o" . ivy-pop-view))
+
   (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
 				(t . ivy--regex-fuzzy))))
 
