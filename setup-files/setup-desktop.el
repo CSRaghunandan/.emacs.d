@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-13 12:43:09 csraghunandan>
+;; Time-stamp: <2016-12-13 13:57:52 csraghunandan>
 
 ;; desktop
 ;; save the current emacs session under `desktop' to be restored later
@@ -38,28 +38,8 @@
                   ;; tags-table-list
                   )))
 
-  ;; Don't save .gpg files. Restoring those files in emacsclients causes
-  ;; a problem as the password prompt appears before the frame is loaded.
-  (setq desktop-files-not-to-save
-        (concat "\\(^/[^/:]*:\\|(ftp)$\\)" ; original value
-                "\\|\\(\\.gpg$\\)"
-                "\\|\\(\\.plstore$\\)"
-                "\\|\\(\\.desktop$\\)"
-                ;; FIXME
-                ;; If backup files with names like "file.sv.20150619_1641.bkp"
-                ;; are saved to the desktop file, emacsclient crashes at launch
-                ;; Need to debug why that's the case. But for now, simply not
-                ;; saving the .bkp files to the desktop file is a workable
-                ;; solution -- Fri Jun 19 16:45:50 EDT 2015 - kmodi
-                "\\|\\(\\.bkp$\\)"
-                "\\|\\(\\TAGS$\\)"))
-
-  ;; Don't save the eww buffers
-  (let (;; http://thread.gmane.org/gmane.emacs.devel/202463/focus=202496
-        (default (eval (car (get 'desktop-buffers-not-to-save 'standard-value))))
-        (eww-buf-regexp "\\(^eww\\(<[0-9]+>\\)*$\\)"))
-    (setq desktop-buffers-not-to-save (concat default
-                                              "\\|" eww-buf-regexp)))
+  ;; fix bug when restoring desktop in emacsclient
+  (setq desktop-restore-frames nil)
 
   ;; http://emacs.stackexchange.com/a/20036/115
   (defun rag/bury-star-buffers ()
