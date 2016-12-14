@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 03:19:59 csraghunandan>
+;; Time-stamp: <2016-12-14 16:40:14 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -9,7 +9,8 @@
               ("C-c C-l" . jade-eval-buffer))
   :mode
   (("\\.js$" . js2-mode)
-   ("\\.json$" . js2-jsx-mode))
+   ("\\.json$" . js2-jsx-mode)
+   ("\\.jsx$" . js2-jsx-mode))
   :config
   ;; extra features for imenu
   (js2-imenu-extras-setup)
@@ -27,6 +28,12 @@
     (add-hook 'js2-mode-hook 'company-mode))
 
   (add-hook 'js2-mode-hook 'tern-mode)
+
+  ;; turn off all warnings in js2-mode
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
+  ;; enable flycheck in js2-mode
+  (add-hook 'js2-mode-hook 'flycheck-mode)
 
   ;; company backend for tern
   ;; http://ternjs.net/doc/manual.html#emacs
