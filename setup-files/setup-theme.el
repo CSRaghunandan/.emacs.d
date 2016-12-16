@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-16 22:39:02 csraghunandan>
+;; Time-stamp: <2016-12-16 23:19:59 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -26,8 +26,8 @@
   (set-face-attribute 'vhl/default-face nil :background "#444444")
   (set-face-foreground 'highlight-indent-guides-character-face "gray40")
   ;; highlight the current match in ivy and remove the ugly underline
-  (set-face-attribute 'ivy-current-match nil :foreground "#F0DFAF"
-                      :background "gray28" :underline nil)
+  (set-face-attribute 'ivy-current-match nil :foreground "#FFECBA"
+                      :background "gray33" :underline nil)
 
   (eval-after-load 'web-mode
     (lambda ()
