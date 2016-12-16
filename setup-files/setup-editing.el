@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 02:41:52 csraghunandan>
+;; Time-stamp: <2016-12-15 17:04:27 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -67,7 +67,6 @@ Position the cursor at its beginning, according to the current mode."
   (move-end-of-line nil)
   (newline-and-indent))
 
-;; does not work for `haskell-mode'
 (defun rag/smart-open-line-above ()
   "Insert an empty line above the current line.
 Position the cursor at it's beginning, according to the current mode."

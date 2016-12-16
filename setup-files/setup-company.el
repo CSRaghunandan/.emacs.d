@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 02:32:18 csraghunandan>
+;; Time-stamp: <2016-12-15 12:15:46 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -25,7 +25,7 @@
   ;; set defaults for company-mode
   (setq company-tooltip-flip-when-above t
 	company-minimum-prefix-length 3
-	company-idle-delay 0.2
+        company-idle-delay 0.4
 	company-selection-wrap-around t
 	company-show-numbers t
         company-require-match nil
@@ -35,6 +35,7 @@
   ;; https://github.com/expez/company-quickhelp
   ;; pop-up documentation for completion candidates
   (use-package company-quickhelp
+    :defer 1
     :config (company-quickhelp-mode 1))
 
   ;; company-statistics
