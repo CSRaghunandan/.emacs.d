@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-16 22:33:01 csraghunandan>
+;; Time-stamp: <2016-12-16 23:15:09 csraghunandan>
 
 ;; flx, ivy
 
@@ -30,14 +30,7 @@
    ("C-c v o" . ivy-pop-view))
 
   (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
-                                (t . ivy--regex-fuzzy)))
-
-  ;; provide more info for ivy minibuffers
-  ;; https://github.com/Yevgnen/ivy-rich
-  (use-package ivy-rich
-    :config
-    (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)))
-
+                                (t . ivy--regex-fuzzy))))
 (provide 'setup-ivy)
 
 ;; ivy
