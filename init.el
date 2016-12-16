@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-10 20:01:34 csraghunandan>
+;; Time-stamp: <2016-12-16 12:06:48 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -85,6 +85,7 @@
 (require 'setup-kurecolor)
 (require 'setup-erc)
 (require 'setup-theme)
+(require 'setup-pragmatapro)
 
 
 
