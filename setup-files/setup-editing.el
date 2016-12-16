@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-15 17:04:27 csraghunandan>
+;; Time-stamp: <2016-12-16 23:36:26 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -336,7 +336,7 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 (add-hook 'before-save-hook #'time-stamp)
 
 (bind-keys*
- ("C-M-SPC" . cycle-spacing)
+ ("C-c o s" . cycle-spacing)
  ("M-?" . mark-paragraph)
  ("C-h" . delete-backward-char)
  ("C-M-h" . backward-kill-word)
