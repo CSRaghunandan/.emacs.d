@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 03:07:54 csraghunandan>
+;; Time-stamp: <2016-12-16 15:22:19 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
@@ -10,7 +10,10 @@
          '((company-intero company-files))))
   (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
   (add-hook 'haskell-mode-hook 'company-mode)
-  (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+  (add-hook 'haskell-mode-hook (lambda ()
+                                 (smartparens-mode -1)
+                                 ;; disable haskell-indentation-mode
+                                 (setq haskell-indentation-mode nil)))
 
   ;; intero-mode for a complete IDE solution to haskell
   ;; commercialhaskell.github.io/intero
@@ -34,12 +37,6 @@
     (use-package shm
       :diminish (structured-haskell-mode . "𝐒𝐇𝐌")
       :config
-      (add-hook 'haskell-mode-hook (lambda ()
-                                     ;; shm has it's own indention rules. No need
-                                     ;; of `haskell-indentation-mode'
-                                     (haskell-indentation-mode -1)
-                                     ;; shm conflicts with smartparens. Hence, disable.
-                                     (smartparens-mode -1)))
       (add-hook 'haskell-mode-hook 'structured-haskell-mode)
       ;; add case splits for simple sum types
       (require 'shm-case-split)
