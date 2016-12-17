@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-06 00:38:25 csraghunandan>
+;; Time-stamp: <2016-12-17 16:05:55 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -29,6 +29,10 @@
   (define-key comint-mode-map [down] 'comint-next-input)
 
   (bind-key "<tab>" 'completion-at-point shell-mode-map))
+
+;; manage multiple terminal windows easily within emacs
+;; https://www.emacswiki.org/emacs/multi-term.el
+(use-package multi-term)
 
 (provide 'setup-shell)
 
