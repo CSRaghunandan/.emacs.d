@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 12:30:52 csraghunandan>
+;; Time-stamp: <2016-12-17 12:05:32 csraghunandan>
 
 ;; configuration for buffers
 
@@ -121,7 +121,7 @@ with prefix, select which buffer to kill"
  ("C-c m v" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
  ("<f5>" . revert-buffer-no-confirm)
- ("C-c b n" . rag/copy-buffer-file-name-as-kill))
+ ("C-c s n" . rag/copy-buffer-file-name-as-kill))
 
 ;; diminish auto-revert-mode emacs
 (use-package autorevert

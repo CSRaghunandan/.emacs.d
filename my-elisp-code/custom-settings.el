@@ -14,6 +14,7 @@
  '(erc-modules
    (quote
     (autoaway autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands notify readonly ring smiley sound stamp spelling track)))
+ '(explicit-shell-file-name "/usr/local/bin/bash")
  '(fci-rule-color "#383838")
  '(hl-sexp-background-color "#efebe9")
  '(nrepl-message-colors
@@ -32,7 +33,7 @@
      ("org" . "http://orgmode.org/elpa/"))))
  '(package-selected-packages
    (quote
-    (ace-link osx-trash reveal-in-osx-finder ox-gfm ws-butler whole-line-or-region ibuffer-vc rainbow-mode shm web-beautify hindent sphinx-doc python-docstring yapfify kurecolor which-key jade anzu dired-ranger flyspell-correct-ivy counsel swiper ivy dired-quick-sort dired-narrow org-pomodoro dired+ free-keys recursive-narrow langtool pyvenv bm page-break-lines mwim manage-minor-mode region-bindings-mode wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent avy-zap dired-hacks-utlis imenu-anywhere flx company-statistics pytest racket racket-mode volatile-highlights org-journal intero company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
+    (multi-term ace-link osx-trash reveal-in-osx-finder ox-gfm ws-butler whole-line-or-region ibuffer-vc rainbow-mode shm web-beautify hindent sphinx-doc python-docstring yapfify kurecolor which-key jade anzu dired-ranger flyspell-correct-ivy counsel swiper ivy dired-quick-sort dired-narrow org-pomodoro dired+ free-keys recursive-narrow langtool pyvenv bm page-break-lines mwim manage-minor-mode region-bindings-mode wgrep move-text fold-dwim highlight-indent-guides visual-regexp-steroids hydra aggressive-indent avy-zap dired-hacks-utlis imenu-anywhere flx company-statistics pytest racket racket-mode volatile-highlights org-journal intero company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline diff-hl flyspell-mode org-plus-contrib js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex smartparens rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode flycheck expand-region exec-path-from-shell emmet-mode company-quickhelp beacon auctex ace-window)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(python-shell-completion-native-enable nil)
  '(send-mail-function (quote sendmail-send-it))
@@ -64,4 +65,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-ellipsis ((t (:foreground "#E0CF9F" :underline nil))))
+ '(term ((t (:foreground "#E5D9BD")))))

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-13 17:59:13 csraghunandan>
+;; Time-stamp: <2016-12-17 00:07:29 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -58,7 +58,7 @@
   (add-hook 'org-mode-hook (lambda()
                              (setq-local fill-column 100)))
   ;; this looks better in my opinion
-  (setq org-ellipsis " •••")
+  (setq org-ellipsis " ")
   ;; hide emphasis markup characters
   (setq org-hide-emphasis-markers t)
   ;; Non-nil means insert state change notes and time stamps into a drawer.
