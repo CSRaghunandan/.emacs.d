@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-17 12:05:32 csraghunandan>
+;; Time-stamp: <2016-12-18 12:54:54 csraghunandan>
 
 ;; configuration for buffers
 
@@ -79,9 +79,9 @@ Emacs session."
 with prefix, select which buffer to kill"
   (interactive "P")
   (if askp
-      (kill-buffer (funcall completing-read-function
-                            "Kill buffer: "
-                            (mapcar #'buffer-name (buffer-list))))
+      (kill-buffer (read-buffer
+                    "Kill buffer: "
+                    (mapcar #'buffer-name (buffer-list))))
     (kill-this-buffer)))
 
 (defun delete-file-and-buffer ()
