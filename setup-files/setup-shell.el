@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-17 16:05:55 csraghunandan>
+;; Time-stamp: <2016-12-18 13:12:38 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -32,7 +32,17 @@
 
 ;; manage multiple terminal windows easily within emacs
 ;; https://www.emacswiki.org/emacs/multi-term.el
-(use-package multi-term)
+(use-package multi-term
+  :config
+  (bind-key "C-c h t"
+            (defhydra multi-term-hydra ()
+              "multi-term"
+              ("o" multi-term "Open new")
+              ("n" multi-term-next "Next")
+              ("p" multi-term-prev "Prev")
+              ("do" multi-term-dedicated-open "Dedicated Open")
+              ("dc" multi-term-dedicated-close "Dedicated Close")
+              ("q" nil "Quit" :color blue))))
 
 (provide 'setup-shell)
 
