@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-18 13:12:38 csraghunandan>
+;; Time-stamp: <2016-12-18 13:30:17 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -40,8 +40,7 @@
               ("o" multi-term "Open new")
               ("n" multi-term-next "Next")
               ("p" multi-term-prev "Prev")
-              ("do" multi-term-dedicated-open "Dedicated Open")
-              ("dc" multi-term-dedicated-close "Dedicated Close")
+              ("d" multi-term-dedicated-toggle "Dedicated terminal")
               ("q" nil "Quit" :color blue))))
 
 (provide 'setup-shell)
