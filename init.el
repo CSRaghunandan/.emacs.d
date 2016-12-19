@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-16 12:06:48 csraghunandan>
+;; Time-stamp: <2016-12-19 18:27:58 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -13,8 +13,12 @@
 ;; emacs setup file
 (add-to-list 'load-path (concat user-emacs-directory "setup-files/"))
 
+;; set home and emacs directories
+(defvar user-home-directory (concat (getenv "HOME") "/")) ; must end with /
+(setq user-emacs-directory (concat user-home-directory ".emacs.d/")) ; must end with /
+
 ;; save custom file to a separate directory
-(setq custom-file "~/.emacs.d/my-elisp-code/custom-settings.el")
+(setq custom-file (concat user-emacs-directory "my-elisp-code/custom-settings.el"))
 (load custom-file :noerror :nomessage)
 
 

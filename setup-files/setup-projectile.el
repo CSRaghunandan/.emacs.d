@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 12:24:40 csraghunandan>
+;; Time-stamp: <2016-12-19 17:47:08 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -9,7 +9,7 @@
         projectile-enable-caching t)
 
   ;; ignore stack directory as projectile project
-  (add-to-list 'projectile-ignored-projects "~/.stack/global-project/")
+  (add-to-list 'projectile-ignored-projects (concat user-home-directory ".stack/global-project/"))
 
 
 

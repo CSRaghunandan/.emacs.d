@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-08 17:55:50 csraghunandan>
+;; Time-stamp: <2016-12-19 17:37:36 csraghunandan>
 
 ;; ERC - the irc client for emacs
 (use-package erc :defer t
@@ -37,7 +37,7 @@
       (add-hook 'erc-text-matched-hook 'erc-terminal-notifier-text-matched))
 
   ;; set directory to save erc log files
-  (setq erc-log-channels-directory "~/.erc/logs/")
+  (setq erc-log-channels-directory (concat user-home-directory ".erc/logs/"))
 
   ;; if log file exists, load it
   (setq erc-log-insert-log-on-open t))

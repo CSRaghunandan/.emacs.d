@@ -1,10 +1,10 @@
-;; Time-stamp: <2016-12-13 13:57:52 csraghunandan>
+;; Time-stamp: <2016-12-19 17:21:17 csraghunandan>
 
 ;; desktop
 ;; save the current emacs session under `desktop' to be restored later
 (use-package desktop :defer 1
   :config
-  (setq desktop-dirname             "~/.emacs.d/desktop/"
+  (setq desktop-dirname (concat user-emacs-directory "desktop")
         desktop-base-file-name      "emacs.desktop"
         desktop-base-lock-name      "lock"
         desktop-path                (list desktop-dirname)

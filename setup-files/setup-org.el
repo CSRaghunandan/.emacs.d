@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-17 00:07:29 csraghunandan>
+;; Time-stamp: <2016-12-19 17:42:02 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -239,7 +239,8 @@ this with to-do items than with projects or headings."
 
   (use-package langtool :defer 1
     :config
-    (setq langtool-language-tool-jar "~/LanguageTool-3.5/languagetool-commandline.jar")
+    ;; place the language-tool directory in $HOME
+    (setq langtool-language-tool-jar (concat user-home-directory "LanguageTool-3.5/languagetool-commandline.jar"))
     (setq langtool-default-language "en-GB")
 
     ;; hydra for langtool check
