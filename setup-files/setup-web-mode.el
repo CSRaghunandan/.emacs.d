@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 03:05:14 csraghunandan>
+;; Time-stamp: <2016-12-19 16:49:03 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -17,6 +17,7 @@
     (set (make-local-variable 'company-backends)
          '((company-tern company-css company-web-html company-files))))
   (add-hook 'web-mode-hook 'my-web-mode-hook)
+  (add-hook 'web-mode-hook 'smartparens-mode)
 
   ;; Enable JavaScript completion between <script>...</script> etc.
   (defadvice company-tern (before web-mode-set-up-ac-sources activate)

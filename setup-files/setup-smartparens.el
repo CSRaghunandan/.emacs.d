@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-16 23:29:31 csraghunandan>
+;; Time-stamp: <2016-12-19 17:46:33 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -6,13 +6,39 @@
   :config
   (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode web-mode org-mode Info-mode erc-mode)))
 
+  ;; macro to wrap the current sexp at point
+  (defmacro def-pairs (pairs)
+    `(progn
+       ,@(cl-loop for (key . val) in pairs
+                  collect
+                  `(defun ,(read (concat
+                                  "wrap-with-"
+                                  (prin1-to-string key)
+                                  "s"))
+                       (&optional arg)
+                     (interactive "p")
+                     (sp-wrap-with-pair ,val)))))
+  (def-pairs ((paren        . "(")
+              (bracket      . "[")
+              (brace        . "{")
+              (single-quote . "'")
+              (double-quote . "\"")
+              (back-quote . "`")))
+
   (bind-keys
    :map smartparens-mode-map
    ("C-k"   . sp-kill-hybrid-sexp)
    ("M-k"   . sp-backward-kill-sexp)
 
    ("M-[" . sp-backward-unwrap-sexp)
-   ("M-]" . sp-unwrap-sexp))
+   ("M-]" . sp-unwrap-sexp)
+
+   ("C-c )"  . wrap-with-parens)
+   ("C-c ]"  . wrap-with-brackets)
+   ("C-c }"  . wrap-with-braces)
+   ("C-c '"  . wrap-with-single-quotes)
+   ("C-c \"" . wrap-with-double-quotes)
+   ("C-c `" . wrap-with-back-quotes))
 
   (eval-after-load "smartparens" '(diminish 'smartparens-mode "𝐬"))
   (show-smartparens-global-mode +1)
@@ -23,7 +49,7 @@
   (require 'smartparens-config)
 
   ;; indent with braces for C like languages
-  (sp-with-modes '(rust-mode js2-mode css-mode)
+  (sp-with-modes '(rust-mode js2-mode css-mode web-mode)
     (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
     (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
                                               ("* ||\n[i]" "RET"))))
