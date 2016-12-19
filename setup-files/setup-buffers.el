@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-18 12:54:54 csraghunandan>
+;; Time-stamp: <2016-12-19 21:36:46 csraghunandan>
 
 ;; configuration for buffers
 
@@ -74,15 +74,13 @@ Emacs session."
           (find-file file)))
     (error "No recently-killed files to reopen")))
 
-(defun rag/kill-a-buffer (askp)
+(defun my-kill-buffer (arg)
   "with no prefix, kill the current buffer without prompt
 with prefix, select which buffer to kill"
   (interactive "P")
-  (if askp
-      (kill-buffer (read-buffer
-                    "Kill buffer: "
-                    (mapcar #'buffer-name (buffer-list))))
-    (kill-this-buffer)))
+  (if arg
+      (call-interactively 'kill-buffer)
+    (kill-buffer)))
 
 (defun delete-file-and-buffer ()
   "Kill the current buffer and deletes the file it is visiting."
@@ -117,7 +115,7 @@ with prefix, select which buffer to kill"
  ("C-c o k" . rag/reopen-killed-file)
  ("C-c o K" . rag/reopen-killed-file-fancy)
  ("C-c r m" . delete-file-and-buffer)
- ("C-x k" . rag/kill-a-buffer)
+ ("C-x k" . my-kill-buffer)
  ("C-c m v" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
  ("<f5>" . revert-buffer-no-confirm)
