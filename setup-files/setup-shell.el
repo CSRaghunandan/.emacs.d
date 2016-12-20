@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-18 13:30:17 csraghunandan>
+;; Time-stamp: <2016-12-20 11:26:08 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -34,6 +34,9 @@
 ;; https://www.emacswiki.org/emacs/multi-term.el
 (use-package multi-term
   :config
+  ;; disable yasnippet mode in term
+  (add-hook 'term-mode-hook (lambda ()
+                              (yas-minor-mode -1)))
   (bind-key "C-c h t"
             (defhydra multi-term-hydra ()
               "multi-term"
