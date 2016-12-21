@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 22:13:18 csraghunandan>
+;; Time-stamp: <2016-12-21 10:35:21 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -44,6 +44,8 @@ not prevent downloading the actual packages (obviously)."
 
 (bind-key* "C-?" 'help-command)
 
+;; echo commands as I type
+(setq echo-keystrokes 0.01)
 ;; set all yes or no prompts to y or n
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; more info in apropos
