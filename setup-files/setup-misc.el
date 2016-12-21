@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-21 10:35:21 csraghunandan>
+;; Time-stamp: <2016-12-21 11:33:57 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -70,5 +70,8 @@ not prevent downloading the actual packages (obviously)."
 ;; view-mode. Used to view long files like `less' command
 (use-package view
   :diminish (view-mode . "𝐕"))
+
+;; set emacs source code directory
+(setq source-directory "~/emacs--git/src/")
 
 (provide 'setup-misc)
