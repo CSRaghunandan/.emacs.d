@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 03:35:22 csraghunandan>
+;; Time-stamp: <2016-12-21 15:45:35 csraghunandan>
 
 ;; magit, git-timemachine, diff-hl
 ;; https://magit.vc , https://github.com/magit/magit
@@ -18,7 +18,7 @@
   :diminish git-timemachine-mode "𝐓𝐦"
   :commands (git-timemachine-toggle
              git-timemachine-switch-branch)
-  :bind* (("C-c t m" . git-timemachine-toggle))
+  :bind* (("C-c g t" . git-timemachine-toggle))
   :config
   (defun my-git-timemachine-show-selected-revision ()
     "Show last (current) revision of file."

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 03:26:53 csraghunandan>
+;; Time-stamp: <2016-12-21 15:44:34 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -47,6 +47,44 @@
                             (time-stamp)
                             (xah-clean-whitespace)
                             (rust-format-buffer)
-                            (force-backup-of-buffer)) nil t)))))
+                            (force-backup-of-buffer)) nil t))))
+
+  (defun wh/rust-toggle-mutability ()
+    "Toggle the mutability of the variable at point."
+    (interactive)
+    (save-excursion
+      (racer-find-definition)
+      (back-to-indentation)
+      (forward-char 4)
+      (if (looking-at "mut ")
+          (delete-char 4)
+        (insert "mut "))))
+
+  (defun wh/rust-toggle-visibility ()
+    "Toggle the public visibility of the function at point."
+    (interactive)
+    (save-excursion
+      ;; If we're already at the beginning of the function definition,
+      ;; `beginning-of-defun' moves to the previous function, so move elsewhere.
+      (end-of-line)
+
+      (beginning-of-defun)
+      (if (looking-at "pub ")
+          (delete-char 4)
+        (insert "pub "))))
+
+  (defun wh/rust-vec-as-slice ()
+    "Convert the vector expression at point to a slice.
+foo -> &foo[..]"
+    (interactive)
+    (insert "&")
+    (forward-symbol 1)
+    (insert "[..]"))
+
+  (bind-keys
+   :map rust-mode-map
+   ("C-c t v" . wh/rust-toggle-visibility)
+   ("C-c t m" . wh/rust-toggle-mutability)
+   ("C-c v s" . wh/rust-vec-as-slice)))
 
 (provide 'setup-rust)

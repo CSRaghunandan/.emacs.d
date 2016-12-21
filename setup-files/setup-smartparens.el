@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-21 14:55:40 csraghunandan>
+;; Time-stamp: <2016-12-21 15:46:11 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -29,6 +29,7 @@
    :map smartparens-mode-map
    ("C-k"   . sp-kill-hybrid-sexp)
    ("M-k"   . sp-backward-kill-sexp)
+   ("C-c R" . sp-rewrap-sexp)
 
    ("M-[" . sp-backward-unwrap-sexp)
    ("M-]" . sp-unwrap-sexp)
