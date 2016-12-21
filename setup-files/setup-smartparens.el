@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-21 15:46:11 csraghunandan>
+;; Time-stamp: <2016-12-21 23:00:51 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -46,6 +46,7 @@
   ;; use default smartparens bindings
   (sp-use-smartparens-bindings)
   (smartparens-global-mode 1)
+  (smartparens-global-strict-mode)
 
   (require 'smartparens-config)
 
@@ -77,7 +78,26 @@
 
   (setq sp-show-pair-from-inside t)
   ;; show matching paren instantly
-  (setq sp-show-pair-delay 0.01))
+  (setq sp-show-pair-delay 0.01)
+
+  (dolist (key '( [remap delete-char]
+                  [remap delete-forward-char]))
+
+    (define-key smartparens-strict-mode-map key
+      '(menu-item "maybe-sp-delete-char" nil
+                  :filter (lambda (&optional _)
+                            (unless (looking-at-p "[[:space:]\n]")
+                              #'sp-delete-char)))))
+
+  (dolist (key '([remap backward-delete-char-untabify]
+                 [remap backward-delete-char]
+                 [remap delete-backward-char]))
+
+    (define-key smartparens-strict-mode-map key
+      '(menu-item "maybe-sp-backward-delete-char" nil
+                  :filter (lambda (&optional _)
+                            (unless (looking-back "[[:space:]\n]" 1)
+                              #'sp-backward-delete-char))))))
 
 (provide 'setup-smartparens)
 
