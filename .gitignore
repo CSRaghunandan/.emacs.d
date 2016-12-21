@@ -10,7 +10,6 @@ desktop/
 elpa/
 eshell/
 anaconda-mode/
-bookmarks
 company-statistics-cache.el
 mc-lists
 tutorial/

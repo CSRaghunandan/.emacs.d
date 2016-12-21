@@ -1,0 +1,73 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(#1=(#("cs: computer-science.org" 0 24
+      (bmkp-full-record #1#))
+    (filename . "~/org-mode-files/computer-science.org")
+    (buffer-name . "computer-science.org")
+    (front-context-string)
+    (rear-context-string . "on crash course\n")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 0)
+    (time . #2=(22618 4378 300746 0))
+    (created . #2#)
+    (position . 1153))
+#1=(#("l: life.org" 0 1
+      (bmkp-full-record #1# idx 0)
+      1 11
+      (bmkp-full-record #1#))
+    (filename . "~/org-mode-files/life.org")
+    (buffer-name . "life.org")
+    (front-context-string)
+    (rear-context-string . "2017-02-01 Wed>\n")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 0)
+    (time . #2=(22618 4356 149073 0))
+    (created . #2#)
+    (position . 2829))
+#1=(#("m: math.org" 0 1
+      (bmkp-full-record #1# idx 1)
+      1 11
+      (bmkp-full-record #1#))
+    (filename . "~/org-mode-files/math.org")
+    (buffer-name . "math.org")
+    (front-context-string . "\n*** spivaks cal")
+    (rear-context-string . "** Open calculus")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 0)
+    (time . #2=(22618 4333 386730 0))
+    (created . #2#)
+    (position . 489))
+#1=(#("w: work.org" 0 1
+      (bmkp-full-record #1# idx 2)
+      1 11
+      (bmkp-full-record #1#))
+    (filename . "~/org-mode-files/work.org")
+    (buffer-name . "work.org")
+    (front-context-string)
+    (rear-context-string . "erpreter - SICP\n")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 1)
+    (time 22618 4424 854891 0)
+    (created 22618 4303 89854 0)
+    (position . 1043))
+#1=(#("q: *scratch*" 0 1
+      (bmkp-full-record #1# idx 3)
+      1 12
+      (bmkp-full-record #1#))
+    (filename . "   - no file -")
+    (buffer-name . "*scratch*")
+    (front-context-string)
+    (rear-context-string . "e 'bookmark+)\n\n\n")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 4)
+    (time 22618 4848 680625 0)
+    (created 22618 3949 812181 0)
+    (position . 169))
+)
