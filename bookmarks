@@ -2,7 +2,62 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(#1=(#("cs: computer-science.org" 0 24
+(#1=(#("s: info SICP" 0 12
+      (bmkp-full-record #1#))
+    (buffer-name . "*info*")
+    (front-context-string . "\n* UTF::        ")
+    (rear-context-string . " 2007)\n\n* Menu:\n")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 0)
+    (time . #2=(22618 5872 720023 0))
+    (created . #2#)
+    (position . 624)
+    (filename .
+              #("/Users/csraghunandan/.emacs.d/elpa/sicp-20161219.542/sicp" 0 57
+                (face ivy-virtual)))
+    (info-node . #3="Top")
+    (handler . Info-bookmark-jump)
+    (defaults "(sicp) Top" "sicp" #3#))
+#1=(#("e: info emacs-lisp-intro" 0 1
+      (bmkp-full-record #1# idx 0)
+      1 24
+      (bmkp-full-record #1#))
+    (buffer-name . "*info*")
+    (front-context-string . "\n     document u")
+    (rear-context-string . "d/or modify this")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 1)
+    (time 22618 5401 788690 0)
+    (created 22618 5378 923979 0)
+    (position . 2330)
+    (filename . "/usr/local/Cellar/emacs/HEAD-221d3a9/share/info/emacs/eintr")
+    (info-node . #2="Top")
+    (handler . Info-bookmark-jump)
+    (defaults "(eintr) Top" "eintr" #2#))
+#1=(#("o: info org-mode" 0 1
+      (bmkp-full-record #1# idx 1)
+      1 16
+      (bmkp-full-record #1#))
+    (buffer-name . "*info*")
+    (front-context-string . "\n\n   Copyright (")
+    (rear-context-string . "(release_9.0.2).")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 1)
+    (time 22618 5303 136133 0)
+    (created 22618 5178 581376 0)
+    (position . 1041)
+    (filename .
+              #("/Users/csraghunandan/.emacs.d/elpa/org-plus-contrib-20161214/org" 0 64
+                (face ivy-virtual)))
+    (info-node . #2="Top")
+    (handler . Info-bookmark-jump)
+    (defaults "(org) Top" "org" #2#))
+#1=(#("cs: computer-science.org" 0 1
+      (bmkp-full-record #1# idx 2)
+      1 24
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/computer-science.org")
     (buffer-name . "computer-science.org")
@@ -15,7 +70,7 @@
     (created . #2#)
     (position . 1153))
 #1=(#("l: life.org" 0 1
-      (bmkp-full-record #1# idx 0)
+      (idx 3 bmkp-full-record #1#)
       1 11
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/life.org")
@@ -29,7 +84,7 @@
     (created . #2#)
     (position . 2829))
 #1=(#("m: math.org" 0 1
-      (bmkp-full-record #1# idx 1)
+      (idx 4 bmkp-full-record #1#)
       1 11
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/math.org")
@@ -43,7 +98,7 @@
     (created . #2#)
     (position . 489))
 #1=(#("w: work.org" 0 1
-      (bmkp-full-record #1# idx 2)
+      (idx 5 bmkp-full-record #1#)
       1 11
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/work.org")
@@ -57,17 +112,18 @@
     (created 22618 4303 89854 0)
     (position . 1043))
 #1=(#("q: *scratch*" 0 1
-      (bmkp-full-record #1# idx 3)
+      (idx 6 bmkp-full-record #1#)
       1 12
       (bmkp-full-record #1#))
+    (end-position . 146)
     (filename . "   - no file -")
     (buffer-name . "*scratch*")
     (front-context-string)
     (rear-context-string . "e 'bookmark+)\n\n\n")
     (front-context-region-string)
     (rear-context-region-string)
-    (visits . 4)
-    (time 22618 4848 680625 0)
+    (visits . 5)
+    (time 22618 5046 967887 0)
     (created 22618 3949 812181 0)
-    (position . 169))
+    (position . 146))
 )
