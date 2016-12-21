@@ -12,10 +12,6 @@ eshell/
 anaconda-mode/
 company-statistics-cache.el
 mc-lists
-tutorial/
-url/
-diminish-modes-1.el
-history
 *.elc
 setup-files/.tern-port
 .DS_STORE
