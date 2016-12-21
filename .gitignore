@@ -11,7 +11,6 @@ elpa/
 eshell/
 anaconda-mode/
 company-statistics-cache.el
-mc-lists
 *.elc
 setup-files/.tern-port
 .DS_STORE
