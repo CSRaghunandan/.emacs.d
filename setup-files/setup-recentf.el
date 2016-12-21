@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 17:20:03 csraghunandan>
+;; Time-stamp: <2016-12-21 11:16:25 csraghunandan>
 
 ;; view the list recently opened files
 (use-package recentf
@@ -16,6 +16,7 @@
                           ".gitignore" ;; ignore `.gitignore' files in projects
                           "/tmp/" ;; ignore temporary files
                           "NEWS" ;; don't include the NEWS file for recentf
+                          "bookmarks" ;; ignore bookmarks file in .emacs.d
                           "loaddefs.el")))
 
 (provide 'setup-recentf)
