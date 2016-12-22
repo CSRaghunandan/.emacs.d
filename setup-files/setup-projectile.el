@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-22 00:09:22 csraghunandan>
+;; Time-stamp: <2016-12-22 13:32:13 csraghunandan>
 
 ;; Projectile
 ;; https://github.com/bbatsov/projectile
@@ -12,6 +12,7 @@
   (add-to-list 'projectile-ignored-projects (concat user-home-directory ".stack/global-project/"))
 
   ;; ignore all projects under exercism directory
+  (require 'f)
   (defun my-projectile-ignore-project (project-root)
     (f-descendant-of? project-root (expand-file-name "~/exercism")))
   (setq projectile-ignored-project-function #'my-projectile-ignore-project)

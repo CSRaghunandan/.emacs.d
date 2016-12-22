@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 02:44:24 csraghunandan>
+;; Time-stamp: <2016-12-22 13:32:50 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -24,7 +24,15 @@
     (setq spaceline-toggle-buffer-modified t)
     (spaceline-toggle-buffer-size-off)
     (spaceline-toggle-erc-track-on)
-    (setq spaceline-minor-modes-separator " ")))
+    (setq spaceline-minor-modes-separator " ")
+
+    (spaceline-define-segment narrow
+      "Display Narrowed when buffer is narrowed."
+      (when (buffer-narrowed-p)
+        "narrow"))
+
+    ;; indicate narrowed buffer in modeline
+    (spaceline-spacemacs-theme 'narrow)))
 
 ;; diminish eldoc-mode in mode-line
 (use-package eldoc
