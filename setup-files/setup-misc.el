@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-21 11:33:57 csraghunandan>
+;; Time-stamp: <2016-12-22 14:26:42 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -73,5 +73,8 @@ not prevent downloading the actual packages (obviously)."
 
 ;; set emacs source code directory
 (setq source-directory "~/emacs--git/src/")
+
+;; load bookmark list
+(bookmark-bmenu-list)
 
 (provide 'setup-misc)
