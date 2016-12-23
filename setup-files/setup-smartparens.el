@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-21 23:00:51 csraghunandan>
+;; Time-stamp: <2016-12-23 22:24:40 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -69,16 +69,13 @@
               ("q" nil "Quit" :color blue))
             smartparens-mode-map)
 
-  ;; do not insert paris when point is at the beginning of word
-  ;; https://emacs.stackexchange.com/questions/26912/smartparens-do-not-insert-parenthesis-pair-when-point-is-at-the-beginning-of-wo
-  (sp-pair "(" nil :unless '(sp-point-before-word-p))
-  (sp-pair "[" nil :unless '(sp-point-before-word-p))
-  (sp-pair "{" nil :unless '(sp-point-before-word-p))
-  (sp-local-pair 'latex-mode "$" nil :unless '(sp-point-before-word-p))
-
   (setq sp-show-pair-from-inside t)
   ;; show matching paren instantly
   (setq sp-show-pair-delay 0.01)
+  ;; enable smartparens in minibuffer
+  (add-hook 'eval-expression-minibuffer-setup-hook (lambda()
+                                                     (smartparens-mode)
+                                                     (eldoc-mode)))
 
   (dolist (key '( [remap delete-char]
                   [remap delete-forward-char]))
