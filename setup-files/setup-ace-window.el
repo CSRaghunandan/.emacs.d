@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-07 15:22:11 csraghunandan>
+;; Time-stamp: <2016-12-23 13:39:30 csraghunandan>
 
 ;; ace-window
 ;; https://github.com/abo-abo/ace-window
@@ -20,7 +20,7 @@
     ("p" shrink-window "shrink vertical")
     ("n" enlarge-window "enlarge vertical")
     ("f" enlarge-window-horizontally "enlarge horizontal")
-    ("m" rag/toggle-frame-fullscreen-non-native "maximize frame")
+    ("m" toggle-frame-fullscreen "maximize frame")
     ("r" balance-windows "balance windows")
     ("q" nil :color blue))
 
@@ -29,21 +29,6 @@
     ("n" scroll-other-window "scroll")
     ("p" scroll-other-window-down "scroll down")
     ("q" nil :color blue))
-
-  (defun rag/toggle-frame-fullscreen-non-native ()
-    "Toggle full screen non-natively. Uses the `fullboth' frame paramerter
-   rather than `fullscreen'. Useful to fullscreen on OSX w/o animations."
-    (interactive)
-    (modify-frame-parameters
-     nil
-     `((maximized
-        . ,(unless (memq (frame-parameter nil 'fullscreen) '(fullscreen fullboth))
-             (frame-parameter nil 'fullscreen)))
-       (fullscreen
-        . ,(if (memq (frame-parameter nil 'fullscreen) '(fullscreen fullboth))
-               (if (eq (frame-parameter nil 'maximized) 'maximized)
-                   'maximized)
-             'fullboth)))))
 
   ;; add hydras to control window size and scroll other window
   (setq aw-dispatch-alist
