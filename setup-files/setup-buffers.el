@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 13:56:49 csraghunandan>
+;; Time-stamp: <2016-12-23 21:58:34 csraghunandan>
 
 ;; configuration for buffers
 
@@ -204,9 +204,5 @@ will be killed."
             (message "Killed non-existing/unreadable file buffer: %s" filename))))))
   (message "Finished reverting buffers containing unmodified files."))
 (bind-key "C-c r a" 'modi/revert-all-file-buffers)
-
-;; ignore * buffers when cycling through windows using C-x <right> and C-x <left>
-(set-frame-parameter (selected-frame) 'buffer-predicate
-                     (lambda (buf) (not (string-match-p "^*" (buffer-name buf)))))
 
 (provide 'setup-buffers)

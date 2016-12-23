@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 17:20:00 csraghunandan>
+;; Time-stamp: <2016-12-23 21:59:20 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -88,8 +88,10 @@
 
 ;; make sure emacsclient starts at fullscreen
 ;; Use PragmataPro font as the default frame font
-(setq default-frame-alist '((font . "PragmataPro-13")
-                            (fullscreen . maximized)))
+(setq default-frame-alist `((font . "PragmataPro-13")
+                            (fullscreen . maximized)
+                            ;; ignore * buffers when cycling through buffers using C-x <right> or C-x <left>
+                            (buffer-predicate . ,(lambda (buf) (not (string-match-p "^*" (buffer-name buf)))))))
 
 ;; remove ugly scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
