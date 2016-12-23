@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 11:05:40 csraghunandan>
+;; Time-stamp: <2016-12-23 22:11:18 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -29,9 +29,7 @@
   (bind-keys
    :map comint-mode-map
    ("<up>" . comint-previous-input)
-   ("<down>" . comint-next-input))
-
-  (bind-key "<tab>" 'completion-at-point shell-mode-map))
+   ("<down>" . comint-next-input)))
 
 ;; manage multiple terminal windows easily within emacs
 ;; https://www.emacswiki.org/emacs/multi-term.el
@@ -42,10 +40,26 @@
                               (yas-minor-mode -1)
                               (setq-local global-hl-line-mode nil)
                               (beacon-mode -1)))
+
+  (defun last-term-buffer (l)
+    "Return most recently used term buffer."
+    (when l
+      (if (eq 'term-mode (with-current-buffer (car l) major-mode))
+          (car l) (last-term-buffer (cdr l)))))
+
+  (defun get-term ()
+    "Switch to the term buffer last used, or create a new one if
+    none exists, or if the current buffer is already a term."
+    (interactive)
+    (let ((b (last-term-buffer (buffer-list))))
+      (if (or (not b) (eq 'term-mode major-mode))
+          (multi-term)
+        (switch-to-buffer b))))
+
   (bind-key "C-c h t"
             (defhydra multi-term-hydra ()
               "multi-term"
-              ("o" multi-term "Open new")
+              ("o" get-term "toggle/open")
               ("n" multi-term-next "Next")
               ("p" multi-term-prev "Prev")
               ("d" multi-term-dedicated-toggle "Dedicated terminal")
