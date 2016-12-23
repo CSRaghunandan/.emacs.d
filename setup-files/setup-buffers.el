@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-19 21:36:46 csraghunandan>
+;; Time-stamp: <2016-12-23 13:08:21 csraghunandan>
 
 ;; configuration for buffers
 
@@ -139,5 +139,41 @@ with prefix, select which buffer to kill"
 (bind-keys*
  ("C-x 2" . rag/split-below-and-move)
  ("C-x 3" . rag/split-right-and-move))
+
+;;; Scratch-and-Back
+;; http://emacs.stackexchange.com/a/81/115
+(defun modi/switch-to-scratch-and-back (&optional arg)
+  "Toggle between *scratch-MODE* buffer and the current buffer.
+If a scratch buffer does not exist, create it with the major mode set to that
+of the buffer from where this function is called.
+        COMMAND -> Open/switch to a scratch buffer in the current buffer's major mode
+    C-0 COMMAND -> Open/switch to a scratch buffer in `fundamental-mode'
+    C-u COMMAND -> Open/switch to a scratch buffer in `org-mode'
+C-u C-u COMMAND -> Open/switch to a scratch buffer in `emacs-elisp-mode'
+Even if the current major mode is a read-only mode (derived from `special-mode'
+or `dired-mode'), we would want to be able to write in the scratch buffer. So
+the scratch major mode is set to `org-mode' for such cases.
+Return the scratch buffer opened."
+  (interactive "p")
+  (if (and (or (null arg)               ; no prefix
+               (= arg 1))
+           (string-match-p "\\*scratch" (buffer-name)))
+      (switch-to-buffer (other-buffer))
+    (let* ((mode-str (cl-case arg
+                       (0  "fundamental-mode") ; C-0
+                       (4  "org-mode") ; C-u
+                       (16 "emacs-lisp-mode") ; C-u C-u
+                       ;; If the major mode turns out to be a `special-mode'
+                       ;; derived mode, a read-only mode like `help-mode', open
+                       ;; an `org-mode' scratch buffer instead.
+                       (t (if (or (derived-mode-p 'special-mode) ; no prefix
+                                  (derived-mode-p 'dired-mode))
+                              "org-mode"
+                            (format "%s" major-mode)))))
+           (buf (get-buffer-create (concat "*scratch-" mode-str "*"))))
+      (switch-to-buffer buf)
+      (funcall (intern mode-str))   ; http://stackoverflow.com/a/7539787/1219634
+      buf)))
+(bind-key "C-c s b" 'modi/switch-to-scratch-and-back)
 
 (provide 'setup-buffers)
