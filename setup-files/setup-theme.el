@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 21:59:20 csraghunandan>
+;; Time-stamp: <2016-12-23 23:24:12 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -92,6 +92,12 @@
                             (fullscreen . maximized)
                             ;; ignore * buffers when cycling through buffers using C-x <right> or C-x <left>
                             (buffer-predicate . ,(lambda (buf) (not (string-match-p "^*" (buffer-name buf)))))))
+
+;; show full path of the open file in title
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
 
 ;; remove ugly scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
