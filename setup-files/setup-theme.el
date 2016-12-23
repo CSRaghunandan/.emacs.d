@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-21 16:15:50 csraghunandan>
+;; Time-stamp: <2016-12-23 17:20:00 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -43,8 +43,9 @@
   (set-face-attribute 'powerline-inactive1 nil :background "gray32")
 
   ;; contrasting colors for ivy minibuffer match results
+  (set-face-attribute 'ivy-minibuffer-match-face-4 nil :background "pink4")
   (set-face-attribute 'ivy-minibuffer-match-face-3 nil :background "CadetBlue4")
-  (set-face-attribute 'ivy-minibuffer-match-face-2 nil :background "pink4"))
+  (set-face-attribute 'ivy-minibuffer-match-face-2 nil :background "DarkSeaGreen4"))
 
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
