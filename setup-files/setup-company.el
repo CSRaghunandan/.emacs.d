@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-15 12:15:46 csraghunandan>
+;; Time-stamp: <2016-12-23 10:12:27 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -8,35 +8,30 @@
 (use-package company
   :diminish company-mode
   :config
-  (with-eval-after-load 'company
-    (define-key company-active-map (kbd "M-n") nil)
-    (define-key company-active-map (kbd "M-p") nil)
-    (define-key company-active-map (kbd "RET") nil)
-    (define-key company-active-map (kbd "C-n") 'company-select-next)
-    (define-key company-active-map (kbd "C-p") 'company-select-previous)
-    (define-key company-active-map (kbd "<tab>") 'company-complete-common))
+  (bind-keys
+   :map company-active-map
+   ("M-p" . nil)
+   ("M-n" . nil)
+   ("C-m" . nil)
+   ("C-n" . company-select-next)
+   ("C-p" . company-select-previous)
+   ("<tab>" . company-complete-common)
+   ("C-t" . company-show-doc-buffer))
 
   ;; use numbers 0-9 to select company completion candidates
   (let ((map company-active-map))
     (mapc (lambda (x) (define-key map (format "%d" x)
-                        `(lambda () (interactive) (company-complete-number ,x))))
+                   `(lambda () (interactive) (company-complete-number ,x))))
           (number-sequence 0 9)))
 
   ;; set defaults for company-mode
   (setq company-tooltip-flip-when-above t
-	company-minimum-prefix-length 3
+        company-minimum-prefix-length 3
         company-idle-delay 0.4
-	company-selection-wrap-around t
-	company-show-numbers t
+        company-selection-wrap-around t
+        company-show-numbers t
         company-require-match nil
         company-tooltip-align-annotations t)
-
-  ;; company-quickhelp
-  ;; https://github.com/expez/company-quickhelp
-  ;; pop-up documentation for completion candidates
-  (use-package company-quickhelp
-    :defer 1
-    :config (company-quickhelp-mode 1))
 
   ;; company-statistics
   ;; https://github.com/company-mode/company-statistics
