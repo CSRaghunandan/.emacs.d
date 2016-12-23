@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-22 14:26:42 csraghunandan>
+;; Time-stamp: <2016-12-23 09:45:38 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -76,5 +76,15 @@ not prevent downloading the actual packages (obviously)."
 
 ;; load bookmark list
 (bookmark-bmenu-list)
+
+;; don't garbage collect when in minibuffer-mode
+(defun my-minibuffer-setup-hook ()
+  (setq gc-cons-threshold most-positive-fixnum))
+
+(defun my-minibuffer-exit-hook ()
+  (setq gc-cons-threshold 800000))
+
+(add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
+(add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
 
 (provide 'setup-misc)
