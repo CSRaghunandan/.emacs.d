@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 15:51:43 csraghunandan>
+;; Time-stamp: <2016-12-23 16:36:20 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -72,7 +72,7 @@
 (require 'setup-python)
 (require 'setup-tex)
 (require 'setup-misc)
-(require 'setup-fold)
+(require 'setup-origami)
 (require 'setup-buffers)
 (require 'setup-move-line)
 (require 'setup-duplicate-line)
