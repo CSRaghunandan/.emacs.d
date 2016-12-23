@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-22 23:47:59 csraghunandan>
+;; Time-stamp: <2016-12-23 09:48:53 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -37,7 +37,8 @@
   ;; disable yasnippet mode in term
   (add-hook 'term-mode-hook (lambda ()
                               (yas-minor-mode -1)
-                              (setq-local global-hl-line-mode nil)))
+                              (setq-local global-hl-line-mode nil)
+                              (beacon-mode -1)))
   (bind-key "C-c h t"
             (defhydra multi-term-hydra ()
               "multi-term"
