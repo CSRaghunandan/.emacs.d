@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 11:03:17 csraghunandan>
+;; Time-stamp: <2016-12-23 13:44:46 csraghunandan>
 
 ;; ibuffer
 ;; for easy management of buffers
@@ -130,7 +130,7 @@
     ("<" ibuffer-filter-by-size-lt "size")
     ("/" ibuffer-filter-disable "disable")
     ("b" hydra-ibuffer-main/body "back" :color blue))
-  (bind-key "." 'hydra-ibuffer-action/body ibuffer-mode-map)
+  (bind-key "." 'hydra-ibuffer-main/body ibuffer-mode-map)
 
   ;; dont ask for confirmation whenever killing a buffer
   (setq ibuffer-expert t)

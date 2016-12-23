@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 13:39:30 csraghunandan>
+;; Time-stamp: <2016-12-23 13:43:19 csraghunandan>
 
 ;; ace-window
 ;; https://github.com/abo-abo/ace-window
@@ -37,8 +37,7 @@
       (?n aw-flip-window)
       (?v aw-split-window-vert " Ace - Split Vert Window")
       (?b aw-split-window-horz " Ace - Split Horz Window")
-      (?i delete-other-windows " Ace - Maximize Window")
-      (?o delete-other-windows)
+      (?o delete-other-windows " Ace - Maximize Window")
       (?c hydra-window-scroll/body)
       (?y hydra-window-size/body))))
 
