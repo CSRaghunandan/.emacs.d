@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-21 21:44:48 csraghunandan>
+;; Time-stamp: <2016-12-23 15:45:50 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -285,7 +285,7 @@ C-u C-u C-u M-x xah-cycle-letter-case -> Force capitalize."
  ("~" . hydra-change-case/body))
 
 (defhydra hydra-change-case (:color blue
-                             :hint nil)
+                                    :hint nil)
   "
 _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down→
 "
@@ -376,6 +376,24 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
           (message "Indented buffer.")))
       (whitespace-cleanup))))
 
-(bind-key* "C-M-\\" 'indent-region-or-buffer)
+(defun indent-defun (&optional l r)
+  "Indent current defun.
+Throw an error if parentheses are unbalanced.
+If L and R are provided, use them for finding the start and end of defun."
+  (interactive)
+  (let ((p (point-marker)))
+    (set-marker-insertion-type p t)
+    (indent-region
+     (save-excursion
+       (when l (goto-char l))
+       (beginning-of-defun 1) (point))
+     (save-excursion
+       (when r (goto-char r))
+       (end-of-defun 1) (point)))
+    (goto-char p)))
+
+(bind-keys
+ ("C-M-\\" . indent-region-or-buffer)
+ ("C-c d i" . indent-defun))
 
 (provide 'setup-editing)
