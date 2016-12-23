@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 13:08:21 csraghunandan>
+;; Time-stamp: <2016-12-23 13:09:18 csraghunandan>
 
 ;; configuration for buffers
 
@@ -175,5 +175,34 @@ Return the scratch buffer opened."
       (funcall (intern mode-str))   ; http://stackoverflow.com/a/7539787/1219634
       buf)))
 (bind-key "C-c s b" 'modi/switch-to-scratch-and-back)
+
+;;; Revert buffer
+(defun modi/revert-all-file-buffers ()
+  "Refresh all open file buffers without confirmation.
+Buffers in modified (not yet saved) state in emacs will not be reverted. They
+will be reverted though if they were modified outside emacs.
+Buffers visiting files which do not exist any more or are no longer readable
+will be killed."
+  (interactive)
+  (dolist (buf (buffer-list))
+    (let ((filename (buffer-file-name buf)))
+      ;; (message "buf:%s  filename:%s  modified:%s  filereadable:%s"
+      ;;          buf filename
+      ;;          (buffer-modified-p buf) (file-readable-p (format "%s" filename)))
+
+      ;; Revert only buffers containing files, which are not modified;
+      ;; do not try to revert non-file buffers like *Messages*.
+      (when (and filename
+                 (not (buffer-modified-p buf)))
+        (if (file-readable-p filename)
+            ;; If the file exists and is readable, revert the buffer.
+            (with-current-buffer buf
+              (revert-buffer :ignore-auto :noconfirm :preserve-modes))
+          ;; Otherwise, kill the buffer.
+          (let (kill-buffer-query-functions) ; No query done when killing buffer
+            (kill-buffer buf)
+            (message "Killed non-existing/unreadable file buffer: %s" filename))))))
+  (message "Finished reverting buffers containing unmodified files."))
+(bind-key "C-c r a" 'modi/revert-all-file-buffers)
 
 (provide 'setup-buffers)
