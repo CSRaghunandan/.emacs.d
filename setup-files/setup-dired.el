@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-13 12:41:52 csraghunandan>
+;; Time-stamp: <2016-12-23 16:59:24 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -7,9 +7,6 @@
               ("/" . dired-narrow-regexp))
   :config
   (progn
-    ;; fix `ls' for macOS.
-    (when (eq system-type 'darwin)
-      (setq insert-directory-program "gls" dired-use-ls-dired t))
     ;; mark symlinks
     (setq dired-ls-F-marks-symlinks t)
     ;; Never prompt for recursive copies of a directory
