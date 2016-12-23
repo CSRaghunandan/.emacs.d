@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 09:48:53 csraghunandan>
+;; Time-stamp: <2016-12-23 11:05:40 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -6,9 +6,10 @@
   ;; get ivy/helm completions to work in `eshell'
   (add-hook 'eshell-mode-hook
             (lambda ()
-              (define-key eshell-mode-map (kbd "<tab>")
-                'completion-at-point)
-              (define-key eshell-mode-map (kbd "C-c M-o") #'eshell-clear-buffer)))
+              (bind-keys
+               :map eshell-mode-map
+               ("<tab>" . completion-at-point)
+               ("C-c M-o" . eshell-clear-buffer))))
   ;; fetch the $PATH variable to eshell
   (add-hook 'eshell-mode-hook '(lambda ()(exec-path-from-shell-initialize)))
 
@@ -25,8 +26,10 @@
   ;; always insert input at bottom
   (setq comint-scroll-to-bottom-on-input t)
   ;; remap up and down to previous and next commands in history
-  (define-key comint-mode-map [up] 'comint-previous-input)
-  (define-key comint-mode-map [down] 'comint-next-input)
+  (bind-keys
+   :map comint-mode-map
+   ("<up>" . comint-previous-input)
+   ("<down>" . comint-next-input))
 
   (bind-key "<tab>" 'completion-at-point shell-mode-map))
 
