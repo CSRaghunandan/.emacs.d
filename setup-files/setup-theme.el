@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 23:24:12 csraghunandan>
+;; Time-stamp: <2016-12-24 21:34:47 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -65,6 +65,32 @@
 (setq inhibit-splash-screen t)
 ;; don't echo startup message of GNU emacs
 (setq inhibit-startup-echo-area-message t)
+
+(defun random-choice (list)
+  "Return a random element from LIST."
+  (let ((random-index (random (length list))))
+    (nth random-index list)))
+
+(defvar programming-quotes
+  '("First, solve the problem. Then, write the code. -- John Johnson"
+    "The computing scientist’s main challenge is not to get confused by the complexities of his own making. -- E. W. Dijkstra"
+    "There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. -- C. A. R. Hoare"
+    "Controlling complexity is the essence of computer programming. -- Brian Kernigan"
+    "If you’re willing to restrict the flexibility of your approach, you can almost always do something better. -- John Carmack"
+    "Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -- Bill Gates"
+    "The best code is no code at all."
+    "There is not now, nor has there ever been, nor will there ever be, any programming language in which it is the least bit difficult to write bad code."
+    "Code never lies, comments sometimes do. -- Ron Jeffries"
+    "Simplicity carried to the extreme becomes elegance. -- Jon Franklin"
+    "The unavoidable price of reliability is simplicity. -- C. A. R. Hoare"
+    "Good code is short, simple, and symmetrical – the challenge is figuring out how to get there. -- Sean Parent"
+    "True glory consists in doing what deserves to be written; in writing what deserves to be read. -- Pliny the Elder"
+    "The whole point of getting things done is knowing what to leave undone. -- Oswald Chambers"))
+
+;; populate the initial scratch buffer with a random quote.
+(setq initial-scratch-message (random-choice programming-quotes))
+
+(random-choice programming-quotes)
 
 ;; cursor settings
 (setq-default cursor-type '(bar . 1))

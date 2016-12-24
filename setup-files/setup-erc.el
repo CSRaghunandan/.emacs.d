@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-24 13:32:41 csraghunandan>
+;; Time-stamp: <2016-12-24 14:13:34 csraghunandan>
 
 ;; ERC - the irc client for emacs
 (use-package erc :defer t
@@ -40,7 +40,19 @@
   (setq erc-log-channels-directory (concat user-home-directory ".erc/logs/"))
 
   ;; if log file exists, load it
-  (setq erc-log-insert-log-on-open t))
+  (setq erc-log-insert-log-on-open t)
+
+  ;; Kill buffers for channels after /part
+  (setq erc-kill-buffer-on-part t)
+  ;; Kill buffers for private queries after quitting the server
+  (setq erc-kill-queries-on-quit t)
+  ;; Kill buffers for server messages after quitting the server
+  (setq erc-kill-server-buffer-on-quit t)
+
+  ;; use sensible names for irc buffers
+  (setq erc-rename-buffers t)
+  ;; Interpret mIRC-style color commands in IRC chats
+  (setq erc-interpret-mirc-color t))
 
 (provide 'setup-erc)
 
