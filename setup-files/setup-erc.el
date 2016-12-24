@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-19 17:37:36 csraghunandan>
+;; Time-stamp: <2016-12-24 13:32:41 csraghunandan>
 
 ;; ERC - the irc client for emacs
 (use-package erc :defer t
@@ -7,7 +7,7 @@
   (setq erc-hide-list '("PART" "QUIT" "JOIN"))
   ;; defaults for ERC mode
   (setq erc-server "irc.freenode.net"
-	erc-nick "Rag1212")
+        erc-nick "CSRaghunandan")
   (setq erc-fill-column 100)
 
   ;; to enable notifications for ERC via terminal-notifier
