@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-24 21:34:47 csraghunandan>
+;; Time-stamp: <2016-12-26 15:03:41 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -72,20 +72,20 @@
     (nth random-index list)))
 
 (defvar programming-quotes
-  '("First, solve the problem. Then, write the code. -- John Johnson"
-    "The computing scientist’s main challenge is not to get confused by the complexities of his own making. -- E. W. Dijkstra"
-    "There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. -- C. A. R. Hoare"
-    "Controlling complexity is the essence of computer programming. -- Brian Kernigan"
-    "If you’re willing to restrict the flexibility of your approach, you can almost always do something better. -- John Carmack"
-    "Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -- Bill Gates"
-    "The best code is no code at all."
-    "There is not now, nor has there ever been, nor will there ever be, any programming language in which it is the least bit difficult to write bad code."
-    "Code never lies, comments sometimes do. -- Ron Jeffries"
-    "Simplicity carried to the extreme becomes elegance. -- Jon Franklin"
-    "The unavoidable price of reliability is simplicity. -- C. A. R. Hoare"
-    "Good code is short, simple, and symmetrical – the challenge is figuring out how to get there. -- Sean Parent"
-    "True glory consists in doing what deserves to be written; in writing what deserves to be read. -- Pliny the Elder"
-    "The whole point of getting things done is knowing what to leave undone. -- Oswald Chambers"))
+  '(";; First, solve the problem. Then, write the code. -- John Johnson\n\n"
+    ";; The computing scientist’s main challenge is not to get confused by the complexities of his own making. -- E. W. Dijkstra\n\n"
+    ";; There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. -- C. A. R. Hoare\n\n"
+    ";; Controlling complexity is the essence of computer programming. -- Brian Kernigan\n\n"
+    ";; If you’re willing to restrict the flexibility of your approach, you can almost always do something better. -- John Carmack\n\n"
+    ";; Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -- Bill Gates\n\n"
+    ";; The best code is no code at all.\n\n"
+    ";; There is not now, nor has there ever been, nor will there ever be, any programming language in which it is the least bit difficult to write bad code.\n\n"
+    ";; Code never lies, comments sometimes do. -- Ron Jeffries\n\n"
+    ";; Simplicity carried to the extreme becomes elegance. -- Jon Franklin\n\n"
+    ";; The unavoidable price of reliability is simplicity. -- C. A. R. Hoare\n\n"
+    ";; Good code is short, simple, and symmetrical – the challenge is figuring out how to get there. -- Sean Parent\n\n"
+    ";; True glory consists in doing what deserves to be written in writing what deserves to be read. -- Pliny the Elder\n\n"
+    ";; The whole point of getting things done is knowing what to leave undone. -- Oswald Chambers\n\n"))
 
 ;; populate the initial scratch buffer with a random quote.
 (setq initial-scratch-message (random-choice programming-quotes))
