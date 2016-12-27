@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-21 15:44:34 csraghunandan>
+;; Time-stamp: <2016-12-27 14:56:43 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -24,8 +24,6 @@
     :bind (:map rust-mode-map
                 (("C-c C-t" . racer-describe)))
     :config
-    ;; set racer rust source path environment variable
-    (setq racer-rust-src-path (getenv "RUST_SRC_PATH"))
     (defun my-racer-mode-hook ()
       (set (make-local-variable 'company-backends)
            '((company-capf company-files))))

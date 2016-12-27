@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 13:06:57 csraghunandan>
+;; Time-stamp: <2016-12-27 14:00:04 csraghunandan>
 
 ;; All the macOS related configuration
 
@@ -14,7 +14,6 @@
 ;; https://github.com/lunaryorn/osx-trash.el
 (use-package exec-path-from-shell
   :init
-  (exec-path-from-shell-copy-env "RUST_SRC_PATH")
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
