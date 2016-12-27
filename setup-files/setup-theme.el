@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 00:12:34 csraghunandan>
+;; Time-stamp: <2016-12-28 00:52:26 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -133,6 +133,10 @@
         (when (member "PragmataPro" (font-family-list))
             (set-frame-font "PragmataPro-13")))))
 (add-hook 'after-make-frame-functions 'rag-set-face)
+
+;; set frame font when running emacs normally
+(when (member "PragmataPro" (font-family-list))
+  (set-frame-font "PragmataPro-13"))
 
 ;; show full path of the open file in title
 (setq frame-title-format
