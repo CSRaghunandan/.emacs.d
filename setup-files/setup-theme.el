@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-26 15:03:41 csraghunandan>
+;; Time-stamp: <2016-12-27 09:49:15 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -50,7 +50,13 @@
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
   :config
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+  ;; strike-through unmatched parenthesis
+  (set-face-attribute 'rainbow-delimiters-unmatched-face nil
+                      :foreground "red"
+                      :inherit 'unspecified
+                      :strike-through t))
 
 ;; Better defaults for emacs
 (column-number-mode t)

@@ -16,5 +16,7 @@
         counsel-grep-or-swiper
         isearch-printing-char
         isearch-repeat-forward
+        ivy-done
+        mc/vertical-align-with-space
         wrap-with-single-quotes
         ))
