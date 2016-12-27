@@ -8,6 +8,7 @@
         hungry-delete-forward
         isearch-forward-symbol-at-point
         mwim-beginning-of-code-or-line
+        sp-delete-char
         sp-kill-sexp
         ))
 
@@ -18,5 +19,6 @@
         isearch-repeat-forward
         ivy-done
         mc/vertical-align-with-space
+        sp-backward-delete-char
         wrap-with-single-quotes
         ))

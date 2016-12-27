@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-27 09:49:15 csraghunandan>
+;; Time-stamp: <2016-12-28 00:12:34 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -119,11 +119,20 @@
       )
 
 ;; make sure emacsclient starts at fullscreen
-;; Use PragmataPro font as the default frame font
-(setq default-frame-alist `((font . "PragmataPro-13")
-                            (fullscreen . maximized)
-                            ;; ignore * buffers when cycling through buffers using C-x <right> or C-x <left>
-                            (buffer-predicate . ,(lambda (buf) (not (string-match-p "^*" (buffer-name buf)))))))
+(setq default-frame-alist
+      `((fullscreen . maximized)
+        ;; ignore * buffers when cycling through buffers using C-x <right> or C-x <left>
+        (buffer-predicate . ,(lambda (buf) (not (string-match-p "^*" (buffer-name buf)))))))
+
+;; set PragmataPro font only if it available
+(defun rag-set-face (frame)
+  "Configure faces on frame creation"
+  (select-frame frame)
+  (if (display-graphic-p)
+      (progn
+        (when (member "PragmataPro" (font-family-list))
+            (set-frame-font "PragmataPro-13")))))
+(add-hook 'after-make-frame-functions 'rag-set-face)
 
 ;; show full path of the open file in title
 (setq frame-title-format
