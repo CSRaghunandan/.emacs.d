@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 22:24:40 csraghunandan>
+;; Time-stamp: <2016-12-28 01:43:11 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -76,6 +76,10 @@
   (add-hook 'eval-expression-minibuffer-setup-hook (lambda()
                                                      (smartparens-mode)
                                                      (eldoc-mode)))
+
+  ;; no more pair mismatch messages
+  (setq sp-message-width nil)
+  (setq sp-cancel-autoskip-on-backward-movement nil)
 
   (dolist (key '( [remap delete-char]
                   [remap delete-forward-char]))

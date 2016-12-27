@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 00:52:26 csraghunandan>
+;; Time-stamp: <2016-12-28 01:21:33 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -95,7 +95,9 @@
 
 ;; populate the initial scratch buffer with a random quote.
 (setq initial-scratch-message (random-choice programming-quotes))
-
+;; set scratch major mode to `emacs-lisp-mode'
+(setq initial-major-mode 'emacs-lisp-mode)
+;; Show a random programming quote in scratch buffer
 (random-choice programming-quotes)
 
 ;; cursor settings
@@ -108,7 +110,8 @@
 (setq mouse-wheel-progressive-speed nil)
 
 ;; prevent cursor from moving when scrolling
-(setq scroll-preserve-screen-position t)
+(setq scroll-preserve-screen-position t
+      scroll-conservatively 10000)
 
 ;; set continuation indicators to right fringe only
 (setf (cdr (assq 'continuation fringe-indicator-alist))

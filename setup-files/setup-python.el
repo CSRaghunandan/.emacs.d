@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 03:26:44 csraghunandan>
+;; Time-stamp: <2016-12-28 01:34:29 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -8,6 +8,8 @@
                ("M-," . anaconda-mode-go-back-definitions)))
   :config
   (setq python-shell-interpreter "python3")
+  ;; don't try to guess python indent offset
+  (setq python-indent-guess-indent-offset nil)
   (add-hook 'python-mode-hook 'company-mode)
   (add-hook 'python-mode-hook 'flycheck-mode)
   ;; enable company-mode completions in inferior python process

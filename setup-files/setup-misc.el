@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 09:45:38 csraghunandan>
+;; Time-stamp: <2016-12-28 01:38:21 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -35,12 +35,21 @@ not prevent downloading the actual packages (obviously)."
 (use-package free-keys)
 
 ;; enable disabled commands
-(put 'narrow-to-region 'disabled nil)
-(put 'upcase-region   'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'narrow-to-defun  'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'set-goal-column  'disabled nil)
+(setq disabled-command-function nil)
+
+;; make re-centering  behave similar to other programs
+(setq recenter-positions '(top middle bottom))
+
+;; don't use dialog boxes
+(setq use-dialog-box nil)
+
+;; default idle delay for eldoc is way too long
+(setq eldoc-idle-delay 0.1
+      eldoc-echo-area-use-multiline-p nil)
+
+;; enable some extra syntax highlighting for dash
+(with-eval-after-load 'dash
+  (dash-enable-font-lock))
 
 (bind-key* "C-?" 'help-command)
 
