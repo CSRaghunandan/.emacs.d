@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 22:11:18 csraghunandan>
+;; Time-stamp: <2016-12-28 12:03:40 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -25,6 +25,10 @@
   :config
   ;; always insert input at bottom
   (setq comint-scroll-to-bottom-on-input t)
+
+  ;; prevent comint process from echoing the command typed to the user
+  (setq-default comint-process-echoes t)
+
   ;; remap up and down to previous and next commands in history
   (bind-keys
    :map comint-mode-map
