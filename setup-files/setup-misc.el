@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 01:38:21 csraghunandan>
+;; Time-stamp: <2016-12-28 11:04:41 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -95,5 +95,13 @@ not prevent downloading the actual packages (obviously)."
 
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
+
+(defun conditional-disable-modes ()
+  ;; disable flycheck if file is large (above 2MB)
+  (when (> (buffer-size) 2000000)
+    (flycheck-mode -1)
+    (highlight-indent-guides-mode -1)
+    (rainbow-delimiters-mode -1)))
+(add-hook 'prog-mode-hook 'conditional-disable-modes)
 
 (provide 'setup-misc)
