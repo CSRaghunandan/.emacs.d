@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-27 14:56:43 csraghunandan>
+;; Time-stamp: <2016-12-28 12:29:00 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -83,6 +83,11 @@ foo -> &foo[..]"
    :map rust-mode-map
    ("C-c t v" . wh/rust-toggle-visibility)
    ("C-c t m" . wh/rust-toggle-mutability)
-   ("C-c v s" . wh/rust-vec-as-slice)))
+   ("C-c v s" . wh/rust-vec-as-slice))
+
+  ;; rust-playground
+  ;; https://github.com/grafov/rust-playground
+  (use-package rust-playground
+    :bind (("C-c r p" . rust-playground))))
 
 (provide 'setup-rust)
