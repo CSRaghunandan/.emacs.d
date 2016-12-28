@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 21:58:34 csraghunandan>
+;; Time-stamp: <2016-12-28 12:50:22 csraghunandan>
 
 ;; configuration for buffers
 
@@ -204,5 +204,33 @@ will be killed."
             (message "Killed non-existing/unreadable file buffer: %s" filename))))))
   (message "Finished reverting buffers containing unmodified files."))
 (bind-key "C-c r a" 'modi/revert-all-file-buffers)
+
+(defvar my-skippable-buffers '("*Messages*" "*scratch*" "*Help*" "*Bookmark List*" "*Ibuffer*" "*compilation*")
+  "Buffer names ignored by `my-next-buffer' and `my-previous-buffer'.")
+
+(defun my-change-buffer (change-buffer)
+  "Call CHANGE-BUFFER until current buffer is not in `my-skippable-buffers'."
+  (let ((initial (current-buffer)))
+    (funcall change-buffer)
+    (let ((first-change (current-buffer)))
+      (catch 'loop
+        (while (member (buffer-name) my-skippable-buffers)
+          (funcall change-buffer)
+          (when (eq (current-buffer) first-change)
+            (switch-to-buffer initial)
+            (throw 'loop t)))))))
+
+(defun my-next-buffer ()
+  "Variant of `next-buffer' that skips `my-skippable-buffers'."
+  (interactive)
+  (my-change-buffer 'next-buffer))
+
+(defun my-previous-buffer ()
+  "Variant of `previous-buffer' that skips `my-skippable-buffers'."
+  (interactive)
+  (my-change-buffer 'previous-buffer))
+
+(global-set-key [remap next-buffer] 'my-next-buffer)
+(global-set-key [remap previous-buffer] 'my-previous-buffer)
 
 (provide 'setup-buffers)

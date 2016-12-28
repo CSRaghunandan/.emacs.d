@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 01:21:33 csraghunandan>
+;; Time-stamp: <2016-12-28 12:39:31 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -123,9 +123,7 @@
 
 ;; make sure emacsclient starts at fullscreen
 (setq default-frame-alist
-      `((fullscreen . maximized)
-        ;; ignore * buffers when cycling through buffers using C-x <right> or C-x <left>
-        (buffer-predicate . ,(lambda (buf) (not (string-match-p "^*" (buffer-name buf)))))))
+      `((fullscreen . maximized)))
 
 ;; set PragmataPro font only if it available
 (defun rag-set-face (frame)
