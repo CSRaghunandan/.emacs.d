@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 12:29:00 csraghunandan>
+;; Time-stamp: <2016-12-28 12:47:09 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -88,6 +88,8 @@ foo -> &foo[..]"
   ;; rust-playground
   ;; https://github.com/grafov/rust-playground
   (use-package rust-playground
-    :bind (("C-c r p" . rust-playground))))
+    :bind (("C-c r p" . rust-playground))
+    :config
+    (setq rust-playground-basedir "~/Code-files/rust/playground/")))
 
 (provide 'setup-rust)
