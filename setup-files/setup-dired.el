@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 11:26:47 csraghunandan>
+;; Time-stamp: <2016-12-28 11:39:29 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -48,15 +48,6 @@ It added extra strings at the front and back of the default dired buffer name."
   ;; https://gitlab.com/xuhdev/dired-quick-sort
   (use-package dired-quick-sort
     :config (dired-quick-sort-setup))
-
-  ;; dired-ranger: copy paste like in GUI applications
-  ;; https://github.com/Fuco1/dired-hacks#dired-ranger
-  (use-package dired-ranger
-    :ensure t
-    :bind (:map dired-mode-map
-                ("C" . dired-ranger-copy)
-                ("R" . dired-ranger-move)
-                ("Y" . dired-ranger-paste)))
 
   ;; dired-x - to hide uninteresting files in dired
   (use-package dired-x :ensure nil
