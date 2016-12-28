@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 12:03:40 csraghunandan>
+;; Time-stamp: <2016-12-28 12:08:07 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -25,6 +25,15 @@
   :config
   ;; always insert input at bottom
   (setq comint-scroll-to-bottom-on-input t)
+
+  ;; makes sense to not recenter to the middle for comint buffers. Only top/bottom
+  (defun my-recenter-top-bottom ()
+    (interactive)
+    (goto-char (point-max))
+    (let ((recenter-positions '(top bottom)))
+      (recenter-top-bottom)))
+
+  (bind-key "C-l" 'my-recenter-top-bottom comint-mode-map)
 
   ;; prevent comint process from echoing the command typed to the user
   (setq-default comint-process-echoes t)
