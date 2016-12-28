@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 16:36:20 csraghunandan>
+;; Time-stamp: <2016-12-28 11:06:23 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -71,7 +71,6 @@
 (require 'setup-haskell)
 (require 'setup-python)
 (require 'setup-tex)
-(require 'setup-misc)
 (require 'setup-origami)
 (require 'setup-buffers)
 (require 'setup-move-line)
@@ -88,6 +87,7 @@
 (require 'setup-kurecolor)
 (require 'setup-erc)
 (require 'setup-theme)
+(require 'setup-misc)
 (require 'setup-pragmatapro)
 
 
