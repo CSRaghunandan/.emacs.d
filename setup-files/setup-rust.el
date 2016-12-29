@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 12:47:09 csraghunandan>
+;; Time-stamp: <2016-12-29 09:40:33 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -44,8 +44,7 @@
                           (lambda ()
                             (time-stamp)
                             (xah-clean-whitespace)
-                            (rust-format-buffer)
-                            (force-backup-of-buffer)) nil t))))
+                            (rust-format-buffer)) nil t))))
 
   (defun wh/rust-toggle-mutability ()
     "Toggle the mutability of the variable at point."

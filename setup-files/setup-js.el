@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 01:13:34 csraghunandan>
+;; Time-stamp: <2016-12-29 09:39:29 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -70,8 +70,7 @@
                   (add-hook 'before-save-hook
                             (lambda ()
                               (time-stamp)
-                              (web-beautify-js-buffer)
-                              (force-backup-of-buffer)) nil t))))))
+                              (web-beautify-js-buffer)) nil t))))))
 
 (provide 'setup-js)
 

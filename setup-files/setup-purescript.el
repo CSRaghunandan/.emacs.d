@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-25 14:44:27 csraghunandan>
+;; Time-stamp: <2016-12-29 09:40:22 csraghunandan>
 
 ;; configuration for purescript
 
@@ -26,8 +26,7 @@
                 (add-hook 'before-save-hook
                           (lambda ()
                             (time-stamp)
-                            (xah-clean-whitespace)
-                            (force-backup-of-buffer)) nil t)))))
+                            (xah-clean-whitespace)) nil t)))))
 
 (provide 'setup-purescript-mode)
 

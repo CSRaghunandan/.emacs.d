@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-11 02:12:06 csraghunandan>
+;; Time-stamp: <2016-12-29 09:39:16 csraghunandan>
 
 ;; emacs-lisp-mpde
 ;; configure company mode for emacs-lisp-mode
@@ -25,8 +25,7 @@
               (add-hook 'before-save-hook
                         (lambda ()
                           (time-stamp)
-                          (xah-clean-whitespace)
-                          (force-backup-of-buffer)) nil t)))
+                          (xah-clean-whitespace)) nil t)))
 
   (add-hook 'after-save-hook #'byte-compile-current-buffer))
 

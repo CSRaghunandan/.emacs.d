@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-19 16:49:03 csraghunandan>
+;; Time-stamp: <2016-12-29 09:41:06 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -60,8 +60,7 @@
                 (add-hook 'before-save-hook
                           (lambda ()
                             (time-stamp)
-                            (web-beautify-html-buffer)
-                            (force-backup-of-buffer)) nil t)))))
+                            (web-beautify-html-buffer)) nil t)))))
 
 ;; impatient mode - Live refresh of web pages
 ;; https://github.com/skeeto/impatient-mode
@@ -88,7 +87,6 @@
                 (add-hook 'before-save-hook
                           (lambda ()
                             (time-stamp)
-                            (web-beautify-css-buffer)
-                            (force-backup-of-buffer)) nil t)))))
+                            (web-beautify-css-buffer)) nil t)))))
 
 (provide 'setup-web-mode)
