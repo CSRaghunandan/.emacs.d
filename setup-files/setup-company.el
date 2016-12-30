@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-29 11:57:01 csraghunandan>
+;; Time-stamp: <2016-12-30 17:59:45 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -18,6 +18,15 @@
    ("C-p" . company-select-previous)
    ("<tab>" . company-complete-common)
    ("C-t" . company-show-doc-buffer))
+
+  ;; replace `dabbrev-expand' with `hippie-expand' which does a lot more
+  (bind-key* "C-/" 'hippie-expand)
+
+  ;; don't downcase results from company-dabbrev
+  (setq company-dabbrev-downcase nil)
+  ;; use only buffers with same major-mode for company-dabbrev
+  (setq company-dabbrev-other-buffers t)
+  (bind-key "C-<tab>" 'company-dabbrev)
 
   ;; use numbers 0-9 to select company completion candidates
   (let ((map company-active-map))

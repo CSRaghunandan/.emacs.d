@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-29 09:40:33 csraghunandan>
+;; Time-stamp: <2016-12-30 17:43:46 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -26,9 +26,10 @@
     :config
     (defun my-racer-mode-hook ()
       (set (make-local-variable 'company-backends)
-           '((company-capf company-files))))
+           '((company-capf company-files company-yasnippet))))
 
     ;; enable company and eldoc minor modes in rust-mode
+    (add-hook 'racer-mode-hook #'my-racer-mode-hook)
     (add-hook 'racer-mode-hook #'company-mode)
     (add-hook 'racer-mode-hook #'eldoc-mode))
 

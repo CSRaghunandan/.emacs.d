@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-29 15:20:55 csraghunandan>
+;; Time-stamp: <2016-12-30 17:53:16 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -70,7 +70,7 @@
   :config
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)
-         '((company-css company-dabbrev-code company-files))))
+         '((company-css company-files company-yasnippet))))
   (add-hook 'css-mode-hook 'my-css-mode-hook)
   ;; fontify colors with `rainbow-mode'
   (add-hook 'css-mode-hook 'rainbow-mode)
