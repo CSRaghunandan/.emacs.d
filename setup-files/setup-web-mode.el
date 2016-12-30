@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-29 09:41:06 csraghunandan>
+;; Time-stamp: <2016-12-29 15:20:55 csraghunandan>
 
 ;; web-mode
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -49,9 +49,6 @@
 
   ;; colorize colors in buffers
   (setq web-mode-enable-css-colorization t)
-
-  ;; highlight the current column
-  (setq web-mode-enable-current-column-highlight t)
 
   ;; format HTML and other web related buffers on save
   (when (executable-find "js-beautify")

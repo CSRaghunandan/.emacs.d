@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 01:35:38 csraghunandan>
+;; Time-stamp: <2016-12-29 11:57:01 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -13,6 +13,7 @@
    ("M-p" . nil)
    ("M-n" . nil)
    ("C-m" . nil)
+   ("C-h" . nil)
    ("C-n" . company-select-next)
    ("C-p" . company-select-previous)
    ("<tab>" . company-complete-common)

@@ -1,8 +1,8 @@
-;; Time-stamp: <2016-12-29 09:54:58 csraghunandan>
+;; Time-stamp: <2016-12-29 09:57:44 csraghunandan>
 
 ;; Backup settings for emacs.
 
-;; no autosaving by default
+;; auto-save all files every 3 minutes of idle time
 (setq auto-save-default t
       auto-save-timeout 180 ;; save files after 3 minutes of idle time
       auto-save-interval 0) ;; don't save files based on number of keystrokes
