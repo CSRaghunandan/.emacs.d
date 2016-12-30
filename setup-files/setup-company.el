@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-30 17:59:45 csraghunandan>
+;; Time-stamp: <2016-12-30 18:34:11 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -20,7 +20,7 @@
    ("C-t" . company-show-doc-buffer))
 
   ;; replace `dabbrev-expand' with `hippie-expand' which does a lot more
-  (bind-key* "C-/" 'hippie-expand)
+  (bind-key* "M-/" 'hippie-expand)
 
   ;; don't downcase results from company-dabbrev
   (setq company-dabbrev-downcase nil)
