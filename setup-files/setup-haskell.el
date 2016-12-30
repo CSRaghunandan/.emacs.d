@@ -1,13 +1,17 @@
-;; Time-stamp: <2016-12-16 15:22:19 csraghunandan>
+;; Time-stamp: <2016-12-30 17:48:50 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
 (use-package haskell-mode
   :config
+  ;; more snippets for haskell-mode
+  ;; https://github.com/haskell/haskell-snippets
+  (use-package haskell-snippets)
+
   (defun my-haskell-mode-hook ()
     "Hook for `haskell-mode'."
     (set (make-local-variable 'company-backends)
-         '((company-intero company-files))))
+         '((company-intero company-files company-yasnippet))))
   (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
   (add-hook 'haskell-mode-hook 'company-mode)
   (add-hook 'haskell-mode-hook (lambda ()
