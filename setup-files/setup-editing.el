@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 23:30:05 csraghunandan>
+;; Time-stamp: <2016-12-31 11:56:51 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -396,5 +396,20 @@ If L and R are provided, use them for finding the start and end of defun."
 (bind-keys
  ("C-M-\\" . indent-region-or-buffer)
  ("C-c d i" . indent-defun))
+
+(defun unfill-paragraph ()
+  "Replace newline chars in current paragraph by single spaces.
+This command does the inverse of `fill-paragraph'."
+  (interactive)
+  (let ((fill-column most-positive-fixnum))
+    (call-interactively 'fill-paragraph)))
+(bind-key "M-Q" 'unfill-paragraph)
+
+(defun unfill-region (start end)
+  "Replace newline chars in region from START to END by single spaces.
+This command does the inverse of `fill-region'."
+  (interactive "r")
+  (let ((fill-column most-positive-fixnum))
+    (fill-region start end)))
 
 (provide 'setup-editing)
