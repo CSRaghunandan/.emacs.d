@@ -2,7 +2,24 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(#1=(#("M: *Messages*" 0 1
+(#1=(#("o: org-mode info" 0 16
+      (bmkp-full-record #1#))
+    (buffer-name . "*info*")
+    (front-context-string . "   Copyright (C)")
+    (rear-context-string . "elease_9.0.3).\n\n")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 2)
+    (time 22630 23200 771604 0)
+    (created 22630 21894 451700 0)
+    (position . 1043)
+    (filename .
+              #("/Users/csraghunandan/.emacs.d/elpa/org-plus-contrib-20161224/org" 0 64
+                (face ivy-virtual)))
+    (info-node . #2="Top")
+    (handler . Info-bookmark-jump)
+    (defaults "(org) Top" "org" #2#))
+#1=(#("M: *Messages*" 0 1
       (idx 0 bmkp-full-record #1#)
       1 13
       (bmkp-full-record #1#))
@@ -17,7 +34,7 @@
     (created 22620 60739 573933 0)
     (position . 7368))
 #1=(#("s: info SICP" 0 1
-      (bmkp-full-record #1# idx 1)
+      (bmkp-full-record #1# idx 0)
       1 12
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
@@ -36,7 +53,7 @@
     (handler . Info-bookmark-jump)
     (defaults "(sicp) Top" "sicp" #3#))
 #1=(#("e: info emacs-lisp-intro" 0 1
-      (idx 2 bmkp-full-record #1#)
+      (idx 1 bmkp-full-record #1#)
       1 24
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
@@ -119,8 +136,8 @@
     (rear-context-string . "e 'bookmark+)\n\n\n")
     (front-context-region-string)
     (rear-context-region-string)
-    (visits . 10)
-    (time 22623 47887 211402 0)
+    (visits . 11)
+    (time 22630 28514 97119 0)
     (created 22618 3949 812181 0)
     (position . 1))
 )

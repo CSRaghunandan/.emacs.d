@@ -8,6 +8,7 @@
         hungry-delete-forward
         isearch-forward-symbol-at-point
         mwim-beginning-of-code-or-line
+        org-self-insert-command
         sp-delete-char
         sp-kill-sexp
         ))

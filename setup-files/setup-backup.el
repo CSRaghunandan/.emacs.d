@@ -1,11 +1,17 @@
-;; Time-stamp: <2016-12-29 09:57:44 csraghunandan>
+;; Time-stamp: <2016-12-31 10:21:27 csraghunandan>
 
 ;; Backup settings for emacs.
 
-;; auto-save all files every 3 minutes of idle time
-(setq auto-save-default t
-      auto-save-timeout 180 ;; save files after 3 minutes of idle time
-      auto-save-interval 0) ;; don't save files based on number of keystrokes
+;; disable auto safe
+(setq auto-save-default nil)
+
+(defun save-all ()
+  ;; save all modified buffers without asking
+  (interactive)
+  (save-some-buffers t))
+
+;; save all modified buffers when focus-out
+(add-hook 'focus-out-hook 'save-all)
 
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
