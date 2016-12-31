@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 12:39:31 csraghunandan>
+;; Time-stamp: <2016-12-31 10:25:36 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -24,7 +24,6 @@
   (set-face-attribute 'hl-line nil :background "#444444")
   (set-face-attribute 'fringe nil :background "#444444")
   (set-face-attribute 'vhl/default-face nil :background "#444444")
-  (set-face-foreground 'highlight-indent-guides-character-face "gray40")
 
   (eval-after-load 'web-mode
     (lambda ()
