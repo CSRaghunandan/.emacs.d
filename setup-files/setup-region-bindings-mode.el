@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-12 03:14:57 csraghunandan>
+;; Time-stamp: <2016-12-31 13:20:00 csraghunandan>
 
 ;; Region Bindings Mode
 ;; https://github.com/fgallina/region-bindings-mode
@@ -15,15 +15,12 @@
    :map region-bindings-mode-map
    ("w" . kill-region)
    ("c" . copy-region-as-kill)
-   ("(" . wrap-wth-parens)
-   ("{" . wrap-with-braces)
-   ("'" . wrap-with-single-quotes)
-   ("\"" . wrap-with-double-quotes)
    ("d" . duplicate-current-line-or-region)
    ("N" . rag/narrow-or-widen-dwim)
    ("E" . eval-region)
    ("e" . er/expand-region)
    ("f" . fill-region)
-   ("q" . query-replace)))
+   ("q" . query-replace)
+   (";" . comment-or-uncomment-region)))
 
 (provide 'setup-region-bindings-mode)
