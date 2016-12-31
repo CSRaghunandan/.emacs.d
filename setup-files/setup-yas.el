@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-30 18:02:56 csraghunandan>
+;; Time-stamp: <2016-12-31 14:57:49 csraghunandan>
 
 ;; yasnippet - snippets tool for emacs
 ;; https://github.com/capitaomorte/yasnippet
@@ -21,5 +21,13 @@
       ("x" yas-expand)
       ("?" yas-describe-tables)
       ("q" nil "cancel" :color blue))))
+
+;; auto-yasnippet: create disposable snippets on the fly
+;; https://github.com/abo-abo/auto-yasnippet
+(use-package auto-yasnippet
+  :config
+  (bind-keys
+   ("C-c y c" . aya-create)
+   ("C-c y e" . aya-expand)))
 
 (provide 'setup-yas)
