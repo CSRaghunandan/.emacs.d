@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-30 17:50:20 csraghunandan>
+;; Time-stamp: <2016-12-31 14:47:22 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -70,7 +70,17 @@
                   (add-hook 'before-save-hook
                             (lambda ()
                               (time-stamp)
-                              (web-beautify-js-buffer)) nil t))))))
+                              (web-beautify-js-buffer)) nil t)))))
+
+  ;; get the path of any JSON element easily
+  ;; https://github.com/Sterlingg/json-snatcher
+  (use-package json-snatcher
+    :config
+    (defun js-mode-bindings ()
+      "Sets a hotkey for using the json-snatcher plugin"
+      (when (string-match  "\\.json$" (buffer-name))
+        (local-set-key (kbd "C-c C-g") 'jsons-print-path)))
+    (add-hook 'js2-mode-hook 'js-mode-bindings)))
 
 (provide 'setup-js)
 
