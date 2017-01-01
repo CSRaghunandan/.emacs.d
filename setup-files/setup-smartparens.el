@@ -1,10 +1,10 @@
-;; Time-stamp: <2016-12-30 17:16:01 csraghunandan>
+;; Time-stamp: <2017-01-01 13:31:13 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
 (use-package smartparens
   :config
-  (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode web-mode org-mode Info-mode erc-mode)))
+  (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode web-mode org-mode Info-mode erc-mode term-mode)))
 
   ;; macro to wrap the current sexp at point
   (defmacro def-pairs (pairs)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 12:08:07 csraghunandan>
+;; Time-stamp: <2017-01-01 13:46:08 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -48,11 +48,6 @@
 ;; https://www.emacswiki.org/emacs/multi-term.el
 (use-package multi-term
   :config
-  ;; disable yasnippet mode in term
-  (add-hook 'term-mode-hook (lambda ()
-                              (yas-minor-mode -1)
-                              (setq-local global-hl-line-mode nil)
-                              (beacon-mode -1)))
 
   (defun last-term-buffer (l)
     "Return most recently used term buffer."
@@ -76,7 +71,44 @@
               ("n" multi-term-next "Next")
               ("p" multi-term-prev "Prev")
               ("d" multi-term-dedicated-toggle "Dedicated terminal")
-              ("q" nil "Quit" :color blue))))
+              ("q" nil "Quit" :color blue)))
+
+  (use-package term
+    :config
+
+    ;; bind-keys for term-mode
+    (setq term-bind-key-alist
+          '(("C-c C-c" . term-interrupt-subjob)
+            ("C-c C-e" . term-send-esc)
+            ("C-c C-j" . term-line-mode)
+            ("C-c C-k" . term-char-mode)
+            ("C-a"     . term-bol)
+            ("C-b"     . term-send-left)
+            ("C-f"     . term-send-right)
+            ("C-p"     . previous-line)
+            ("C-n"     . next-line)
+            ("C-s"     . swiper)
+            ("C-m"     . term-send-return)
+            ("C-y"     . term-paste)
+            ("M-f"     . term-send-forward-word)
+            ("M-b"     . term-send-backward-word)
+            ("C-h"     . term-send-backspace)
+            ("M-p"     . term-send-up)
+            ("M-n"     . term-send-down)
+            ("M-d"     . term-send-forward-kill-word)
+            ("C-M-h"   . term-send-backward-kill-word)
+            ("M-r"     . term-send-reverse-search-history)
+            ("M-,"     . term-send-raw)
+            ("M-." . comint-dynamic-complete)))
+
+    ;; disable some unnecessary minor-modes in term-mode
+    (add-hook 'term-mode-hook (lambda ()
+                                (yas-minor-mode -1)
+                                (setq-local global-hl-line-mode nil)
+                                (beacon-mode -1)
+                                (hungry-delete-mode -1)))
+
+    (setq multi-term-buffer-name "term")))
 
 (provide 'setup-shell)
 

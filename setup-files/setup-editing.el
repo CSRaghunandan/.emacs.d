@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-31 11:56:51 csraghunandan>
+;; Time-stamp: <2017-01-01 13:39:04 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -336,7 +336,7 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 ;; Update The Timestamp Before saving a file
 (add-hook 'before-save-hook #'time-stamp)
 
-(bind-keys*
+(bind-keys
  ("C-c o s" . cycle-spacing)
  ("M-?" . mark-paragraph)
  ("C-h" . delete-backward-char)
