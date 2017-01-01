@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-31 10:14:06 csraghunandan>
+;; Time-stamp: <2017-01-01 14:22:05 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -40,5 +40,17 @@
 ;; https://github.com/emacsmirror/rainbow-mode/blob/master/rainbow-mode.el
 (use-package rainbow-mode
   :diminish (rainbow-mode . "𝐑𝐚"))
+
+;; beacon :-  blink the cursor whenever scrolling or switching between windows
+;; https://github.com/Malabarba/beacon
+(use-package beacon
+  :defer 1
+  :diminish beacon-mode
+  :bind (("C-!" . beacon-blink))
+  :config
+  (beacon-mode 1)
+  (setq beacon-size 25)
+  ;; don't blink in shell-mode
+  (add-to-list 'beacon-dont-blink-major-modes 'comint-mode))
 
 (provide 'setup-highlight)
