@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 14:20:02 csraghunandan>
+;; Time-stamp: <2017-01-01 14:25:27 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -48,7 +48,6 @@
 (require 'setup-bookmark)
 (require 'setup-hydra)
 (require 'setup-company)
-(require 'setup-beacon)
 (require 'setup-smartparens)
 (require 'setup-git-stuff)
 (require 'setup-undo-tree)
@@ -73,7 +72,6 @@
 (require 'setup-tex)
 (require 'setup-origami)
 (require 'setup-buffers)
-(require 'setup-move-line)
 (require 'setup-duplicate-line)
 (require 'setup-editing)
 (require 'setup-mc)

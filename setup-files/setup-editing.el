@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 13:39:04 csraghunandan>
+;; Time-stamp: <2017-01-01 14:24:06 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -411,5 +411,10 @@ This command does the inverse of `fill-region'."
   (interactive "r")
   (let ((fill-column most-positive-fixnum))
     (fill-region start end)))
+
+;; move text or region up or down
+;; https://github.com/emacsfodder/move-text
+(use-package move-text
+  :config (move-text-default-bindings))
 
 (provide 'setup-editing)
