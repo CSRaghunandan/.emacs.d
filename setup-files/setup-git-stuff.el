@@ -1,6 +1,7 @@
-;; Time-stamp: <2016-12-21 15:45:35 csraghunandan>
+;; Time-stamp: <2017-01-01 21:46:44 csraghunandan>
 
 ;; magit, git-timemachine, diff-hl
+
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit - the git porcelain to manage git
 (use-package magit :defer t
@@ -11,9 +12,8 @@
 ;; allows you to edit commit messages (needed by magit)
 (use-package git-commit)
 
-;; git-timemachine
+;; git-timemachine - to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
-;; to rollback to different commits of files
 (use-package git-timemachine :defer t
   :diminish git-timemachine-mode "𝐓𝐦"
   :commands (git-timemachine-toggle
@@ -42,10 +42,20 @@
       (require 'git-timemachine))
     (git-timemachine--start #'my-git-timemachine-show-selected-revision)))
 
-;; diff-hl
+;; diff-hl - highlight diffs in the fringe
 ;; https://github.com/dgutov/diff-hl
-;; highlight diffs in the fringe
 (use-package diff-hl :defer t
   :config (add-hook 'dired-mode-hook #'diff-hl-dired-mode))
+
+;; git-messenger: popup commit message at current line
+;; https://github.com/syohex/emacs-git-messenger
+(use-package git-messenger :defer t
+  :config
+  ;; Enable magit-show-commit instead of pop-to-buffer
+  (custom-set-variables
+   '(git-messenger:use-magit-popup t))
+
+  (bind-key "C-c g m" 'git-messenger:popup-message)
+  (bind-key "m" 'git-messenger:copy-message git-messenger-map))
 
 (provide 'setup-git-stuff)
