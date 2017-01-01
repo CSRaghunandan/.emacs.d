@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 13:04:58 csraghunandan>
+;; Time-stamp: <2017-01-01 13:55:36 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -33,13 +33,13 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   ("p" previous-line)
   ("f" forward-char)
   ("b" backward-char)
-  ("a" rag/smarter-move-beginning-of-line)
+  ("a" mwim-beginning-of-code-or-line)
   ("e" move-end-of-line)
   ("v" scroll-up-command)
   ("V" scroll-down-command)
   ("F" forward-word)
   ("B" backward-word)
-  ("l" recenter-top-bottom) ;; test comment
+  ("l" recenter-top-bottom)
   ("<" beginning-of-buffer)
   (">" end-of-buffer)
   ("g" forward-page)

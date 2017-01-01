@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 13:46:08 csraghunandan>
+;; Time-stamp: <2017-01-01 13:58:48 csraghunandan>
 
 ;; ehsell config
 (use-package eshell
@@ -82,7 +82,6 @@
             ("C-c C-e" . term-send-esc)
             ("C-c C-j" . term-line-mode)
             ("C-c C-k" . term-char-mode)
-            ("C-a"     . term-bol)
             ("C-b"     . term-send-left)
             ("C-f"     . term-send-right)
             ("C-p"     . previous-line)
