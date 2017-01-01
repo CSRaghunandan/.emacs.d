@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-01-01 21:59:37 csraghunandan>
+;; Time-stamp: <2017-01-01 22:26:21 csraghunandan>
 
-;; Org-mode configuration
+;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
 (use-package org
   :preface
