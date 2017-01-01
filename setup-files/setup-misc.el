@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 11:12:39 csraghunandan>
+;; Time-stamp: <2017-01-01 14:19:19 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -97,5 +97,11 @@ not prevent downloading the actual packages (obviously)."
     (highlight-indent-guides-mode -1)
     (rainbow-delimiters-mode -1)))
 (add-hook 'prog-mode-hook 'conditional-disable-modes)
+
+;; google-this : google line, region, symbol, etc.
+;; https://github.com/Malabarba/emacs-google-this
+(use-package google-this
+  :diminish google-this-mode
+  :config (google-this-mode 1))
 
 (provide 'setup-misc)
