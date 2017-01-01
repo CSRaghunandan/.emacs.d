@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-31 10:25:36 csraghunandan>
+;; Time-stamp: <2017-01-01 09:07:17 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -107,10 +107,6 @@
 (fringe-mode '(8 . 8))
 ;; Do not make mouse wheel accelerate its action (example: scrolling)
 (setq mouse-wheel-progressive-speed nil)
-
-;; prevent cursor from moving when scrolling
-(setq scroll-preserve-screen-position t
-      scroll-conservatively 10000)
 
 ;; set continuation indicators to right fringe only
 (setf (cdr (assq 'continuation fringe-indicator-alist))

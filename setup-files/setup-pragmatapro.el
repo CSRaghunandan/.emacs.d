@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-19 11:27:49 csraghunandan>
+;; Time-stamp: <2017-01-01 11:53:29 csraghunandan>
 
 ;; to get pragmatapro ligatures to work in emacs.
 ;; This is just a workaround as emacs still has no official support for ligatures.
@@ -149,7 +149,7 @@
 		  ("~>>"  . ?)
                   ("->"   . ?)
                   ("<=>"  . ?)
-		  ))))
+                  ("function" . ?𝑭)))))
 
 (defun refresh-pretty ()
   (prettify-symbols-mode -1)

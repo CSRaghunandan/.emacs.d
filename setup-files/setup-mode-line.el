@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-25 11:00:01 csraghunandan>
+;; Time-stamp: <2016-12-31 16:30:16 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -21,7 +21,6 @@
     (spaceline-info-mode)
     (spaceline-toggle-anzu-off)
     (spaceline-toggle-selection-info-off)
-    (spaceline-toggle-buffer-encoding-abbrev-off)
     (spaceline-toggle-hud-off)
     (setq spaceline-toggle-buffer-modified t)
     (spaceline-toggle-buffer-size-off)

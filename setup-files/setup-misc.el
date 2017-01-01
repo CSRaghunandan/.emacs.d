@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 11:04:41 csraghunandan>
+;; Time-stamp: <2017-01-01 11:12:39 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -36,9 +36,6 @@ not prevent downloading the actual packages (obviously)."
 
 ;; enable disabled commands
 (setq disabled-command-function nil)
-
-;; make re-centering  behave similar to other programs
-(setq recenter-positions '(top middle bottom))
 
 ;; don't use dialog boxes
 (setq use-dialog-box nil)
@@ -79,9 +76,6 @@ not prevent downloading the actual packages (obviously)."
 ;; view-mode. Used to view long files like `less' command
 (use-package view
   :diminish (view-mode . "𝐕"))
-
-;; set emacs source code directory
-(setq source-directory "~/emacs--git/src/")
 
 ;; load bookmark list
 (bookmark-bmenu-list)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-23 13:44:46 csraghunandan>
+;; Time-stamp: <2017-01-01 11:19:56 csraghunandan>
 
 ;; ibuffer
 ;; for easy management of buffers
@@ -36,8 +36,9 @@
 
   ;; Don't show scratch and messages in iBuffer
   (require 'ibuf-ext)
-  (add-to-list #'ibuffer-never-show-predicates "^\\*scratch")
   (add-to-list #'ibuffer-never-show-predicates "^\\*Messages")
+  (add-to-list #'ibuffer-never-show-predicates "^\\*Scratch")
+  (add-to-list #'ibuffer-never-show-predicates "^\\*Bookmark List")
 
   (bind-key* "C-x C-b" 'ibuffer)
 
