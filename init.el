@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 11:06:23 csraghunandan>
+;; Time-stamp: <2017-01-01 14:11:20 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -89,6 +89,7 @@
 (require 'setup-theme)
 (require 'setup-misc)
 (require 'setup-pragmatapro)
+(require 'setup-purescript)
 
 
 

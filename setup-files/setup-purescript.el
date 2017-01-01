@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-29 09:40:22 csraghunandan>
+;; Time-stamp: <2017-01-01 14:11:15 csraghunandan>
 
 ;; configuration for purescript
 
@@ -28,7 +28,7 @@
                             (time-stamp)
                             (xah-clean-whitespace)) nil t)))))
 
-(provide 'setup-purescript-mode)
+(provide 'setup-purescript)
 
 ;; C-c C-s	psc-ide-server-start
 ;; C-c C-q	psc-ide-server-quit
