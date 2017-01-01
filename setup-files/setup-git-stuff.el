@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 21:46:44 csraghunandan>
+;; Time-stamp: <2017-01-01 21:50:52 csraghunandan>
 
 ;; magit, git-timemachine, diff-hl
 
@@ -8,9 +8,6 @@
   :bind* (("C-c m s" . magit-status)
           ("C-c m b"   . magit-blame))
   :config (setq magit-completing-read-function 'ivy-completing-read))
-
-;; allows you to edit commit messages (needed by magit)
-(use-package git-commit)
 
 ;; git-timemachine - to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine

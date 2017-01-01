@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 14:25:27 csraghunandan>
+;; Time-stamp: <2017-01-01 21:59:57 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -32,7 +32,6 @@
 (when (memq window-system '(mac ns x))
   (require 'setup-osx))
 (require 'setup-org)
-(require 'setup-org-journal)
 (require 'setup-backup)
 (require 'setup-region-bindings-mode)
 (require 'setup-search)
@@ -53,7 +52,6 @@
 (require 'setup-undo-tree)
 (require 'setup-avy)
 (require 'setup-ace-window)
-(require 'setup-smex)
 (require 'setup-projectile)
 (require 'setup-yas)
 (require 'setup-ivy)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-19 17:42:02 csraghunandan>
+;; Time-stamp: <2017-01-01 21:59:37 csraghunandan>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
@@ -309,5 +309,25 @@ Inside a code-block, just call `self-insert-command'."
   ;; https://github.com/lolownia/org-pomodoro
   (use-package org-pomodoro
     :bind ("C-c o p" . org-pomodoro)))
+
+;; A journaling tool with org-mode: `org-journal'
+;; https://github.com/bastibe/org-journal
+;; Quick summary:
+;; To create a new journal entry: C-c C-j
+;; To open today’s journal without creating a new entry: C-u C-c C-j
+;; In calendar view:
+;; * j to view an entry in a new buffer
+;; * C-j to view an entry but not switch to it
+;; * i j to add a new entry
+;; * f w to search in all entries of the current week
+;; * f m to search in all entries of the current month
+;; * f y to search in all entries of the current year
+;; * f f to search in all entries of all time
+;; * [ to go to previous entry
+;; * ] to go to next ;entr
+;; When viewing a journal entry:
+;; * C-c C-f to view next entry
+;; * C-c C-b to view previous entry
+(use-package org-journal)
 
 (provide 'setup-org)

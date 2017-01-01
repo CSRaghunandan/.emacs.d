@@ -1,10 +1,15 @@
-;; Time-stamp: <2016-12-20 10:43:15 csraghunandan>
+;; Time-stamp: <2017-01-01 21:54:44 csraghunandan>
 
 ;; flx, ivy
 
 ;; flx - fuzzy sorting heuristics algorithm
 ;; needed for sorting the results from fuzzy search in ivy
 (use-package flx)
+
+;; Smart M-x (smex): sort extended commands by last invoked
+;; https://github.com/nonsequitur/smex/
+(use-package smex
+  :config (smex-initialize))
 
 ;; ivy
 ;; incremental narrowing framework for emacs
