@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 20:15:58 csraghunandan>
+;; Time-stamp: <2017-01-02 20:52:28 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -414,5 +414,12 @@ This command does the inverse of `fill-region'."
 ;; https://github.com/emacsfodder/move-text
 (use-package move-text
   :config (move-text-default-bindings))
+
+;; Treat undo history as a tree
+;; https://www.emacswiki.org/emacs/UndoTree
+(use-package undo-tree
+  :diminish undo-tree-mode
+  :bind (("s-/" . undo-tree-redo))
+  :init (global-undo-tree-mode))
 
 (provide 'setup-editing)
