@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 12:50:22 csraghunandan>
+;; Time-stamp: <2017-01-02 19:51:38 csraghunandan>
 
 ;; configuration for buffers
 
@@ -111,7 +111,7 @@ with prefix, select which buffer to kill"
   "Revert buffer without confirmation."
   (interactive) (revert-buffer t t))
 
-(bind-keys*
+(bind-keys
  ("C-c o k" . rag/reopen-killed-file)
  ("C-c o K" . rag/reopen-killed-file-fancy)
  ("C-c r m" . delete-file-and-buffer)
@@ -136,7 +136,7 @@ with prefix, select which buffer to kill"
   (split-window-right)
   (other-window 1))
 
-(bind-keys*
+(bind-keys
  ("C-x 2" . rag/split-below-and-move)
  ("C-x 3" . rag/split-right-and-move))
 

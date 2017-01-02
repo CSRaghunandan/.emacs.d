@@ -1,11 +1,11 @@
-;; Time-stamp: <2017-01-02 19:33:14 csraghunandan>
+;; Time-stamp: <2017-01-02 20:12:58 csraghunandan>
 
 ;; magit, git-timemachine, diff-hl
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit - the git porcelain to manage git
 (use-package magit :defer t
-  :bind* (("C-c m s" . magit-status)
+  :bind (("C-c m s" . magit-status)
           ("C-c m b"   . magit-blame))
   :config (setq magit-completing-read-function 'ivy-completing-read))
 

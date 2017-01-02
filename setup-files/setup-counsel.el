@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2016-12-27 14:20:21 csraghunandan>
+;; Time-stamp: <2017-01-02 20:24:03 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -8,16 +8,8 @@
   :diminish counsel-mode
   :bind*
   (("M-x" . counsel-M-x)
-   ("C-c d f" . counsel-faces)
-   ("C-c d d" . counsel-descbinds)
-   ("C-c r g" . counsel-rg)
-   ("C-c s p" . rag/counsel-rg-project-at-point)
    ("C-x C-f" . counsel-find-file)
-   ("C-c g g" . counsel-git-grep)
-   ("C-c C-r" . ivy-resume)
-   ("C-c f" . counsel-imenu)
-   ("C-c F" . ivy-imenu-anywhere)
-   ("C-c d s" . describe-symbol)
+
    :map ivy-minibuffer-map
    ("M-y" . ivy-next-line-and-call))
 
@@ -89,6 +81,17 @@
 	 ;; File names beginning with # or .
 	 "\\(?:\\`[#.]\\)"
 	 ;; File names ending with # or ~
-	 "\\|\\(?:\\`.+?[#~]\\'\\)")))
+         "\\|\\(?:\\`.+?[#~]\\'\\)"))
+
+  (bind-keys
+   ("C-c g g" . counsel-git-grep)
+   ("C-c C-r" . ivy-resume)
+   ("C-c f" . counsel-imenu)
+   ("C-c F" . ivy-imenu-anywhere)
+   ("C-c d s" . describe-symbol)
+   ("C-c d f" . counsel-faces)
+   ("C-c d d" . counsel-descbinds)
+   ("C-c r g" . counsel-rg)
+   ("C-c s p" . rag/counsel-rg-project-at-point)))
 
 (provide 'setup-counsel)

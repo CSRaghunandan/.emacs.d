@@ -1,11 +1,11 @@
-;; Time-stamp: <2016-12-23 13:43:19 csraghunandan>
+;; Time-stamp: <2017-01-02 19:37:49 csraghunandan>
 
 ;; ace-window
 ;; https://github.com/abo-abo/ace-window
 ;; allows for quick switching of windows within the current emacs frame
 (use-package ace-window
   :commands (ace-window)
-  :bind* ("C-c w" . ace-window)
+  :bind ("C-c w" . ace-window)
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 

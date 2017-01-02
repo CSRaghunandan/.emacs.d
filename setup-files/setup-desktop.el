@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-19 17:21:17 csraghunandan>
+;; Time-stamp: <2017-01-02 20:13:52 csraghunandan>
 
 ;; desktop
 ;; save the current emacs session under `desktop' to be restored later
@@ -56,7 +56,7 @@
     (desktop-save-mode 1)
     (desktop-read))
 
-  :bind* (("<S-f2>" . desktop-save-in-desktop-dir)
-          ("<C-f2>" . rag/restore-last-saved-desktop)))
+  :bind (("<S-f2>" . desktop-save-in-desktop-dir)
+         ("<C-f2>" . rag/restore-last-saved-desktop)))
 
 (provide 'setup-desktop)

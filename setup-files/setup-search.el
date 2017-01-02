@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-09 12:12:12 csraghunandan>
+;; Time-stamp: <2017-01-02 20:04:48 csraghunandan>
 
 ;; isearch config
 ;; ignore cases while searching
@@ -38,8 +38,8 @@ See the command `isearch-forward-symbol' for more information."
       (setq isearch-error "No symbol at point")
       (isearch-update)))))
 
-(bind-keys*
- ("s-F" . isearch-forward-symbol-at-point)
+(bind-keys
+ ("s-f" . isearch-forward-symbol-at-point)
  ("s-r" . rag/isearch-backward-symbol-at-point))
 
 (bind-key "C-'" 'avy-isearch isearch-mode-map)
@@ -49,8 +49,8 @@ See the command `isearch-forward-symbol' for more information."
 
 ;; https://github.com/benma/visual-regexp-steroids.el/
 (use-package visual-regexp-steroids
-  :bind* (("C-c q" . vr/query-replace)
-          ("C-c M" . vr/mc-mark))
+  :bind (("C-c q" . vr/query-replace)
+          ("C-c v m" . vr/mc-mark))
   :config
   (setq vr/default-feedback-limit 300))
 

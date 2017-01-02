@@ -1,8 +1,8 @@
-;; Time-stamp: <2016-12-12 22:39:47 csraghunandan>
+;; Time-stamp: <2017-01-02 20:11:43 csraghunandan>
 
 ;; calc config
 (use-package calc :defer t
-  :bind* (("C-x c" . calc)
+  :bind (("C-x c" . calc)
           ("C-x ," . quick-calc))
   :config
   (setq calc-twos-complement-mode nil)

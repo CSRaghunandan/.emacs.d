@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 14:24:06 csraghunandan>
+;; Time-stamp: <2017-01-02 20:15:58 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -56,7 +56,7 @@ the comment characters from the joined line."
                                  "\\|" "\\s-")) ; extra spaces
         (delete-forward-char 1)))))
 
-(bind-keys*
+(bind-keys
  ("M-j" . rag/pull-up-line)
  ("s-j" . rag/push-up-line))
 
@@ -130,7 +130,7 @@ Position the cursor at it's beginning, according to the current mode."
 ;; expand region semantically
 ;; https://www.emacswiki.org/emacs/GotoChg
 (use-package expand-region
-  :bind* ("C-c e" . er/expand-region)
+  :bind ("C-c e" . er/expand-region)
   :config
   (setq expand-region-contract-fast-key "|")
   (setq expand-region-reset-fast-key "<ESC><ESC>"))
@@ -285,19 +285,17 @@ C-u C-u C-u M-x xah-cycle-letter-case -> Force capitalize."
  :map region-bindings-mode-map
  ("~" . hydra-change-case/body))
 
-(defhydra hydra-change-case (:color blue
-                                    :hint nil)
-  "
+(bind-key "M-c" (defhydra hydra-change-case (:color blue
+                                                     :hint nil)
+"
 _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down→
 "
-  ("c"     modi/capitalize)
-  ("U"     modi/upcase)
-  ("u"     modi/upcase)
-  ("d"     modi/downcase)
-  ("<SPC>" xah-cycle-letter-case :color red)
-  ("q"     nil "cancel" :color blue))
-
-(bind-key* "M-c" 'hydra-change-case/body)
+                   ("c"     modi/capitalize)
+                   ("U"     modi/upcase)
+                   ("u"     modi/upcase)
+                   ("d"     modi/downcase)
+                   ("<SPC>" xah-cycle-letter-case :color red)
+                   ("q"     nil "cancel" :color blue)))
 
 
 
