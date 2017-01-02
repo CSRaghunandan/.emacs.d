@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 23:02:45 csraghunandan>
+;; Time-stamp: <2017-01-02 19:17:39 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -86,6 +86,8 @@
 (require 'setup-pragmatapro)
 (require 'setup-purescript)
 
+;; install all packages (if they already not installed by use-package)
+(package-install-selected-packages)
 
 
 ;; start emacs server only it has not already been started
