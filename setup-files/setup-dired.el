@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-28 11:39:29 csraghunandan>
+;; Time-stamp: <2017-01-02 18:45:51 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
@@ -38,10 +38,6 @@ It added extra strings at the front and back of the default dired buffer name."
             (rename-buffer (concat "*Dired* " name "/") t))))
 
     (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name))
-
-  ;; filter dired lists by regexp, fuzzy matching or string
-  ;; https://github.com/Fuco1/dired-hacks#dired-filter
-  (use-package dired-narrow)
 
   ;; a hydra to sort files in dired easily
   ;; Press `S' to invoke dired-quick-sort hydra
