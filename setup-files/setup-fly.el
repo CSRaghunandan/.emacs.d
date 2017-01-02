@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 20:17:46 csraghunandan>
+;; Time-stamp: <2017-01-03 00:02:15 csraghunandan>
 
 ;; flyspell, flycheck
 
@@ -8,11 +8,7 @@
   :diminish flyspell-mode
   :config
   (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-  (add-hook 'org-mode-hook 'flyspell-mode)
-
-  ;; correct typos using ivy
-  (use-package flyspell-correct-ivy
-    :bind* (("C-;" . flyspell-correct-previous-word-generic))))
+  (add-hook 'org-mode-hook 'flyspell-mode))
 
 ;; flycheck
 ;; http://www.flycheck.org/en/latest/
