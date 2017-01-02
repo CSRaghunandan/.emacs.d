@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 21:50:52 csraghunandan>
+;; Time-stamp: <2017-01-02 19:33:14 csraghunandan>
 
 ;; magit, git-timemachine, diff-hl
 
@@ -13,9 +13,7 @@
 ;; https://github.com/pidu/git-timemachine
 (use-package git-timemachine :defer t
   :diminish git-timemachine-mode "𝐓𝐦"
-  :commands (git-timemachine-toggle
-             git-timemachine-switch-branch)
-  :bind* (("C-c g t" . git-timemachine-toggle))
+  :bind (("C-c g t" . git-timemachine-toggle))
   :config
   (defun my-git-timemachine-show-selected-revision ()
     "Show last (current) revision of file."
@@ -41,16 +39,15 @@
 
 ;; diff-hl - highlight diffs in the fringe
 ;; https://github.com/dgutov/diff-hl
-(use-package diff-hl :defer t
+(use-package diff-hl :defer 1
   :config (add-hook 'dired-mode-hook #'diff-hl-dired-mode))
 
 ;; git-messenger: popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
-(use-package git-messenger :defer t
+(use-package git-messenger :defer 1
   :config
   ;; Enable magit-show-commit instead of pop-to-buffer
-  (custom-set-variables
-   '(git-messenger:use-magit-popup t))
+  (setq git-messenger:use-magit-popup t)
 
   (bind-key "C-c g m" 'git-messenger:popup-message)
   (bind-key "m" 'git-messenger:copy-message git-messenger-map))
