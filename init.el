@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 19:17:39 csraghunandan>
+;; Time-stamp: <2017-01-02 20:50:09 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -76,7 +76,6 @@
 (require 'setup-page-break-lines)
 (require 'setup-js)
 (require 'setup-web-mode)
-(require 'setup-recursive-narrow)
 (require 'setup-shell)
 (require 'setup-which-key)
 (require 'setup-kurecolor)

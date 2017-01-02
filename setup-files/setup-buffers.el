@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 19:51:38 csraghunandan>
+;; Time-stamp: <2017-01-02 20:49:59 csraghunandan>
 
 ;; configuration for buffers
 
@@ -232,5 +232,11 @@ will be killed."
 
 (global-set-key [remap next-buffer] 'my-next-buffer)
 (global-set-key [remap previous-buffer] 'my-previous-buffer)
+
+;; recursive narrow or widen buffers
+;; https://github.com/nflath/recursive-narrow/blob/master/recursive-narrow.el
+;; press `C-x n w' when inside a recursive narrow to widen the buffer back to the
+;; narrowed buffer instead of widening to the whole buffer
+(use-package recursive-narrow)
 
 (provide 'setup-buffers)
