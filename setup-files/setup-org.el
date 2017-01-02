@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 22:26:21 csraghunandan>
+;; Time-stamp: <2017-01-02 19:10:24 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -59,6 +59,8 @@
                              (setq-local fill-column 100)))
   ;; this looks better in my opinion
   (setq org-ellipsis " ")
+  ;; no underlines for org-ellipse
+  (set-face-attribute 'org-ellipsis nil :underline nil :foreground "#E0CF9F")
   ;; hide emphasis markup characters
   (setq org-hide-emphasis-markers t)
   ;; Non-nil means insert state change notes and time stamps into a drawer.
@@ -302,7 +304,7 @@ Inside a code-block, just call `self-insert-command'."
 
 
   ;; export to github flavored markdown
-  (use-package ox-gfm
+  (use-package ox-gfm :defer 5
     :config (require 'ox-gfm))
 
   ;; pomodoro implementation in org
@@ -328,6 +330,8 @@ Inside a code-block, just call `self-insert-command'."
 ;; When viewing a journal entry:
 ;; * C-c C-f to view next entry
 ;; * C-c C-b to view previous entry
-(use-package org-journal)
+(use-package org-journal :defer 2
+  :config
+  (bind-key "C-c o j" 'org-journal-new-entry))
 
 (provide 'setup-org)
