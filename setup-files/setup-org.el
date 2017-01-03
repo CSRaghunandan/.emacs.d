@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 19:10:24 csraghunandan>
+;; Time-stamp: <2017-01-03 10:32:57 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -236,8 +236,6 @@ this with to-do items than with projects or headings."
           ("SOMEDAY"  . (:foreground "black" :weight bold :background "#FFEF9F"))
           ("CANCELED" . (:foreground "red" :weight bold :strike-through t))
           ("DONE"     . (:foreground "black" :weight bold :background "#91ba31"))))
-
-  (setq org-tag-alist '(("WORK" . ?w) ("LIFE" . ?h) ("PROJECT" . ?p) ("MATH" . ?m) ("CS" . ?c) ("JOURNAL" .?j)))
 
   (use-package langtool :defer 1
     :config

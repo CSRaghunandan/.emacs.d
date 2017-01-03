@@ -12,6 +12,6 @@ eshell/
 anaconda-mode/
 company-statistics-cache.el
 *.elc
-setup-files/.tern-port
 .DS_STORE
 .git/
+abbrev_defs

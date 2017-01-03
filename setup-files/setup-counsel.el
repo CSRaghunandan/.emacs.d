@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-01-02 20:24:03 csraghunandan>
+;; Time-stamp: <2017-01-03 10:43:41 csraghunandan>
 
 ;; counsel
 ;; https://github.com/abo-abo/swiper
@@ -13,14 +13,7 @@
    :map ivy-minibuffer-map
    ("M-y" . ivy-next-line-and-call))
 
-  :init
-  (with-eval-after-load 'org
-    (bind-key "C-c C-q" #'counsel-org-tag org-mode-map))
-  (with-eval-after-load 'org-agenda
-    (bind-key "C-c C-q" #'counsel-org-tag-agenda org-agenda-mode-map))
-
-  (counsel-mode 1)
-
+  :init (counsel-mode 1)
   :config
   ;; ignore case sensitivity for counsel grep
   (setq counsel-grep-base-command "grep -nEi \"%s\" %s")
