@@ -2,15 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(#1=(#("o: org-mode info" 0 16
+(#1=(#("org-refile-last-stored" 0 22
+      (bmkp-full-record #1#))
+    (filename . "~/org-mode-files/life.org")
+    (buffer-name . "life.org")
+    (front-context-string . "*  drawers start")
+    (rear-context-string . "017-03-03 Fri>\n\n")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 0)
+    (time . #2=(22635 34136 907959 0))
+    (created . #2#)
+    (position . 1990))
+#1=(#("o: org-mode info" 0 16
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
     (front-context-string . "   Copyright (C)")
     (rear-context-string . "elease_9.0.3).\n\n")
     (front-context-region-string)
     (rear-context-region-string)
-    (visits . 2)
-    (time 22630 23200 771604 0)
+    (visits . 3)
+    (time 22635 33682 167351 0)
     (created 22630 21894 451700 0)
     (position . 1043)
     (filename .
@@ -20,7 +32,7 @@
     (handler . Info-bookmark-jump)
     (defaults "(org) Top" "org" #2#))
 #1=(#("M: *Messages*" 0 1
-      (idx 0 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 0)
       1 13
       (bmkp-full-record #1#))
     (filename . "   - no file -")
@@ -34,7 +46,7 @@
     (created 22620 60739 573933 0)
     (position . 7368))
 #1=(#("s: info SICP" 0 1
-      (bmkp-full-record #1# idx 0)
+      (idx 0 bmkp-full-record #1#)
       1 12
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
@@ -53,7 +65,7 @@
     (handler . Info-bookmark-jump)
     (defaults "(sicp) Top" "sicp" #3#))
 #1=(#("e: info emacs-lisp-intro" 0 1
-      (idx 1 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 1)
       1 24
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
@@ -70,7 +82,7 @@
     (handler . Info-bookmark-jump)
     (defaults "(eintr) Top" "eintr" #2#))
 #1=(#("cs: computer-science.org" 0 1
-      (idx 4 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 4)
       1 24
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/computer-science.org")
@@ -84,7 +96,7 @@
     (created . #2#)
     (position . 1153))
 #1=(#("l: life.org" 0 1
-      (bmkp-full-record #1# idx 5)
+      (idx 5 bmkp-full-record #1#)
       1 11
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/life.org")
@@ -98,7 +110,7 @@
     (created . #2#)
     (position . 2829))
 #1=(#("m: math.org" 0 1
-      (bmkp-full-record #1# idx 6)
+      (idx 6 bmkp-full-record #1#)
       1 11
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/math.org")
@@ -112,7 +124,7 @@
     (created . #2#)
     (position . 489))
 #1=(#("w: work.org" 0 1
-      (bmkp-full-record #1# idx 7)
+      (idx 7 bmkp-full-record #1#)
       1 11
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/work.org")
@@ -121,12 +133,12 @@
     (rear-context-string . "erpreter - SICP\n")
     (front-context-region-string)
     (rear-context-region-string)
-    (visits . 3)
-    (time 22630 16405 144374 0)
+    (visits . 5)
+    (time 22635 35104 271389 0)
     (created 22618 4303 89854 0)
     (position . 1043))
 #1=(#("q: *scratch*" 0 1
-      (bmkp-full-record #1# idx 8)
+      (idx 8 bmkp-full-record #1#)
       1 12
       (bmkp-full-record #1#))
     (end-position . 1)

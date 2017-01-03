@@ -1,14 +1,8 @@
-;; Time-stamp: <2017-01-02 18:37:27 csraghunandan>
+;; Time-stamp: <2017-01-03 20:27:06 csraghunandan>
 
 ;; All the macOS related configuration
 
 (setq ns-function-modifier 'hyper)  ; make Fn key do Hyper
-
-;; open the current active buffer in finder
-;; https://github.com/kaz-yos/reveal-in-osx-finder
-(use-package reveal-in-osx-finder
-  :config
-  (bind-key "C-c r f" 'reveal-in-osx-finder))
 
 ;; to make sure emacs gets the $PATH variable from shell
 ;; emacs shell environment is different from the shell in mac
