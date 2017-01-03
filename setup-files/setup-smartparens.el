@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 13:31:13 csraghunandan>
+;; Time-stamp: <2017-01-03 15:32:26 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -56,13 +56,13 @@
     (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
                                               ("* ||\n[i]" "RET"))))
 
-  (bind-key "C-M-s"
+  (bind-key "C-c h s"
             (defhydra smartparens-hydra ()
               "Smartparens"
               ("d" sp-down-sexp "Down")
               ("e" sp-up-sexp "Up")
-              ("u" sp-backward-up-sexp "Up")
-              ("a" sp-backward-down-sexp "Down")
+              ("u" sp-backward-up-sexp "Back-Up")
+              ("a" sp-backward-down-sexp "Back-Down")
               ("f" sp-forward-sexp "Forward")
               ("b" sp-backward-sexp "Backward")
               ("k" sp-kill-sexp "Kill" :color blue)

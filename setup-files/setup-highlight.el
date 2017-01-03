@@ -1,14 +1,13 @@
-;; Time-stamp: <2017-01-01 14:22:05 csraghunandan>
+;; Time-stamp: <2017-01-03 15:18:31 csraghunandan>
 
 ;; All the highlight stuff config
 
-;; highlight the currently active symbol + move to next/previous occurrence of symbol
+;; highlight the symbol at point + move to next/previous occurrence of symbol
 ;; https://github.com/nschum/highlight-symbol.el
 (use-package highlight-symbol
   :diminish highlight-symbol-mode
   :bind (("M-n" . highlight-symbol-next)
-	 ("M-p" . highlight-symbol-prev)
-	 ("C-c h s" . highlight-symbol))
+         ("M-p" . highlight-symbol-prev))
   :config
   (highlight-symbol-nav-mode))
 
@@ -48,7 +47,7 @@
   :diminish beacon-mode
   :bind (("C-!" . beacon-blink))
   :config
-  (beacon-mode 1)
+  (beacon-mode)
   (setq beacon-size 25)
   ;; don't blink in shell-mode
   (add-to-list 'beacon-dont-blink-major-modes 'comint-mode))
