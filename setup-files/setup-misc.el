@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 14:19:19 csraghunandan>
+;; Time-stamp: <2017-01-03 14:12:58 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -62,8 +62,6 @@ not prevent downloading the actual packages (obviously)."
 (add-hook 'focus-out-hook 'garbage-collect)
 ;; make links clickable
 (add-hook 'prog-mode-hook 'goto-address-mode)
-;; use aspell for spell checking
-(setq ispell-program-name "aspell")
 
 ;; delete files by moving to trash in macOS
 ;; https://github.com/lunaryorn/osx-trash.el
