@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-03 11:35:07 csraghunandan>
+;; Time-stamp: <2017-01-03 17:49:36 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -234,11 +234,11 @@ this with to-do items than with projects or headings."
   (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "SOMEDAY(s)" "WAITING(w)" "|" "CANCELED(c)" "DONE(d)")))
   (setq org-todo-keyword-faces
         '(("TODO" . org-todo)
-          ("NEXT" . (:foreground "black" :weight bold :background "cyan"))
-          ("WAITING" . (:foreground "black" :weight bold :background "pink"))
-          ("SOMEDAY"  . (:foreground "black" :weight bold :background "#FFEF9F"))
+          ("NEXT" . (:foreground "CadetBlue3" :weight bold :background nil))
+          ("WAITING" . (:foreground "pink" :weight bold :background nil))
+          ("SOMEDAY"  . (:foreground "#FFEF9F" :weight bold :background nil))
           ("CANCELED" . (:foreground "red" :weight bold :strike-through t))
-          ("DONE"     . (:foreground "black" :weight bold :background "#91ba31"))))
+          ("DONE"     . (:foreground "SeaGreen4" :weight bold :background nil))))
 
   (use-package langtool :defer 1
     :config
