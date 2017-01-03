@@ -1,17 +1,9 @@
-;; Time-stamp: <2016-12-31 10:21:27 csraghunandan>
+;; Time-stamp: <2017-01-03 17:53:46 csraghunandan>
 
 ;; Backup settings for emacs.
 
 ;; disable auto safe
 (setq auto-save-default nil)
-
-(defun save-all ()
-  ;; save all modified buffers without asking
-  (interactive)
-  (save-some-buffers t))
-
-;; save all modified buffers when focus-out
-(add-hook 'focus-out-hook 'save-all)
 
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
