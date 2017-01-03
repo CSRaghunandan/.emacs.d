@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-03 10:32:57 csraghunandan>
+;; Time-stamp: <2017-01-03 11:35:07 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -100,6 +100,9 @@
   ;;                    tag and property drawers
   ;; showeverything   - same as above but without exceptions
   (setq org-startup-folded 'showall)
+
+  ;; make tabs act like they would in the major mode for the source block
+  (setq org-src-tab-acts-natively t)
 
   ;; enable org-indent mode on startup
   (setq org-startup-indented t)
