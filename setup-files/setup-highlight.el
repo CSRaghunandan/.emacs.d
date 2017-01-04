@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-04 09:27:20 csraghunandan>
+;; Time-stamp: <2017-01-04 09:39:23 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -18,10 +18,8 @@
   :config
   (volatile-highlights-mode t))
 
-;; configure hl-line-mode
-(use-package hl-line
-  :config
-  (global-hl-line-mode))
+;; enable hl-line-mode globally
+(global-hl-line-mode)
 
 ;; best solution for highlighting indent guides so far in emacs
 ;; https://github.com/DarthFennec/highlight-indent-guides
@@ -55,6 +53,7 @@
 ;; highlight characters which exceed the column limit
 ;; https://github.com/jordonbiondo/column-enforce-mode
 (use-package column-enforce-mode
+  :diminish column-enforce-mode
   :config
   (add-hook 'prog-mode-hook (lambda ()
                               (unless (eq major-mode 'web-mode)

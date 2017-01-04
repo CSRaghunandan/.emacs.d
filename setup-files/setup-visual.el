@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 20:59:03 csraghunandan>
+;; Time-stamp: <2017-01-04 09:43:31 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -97,5 +97,12 @@
 
 ;; remove ugly scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; Show actual lines instead of the page break char ^L
+;; https://github.com/purcell/page-break-lines
+;; enter page-break character in Emacs by entering `C-q C-l'
+(use-package page-break-lines
+  :diminish page-break-lines-mode
+  :config (global-page-break-lines-mode))
 
 (provide 'setup-visual)

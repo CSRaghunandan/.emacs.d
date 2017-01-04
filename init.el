@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 21:58:14 csraghunandan>
+;; Time-stamp: <2017-01-04 09:44:11 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -72,7 +72,6 @@
 (require 'setup-duplicate-line)
 (require 'setup-editing)
 (require 'setup-mc)
-(require 'setup-page-break-lines)
 (require 'setup-js)
 (require 'setup-web-mode)
 (require 'setup-shell)
