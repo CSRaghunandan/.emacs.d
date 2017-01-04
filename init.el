@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-04 09:44:11 csraghunandan>
+;; Time-stamp: <2017-01-04 09:51:40 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -10,7 +10,7 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
-;; emacs setup file
+;; load directory for configuration files for emacs
 (add-to-list 'load-path (concat user-emacs-directory "setup-files/"))
 
 ;; set home and emacs directories
@@ -19,9 +19,10 @@
 
 ;; save custom file to a separate directory
 (setq custom-file (concat user-emacs-directory "my-elisp-code/custom-settings.el"))
-(load custom-file :noerror :nomessage)
+(load custom-file :noerror :nomessage) ; load custom-file silently
 
 
+
 ;; all use packages declarations
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; updage packages archive
@@ -87,6 +88,7 @@
 
 ;; install all packages (if they already not installed by use-package)
 (package-install-selected-packages)
+
 
 
 ;; start emacs server only it has not already been started
