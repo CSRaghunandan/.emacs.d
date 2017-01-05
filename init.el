@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-04 09:51:40 csraghunandan>
+;; Time-stamp: <2017-01-05 15:52:14 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -75,7 +75,9 @@
 (require 'setup-mc)
 (require 'setup-js)
 (require 'setup-web-mode)
-(require 'setup-shell)
+(require 'setup-eshell)
+(require 'setup-comint)
+(require 'setup-term)
 (require 'setup-which-key)
 (require 'setup-kurecolor)
 (require 'setup-erc)

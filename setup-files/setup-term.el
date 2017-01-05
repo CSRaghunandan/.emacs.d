@@ -1,48 +1,4 @@
-;; Time-stamp: <2017-01-01 13:58:48 csraghunandan>
-
-;; ehsell config
-(use-package eshell
-  :config
-  ;; get ivy/helm completions to work in `eshell'
-  (add-hook 'eshell-mode-hook
-            (lambda ()
-              (bind-keys
-               :map eshell-mode-map
-               ("<tab>" . completion-at-point)
-               ("C-c M-o" . eshell-clear-buffer))))
-  ;; fetch the $PATH variable to eshell
-  (add-hook 'eshell-mode-hook '(lambda ()(exec-path-from-shell-initialize)))
-
-  (defun eshell-clear-buffer ()
-    "Clear terminal"
-    (interactive)
-    (let ((inhibit-read-only t))
-      (erase-buffer)
-      (eshell-send-input))))
-
-;; handle all inferior processes/shell settings
-(use-package comint :ensure nil
-  :config
-  ;; always insert input at bottom
-  (setq comint-scroll-to-bottom-on-input t)
-
-  ;; makes sense to not recenter to the middle for comint buffers. Only top/bottom
-  (defun my-recenter-top-bottom ()
-    (interactive)
-    (goto-char (point-max))
-    (let ((recenter-positions '(top bottom)))
-      (recenter-top-bottom)))
-
-  (bind-key "C-l" 'my-recenter-top-bottom comint-mode-map)
-
-  ;; prevent comint process from echoing the command typed to the user
-  (setq-default comint-process-echoes t)
-
-  ;; remap up and down to previous and next commands in history
-  (bind-keys
-   :map comint-mode-map
-   ("<up>" . comint-previous-input)
-   ("<down>" . comint-next-input)))
+;; Time-stamp: <2017-01-05 15:51:22 csraghunandan>
 
 ;; manage multiple terminal windows easily within emacs
 ;; https://www.emacswiki.org/emacs/multi-term.el
@@ -109,7 +65,7 @@
 
     (setq multi-term-buffer-name "term")))
 
-(provide 'setup-shell)
+(provide 'setup-term)
 
 ;; shell
 ;; executing `shell' with a prefix will create a new *shell* buffer
