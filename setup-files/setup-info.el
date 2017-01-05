@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 21:56:22 csraghunandan>
+;; Time-stamp: <2017-01-05 15:01:27 csraghunandan>
 
 ;; extend the standard `info.el' emacs library
 ;; https://www.emacswiki.org/emacs/InfoPlus
@@ -67,5 +67,20 @@ Info-mode:
       ("C-g" nil "cancel" :color blue))
 
 (bind-key "?" 'hydra-info/body Info-mode-map)
+
+(bind-key "C-c h a"
+          (defhydra hydra-apropos (:color blue)
+            "Apropos"
+            ("a" apropos "apropos")
+            ("c" apropos-command "cmd")
+            ("d" apropos-documentation "doc")
+            ("e" apropos-value "val")
+            ("l" apropos-library "lib")
+            ("o" apropos-user-option "option")
+            ("u" apropos-user-option "option")
+            ("v" apropos-variable "var")
+            ("i" info-apropos "info")
+            ("t" tags-apropos "tags")
+            ("z" hydra-customize-apropos/body "customize")))
 
 (provide 'setup-info)

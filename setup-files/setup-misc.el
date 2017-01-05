@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-03 14:12:58 csraghunandan>
+;; Time-stamp: <2017-01-05 14:46:28 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -101,5 +101,8 @@ not prevent downloading the actual packages (obviously)."
 (use-package google-this
   :diminish google-this-mode
   :config (google-this-mode 1))
+
+;; prefer new files if one exists while loading
+(setq load-prefer-newer t)
 
 (provide 'setup-misc)

@@ -1,10 +1,14 @@
-;; Time-stamp: <2017-01-03 16:07:08 csraghunandan>
+;; Time-stamp: <2017-01-04 12:26:05 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
 (use-package smartparens
   :config
-  (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode web-mode org-mode Info-mode erc-mode term-mode)))
+  (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode
+                                     web-mode org-mode
+                                     Info-mode
+                                     erc-mode
+                                     term-mode)))
 
   ;; macro to wrap the current sexp at point
   (defmacro def-pairs (pairs)
@@ -84,6 +88,7 @@
   (setq sp-message-width nil)
   (setq sp-cancel-autoskip-on-backward-movement nil)
 
+  ;; fix smartparens-strict-mode and hungry-delete conflict
   (dolist (key '( [remap delete-char]
                   [remap delete-forward-char]))
 

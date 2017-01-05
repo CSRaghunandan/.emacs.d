@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 19:37:49 csraghunandan>
+;; Time-stamp: <2017-01-05 15:04:38 csraghunandan>
 
 ;; ace-window
 ;; https://github.com/abo-abo/ace-window
@@ -34,7 +34,7 @@
   (setq aw-dispatch-alist
     '((?x aw-delete-window " Ace - Delete Window")
       (?m aw-swap-window " Ace - Swap Window")
-      (?n aw-flip-window)
+      (?n aw-flip-window " Ace - Flip Window")
       (?v aw-split-window-vert " Ace - Split Vert Window")
       (?b aw-split-window-horz " Ace - Split Horz Window")
       (?o delete-other-windows " Ace - Maximize Window")
