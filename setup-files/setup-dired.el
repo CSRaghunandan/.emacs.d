@@ -1,10 +1,10 @@
-;; Time-stamp: <2017-01-02 18:45:51 csraghunandan>
+;; Time-stamp: <2017-01-05 15:21:03 csraghunandan>
 
 ;; dired
 ;; file system manager for emacs
 (use-package dired :ensure nil
   :bind (:map dired-mode-map
-              ("/" . dired-narrow-regexp))
+              ("S" . ora-dired-get-size))
   :config
   (progn
     ;; mark symlinks
@@ -43,7 +43,20 @@ It added extra strings at the front and back of the default dired buffer name."
   ;; Press `S' to invoke dired-quick-sort hydra
   ;; https://gitlab.com/xuhdev/dired-quick-sort
   (use-package dired-quick-sort
-    :config (dired-quick-sort-setup))
+    :bind (:map dired-mode-map
+                ("s" . hydra-dired-quick-sort/body)))
+
+  (defvar du-program-name (executable-find "du"))
+  (defun ora-dired-get-size ()
+    (interactive)
+    (let ((files (dired-get-marked-files)))
+      (with-temp-buffer
+        (apply 'call-process du-program-name nil t nil "-sch" files)
+        (message
+         "Size of all marked files: %s"
+         (progn
+           (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
+           (match-string 1))))))
 
   ;; dired-x - to hide uninteresting files in dired
   (use-package dired-x :ensure nil
