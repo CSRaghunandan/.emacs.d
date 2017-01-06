@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 21:49:59 csraghunandan>
+;; Time-stamp: <2017-01-06 11:19:17 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -22,7 +22,7 @@
     (spaceline-toggle-anzu-off)
     (spaceline-toggle-selection-info-off)
     (spaceline-toggle-hud-off)
-    (setq spaceline-toggle-buffer-modified t)
+    (spaceline-toggle-buffer-modified-on)
     (spaceline-toggle-buffer-size-off)
     (spaceline-toggle-erc-track-on)
     (setq spaceline-minor-modes-separator " ")
@@ -32,8 +32,8 @@
       (when (buffer-narrowed-p)
         "narrow"))
 
-    ;; indicate narrowed buffer in modeline
-    (spaceline-spacemacs-theme 'narrow)))
+    ;; show projectile project root and indicate when narrowed
+    (spaceline-spacemacs-theme '(narrow projectile-root))))
 
 ;; diminish eldoc-mode in mode-line
 (use-package eldoc
