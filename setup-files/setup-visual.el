@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-06 11:33:36 csraghunandan>
+;; Time-stamp: <2017-01-06 11:53:24 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -13,8 +13,6 @@
                       :strike-through t))
 
 ;; better defaults
-(line-number-mode t)
-(column-number-mode t)
 ;; disable the ugly toolbar
 (tool-bar-mode -1)
 ;; ignore bell rings
