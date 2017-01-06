@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 13:55:36 csraghunandan>
+;; Time-stamp: <2017-01-06 17:05:00 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -23,7 +23,7 @@ Try the repeated popping up to 10 times."
 _f_: -> char        _F_: -> word         _n_: -> line       _a_: beginning-of-line
 _b_: <- char        _B_: <- word         _p_: <- line       _e_: end-of-line
 
-_m_: set mark       _v_: scroll down     _l_: recenter      _'_: avy
+_m_: set mark       _v_: scroll down     _l_: recenter      _'_: avy       _`_: avy-word
 _j_: goto mark      _V_: scroll up       _w_: ace-window    _._: -> buffer _,_: <- buffer
 
 _s_: -> sentence    _a_: -> paragraph    _g_: -> page       _>_: end-of-buffer
@@ -49,6 +49,7 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   ("a" forward-paragraph)
   ("A" backward-paragraph)
   ("'" avy-goto-char-timer)
+  ("`" avy-goto-word-1)
   ("w" ace-window)
   ("m" org-mark-ring-push)
   ("j" org-mark-ring-goto)
