@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-05 15:51:22 csraghunandan>
+;; Time-stamp: <2017-01-06 09:12:08 csraghunandan>
 
 ;; manage multiple terminal windows easily within emacs
 ;; https://www.emacswiki.org/emacs/multi-term.el
@@ -20,7 +20,7 @@
           (multi-term)
         (switch-to-buffer b))))
 
-  (bind-key "C-c h t"
+  (bind-key "C-c t"
             (defhydra multi-term-hydra ()
               "multi-term"
               ("o" get-term "toggle/open")

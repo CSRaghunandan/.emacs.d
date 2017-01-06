@@ -32,7 +32,7 @@
     (handler . Info-bookmark-jump)
     (defaults "(org) Top" "org" #2#))
 #1=(#("M: *Messages*" 0 1
-      (bmkp-full-record #1# idx 0)
+      (idx 0 bmkp-full-record #1#)
       1 13
       (bmkp-full-record #1#))
     (filename . "   - no file -")
@@ -46,7 +46,7 @@
     (created 22620 60739 573933 0)
     (position . 7368))
 #1=(#("s: info SICP" 0 1
-      (idx 0 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 0)
       1 12
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
@@ -65,7 +65,7 @@
     (handler . Info-bookmark-jump)
     (defaults "(sicp) Top" "sicp" #3#))
 #1=(#("e: info emacs-lisp-intro" 0 1
-      (bmkp-full-record #1# idx 1)
+      (idx 1 bmkp-full-record #1#)
       1 24
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
@@ -77,12 +77,14 @@
     (time 22630 16408 175391 0)
     (created 22618 5378 923979 0)
     (position . 2330)
-    (filename . "/usr/local/Cellar/emacs/HEAD-221d3a9/share/info/emacs/eintr")
+    (filename .
+              #("/usr/local/Cellar/emacs/HEAD-221d3a9/share/info/emacs/eintr" 0 59
+                (face ivy-virtual)))
     (info-node . #2="Top")
     (handler . Info-bookmark-jump)
     (defaults "(eintr) Top" "eintr" #2#))
 #1=(#("cs: computer-science.org" 0 1
-      (bmkp-full-record #1# idx 4)
+      (idx 4 bmkp-full-record #1#)
       1 24
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/computer-science.org")
@@ -96,21 +98,22 @@
     (created . #2#)
     (position . 1153))
 #1=(#("l: life.org" 0 1
-      (idx 5 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 5)
       1 11
       (bmkp-full-record #1#))
+    (end-position . 2402)
     (filename . "~/org-mode-files/life.org")
     (buffer-name . "life.org")
     (front-context-string)
     (rear-context-string . "2017-02-01 Wed>\n")
     (front-context-region-string)
     (rear-context-region-string)
-    (visits . 0)
-    (time . #2=(22618 4356 149073 0))
-    (created . #2#)
-    (position . 2829))
+    (visits . 1)
+    (time 22638 25854 41029 0)
+    (created 22618 4356 149073 0)
+    (position . 2402))
 #1=(#("m: math.org" 0 1
-      (idx 6 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 6)
       1 11
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/math.org")
@@ -124,7 +127,7 @@
     (created . #2#)
     (position . 489))
 #1=(#("w: work.org" 0 1
-      (idx 7 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 7)
       1 11
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/work.org")
@@ -138,7 +141,7 @@
     (created 22618 4303 89854 0)
     (position . 1043))
 #1=(#("q: *scratch*" 0 1
-      (idx 8 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 8)
       1 12
       (bmkp-full-record #1#))
     (end-position . 1)

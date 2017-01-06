@@ -1,14 +1,14 @@
-;; Time-stamp: <2016-12-09 12:44:42 csraghunandan>
+;; Time-stamp: <2017-01-06 09:33:04 csraghunandan>
 
 ;; Kurecolor
 ;; https://github.com/emacsfodder/kurecolor
 
 (use-package kurecolor
-  :bind (("C-c h k" . hydra-kurecolor/body))
+  :bind (("C-c k" . hydra-kurecolor/body))
   :config
   (defhydra hydra-kurecolor (:color pink
                                     :hint  nil)
-    "
+"
 Inc/Dec      _j_/_J_ brightness      _k_/_K_ saturation      _l_/_L_ hue
 Set          _sj_ ^^ brightness      _sk_ ^^ saturation      _sl_ ^^ hue
 Get          _gj_ ^^ brightness      _gk_ ^^ saturation      _gl_ ^^ hue

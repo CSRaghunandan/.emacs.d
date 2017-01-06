@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 20:49:59 csraghunandan>
+;; Time-stamp: <2017-01-05 15:55:23 csraghunandan>
 
 ;; configuration for buffers
 
@@ -21,8 +21,7 @@
 ;; get rid of all the tabs in a buffer
 (defun rag/untabify-buffer ()
   (interactive)
-  (untabify (point-min) (point-max))
-  nil)
+  (untabify (point-min) (point-max)) nil)
 
 (defun rag/copy-buffer-file-name-as-kill (choice)
   "Copy the buffer-file-name to the kill-ring"

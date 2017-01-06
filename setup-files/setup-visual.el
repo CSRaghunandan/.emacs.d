@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-04 09:43:31 csraghunandan>
+;; Time-stamp: <2017-01-05 23:40:09 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -33,18 +33,26 @@
 
 (defvar programming-quotes
   '(";; First, solve the problem. Then, write the code. -- John Johnson\n\n"
-    ";; The computing scientist’s main challenge is not to get confused by the complexities of his own making. -- E. W. Dijkstra\n\n"
-    ";; There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. -- C. A. R. Hoare\n\n"
+    ";; The computing scientist’s main challenge is not to get confused by the
+ complexities of his own making. -- E. W. Dijkstra\n\n"
+    ";; There are two ways of constructing a software design: One way is to make
+it so simple that there are obviously no deficiencies and the other way is to
+make it so complicated that there are no obvious deficiencies. -- C. A. R. Hoare\n\n"
     ";; Controlling complexity is the essence of computer programming. -- Brian Kernigan\n\n"
-    ";; If you’re willing to restrict the flexibility of your approach, you can almost always do something better. -- John Carmack\n\n"
-    ";; Measuring programming progress by lines of code is like measuring aircraft building progress by weight. -- Bill Gates\n\n"
+    ";; if you’re willing to restrict the flexibility of your approach, you can
+almost always do something better. -- John Carmack\n\n"
+    ";; Measuring programming progress by lines of code is like measuring
+aircraft building progress by weight. -- Bill Gates\n\n"
     ";; The best code is no code at all.\n\n"
-    ";; There is not now, nor has there ever been, nor will there ever be, any programming language in which it is the least bit difficult to write bad code.\n\n"
+    ";; There is not now, nor has there ever been, nor will there ever be, any
+programming language in which it is the least bit difficult to write bad code.\n\n"
     ";; Code never lies, comments sometimes do. -- Ron Jeffries\n\n"
     ";; Simplicity carried to the extreme becomes elegance. -- Jon Franklin\n\n"
     ";; The unavoidable price of reliability is simplicity. -- C. A. R. Hoare\n\n"
-    ";; Good code is short, simple, and symmetrical – the challenge is figuring out how to get there. -- Sean Parent\n\n"
-    ";; True glory consists in doing what deserves to be written in writing what deserves to be read. -- Pliny the Elder\n\n"
+    ";; Good code is short, simple, and symmetrical – the challenge is figuring
+out how to get there. -- Sean Parent\n\n"
+    ";; True glory consists in doing what deserves to be written in writing what
+deserves to be read. -- Pliny the Elder\n\n"
     ";; The whole point of getting things done is knowing what to leave undone. -- Oswald Chambers\n\n"))
 
 ;; populate the initial scratch buffer with a random quote.

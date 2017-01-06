@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-31 14:57:49 csraghunandan>
+;; Time-stamp: <2017-01-06 09:28:14 csraghunandan>
 
 ;; yasnippet - snippets tool for emacs
 ;; https://github.com/capitaomorte/yasnippet
@@ -10,24 +10,25 @@
   (setq yas-prompt-functions '(yas-completing-prompt))
   (add-hook 'snippet-mode-hook '(lambda () (setq-local require-final-newline nil)))
 
-  (bind-key "C-c h y" (defhydra hydra-yas (:color blue
-                               :hint nil)
-     "
-[yasnippet]        _i_nsert        _n_ew        _v_isit snippet file        _r_eload all        e_x_pand        _?_ list snippets        "
+  (bind-key "C-c y"
+            (defhydra hydra-yas (:color blue
+                                        :hint nil)
+"
+_i_nsert    _n_ew       _v_isit     aya _c_reate
+_r_eload    e_x_pand    _?_ list    aya _e_xpand
+"
       ("i" yas-insert-snippet)
       ("n" yas-new-snippet)
       ("v" yas-visit-snippet-file)
       ("r" yas-reload-all)
       ("x" yas-expand)
+      ("c" aya-create)
+      ("e" aya-expand)
       ("?" yas-describe-tables)
       ("q" nil "cancel" :color blue))))
 
 ;; auto-yasnippet: create disposable snippets on the fly
 ;; https://github.com/abo-abo/auto-yasnippet
-(use-package auto-yasnippet
-  :config
-  (bind-keys
-   ("C-c y c" . aya-create)
-   ("C-c y e" . aya-expand)))
+(use-package auto-yasnippet)
 
 (provide 'setup-yas)
