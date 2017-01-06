@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-04 12:26:05 csraghunandan>
+;; Time-stamp: <2017-01-06 10:51:00 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -64,15 +64,35 @@
                                               ("* ||\n[i]" "RET"))))
 
   (bind-key "C-c h s"
-            (defhydra smartparens-hydra ()
-              "Smartparens"
-              ("d" sp-down-sexp "Down")
-              ("e" sp-up-sexp "Up")
-              ("u" sp-backward-up-sexp "Back-Up")
-              ("a" sp-backward-down-sexp "Back-Down")
-              ("f" sp-forward-sexp "Forward")
-              ("b" sp-backward-sexp "Backward")
-              ("k" sp-kill-sexp "Kill" :color blue)
+            (defhydra smartparens-hydra (:hint nil)
+"
+_d_: down           _a_: back-down        _f_: -> sexp    _k_: hyb-kill      _c_-_a_: begin
+_e_: up             _u_: back-up          _b_: <- sexp    _K_: kill          _c_-_e_: end
+_[_: back-unwrap    _]_: unwrap           _r_: rewrap     _m_: mark            _j_: join
+_p_: prev           _n_: next             _c_: copy       _s_: mark-thing      _|_: split
+_t_: transpose      _T_: hyb-transpose
+"
+
+              ("d" sp-down-sexp)
+              ("e" sp-up-sexp)
+              ("u" sp-backward-up-sexp)
+              ("a" sp-backward-down-sexp)
+              ("f" sp-forward-sexp)
+              ("b" sp-backward-sexp)
+              ("k" sp-kill-hybrid-sexp)
+              ("t" sp-transpose-sexp)
+              ("T" sp-transpose-hybrid-sexp)
+              ("K" sp-kill-sexp)
+              ("[" sp-backward-unwrap-sexp)
+              ("]" sp-unwrap-sexp)
+              ("r" sp-rewrap-sexp)
+              ("p" sp-previous-sexp)
+              ("n" sp-next-sexp)
+              ("j" sp-join-sexp)
+              ("|" sp-split-sexp)
+              ("c" sp-copy-sexp)
+              ("s" sp-select-next-thing :color blue)
+              ("m" sp-mark-sexp :color blue)
               ("q" nil "Quit" :color blue))
             smartparens-mode-map)
 
