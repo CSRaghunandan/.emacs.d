@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-30 17:43:46 csraghunandan>
+;; Time-stamp: <2017-01-06 12:09:14 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -81,8 +81,8 @@ foo -> &foo[..]"
 
   (bind-keys
    :map rust-mode-map
-   ("C-c t v" . wh/rust-toggle-visibility)
-   ("C-c t m" . wh/rust-toggle-mutability)
+   ("C-c v t" . wh/rust-toggle-visibility)
+   ("C-c m t" . wh/rust-toggle-mutability)
    ("C-c v s" . wh/rust-vec-as-slice))
 
   ;; rust-playground

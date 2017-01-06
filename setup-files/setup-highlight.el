@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-04 09:39:23 csraghunandan>
+;; Time-stamp: <2017-01-06 12:37:36 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -62,5 +62,10 @@
   (setq column-enforce-column 80)
   (set-face-attribute 'column-enforce-face nil
                       :underline nil :foreground "firebrick3"))
+
+;; highlight-numbers in buffers
+;; https://github.com/Fanael/highlight-numbers
+(use-package highlight-numbers
+  :config (add-hook 'prog-mode-hook 'highlight-numbers-mode))
 
 (provide 'setup-highlight)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-24 14:13:34 csraghunandan>
+;; Time-stamp: <2017-01-06 12:30:05 csraghunandan>
 
 ;; ERC - the irc client for emacs
 (use-package erc :defer t
@@ -48,6 +48,9 @@
   (setq erc-kill-queries-on-quit t)
   ;; Kill buffers for server messages after quitting the server
   (setq erc-kill-server-buffer-on-quit t)
+
+  ;; truncate long irc buffers
+  (erc-truncate-mode +1)
 
   ;; use sensible names for irc buffers
   (setq erc-rename-buffers t)
