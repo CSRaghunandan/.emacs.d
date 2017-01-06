@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-06 12:37:36 csraghunandan>
+;; Time-stamp: <2017-01-06 13:04:20 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -67,5 +67,14 @@
 ;; https://github.com/Fanael/highlight-numbers
 (use-package highlight-numbers
   :config (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+
+(defun prelude-font-lock-comment-annotations ()
+  "Highlight a bunch of well known comment annotations.
+This functions should be added to the hooks of major modes for programming."
+  (font-lock-add-keywords
+   nil '(("\\<\\(\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\):\\)"
+          1 font-lock-warning-face t))))
+
+(add-hook 'prog-mode-hook #'prelude-font-lock-comment-annotations)
 
 (provide 'setup-highlight)
