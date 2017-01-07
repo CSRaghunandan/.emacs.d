@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 11:19:56 csraghunandan>
+;; Time-stamp: <2017-01-07 23:05:24 csraghunandan>
 
 ;; ibuffer
 ;; for easy management of buffers
@@ -19,20 +19,32 @@
                 (define-ibuffer-column size-h
                   (:name "Size" :inline t)
                   (cond
-                   ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
-                   ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
+                   ((> (buffer-size) 1000000)
+                    (format "%7.1fM" (/ (buffer-size) 1000000.0)))
+                   ((> (buffer-size) 1000)
+                    (format "%7.1fk" (/ (buffer-size) 1000.0)))
                    (t (format "%8d" (buffer-size))))))
 
     ;; set format for ibuffer. Show name, size, mode and processes
     (setq ibuffer-formats
           '((mark modified read-only " "
+                  (name 25 25 :left :elide)
+                  " "
+                  (size-h 9 -1 :right)
+                  " "
+                  (mode 16 16 :left :elide)
+                  " "
+                  (vc-status-mini)
+                  " "
+                  process)
+            (mark modified read-only " "
                   (name 18 18 :left :elide)
                   " "
                   (size-h 9 -1 :right)
                   " "
                   (mode 16 16 :left :elide)
                   " "
-                  process))))
+                  filename-and-process))))
 
   ;; Don't show scratch and messages in iBuffer
   (require 'ibuf-ext)
