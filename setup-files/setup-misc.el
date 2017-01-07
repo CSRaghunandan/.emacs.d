@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-05 14:46:28 csraghunandan>
+;; Time-stamp: <2017-01-07 16:10:33 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -104,5 +104,13 @@ not prevent downloading the actual packages (obviously)."
 
 ;; prefer new files if one exists while loading
 (setq load-prefer-newer t)
+
+;; toml-mode
+;; https://github.com/dryman/toml-mode.el
+(use-package toml-mode)
+
+;; yaml-mode
+;; https://github.com/yoshiki/yaml-mode
+(use-package yaml-mode)
 
 (provide 'setup-misc)
