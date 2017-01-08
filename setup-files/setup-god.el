@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-08 18:36:51 csraghunandan>
+;; Time-stamp: <2017-01-08 19:31:34 csraghunandan>
 
 ;; god-mode:  minor mode for entering Emacs commands without modifier keys
 ;; https://github.com/chrisdone/god-mode
