@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-08 12:36:57 csraghunandan>
+;; Time-stamp: <2017-01-08 21:16:13 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -8,7 +8,7 @@
   (zenburn-with-color-variables
     (custom-theme-set-faces
      'zenburn
-     `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg-05))))))
+     `(default ((t (:foreground ,zenburn-fg :background "#303030"))))))
 
   ;; make function face brighter so it's easily distinguishable
   (set-face-attribute 'font-lock-function-name-face nil
@@ -29,13 +29,13 @@
                       :foreground "gray55" :slant 'italic)
   (set-face-attribute 'font-lock-doc-face nil
                       :foreground "gray70" :slant 'italic)
-  (set-face-background 'shm-current-face "#404040")
+  (set-face-background 'shm-current-face "gray23")
   (set-face-attribute 'hl-line nil
-                      :background "#404040")
+                      :background "gray23")
   (set-face-attribute 'fringe nil
-                      :background "#404040")
+                      :background "gray23")
   (set-face-attribute 'vhl/default-face nil
-                      :background "#404040")
+                      :background "gray23")
 
   ;; make mode line look pretty :)
   (set-face-attribute 'mode-line nil
@@ -43,7 +43,7 @@
                       :weight 'bold :foreground "#BFEBBF"
                       :background "gray26")
   (set-face-attribute 'mode-line-inactive nil
-                      :box '(:line-width 2 :color "gray20")
+                      :box '(:line-width 2 :color "gray22")
                       :weight 'normal :foreground "gray70")
   (set-face-attribute 'powerline-active2 nil
                       :background "gray26")
@@ -53,9 +53,9 @@
                       :foreground "#FFECBA" :weight 'bold)
   ;; dim inactive modeline
   (set-face-attribute 'powerline-inactive2 nil
-                      :background "gray20")
+                      :background "gray22")
   (set-face-attribute 'powerline-inactive1 nil
-                      :background "gray20")
+                      :background "gray22")
 
   ;; contrasting colors for ivy minibuffer match results
   (set-face-attribute 'ivy-minibuffer-match-face-4 nil
