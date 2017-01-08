@@ -1,12 +1,13 @@
-;; Time-stamp: <2017-01-08 11:55:35 csraghunandan>
+;; Time-stamp: <2017-01-08 21:36:56 csraghunandan>
 
 ;; avy, avy-zap
 
 ;; avy - Emacs package for jumping to visible text using character based decision tree
 ;; https://github.com/abo-abo/avy
 (use-package avy
-  :bind ("C-`" . avy-goto-word-1)
-  :bind* ("C-'" . avy-goto-char-timer)
+  :bind
+  (("C-`" . avy-goto-word-1)
+   ("C-'" . avy-goto-char-timer))
   :config
   (setq avy-keys-alist
         `((avy-goto-char-timer . (?a ?s ?d ?f ?g ?h ?j ?k ?l))))

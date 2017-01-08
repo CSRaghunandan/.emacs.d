@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-03 20:11:38 csraghunandan>
+;; Time-stamp: <2017-01-08 21:39:14 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -45,6 +45,10 @@
   :mode ("\\.org\\'" . org-mode)
 
   :config
+
+  ;; override `avy-goto-char-timer' to C-' in org-mode-map
+  (bind-key "C-'" 'avy-goto-char-timer org-mode-map)
+
   ;; (setq org-babel-python-command "python3")
   (org-babel-do-load-languages
    'org-babel-load-languages
