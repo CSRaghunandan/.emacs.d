@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 20:52:28 csraghunandan>
+;; Time-stamp: <2017-01-08 18:20:43 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -78,7 +78,7 @@ Position the cursor at it's beginning, according to the current mode."
 
 (bind-keys
  ("C-o" . rag/smart-open-line)
- ("C-S-o" . rag/smart-open-line-above))
+ ("s-o" . rag/smart-open-line-above))
 
 
 

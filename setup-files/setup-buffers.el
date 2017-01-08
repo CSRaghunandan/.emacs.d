@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-05 15:55:23 csraghunandan>
+;; Time-stamp: <2017-01-08 14:33:43 csraghunandan>
 
 ;; configuration for buffers
 
@@ -136,8 +136,10 @@ with prefix, select which buffer to kill"
   (other-window 1))
 
 (bind-keys
- ("C-x 2" . rag/split-below-and-move)
- ("C-x 3" . rag/split-right-and-move))
+ ("C-x C-0" . delete-window)
+ ("C-x C-1" . delete-other-windows)
+ ("C-x C-2" . rag/split-below-and-move)
+ ("C-x C-3" . rag/split-right-and-move))
 
 ;;; Scratch-and-Back
 ;; http://emacs.stackexchange.com/a/81/115

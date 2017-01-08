@@ -1,9 +1,9 @@
-;; Time-stamp: <2016-12-09 12:42:17 csraghunandan>
+;; Time-stamp: <2017-01-08 15:05:37 csraghunandan>
 
 ;; Multiple Cursors
 ;; https://github.com/magnars/multiple-cursors.el
 (use-package multiple-cursors
-  :bind (("C-S-c C-S-c" . mc/edit-lines)
+  :bind (("C-c m l" . mc/edit-lines)
          ("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-x C-m" . mc/mark-all-dwim))
