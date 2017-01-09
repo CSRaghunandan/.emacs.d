@@ -15,9 +15,20 @@
     (autoaway autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands notify readonly ring smiley sound stamp spelling track)))
  '(explicit-shell-file-name "/usr/local/bin/bash")
  '(hl-sexp-background-color "#efebe9")
+ '(ivy-mode t)
  '(org-agenda-files
    (quote
     ("~/org-mode-files/life.org" "~/org-mode-files/work.org" "~/org-mode-files/math.org" "~/org-mode-files/computer-science.org")))
+ '(org-capture-templates
+   (quote
+    (("c" "Computer Science template")
+     ("ct" "TODO entry" entry
+      (file+headline "~/org-mode-files/computer-science.org" "captured ideas")
+      (file "~/.emacs.d/org-capture-templates/todo.txt"))
+     ("l" "Life capture template")
+     ("lb" "Quick template for adding a book to read list" entry
+      (file+headline "~/org-mode-files/life.org" "Read List")
+      (file "~/.emacs.d/org-capture-templates/book.txt")))))
  '(org-refile-allow-creating-parent-nodes (quote confirm))
  '(org-refile-targets (quote ((org-agenda-files :level . 1))))
  '(org-refile-use-outline-path (quote file))

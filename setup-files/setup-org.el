@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-09 16:40:33 csraghunandan>
+;; Time-stamp: <2017-01-09 21:46:02 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -45,6 +45,11 @@
   :mode ("\\.org\\'" . org-mode)
 
   :config
+
+  ;; settings for org-refile
+  (setq org-refile-use-outline-path nil
+        org-refile-targets '((org-agenda-files :level . 1)
+                             (org-agenda-files :level . 2)))
 
   ;; override `avy-goto-char-timer' to C-' in org-mode-map
   (bind-key "C-'" 'avy-goto-char-timer org-mode-map)
@@ -237,7 +242,7 @@ this with to-do items than with projects or headings."
 
   (setq org-todo-keywords '((sequence
                              "TODO(t@/!)"
-                             "NEXT(n/!)"
+                             "NEXT(n@/!)"
                              "SOMEDAY(s/!)"
                              "WAITING(w@/!)"
                              "|" "CANCELED(c)"

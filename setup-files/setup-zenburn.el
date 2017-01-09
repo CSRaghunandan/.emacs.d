@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-09 13:44:30 csraghunandan>
+;; Time-stamp: <2017-01-09 21:48:03 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -37,12 +37,21 @@
   (set-face-attribute 'vhl/default-face nil
                       :background "gray27")
   ;; make magit-popup optional arguments more readable
-  (set-face-attribute 'magit-popup-disabled-argument nil
-                      :foreground "gray55")
-  (set-face-attribute 'magit-popup-key nil
-                      :foreground "#BFEBBF")
+  (eval-after-load "magit"
+    (lambda ()
+      (set-face-attribute 'magit-popup-disabled-argument nil
+                          :foreground "gray55")
+      (set-face-attribute 'magit-popup-key nil
+                          :foreground "#BFEBBF")))
 
-  ;; make mode line look pretty :)
+  ;; remove box face for checkbox
+  (eval-after-load "Org"
+    (lambda ()
+      (set-face-attribute 'org-checkbox nil
+                          :foreground "gray70" :background nil
+                          :weight 'bold :box nil)))
+
+  ;; make mode line simple and easy on the eyes
   (set-face-attribute 'mode-line nil
                       :box '(:line-width 2 :color "gray30")
                       :weight 'bold :foreground "#BFEBBF"
