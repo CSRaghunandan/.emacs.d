@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-09 13:42:08 csraghunandan>
+;; Time-stamp: <2017-01-09 13:44:30 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -39,6 +39,8 @@
   ;; make magit-popup optional arguments more readable
   (set-face-attribute 'magit-popup-disabled-argument nil
                       :foreground "gray55")
+  (set-face-attribute 'magit-popup-key nil
+                      :foreground "#BFEBBF")
 
   ;; make mode line look pretty :)
   (set-face-attribute 'mode-line nil
