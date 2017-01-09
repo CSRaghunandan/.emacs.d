@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-30 17:48:50 csraghunandan>
+;; Time-stamp: <2017-01-09 13:29:50 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
@@ -15,7 +15,6 @@
   (add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
   (add-hook 'haskell-mode-hook 'company-mode)
   (add-hook 'haskell-mode-hook (lambda ()
-                                 (smartparens-mode -1)
                                  ;; disable haskell-indentation-mode
                                  (setq haskell-indentation-mode nil)))
 
@@ -42,6 +41,9 @@
       :diminish (structured-haskell-mode . "𝐒𝐇𝐌")
       :config
       (add-hook 'haskell-mode-hook 'structured-haskell-mode)
+      (add-hook 'structured-haskell-mode-hook (lambda ()
+                                                (smartparens-mode -1)
+                                                (smartparens-strict-mode -1)))
       ;; add case splits for simple sum types
       (require 'shm-case-split)
       (bind-key "C-c |" 'shm/case-split haskell-mode-map))))
