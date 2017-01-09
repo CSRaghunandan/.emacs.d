@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-07 16:10:33 csraghunandan>
+;; Time-stamp: <2017-01-09 16:02:27 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -112,5 +112,9 @@ not prevent downloading the actual packages (obviously)."
 ;; yaml-mode
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode)
+
+;; utf-8 everywhere
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 
 (provide 'setup-misc)

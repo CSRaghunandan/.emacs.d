@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-08 21:39:14 csraghunandan>
+;; Time-stamp: <2017-01-09 16:40:33 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -235,7 +235,13 @@ this with to-do items than with projects or headings."
    ("C-c c" . org-capture)
    ("C-c i" . org-store-link))
 
-  (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "SOMEDAY(s)" "WAITING(w)" "|" "CANCELED(c)" "DONE(d)")))
+  (setq org-todo-keywords '((sequence
+                             "TODO(t@/!)"
+                             "NEXT(n/!)"
+                             "SOMEDAY(s/!)"
+                             "WAITING(w@/!)"
+                             "|" "CANCELED(c)"
+                             "DONE(d@)")))
   (setq org-todo-keyword-faces
         '(("TODO" . org-todo)
           ("NEXT" . (:foreground "CadetBlue3" :weight bold))
