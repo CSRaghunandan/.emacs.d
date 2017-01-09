@@ -14,4 +14,3 @@ company-statistics-cache.el
 *.elc
 .DS_STORE
 .git/
-abbrev_defs

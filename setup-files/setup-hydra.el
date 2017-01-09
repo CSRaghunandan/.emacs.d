@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-08 21:10:56 csraghunandan>
+;; Time-stamp: <2017-01-09 12:09:03 csraghunandan>
 
 ;; hydra :- This is a package for GNU Emacs that can be used to tie related
 ;; commands into a family of short bindings with a common prefix - a Hydra.
@@ -11,15 +11,15 @@
 (use-package hydra
   :config
   (set-face-attribute 'hydra-face-red nil
-                      :foreground "#FF6956" :bold t :background "#303030")
+                      :foreground "#FF6956" :bold t :background "#383838")
   (set-face-attribute 'hydra-face-blue nil
-                      :foreground "Cyan" :bold t :background "#303030")
+                      :foreground "Cyan" :bold t :background "#383838")
   (set-face-attribute 'hydra-face-amaranth nil
-                      :foreground "#e52b50" :bold t :background "#303030")
+                      :foreground "#e52b50" :bold t :background "#383838")
   (set-face-attribute 'hydra-face-pink nil
-                      :foreground "HotPink1" :bold t :background "#303030")
+                      :foreground "HotPink1" :bold t :background "#383838")
   (set-face-attribute 'hydra-face-teal nil
-                      :foreground "SkyBlue1" :bold t :background "#303030")
+                      :foreground "SkyBlue1" :bold t :background "#383838")
   (hydra-add-font-lock))
 
 (provide 'setup-hydra)

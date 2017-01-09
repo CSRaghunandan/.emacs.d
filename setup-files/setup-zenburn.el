@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-08 21:16:13 csraghunandan>
+;; Time-stamp: <2017-01-09 12:57:08 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -8,7 +8,7 @@
   (zenburn-with-color-variables
     (custom-theme-set-faces
      'zenburn
-     `(default ((t (:foreground ,zenburn-fg :background "#303030"))))))
+     `(default ((t (:foreground ,zenburn-fg :background ,zenburn-bg-05))))))
 
   ;; make function face brighter so it's easily distinguishable
   (set-face-attribute 'font-lock-function-name-face nil
@@ -29,33 +29,35 @@
                       :foreground "gray55" :slant 'italic)
   (set-face-attribute 'font-lock-doc-face nil
                       :foreground "gray70" :slant 'italic)
-  (set-face-background 'shm-current-face "gray23")
+  (set-face-background 'shm-current-face "gray27")
   (set-face-attribute 'hl-line nil
-                      :background "gray23")
+                      :background "gray27")
   (set-face-attribute 'fringe nil
-                      :background "gray23")
+                      :background "gray27")
   (set-face-attribute 'vhl/default-face nil
-                      :background "gray23")
+                      :background "gray27")
 
   ;; make mode line look pretty :)
   (set-face-attribute 'mode-line nil
-                      :box '(:line-width 2 :color "gray26")
+                      :box '(:line-width 2 :color "gray30")
                       :weight 'bold :foreground "#BFEBBF"
-                      :background "gray26")
+                      :background "gray30")
   (set-face-attribute 'mode-line-inactive nil
-                      :box '(:line-width 2 :color "gray22")
-                      :weight 'normal :foreground "gray70")
+                      :box '(:line-width 2 :color "gray20")
+                      :weight 'normal :foreground "gray70"
+                      :background "gray20")
   (set-face-attribute 'powerline-active2 nil
-                      :background "gray26")
+                      :background "gray30")
   (set-face-attribute 'powerline-active1 nil
-                      :background "gray26" :weight 'bold)
+                      :background "gray30" :weight 'bold)
   (set-face-attribute 'mode-line-buffer-id nil
                       :foreground "#FFECBA" :weight 'bold)
+
   ;; dim inactive modeline
   (set-face-attribute 'powerline-inactive2 nil
-                      :background "gray22")
+                      :background "gray20")
   (set-face-attribute 'powerline-inactive1 nil
-                      :background "gray22")
+                      :background "gray20")
 
   ;; contrasting colors for ivy minibuffer match results
   (set-face-attribute 'ivy-minibuffer-match-face-4 nil

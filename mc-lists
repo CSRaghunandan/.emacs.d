@@ -8,8 +8,10 @@
         hungry-delete-forward
         isearch-forward-symbol-at-point
         mwim-beginning-of-code-or-line
+        mwim-end-of-code-or-line
         org-self-insert-command
         sp-delete-char
+        sp-kill-hybrid-sexp
         sp-kill-sexp
         ))
 
@@ -19,7 +21,4 @@
         isearch-printing-char
         isearch-repeat-forward
         ivy-done
-        mc/vertical-align-with-space
-        sp-backward-delete-char
-        wrap-with-single-quotes
         ))
