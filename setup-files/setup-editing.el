@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-08 20:32:53 csraghunandan>
+;; Time-stamp: <2017-01-10 20:28:51 csraghunandan>
 ;; all the editing configuration for emacs
 
 ;; configuration for all the editing stuff in emacs
@@ -226,6 +226,8 @@ abc |ghi        <-- point still after white space after calling this function."
 (advice-add 'sp-kill-word :after #'modi/just-one-space-post-kill-word)
 (advice-add 'sp-backward-kill-word :after #'modi/just-one-space-post-kill-word)
 (advice-add 'sp-kill-sexp :after #'modi/just-one-space-post-kill-word)
+(advice-add 'kill-word :after #'modi/just-one-space-post-kill-word)
+(advice-add 'backward-kill-word :after #'modi/just-one-space-post-kill-word)
 
 
 
