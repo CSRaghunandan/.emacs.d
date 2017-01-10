@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-09 16:02:27 csraghunandan>
+;; Time-stamp: <2017-01-10 09:22:08 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -114,7 +114,8 @@ not prevent downloading the actual packages (obviously)."
 (use-package yaml-mode)
 
 ;; utf-8 everywhere
-(set-language-environment "UTF-8")
+(prefer-coding-system 'utf-8)
+(set-language-environment 'utf-8)
 (set-default-coding-systems 'utf-8)
 
 (provide 'setup-misc)
