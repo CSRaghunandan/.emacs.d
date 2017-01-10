@@ -2,6 +2,7 @@
   :PROPERTIES:
   :PAGES: %^{Pages}
   :GENRE: %^{Genre}
+  :PUBLISHED: %^{Published Date}
   :END:
   - Recommended by %^{recommended by}
   :LOGBOOK:

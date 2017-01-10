@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-09 21:46:02 csraghunandan>
+;; Time-stamp: <2017-01-10 21:14:43 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -53,6 +53,16 @@
 
   ;; override `avy-goto-char-timer' to C-' in org-mode-map
   (bind-key "C-'" 'avy-goto-char-timer org-mode-map)
+
+  ;; add a tag to make ordered tasks more visible
+  (setq org-track-ordered-property-with-tag t)
+
+  ;; make sure all checkboxes under a todo is done before marking the parent
+  ;; task as done.
+  (setq org-enforce-todo-checkbox-dependencies t)
+
+  ;; clock into a drawer called CLOCKING
+  (setq org-clock-into-drawer "CLOCKING")
 
   ;; (setq org-babel-python-command "python3")
   (org-babel-do-load-languages
@@ -326,7 +336,35 @@ Inside a code-block, just call `self-insert-command'."
   ;; pomodoro implementation in org
   ;; https://github.com/lolownia/org-pomodoro
   (use-package org-pomodoro
-    :bind ("C-c o p" . org-pomodoro)))
+    :bind ("C-c o p" . org-pomodoro))
+
+  (defun my/org-add-ids-to-headlines-in-file ()
+    "Add ID properties to all headlines in the current file which
+do not already have one."
+    (interactive)
+    (org-map-entries 'org-id-get-create))
+
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook
+                        (lambda ()
+                          (my/org-add-ids-to-headlines-in-file)
+                          (timestamp)) nil t)))
+
+  (defun my/copy-id-to-clipboard()
+    "Copy the ID property value to killring,
+if no ID is there then create a new unique ID.
+This function works only in org-mode buffers.
+
+The purpose of this function is to easily construct id:-links to
+org-mode items. If its assigned to a key it saves you marking the
+text and copying to the killring."
+         (interactive)
+         (when (eq major-mode 'org-mode) ; do this only in org-mode buffers
+           (setq mytmpid (funcall 'org-id-get-create))
+           (kill-new mytmpid)
+           (message "Copied %s to killring (clipboard)" mytmpid)))
+  (bind-key "<f6>" 'my/copy-id-to-clipboard org-mode-map))
 
 ;; A journaling tool with org-mode: `org-journal'
 ;; https://github.com/bastibe/org-journal
