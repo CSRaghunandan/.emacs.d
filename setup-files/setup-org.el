@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-10 21:14:43 csraghunandan>
+;; Time-stamp: <2017-01-11 15:16:23 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -337,19 +337,6 @@ Inside a code-block, just call `self-insert-command'."
   ;; https://github.com/lolownia/org-pomodoro
   (use-package org-pomodoro
     :bind ("C-c o p" . org-pomodoro))
-
-  (defun my/org-add-ids-to-headlines-in-file ()
-    "Add ID properties to all headlines in the current file which
-do not already have one."
-    (interactive)
-    (org-map-entries 'org-id-get-create))
-
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (add-hook 'before-save-hook
-                        (lambda ()
-                          (my/org-add-ids-to-headlines-in-file)
-                          (timestamp)) nil t)))
 
   (defun my/copy-id-to-clipboard()
     "Copy the ID property value to killring,

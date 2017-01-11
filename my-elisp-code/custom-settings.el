@@ -22,13 +22,33 @@
  '(org-capture-templates
    (quote
     (("c" "Computer Science template")
-     ("ct" "TODO entry" entry
+     ("cb" "Add a book to read list" entry
+      (file+headline "~/org-mode-files/computer-science.org" "Read List")
+      (file "~/.emacs.d/org-capture-templates/book.txt"))
+     ("ct" "Add a TODO entry" entry
       (file+headline "~/org-mode-files/computer-science.org" "captured ideas")
       (file "~/.emacs.d/org-capture-templates/todo.txt"))
      ("l" "Life capture template")
-     ("lb" "Quick template for adding a book to read list" entry
+     ("lb" "Add a book to read list" entry
       (file+headline "~/org-mode-files/life.org" "Read List")
-      (file "~/.emacs.d/org-capture-templates/book.txt")))))
+      (file "~/.emacs.d/org-capture-templates/book.txt"))
+     ("lt" "Add a TODO entry" entry
+      (file+headline "~/org-mode-files/life.org" "captured ideas")
+      "~/.emacs.d/org-capture-templates/todo.txt")
+     ("w" "Work capture template")
+     ("wb" "Add a book to read list" entry
+      (file+headline "~/org-mode-files/work.org" "Read List")
+      (file "~/.emacs.d/org-capture-templates/book.txt"))
+     ("wt" "Add a TODO entry" entry
+      (file+headline "~/org-mode-files/work.org" "captured ideas")
+      (file "~/.emacs.d/org-capture-templates/todo.txt"))
+     ("m" "Math capture template")
+     ("mb" "Add a book to read list" entry
+      (file+headline "~/org-mode-files/math.org" "Read List")
+      (file "~/.emacs.d/org-capture-templates/book.txt"))
+     ("mt" "Add a TODO entry" entry
+      (file+headline "~/org-mode-files/math.org" "captured ideas")
+      (file "~/.emacs.d/org-capture-templates/todo.txt")))))
  '(org-refile-allow-creating-parent-nodes (quote confirm))
  '(org-refile-targets (quote ((org-agenda-files :level . 1))))
  '(org-refile-use-outline-path (quote file))

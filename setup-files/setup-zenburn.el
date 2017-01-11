@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-09 21:48:03 csraghunandan>
+;; Time-stamp: <2017-01-11 00:09:47 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -49,7 +49,9 @@
     (lambda ()
       (set-face-attribute 'org-checkbox nil
                           :foreground "gray70" :background nil
-                          :weight 'bold :box nil)))
+                          :weight 'bold :box nil)
+      (set-face-attribute  'org-priority nil
+                          :foreground "gray70" :weight 'bold :inherit nil)))
 
   ;; make mode line simple and easy on the eyes
   (set-face-attribute 'mode-line nil
