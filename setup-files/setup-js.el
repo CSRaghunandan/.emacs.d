@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-31 14:58:23 csraghunandan>
+;; Time-stamp: <2017-01-14 09:14:02 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -14,10 +14,6 @@
   :config
   ;; extra features for imenu
   (js2-imenu-extras-setup)
-
-  ;; reduce the delay before re-parsing after user makes changes
-  (add-hook 'js2-mode-hook (lambda ()
-                             (setq-local js2-idle-timer-delay 0.01)))
 
   ;; tern :- IDE like features for javascript and completion
   ;; http://ternjs.net/doc/manual.html#emacs

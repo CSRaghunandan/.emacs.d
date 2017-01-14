@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-11 15:16:23 csraghunandan>
+;; Time-stamp: <2017-01-12 10:39:35 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -63,6 +63,9 @@
 
   ;; clock into a drawer called CLOCKING
   (setq org-clock-into-drawer "CLOCKING")
+
+  ;; have a higher column fill for org tags
+  (setq org-tags-column 90)
 
   ;; (setq org-babel-python-command "python3")
   (org-babel-do-load-languages
