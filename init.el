@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-08 20:46:43 csraghunandan>
+;; Time-stamp: <2017-01-15 12:07:18 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -87,6 +87,7 @@
 (require 'setup-pragmatapro)
 (require 'setup-purescript)
 (require 'setup-abbrev)
+(require 'setup-quickrun)
 
 ;; install all packages (if they already not installed by use-package)
 (package-install-selected-packages)
