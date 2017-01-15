@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-15 12:39:59 csraghunandan>
+;; Time-stamp: <2017-01-15 14:14:14 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -404,6 +404,12 @@ text and copying to the killring."
 ;; * C-c C-b to view previous entry
 (use-package org-journal :defer 2
   :config
-  (bind-key "C-c o j" 'org-journal-new-entry))
+  (bind-key "C-c o j" 'org-journal-new-entry)
+
+  ;; remove unnecessary modes in org-journal
+  (add-hook 'org-journal-mode-hook (lambda ()
+                                     (smartparens-mode -1)
+                                     (smartparens-strict-mode -1)
+                                     (visual-line-mode -1))))
 
 (provide 'setup-org)
