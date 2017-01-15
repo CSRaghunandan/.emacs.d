@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-05 15:01:27 csraghunandan>
+;; Time-stamp: <2017-01-15 12:30:36 csraghunandan>
 
 ;; extend the standard `info.el' emacs library
 ;; https://www.emacswiki.org/emacs/InfoPlus
@@ -69,18 +69,30 @@ Info-mode:
 (bind-key "?" 'hydra-info/body Info-mode-map)
 
 (bind-key "C-c h a"
-          (defhydra hydra-apropos (:color blue)
-            "Apropos"
-            ("a" apropos "apropos")
-            ("c" apropos-command "cmd")
-            ("d" apropos-documentation "doc")
-            ("e" apropos-value "val")
-            ("l" apropos-library "lib")
-            ("o" apropos-user-option "option")
-            ("u" apropos-user-option "option")
-            ("v" apropos-variable "var")
-            ("i" info-apropos "info")
-            ("t" tags-apropos "tags")
-            ("z" hydra-customize-apropos/body "customize")))
+          (defhydra hydra-apropos (:color blue
+                                          :hint nil)
+"
+_a_: apropos    _e_: val          _l_: lib       _v_: variable
+_c_: cmd        _d_: doc          _o_: option    _i_: info
+_t_: tags       _z_: customize    _q_: quit
+"
+            ("a" apropos)
+            ("c" apropos-command)
+            ("d" apropos-documentation)
+            ("e" apropos-value)
+            ("l" apropos-library)
+            ("o" apropos-user-option)
+            ("v" apropos-variable)
+            ("i" info-apropos)
+            ("t" tags-apropos)
+            ("z" hydra-customize-apropos/body)
+            ("q" nil :quit :color blue)))
+
+(defhydra hydra-customize-apropos (:color blue)
+  "Apropos (customize)"
+  ("a" customize-apropos "apropos")
+  ("f" customize-apropos-faces "faces")
+  ("g" customize-apropos-groups "groups")
+  ("o" customize-apropos-options "options"))
 
 (provide 'setup-info)

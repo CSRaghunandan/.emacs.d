@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-09 12:09:03 csraghunandan>
+;; Time-stamp: <2017-01-15 12:40:24 csraghunandan>
 
 ;; hydra :- This is a package for GNU Emacs that can be used to tie related
 ;; commands into a family of short bindings with a common prefix - a Hydra.
@@ -6,7 +6,7 @@
 
 ;; hydras: flycheck, ibuffer, origami, move, yasnippet, info, macros
 ;;         dired sort, bm, projectile, toggle case, langtools, kruecolor
-;;         smartparens, multi-term, aprops
+;;         smartparens, multi-term, aprops, quickrun, org-clock
 
 (use-package hydra
   :config

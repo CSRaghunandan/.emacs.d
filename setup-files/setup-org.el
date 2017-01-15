@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-12 10:39:35 csraghunandan>
+;; Time-stamp: <2017-01-15 12:39:59 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -354,7 +354,35 @@ text and copying to the killring."
            (setq mytmpid (funcall 'org-id-get-create))
            (kill-new mytmpid)
            (message "Copied %s to killring (clipboard)" mytmpid)))
-  (bind-key "<f6>" 'my/copy-id-to-clipboard org-mode-map))
+  (bind-key "<f6>" 'my/copy-id-to-clipboard org-mode-map)
+
+  (bind-key "C-c h c" 'hydra-org-clock/body org-mode-map)
+  (defhydra hydra-org-clock (:color blue
+                                    :hint nil)
+"
+^Clock:^ ^In/out^     ^Edit^   ^Summary^    | ^Timers:^ ^Run^           ^Insert
+-^-^-----^-^----------^-^------^-^----------|--^-^------^-^-------------^------
+(_?_)   _i_n         _e_dit    _g_oto entry | (_z_)     _r_elative      ti_m_e
+^ ^     _c_ontinue   _q_uit    _d_isplay    |  ^ ^      cou_n_tdown     i_t_em
+^ ^     _o_ut        ^ ^       _r_eport     |  ^ ^      _p_ause toggle
+^ ^     ^ ^          ^ ^       ^ ^          |  ^ ^      _s_top
+"
+  ("i" org-clock-in)
+  ("c" org-clock-in-last)
+  ("o" org-clock-out)
+  ("e" org-clock-modify-effort-estimate)
+  ("q" org-clock-cancel)
+  ("g" org-clock-goto)
+  ("d" org-clock-display)
+  ("r" org-clock-report)
+  ("?" (org-info "Clocking commands"))
+  ("r" org-timer-start)
+  ("n" org-timer-set-timer)
+  ("p" org-timer-pause-or-continue)
+  ("s" org-timer-stop)
+  ("m" org-timer)
+  ("t" org-timer-item)
+  ("z" (org-info "Timers"))))
 
 ;; A journaling tool with org-mode: `org-journal'
 ;; https://github.com/bastibe/org-journal
