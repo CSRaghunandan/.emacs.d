@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-06 17:05:00 csraghunandan>
+;; Time-stamp: <2017-01-15 12:55:32 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -55,7 +55,7 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   ("j" org-mark-ring-goto)
   ("." next-buffer)
   ("," previous-buffer)
-  ("q" nil "quit" :color blue))
+  ("q" nil :color blue))
 (bind-key "M-m" 'hydra-move/body)
 
 ;; move to the beginning or end of line smartly

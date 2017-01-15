@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-06 10:51:00 csraghunandan>
+;; Time-stamp: <2017-01-15 12:56:09 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -70,7 +70,7 @@ _d_: down           _a_: back-down        _f_: -> sexp    _k_: hyb-kill      _c_
 _e_: up             _u_: back-up          _b_: <- sexp    _K_: kill          _c_-_e_: end
 _[_: back-unwrap    _]_: unwrap           _r_: rewrap     _m_: mark            _j_: join
 _p_: prev           _n_: next             _c_: copy       _s_: mark-thing      _|_: split
-_t_: transpose      _T_: hyb-transpose
+_t_: transpose      _T_: hyb-transpose    _q_: quit
 "
 
               ("d" sp-down-sexp)
@@ -93,7 +93,7 @@ _t_: transpose      _T_: hyb-transpose
               ("c" sp-copy-sexp)
               ("s" sp-select-next-thing :color blue)
               ("m" sp-mark-sexp :color blue)
-              ("q" nil "Quit" :color blue))
+              ("q" nil :color blue))
             smartparens-mode-map)
 
   (setq sp-show-pair-from-inside t)

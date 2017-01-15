@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-15 12:07:01 csraghunandan>
+;; Time-stamp: <2017-01-15 12:56:26 csraghunandan>
 
 ;; quickrun - Execute editing buffer and show its output quickly.
 ;; https://github.com/syohex/emacs-quickrun
@@ -20,6 +20,6 @@ _q_: quit
               ("c" quickrun-compile-only)
               ("a" quickrun-with-arg)
               ("s" quickrun-shell)
-              ("q" nil :quit :color blue))))
+              ("q" nil :color blue))))
 
 (provide 'setup-quickrun)

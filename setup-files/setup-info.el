@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-15 12:30:36 csraghunandan>
+;; Time-stamp: <2017-01-15 12:57:07 csraghunandan>
 
 ;; extend the standard `info.el' emacs library
 ;; https://www.emacswiki.org/emacs/InfoPlus
@@ -86,7 +86,7 @@ _t_: tags       _z_: customize    _q_: quit
             ("i" info-apropos)
             ("t" tags-apropos)
             ("z" hydra-customize-apropos/body)
-            ("q" nil :quit :color blue)))
+            ("q" nil :color blue)))
 
 (defhydra hydra-customize-apropos (:color blue)
   "Apropos (customize)"

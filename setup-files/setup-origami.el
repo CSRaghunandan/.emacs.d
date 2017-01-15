@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-15 12:45:18 csraghunandan>
+;; Time-stamp: <2017-01-15 12:55:44 csraghunandan>
 
 ;; origami - provides folding capabilities
 ;; https://github.com/gregsexton/origami.el
@@ -20,6 +20,6 @@ _u_: undo      _n_: next    _o_: open all    _q_: quit
               ("n" origami-next-fold)
               ("o" origami-open-all-nodes)
               ("c" origami-close-all-nodes)
-              ("q" nil :quit :color blue))))
+              ("q" nil :color blue))))
 
 (provide 'setup-origami)
