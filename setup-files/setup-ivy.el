@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-01 21:54:44 csraghunandan>
+;; Time-stamp: <2017-01-16 21:20:32 csraghunandan>
 
 ;; flx, ivy
 
@@ -34,8 +34,7 @@
    ("C-c v p" . ivy-push-view)
    ("C-c v o" . ivy-pop-view))
 
-  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
-                                (t . ivy--regex-fuzzy))))
+  (setq ivy-re-builders-alist '((t . ivy--regex-plus))))
 
 (provide 'setup-ivy)
 

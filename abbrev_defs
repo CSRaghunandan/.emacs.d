@@ -5,6 +5,10 @@
 
 (define-abbrev-table 'Info-edit-mode-abbrev-table '())
 
+(define-abbrev-table 'awk-mode-abbrev-table
+  '(
+   ))
+
 (define-abbrev-table 'bmkp-edit-bookmark-record-mode-abbrev-table '())
 
 (define-abbrev-table 'bmkp-edit-bookmark-records-mode-abbrev-table '())
@@ -16,6 +20,14 @@
 (define-abbrev-table 'bookmark-edit-annotation-mode-abbrev-table '())
 
 (define-abbrev-table 'bookmark-show-annotation-mode-abbrev-table '())
+
+(define-abbrev-table 'c++-mode-abbrev-table
+  '(
+   ))
+
+(define-abbrev-table 'c-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -328,6 +340,7 @@
     ("definately" "definitely" nil 0)
     ("definded" "defined" nil 0)
     ("dependances" "dependencies" nil 0)
+    ("dependancies" "dependencies" nil 0)
     ("deptartment" "department" nil 0)
     ("desicion" "decision" nil 0)
     ("desicions" "decisions" nil 0)
@@ -460,7 +473,7 @@
     ("frmo" "from" nil 0)
     ("fromt he" "from the" nil 0)
     ("fromthe" "from the" nil 0)
-    ("func" "function" nil 1)
+    ("func" "function" nil 61)
     ("furneral" "funeral" nil 0)
     ("fwe" "few" nil 0)
     ("garantee" "guarantee" nil 0)
@@ -1030,6 +1043,8 @@
 
 (define-abbrev-table 'ibuffer-mode-abbrev-table '())
 
+(define-abbrev-table 'idl-mode-abbrev-table '())
+
 (define-abbrev-table 'image-dired-display-image-mode-abbrev-table '())
 
 (define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
@@ -1039,6 +1054,26 @@
 (define-abbrev-table 'ivy-occur-grep-mode-abbrev-table '())
 
 (define-abbrev-table 'ivy-occur-mode-abbrev-table '())
+
+(define-abbrev-table 'jade-debugger-frames-mode-abbrev-table '())
+
+(define-abbrev-table 'jade-debugger-locals-mode-abbrev-table '())
+
+(define-abbrev-table 'jade-inspector-mode-abbrev-table '())
+
+(define-abbrev-table 'jade-repl-mode-abbrev-table '())
+
+(define-abbrev-table 'java-mode-abbrev-table
+  '(
+   ))
+
+(define-abbrev-table 'js-jsx-mode-abbrev-table '())
+
+(define-abbrev-table 'js-mode-abbrev-table '())
+
+(define-abbrev-table 'js2-jsx-mode-abbrev-table '())
+
+(define-abbrev-table 'js2-mode-abbrev-table '())
 
 (define-abbrev-table 'latex-mode-abbrev-table '())
 
@@ -1084,6 +1119,10 @@
 
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
+(define-abbrev-table 'objc-mode-abbrev-table
+  '(
+   ))
+
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-mode-abbrev-table '())
@@ -1098,6 +1137,10 @@
 
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
 
+(define-abbrev-table 'pike-mode-abbrev-table
+  '(
+   ))
+
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
 (define-abbrev-table 'process-menu-mode-abbrev-table '())
@@ -1105,6 +1148,8 @@
 (define-abbrev-table 'prog-mode-abbrev-table '())
 
 (define-abbrev-table 'purescript-mode-abbrev-table '())
+
+(define-abbrev-table 'quickrun/mode-abbrev-table '())
 
 (define-abbrev-table 'racer-help-mode-abbrev-table '())
 
