@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-10 09:22:08 csraghunandan>
+;; Time-stamp: <2017-01-16 23:01:38 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -114,8 +114,14 @@ not prevent downloading the actual packages (obviously)."
 (use-package yaml-mode)
 
 ;; utf-8 everywhere
-(prefer-coding-system 'utf-8)
+;; disable CJK coding/encoding (Chinese/Japanese/Korean characters)
+(setq utf-translate-cjk-mode nil)
 (set-language-environment 'utf-8)
+(setq locale-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(unless (eq system-type 'windows-nt)
+  (set-selection-coding-system 'utf-8))
+(prefer-coding-system 'utf-8)
 
 (provide 'setup-misc)
