@@ -1,10 +1,6 @@
-;; Time-stamp: <2017-01-16 21:20:32 csraghunandan>
+;; Time-stamp: <2017-01-17 08:16:58 csraghunandan>
 
-;; flx, ivy
-
-;; flx - fuzzy sorting heuristics algorithm
-;; needed for sorting the results from fuzzy search in ivy
-(use-package flx)
+;; ivy
 
 ;; Smart M-x (smex): sort extended commands by last invoked
 ;; https://github.com/nonsequitur/smex/
@@ -15,13 +11,9 @@
 ;; incremental narrowing framework for emacs
 (use-package ivy
   :diminish ivy-mode
-  :init (ivy-mode 1)
-  :bind
-  (:map ivy-minibuffer-map
-        ("C-'" . ivy-avy))
   :config
-  ;; C-c C when in ivy minibuffer will copy all the completion candidates to kill ring.
-  (bind-key "C-c C" 'ivy-kill-ring-save ivy-minibuffer-map)
+  (ivy-mode)
+
   (setq ivy-use-virtual-buffers t
 	ivy-height 13
 	ivy-initial-inputs-alist nil
@@ -32,9 +24,7 @@
 
   (bind-keys
    ("C-c v p" . ivy-push-view)
-   ("C-c v o" . ivy-pop-view))
-
-  (setq ivy-re-builders-alist '((t . ivy--regex-plus))))
+   ("C-c v o" . ivy-pop-view)))
 
 (provide 'setup-ivy)
 

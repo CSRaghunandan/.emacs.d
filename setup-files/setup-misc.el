@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-16 23:01:38 csraghunandan>
+;; Time-stamp: <2017-01-17 08:16:41 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -80,10 +80,12 @@ not prevent downloading the actual packages (obviously)."
 
 ;; don't garbage collect when in minibuffer-mode
 (defun my-minibuffer-setup-hook ()
-  (setq gc-cons-threshold most-positive-fixnum))
+  (setq gc-cons-threshold most-positive-fixnum)
+  (whole-line-or-region-mode))
 
 (defun my-minibuffer-exit-hook ()
-  (setq gc-cons-threshold 800000))
+  (setq gc-cons-threshold 800000)
+  (whole-line-or-region-mode))
 
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
