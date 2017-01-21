@@ -13,12 +13,12 @@
         sp-delete-char
         sp-kill-hybrid-sexp
         sp-kill-sexp
+        sp-kill-word
+        sp-backward-delete-char
         ))
 
 (setq mc/cmds-to-run-once
       '(
         counsel-grep-or-swiper
-        isearch-printing-char
-        isearch-repeat-forward
         ivy-done
         ))
