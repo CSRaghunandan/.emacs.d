@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-14 09:14:02 csraghunandan>
+;; Time-stamp: <2017-01-23 08:27:03 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -47,13 +47,6 @@
     (js2r-add-keybindings-with-prefix "C-c j r"))
 
   (add-hook 'js2-mode-hook 'js2-refactor-mode)
-
-  ;; provides REPL and inspect, debug tools by connecting to a chrom(e|ium) process
-  ;; https://github.com/NicolasPetton/jade
-  (use-package jade
-    :diminish (jade-interaction-mode . "𝐉𝐚")
-    :init
-    (add-hook 'js2-mode-hook #'jade-interaction-mode))
 
   ;; web-beautify - Format HTML, CSS and JavaScript/JSON by js-beautify
   ;; https://github.com/yasuyk/web-beautify
