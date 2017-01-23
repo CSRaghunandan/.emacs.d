@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-23 08:27:03 csraghunandan>
+;; Time-stamp: <2017-01-23 10:04:31 csraghunandan>
 
 ;; js2-mode, tern, company-tern, js2-refactor
 
@@ -47,6 +47,15 @@
     (js2r-add-keybindings-with-prefix "C-c j r"))
 
   (add-hook 'js2-mode-hook 'js2-refactor-mode)
+
+  ;; skewer-mode: live web development for JS, CSS and HTML
+  ;; https://github.com/skeeto/skewer-mode
+  (use-package skewer-mode
+    :diminish (skewer-mode . "𝐒𝐤")
+    :config
+    (add-hook 'js2-mode-hook 'skewer-mode)
+    ;; enable completions in skewer REPL
+    (add-hook 'skewer-repl-mode-hook 'company-mode))
 
   ;; web-beautify - Format HTML, CSS and JavaScript/JSON by js-beautify
   ;; https://github.com/yasuyk/web-beautify
