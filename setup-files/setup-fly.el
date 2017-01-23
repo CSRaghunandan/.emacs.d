@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-03 15:02:52 csraghunandan>
+;; Time-stamp: <2017-01-23 08:23:33 csraghunandan>
 
 ;; flyspell, flycheck
 
@@ -9,6 +9,9 @@
   :config
   ;; Save a new word to personal dictionary without asking
   (setq ispell-silently-savep t)
+
+  ;; speed up flyspell
+  (setq flyspell-issue-message-flag nil)
 
   (add-hook 'prog-mode-hook 'flyspell-prog-mode)
   (add-hook 'org-mode-hook 'flyspell-mode)
