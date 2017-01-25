@@ -10,58 +10,60 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
 ;;;; Emacs Bookmark Format Version 1 ;;;;
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(#1=(#("org-capture-last-stored-marker" 0 1
-      (idx 0 bmkp-full-record #1#)
-      1 30
+(#1=(#("org-capture-last-stored-marker" 0 30
       (bmkp-full-record #1#))
     (annotation)
     (tags)
     (filename . "~/org-mode-files/math.org")
     (buffer-name . "math.org")
-    (front-context-string . "*** SOMEDAY Matt")
-    (rear-context-string . " 10:55]\n  :END:\n")
+    (front-context-string . "*** SOMEDAY Rich")
+    (rear-context-string . " 13:35]\n  :END:\n")
     (front-context-region-string)
     (rear-context-region-string)
     (visits . 0)
-    (time . #2=(22647 5828 150787 0))
+    (time . #2=(22651 34458 940417 0))
     (created . #2#)
-    (position . 4138))
-#1=(#("org-capture-last-stored" 0 1
-      (idx 1 bmkp-full-record #1#)
-      1 23
-      (bmkp-full-record #1#))
-    (annotation)
-    (tags)
-    (filename . "~/org-mode-files/math.org")
-    (buffer-name . "math.org")
-    (front-context-string . "** SOMEDAY Matt ")
-    (rear-context-string . " 10:55]\n  :END:\n")
-    (front-context-region-string)
-    (rear-context-region-string)
-    (visits . 0)
-    (time . #2=(22647 5826 293043 0))
-    (created . #2#)
-    (position . 4138))
-#1=(#("org-refile-last-stored" 0 1
-      (idx 2 bmkp-full-record #1#)
-      1 22
+    (position . 2361))
+#1=(#("org-capture-last-stored" 0 23
       (bmkp-full-record #1#))
     (annotation)
     (tags)
     (filename . "~/org-mode-files/life.org")
     (buffer-name . "life.org")
-    (front-context-string . "** TODO Wash bik")
-    (rear-context-string . " 10:45]\n:END:\n\n\n")
+    (front-context-string . "** SOMEDAY Jane ")
+    (rear-context-string . " 20:11]\n  :END:\n")
     (front-context-region-string)
     (rear-context-region-string)
     (visits . 0)
-    (time . #2=(22647 6179 432668 0))
+    (time . #2=(22651 35495 171141 0))
     (created . #2#)
-    (position . 3205))
+    (position . 5582))
+#1=(#("org-refile-last-stored" 0 22
+      (bmkp-full-record #1#))
+    (annotation)
+    (tags)
+    (filename . "~/org-mode-files/math.org")
+    (buffer-name . "math.org")
+    (front-context-string . "*** SOMEDAY Rich")
+    (rear-context-string . " 13:35]\n  :END:\n")
+    (front-context-region-string)
+    (rear-context-region-string)
+    (visits . 0)
+    (time . #2=(22651 34458 933735 0))
+    (created . #2#)
+    (position . 2361))
 #1=(#("o: org-mode info" 0 1
       (idx 3 bmkp-full-record #1#)
       1 16
@@ -158,8 +160,8 @@
     (rear-context-string . "2017-02-01 Wed>\n")
     (front-context-region-string)
     (rear-context-region-string)
-    (visits . 6)
-    (time 22647 28577 197088 0)
+    (visits . 7)
+    (time 22651 12709 21802 0)
     (created 22618 4356 149073 0)
     (position . 2402))
 #1=(#("m: math.org" 0 1
@@ -173,8 +175,8 @@
     (rear-context-string . "** Open calculus")
     (front-context-region-string)
     (rear-context-region-string)
-    (visits . 1)
-    (time 22647 2956 554765 0)
+    (visits . 3)
+    (time 22651 32353 115734 0)
     (created 22618 4333 386730 0)
     (position . 1216))
 #1=(#("w: work.org" 0 1
