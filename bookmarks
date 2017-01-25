@@ -18,11 +18,21 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
 ;;;; Emacs Bookmark Format Version 1 ;;;;
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(#1=(#("org-capture-last-stored-marker" 0 30
+(#1=(#("org-capture-last-stored-marker" 0 1
+      (bmkp-full-record #1# idx 0)
+      1 30
       (bmkp-full-record #1#))
     (annotation)
     (tags)
@@ -36,7 +46,9 @@
     (time . #2=(22651 34458 940417 0))
     (created . #2#)
     (position . 2361))
-#1=(#("org-capture-last-stored" 0 23
+#1=(#("org-capture-last-stored" 0 1
+      (bmkp-full-record #1# idx 1)
+      1 23
       (bmkp-full-record #1#))
     (annotation)
     (tags)
@@ -50,7 +62,9 @@
     (time . #2=(22651 35495 171141 0))
     (created . #2#)
     (position . 5582))
-#1=(#("org-refile-last-stored" 0 22
+#1=(#("org-refile-last-stored" 0 1
+      (bmkp-full-record #1# idx 2)
+      1 22
       (bmkp-full-record #1#))
     (annotation)
     (tags)
@@ -65,7 +79,7 @@
     (created . #2#)
     (position . 2361))
 #1=(#("o: org-mode info" 0 1
-      (idx 3 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 3)
       1 16
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
@@ -84,7 +98,7 @@
     (handler . Info-bookmark-jump)
     (defaults "(org) Top" "org" #2#))
 #1=(#("M: *Messages*" 0 1
-      (idx 4 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 4)
       1 13
       (bmkp-full-record #1#))
     (filename . "   - no file -")
@@ -97,27 +111,8 @@
     (time 22620 60783 845248 0)
     (created 22620 60739 573933 0)
     (position . 7368))
-#1=(#("s: info SICP" 0 1
-      (bmkp-full-record #1# idx 5)
-      1 12
-      (bmkp-full-record #1#))
-    (buffer-name . "*info*")
-    (front-context-string . "\n* UTF::        ")
-    (rear-context-string . " 2007)\n\n* Menu:\n")
-    (front-context-region-string)
-    (rear-context-region-string)
-    (visits . 0)
-    (time . #2=(22618 5872 720023 0))
-    (created . #2#)
-    (position . 624)
-    (filename .
-              #("/Users/csraghunandan/.emacs.d/elpa/sicp-20161219.542/sicp" 0 57
-                (face ivy-virtual)))
-    (info-node . #3="Top")
-    (handler . Info-bookmark-jump)
-    (defaults "(sicp) Top" "sicp" #3#))
 #1=(#("e: info emacs-lisp-intro" 0 1
-      (idx 6 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 6)
       1 24
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
@@ -136,7 +131,7 @@
     (handler . Info-bookmark-jump)
     (defaults "(eintr) Top" "eintr" #2#))
 #1=(#("cs: computer-science.org" 0 1
-      (idx 7 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 7)
       1 24
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/computer-science.org")
@@ -150,7 +145,7 @@
     (created 22618 4378 300746 0)
     (position . 1153))
 #1=(#("l: life.org" 0 1
-      (bmkp-full-record #1# idx 8)
+      (idx 8 bmkp-full-record #1#)
       1 11
       (bmkp-full-record #1#))
     (end-position . 2402)
@@ -165,7 +160,7 @@
     (created 22618 4356 149073 0)
     (position . 2402))
 #1=(#("m: math.org" 0 1
-      (bmkp-full-record #1# idx 9)
+      (idx 9 bmkp-full-record #1#)
       1 11
       (bmkp-full-record #1#))
     (end-position . 1216)
@@ -180,7 +175,7 @@
     (created 22618 4333 386730 0)
     (position . 1216))
 #1=(#("w: work.org" 0 1
-      (bmkp-full-record #1# idx 10)
+      (idx 10 bmkp-full-record #1#)
       1 11
       (bmkp-full-record #1#))
     (filename . "~/org-mode-files/work.org")
@@ -194,7 +189,7 @@
     (created 22618 4303 89854 0)
     (position . 1043))
 #1=(#("q: *scratch*" 0 1
-      (bmkp-full-record #1# idx 11)
+      (idx 11 bmkp-full-record #1#)
       1 12
       (bmkp-full-record #1#))
     (end-position . 1)

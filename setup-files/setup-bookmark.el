@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-06 09:30:42 csraghunandan>
+;; Time-stamp: <2017-01-25 15:14:55 csraghunandan>
 
 ;; bm - visible bookmarks within a buffer
 ;; https://github.com/joodland/bm
@@ -74,3 +74,11 @@ Bookmark _n_ext (_N_ in lifo order)            toggle book_m_ark        ^^_/_ bm
   :bind (("s-b" . headlong-bookmark-jump)))
 
 (provide 'setup-bookmark)
+
+;; bookmark+ -> bookmark anything in Emacs. Allow bookmarking dired, info,
+;; desktop, occur, etc.
+;; `C-x p K' -> set the desktop as a bookmark
+;; `C-x r l' -> access the bookmarks list buffer
+;; `C-x r m' -> set bookmark
+;; `C-x p d' -> delete bookmarks
+;; `C-x j j' -> jump to any bookmark
