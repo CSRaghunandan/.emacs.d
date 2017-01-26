@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-15 14:16:20 csraghunandan>
+;; Time-stamp: <2017-01-26 13:35:19 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -341,7 +341,7 @@ Inside a code-block, just call `self-insert-command'."
   (use-package org-pomodoro
     :bind ("C-c o p" . org-pomodoro))
 
-  (defun my/copy-id-to-clipboard()
+  (defun rag/copy-id-to-clipboard()
     "Copy the ID property value to killring,
 if no ID is there then create a new unique ID.
 This function works only in org-mode buffers.
@@ -354,7 +354,7 @@ text and copying to the killring."
            (setq mytmpid (funcall 'org-id-get-create))
            (kill-new mytmpid)
            (message "Copied %s to killring (clipboard)" mytmpid)))
-  (bind-key "<f6>" 'my/copy-id-to-clipboard org-mode-map)
+  (bind-key "s-i" 'rag/copy-id-to-clipboard org-mode-map)
 
   (bind-key "C-c h c" 'hydra-org-clock/body org-mode-map)
   (defhydra hydra-org-clock (:color blue
