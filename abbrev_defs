@@ -5,9 +5,7 @@
 
 (define-abbrev-table 'Info-edit-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'awk-mode-abbrev-table '())
 
 (define-abbrev-table 'bmkp-edit-bookmark-record-mode-abbrev-table '())
 
@@ -21,13 +19,9 @@
 
 (define-abbrev-table 'bookmark-show-annotation-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c++-mode-abbrev-table '())
 
-(define-abbrev-table 'c-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'c-mode-abbrev-table '())
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -54,6 +48,10 @@
 (define-abbrev-table 'conf-xdefaults-mode-abbrev-table '())
 
 (define-abbrev-table 'css-mode-abbrev-table '())
+
+(define-abbrev-table 'diary-fancy-display-mode-abbrev-table '())
+
+(define-abbrev-table 'diary-mode-abbrev-table '())
 
 (define-abbrev-table 'diff-mode-abbrev-table '())
 
@@ -233,6 +231,7 @@
     ("calulated" "calculated" nil 0)
     ("candidtae" "candidate" nil 0)
     ("candidtaes" "candidates" nil 0)
+    ("cant" "can't" nil 0)
     ("caontains" "contains" nil 0)
     ("capabilites" "capabilities" nil 0)
     ("catagory" "category" nil 0)
@@ -467,6 +466,7 @@
     ("foudn" "found" nil 0)
     ("foward" "forward" nil 0)
     ("fowards" "forwards" nil 0)
+    ("freightening" "frightening" nil 0)
     ("freind" "friend" nil 0)
     ("freindly" "friendly" nil 0)
     ("freinds" "friends" nil 0)
@@ -527,7 +527,7 @@
     ("howerver" "however" nil 0)
     ("hsa" "has" nil 0)
     ("hsi" "his" nil 0)
-    ("hte" "the" nil 0)
+    ("hte" "the" nil 1)
     ("htere" "there" nil 0)
     ("htese" "these" nil 0)
     ("htey" "they" nil 0)
@@ -959,6 +959,7 @@
     ("udnerstand" "understand" nil 0)
     ("understnad" "understand" nil 0)
     ("undert he" "under the" nil 0)
+    ("unexperienced" "inexperienced" nil 0)
     ("unicode" "Unicode" nil 0)
     ("unitedstates" "United States" nil 0)
     ("unliek" "unlike" nil 0)
@@ -1063,9 +1064,7 @@
 
 (define-abbrev-table 'jade-repl-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'java-mode-abbrev-table '())
 
 (define-abbrev-table 'js-jsx-mode-abbrev-table '())
 
@@ -1119,9 +1118,7 @@
 
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'objc-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
@@ -1129,17 +1126,21 @@
 
 (define-abbrev-table 'org-export-stack-mode-abbrev-table '())
 
-(define-abbrev-table 'org-journal-mode-abbrev-table '())
+(define-abbrev-table 'org-journal-mode-abbrev-table
+  '(
+    ("i" "I" nil 5)
+   ))
 
-(define-abbrev-table 'org-mode-abbrev-table '())
+(define-abbrev-table 'org-mode-abbrev-table
+  '(
+    ("i" "I" nil 0)
+   ))
 
 (define-abbrev-table 'outline-mode-abbrev-table '())
 
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'pike-mode-abbrev-table '())
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 

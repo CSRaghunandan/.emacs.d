@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-26 13:35:19 csraghunandan>
+;; Time-stamp: <2017-01-27 11:14:04 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -29,11 +29,11 @@
   ;; Modules that should always be loaded together with org.el.
   ;; `org-modules' default: '(org-w3m org-bbdb org-bibtex org-docview org-gnus
   ;;                          org-info org-irc org-mhe org-rmail)
-  (setq org-modules '(org-info))
+  (setq org-modules '(org-info org-irc org-drill org-habit))
 
   ;; Set my default org-export backends. This variable needs to be set before
   ;; org.el is loaded.
-  (setq org-export-backends '(ascii html latex))
+  (setq org-export-backends '(ascii html latex md gfm odt))
   ;; Do not open links of mouse left clicks.
   ;; Default behavior caused inline images in org buffers to pop up in their
   ;; own buffers when left clicked on by mistake. I can still intentionally
@@ -333,8 +333,7 @@ Inside a code-block, just call `self-insert-command'."
 
 
   ;; export to github flavored markdown
-  (use-package ox-gfm :defer 5
-    :config (require 'ox-gfm))
+  (use-package ox-gfm)
 
   ;; pomodoro implementation in org
   ;; https://github.com/lolownia/org-pomodoro
