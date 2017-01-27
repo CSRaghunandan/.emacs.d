@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-27 22:24:43 csraghunandan>
+;; Time-stamp: <2017-01-27 22:29:30 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -328,6 +328,9 @@ Execute this command while the point is on or after the hyper-linked org link."
                 ;; "C-c C-l" is bound to `org-insert-link' by default
                 ;; "C-c C-L" is bound to `org-cliplink'
                 ("C-c C-S-l" . org-cliplink)))
+
+  ;; org-download: easily add images to org buffers
+  (use-package org-download)
 
   ;; export to github flavored markdown
   (use-package ox-gfm)
