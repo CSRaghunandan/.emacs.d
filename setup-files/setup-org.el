@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-27 11:14:04 csraghunandan>
+;; Time-stamp: <2017-01-27 22:24:43 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -116,27 +116,19 @@
   (setq org-blank-before-new-entry '((heading)
                                      (plain-list-item)))
 
-  ;; fold / overview  - collapse everything, show only level 1 headlines
-  ;; content          - show only headlines
-  ;; nofold / showall - expand all headlines except the ones with :archive:
-  ;;                    tag and property drawers
-  ;; showeverything   - same as above but without exceptions
-  (setq org-startup-folded 'showall)
+  (bind-key "C-c C-j" 'counsel-org-agenda-headlines org-mode-map)
 
   ;; make tabs act like they would in the major mode for the source block
   (setq org-src-tab-acts-natively t)
 
   ;; enable org-indent mode on startup
   (setq org-startup-indented t)
+
   (use-package org-indent :ensure nil
     :diminish (org-indent-mode . "𝐈"))
 
   ;; strike through done headlines
   (setq org-fontify-done-headline t)
-
-  ;; code to make jump to headline work. C-c C-j.
-  (setq org-goto-interface 'outline-path-completion)
-  ;; org-goto-max-level 10)
 
   ;; Block entries from changing state to DONE while they have children
   ;; that are not DONE - http://orgmode.org/manual/TODO-dependencies.html
@@ -211,29 +203,6 @@ this with to-do items than with projects or headings."
                ("x" . sacha/org-agenda-done)
                ("X" . sacha/org-agenda-mark-done-and-add-followup)
                ("N" . sacha/org-agenda-new))))
-
-    ;;; Org Goto
-  (defun modi/org-goto-override-bindings (&rest _)
-    "Override the bindings set by `org-goto-map' function."
-    (org-defkey org-goto-map "\C-p" #'outline-previous-visible-heading)
-    (org-defkey org-goto-map "\C-n" #'outline-next-visible-heading)
-    (org-defkey org-goto-map "\C-f" #'outline-forward-same-level)
-    (org-defkey org-goto-map "\C-b" #'outline-backward-same-level)
-    org-goto-map)
-  (advice-add 'org-goto-map :after #'modi/org-goto-override-bindings)
-
-  ;; Heading▮   --(C-c C-t)--> * TODO Heading▮
-  ;; * Heading▮ --(C-c C-t)--> * TODO Heading▮
-  (defun modi/org-first-convert-to-heading (orig-fun &rest args)
-    (let ((is-heading))
-      (save-excursion
-        (forward-line 0)
-        (when (looking-at "^\\*")
-          (setq is-heading t)))
-      (unless is-heading
-        (org-toggle-heading))
-      (apply orig-fun args)))
-  (advice-add 'org-todo :around #'modi/org-first-convert-to-heading)
 
   ;; Bind the "org-table-*" command ONLY when the point is in an org table.
   (bind-keys
@@ -331,6 +300,34 @@ Inside a code-block, just call `self-insert-command'."
           (forward-char -1)))))
 
 
+
+  ;; http://emacs.stackexchange.com/a/10712/115
+  (defun modi/org-delete-link ()
+    "Replace an org link of the format [[LINK][DESCRIPTION]] with DESCRIPTION.
+If the link is of the format [[LINK]], delete the whole org link.
+In both the cases, save the LINK to the kill-ring.
+Execute this command while the point is on or after the hyper-linked org link."
+    (interactive)
+    (when (derived-mode-p 'org-mode)
+      (let ((search-invisible t) start end)
+        (save-excursion
+          (when (re-search-backward "\\[\\[" nil :noerror)
+            (when (re-search-forward "\\[\\[\\(.*?\\)\\(\\]\\[.*?\\)*\\]\\]"
+                                     nil :noerror)
+              (setq start (match-beginning 0))
+              (setq end   (match-end 0))
+              (kill-new (match-string-no-properties 1)) ; Save link to kill-ring
+              (replace-regexp "\\[\\[.*?\\(\\]\\[\\(.*?\\)\\)*\\]\\]" "\\2"
+                              nil start end)))))))
+  (bind-key "C-c d l" 'modi/org-delete-link org-mode-map)
+
+  ;;; Org Cliplink
+  ;; https://github.com/rexim/org-cliplink
+  (use-package org-cliplink
+    :bind (:map org-mode-map
+                ;; "C-c C-l" is bound to `org-insert-link' by default
+                ;; "C-c C-L" is bound to `org-cliplink'
+                ("C-c C-S-l" . org-cliplink)))
 
   ;; export to github flavored markdown
   (use-package ox-gfm)
