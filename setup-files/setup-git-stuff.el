@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-05 23:27:54 csraghunandan>
+;; Time-stamp: <2017-01-27 23:49:37 csraghunandan>
 
 ;; magit, git-timemachine, diff-hl
 
@@ -33,6 +33,12 @@
 
   (bind-key "C-c g m" 'git-messenger:popup-message)
   (bind-key "m" 'git-messenger:copy-message git-messenger-map))
+
+;; git-modes - major modes for git config, ignore and attributes files
+;; https://github.com/magit/git-modes
+(use-package gitignore-mode)
+(use-package gitconfig-mode)
+(use-package gitattributes-mode)
 
 (provide 'setup-git-stuff)
 
