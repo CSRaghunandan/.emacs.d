@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-27 22:29:30 csraghunandan>
+;; Time-stamp: <2017-01-28 01:13:34 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -34,11 +34,6 @@
   ;; Set my default org-export backends. This variable needs to be set before
   ;; org.el is loaded.
   (setq org-export-backends '(ascii html latex md gfm odt))
-  ;; Do not open links of mouse left clicks.
-  ;; Default behavior caused inline images in org buffers to pop up in their
-  ;; own buffers when left clicked on by mistake. I can still intentionally
-  ;; open links and such images in new buffers by doing C-c C-o.
-  (setq org-mouse-1-follows-link nil)
 
 
 
@@ -78,7 +73,8 @@
 ;;; Org Variables
   ;; default of 100 fill-column for org-mode
   (add-hook 'org-mode-hook (lambda()
-                             (setq-local fill-column 100)))
+                             (setq-local fill-column 100)
+                             (savehist-mode -1)))
   ;; this looks better in my opinion
   (setq org-ellipsis " ")
   ;; no underlines for org-ellipse

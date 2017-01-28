@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-16 21:19:22 csraghunandan>
+;; Time-stamp: <2017-01-28 00:47:32 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -12,6 +12,7 @@
 
 ;; load directory for configuration files for emacs
 (add-to-list 'load-path (concat user-emacs-directory "setup-files/"))
+(add-to-list 'load-path (concat user-emacs-directory "my-elisp-code"))
 
 ;; set home and emacs directories
 (defvar user-home-directory (concat (getenv "HOME") "/")) ; must end with /

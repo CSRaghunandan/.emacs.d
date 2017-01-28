@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-27 17:08:54 csraghunandan>
+;; Time-stamp: <2017-01-28 00:14:12 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -58,8 +58,6 @@ not prevent downloading the actual packages (obviously)."
 (setq apropos-do-all t)
 ;; always select help window when opened
 (setq-default help-window-select t)
-;; always require a final new line
-(setq-default require-final-newline t)
 ;; garbage collect when focus out
 (add-hook 'focus-out-hook 'garbage-collect)
 ;; make links clickable
