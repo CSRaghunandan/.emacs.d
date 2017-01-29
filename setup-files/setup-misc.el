@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-29 00:57:33 csraghunandan>
+;; Time-stamp: <2017-01-29 14:47:42 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -114,8 +114,6 @@ not prevent downloading the actual packages (obviously)."
 (use-package yaml-mode)
 
 ;; utf-8 everywhere
-;; disable CJK coding/encoding (Chinese/Japanese/Korean characters)
-(setq utf-translate-cjk-mode nil)
 (set-language-environment 'utf-8)
 (setq locale-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)

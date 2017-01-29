@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-11 00:09:47 csraghunandan>
+;; Time-stamp: <2017-01-29 16:46:49 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -43,6 +43,12 @@
                           :foreground "gray55")
       (set-face-attribute 'magit-popup-key nil
                           :foreground "#BFEBBF")))
+
+  ;; strike-through unmatched parenthesis
+  (set-face-attribute 'rainbow-delimiters-unmatched-face nil
+                      :foreground "red"
+                      :inherit 'unspecified
+                      :strike-through t)
 
   ;; remove box face for checkbox
   (eval-after-load "Org"

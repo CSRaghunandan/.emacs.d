@@ -1,16 +1,10 @@
-;; Time-stamp: <2017-01-09 13:37:39 csraghunandan>
+;; Time-stamp: <2017-01-29 16:46:32 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
 (use-package rainbow-delimiters
   :config
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
-  ;; strike-through unmatched parenthesis
-  (set-face-attribute 'rainbow-delimiters-unmatched-face nil
-                      :foreground "red"
-                      :inherit 'unspecified
-                      :strike-through t))
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 ;; better defaults
 ;; disable the ugly toolbar

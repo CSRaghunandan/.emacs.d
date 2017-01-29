@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-28 00:12:11 csraghunandan>
+;; Time-stamp: <2017-01-29 13:52:04 csraghunandan>
 
 ;; configuration for buffers
 
@@ -117,7 +117,7 @@ with prefix, select which buffer to kill"
  ("C-x k" . my-kill-buffer)
  ("C-c m v" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
- ("C-c u" . revert-buffer-no-confirm)
+ ("s-u" . revert-buffer-no-confirm)
  ("C-c s n" . rag/copy-buffer-file-name-as-kill))
 
 ;; diminish auto-revert-mode emacs
@@ -204,7 +204,12 @@ will be killed."
   (message "Finished reverting buffers containing unmodified files."))
 (bind-key "C-c r a" 'modi/revert-all-file-buffers)
 
-(defvar my-skippable-buffers '("*Messages*" "*scratch*" "*Help*" "*Bookmark List*" "*Ibuffer*" "*compilation*")
+(defvar my-skippable-buffers '("*Messages*"
+                               "*scratch*"
+                               "*Help*"
+                               "*Bookmark List*"
+                               "*Ibuffer*"
+                               "*compilation*")
   "Buffer names ignored by `my-next-buffer' and `my-previous-buffer'.")
 
 (defun my-change-buffer (change-buffer)

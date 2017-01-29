@@ -1,15 +1,14 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-01-03 10:43:41 csraghunandan>
+;; Time-stamp: <2017-01-29 14:04:10 csraghunandan>
 
-;; counsel
+;; counsel - ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
-;; provides incremental completion backends for a lot of emacs stuff using ivy
-(use-package counsel :defer t
+(use-package counsel
   :diminish counsel-mode
   :bind*
   (("M-x" . counsel-M-x)
    ("C-x C-f" . counsel-find-file)
-
+   ("M-y" . counsel-yank-pop)
    :map ivy-minibuffer-map
    ("M-y" . ivy-next-line-and-call))
 
@@ -78,7 +77,6 @@
 
   (bind-keys
    ("C-c g g" . counsel-git-grep)
-   ("C-c C-r" . ivy-resume)
    ("C-c f" . counsel-imenu)
    ("C-c F" . ivy-imenu-anywhere)
    ("C-c d s" . describe-symbol)

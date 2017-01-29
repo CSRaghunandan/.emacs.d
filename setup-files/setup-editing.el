@@ -1,7 +1,6 @@
-;; Time-stamp: <2017-01-10 20:28:51 csraghunandan>
-;; all the editing configuration for emacs
+;; Time-stamp: <2017-01-29 14:06:23 csraghunandan>
 
-;; configuration for all the editing stuff in emacs
+;;; configuration for all the editing stuff in emacs
 ;; Kill ring
 (setq kill-ring-max 200
       kill-do-not-save-duplicates t
@@ -9,7 +8,6 @@
 
 ;; cutting and pasting uses primary clipboard
 (setq select-enable-primary t)
-;; cutting and pasting uses the clipboard
 (setq select-enable-clipboard t)
 
 ;; always insert spaces, do not insert tabs
@@ -17,9 +15,8 @@
 (setq-default fill-column 80) ;; default is 70
 
 ;; By default, Emacs thinks a sentence is a full-stop followed by 2 spaces.
-(setq sentence-end-double-space nil)
+(setq-default sentence-end-double-space nil)
 
-;;;; Pull Up Line
 ;; http://emacs.stackexchange.com/q/7519/115
 (defun rag/pull-up-line ()
   "Join the following line onto the current one (analogous to `C-e', `C-d') or
@@ -86,8 +83,7 @@ Position the cursor at it's beginning, according to the current mode."
 ;; https://github.com/purcell/whole-line-or-region/blob/master/whole-line-or-region.el
 (use-package whole-line-or-region
   :diminish whole-line-or-region-mode
-  :config
-  (whole-line-or-region-mode))
+  :config (whole-line-or-region-mode))
 
 
 
@@ -130,7 +126,7 @@ Position the cursor at it's beginning, according to the current mode."
 ;; expand region semantically
 ;; https://www.emacswiki.org/emacs/GotoChg
 (use-package expand-region
-  :bind ("C-c e" . er/expand-region)
+  :bind ("C-=" . er/expand-region)
   :config
   (setq expand-region-contract-fast-key "|")
   (setq expand-region-reset-fast-key "<ESC><ESC>"))
@@ -142,7 +138,7 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; save and restore the previous cursor position when the buffer was killed
 (use-package saveplace
-  :config (save-place-mode 1))
+  :config (save-place-mode))
 
 
 
