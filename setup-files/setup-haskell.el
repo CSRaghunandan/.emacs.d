@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-09 13:29:50 csraghunandan>
+;; Time-stamp: <2017-01-31 02:36:41 csraghunandan>
 
 ;; haskell-mode configuration
 ;; https://github.com/haskell/haskell-mode
@@ -46,7 +46,12 @@
                                                 (smartparens-strict-mode -1)))
       ;; add case splits for simple sum types
       (require 'shm-case-split)
-      (bind-key "C-c |" 'shm/case-split haskell-mode-map))))
+      (bind-key "C-c |" 'shm/case-split haskell-mode-map)))
+
+  ;; enable hlint checker for flycheck
+  (when (executable-find "hlint")
+    (flycheck-add-next-checker 'intero
+                               'haskell-hlint)))
 
 (provide 'setup-haskell)
 
