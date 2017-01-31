@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-16 21:17:28 csraghunandan>
+;; Time-stamp: <2017-01-31 10:28:24 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -8,7 +8,6 @@
                                      web-mode
                                      org-mode
                                      Info-mode
-                                     erc-mode
                                      term-mode
                                      org-journal-mode)))
 
@@ -54,7 +53,7 @@
   (show-smartparens-global-mode +1)
   ;; use default smartparens bindings
   (sp-use-smartparens-bindings)
-  (smartparens-global-mode 1)
+  (smartparens-global-mode)
   (smartparens-global-strict-mode)
 
   (require 'smartparens-config)
@@ -101,10 +100,6 @@ _t_: transpose      _T_: hyb-transpose    _q_: quit
   (setq sp-show-pair-from-inside t)
   ;; show matching paren instantly
   (setq sp-show-pair-delay 0.01)
-  ;; enable smartparens in minibuffer
-  (add-hook 'eval-expression-minibuffer-setup-hook (lambda()
-                                                     (smartparens-mode)
-                                                     (eldoc-mode)))
 
   ;; no more pair mismatch messages
   (setq sp-message-width nil)

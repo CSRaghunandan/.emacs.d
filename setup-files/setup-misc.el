@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-29 14:47:42 csraghunandan>
+;; Time-stamp: <2017-01-31 10:25:22 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -77,16 +77,6 @@ not prevent downloading the actual packages (obviously)."
 
 ;; load bookmark list
 (bookmark-bmenu-list)
-
-;; don't garbage collect when in minibuffer-mode
-(defun my-minibuffer-setup-hook ()
-  (whole-line-or-region-mode))
-
-(defun my-minibuffer-exit-hook ()
-  (whole-line-or-region-mode))
-
-(add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
-(add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
 
 (defun conditional-disable-modes ()
   ;; disable flycheck if file is large (above 2MB)

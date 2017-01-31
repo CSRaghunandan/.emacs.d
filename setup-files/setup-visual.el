@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-29 16:46:32 csraghunandan>
+;; Time-stamp: <2017-01-31 10:30:22 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -11,8 +11,7 @@
 (tool-bar-mode -1)
 ;; ignore bell rings
 (setq ring-bell-function 'ignore)
-;; resize minibuffer window to accommodate text
-(setq resize-mini-window t)
+
 ;; don't show splash screen when starting emacs
 (setq inhibit-splash-screen t)
 ;; don't echo startup message of GNU emacs

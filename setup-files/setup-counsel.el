@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-01-31 09:52:09 csraghunandan>
+;; Time-stamp: <2017-01-31 10:29:37 csraghunandan>
 
 ;; counsel - ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -11,7 +11,7 @@
    :map ivy-minibuffer-map
    ("M-y" . ivy-next-line-and-call))
 
-  :init (counsel-mode 1)
+  :init (counsel-mode)
   :config
   ;; ignore case sensitivity for counsel grep
   (setq counsel-grep-base-command "grep -nEi \"%s\" %s")
