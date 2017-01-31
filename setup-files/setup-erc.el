@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-06 12:30:05 csraghunandan>
+;; Time-stamp: <2017-01-31 11:57:50 csraghunandan>
 
 ;; ERC - the irc client for emacs
 (use-package erc :defer t
@@ -10,31 +10,32 @@
         erc-nick "CSRaghunandan")
   (setq erc-fill-column 100)
 
-  ;; to enable notifications for ERC via terminal-notifier
-  (defvar erc-terminal-notifier-command nil "The path to terminal-notifier.")
-  (setq erc-terminal-notifier-command (executable-find "terminal-notifier"))
+  (when (executable-find "terminal-notifier")
+    ;; to enable notifications for ERC via terminal-notifier
+    (defvar erc-terminal-notifier-command nil "The path to terminal-notifier.")
+    (setq erc-terminal-notifier-command (executable-find "terminal-notifier"))
 
-  (defun erc-terminal-notifier-notify (title message)
-    "Show a message with `terminal-notifier-command`."
-    (start-process "terminal-notifier"
-                   "*terminal-notifier*"
-                   erc-terminal-notifier-command
-                   "-title" title
-                   "-message" message
-                   "-activate" "org.gnu.Emacs"
-                   "-sender" "org.gnu.Emacs"
-                   "-reply"))
+    (defun erc-terminal-notifier-notify (title message)
+      "Show a message with `terminal-notifier-command`."
+      (start-process "terminal-notifier"
+                     "*terminal-notifier*"
+                     erc-terminal-notifier-command
+                     "-title" title
+                     "-message" message
+                     "-activate" "org.gnu.Emacs"
+                     "-sender" "org.gnu.Emacs"
+                     "-reply"))
 
-  (defun erc-terminal-notifier-text-matched (match-type nick message)
-    "Show a notification, when user's nick is mentioned."
-    (when (eq match-type 'current-nick)
-      (unless (posix-string-match "^\\** *Users on #" message)
-        (erc-terminal-notifier-notify
-         (concat "ERC " (buffer-name (current-buffer)))
-         (concat "\\<" (nth 0 (erc-parse-user nick)) "> " message)))))
+    (defun erc-terminal-notifier-text-matched (match-type nick message)
+      "Show a notification, when user's nick is mentioned."
+      (when (eq match-type 'current-nick)
+        (unless (posix-string-match "^\\** *Users on #" message)
+          (erc-terminal-notifier-notify
+           (concat "ERC " (buffer-name (current-buffer)))
+           (concat "\\<" (nth 0 (erc-parse-user nick)) "> " message)))))
 
-  (if (eq system-type 'darwin)
-      (add-hook 'erc-text-matched-hook 'erc-terminal-notifier-text-matched))
+    (if (eq system-type 'darwin)
+        (add-hook 'erc-text-matched-hook 'erc-terminal-notifier-text-matched)))
 
   ;; set directory to save erc log files
   (setq erc-log-channels-directory (concat user-home-directory ".erc/logs/"))
