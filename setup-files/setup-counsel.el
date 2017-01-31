@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-01-29 14:04:10 csraghunandan>
+;; Time-stamp: <2017-01-31 09:52:09 csraghunandan>
 
 ;; counsel - ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -8,7 +8,6 @@
   :bind*
   (("M-x" . counsel-M-x)
    ("C-x C-f" . counsel-find-file)
-   ("M-y" . counsel-yank-pop)
    :map ivy-minibuffer-map
    ("M-y" . ivy-next-line-and-call))
 
