@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 10:25:22 csraghunandan>
+;; Time-stamp: <2017-01-31 11:55:18 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -62,14 +62,6 @@ not prevent downloading the actual packages (obviously)."
 (add-hook 'focus-out-hook 'garbage-collect)
 ;; make links clickable
 (add-hook 'prog-mode-hook 'goto-address-mode)
-
-;; delete files by moving to trash in macOS
-;; https://github.com/lunaryorn/osx-trash.el
-(use-package osx-trash
-  :init
-  (when (eq system-type 'darwin)
-    (osx-trash-setup))
-  (setq delete-by-moving-to-trash t))
 
 ;; view-mode. Used to view long files like `less' command
 (use-package view

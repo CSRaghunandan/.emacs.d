@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 10:35:47 csraghunandan>
+;; Time-stamp: <2017-01-31 12:03:46 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -30,8 +30,7 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
-(when (memq window-system '(mac ns x))
-  (require 'setup-osx))
+(require 'setup-osx)
 (require 'setup-org)
 (require 'setup-backup)
 (require 'setup-region-bindings-mode)
