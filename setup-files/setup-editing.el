@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-29 14:06:23 csraghunandan>
+;; Time-stamp: <2017-01-31 12:14:04 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -419,5 +419,14 @@ This command does the inverse of `fill-region'."
   :diminish undo-tree-mode
   :bind (("s-/" . undo-tree-redo))
   :init (global-undo-tree-mode))
+
+;; utf-8 everywhere
+(set-language-environment 'utf-8)
+(setq locale-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(unless (eq system-type 'windows-nt)
+  (set-selection-coding-system 'utf-8))
+(prefer-coding-system 'utf-8)
 
 (provide 'setup-editing)

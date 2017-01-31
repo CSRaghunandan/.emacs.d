@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 11:55:18 csraghunandan>
+;; Time-stamp: <2017-01-31 12:16:23 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -14,21 +14,6 @@ not prevent downloading the actual packages (obviously)."
       (package-list-packages no-fetch)
       (package-menu-mark-upgrades)
       (package-menu-execute 'noquery))))
-
-(defun sk/insert-date (prefix)
-  "Insert the current date. With prefix-argument, write out the day and month name."
-  (interactive "P")
-  (let ((format (cond
-                 ((not prefix) "%Y-%m-%d")
-                 ((equal prefix '(4)) "%A, %d %B %Y")
-                 ((equal prefix '(16)) "%Y-%m-%d %H:%M:%S"))))
-    (insert (format-time-string format))))
-(bind-key "s-d" 'sk/insert-date)
-
-(use-package calendar :defer t
-  :config
-  ;; Highlight today's date in the calendar
-  (add-hook 'calendar-today-visible-hook 'calendar-mark-today))
 
 ;; to list all the keys-chord not bound to a command
 ;; https://github.com/Fuco1/free-keys
@@ -71,7 +56,7 @@ not prevent downloading the actual packages (obviously)."
 (bookmark-bmenu-list)
 
 (defun conditional-disable-modes ()
-  ;; disable flycheck if file is large (above 2MB)
+  ;; disable heavy minor modes if file is large (above 2MB)
   (when (> (buffer-size) 2000000)
     (flycheck-mode -1)
     (highlight-indent-guides-mode -1)
@@ -94,14 +79,5 @@ not prevent downloading the actual packages (obviously)."
 ;; yaml-mode
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode)
-
-;; utf-8 everywhere
-(set-language-environment 'utf-8)
-(setq locale-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(unless (eq system-type 'windows-nt)
-  (set-selection-coding-system 'utf-8))
-(prefer-coding-system 'utf-8)
 
 (provide 'setup-misc)

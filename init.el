@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 12:03:46 csraghunandan>
+;; Time-stamp: <2017-01-31 12:18:17 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -83,6 +83,7 @@
 (require 'setup-visual)
 (require 'setup-zenburn)
 (require 'setup-misc)
+(require 'setup-calendar)
 (require 'setup-minibuffer)
 (require 'setup-pragmatapro)
 (require 'setup-purescript)
