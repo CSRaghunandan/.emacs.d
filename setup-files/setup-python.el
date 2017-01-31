@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-12-30 17:51:14 csraghunandan>
+;; Time-stamp: <2017-01-31 12:45:39 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -11,6 +11,7 @@
   ;; don't try to guess python indent offset
   (setq python-indent-guess-indent-offset nil)
   (add-hook 'python-mode-hook 'company-mode)
+  (add-hook 'python-mode-hook 'smart-dash-mode)
   (add-hook 'python-mode-hook 'flycheck-mode)
   ;; enable company-mode completions in inferior python process
   (add-hook 'inferior-python-mode-hook 'company-mode)

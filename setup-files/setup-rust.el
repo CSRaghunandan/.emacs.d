@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-06 12:09:14 csraghunandan>
+;; Time-stamp: <2017-01-31 12:42:21 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -34,6 +34,7 @@
     (add-hook 'racer-mode-hook #'eldoc-mode))
 
   (add-hook 'rust-mode-hook 'flycheck-mode)
+  (add-hook 'rust-mode-hook 'smart-dash-mode)
   (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
   (add-hook 'rust-mode-hook #'racer-mode)
 

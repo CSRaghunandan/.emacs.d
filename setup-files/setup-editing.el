@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 12:14:04 csraghunandan>
+;; Time-stamp: <2017-01-31 12:46:19 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -428,5 +428,9 @@ This command does the inverse of `fill-region'."
 (unless (eq system-type 'windows-nt)
   (set-selection-coding-system 'utf-8))
 (prefer-coding-system 'utf-8)
+
+;; smart-dash: underscores without having to press shift modifier for dash key
+(use-package smart-dash
+  :config (require 'smart-dash))
 
 (provide 'setup-editing)
