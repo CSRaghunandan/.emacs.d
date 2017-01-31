@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 10:31:09 csraghunandan>
+;; Time-stamp: <2017-01-31 10:35:47 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -15,8 +15,8 @@
 (add-to-list 'load-path (concat user-emacs-directory "my-elisp-code"))
 
 ;; set home and emacs directories
-(defvar user-home-directory (concat (getenv "HOME") "/")) ; must end with /
-(setq user-emacs-directory (concat user-home-directory ".emacs.d/")) ; must end with /
+(defvar user-home-directory (concat (getenv "HOME") "/"))
+(setq user-emacs-directory (concat user-home-directory ".emacs.d/"))
 
 ;; save custom file to a separate directory
 (setq custom-file (concat user-emacs-directory "my-elisp-code/custom-settings.el"))
@@ -24,10 +24,9 @@
 
 
 
-;; all use packages declarations
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; updage packages archive
-  (package-install 'use-package)) ; and install the most recent version of use-package
+  (package-install 'use-package)) ; install the latest version of use-package
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
@@ -102,4 +101,5 @@
 
 ;; set gc-cons-threshold back to original value
 (setq gc-cons-threshold gc-cons-threshold--orig)
+
 ;;; init.el ends here
