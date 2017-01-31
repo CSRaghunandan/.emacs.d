@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-06 13:04:20 csraghunandan>
+;; Time-stamp: <2017-01-31 09:41:59 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -32,6 +32,12 @@
         highlight-indent-guides-character ?∣)
   ;; make indent guides a bit more brighter
   (setq highlight-indent-guides-auto-character-face-perc 15))
+
+;; num3-mode - highlight groups of 3 numbers
+(use-package num3-mode
+  :diminish (num3-mode . "𝐧")
+  :config
+  (add-hook 'prog-mode-hook 'num3-mode))
 
 ;; colorize color names in buffers
 ;; https://github.com/emacsmirror/rainbow-mode/blob/master/rainbow-mode.el
