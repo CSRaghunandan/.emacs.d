@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 10:30:41 csraghunandan>
+;; Time-stamp: <2017-02-02 20:22:57 csraghunandan>
 
 ;; configuration for minibuffer
 
