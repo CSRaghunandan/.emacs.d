@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-04 01:05:06 csraghunandan>
+;; Time-stamp: <2017-02-04 01:34:29 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -13,9 +13,8 @@
 ;; yahoo-weather
 ;; https://github.com/emacsmirror/yahoo-weather
 (use-package yahoo-weather
-  :init
-  (setq yahoo-weather-location "Mysore")
-  (yahoo-weather-mode))
+  :config
+  (setq yahoo-weather-location "Mysore"))
 
 ;; add all-the-icons support for mode-line
 (use-package spaceline-all-the-icons :after spaceline :ensure nil
