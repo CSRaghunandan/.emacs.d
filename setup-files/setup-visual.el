@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 10:30:22 csraghunandan>
+;; Time-stamp: <2017-02-04 01:18:30 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -103,5 +103,8 @@
 (use-package page-break-lines
   :diminish page-break-lines-mode
   :init (global-page-break-lines-mode))
+
+;; all-the-icons
+(use-package all-the-icons)
 
 (provide 'setup-visual)

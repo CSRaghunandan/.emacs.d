@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-03 11:55:07 csraghunandan>
+;; Time-stamp: <2017-02-03 23:07:51 csraghunandan>
 
 ;; neotree - A emacs tree plugin like NerdTree for Vim
 ;; https://github.com/jaypei/emacs-neotree
@@ -16,8 +16,10 @@
   (setq-default neo-dont-be-alone t)
 
   :config
-  (setq neo-theme 'nerd) ; 'classic, 'nerd, 'ascii, 'arrow
+  ;; add all-the-icons support for neotree
+  (setq neo-theme (if (display-graphic-p) 'icons 'nerd))
 
+  (setq neo-window-width 30)
   ;; show VC status in neotree
   (setq neo-vc-integration '(face char))
 
