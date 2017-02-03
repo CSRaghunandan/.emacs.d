@@ -170,31 +170,6 @@
                   'local-map (make-mode-line-mouse-map 'mouse-1 (lambda () (interactive) (flycheck-list-errors)))))
     :when active :tight t )
 
-(defvar spaceline--upgrades nil)
-(defun spaceline--count-upgrades ()
-  "Function to count the number of package upgrades needed."
-  (let ((buf (current-buffer)))
-    (package-list-packages-no-fetch)
-    (with-current-buffer "*Packages*"
-      (setq spaceline--upgrades (length (package-menu--find-upgrades))))
-    (switch-to-buffer buf)))
-(advice-add 'package-menu-execute :after 'spaceline--count-upgrades)
-
-(spaceline-define-segment
-    ati-package-updates "An `all-the-icons' spaceline segment to indicate number of package updates needed"
-    (let ((num (or spaceline--upgrades (spaceline--count-upgrades))))
-      (propertize
-       (concat
-        (propertize (format "%s" (all-the-icons-octicon "package"))
-                    'face `(:family ,(all-the-icons-octicon-family) :height 1.1 :inherit)
-                    'display '(raise 0.1))
-        (propertize (format " %d updates " num) 'face `(:height 0.9 :inherit) 'display '(raise 0.2)))
-       'help-echo "Open Packages Menu"
-       'mouse-face '(:box 1)
-       'local-map (make-mode-line-mouse-map
-                   'mouse-1 (lambda () (interactive) (package-list-packages)))))
-    :when (and active (> (or spaceline--upgrades (spaceline--count-upgrades)) 0)))
-
 ;;---------------------;;
 ;; Right First Segment ;;
 ;;---------------------;;
@@ -313,7 +288,7 @@ the directions of the separator."
    ((ati-process ati-position ati-region-info) :face highlight-face :separator " | ")
    ati-left-3-separator
    ati-left-inactive-separator
-   ((ati-vc-icon ati-flycheck-status ati-package-updates) :separator " · " :face other-face)
+   ((ati-vc-icon ati-flycheck-status) :separator " · " :face other-face)
    ati-left-4-separator)
 
  '(ati-right-1-separator
