@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-03 10:56:08 csraghunandan>
+;; Time-stamp: <2017-02-03 11:17:50 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -113,6 +113,13 @@ Position the cursor at it's beginning, according to the current mode."
   ;; align-regexp syntax:  align-regexp (beg end regexp &optional group spacing repeat)
   (align-regexp begin end "\\(\\s-+\\)[a-zA-Z0-9=(),?':`\.{}]" 1 1 t)
   (indent-region begin end)) ; indent the region correctly after alignment
+
+(defhydra align-hydra (:color blue)
+  ("r" align-regexp "regexp")
+  ("c" rag/align-columns "column")
+  ("=" rag/align-equals "equals")
+  ("w" rag/align-whitespace "whitespace")
+  ("q" nil "quit"))
 
 (defun rag/kill-rectangle-replace-with-space (start end)
   "Kill the rectangle and replace it with spaces."
