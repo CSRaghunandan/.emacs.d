@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 20:05:39 csraghunandan>
+;; Time-stamp: <2017-02-03 10:57:20 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -51,3 +51,13 @@
     :config (company-statistics-mode)))
 
 (provide 'setup-company)
+
+;;; company-mode
+;; `C-TAB' to complete using company-dabbrev backend
+;; `C-t' to view the documentation of the current completion candidate
+;; `C-w' to jump to the source code of the completion candidate (does not work
+;; with all major-modes)
+;; `C-g' to view the documentation of the current completion candidate in minibuffer
+;; `M-/' to execute `hippie-expand'
+;; Press `0-9' to select that company candidate
+;; Press any non matching character to quit company
