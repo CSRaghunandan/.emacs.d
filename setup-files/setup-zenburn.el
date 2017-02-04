@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-04 01:17:25 csraghunandan>
+;; Time-stamp: <2017-02-04 15:52:29 csraghunandan>
 
 ;; Theme configuration for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -59,25 +59,27 @@
       (set-face-attribute  'org-priority nil
                           :foreground "gray70" :weight 'bold :inherit nil)))
 
-  (set-face-attribute 'mode-line-inactive nil
-                      :weight 'bold :foreground "gray70"
+  ;; make mode line simple and easy on the eyes
+  (set-face-attribute 'mode-line nil
+                      :box '(:line-width 2 :color "gray30")
+                      :weight 'bold :foreground "#BFEBBF"
                       :background "gray30")
+  (set-face-attribute 'mode-line-inactive nil
+                      :box '(:line-width 2 :color "gray20")
+                      :weight 'normal :foreground "gray70"
+                      :background "gray20")
   (set-face-attribute 'powerline-active2 nil
                       :background "gray30")
   (set-face-attribute 'powerline-active1 nil
                       :background "gray30" :weight 'bold)
+  (set-face-attribute 'mode-line-buffer-id nil
+                      :foreground "#FFECBA" :weight 'bold)
 
-  (set-face-attribute 'powerline-inactive1 nil
-                      :background "gray30" :weight 'bold)
-
+  ;; dim inactive modeline
   (set-face-attribute 'powerline-inactive2 nil
-                      :background "gray30" :weight 'bold)
-
-  (set-face-attribute 'mode-line nil
-                      :box nil :weight 'bold
-                      :foreground "#BFEBBF")
-
-  (set-face-attribute 'mode-line-inactive nil :box nil)
+                      :background "gray20")
+  (set-face-attribute 'powerline-inactive1 nil
+                      :background "gray20")
 
   ;; contrasting colors for ivy minibuffer match results
   (set-face-attribute 'ivy-minibuffer-match-face-4 nil

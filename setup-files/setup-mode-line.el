@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-04 01:34:29 csraghunandan>
+;; Time-stamp: <2017-02-04 15:22:21 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -8,22 +8,33 @@
 
 ;; powerline - a better looking mode line for emacs
 ;; https://github.com/milkypostman/powerline
-(use-package powerline)
-
-;; yahoo-weather
-;; https://github.com/emacsmirror/yahoo-weather
-(use-package yahoo-weather
+(use-package powerline
   :config
-  (setq yahoo-weather-location "Mysore"))
+  (setq powerline-default-separator 'utf-8)
 
-;; add all-the-icons support for mode-line
-(use-package spaceline-all-the-icons :after spaceline :ensure nil
-  :load-path "~/.emacs.d/my-elisp-code/spaceline-all-the-icons.el")
+  ;; spaceline theme for powerline
+  ;; https://github.com/TheBB/spaceline
+  (use-package spaceline
+    :config
+    (require 'spaceline-config)
+    (spaceline-spacemacs-theme)
+    (spaceline-info-mode)
+    (spaceline-toggle-anzu-off)
+    (spaceline-toggle-selection-info-off)
+    (spaceline-toggle-hud-off)
+    (spaceline-toggle-buffer-modified-on)
+    (spaceline-toggle-buffer-size-off)
+    (spaceline-toggle-erc-track-on)
+    (spaceline-toggle-line-column-off)
+    (setq spaceline-minor-modes-separator " ")
 
-;; spaceline - A powerline theme
-;; https://github.com/TheBB/spaceline
-(use-package spaceline :after powerline
-  :config (setq-default mode-line-format '("%e" (:eval (spaceline-ml-ati)))))
+    (spaceline-define-segment narrow
+      "Display Narrowed when buffer is narrowed."
+      (when (buffer-narrowed-p)
+        "narrow"))
+
+    ;; show projectile project root and indicate when narrowed
+    (spaceline-spacemacs-theme '(narrow projectile-root line ":" column))))
 
 ;; diminish eldoc-mode in mode-line
 (use-package eldoc
