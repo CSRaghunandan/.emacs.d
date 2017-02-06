@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-06 21:02:41 csraghunandan>
+;; Time-stamp: <2017-02-06 21:28:37 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -10,7 +10,7 @@
 ;; https://github.com/milkypostman/powerline
 (use-package powerline
   :config
-  (setq powerline-default-separator 'utf-8)
+  (setq powerline-default-separator nil)
 
   ;; spaceline theme for powerline
   ;; https://github.com/TheBB/spaceline
@@ -26,7 +26,7 @@
     (spaceline-toggle-buffer-size-off)
     (spaceline-toggle-erc-track-on)
     (spaceline-toggle-line-column-off)
-    (setq spaceline-minor-modes-separator " ")
+    (spaceline-toggle-minor-modes-off)
 
     (spaceline-define-segment narrow
       "Display Narrowed when buffer is narrowed."
@@ -46,5 +46,6 @@
         (setq mode-name ,new-name))))
 
 (rename-modeline "js2-mode" js2-mode "JS2")
+(rename-modeline "haskell-mode" haskell-mode "𝞴=")
 
 (provide 'setup-mode-line)

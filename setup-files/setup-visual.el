@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-04 01:18:30 csraghunandan>
+;; Time-stamp: <2017-02-06 21:09:09 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -71,8 +71,7 @@
       )
 
 ;; make sure emacsclient starts at fullscreen
-(setq default-frame-alist
-      `((fullscreen . maximized)))
+(setq default-frame-alist `((fullscreen . maximized)))
 
 ;; set PragmataPro font only if it available
 (defun rag-set-face (frame)
