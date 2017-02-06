@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-04 15:22:21 csraghunandan>
+;; Time-stamp: <2017-02-06 11:13:01 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -37,7 +37,6 @@
     (spaceline-spacemacs-theme '(narrow projectile-root line ":" column))))
 
 ;; diminish eldoc-mode in mode-line
-(use-package eldoc
-  :diminish eldoc-mode)
+(use-package eldoc :diminish eldoc-mode)
 
 (provide 'setup-mode-line)

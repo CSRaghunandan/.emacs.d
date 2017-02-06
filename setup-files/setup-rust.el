@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 12:42:21 csraghunandan>
+;; Time-stamp: <2017-02-06 12:16:36 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -80,11 +80,21 @@ foo -> &foo[..]"
     (forward-symbol 1)
     (insert "[..]"))
 
+  (require 'which-func)
+
+  (defun wh/rust-run-test ()
+    "Run the test at point."
+    (interactive)
+    (let ((defualt-directory (projectile-project-root)))
+      (compilation-start
+       (format "cargo test %s" (which-function)))))
+
   (bind-keys
    :map rust-mode-map
    ("C-c v t" . wh/rust-toggle-visibility)
    ("C-c m t" . wh/rust-toggle-mutability)
-   ("C-c v s" . wh/rust-vec-as-slice))
+   ("C-c v s" . wh/rust-vec-as-slice)
+   ("C-c r t" . wh/rust-run-test))
 
   ;; rust-playground
   ;; https://github.com/grafov/rust-playground

@@ -17,6 +17,7 @@
         sp-kill-hybrid-sexp
         sp-kill-sexp
         sp-kill-word
+        wgrep-finish-edit
         ))
 
 (setq mc/cmds-to-run-once
