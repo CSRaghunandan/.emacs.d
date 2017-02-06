@@ -5,7 +5,9 @@
 
 (define-abbrev-table 'Info-edit-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table '())
+(define-abbrev-table 'awk-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'bmkp-edit-bookmark-record-mode-abbrev-table '())
 
@@ -19,9 +21,13 @@
 
 (define-abbrev-table 'bookmark-show-annotation-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table '())
+(define-abbrev-table 'c++-mode-abbrev-table
+  '(
+   ))
 
-(define-abbrev-table 'c-mode-abbrev-table '())
+(define-abbrev-table 'c-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -55,6 +61,8 @@
 
 (define-abbrev-table 'diff-mode-abbrev-table '())
 
+(define-abbrev-table 'dig-mode-abbrev-table '())
+
 (define-abbrev-table 'display-time-world-mode-abbrev-table '())
 
 (define-abbrev-table 'doctex-mode-abbrev-table '())
@@ -71,13 +79,33 @@
 
 (define-abbrev-table 'epa-key-mode-abbrev-table '())
 
+(define-abbrev-table 'erc-list-menu-mode-abbrev-table '())
+
+(define-abbrev-table 'erc-mode-abbrev-table '())
+
 (define-abbrev-table 'eshell-mode-abbrev-table '())
+
+(define-abbrev-table 'eww-bookmark-mode-abbrev-table '())
+
+(define-abbrev-table 'eww-buffers-mode-abbrev-table '())
+
+(define-abbrev-table 'eww-history-mode-abbrev-table '())
+
+(define-abbrev-table 'eww-mode-abbrev-table '())
 
 (define-abbrev-table 'flycheck-error-list-mode-abbrev-table '())
 
 (define-abbrev-table 'free-keys-mode-abbrev-table '())
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
+
+(define-abbrev-table 'gfm-mode-abbrev-table '())
+
+(define-abbrev-table 'gitattributes-mode-abbrev-table '())
+
+(define-abbrev-table 'gitconfig-mode-abbrev-table '())
+
+(define-abbrev-table 'gitignore-mode-abbrev-table '())
 
 (define-abbrev-table 'global-abbrev-table
   '(
@@ -410,7 +438,7 @@
     ("eforts" "efforts" nil 0)
     ("ehr" "her" nil 0)
     ("eligable" "eligible" nil 0)
-    ("emacs" "Emacs" nil 0)
+    ("emacs" "Emacs" nil 4)
     ("embarass" "embarrass" nil 0)
     ("emigre" "emigre" nil 0)
     ("enahancements" "enhancements" nil 0)
@@ -787,6 +815,7 @@
     ("reluctent" "reluctant" nil 0)
     ("remeber" "remember" nil 0)
     ("reommend" "recommend" nil 0)
+    ("reprenests" "represents" nil 0)
     ("representativs" "representatives" nil 0)
     ("representives" "representatives" nil 0)
     ("represetned" "represented" nil 0)
@@ -1030,6 +1059,14 @@
     ("yuor" "your" nil 1)
    ))
 
+(define-abbrev-table 'gnus-article-edit-mode-abbrev-table '())
+
+(define-abbrev-table 'gnus-article-mode-abbrev-table '())
+
+(define-abbrev-table 'gnus-group-mode-abbrev-table '())
+
+(define-abbrev-table 'gnus-sticky-article-mode-abbrev-table '())
+
 (define-abbrev-table 'grep-mode-abbrev-table '())
 
 (define-abbrev-table 'haskell-cabal-mode-abbrev-table '())
@@ -1064,7 +1101,9 @@
 
 (define-abbrev-table 'jade-repl-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table '())
+(define-abbrev-table 'java-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'js-jsx-mode-abbrev-table '())
 
@@ -1114,11 +1153,15 @@
 
 (define-abbrev-table 'magit-status-mode-abbrev-table '())
 
+(define-abbrev-table 'markdown-mode-abbrev-table '())
+
 (define-abbrev-table 'message-mode-abbrev-table '())
 
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table '())
+(define-abbrev-table 'objc-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
@@ -1140,7 +1183,9 @@
 
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table '())
+(define-abbrev-table 'pike-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
@@ -1149,6 +1194,8 @@
 (define-abbrev-table 'prog-mode-abbrev-table '())
 
 (define-abbrev-table 'purescript-mode-abbrev-table '())
+
+(define-abbrev-table 'quickrun--mode-abbrev-table '())
 
 (define-abbrev-table 'quickrun/mode-abbrev-table '())
 
@@ -1176,7 +1223,13 @@
 
 (define-abbrev-table 'shm-edit-string-mode-abbrev-table '())
 
+(define-abbrev-table 'skewer-clients-mode-abbrev-table '())
+
+(define-abbrev-table 'skewer-error-mode-abbrev-table '())
+
 (define-abbrev-table 'slitex-mode-abbrev-table '())
+
+(define-abbrev-table 'smime-mode-abbrev-table '())
 
 (define-abbrev-table 'snippet-mode-abbrev-table '())
 

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-06 11:13:01 csraghunandan>
+;; Time-stamp: <2017-02-06 21:02:41 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -38,5 +38,13 @@
 
 ;; diminish eldoc-mode in mode-line
 (use-package eldoc :diminish eldoc-mode)
+
+;; macro to rename mode-name for major-modes
+(defmacro rename-modeline (package-name mode new-name)
+  `(eval-after-load ,package-name
+     '(defadvice ,mode (after rename-modeline activate)
+        (setq mode-name ,new-name))))
+
+(rename-modeline "js2-mode" js2-mode "JS2")
 
 (provide 'setup-mode-line)

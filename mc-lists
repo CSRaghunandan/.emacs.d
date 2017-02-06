@@ -17,6 +17,7 @@
         sp-kill-hybrid-sexp
         sp-kill-sexp
         sp-kill-word
+        undefined
         wgrep-finish-edit
         ))
 
