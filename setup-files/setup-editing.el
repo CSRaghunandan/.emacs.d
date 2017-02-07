@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-03 11:17:50 csraghunandan>
+;; Time-stamp: <2017-02-07 11:17:18 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -301,6 +301,43 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
                    ("d"     modi/downcase)
                    ("<SPC>" xah-cycle-letter-case :color red)
                    ("q"     nil "cancel" :color blue)))
+
+
+
+(defvar yank-indent-modes '(js2-mode
+                            emacs-lisp-mode
+                            rust-mode
+                            web-mode
+                            css-mode
+                            python-mode
+                            cc-mode
+                            c-mode
+                            racket-mode)
+  "Modes in which to indent regions that are yanked (or yank-popped)")
+
+(defvar yank-advised-indent-threshold 5000
+  "Threshold (# chars) over which indentation does not automatically occur.")
+
+(defun yank-advised-indent-function (beg end)
+  "Do indentation, as long as the region isn't too large."
+  (if (<= (- end beg) yank-advised-indent-threshold)
+      (indent-region beg end nil)))
+
+(defadvice yank (after yank-indent activate)
+  "If current mode is one of 'yank-indent-modes, indent yanked text
+(with prefix arg don't indent)."
+  (if (and (not (ad-get-arg 0))
+           (--any? (derived-mode-p it) yank-indent-modes))
+      (let ((transient-mark-mode nil))
+        (yank-advised-indent-function (region-beginning) (region-end)))))
+
+(defadvice yank-pop (after yank-pop-indent activate)
+  "If current mode is one of 'yank-indent-modes, indent yanked text
+(with prefix arg don't indent)."
+  (if (and (not (ad-get-arg 0))
+           (member major-mode yank-indent-modes))
+      (let ((transient-mark-mode nil))
+        (yank-advised-indent-function (region-beginning) (region-end)))))
 
 
 
