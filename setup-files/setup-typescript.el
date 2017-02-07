@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-07 12:28:49 csraghunandan>
+;; Time-stamp: <2017-02-07 15:00:02 csraghunandan>
 
 ;; typescript config
 
@@ -7,24 +7,26 @@
 (use-package typescript-mode
   :config
 
-  (add-hook 'typescript-mode-hook #'flycheck-mode)
-  (add-hook 'typescript-mode-hook #'eldoc-mode)
-
   ;; tide: TypeScript Interactive Development Environment for Emacs
   ;; https://github.com/ananthakumaran/tide
   (use-package tide
     :config
 
-    (defun my-typescript-mode-hook ()
+    (defun my-tide-setup-hook ()
       ;; configure tide
       (tide-setup)
       ;; highlight identifiers
       (tide-hl-identifier-mode +1)
+      ;;enable eldoc-mode
+      (eldoc-mode)
+      ;; enable flycheck
+      (flycheck-mode)
+
       ;; company-backends setup
       (set (make-local-variable 'company-backends)
            '((company-tide company-files company-yasnippet))))
 
-    (add-hook 'typescript-mode-hook #'my-typescript-mode-hook)
+    (add-hook 'typescript-mode-hook #'my-tide-setup-hook)
     (add-hook 'typescript-mode-hook #'company-mode)
     (add-hook 'typescript-mode-hook
               (lambda ()
