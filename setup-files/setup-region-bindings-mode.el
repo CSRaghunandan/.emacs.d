@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-03 11:18:18 csraghunandan>
+;; Time-stamp: <2017-02-07 10:58:56 csraghunandan>
 
 ;; Region Bindings Mode
 ;; https://github.com/fgallina/region-bindings-mode
@@ -16,7 +16,7 @@
    ("w" . kill-region)
    ("c" . copy-region-as-kill)
    ("d" . duplicate-current-line-or-region)
-   ("N" . rag/narrow-or-widen-dwim)
+   ("W" . rag/narrow-or-widen-dwim)
    ("E" . eval-region)
    ("e" . er/expand-region)
    ("f" . fill-region)
