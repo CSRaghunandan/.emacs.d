@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-07 11:05:20 csraghunandan>
+;; Time-stamp: <2017-02-07 11:56:39 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -43,6 +43,7 @@
         (setq mode-name ,new-name))))
 
 (rename-modeline "js2-mode" js2-mode "JS2")
+(rename-modeline "typescript-mode" typescript-mode "TS")
 (rename-modeline "haskell-mode" haskell-mode "𝞴=")
 
 (provide 'setup-mode-line)
