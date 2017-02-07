@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-07 11:17:18 csraghunandan>
+;; Time-stamp: <2017-02-07 15:06:58 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -312,7 +312,8 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
                             python-mode
                             cc-mode
                             c-mode
-                            racket-mode)
+                            racket-mode
+                            typescript-mode)
   "Modes in which to indent regions that are yanked (or yank-popped)")
 
 (defvar yank-advised-indent-threshold 5000
