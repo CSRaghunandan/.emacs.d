@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-07 19:37:40 csraghunandan>
+;; Time-stamp: <2017-02-08 00:45:24 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -23,6 +23,9 @@
 (load custom-file :noerror :nomessage) ; load custom-file silently
 
 
+
+;; add imenu support for use-package declarations
+(setq use-package-enable-imenu-support t)
 
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; updage packages archive
