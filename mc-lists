@@ -10,6 +10,7 @@
         mwim-beginning-of-code-or-line
         mwim-end-of-code-or-line
         org-self-insert-command
+        recursive-widen
         shm/space
         sp-backward-delete-char
         sp-backward-kill-word
