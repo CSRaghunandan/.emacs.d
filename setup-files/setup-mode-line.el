@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-06 21:28:37 csraghunandan>
+;; Time-stamp: <2017-02-07 11:05:20 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -20,12 +20,9 @@
     (spaceline-spacemacs-theme)
     (spaceline-info-mode)
     (spaceline-toggle-anzu-off)
-    (spaceline-toggle-selection-info-off)
     (spaceline-toggle-hud-off)
     (spaceline-toggle-buffer-modified-on)
-    (spaceline-toggle-buffer-size-off)
     (spaceline-toggle-erc-track-on)
-    (spaceline-toggle-line-column-off)
     (spaceline-toggle-minor-modes-off)
 
     (spaceline-define-segment narrow
@@ -34,7 +31,7 @@
         "narrow"))
 
     ;; show projectile project root and indicate when narrowed
-    (spaceline-spacemacs-theme '(narrow projectile-root line ":" column))))
+    (spaceline-spacemacs-theme '(narrow projectile-root))))
 
 ;; diminish eldoc-mode in mode-line
 (use-package eldoc :diminish eldoc-mode)
