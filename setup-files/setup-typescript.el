@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-07 11:54:15 csraghunandan>
+;; Time-stamp: <2017-02-07 12:28:49 csraghunandan>
 
 ;; typescript config
 
@@ -31,6 +31,10 @@
                 (add-hook 'before-save-hook
                           (lambda()
                             (time-stamp)
-                            (tide-format-before-save)) nil t)))))
+                            (tide-format-before-save)) nil t)))
+
+    ;; add tslint checker for flycheck
+    (flycheck-add-next-checker 'typescript-tide
+                               'typescript-tslint)))
 
 (provide 'setup-typescript)
