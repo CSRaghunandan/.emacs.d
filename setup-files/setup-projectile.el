@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-01-06 11:11:27 csraghunandan>
+;; Time-stamp: <2017-02-08 11:36:50 csraghunandan>
 
-;; Projectile
+;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
 (use-package projectile
   :diminish projectile-mode
@@ -9,7 +9,8 @@
         projectile-enable-caching t)
 
   ;; ignore stack directory as projectile project
-  (add-to-list 'projectile-ignored-projects (concat user-home-directory ".stack/global-project/"))
+  (add-to-list 'projectile-ignored-projects
+               (concat user-home-directory ".stack/global-project/"))
 
   ;; ignore all projects under exercism directory
   (require 'f)
@@ -24,10 +25,10 @@
   (when (executable-find "rg")
     (progn
       (defconst modi/rg-arguments
-        `("--line-number"                     ; line numbers
+        `("--line-number" ; line numbers
           "--smart-case"
-          "--follow"                          ; follow symlinks
-          "--mmap")                           ; apply memory map optimization when possible
+          "--follow" ; follow symlinks
+          "--mmap") ; apply memory map optimization when possible
         "Default rg arguments used in the functions in `projectile' package.")
 
       (defun modi/advice-projectile-use-rg ()
@@ -39,7 +40,8 @@
                              "--files")) ; get file names matching the regex '' (all files)
                    " "))
 
-      (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)))
+      (advice-add 'projectile-get-ext-command
+                  :override #'modi/advice-projectile-use-rg)))
 
 
   ;; Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
@@ -62,11 +64,13 @@
         ;; Also make sure that duplicate instance of the project name in form of symlink
         ;; name, true name and abbreviated name, if any, are also removed.
         (setq projectile-known-projects
-              (delete prj (delete prj-true (delete prj-abbr projectile-known-projects))))
+              (delete prj (delete prj-true
+                                  (delete prj-abbr projectile-known-projects))))
         ;; Then add back only the abbreviated true name to the beginning of
         ;; `projectile-known-projects'.
         (add-to-list 'projectile-known-projects prj-abbr))))
-  (add-hook 'projectile-after-switch-project-hook #'modi/projectile-known-projects-sort)
+  (add-hook 'projectile-after-switch-project-hook
+            #'modi/projectile-known-projects-sort)
 
   (defun modi/kill-non-project-buffers (&optional kill-special)
     "Kill buffers that do not belong to a `projectile' project.
@@ -84,7 +88,7 @@ With prefix argument (`C-u'), also kill the special buffers."
                 (message "Killing buffer %s" buf-name)
                 (kill-buffer buf))))))))
 
-  (bind-keys*
+  (bind-keys
    ("C-c p K" . modi/kill-non-project-buffers)
    ("C-c h p" . hydra-projectile/body)
    ("C-c p r" . projectile-replace-regexp))
