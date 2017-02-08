@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-08 11:36:50 csraghunandan>
+;; Time-stamp: <2017-02-08 11:38:54 csraghunandan>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
@@ -97,11 +97,11 @@ With prefix argument (`C-u'), also kill the special buffers."
 
   (defhydra hydra-projectile-other-window (:color teal)
     "projectile-other-window"
-    ("f"  projectile-find-file-other-window        "file")
-    ("g"  projectile-find-file-dwim-other-window   "file dwim")
-    ("d"  projectile-find-dir-other-window         "dir")
-    ("b"  projectile-switch-to-buffer-other-window "buffer")
-    ("q"  nil                                      "cancel" :color blue))
+    ("f" projectile-find-file-other-window "file")
+    ("g" projectile-find-file-dwim-other-window "file dwim")
+    ("d" projectile-find-dir-other-window "dir")
+    ("b" projectile-switch-to-buffer-other-window "buffer")
+    ("q" nil "cancel" :color blue))
 
   (defhydra hydra-projectile (:color teal
                                      :hint  nil)
@@ -115,35 +115,35 @@ _f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer         
 ^^    _r_: recent file        _G_: git-grep          ^^^^                             _z_: cache current
 ^^    _D_: dir                _R_: counsel-rg-root
 "
-    ("r"   counsel-rg)
-    ("R"   rag/counsel-rg-project-at-point)
-    ("G"   counsel-git-grep)
-    ("b"   projectile-switch-to-buffer)
-    ("c"   projectile-invalidate-cache)
-    ("d"   projectile-find-file-in-directory)
-    ("f"   projectile-find-file)
+    ("r" counsel-rg)
+    ("R" rag/counsel-rg-project-at-point)
+    ("G" counsel-git-grep)
+    ("b" projectile-switch-to-buffer)
+    ("c" projectile-invalidate-cache)
+    ("d" projectile-find-file-in-directory)
+    ("f" projectile-find-file)
     ("s-f" projectile-find-file)
-    ("F"   projectile-find-file-dwim)
-    ("D"   projectile-find-dir)
-    ("E"   projectile-edit-dir-locals)
-    ("g"   ggtags-update-tags)
-    ("i"   projectile-ibuffer)
-    ("K"   projectile-kill-buffers)
+    ("F" projectile-find-file-dwim)
+    ("D" projectile-find-dir)
+    ("E" projectile-edit-dir-locals)
+    ("g" ggtags-update-tags)
+    ("i" projectile-ibuffer)
+    ("K" projectile-kill-buffers)
     ("s-k" projectile-kill-buffers)
-    ("m"   projectile-multi-occur)
-    ("o"   projectile-multi-occur)
-    ("p"   projectile-switch-project)
+    ("m" projectile-multi-occur)
+    ("o" projectile-multi-occur)
+    ("p" projectile-switch-project)
     ("s-p" projectile-switch-project)
-    ("P"   projectile-switch-open-project)
-    ("s"   projectile-switch-project)
-    ("r"   projectile-recentf)
-    ("x"   projectile-remove-known-project)
-    ("X"   projectile-cleanup-known-projects)
-    ("z"   projectile-cache-current-file)
-    ("4"   hydra-projectile-other-window/body "other window")
-    ("q"   nil "cancel" :color blue))
+    ("P" projectile-switch-open-project)
+    ("s" projectile-switch-project)
+    ("r" projectile-recentf)
+    ("x" projectile-remove-known-project)
+    ("X" projectile-cleanup-known-projects)
+    ("z" projectile-cache-current-file)
+    ("4" hydra-projectile-other-window/body "other window")
+    ("q" nil "cancel" :color blue))
 
-  (projectile-mode +1))
+  (projectile-mode))
 
 (provide 'setup-projectile)
 

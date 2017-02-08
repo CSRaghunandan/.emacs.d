@@ -1,8 +1,8 @@
-;; Time-stamp: <2017-02-06 12:16:36 csraghunandan>
+;; Time-stamp: <2017-02-08 11:42:19 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
-;; rust-mode
+;; rust-mode: major-mode for editing rust files
 ;; https://github.com/rust-lang/rust-mode
 (use-package rust-mode
   :config
@@ -81,7 +81,6 @@ foo -> &foo[..]"
     (insert "[..]"))
 
   (require 'which-func)
-
   (defun wh/rust-run-test ()
     "Run the test at point."
     (interactive)
@@ -100,7 +99,6 @@ foo -> &foo[..]"
   ;; https://github.com/grafov/rust-playground
   (use-package rust-playground
     :bind (("C-c r p" . rust-playground))
-    :config
-    (setq rust-playground-basedir "~/Code-files/rust/playground/")))
+    :config (setq rust-playground-basedir "~/Code-files/rust/playground/")))
 
 (provide 'setup-rust)
