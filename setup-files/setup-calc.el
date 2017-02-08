@@ -1,7 +1,7 @@
-;; Time-stamp: <2017-01-02 20:11:43 csraghunandan>
+;; Time-stamp: <2017-02-08 11:19:20 csraghunandan>
 
 ;; calc config
-(use-package calc :defer t
+(use-package calc
   :bind (("C-x c" . calc)
           ("C-x ," . quick-calc))
   :config

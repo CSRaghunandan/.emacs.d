@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 12:45:39 csraghunandan>
+;; Time-stamp: <2017-02-08 11:29:13 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -34,7 +34,7 @@
            '((company-anaconda company-files company-yasnippet))))
     (add-hook 'python-mode-hook 'my-anaconda-mode-hook))
 
-  ;; for testing python code
+  ;; pytest: for testing python code
   ;; https://github.com/ionrock/pytest-el
   (use-package pytest :defer t)
 

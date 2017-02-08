@@ -1,6 +1,6 @@
-;; Time-stamp: <2016-12-30 18:30:50 csraghunandan>
+;; Time-stamp: <2017-02-08 11:21:49 csraghunandan>
 
-;; racket-mode
+;; racket-mode: major mode for editing racket files
 ;; https://github.com/greghendershott/racket-mode
 (use-package racket-mode
   :config

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-28 23:24:00 csraghunandan>
+;; Time-stamp: <2017-02-08 11:22:22 csraghunandan>
 
 ;; swiper - isearch with an overview!
 ;; https://github.com/abo-abo/swiper
@@ -8,8 +8,7 @@
   :bind
   (("C-s" . counsel-grep-or-swiper)
    ("C-S-s" . swiper-all))
-  :config
-  (setq swiper-action-recenter t))
+  :config (setq swiper-action-recenter t))
 
 (provide 'setup-swiper)
 

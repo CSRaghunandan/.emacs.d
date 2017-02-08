@@ -1,7 +1,6 @@
-;; Time-stamp: <2016-12-21 22:00:25 csraghunandan>
+;; Time-stamp: <2017-02-08 11:26:23 csraghunandan>
 
-;; ediff
-;; show the difference between two files intearctively
+;; ediff: show the difference between two files intearctively
 (use-package ediff
   :config
   ;; No separate frame for ediff control buffer

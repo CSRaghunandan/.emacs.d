@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-15 12:55:32 csraghunandan>
+;; Time-stamp: <2017-02-08 11:29:59 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -58,7 +58,7 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   ("q" nil :color blue))
 (bind-key "M-m" 'hydra-move/body)
 
-;; move to the beginning or end of line smartly
+;; mwim: move to the beginning or end of line smartly
 ;; https://github.com/alezost/mwim.el
 (use-package mwim
   :bind (:map prog-mode-map

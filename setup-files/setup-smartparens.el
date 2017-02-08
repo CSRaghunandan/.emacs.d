@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 10:28:24 csraghunandan>
+;; Time-stamp: <2017-02-08 11:24:40 csraghunandan>
 
 ;; smartparens - for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -23,17 +23,17 @@
                        (&optional arg)
                      (interactive "p")
                      (sp-wrap-with-pair ,val)))))
-  (def-pairs ((paren        . "(")
-              (bracket      . "[")
-              (brace        . "{")
+  (def-pairs ((paren . "(")
+              (bracket . "[")
+              (brace . "{")
               (single-quote . "'")
               (double-quote . "\"")
               (back-quote . "`")))
 
   (bind-keys
    :map smartparens-mode-map
-   ("C-k"   . sp-kill-hybrid-sexp)
-   ("M-k"   . sp-kill-whole-line)
+   ("C-k" . sp-kill-hybrid-sexp)
+   ("M-k" . sp-kill-whole-line)
    ("C-c R" . sp-rewrap-sexp)
 
    ("M-[" . sp-backward-unwrap-sexp)
@@ -42,10 +42,10 @@
    ("C-c s j" . sp-join-sexp)
    ("C-c s s" . sp-split-sexp)
 
-   ("C-c )"  . wrap-with-parens)
-   ("C-c ]"  . wrap-with-brackets)
-   ("C-c }"  . wrap-with-braces)
-   ("C-c '"  . wrap-with-single-quotes)
+   ("C-c )" . wrap-with-parens)
+   ("C-c ]" . wrap-with-brackets)
+   ("C-c }" . wrap-with-braces)
+   ("C-c '" . wrap-with-single-quotes)
    ("C-c \"" . wrap-with-double-quotes)
    ("C-c `" . wrap-with-back-quotes))
 
@@ -59,7 +59,7 @@
   (require 'smartparens-config)
 
   ;; indent with braces for C like languages
-  (sp-with-modes '(rust-mode js2-mode css-mode web-mode)
+  (sp-with-modes '(rust-mode js2-mode css-mode web-mode typescript-mode)
     (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
     (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
                                               ("* ||\n[i]" "RET"))))
@@ -106,8 +106,8 @@ _t_: transpose      _T_: hyb-transpose    _q_: quit
   (setq sp-cancel-autoskip-on-backward-movement nil)
 
   ;; fix smartparens-strict-mode and hungry-delete conflict
-  (dolist (key '( [remap delete-char]
-                  [remap delete-forward-char]))
+  (dolist (key '([remap delete-char]
+                 [remap delete-forward-char]))
 
     (define-key smartparens-strict-mode-map key
       '(menu-item "maybe-sp-delete-char" nil
