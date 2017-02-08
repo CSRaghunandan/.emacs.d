@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-06 21:09:09 csraghunandan>
+;; Time-stamp: <2017-02-08 11:07:31 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -7,11 +7,6 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 ;; better defaults
-;; disable the ugly toolbar
-(tool-bar-mode -1)
-;; ignore bell rings
-(setq ring-bell-function 'ignore)
-
 ;; don't show splash screen when starting emacs
 (setq inhibit-splash-screen t)
 ;; don't echo startup message of GNU emacs
@@ -53,12 +48,17 @@
 ;; Show a random programming quote in scratch buffer
 (random-choice programming-quotes)
 
+
+
+;;; all frame related settings
 ;; cursor settings
 (setq-default cursor-type '(bar . 1))
 ;; disable annoying cursor blinks
 (blink-cursor-mode -1)
-
-(fringe-mode '(8 . 8))
+;; disable the ugly toolbar
+(tool-bar-mode -1)
+;; silence all bell rings
+(setq ring-bell-function 'ignore)
 ;; Do not make mouse wheel accelerate its action (example: scrolling)
 (setq mouse-wheel-progressive-speed nil)
 
@@ -96,12 +96,14 @@
 ;; remove ugly scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+
+
 ;; Show actual lines instead of the page break char ^L
 ;; https://github.com/purcell/page-break-lines
 ;; enter page-break character in Emacs by entering `C-q C-l'
 (use-package page-break-lines
   :diminish page-break-lines-mode
-  :init (global-page-break-lines-mode))
+  :config (global-page-break-lines-mode))
 
 ;; all-the-icons
 (use-package all-the-icons)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-07 11:19:23 csraghunandan>
+;; Time-stamp: <2017-02-08 11:12:11 csraghunandan>
 
 ;; Region Bindings Mode
 ;; https://github.com/fgallina/region-bindings-mode
@@ -20,7 +20,7 @@
    ("E" . eval-region)
    ("e" . er/expand-region)
    ("f" . fill-region)
-   ("q" . query-replace)
+   ("q" . vr/query-replace)
    (";" . comment-or-uncomment-region)
    ("s" . rag/kill-rectangle-replace-with-space)
    ("l" . align-hydra/body)))

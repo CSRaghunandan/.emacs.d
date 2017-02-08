@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-02 20:04:48 csraghunandan>
+;; Time-stamp: <2017-02-08 11:09:54 csraghunandan>
 
 ;; isearch config
 ;; ignore cases while searching
@@ -51,8 +51,7 @@ See the command `isearch-forward-symbol' for more information."
 (use-package visual-regexp-steroids
   :bind (("C-c q" . vr/query-replace)
           ("C-c v m" . vr/mc-mark))
-  :config
-  (setq vr/default-feedback-limit 300))
+  :config (setq vr/default-feedback-limit 300))
 
 ;; useful for refactoring in ivy-occur where we can edit search results from multiple files
 ;; https://github.com/mhayashi1120/Emacs-wgrep

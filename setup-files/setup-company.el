@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-03 10:57:20 csraghunandan>
+;; Time-stamp: <2017-02-08 11:13:43 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -46,8 +46,7 @@
   ;; company-statistics
   ;; https://github.com/company-mode/company-statistics
   ;; sort the company candidates by the statistics
-  (use-package company-statistics
-    :defer 1
+  (use-package company-statistics :defer 1
     :config (company-statistics-mode)))
 
 (provide 'setup-company)
