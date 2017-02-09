@@ -368,6 +368,7 @@
     ("defendent" "defendant" nil 0)
     ("definately" "definitely" nil 0)
     ("definded" "defined" nil 0)
+    ("delcare" "declare" nil 0)
     ("dependances" "dependencies" nil 0)
     ("dependancies" "dependencies" nil 0)
     ("deptartment" "department" nil 0)
@@ -1201,9 +1202,7 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
 
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 

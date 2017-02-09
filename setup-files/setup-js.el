@@ -1,8 +1,8 @@
-;; Time-stamp: <2017-01-23 10:04:31 csraghunandan>
+;; Time-stamp: <2017-02-09 17:40:54 csraghunandan>
 
-;; js2-mode, tern, company-tern, js2-refactor
+;; JavaScript configuration
 
-;; js2-mode
+;; js2-mode - enhanced JavaScript editing mode
 ;; https://github.com/mooz/js2-mode
 (use-package js2-mode
   :bind (:map js2-mode-map
@@ -30,8 +30,9 @@
   (add-hook 'js2-mode-hook 'tern-mode)
 
   ;; turn off all warnings in js2-mode
-  (setq js2-mode-show-parse-errors nil)
-  (setq js2-mode-show-strict-warnings nil)
+  (setq js2-mode-show-parse-errors t)
+  (setq js2-strict-missing-semi-warning nil)
+
   ;; enable flycheck in js2-mode
   (add-hook 'js2-mode-hook 'flycheck-mode)
 
@@ -81,9 +82,3 @@
     (add-hook 'js2-mode-hook 'js-mode-bindings)))
 
 (provide 'setup-js)
-
-;; Jade
-;; evaluate `jade-scratch' when in JS REPL to get a scratch JS buffer
-;; C-c C-l will evaluate the buffer
-;; C-x C-e will evaluate the expression at point
-;; C-c M-i will inspect the result
