@@ -9,6 +9,7 @@
         isearch-forward-symbol-at-point
         mwim-beginning-of-code-or-line
         mwim-end-of-code-or-line
+        org-beginning-of-line
         org-self-insert-command
         recursive-widen
         shm/space

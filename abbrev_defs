@@ -5,6 +5,8 @@
 
 (define-abbrev-table 'Info-edit-mode-abbrev-table '())
 
+(define-abbrev-table 'anaconda-mode-view-mode-abbrev-table '())
+
 (define-abbrev-table 'awk-mode-abbrev-table
   '(
    ))
@@ -438,7 +440,6 @@
     ("eforts" "efforts" nil 0)
     ("ehr" "her" nil 0)
     ("eligable" "eligible" nil 0)
-    ("emacs" "Emacs" nil 4)
     ("embarass" "embarrass" nil 0)
     ("emigre" "emigre" nil 0)
     ("enahancements" "enhancements" nil 0)
@@ -992,6 +993,7 @@
     ("unicode" "Unicode" nil 0)
     ("unitedstates" "United States" nil 0)
     ("unliek" "unlike" nil 0)
+    ("unobstrusively" "unobtrusively" nil 0)
     ("unpleasently" "unpleasantly" nil 0)
     ("unregistared" "unregistered" nil 0)
     ("untill" "until" nil 0)
@@ -1086,6 +1088,8 @@
 (define-abbrev-table 'image-dired-display-image-mode-abbrev-table '())
 
 (define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
+
+(define-abbrev-table 'inferior-python-mode-abbrev-table '())
 
 (define-abbrev-table 'intero-repl-mode-abbrev-table '())
 
@@ -1195,6 +1199,12 @@
 
 (define-abbrev-table 'purescript-mode-abbrev-table '())
 
+(define-abbrev-table 'python-mode-abbrev-table '())
+
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
+
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 
 (define-abbrev-table 'quickrun/mode-abbrev-table '())
@@ -1249,7 +1259,13 @@
 
 (define-abbrev-table 'text-mode-abbrev-table '())
 
+(define-abbrev-table 'tide-project-errors-mode-abbrev-table '())
+
+(define-abbrev-table 'tide-references-mode-abbrev-table '())
+
 (define-abbrev-table 'toml-mode-abbrev-table '())
+
+(define-abbrev-table 'typescript-mode-abbrev-table '())
 
 (define-abbrev-table 'url-cookie-mode-abbrev-table '())
 
