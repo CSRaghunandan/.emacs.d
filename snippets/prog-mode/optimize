@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: optimize
+# key: op
+# --
+`(yas-with-comment " OPTIMIZE: ")`

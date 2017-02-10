@@ -592,6 +592,7 @@
     ("indepedent" "independent" nil 0)
     ("independance" "independence" nil 0)
     ("independant" "independent" nil 0)
+    ("indivitual" "individual" nil 0)
     ("influance" "influence" nil 0)
     ("infomation" "information" nil 0)
     ("informatoin" "information" nil 0)
@@ -1074,7 +1075,17 @@
 
 (define-abbrev-table 'haskell-cabal-mode-abbrev-table '())
 
+(define-abbrev-table 'haskell-compilation-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-debug-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-error-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-interactive-mode-abbrev-table '())
+
 (define-abbrev-table 'haskell-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-presentation-mode-abbrev-table '())
 
 (define-abbrev-table 'haskell-yesod-parse-routes-mode-abbrev-table '())
 
