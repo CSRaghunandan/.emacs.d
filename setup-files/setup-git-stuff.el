@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-27 23:49:37 csraghunandan>
+;; Time-stamp: <2017-02-09 17:53:56 csraghunandan>
 
 ;; magit, git-timemachine, diff-hl
 
@@ -17,16 +17,16 @@
 
 ;; diff-hl - highlight diffs in the fringe
 ;; https://github.com/dgutov/diff-hl
-(use-package diff-hl :defer 1
+(use-package diff-hl
   :config
   (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
   (add-hook 'prog-mode-hook #'diff-hl-mode)
   ;; integate diff-hl with magit
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+  (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh))
 
-;; git-messenger: popup commit message at current line
+;; git-messenger - popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
-(use-package git-messenger :defer 1
+(use-package git-messenger
   :config
   ;; Enable magit-show-commit instead of pop-to-buffer
   (setq git-messenger:use-magit-popup t)

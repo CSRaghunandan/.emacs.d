@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-09 17:40:54 csraghunandan>
+;; Time-stamp: <2017-02-10 09:31:22 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -31,7 +31,7 @@
 
   ;; turn off all warnings in js2-mode
   (setq js2-mode-show-parse-errors t)
-  (setq js2-strict-missing-semi-warning nil)
+  (setq js2-mode-show-strict-warnings nil)
 
   ;; enable flycheck in js2-mode
   (add-hook 'js2-mode-hook 'flycheck-mode)
