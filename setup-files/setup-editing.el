@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-07 15:06:58 csraghunandan>
+;; Time-stamp: <2017-02-11 13:56:58 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -445,5 +445,9 @@ This command does the inverse of `fill-region'."
 ;; smart-dash: underscores without having to press shift modifier for dash key
 (use-package smart-dash
   :config (require 'smart-dash))
+
+;; cycle between single and double quotes
+(use-package cycle-quotes
+  :bind ("C-c o q" . cycle-quotes))
 
 (provide 'setup-editing)
