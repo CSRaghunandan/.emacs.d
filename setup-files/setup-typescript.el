@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-11 11:08:16 csraghunandan>
+;; Time-stamp: <2017-02-11 13:50:39 csraghunandan>
 
 ;; typescript config
 
@@ -11,6 +11,7 @@
   ;; https://github.com/ananthakumaran/tide
   (use-package tide
     :config
+    (bind-key "C-c C-t" 'tide-documentation-at-point typescript-mode-map)
 
     (defun my-tide-setup-hook ()
       ;; configure tide
@@ -33,6 +34,7 @@
                 (add-hook 'before-save-hook
                           (lambda()
                             (time-stamp)
+                            (xah-clean-whitespace)
                             (tide-format-before-save)) nil t)))
 
     ;; add tslint checker for flycheck
