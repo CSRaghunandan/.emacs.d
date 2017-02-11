@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-07 15:00:02 csraghunandan>
+;; Time-stamp: <2017-02-11 11:08:16 csraghunandan>
 
 ;; typescript config
 
@@ -37,6 +37,21 @@
 
     ;; add tslint checker for flycheck
     (flycheck-add-next-checker 'typescript-tide
-                               'typescript-tslint)))
+                               'typescript-tslint)
+
+    ;; use project local tslint versions instead of global
+    (defun use-tslint-from-node-modules ()
+      (let* ((root (locate-dominating-file
+                    (or (buffer-file-name) default-directory)
+                    "node_modules"))
+             (tslint (and root
+                          (expand-file-name (if (eq system-type 'windows-nt)
+                                                "node_modules/.bin/tslint.cmd"
+                                              "node_modules/.bin/tslint")
+                                            root))))
+        (when (and tslint (file-executable-p tslint))
+          (setq-local flycheck-typescript-tslint-executable tslint))))
+
+    (add-hook 'flycheck-mode-hook #'use-tslint-from-node-modules)))
 
 (provide 'setup-typescript)
