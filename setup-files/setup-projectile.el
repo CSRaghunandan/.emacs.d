@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:40:51 csraghunandan>
+;; Time-stamp: <2017-02-12 12:54:09 csraghunandan>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
@@ -113,7 +113,7 @@ _f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer         
 ^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      _s-p_/_p_: switch to any other project
 ^^    _d_: file curr dir      _o_: multi-occur       _K_/_s-k_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
 ^^    _r_: recent file        _G_: git-grep          ^^^^                             _z_: cache current
-^^    _D_: dir                _R_: counsel-rg-root         _Q_: replace regexp
+^^    _D_: dir                _R_: counsel-rg-root   ^^    _Q_: replace regexp
 "
     ("r" counsel-rg)
     ("R" rag/counsel-rg-project-at-point)
