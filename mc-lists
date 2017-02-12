@@ -20,6 +20,7 @@
         sp-kill-sexp
         sp-kill-word
         undefined
+        wdired-finish-edit
         wgrep-finish-edit
         ))
 
