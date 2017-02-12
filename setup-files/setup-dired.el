@@ -1,7 +1,6 @@
-;; Time-stamp: <2017-02-11 20:49:18 csraghunandan>
+;; Time-stamp: <2017-02-12 12:15:52 csraghunandan>
 
-;; dired
-;; file system manager for emacs
+;; dired: file system manager for emacs
 (use-package dired :ensure nil
   :bind (:map dired-mode-map
               ("S" . ora-dired-get-size))
@@ -22,12 +21,11 @@
     ;;  -G : Do not print group names like 'users'
     ;;  -h : Human-readable sizes like 1K, 234M, ..
     ;;  -v : Do natural sort .. so the file names starting with . will show up first.
-    ;;  -F : Classify filenames by appending '*' to executables,
-    ;;       '/' to directories, etc.
+    ;;  -F : Classify filenames by appending '*' to executables,'/' to directories, etc.
     ;; default value for dired: "-al"
     (setq dired-listing-switches "-alGhvF --group-directories-first")
 
-    ;; auto-revert dired
+    ;; auto-revert dired buffers if file changed on disk
     (setq dired-auto-revert-buffer t)
 
     (defun rag/dired-rename-buffer-name ()
@@ -48,6 +46,7 @@ It added extra strings at the front and back of the default dired buffer name."
 
   (defvar du-program-name (executable-find "du"))
   (defun ora-dired-get-size ()
+    "Get the size of a folder recursively"
     (interactive)
     (let ((files (dired-get-marked-files)))
       (with-temp-buffer
@@ -58,16 +57,15 @@ It added extra strings at the front and back of the default dired buffer name."
            (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
            (match-string 1))))))
 
-  ;; dired-x - to hide uninteresting files in dired
+  ;; dired-x: to hide uninteresting files in dired
   (use-package dired-x :ensure nil
     :config
-    (progn
-      (setq dired-omit-verbose nil)
-      ;; hide backup, autosave, *.*~ files
-      ;; omit mode can be toggled using `C-x M-o' in dired buffer.
-      (add-hook 'dired-mode-hook #'dired-omit-mode)
-      (setq dired-omit-files
-            (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$")))))
+    (setq dired-omit-verbose nil)
+    ;; hide backup, autosave, *.*~ files
+    ;; omit mode can be toggled using `C-x M-o' in dired buffer.
+    (add-hook 'dired-mode-hook #'dired-omit-mode)
+    (setq dired-omit-files
+          (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$"))))
 
 ;; extensions for `dired-mode'
 ;; https://www.emacswiki.org/emacs/DiredPlus

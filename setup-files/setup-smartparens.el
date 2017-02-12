@@ -1,16 +1,16 @@
-;; Time-stamp: <2017-02-09 13:20:19 csraghunandan>
+;; Time-stamp: <2017-02-12 12:50:32 csraghunandan>
 
-;; smartparens - for movement, editing and inserting parenthesis
+;; smartparens: for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
 (use-package smartparens
+  :diminish (smartparens-mode . "𝐬")
   :config
   (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode
                                      web-mode
-                                     ;; org-mode
+                                     org-mode
                                      Info-mode
                                      term-mode
-                                     ;; org-journal-mode
-                                     )))
+                                     org-journal-mode)))
 
   ;; macro to wrap the current sexp at point
   (defmacro def-pairs (pairs)
@@ -50,17 +50,25 @@
    ("C-c \"" . wrap-with-double-quotes)
    ("C-c `" . wrap-with-back-quotes))
 
-  (eval-after-load "smartparens" '(diminish 'smartparens-mode "𝐬"))
   (show-smartparens-global-mode +1)
+
   ;; use default smartparens bindings
   (sp-use-smartparens-bindings)
+
+  ;; enable smartparens globally
   (smartparens-global-mode)
-  (smartparens-global-strict-mode)
+  (smartparens-global-strict-mode) ; only allows you to insert or delete
+                                   ; brackets in pairs
 
   (require 'smartparens-config)
 
   ;; indent with braces for C like languages
-  (sp-with-modes '(rust-mode js2-mode css-mode web-mode typescript-mode)
+  (sp-with-modes '(rust-mode
+                   js2-mode
+                   css-mode
+                   web-mode
+                   typescript-mode
+                   c-mode cc-mode)
     (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
     (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
                                               ("* ||\n[i]" "RET"))))
@@ -100,11 +108,10 @@ _t_: transpose      _T_: hyb-transpose    _q_: quit
 
   (setq sp-show-pair-from-inside t)
   ;; show matching paren instantly
-  (setq sp-show-pair-delay 0.01)
+  (setq sp-show-pair-delay 0.1)
 
   ;; no more pair mismatch messages
   (setq sp-message-width nil)
-  (setq sp-cancel-autoskip-on-backward-movement nil)
 
   ;; fix smartparens-strict-mode and hungry-delete conflict
   (dolist (key '([remap delete-char]

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:08:46 csraghunandan>
+;; Time-stamp: <2017-02-12 12:20:59 csraghunandan>
 
 ;; configuration for buffers
 
@@ -11,9 +11,6 @@
 (setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
 (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 
-;; resize windows proportionally
-(setq window-combination-resize t)
-
 ;; make emacs auto-refresh all buffers when files have changed on the disk
 (global-auto-revert-mode t)
 (setq auto-revert-verbose nil)
@@ -25,7 +22,7 @@
 
 (defun rag/copy-buffer-file-name-as-kill (choice)
   "Copy the buffer-file-name to the kill-ring"
-  (interactive "cCopy Buffer Name (F) Full, (D) Directory, (N) Name")
+  (interactive "Copy Buffer Name (F) Full, (D) Directory, (N) Name")
   (let ((new-kill-string)
         (name (if (eq major-mode 'dired-mode)
                   (dired-get-filename)

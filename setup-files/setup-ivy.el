@@ -1,11 +1,11 @@
-;; Time-stamp: <2017-02-09 12:15:55 csraghunandan>
+;; Time-stamp: <2017-02-12 12:45:55 csraghunandan>
 
 ;; Smart M-x (smex): sort extended commands by last invoked
 ;; https://github.com/nonsequitur/smex/
 (use-package smex
   :config (smex-initialize))
 
-;; ivy - incremental narrowing framework for Emacs
+;; ivy: incremental narrowing framework for Emacs
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
   :diminish ivy-mode

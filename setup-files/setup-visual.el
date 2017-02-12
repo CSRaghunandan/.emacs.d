@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-08 11:07:31 csraghunandan>
+;; Time-stamp: <2017-02-12 12:20:56 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -95,6 +95,9 @@
 
 ;; remove ugly scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; resize windows proportionally
+(setq window-combination-resize t)
 
 
 

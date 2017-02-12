@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-02-06 09:22:46 csraghunandan>
+;; Time-stamp: <2017-02-12 12:37:28 csraghunandan>
 
 ;; counsel - ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -78,6 +78,7 @@
    ("C-c g g" . counsel-git-grep)
    ("C-c m r" . counsel-mark-ring)
    ("C-c f" . counsel-imenu)
+   ("M-y" . counsel-yank-pop)
    ("C-c F" . ivy-imenu-anywhere)
    ("C-c d s" . describe-symbol)
    ("C-c d f" . counsel-faces)

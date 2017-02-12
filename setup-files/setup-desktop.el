@@ -1,7 +1,6 @@
-;; Time-stamp: <2017-02-08 11:16:56 csraghunandan>
+;; Time-stamp: <2017-02-12 12:44:30 csraghunandan>
 
-;; desktop
-;; save the current emacs session under `desktop' to be restored later
+;; desktop: save the current emacs session
 (use-package desktop
   :config
   (setq desktop-dirname (concat user-emacs-directory "desktop")

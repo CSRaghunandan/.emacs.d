@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-02-04 15:52:29 csraghunandan>
+;; Time-stamp: <2017-02-12 12:45:17 csraghunandan>
 
-;; Theme configuration for emacs
+;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
 (use-package zenburn-theme
   :config

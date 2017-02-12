@@ -1,6 +1,7 @@
-;; Time-stamp: <2017-02-08 11:09:54 csraghunandan>
+;; Time-stamp: <2017-02-12 12:34:16 csraghunandan>
 
 ;; isearch config
+
 ;; ignore cases while searching
 (setq-default case-fold-search t)
 ;; Isearch convenience, space matches anything (non-greedy) - Fuzzy search
@@ -44,9 +45,11 @@ See the command `isearch-forward-symbol' for more information."
 
 (bind-key "C-'" 'avy-isearch isearch-mode-map)
 
-;;; Visual Regular Expression search/replace. Needed for visual-regex-steroids
+;; visual-regexp: A regexp/replace command for Emacs with interactive visual feedback
+;; https://github.com/benma/visual-regexp.el
 (use-package visual-regexp)
 
+;; visual-regexp-steroids: use modern regexp engines instead of emacs one.
 ;; https://github.com/benma/visual-regexp-steroids.el/
 (use-package visual-regexp-steroids
   :bind (("C-c q" . vr/query-replace)
@@ -57,7 +60,7 @@ See the command `isearch-forward-symbol' for more information."
 ;; https://github.com/mhayashi1120/Emacs-wgrep
 (use-package wgrep)
 
-;;; anzu
+;;; anzu: show number of searches in isearch
 ;; https://github.com/syohex/emacs-anzu
 (use-package anzu
   :diminish anzu-mode
