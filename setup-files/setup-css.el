@@ -1,7 +1,6 @@
-;; Time-stamp: <2017-02-07 19:37:10 csraghunandan>
+;; Time-stamp: <2017-02-12 13:30:46 csraghunandan>
 
 ;; css-mode config
-
 (use-package css-mode
   :config
   (defun my-css-mode-hook ()

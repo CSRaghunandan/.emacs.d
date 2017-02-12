@@ -1,10 +1,11 @@
-;; Time-stamp: <2017-01-08 20:35:07 csraghunandan>
+;; Time-stamp: <2017-02-12 13:44:08 csraghunandan>
 
-;; ibuffer
-;; for easy management of buffers
+;; ibuffer: for easy management of buffers
 (use-package ibuffer
   :config
 
+  ;; ibuffer-vc: show version control info in ibuffer
+  ;; https://github.com/purcell/ibuffer-vc
   (use-package ibuffer-vc
     :config
     (add-hook 'ibuffer-hook

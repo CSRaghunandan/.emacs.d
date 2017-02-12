@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-02-03 23:07:51 csraghunandan>
+;; Time-stamp: <2017-02-12 16:53:47 csraghunandan>
 
-;; neotree - A emacs tree plugin like NerdTree for Vim
+;; neotree: A emacs tree plugin like NerdTree for Vim
 ;; https://github.com/jaypei/emacs-neotree
 (use-package neotree
   :bind

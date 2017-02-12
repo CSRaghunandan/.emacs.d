@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:34:16 csraghunandan>
+;; Time-stamp: <2017-02-12 13:23:52 csraghunandan>
 
 ;; isearch config
 
@@ -56,7 +56,7 @@ See the command `isearch-forward-symbol' for more information."
           ("C-c v m" . vr/mc-mark))
   :config (setq vr/default-feedback-limit 300))
 
-;; useful for refactoring in ivy-occur where we can edit search results from multiple files
+;; wgrep: Writable grep buffer and apply the changes to files
 ;; https://github.com/mhayashi1120/Emacs-wgrep
 (use-package wgrep)
 

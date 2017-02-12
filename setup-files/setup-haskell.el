@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-01-31 02:36:41 csraghunandan>
+;; Time-stamp: <2017-02-12 13:37:25 csraghunandan>
 
-;; haskell-mode configuration
+;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
 (use-package haskell-mode
   :config
@@ -18,13 +18,13 @@
                                  ;; disable haskell-indentation-mode
                                  (setq haskell-indentation-mode nil)))
 
-  ;; intero-mode for a complete IDE solution to haskell
+  ;; intero-mode: IDE features for haskell
   ;; commercialhaskell.github.io/intero
   (use-package intero
     :diminish inter-mode "𝐈𝐧"
     :config (add-hook 'haskell-mode-hook 'intero-mode))
 
-  ;; hindent - format haskell code automatically
+  ;; hindent: format haskell code automatically
   ;; https://github.com/chrisdone/hindent
   (when (executable-find "hindent")
     (use-package hindent
@@ -34,7 +34,7 @@
       ;; reformat the buffer using hindent on save
       (setq hindent-reformat-buffer-on-save t)))
 
-  ;; structured-haskell-mode - paredit like features for haskell code
+  ;; structured-haskell-mode: paredit like features for haskell code
   ;; https://github.com/chrisdone/structured-haskell-mode
   (when (executable-find "structured-haskell-mode")
     (use-package shm

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-08 11:29:13 csraghunandan>
+;; Time-stamp: <2017-02-12 16:54:53 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -16,7 +16,7 @@
   ;; enable company-mode completions in inferior python process
   (add-hook 'inferior-python-mode-hook 'company-mode)
 
-  ;; anaconda-mode :- bring IDE like features for python-mode
+  ;; anaconda-mode: bring IDE like features for python-mode
   ;; https://github.com/proofit404/anaconda-mode
   (use-package anaconda-mode
     :diminish (anaconda-mode . "𝐀𝐧")
@@ -24,7 +24,7 @@
     (add-hook 'python-mode-hook 'anaconda-mode)
     (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
 
-  ;; company backend for anaconda-mode
+  ;; company-anaconda: company backend for anaconda
   ;; https://github.com/proofit404/company-anaconda
   (use-package company-anaconda
     :config
@@ -45,13 +45,13 @@
     :config
     (add-hook 'python-mode-hook 'yapf-mode))
 
-  ;; Add sphinx-doc comments easily
+  ;; sphinx-doc: add sphinx-doc comments easily
   ;; https://github.com/naiquevin/sphinx-doc.el
   (use-package sphinx-doc
     :diminish sphinx-doc-mode
     :config (add-hook 'python-mode-hook 'sphinx-doc-mode))
 
-  ;; format and highlight syntax for python docstrings
+  ;; python-docstring: format and highlight syntax for python docstrings
   ;; https://github.com/glyph/python-docstring-mode
   (use-package python-docstring
     :diminish python-docstring-mode

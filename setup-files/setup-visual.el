@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:20:56 csraghunandan>
+;; Time-stamp: <2017-02-12 13:22:09 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -108,7 +108,8 @@
   :diminish page-break-lines-mode
   :config (global-page-break-lines-mode))
 
-;; all-the-icons
+;; all-the-icons: show icons in neotree/dired/modeline
+;; https://github.com/domtronn/all-the-icons.el
 (use-package all-the-icons)
 
 (provide 'setup-visual)

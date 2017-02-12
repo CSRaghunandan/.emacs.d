@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-02-07 11:24:27 csraghunandan>
+;; Time-stamp: <2017-02-12 16:51:39 csraghunandan>
 
-;; Multiple Cursors
+;; multiple-cursors: Add multiple cursors support for emacs
 ;; https://github.com/magnars/multiple-cursors.el
 (use-package multiple-cursors
   :bind (("C-c m l" . mc/edit-lines)

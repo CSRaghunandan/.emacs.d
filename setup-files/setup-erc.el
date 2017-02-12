@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-01-31 11:57:50 csraghunandan>
+;; Time-stamp: <2017-02-12 13:35:04 csraghunandan>
 
-;; ERC - the irc client for emacs
+;; ERC: the irc client for emacs
 (use-package erc :defer t
   :config
   ;; don't show messages when a users quits or joins

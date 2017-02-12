@@ -1,11 +1,7 @@
-;; Time-stamp: <2017-02-08 11:26:54 csraghunandan>
+;; Time-stamp: <2017-02-12 13:27:10 csraghunandan>
 
-;; Region Bindings Mode
+;; region-bindings-mode: enables custom bindings when mark is active
 ;; https://github.com/fgallina/region-bindings-mode
-
-;; Minor mode that enables the ability of having a custom keys for working with
-;; regions. This is a pretty good way to keep the global bindings clean.
-
 (use-package region-bindings-mode
   :diminish (region-bindings-mode . "")
   :config

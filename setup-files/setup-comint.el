@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-01-05 15:48:40 csraghunandan>
+;; Time-stamp: <2017-02-12 13:30:07 csraghunandan>
 
-;; handle all inferior processes/shell settings
+;; comint: all inferior processes inherit from comint-mode
 (use-package comint :ensure nil
   :config
   ;; always insert input at bottom

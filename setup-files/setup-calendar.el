@@ -1,7 +1,6 @@
-;; Time-stamp: <2017-02-08 11:20:08 csraghunandan>
+;; Time-stamp: <2017-02-12 13:29:24 csraghunandan>
 
-;;; calendar config
-
+;; calendar config
 (use-package calendar :defer t
   :config
   ;; Highlight today's date in the calendar

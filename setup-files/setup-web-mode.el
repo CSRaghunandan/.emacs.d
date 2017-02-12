@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-02-07 19:37:18 csraghunandan>
+;; Time-stamp: <2017-02-12 13:20:48 csraghunandan>
 
-;; web-mode
+;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
 (use-package web-mode
   :mode (("\\.html$" . web-mode)
@@ -52,14 +52,15 @@
 	    (if tern-mode (tern-mode -1))))))
   (add-hook 'web-mode-hook 'company-mode)
 
-  ;; to get completion for twitter bootstrap
+  ;; ac-html-boostrap: bootstrap3 completions backend
+  ;; https://github.com/osv/ac-html-bootstrap
   (use-package ac-html-bootstrap :defer t)
 
-  ;; to get completion for HTML stuff
+  ;; company-web: to get completion for HTML stuff
   ;; https://github.com/osv/company-web
   (use-package company-web)
 
-  ;; snippets for HTML
+  ;; emmet-mode: dynamic snippets for HTML
   ;; https://github.com/smihica/emmet-mode
   (use-package emmet-mode
     :init (setq emmet-move-cursor-between-quotes t) ;; default nil
@@ -70,9 +71,9 @@
   ;; colorize colors in buffers
   (setq web-mode-enable-css-colorization t))
 
-;; impatient mode - Live refresh of web pages
+;; impatient mode: Live refresh of web pages
 ;; https://github.com/skeeto/impatient-mode
-(use-package impatient-mode
+(use-package impatient-mode :defer t
   :diminish (impatient-mode . "𝐈𝐦")
   :commands (impatient-mode))
 

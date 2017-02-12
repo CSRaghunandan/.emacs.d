@@ -1,9 +1,8 @@
-;; Time-stamp: <2017-01-23 08:23:33 csraghunandan>
+;; Time-stamp: <2017-02-12 13:35:41 csraghunandan>
 
 ;; flyspell, flycheck
 
-;; flypsell
-;; on the fly spell checking
+;; flypsell: on the fly spell checking
 (use-package flyspell
   :diminish flyspell-mode
   :config

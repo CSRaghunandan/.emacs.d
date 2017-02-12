@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-01-15 12:55:44 csraghunandan>
+;; Time-stamp: <2017-02-12 16:50:38 csraghunandan>
 
-;; origami - provides folding capabilities
+;; origami: better folding package than hs-minor-mode
 ;; https://github.com/gregsexton/origami.el
 (use-package origami
   :config

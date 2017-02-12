@@ -1,13 +1,8 @@
-;; Time-stamp: <2017-01-15 12:40:24 csraghunandan>
+;; Time-stamp: <2017-02-12 13:43:11 csraghunandan>
 
-;; hydra :- This is a package for GNU Emacs that can be used to tie related
-;; commands into a family of short bindings with a common prefix - a Hydra.
+;; hydra: tie related commands into a family of short bindings with a common
+;; prefix - a Hydra
 ;; https://github.com/abo-abo/hydra
-
-;; hydras: flycheck, ibuffer, origami, move, yasnippet, info, macros
-;;         dired sort, bm, projectile, toggle case, langtools, kruecolor
-;;         smartparens, multi-term, aprops, quickrun, org-clock
-
 (use-package hydra
   :config
   (set-face-attribute 'hydra-face-red nil
@@ -23,3 +18,7 @@
   (hydra-add-font-lock))
 
 (provide 'setup-hydra)
+
+;; hydras: flycheck, ibuffer, origami, move, yasnippet, info, macros
+;;         dired sort, bm, projectile, toggle case, langtools, kruecolor
+;;         smartparens, multi-term, aprops, quickrun, org-clock

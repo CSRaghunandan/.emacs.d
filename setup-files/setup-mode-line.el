@@ -1,18 +1,18 @@
-;; Time-stamp: <2017-02-07 11:56:39 csraghunandan>
+;; Time-stamp: <2017-02-12 16:53:20 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
-;; diminish-mode - to hide minor modes in mode-line
+;; diminish-mode: to hide minor modes in mode-line
 ;; https://github.com/emacsmirror/diminish
 (use-package diminish :demand t)
 
-;; powerline - a better looking mode line for emacs
+;; powerline: a better looking mode line for emacs
 ;; https://github.com/milkypostman/powerline
 (use-package powerline
   :config
   (setq powerline-default-separator nil)
 
-  ;; spaceline theme for powerline
+  ;; spaceline: spacemacs powerline theme
   ;; https://github.com/TheBB/spaceline
   (use-package spaceline
     :config
@@ -33,7 +33,7 @@
     ;; show projectile project root and indicate when narrowed
     (spaceline-spacemacs-theme '(narrow projectile-root))))
 
-;; diminish eldoc-mode in mode-line
+;; eldoc: show function parameters/ type of thing at point
 (use-package eldoc :diminish eldoc-mode)
 
 ;; macro to rename mode-name for major-modes

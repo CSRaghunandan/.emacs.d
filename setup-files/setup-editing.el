@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-11 13:56:58 csraghunandan>
+;; Time-stamp: <2017-02-12 13:34:12 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -130,7 +130,7 @@ Position the cursor at it's beginning, according to the current mode."
   (if (called-interactively-p 'interactive)
       (indicate-copied-region (length (car killed-rectangle)))))
 
-;; expand region semantically
+;; expand-region: expand region semantically
 ;; https://www.emacswiki.org/emacs/GotoChg
 (use-package expand-region
   :bind ("C-=" . er/expand-region)
@@ -138,12 +138,12 @@ Position the cursor at it's beginning, according to the current mode."
   (setq expand-region-contract-fast-key "|")
   (setq expand-region-reset-fast-key "<ESC><ESC>"))
 
-;; allow forward and backword movements to move between camelCase words
+;; subword: subword movement and editing for camelCase
 (use-package subword
   :diminish subword-mode
   :config (global-subword-mode))
 
-;; save and restore the previous cursor position when the buffer was killed
+;; save-place: save cursor position when buffer is killed
 (use-package saveplace
   :config (save-place-mode))
 
@@ -421,12 +421,12 @@ This command does the inverse of `fill-region'."
   (let ((fill-column most-positive-fixnum))
     (fill-region start end)))
 
-;; move text or region up or down
+;; move-text: move text or region up or down
 ;; https://github.com/emacsfodder/move-text
 (use-package move-text
   :config (move-text-default-bindings))
 
-;; Treat undo history as a tree
+;; undo-tree: Treat undo history as a tree
 ;; https://www.emacswiki.org/emacs/UndoTree
 (use-package undo-tree
   :diminish undo-tree-mode
@@ -446,7 +446,7 @@ This command does the inverse of `fill-region'."
 (use-package smart-dash
   :config (require 'smart-dash))
 
-;; cycle between single and double quotes
+;; cycle-quotes: cycle between single and double quotes
 (use-package cycle-quotes
   :bind ("C-c o q" . cycle-quotes))
 

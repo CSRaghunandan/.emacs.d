@@ -1,8 +1,8 @@
-;; Time-stamp: <2017-02-08 11:02:31 csraghunandan>
+;; Time-stamp: <2017-02-12 13:41:29 csraghunandan>
 
 ;; All the highlight stuff config
 
-;; highlight the symbol at point + move to next/previous occurrence of symbol
+;; highlight-symbol: move to next/prev occurrences of symbol + highlight
 ;; https://github.com/nschum/highlight-symbol.el
 (use-package highlight-symbol
   :diminish highlight-symbol-mode
@@ -10,7 +10,7 @@
          ("M-p" . highlight-symbol-prev))
   :config (highlight-symbol-nav-mode))
 
-;; highlight specific operations like undo, yank
+;; volatile-highlights: highlight specific operations like undo, yank
 ;; https://github.com/k-talo/volatile-highlights.el
 (use-package volatile-highlights
   :diminish volatile-highlights-mode
@@ -36,12 +36,12 @@
   :diminish (num3-mode . "")
   :config (add-hook 'prog-mode-hook 'num3-mode))
 
-;; colorize color names in buffers
+;; rainbow-mode: colorize color names in buffers
 ;; https://github.com/emacsmirror/rainbow-mode/blob/master/rainbow-mode.el
 (use-package rainbow-mode
   :diminish (rainbow-mode . ""))
 
-;; beacon :-  blink the cursor whenever scrolling or switching between windows
+;; beacon: blink the cursor whenever scrolling or switching between windows
 ;; https://github.com/Malabarba/beacon
 (use-package beacon :defer 1
   :diminish beacon-mode
@@ -51,7 +51,7 @@
   ;; don't blink in shell-mode
   (add-to-list 'beacon-dont-blink-major-modes 'comint-mode))
 
-;; highlight characters which exceed the column limit
+;; column-enforce-mode: highlight characters which exceed fill-column
 ;; https://github.com/jordonbiondo/column-enforce-mode
 (use-package column-enforce-mode
   :diminish column-enforce-mode
@@ -64,7 +64,7 @@
   (set-face-attribute 'column-enforce-face nil
                       :underline nil :foreground "firebrick3"))
 
-;; highlight-numbers in buffers
+;; highlight-numbers: fontify numbers
 ;; https://github.com/Fanael/highlight-numbers
 (use-package highlight-numbers
   :config (add-hook 'prog-mode-hook 'highlight-numbers-mode))

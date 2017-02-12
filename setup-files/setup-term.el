@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-01-06 09:12:08 csraghunandan>
+;; Time-stamp: <2017-02-12 13:22:40 csraghunandan>
 
-;; manage multiple terminal windows easily within emacs
+;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://www.emacswiki.org/emacs/multi-term.el
 (use-package multi-term
   :config

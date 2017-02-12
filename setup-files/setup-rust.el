@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-08 11:42:19 csraghunandan>
+;; Time-stamp: <2017-02-12 13:25:48 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -10,14 +10,14 @@
   ;; https://github.com/flycheck/flycheck-rust
   (use-package flycheck-rust)
 
-  ;; cargo-mode for all the cargo related operations
+  ;; cargo-mode: execute cargo commands easily
   ;; https://github.com/kwrooijen/cargo.el
   (use-package cargo
     :diminish (cargo-minor-mode . "𝐂𝐚")
     :config
     (add-hook 'rust-mode-hook 'cargo-minor-mode))
 
-  ;; racer-mode for getting IDE like features for rust-mode
+  ;; racer: autocompletions/jump to definitions and eldoc support
   ;; https://github.com/racer-rust/emacs-racer
   (use-package racer
     :diminish racer-mode "𝐑𝐚"
@@ -95,7 +95,7 @@ foo -> &foo[..]"
    ("C-c v s" . wh/rust-vec-as-slice)
    ("C-c r t" . wh/rust-run-test))
 
-  ;; rust-playground
+  ;; rust-playground: local playground for code snippets in Rust
   ;; https://github.com/grafov/rust-playground
   (use-package rust-playground
     :bind (("C-c r p" . rust-playground))

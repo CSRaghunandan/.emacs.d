@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-02-12 12:37:28 csraghunandan>
+;; Time-stamp: <2017-02-12 13:30:38 csraghunandan>
 
-;; counsel - ivy backends for a lot more commands
+;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
 (use-package counsel
   :diminish counsel-mode

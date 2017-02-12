@@ -1,8 +1,7 @@
-;; Time-stamp: <2017-01-06 09:33:04 csraghunandan>
+;; Time-stamp: <2017-02-12 13:46:46 csraghunandan>
 
-;; Kurecolor
+;; Kurecolor: color editing goodies for Emacs
 ;; https://github.com/emacsfodder/kurecolor
-
 (use-package kurecolor
   :bind (("C-c k" . hydra-kurecolor/body))
   :config

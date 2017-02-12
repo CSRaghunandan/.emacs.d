@@ -1,3 +1,6 @@
+;; Time-stamp: <2017-02-12 13:47:18 csraghunandan>
+
+;; hydra for macros in emacs
 (defhydra hydra-macro (:hint nil :color pink :pre
                              (when defining-kbd-macro
                                  (kmacro-end-macro 1)))

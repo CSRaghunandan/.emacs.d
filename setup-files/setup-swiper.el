@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-02-08 11:22:22 csraghunandan>
+;; Time-stamp: <2017-02-12 13:22:51 csraghunandan>
 
-;; swiper - isearch with an overview!
+;; swiper: isearch with an overview!
 ;; https://github.com/abo-abo/swiper
 (use-package swiper
   :bind (:map isearch-mode-map

@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-01-15 12:57:07 csraghunandan>
+;; Time-stamp: <2017-02-12 13:44:24 csraghunandan>
 
-;; extend the standard `info.el' emacs library
+;; info+: extend the standard `info.el' emacs library
 ;; https://www.emacswiki.org/emacs/InfoPlus
 (use-package info+
   :config (require 'info+))

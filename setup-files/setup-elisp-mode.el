@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-06 13:05:48 csraghunandan>
+;; Time-stamp: <2017-02-12 13:34:49 csraghunandan>
 
 ;; emacs-lisp-mpde
 ;; configure company mode for emacs-lisp-mode
@@ -29,7 +29,7 @@
 
   (add-hook 'after-save-hook #'byte-compile-current-buffer)
 
-  ;; highlight lisp quoted and quotes symbols
+  ;; highlight-quoted: highlight lisp quoted and quotes symbols
   ;; https://github.com/Fanael/highlight-quoted
   (use-package highlight-quoted
     :config (add-hook 'emacs-lisp-mode-hook #'highlight-quoted-mode)))

@@ -1,6 +1,7 @@
-;; Time-stamp: <2016-12-12 02:40:39 csraghunandan>
+;; Time-stamp: <2017-02-12 13:42:08 csraghunandan>
 
-;; hungry-delete
+;; hungry-delete: deleting a whitespace character will delete all whitespace
+;; until the next non-whitespace character
 ;; https://github.com/nflath/hungry-delete
 (use-package hungry-delete
   :diminish hungry-delete-mode "𝐡"

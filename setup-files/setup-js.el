@@ -1,8 +1,8 @@
-;; Time-stamp: <2017-02-10 09:31:22 csraghunandan>
+;; Time-stamp: <2017-02-12 13:45:29 csraghunandan>
 
 ;; JavaScript configuration
 
-;; js2-mode - enhanced JavaScript editing mode
+;; js2-mode: enhanced JavaScript editing mode
 ;; https://github.com/mooz/js2-mode
 (use-package js2-mode
   :bind (:map js2-mode-map
@@ -15,7 +15,7 @@
   ;; extra features for imenu
   (js2-imenu-extras-setup)
 
-  ;; tern :- IDE like features for javascript and completion
+  ;; tern: IDE like features for javascript and completion
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package tern
     :diminish tern-mode "𝐓𝐞"
@@ -36,11 +36,11 @@
   ;; enable flycheck in js2-mode
   (add-hook 'js2-mode-hook 'flycheck-mode)
 
-  ;; company backend for tern
+  ;; company-tern: company backend for tern
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package company-tern)
 
-  ;; js2-refactor :- refactoring options for emacs
+  ;; js2-refactor: refactoring options for emacs
   ;; https://github.com/magnars/js2-refactor.el
   (use-package js2-refactor :defer t
     :diminish js2-refactor-mode "𝐉𝐫"
@@ -58,7 +58,7 @@
     ;; enable completions in skewer REPL
     (add-hook 'skewer-repl-mode-hook 'company-mode))
 
-  ;; web-beautify - Format HTML, CSS and JavaScript/JSON by js-beautify
+  ;; web-beautify: Format HTML, CSS and JavaScript/JSON by js-beautify
   ;; https://github.com/yasuyk/web-beautify
   (when (executable-find "js-beautify")
     (use-package web-beautify
@@ -71,7 +71,7 @@
                               (time-stamp)
                               (web-beautify-js-buffer)) nil t)))))
 
-  ;; get the path of any JSON element easily
+  ;; json-snatcher: get the path of any JSON element easily
   ;; https://github.com/Sterlingg/json-snatcher
   (use-package json-snatcher
     :config

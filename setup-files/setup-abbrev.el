@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-01-03 00:05:11 csraghunandan>
+;; Time-stamp: <2017-02-12 13:27:52 csraghunandan>
 
-;; configuration for abbrev
+;; abbrev: expand abbreviations
 (use-package abbrev :ensure nil
   :diminish abbrev-mode
   :config

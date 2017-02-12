@@ -1,6 +1,6 @@
-;; Time-stamp: <2017-02-02 23:38:15 csraghunandan>
+;; Time-stamp: <2017-02-12 13:16:49 csraghunandan>
 
-;; yasnippet - snippets tool for emacs
+;; yasnippet: snippets tool for emacs
 ;; https://github.com/capitaomorte/yasnippet
 (use-package yasnippet
   :diminish yas-minor-mode

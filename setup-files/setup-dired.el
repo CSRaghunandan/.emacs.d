@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:15:52 csraghunandan>
+;; Time-stamp: <2017-02-12 13:31:34 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
@@ -37,7 +37,7 @@ It added extra strings at the front and back of the default dired buffer name."
 
     (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name))
 
-  ;; a hydra to sort files in dired easily
+  ;; dired-quick-sort: hydra to sort files in dired
   ;; Press `S' to invoke dired-quick-sort hydra
   ;; https://gitlab.com/xuhdev/dired-quick-sort
   (use-package dired-quick-sort
@@ -67,7 +67,7 @@ It added extra strings at the front and back of the default dired buffer name."
     (setq dired-omit-files
           (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$"))))
 
-;; extensions for `dired-mode'
+;; dired+: extensions for `dired-mode'
 ;; https://www.emacswiki.org/emacs/DiredPlus
 (use-package dired+
   :config

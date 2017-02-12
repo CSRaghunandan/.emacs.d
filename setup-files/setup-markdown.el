@@ -1,33 +1,15 @@
-;; Time-stamp: <2016-12-09 12:46:57 csraghunandan>
+;; Time-stamp: <2017-02-12 16:49:04 csraghunandan>
 
-;; markdown  :- simple and quick outline mode
+;; markdown: simple and quick outline mode
 ;; http://jblevins.org/projects/markdown-mode/
 (use-package markdown-mode
   :mode (("\\.md\\'"       . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :config
-  ;; http://daringfireball.net/projects/markdown/
-  ;; Download the Markdown source from above, extract the .pl from that
-  ;; and place it in one of the folders in the environment PATH
-  (when (executable-find "Markdown.pl")
-    (setq markdown-command "Markdown.pl"))
 
-  ;; https://github.com/cadadr/emacs.d
-  (defun gk-markdown-preview-buffer ()
-    (interactive)
-    (require 'shr)
-    (let* ((buf-this (buffer-name (current-buffer)))
-           (buf-html (get-buffer-create
-                      (format "*md-html (%s)*" buf-this))))
-      (markdown-other-window (buffer-name buf-html))
-      (shr-render-buffer buf-html)
-      (eww-mode)
-      (kill-buffer buf-html)))
-
-  (bind-keys
-   :map markdown-mode-map
-   ;; Mimicking the org-export style bindings
-   ("C-c C-e o" . gk-markdown-preview-buffer)))
+  ;; markdown-toc: generate table of contents for markdown
+  ;; https://github.com/ardumont/markdown-toc
+  (use-package markdown-toc))
 
 (provide 'setup-markdown)
 
