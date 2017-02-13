@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:45:17 csraghunandan>
+;; Time-stamp: <2017-02-12 23:26:17 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -36,6 +36,8 @@
                       :background "gray27")
   (set-face-attribute 'vhl/default-face nil
                       :background "gray27")
+  (set-face-attribute 'vertical-border nil :foreground "gray20")
+
   ;; make magit-popup optional arguments more readable
   (eval-after-load "magit"
     (lambda ()
