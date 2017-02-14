@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:45:29 csraghunandan>
+;; Time-stamp: <2017-02-14 16:22:30 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -49,15 +49,6 @@
 
   (add-hook 'js2-mode-hook 'js2-refactor-mode)
 
-  ;; skewer-mode: live web development for JS, CSS and HTML
-  ;; https://github.com/skeeto/skewer-mode
-  (use-package skewer-mode
-    :diminish (skewer-mode . "𝐒𝐤")
-    :config
-    (add-hook 'js2-mode-hook 'skewer-mode)
-    ;; enable completions in skewer REPL
-    (add-hook 'skewer-repl-mode-hook 'company-mode))
-
   ;; web-beautify: Format HTML, CSS and JavaScript/JSON by js-beautify
   ;; https://github.com/yasuyk/web-beautify
   (when (executable-find "js-beautify")
@@ -79,6 +70,14 @@
       "Sets a hotkey for using the json-snatcher plugin"
       (when (string-match  "\\.json$" (buffer-name))
         (local-set-key (kbd "C-c C-g") 'jsons-print-path)))
-    (add-hook 'js2-mode-hook 'js-mode-bindings)))
+    (add-hook 'js2-mode-hook 'js-mode-bindings))
+
+  ;; mocha: emacs mode for running mocha tests
+  ;; https://github.com/scottaj/mocha.el
+  (use-package mocha
+    :bind
+    (("C-c m P" . mocha-test-project)
+     ("C-c m f" . mocha-test-file)
+     ("C-c m p" . mocha-test-at-point))))
 
 (provide 'setup-js)
