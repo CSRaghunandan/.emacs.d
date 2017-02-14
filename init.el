@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-08 00:45:24 csraghunandan>
+;; Time-stamp: <2017-02-14 17:51:57 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -40,11 +40,11 @@
 (require 'setup-neotree)
 (require 'setup-search)
 (require 'setup-ibuffer)
+(require 'setup-editing)
 (require 'setup-recentf)
 (require 'setup-desktop)
 (require 'setup-calc)
 (require 'setup-ediff)
-(require 'setup-white-space)
 (require 'setup-dired)
 (require 'setup-elisp-mode)
 (require 'setup-fly)
@@ -74,7 +74,7 @@
 (require 'setup-origami)
 (require 'setup-buffers)
 (require 'setup-duplicate-line)
-(require 'setup-editing)
+(require 'setup-white-space)
 (require 'setup-mc)
 (require 'setup-js)
 (require 'setup-typescript)

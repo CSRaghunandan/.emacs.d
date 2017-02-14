@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:41:29 csraghunandan>
+;; Time-stamp: <2017-02-14 17:50:25 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -18,23 +18,6 @@
 
 ;; enable hl-line-mode globally
 (global-hl-line-mode)
-
-;; best solution for highlighting indent guides so far in emacs
-;; https://github.com/DarthFennec/highlight-indent-guides
-(use-package highlight-indent-guides
-  :config
-  (add-hook 'prog-mode-hook (lambda ()
-                              (unless (eq major-mode 'web-mode)
-                                (highlight-indent-guides-mode))))
-  (setq highlight-indent-guides-method 'character
-        highlight-indent-guides-character ?∣)
-  ;; make indent guides a bit more brighter
-  (setq highlight-indent-guides-auto-character-face-perc 15))
-
-;; num3-mode - highlight groups of 3 numbers
-(use-package num3-mode
-  :diminish (num3-mode . "")
-  :config (add-hook 'prog-mode-hook 'num3-mode))
 
 ;; rainbow-mode: colorize color names in buffers
 ;; https://github.com/emacsmirror/rainbow-mode/blob/master/rainbow-mode.el
