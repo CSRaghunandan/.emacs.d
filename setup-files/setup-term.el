@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:22:40 csraghunandan>
+;; Time-stamp: <2017-02-14 13:49:17 csraghunandan>
 
 ;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://www.emacswiki.org/emacs/multi-term.el
@@ -54,7 +54,8 @@
             ("C-M-h"   . term-send-backward-kill-word)
             ("M-r"     . term-send-reverse-search-history)
             ("M-,"     . term-send-raw)
-            ("M-." . comint-dynamic-complete)))
+            ("M-." . comint-dynamic-complete)
+            ("C-c M-o" . comint-clear-buffer)))
 
     ;; disable some unnecessary minor-modes in term-mode
     (add-hook 'term-mode-hook (lambda ()
