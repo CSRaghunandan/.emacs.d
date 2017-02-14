@@ -1,12 +1,10 @@
-;; Time-stamp: <2017-02-14 17:16:58 csraghunandan>
+;; Time-stamp: <2017-02-14 18:02:27 csraghunandan>
 
 ;; JavaScript configuration
 
 ;; js2-mode: enhanced JavaScript editing mode
 ;; https://github.com/mooz/js2-mode
 (use-package js2-mode
-  :bind (:map js2-mode-map
-              ("C-c C-l" . jade-eval-buffer))
   :mode
   (("\\.js$" . js2-mode)
    ("\\.json$" . js2-jsx-mode)
@@ -44,8 +42,7 @@
   ;; https://github.com/magnars/js2-refactor.el
   (use-package js2-refactor :defer t
     :diminish js2-refactor-mode "𝐉𝐫"
-    :config
-    (js2r-add-keybindings-with-prefix "C-c j r"))
+    :config (js2r-add-keybindings-with-prefix "C-c j r"))
 
   (add-hook 'js2-mode-hook 'js2-refactor-mode)
 

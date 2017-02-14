@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-14 17:50:25 csraghunandan>
+;; Time-stamp: <2017-02-14 17:59:51 csraghunandan>
 
 ;; All the highlight stuff config
 
