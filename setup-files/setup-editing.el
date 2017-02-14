@@ -1,10 +1,17 @@
-;; Time-stamp: <2017-02-12 13:34:12 csraghunandan>
+;; Time-stamp: <2017-02-14 15:45:12 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
 (setq kill-ring-max 200
       kill-do-not-save-duplicates t
       save-interprogram-paste-before-kill t)
+
+(defun rag/clear-kill-ring ()
+  "clears the kill ring"
+  (interactive)
+  (progn (setq kill-ring nil) (garbage-collect)))
+
+(bind-key "C-c r c" 'rag/clear-kill-ring)
 
 ;; cutting and pasting uses primary clipboard
 (setq select-enable-primary t)

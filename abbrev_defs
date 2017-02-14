@@ -688,6 +688,7 @@
     ("negotiaing" "negotiating" nil 0)
     ("nkow" "know" nil 0)
     ("nothign" "nothing" nil 0)
+    ("nothiing" "nothing" nil 0)
     ("nver" "never" nil 0)
     ("nwe" "new" nil 0)
     ("nwo" "now" nil 0)
