@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:31:34 csraghunandan>
+;; Time-stamp: <2017-02-16 11:19:41 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil

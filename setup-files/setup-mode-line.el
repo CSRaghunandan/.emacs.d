@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 16:53:20 csraghunandan>
+;; Time-stamp: <2017-02-15 10:15:57 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 

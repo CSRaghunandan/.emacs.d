@@ -10,6 +10,7 @@ desktop/
 elpa/
 eshell/
 anaconda-mode/
+hitory
 company-statistics-cache.el
 *.elc
 .DS_STORE
