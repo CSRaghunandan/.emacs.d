@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 12:16:23 csraghunandan>
+;; Time-stamp: <2017-02-16 15:39:36 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -72,12 +72,17 @@ not prevent downloading the actual packages (obviously)."
 ;; prefer new files if one exists while loading
 (setq load-prefer-newer t)
 
-;; toml-mode
+;; toml-mode: major mode for editing toml files
 ;; https://github.com/dryman/toml-mode.el
 (use-package toml-mode)
 
-;; yaml-mode
+;; yaml-mode: major-mode for editing yaml files
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode)
+
+;; disable-mouse: minor mode to disable mouse in emacs
+;; https://github.com/purcell/disable-mouse
+(use-package disable-mouse
+  :config (global-disable-mouse-mode))
 
 (provide 'setup-misc)

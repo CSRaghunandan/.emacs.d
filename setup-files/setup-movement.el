@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-08 11:29:59 csraghunandan>
+;; Time-stamp: <2017-02-16 15:36:06 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -48,8 +48,8 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   ("S" backward-sentence)
   ("a" forward-paragraph)
   ("A" backward-paragraph)
-  ("'" avy-goto-char-timer)
-  ("`" avy-goto-word-1)
+  ("'" avy-goto-char-timer :color blue)
+  ("`" avy-goto-word-1 :color blue)
   ("w" ace-window)
   ("m" org-mark-ring-push)
   ("j" org-mark-ring-goto)
