@@ -7,10 +7,12 @@
         hungry-delete-backward
         hungry-delete-forward
         isearch-forward-symbol-at-point
+        ivy-wgrep-change-to-wgrep-mode
         mwim-beginning-of-code-or-line
         mwim-end-of-code-or-line
         org-beginning-of-line
         org-self-insert-command
+        rag/kill-rectangle-replace-with-space
         recursive-widen
         shm/space
         sp-backward-delete-char

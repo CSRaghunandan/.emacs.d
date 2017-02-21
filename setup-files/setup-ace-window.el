@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-08 11:28:19 csraghunandan>
+;; Time-stamp: <2017-02-19 19:47:02 csraghunandan>
 
 ;; ace-window: quick switching of windows
 ;; https://github.com/abo-abo/ace-window
@@ -38,6 +38,7 @@
       (?b aw-split-window-horz " Ace - Split Horz Window")
       (?o delete-other-windows " Ace - Maximize Window")
       (?c hydra-window-scroll/body)
+      (?t aw-split-window-fair "Ace- split fairly")
       (?y hydra-window-size/body))))
 
 (provide 'setup-ace-window)

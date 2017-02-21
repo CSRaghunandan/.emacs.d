@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:41:45 csraghunandan>
+;; Time-stamp: <2017-02-21 12:22:45 csraghunandan>
 
 ;; to get pragmatapro ligatures to work in emacs.
 (defun setup-pragmata-ligatures ()
@@ -66,6 +66,7 @@
 		  ("<+>"  . ?)
                   ("<-"   . ?)
 		  ("<<"   . ?)
+                  ("<=>"  . ?)
 		  ("<<<"  . ?)
 		  ("<<="  . ?)
 		  ("<="   . ?)
@@ -146,8 +147,19 @@
 		  ("~~>"  . ?)
 		  ("~>>"  . ?)
                   ("->"   . ?)
-                  ("<=>"  . ?)
-                  ("function" . ?𝑭)))))
+                  ("def" . ?𝑭)
+                  ("function" . ?𝑭)
+                  ("or" . ?⋁)
+                  ("and" . ?⋀)
+                  ("for" . ?∀)
+                  ("in" . ?∈)
+                  ("not in" . ?∉)
+                  ("null" . ?∅)
+                  ("empty" . ?∅)
+                  ("return" . #x27fc)
+                  ("yield" . #x27fb)
+                  ("True" . #x1d54b)
+                  ("False" . #x1d53d)))))
 
 (defun refresh-pretty ()
   (prettify-symbols-mode -1)
@@ -156,10 +168,7 @@
 ;; Hooks for modes in which to install the Pragmata ligatures
 (mapc (lambda (hook)
 	(add-hook hook (lambda () (setup-pragmata-ligatures) (refresh-pretty))))
-      '(text-mode-hook
-        prog-mode-hook
-        org-mode-hook))
-;; enable prettify symbols mode globally
-(global-prettify-symbols-mode +1)
+      '(prog-mode-hook))
+(add-hook 'prog-mode-hook #'prettify-symbols-mode)
 
 (provide 'setup-pragmatapro)

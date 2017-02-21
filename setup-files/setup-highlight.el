@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-14 18:05:06 csraghunandan>
+;; Time-stamp: <2017-02-16 22:11:16 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -26,7 +26,7 @@
 
 ;; beacon: blink the cursor whenever scrolling or switching between windows
 ;; https://github.com/Malabarba/beacon
-(use-package beacon :defer 1
+(use-package beacon
   :diminish beacon-mode
   :config
   (beacon-mode)
