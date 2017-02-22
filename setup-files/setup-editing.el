@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-14 15:45:12 csraghunandan>
+;; Time-stamp: <2017-02-22 12:37:04 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -456,5 +456,28 @@ This command does the inverse of `fill-region'."
 ;; cycle-quotes: cycle between single and double quotes
 (use-package cycle-quotes
   :bind ("C-c o q" . cycle-quotes))
+
+;;; Eval and replace last sexp
+;; http://stackoverflow.com/a/3035574/1219634
+(defun eval-and-replace-last-sexp ()
+  "Replace an emacs lisp expression (s-expression aka sexp) with its result.
+How to use: Put the cursor at the end of an expression like (+ 1 2) and call
+this command."
+  (interactive)
+  (let ((value (eval (preceding-sexp))))
+    (kill-sexp -1)
+    (insert (format "%s" value))))
+(bind-key "C-x C-S-e" #'eval-and-replace-last-sexp)
+
+;;; Delete Blank Lines
+;; http://www.masteringemacs.org/article/removing-blank-lines-buffer
+;; If a region is selected, delete all blank lines in that region.
+;; Else, call `delete-blank-lines'.
+(defun modi/delete-blank-lines-in-region (&rest args)
+  (let ((do-not-run-orig-fn (use-region-p)))
+    (when do-not-run-orig-fn
+      (flush-lines "^\\s-*$" (region-beginning) (region-end)))
+    do-not-run-orig-fn))
+(advice-add 'delete-blank-lines :before-until #'modi/delete-blank-lines-in-region)
 
 (provide 'setup-editing)

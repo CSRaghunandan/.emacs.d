@@ -11,6 +11,8 @@
         mwim-beginning-of-code-or-line
         mwim-end-of-code-or-line
         org-beginning-of-line
+        org-end-of-line
+        org-metaright
         org-self-insert-command
         rag/kill-rectangle-replace-with-space
         recursive-widen

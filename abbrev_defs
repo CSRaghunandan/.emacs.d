@@ -5,6 +5,10 @@
 
 (define-abbrev-table 'Info-edit-mode-abbrev-table '())
 
+(define-abbrev-table 'TeX-error-overview-mode-abbrev-table '())
+
+(define-abbrev-table 'TeX-output-mode-abbrev-table '())
+
 (define-abbrev-table 'anaconda-mode-view-mode-abbrev-table '())
 
 (define-abbrev-table 'awk-mode-abbrev-table
@@ -503,7 +507,8 @@
     ("frmo" "from" nil 0)
     ("fromt he" "from the" nil 0)
     ("fromthe" "from the" nil 0)
-    ("func" "function" nil 61)
+    ("func" "function" nil 63)
+    ("functionalties" "functionalities" nil 0)
     ("furneral" "funeral" nil 0)
     ("fwe" "few" nil 0)
     ("garantee" "guarantee" nil 0)
@@ -596,6 +601,7 @@
     ("influance" "influence" nil 0)
     ("infomation" "information" nil 0)
     ("informatoin" "information" nil 0)
+    ("infromation" "infraction" nil 0)
     ("inital" "initial" nil 0)
     ("initalization" "initialization" nil 0)
     ("instaleld" "installed" nil 0)
@@ -993,7 +999,7 @@
     ("understnad" "understand" nil 0)
     ("undert he" "under the" nil 0)
     ("unexperienced" "inexperienced" nil 0)
-    ("unicode" "Unicode" nil 0)
+    ("unicode" "Unicode" nil 1)
     ("unitedstates" "United States" nil 0)
     ("unliek" "unlike" nil 0)
     ("unobstrusively" "unobtrusively" nil 0)
@@ -1043,6 +1049,7 @@
     ("wouldbe" "would be" nil 0)
     ("wouldnt" "wouldn't" nil 0)
     ("wriet" "write" nil 0)
+    ("writin" "writing" nil 0)
     ("writting" "writing" nil 0)
     ("wrod" "word" nil 0)
     ("wroet" "wrote" nil 0)
@@ -1193,7 +1200,7 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
-    ("i" "I" nil 0)
+    ("i" "I" nil 2)
    ))
 
 (define-abbrev-table 'outline-mode-abbrev-table '())
@@ -1214,7 +1221,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 
@@ -1295,6 +1304,8 @@
 (define-abbrev-table 'vc-mtn-log-view-mode-abbrev-table '())
 
 (define-abbrev-table 'vc-svn-log-view-mode-abbrev-table '())
+
+(define-abbrev-table 'web-mode-abbrev-table '())
 
 (define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
 
