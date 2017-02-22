@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-16 15:36:06 csraghunandan>
+;; Time-stamp: <2017-02-22 17:34:44 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -64,5 +64,12 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   :bind (:map prog-mode-map
                 ("C-a" . mwim-beginning-of-code-or-line)
                 ("C-e" . mwim-end-of-code-or-line)))
+
+;; scroll half screen up or down and highlight current line before and after scrolling
+;; https://github.com/jixiuf/golden-ratio-scroll-screen
+(use-package golden-ratio-scroll-screen
+  :config
+  (bind-key "C-v" #'golden-ratio-scroll-screen-up)
+  (bind-key "M-v" #'golden-ratio-scroll-screen-down))
 
 (provide 'setup-movement)

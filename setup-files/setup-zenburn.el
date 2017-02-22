@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 23:26:17 csraghunandan>
+;; Time-stamp: <2017-02-22 17:31:10 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -25,6 +25,8 @@
   ;; make everything look gray :)
   (set-face-attribute 'font-lock-comment-delimiter-face nil
                       :foreground "gray55")
+  (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
+                      :background "gray27" :weight 'normal)
   (set-face-attribute 'font-lock-comment-face nil
                       :foreground "gray55" :slant 'italic)
   (set-face-attribute 'font-lock-doc-face nil
