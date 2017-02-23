@@ -804,7 +804,7 @@
     ("reccommend" "recommend" nil 0)
     ("receieve" "receive" nil 0)
     ("recieve" "receive" nil 0)
-    ("recieved" "received" nil 0)
+    ("recieved" "received" nil 1)
     ("recieving" "receiving" nil 0)
     ("recomend" "recommend" nil 0)
     ("recomendation" "recommendation" nil 0)
@@ -817,6 +817,7 @@
     ("regardsless" "regardless" nil 0)
     ("regession" "regression" nil 0)
     ("regresion" "regression" nil 0)
+    ("regsitered" "registered" nil 0)
     ("releated" "related" nil 0)
     ("religous" "religious" nil 0)
     ("relize" "realize" nil 0)
@@ -1200,7 +1201,7 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
-    ("i" "I" nil 2)
+    ("i" "I" nil 3)
    ))
 
 (define-abbrev-table 'outline-mode-abbrev-table '())

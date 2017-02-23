@@ -17,6 +17,7 @@
         rag/kill-rectangle-replace-with-space
         recursive-widen
         shm/space
+        smart-dash-insert
         sp-backward-delete-char
         sp-backward-kill-word
         sp-delete-char

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-22 17:31:10 csraghunandan>
+;; Time-stamp: <2017-02-23 12:30:15 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -40,13 +40,21 @@
                       :background "gray27")
   (set-face-attribute 'vertical-border nil :foreground "gray20")
 
-  ;; make magit-popup optional arguments more readable
   (eval-after-load "magit"
     (lambda ()
+      ;; make magit-popup optional arguments more readable
       (set-face-attribute 'magit-popup-disabled-argument nil
                           :foreground "gray55")
       (set-face-attribute 'magit-popup-key nil
-                          :foreground "#BFEBBF")))
+                          :foreground "#BFEBBF")
+      (set-face-attribute 'magit-section-highlight nil
+                          :background "gray27")
+      (set-face-attribute 'magit-diff-file-heading-highlight nil
+                          :background "gray27")
+      (set-face-attribute 'magit-diff-hunk-heading-highlight nil
+                          :background "gray27")
+      (set-face-attribute 'magit-diff-context-highlight nil
+                          :foreground "grey70" :background "gray27")))
 
   ;; strike-through unmatched parenthesis
   (set-face-attribute 'rainbow-delimiters-unmatched-face nil
