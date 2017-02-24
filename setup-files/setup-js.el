@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-14 18:02:27 csraghunandan>
+;; Time-stamp: <2017-02-23 13:18:32 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -11,7 +11,8 @@
    ("\\.jsx$" . js2-jsx-mode))
   :config
   ;; extra features for imenu
-  (js2-imenu-extras-setup)
+  (add-hook 'js2-mode-hook (lambda ()
+                             (js2-imenu-extras-mode)))
 
   ;; tern: IDE like features for javascript and completion
   ;; http://ternjs.net/doc/manual.html#emacs

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-22 17:34:44 csraghunandan>
+;; Time-stamp: <2017-02-24 10:00:49 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -71,5 +71,15 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   :config
   (bind-key "C-v" #'golden-ratio-scroll-screen-up)
   (bind-key "M-v" #'golden-ratio-scroll-screen-down))
+
+;; dumb-jump: jump to definitions using `rg' or `ag'
+;; https://github.com/jacktasia/dumb-jump
+(use-package dumb-jump
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g b" . dumb-jump-back))
+  :config
+  (setq dumb-jump-selector 'ivy)
+  (add-hook 'prog-mode-hook #'dumb-jump-mode))
 
 (provide 'setup-movement)
