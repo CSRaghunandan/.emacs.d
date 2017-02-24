@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-23 13:18:32 csraghunandan>
+;; Time-stamp: <2017-02-25 01:49:26 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -9,6 +9,8 @@
   (("\\.js$" . js2-mode)
    ("\\.json$" . js2-jsx-mode)
    ("\\.jsx$" . js2-jsx-mode))
+  :bind (:map js2-mode-map
+              ("C-c C-l" . jade-eval-buffer))
   :config
   ;; extra features for imenu
   (add-hook 'js2-mode-hook (lambda ()
@@ -69,6 +71,11 @@
       (when (string-match  "\\.json$" (buffer-name))
         (local-set-key (kbd "C-c C-g") 'jsons-print-path)))
     (add-hook 'js2-mode-hook 'js-mode-bindings))
+
+  ;; jade: javascript awesome development environment
+  ;; https://github.com/NicolasPetton/jade
+  (use-package jade
+    :config (add-hook 'js2-mode-hook 'jade-interaction-mode))
 
   ;; mocha: emacs mode for running mocha tests
   ;; https://github.com/scottaj/mocha.el
