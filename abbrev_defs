@@ -610,6 +610,7 @@
     ("inteh" "in the" nil 0)
     ("interum" "interim" nil 0)
     ("inthe" "in the" nil 0)
+    ("intitial" "initial" nil 0)
     ("inturn" "in turn" nil 0)
     ("invitaion" "invitation" nil 0)
     ("invstigated" "investigated" nil 0)
@@ -704,7 +705,7 @@
     ("occured" "occurred" nil 0)
     ("occurence" "occurrence" nil 0)
     ("occurences" "occurrences" nil 0)
-    ("occurrance" "occurrence" nil 0)
+    ("occurrance" "occurrence" nil 1)
     ("ocur" "occur" nil 0)
     ("odbc" "ODBC" nil 0)
     ("oeprator" "operator" nil 0)
@@ -1109,6 +1110,8 @@
 (define-abbrev-table 'image-dired-display-image-mode-abbrev-table '())
 
 (define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
+
+(define-abbrev-table 'inf-mongo-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-python-mode-abbrev-table '())
 

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-16 12:48:38 csraghunandan>
+;; Time-stamp: <2017-02-26 13:03:38 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -31,6 +31,14 @@
 
   (bind-key "C-c g m" 'git-messenger:popup-message)
   (bind-key "m" 'git-messenger:copy-message git-messenger-map))
+
+;; git-link: emacs package for getting the github/gitlab/bitbucket URL
+;; https://github.com/sshaw/git-link
+(use-package git-link
+  :bind
+  ("C-c g l" . git-link)
+  ("C-c g c" . git-link-commit)
+  ("C-c g h" . git-link-homepage))
 
 ;; git-modes: major modes for git config, ignore and attributes files
 ;; https://github.com/magit/git-modes
