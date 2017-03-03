@@ -270,6 +270,7 @@
     ("capabilites" "capabilities" nil 0)
     ("catagory" "category" nil 0)
     ("categiory" "category" nil 0)
+    ("cateogry" "category" nil 1)
     ("certian" "certain" nil 0)
     ("challange" "challenge" nil 0)
     ("challanges" "challenges" nil 0)
@@ -373,6 +374,7 @@
     ("definately" "definitely" nil 0)
     ("definded" "defined" nil 0)
     ("delcare" "declare" nil 0)
+    ("departemnt" "department" nil 0)
     ("dependances" "dependencies" nil 0)
     ("dependancies" "dependencies" nil 0)
     ("deptartment" "department" nil 0)
@@ -831,7 +833,7 @@
     ("representativs" "representatives" nil 0)
     ("representives" "representatives" nil 0)
     ("represetned" "represented" nil 0)
-    ("represnt" "represent" nil 0)
+    ("represnt" "represent" nil 1)
     ("requirment" "requirement" nil 0)
     ("requirments" "requirements" nil 0)
     ("reserach" "research" nil 0)
@@ -993,7 +995,7 @@
     ("truely" "truly" nil 0)
     ("truley" "truly" nil 0)
     ("tryed" "tried" nil 0)
-    ("tthe" "the" nil 0)
+    ("tthe" "the" nil 1)
     ("ttyl" "talk to you later" nil 1)
     ("tyhat" "that" nil 0)
     ("tyhe" "the" nil 0)
@@ -1187,6 +1189,8 @@
 
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
+(define-abbrev-table 'mocha-compilation-mode-abbrev-table '())
+
 (define-abbrev-table 'objc-mode-abbrev-table
   '(
    ))
@@ -1204,7 +1208,7 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
-    ("i" "I" nil 3)
+    ("i" "I" nil 6)
    ))
 
 (define-abbrev-table 'outline-mode-abbrev-table '())
@@ -1225,9 +1229,7 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
 
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 

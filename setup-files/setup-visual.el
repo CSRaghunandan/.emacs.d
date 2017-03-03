@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:22:09 csraghunandan>
+;; Time-stamp: <2017-03-02 17:37:23 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter

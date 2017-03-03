@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-25 01:49:26 csraghunandan>
+;; Time-stamp: <2017-02-28 14:51:00 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -83,6 +83,10 @@
     :bind
     (("C-c m P" . mocha-test-project)
      ("C-c m f" . mocha-test-file)
-     ("C-c m p" . mocha-test-at-point))))
+     ("C-c m p" . mocha-test-at-point)))
+
+  ;; mocha-snippets: snippets for mocha test framework
+  ;; https://github.com/cowboyd/mocha-snippets.el
+  (use-package mocha-snippets))
 
 (provide 'setup-js)

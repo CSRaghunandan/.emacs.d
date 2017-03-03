@@ -4,6 +4,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        counsel-M-x
         hungry-delete-backward
         hungry-delete-forward
         isearch-forward-symbol-at-point

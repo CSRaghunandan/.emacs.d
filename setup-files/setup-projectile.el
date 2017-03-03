@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:54:09 csraghunandan>
+;; Time-stamp: <2017-03-03 12:29:40 csraghunandan>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
@@ -11,7 +11,6 @@
   ;; ignore stack directory as projectile project
   (add-to-list 'projectile-ignored-projects
                (concat user-home-directory ".stack/global-project/"))
-
   ;; ignore all projects under exercism directory
   (require 'f)
   (defun my-projectile-ignore-project (project-root)

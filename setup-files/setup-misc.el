@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-16 15:39:36 csraghunandan>
+;; Time-stamp: <2017-03-03 12:29:03 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -71,6 +71,9 @@ not prevent downloading the actual packages (obviously)."
 
 ;; prefer new files if one exists while loading
 (setq load-prefer-newer t)
+
+;; enable recursive minibuffers
+(setq enable-recursive-minibuffers t)
 
 ;; toml-mode: major mode for editing toml files
 ;; https://github.com/dryman/toml-mode.el
