@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-15 10:15:21 csraghunandan>
+;; Time-stamp: <2017-03-07 22:03:04 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -21,6 +21,17 @@
 ;; save custom file to a separate directory
 (setq custom-file (concat user-emacs-directory "my-elisp-code/custom-settings.el"))
 (load custom-file :noerror :nomessage) ; load custom-file silently
+
+(defmacro >=e (V &rest body)
+  "The BODY can contain both
+'if'   (emacs version at least version V) and
+'else' (emacs version older than V) blocks.
+Usage: (>=e \"25.0\"
+           (defun-compatible-with-25.0)
+         (defun-not-compatible-in-older-version))"
+  (declare (indent 2)) ; `if'-style indentation where this macro is used
+  `(if (version<= ,V emacs-version)
+       ,@body))
 
 
 
