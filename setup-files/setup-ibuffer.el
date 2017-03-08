@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-07 22:03:35 csraghunandan>
+;; Time-stamp: <2017-03-08 12:17:11 csraghunandan>
 
 ;; ibuffer: for easy management of buffers
 (use-package ibuffer
@@ -53,8 +53,9 @@
   (add-to-list #'ibuffer-never-show-predicates "^\\*Scratch")
   (add-to-list #'ibuffer-never-show-predicates "^\\*Bookmark List")
 
-  (bind-key* "C-x C-b" 'ibuffer)
-  (>=e "26" (bind-key "C-c j" #'ibuffer-jump))
+  (>=e "26"
+      (bind-key "C-x C-b" #'ibuffer-jump)
+    (bind-key* "C-x C-b" #'ibuffer))
 
   (defhydra hydra-ibuffer-main (:color pink :hint nil)
     "
