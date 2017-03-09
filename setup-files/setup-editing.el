@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-22 12:37:04 csraghunandan>
+;; Time-stamp: <2017-03-09 19:21:13 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -100,7 +100,6 @@ Position the cursor at it's beginning, according to the current mode."
   (mwim-beginning-of-code-or-line)
   (set-mark (line-end-position))
   (exchange-point-and-mark))
-
 (bind-key "C-c l" 'rag/select-inside-line)
 
 ;; align commands
@@ -109,11 +108,13 @@ Position the cursor at it's beginning, according to the current mode."
   (interactive "r")
   (align-regexp start end
                 "\\(\\s-*\\)\\s-" 1 1 t))
+
 (defun rag/align-equals (start end)
   "Align columns by equals sign"
   (interactive "r")
   (align-regexp start end
                 "\\(\\s-*\\)=" 1 1 t))
+
 (defun rag/align-columns (begin end)
   "Align text columns"
   (interactive "r")
@@ -165,20 +166,20 @@ If 0, it means lines will be joined.
 By befault, *N is 2. It means, 1 visible blank line.
 
 URL `http://ergoemacs.org/emacs/elisp_compact_empty_lines.html'
-Version 2016-10-07"
+Version 2017-01-27"
   (interactive
    (if (region-active-p)
        (list (region-beginning) (region-end))
      (list (point-min) (point-max))))
-  (when (null *begin)
+  (when (not *begin)
     (setq *begin (point-min) *end (point-max)))
   (save-excursion
     (save-restriction
       (narrow-to-region *begin *end)
       (progn
         (goto-char (point-min))
-        (while (search-forward-regexp "\n\n\n+" nil "noerror")
-          (replace-match (make-string (if (null *n) 2 *n ) 10)))))))
+        (while (re-search-forward "\n\n\n+" nil "NOERROR")
+          (replace-match (make-string (if *n *n 2) 10)))))))
 
 (defun xah-clean-whitespace (&optional *begin *end)
   "Delete trailing whitespace, and replace repeated blank lines to just 1.
