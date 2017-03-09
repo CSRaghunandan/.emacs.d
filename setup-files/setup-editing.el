@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-09 19:27:28 csraghunandan>
+;; Time-stamp: <2017-03-09 19:40:15 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -446,6 +446,63 @@ Version 2017-01-08"
         (fill-region -p1 -p2)))
     (put this-command 'compact-p (not -compact-p))))
 (bind-key "M-q" #'xah-fill-or-unfill)
+
+(defun xah-title-case-region-or-line (*begin *end)
+  "Title case text between nearest brackets, or current line, or text selection.
+Capitalize first letter of each word, except words like {to, of, the, a, in, or, and, …}. If a word already contains cap letters such as HTTP, URL, they are left as is.
+
+When called in a elisp program, *begin *end are region boundaries.
+URL `http://ergoemacs.org/emacs/elisp_title_case_text.html'
+Version 2017-01-11"
+  (interactive
+   (if (use-region-p)
+       (list (region-beginning) (region-end))
+     (let (-p1
+           -p2
+           (-skipChars "^\"<>(){}[]“”‘’‹›«»「」『』【】〖〗《》〈〉〔〕"))
+       (progn
+         (skip-chars-backward -skipChars (line-beginning-position))
+         (setq -p1 (point))
+         (skip-chars-forward -skipChars (line-end-position))
+         (setq -p2 (point)))
+       (list -p1 -p2))))
+  (let* ((-strPairs [
+                     [" A " " a "]
+                     [" And " " and "]
+                     [" At " " at "]
+                     [" As " " as "]
+                     [" By " " by "]
+                     [" Be " " be "]
+                     [" Into " " into "]
+                     [" In " " in "]
+                     [" Is " " is "]
+                     [" It " " it "]
+                     [" For " " for "]
+                     [" Of " " of "]
+                     [" Or " " or "]
+                     [" On " " on "]
+                     [" Via " " via "]
+                     [" The " " the "]
+                     [" That " " that "]
+                     [" To " " to "]
+                     [" Vs " " vs "]
+                     [" With " " with "]
+                     [" From " " from "]
+                     ["'S " "'s "]
+                     ["'T " "'t "]
+                     ]))
+    (save-excursion
+      (save-restriction
+        (narrow-to-region *begin *end)
+        (upcase-initials-region (point-min) (point-max))
+        (let ((case-fold-search nil))
+          (mapc
+           (lambda (-x)
+             (goto-char (point-min))
+             (while
+                 (search-forward (aref -x 0) nil t)
+               (replace-match (aref -x 1) "FIXEDCASE" "LITERAL")))
+           -strPairs))))))
 
 ;; move-text: move text or region up or down
 ;; https://github.com/emacsfodder/move-text
