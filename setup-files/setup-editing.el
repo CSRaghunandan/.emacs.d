@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-09 19:40:15 csraghunandan>
+;; Time-stamp: <2017-03-09 22:09:10 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -414,38 +414,20 @@ If L and R are provided, use them for finding the start and end of defun."
  ("C-M-\\" . indent-region-or-buffer)
  ("C-c d i" . indent-defun))
 
-(defun xah-fill-or-unfill ()
-  "Reformat current paragraph or region to `fill-column', like `fill-paragraph' or “unfill”.
-When there is a text selection, act on the selection, else, act on a text block separated by blank lines.
-URL `http://ergoemacs.org/emacs/modernization_fill-paragraph.html'
-Version 2017-01-08"
+(defun unfill-paragraph ()
+  "Replace newline chars in current paragraph by single spaces.
+This command does the inverse of `fill-paragraph'."
   (interactive)
-  ;; This command symbol has a property “'compact-p”, the possible values are t and nil. This property is used to easily determine whether to compact or uncompact, when this command is called again
-  (let ((-compact-p
-          (if (eq last-command this-command)
-              (get this-command 'compact-p)
-            (> (- (line-end-position) (line-beginning-position)) fill-column)))
-         (deactivate-mark nil)
-         (-blanks-regex "\n[ \t]*\n")
-         -p1 -p2)
-    (if (use-region-p)
-        (progn (setq -p1 (region-beginning))
-               (setq -p2 (region-end)))
-      (save-excursion
-        (if (re-search-backward -blanks-regex nil "NOERROR")
-            (progn (re-search-forward -blanks-regex)
-                   (setq -p1 (point)))
-          (setq -p1 (point)))
-        (if (re-search-forward -blanks-regex nil "NOERROR")
-            (progn (re-search-backward -blanks-regex)
-                   (setq -p2 (point)))
-          (setq -p2 (point)))))
-    (if -compact-p
-        (fill-region -p1 -p2)
-      (let ((fill-column most-positive-fixnum ))
-        (fill-region -p1 -p2)))
-    (put this-command 'compact-p (not -compact-p))))
-(bind-key "M-q" #'xah-fill-or-unfill)
+  (let ((fill-column most-positive-fixnum))
+    (call-interactively 'fill-paragraph)))
+(bind-key "M-Q" 'unfill-paragraph)
+
+(defun unfill-region (start end)
+  "Replace newline chars in region from START to END by single spaces.
+This command does the inverse of `fill-region'."
+  (interactive "r")
+  (let ((fill-column most-positive-fixnum))
+    (fill-region start end)))
 
 (defun xah-title-case-region-or-line (*begin *end)
   "Title case text between nearest brackets, or current line, or text selection.
