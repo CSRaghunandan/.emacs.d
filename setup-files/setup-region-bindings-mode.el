@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:27:10 csraghunandan>
+;; Time-stamp: <2017-03-09 19:30:23 csraghunandan>
 
 ;; region-bindings-mode: enables custom bindings when mark is active
 ;; https://github.com/fgallina/region-bindings-mode
@@ -15,7 +15,7 @@
    ("W" . recursive-narrow-or-widen-dwim)
    ("E" . eval-region)
    ("e" . er/expand-region)
-   ("f" . fill-region)
+   ("f" . xah-fill-or-unfill)
    ("q" . vr/query-replace)
    (";" . comment-or-uncomment-region)
    ("s" . rag/kill-rectangle-replace-with-space)
