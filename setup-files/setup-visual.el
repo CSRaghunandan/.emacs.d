@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-02 17:37:23 csraghunandan>
+;; Time-stamp: <2017-03-14 18:45:12 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -111,5 +111,26 @@
 ;; all-the-icons: show icons in neotree/dired/modeline
 ;; https://github.com/domtronn/all-the-icons.el
 (use-package all-the-icons)
+
+;; fill-column-indicator: show the fill column
+;; https://www.emacswiki.org/emacs/fill-column-indicator.el
+(use-package fill-column-indicator
+  :config
+  (setq-default fci-rule-use-dashes t)
+  ;; disable fci-mode for web-mode; otherwise enable it for all other prog-modes
+  (add-hook 'prog-mode-hook (lambda ()
+                              (unless (eq major-mode 'web-mode)
+                                (fci-mode))))
+
+  ;; fix company-mode display bug when fci-mode is enabled
+  (defun on-off-fci-before-company(command)
+    (when (string= "show" command)
+      (turn-off-fci-mode))
+    (when (string= "hide" command)
+      (turn-on-fci-mode)))
+
+  (advice-add 'company-call-frontends :before #'on-off-fci-before-company)
+
+  (setq fci-rule-color "gray30"))
 
 (provide 'setup-visual)

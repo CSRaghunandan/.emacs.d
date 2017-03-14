@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-16 22:11:16 csraghunandan>
+;; Time-stamp: <2017-03-14 18:13:02 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -33,19 +33,6 @@
   (setq beacon-size 25)
   ;; don't blink in shell-mode
   (add-to-list 'beacon-dont-blink-major-modes 'comint-mode))
-
-;; column-enforce-mode: highlight characters which exceed fill-column
-;; https://github.com/jordonbiondo/column-enforce-mode
-(use-package column-enforce-mode
-  :diminish column-enforce-mode
-  :config
-  (add-hook 'prog-mode-hook (lambda ()
-                              (unless (eq major-mode 'web-mode)
-                                (column-enforce-mode))))
-  ;; enforce a column of 80 for highlighting
-  (setq column-enforce-column 80)
-  (set-face-attribute 'column-enforce-face nil
-                      :underline nil :foreground "firebrick3"))
 
 ;; highlight-numbers: fontify numbers
 ;; https://github.com/Fanael/highlight-numbers
