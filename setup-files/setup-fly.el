@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:35:41 csraghunandan>
+;; Time-stamp: <2017-03-16 23:53:48 csraghunandan>
 
 ;; flyspell, flycheck
 
@@ -21,19 +21,6 @@
 ;; flycheck: on the fly syntax checking
 ;; http://www.flycheck.org/en/latest/
 (use-package flycheck
-  :diminish flycheck-mode
-  :config
-  (defhydra hydra-flycheck
-    (:pre (progn (setq hydra-lv t) (flycheck-list-errors))
-          :post (progn (setq hydra-lv nil) (quit-windows-on "*Flycheck errors*"))
-          :hint nil)
-    "Flycheck"
-    ("s"  flycheck-error-list-set-filter "Filter")
-    ("n"  flycheck-next-error "Next")
-    ("p"  flycheck-previous-error "Previous")
-    ("f" flycheck-first-error "First")
-    ("l"  (progn (goto-char (point-max)) (flycheck-previous-error)) "Last")
-    ("q"  nil "quit" :color blue))
-  (bind-key "C-c h f" 'hydra-flycheck/body))
+  :diminish flycheck-mode)
 
 (provide 'setup-fly)
