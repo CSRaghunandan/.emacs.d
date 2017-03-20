@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-20 17:19:49 csraghunandan>
+;; Time-stamp: <2017-03-20 17:33:30 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -123,6 +123,7 @@
   ;; enforce a column of 80 for highlighting
   (setq column-enforce-column 80)
   (set-face-attribute 'column-enforce-face nil
-                      :underline nil :foreground "firebrick3"))
+                      :underline nil :foreground "firebrick3")
+  (setq column-enforce-comments nil))
 
 (provide 'setup-visual)
