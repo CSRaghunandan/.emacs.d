@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-14 18:45:12 csraghunandan>
+;; Time-stamp: <2017-03-20 17:19:49 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -112,25 +112,17 @@
 ;; https://github.com/domtronn/all-the-icons.el
 (use-package all-the-icons)
 
-;; fill-column-indicator: show the fill column
-;; https://www.emacswiki.org/emacs/fill-column-indicator.el
-(use-package fill-column-indicator
+;; column-enforce-mode: highlight characters which exceed fill-column
+;; https://github.com/jordonbiondo/column-enforce-mode
+(use-package column-enforce-mode
+  :diminish column-enforce-mode
   :config
-  (setq-default fci-rule-use-dashes t)
-  ;; disable fci-mode for web-mode; otherwise enable it for all other prog-modes
   (add-hook 'prog-mode-hook (lambda ()
                               (unless (eq major-mode 'web-mode)
-                                (fci-mode))))
-
-  ;; fix company-mode display bug when fci-mode is enabled
-  (defun on-off-fci-before-company(command)
-    (when (string= "show" command)
-      (turn-off-fci-mode))
-    (when (string= "hide" command)
-      (turn-on-fci-mode)))
-
-  (advice-add 'company-call-frontends :before #'on-off-fci-before-company)
-
-  (setq fci-rule-color "gray30"))
+                                (column-enforce-mode))))
+  ;; enforce a column of 80 for highlighting
+  (setq column-enforce-column 80)
+  (set-face-attribute 'column-enforce-face nil
+                      :underline nil :foreground "firebrick3"))
 
 (provide 'setup-visual)

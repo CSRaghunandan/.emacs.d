@@ -7,6 +7,8 @@
         counsel-M-x
         hungry-delete-backward
         hungry-delete-forward
+        hydra-change-case/body
+        hydra-change-case/modi/upcase-and-exit
         isearch-forward-symbol-at-point
         ivy-wgrep-change-to-wgrep-mode
         mwim-beginning-of-code-or-line
@@ -25,6 +27,7 @@
         sp-kill-hybrid-sexp
         sp-kill-sexp
         sp-kill-word
+        sp-select-next-thing
         undefined
         wdired-finish-edit
         wgrep-finish-edit
