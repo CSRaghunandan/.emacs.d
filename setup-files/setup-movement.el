@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-24 10:57:46 csraghunandan>
+;; Time-stamp: <2017-03-23 16:29:25 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -33,7 +33,7 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   ("p" previous-line)
   ("f" forward-char)
   ("b" backward-char)
-  ("a" mwim-beginning-of-code-or-line)
+  ("a" mwim-beginning-of-code-or-line-or-comment)
   ("e" move-end-of-line)
   ("v" scroll-up-command)
   ("V" scroll-down-command)
@@ -62,7 +62,7 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
 ;; https://github.com/alezost/mwim.el
 (use-package mwim
   :bind (:map prog-mode-map
-                ("C-a" . mwim-beginning-of-code-or-line)
+                ("C-a" . mwim-beginning-of-code-or-line-comment)
                 ("C-e" . mwim-end-of-code-or-line)))
 
 ;; scroll half screen up or down and highlight current line before and after scrolling

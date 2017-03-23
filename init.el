@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-07 22:03:04 csraghunandan>
+;; Time-stamp: <2017-03-21 16:59:46 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -98,6 +98,7 @@ Usage: (>=e \"25.0\"
 (require 'setup-kurecolor)
 (require 'setup-erc)
 (require 'setup-visual)
+(require 'setup-tramp)
 (require 'setup-zenburn)
 (require 'setup-misc)
 (require 'setup-calendar)
