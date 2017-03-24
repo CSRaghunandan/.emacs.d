@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-23 16:29:25 csraghunandan>
+;; Time-stamp: <2017-03-24 12:18:46 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -14,6 +14,13 @@ Try the repeated popping up to 10 times."
 ;; Ensure that we can quickly pop the mark several times by typing
 ;; C-u C-SPC C-SPC, instead of having to type C-u C-SPC C-u C-SPC.
 (setq set-mark-command-repeat-pop t)
+
+;; mwim: move to the beginning or end of line smartly
+;; https://github.com/alezost/mwim.el
+(use-package mwim
+  :bind (:map prog-mode-map
+              ("C-a" . mwim-beginning-of-code-or-line-or-comment)
+              ("C-e" . mwim-end-of-code-or-line)))
 
 ;; hydra for movement keys
 (defhydra hydra-move
@@ -57,13 +64,6 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   ("," previous-buffer)
   ("q" nil :color blue))
 (bind-key "M-m" 'hydra-move/body)
-
-;; mwim: move to the beginning or end of line smartly
-;; https://github.com/alezost/mwim.el
-(use-package mwim
-  :bind (:map prog-mode-map
-                ("C-a" . mwim-beginning-of-code-or-line-comment)
-                ("C-e" . mwim-end-of-code-or-line)))
 
 ;; scroll half screen up or down and highlight current line before and after scrolling
 ;; https://github.com/jixiuf/golden-ratio-scroll-screen

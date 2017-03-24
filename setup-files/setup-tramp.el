@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-21 16:59:04 csraghunandan>
+;; Time-stamp: <2017-03-24 12:11:50 csraghunandan>
 
 (setq tramp-default-method "ssh")
 
