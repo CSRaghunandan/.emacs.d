@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:16:49 csraghunandan>
+;; Time-stamp: <2017-03-30 02:10:14 csraghunandan>
 
 ;; yasnippet: snippets tool for emacs
 ;; https://github.com/capitaomorte/yasnippet
@@ -25,7 +25,12 @@ _r_eload    e_x_pand    _?_ list    aya _e_xpand
       ("c" aya-create)
       ("e" aya-expand)
       ("?" yas-describe-tables)
-      ("q" nil "cancel" :color blue))))
+      ("q" nil "cancel" :color blue)))
+
+  ;; https://github.com/joaotavora/yasnippet/issues/794#issuecomment-290216043
+  ;; `auto-fill-mode' seems to break yasnippet. Wait till the issue is fixed.
+  ;; Below is a temporary workaround
+  (advice-add 'yas--auto-fill-wrapper :override #'ignore))
 
 ;; auto-yasnippet: create disposable snippets on the fly
 ;; https://github.com/abo-abo/auto-yasnippet

@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-03-27 13:11:49 csraghunandan>
+;; Time-stamp: <2017-03-27 13:18:44 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
@@ -315,6 +315,7 @@ ESC or `q' to not overwrite any of the remaining files,
                operation success-count (dired-plural-s success-count)))))
   (dired-move-to-filename))
 
+;; https://oremacs.com/2017/03/18/dired-ediff/
 (defun ora-ediff-files ()
   (interactive)
   (let ((files (dired-get-marked-files))
