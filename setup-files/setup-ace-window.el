@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-24 15:53:30 csraghunandan>
+;; Time-stamp: <2017-04-05 11:45:02 csraghunandan>
 
 ;; ace-window: quick switching of windows
 ;; https://github.com/abo-abo/ace-window
@@ -33,7 +33,7 @@
   (setq aw-dispatch-alist
     '((?x aw-delete-window " Ace - Delete Window")
       (?m aw-swap-window " Ace - Swap Window")
-      (?n aw-flip-window " Ace - Flip Window")
+      (?n aw-flip-window nil " Ace - Flip Window")
       (?o delete-other-windows " Ace - Maximize Window")
       (?c hydra-window-scroll/body)
       (?t aw-split-window-fair "Ace- split fairly")
