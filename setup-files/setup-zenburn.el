@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-23 12:30:15 csraghunandan>
+;; Time-stamp: <2017-04-06 00:52:00 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -31,7 +31,9 @@
                       :foreground "gray55" :slant 'italic)
   (set-face-attribute 'font-lock-doc-face nil
                       :foreground "gray70" :slant 'italic)
-  (set-face-background 'shm-current-face "gray27")
+  (eval-after-load "shm"
+    (lambda ()
+      (set-face-background 'shm-current-face "gray27")))
   (set-face-attribute 'hl-line nil
                       :background "gray27")
   (set-face-attribute 'fringe nil
