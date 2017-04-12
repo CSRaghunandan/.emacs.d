@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-14 18:40:43 csraghunandan>
+;; Time-stamp: <2017-04-12 11:38:15 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -59,7 +59,6 @@ not prevent downloading the actual packages (obviously)."
   ;; disable heavy minor modes if file is large (above 2MB)
   (when (> (buffer-size) 2000000)
     (flycheck-mode -1)
-    (highlight-indent-guides-mode -1)
     (rainbow-delimiters-mode -1)))
 (add-hook 'prog-mode-hook 'conditional-disable-modes)
 

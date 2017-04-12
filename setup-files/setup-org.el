@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-11 14:27:33 csraghunandan>
+;; Time-stamp: <2017-04-12 11:26:21 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -350,42 +350,6 @@ text and copying to the killring."
            (kill-new mytmpid)
            (message "Copied %s to killring (clipboard)" mytmpid)))
   (bind-key "s-i" 'rag/copy-id-to-clipboard org-mode-map)
-
-  (defun scimax/org-return ()
-    "Add new list or headline "
-    (interactive)
-    (cond
-     ((org-in-item-p)
-      (if (org-element-property :contents-begin (org-element-context))
-          (org-insert-heading)
-        (beginning-of-line)
-        (setf (buffer-substring
-               (line-beginning-position) (line-end-position)) "")
-        (org-return)))
-     ((org-at-heading-p)
-      (if (not (string= "" (org-element-property :title (org-element-context))))
-          (progn (org-end-of-meta-data)
-                 (org-insert-heading))
-        (beginning-of-line)
-        (setf (buffer-substring
-               (line-beginning-position) (line-end-position)) "")))
-     ((org-at-table-p)
-      (if (-any?
-           (lambda (x) (not (string= "" x)))
-           (nth
-            (- (org-table-current-dline) 1)
-            (org-table-to-lisp)))
-          (org-return)
-        ;; empty row
-        (beginning-of-line)
-        (setf (buffer-substring
-               (line-beginning-position) (line-end-position)) "")
-        (org-return)))
-     (t
-      (org-return))))
-
-  (define-key org-mode-map (kbd "RET")
-    'scimax/org-return)
 
   (bind-key "C-c h c" 'hydra-org-clock/body org-mode-map)
   (defhydra hydra-org-clock (:color blue
