@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-11 16:20:12 csraghunandan>
+;; Time-stamp: <2017-04-15 00:00:51 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -10,7 +10,7 @@
    ("\\.json$" . js2-jsx-mode)
    ("\\.jsx$" . js2-jsx-mode))
   :bind (:map js2-mode-map
-              ("C-c C-l" . jade-eval-buffer))
+              ("C-c C-l" . indium-eval-buffer))
   :config
   ;; extra features for imenu
   (add-hook 'js2-mode-hook (lambda ()
@@ -73,10 +73,10 @@
         (local-set-key (kbd "C-c C-g") 'jsons-print-path)))
     (add-hook 'js2-mode-hook 'js-mode-bindings))
 
-  ;; jade: javascript awesome development environment
-  ;; https://github.com/NicolasPetton/jade
-  (use-package jade
-    :config (add-hook 'js2-mode-hook 'jade-interaction-mode))
+  ;; indium: javascript awesome development environment
+  ;; https://github.com/NicolasPetton/indium
+  (use-package indium
+    :config (add-hook 'js2-mode-hook 'indium-interaction-mode))
 
   ;; mocha: emacs mode for running mocha tests
   ;; https://github.com/scottaj/mocha.el

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:30:20 csraghunandan>
+;; Time-stamp: <2017-04-13 14:41:04 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -42,9 +42,8 @@
         company-require-match 'never
         company-tooltip-align-annotations t)
 
-  ;; company-statistics
+  ;; company-statistics: sort the company candidates by the statistics
   ;; https://github.com/company-mode/company-statistics
-  ;; sort the company candidates by the statistics
   (use-package company-statistics :defer 1
     :config (company-statistics-mode)))
 
