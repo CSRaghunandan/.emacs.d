@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-12 11:26:21 csraghunandan>
+;; Time-stamp: <2017-04-15 00:11:11 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -335,6 +335,11 @@ Execute this command while the point is on or after the hyper-linked org link."
   ;; https://github.com/lolownia/org-pomodoro
   (use-package org-pomodoro
     :bind ("C-c o p" . org-pomodoro))
+
+  ;; org-autolist: automatically add list bullets upon pressing enter in org-mode
+  ;; https://github.com/calvinwyoung/org-autolist
+ (use-package org-autolist
+   :config (add-hook 'org-mode-hook 'org-autolist-mode))
 
   (defun rag/copy-id-to-clipboard()
     "Copy the ID property value to killring,
