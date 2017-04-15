@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-15 00:00:51 csraghunandan>
+;; Time-stamp: <2017-04-15 10:07:08 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -36,7 +36,8 @@
 
   ;; enable flycheck in js2-mode
   (add-hook 'js2-mode-hook 'flycheck-mode)
-  (setq flycheck-javascript-eslint-executable "eslint_d")
+  (when (executable-find "eslind_d")
+    (setq flycheck-javascript-eslint-executable "eslint_d"))
 
   ;; company-tern: company backend for tern
   ;; http://ternjs.net/doc/manual.html#emacs
