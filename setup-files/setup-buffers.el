@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:20:59 csraghunandan>
+;; Time-stamp: <2017-04-17 23:54:32 csraghunandan>
 
 ;; configuration for buffers
 
@@ -19,6 +19,12 @@
 (defun rag/untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)) nil)
+
+;; transpose-frame: Transpose windows arrangement in a frame
+https://www.emacswiki.org/emacs/transpose-frame.el
+(use-package transpose-frame
+  :bind (("C-x t f" . transpose-frame)
+         ("C-x t r" . rotate-frame)))
 
 (defun rag/copy-buffer-file-name-as-kill (choice)
   "Copy the buffer-file-name to the kill-ring"

@@ -500,7 +500,7 @@
     ("forwrd" "forward" nil 0)
     ("forwrds" "forwards" nil 0)
     ("foudn" "found" nil 0)
-    ("foward" "forward" nil 0)
+    ("foward" "forward" nil 1)
     ("fowards" "forwards" nil 0)
     ("freightening" "frightening" nil 0)
     ("freind" "friend" nil 0)
@@ -779,6 +779,7 @@
     ("prelease" "release" nil 0)
     ("prerelease" "pre-release" nil 0)
     ("presance" "presence" nil 0)
+    ("prespective" "perspective" nil 0)
     ("privleged" "privileged" nil 0)
     ("probelm" "problem" nil 0)
     ("probelms" "problems" nil 0)
@@ -1203,7 +1204,7 @@
 
 (define-abbrev-table 'org-journal-mode-abbrev-table
   '(
-    ("i" "I" nil 5)
+    ("i" "I" nil 14)
    ))
 
 (define-abbrev-table 'org-mode-abbrev-table
