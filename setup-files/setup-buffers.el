@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-18 00:00:06 csraghunandan>
+;; Time-stamp: <2017-04-18 00:24:42 csraghunandan>
 
 ;; configuration for buffers
 
@@ -21,7 +21,7 @@
   (untabify (point-min) (point-max)) nil)
 
 ;; transpose-frame: Transpose windows arrangement in a frame
-https://www.emacswiki.org/emacs/transpose-frame.el
+;; https://www.emacswiki.org/emacs/transpose-frame.el
 (use-package transpose-frame
   :bind (("C-x t f" . transpose-frame)
          ("C-x t r" . rotate-frame)))
@@ -113,13 +113,37 @@ Emacs session."
           (find-file file)))
     (error "No recently-killed files to reopen")))
 
-(defun my-kill-buffer (arg)
-  "with no prefix, kill the current buffer without prompt
-with prefix, select which buffer to kill"
+;;; Kill/Bury Buffer
+
+;; http://git.savannah.gnu.org/cgit/emacs.git/commit/?id=2e4f4c9d48c563ff8bec102b66da0225587786c6
+(>=e "26.0"
+    nil  ;The `kill-current-buffer' command will be defined in core in emacs 26+
+  (defun kill-current-buffer ()
+    "Kill the current buffer.
+When called in the minibuffer, get out of the minibuffer
+using `abort-recursive-edit'.
+This is like `kill-this-buffer', but it doesn't have to be invoked
+via the menu bar, and pays no attention to the menu-bar's frame."
+    (interactive)
+    (let ((frame (selected-frame)))
+      (if (and (frame-live-p frame)
+               (not (window-minibuffer-p (frame-selected-window frame))))
+          (kill-buffer (current-buffer))
+        (abort-recursive-edit)))))
+
+(defun modi/kill-buffer-dwim (kill-next-error-buffer)
+  "Kill the current buffer.
+When called in the minibuffer, get out of the minibuffer
+using `abort-recursive-edit'.
+If KILL-NEXT-ERROR-BUFFER is non-nil, kill the `next-error' buffer.
+Examples of such buffers: *gtags-global*, *ag*, *Occur*."
   (interactive "P")
-  (if arg
-      (call-interactively 'kill-buffer)
-    (kill-buffer)))
+  (if kill-next-error-buffer
+      (kill-buffer (next-error-find-buffer))
+    (kill-current-buffer)))
+
+(>=e "26.0"
+  (bind-key "C-x k" 'modi/kill-buffer-dwim))
 
 (defun delete-file-and-buffer ()
   "Kill the current buffer and deletes the file it is visiting."
@@ -154,7 +178,6 @@ with prefix, select which buffer to kill"
  ("C-c o k" . rag/reopen-killed-file)
  ("C-c o K" . rag/reopen-killed-file-fancy)
  ("C-c r m" . delete-file-and-buffer)
- ("C-x k" . my-kill-buffer)
  ("C-c m v" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
  ("s-u" . revert-buffer-no-confirm)
