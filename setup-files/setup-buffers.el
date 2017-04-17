@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-17 23:54:32 csraghunandan>
+;; Time-stamp: <2017-04-17 23:58:09 csraghunandan>
 
 ;; configuration for buffers
 
@@ -25,6 +25,20 @@ https://www.emacswiki.org/emacs/transpose-frame.el
 (use-package transpose-frame
   :bind (("C-x t f" . transpose-frame)
          ("C-x t r" . rotate-frame)))
+
+;;; File Permissions
+(defun modi/set-file-permissions (perm)
+  "Change permissions of the file in current buffer.
+Example: M-644 M-x modi/set-file-permissions."
+  (interactive "p")
+  (when (<= perm 1)
+    (setq perm 644))
+  (let ((cmd (concat "chmod "
+                     (format "%s " perm)
+                     (buffer-file-name))))
+    (message "%s" cmd)
+    (shell-command cmd "*Shell Temp*")
+    (kill-buffer "*Shell Temp*")))
 
 (defun rag/copy-buffer-file-name-as-kill (choice)
   "Copy the buffer-file-name to the kill-ring"
