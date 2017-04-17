@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-03-27 13:18:44 csraghunandan>
+;; Time-stamp: <2017-04-18 00:47:13 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
@@ -24,7 +24,9 @@
     ;;  -v : Do natural sort .. so the file names starting with . will show up first.
     ;;  -F : Classify filenames by appending '*' to executables,'/' to directories, etc.
     ;; default value for dired: "-al"
-    (setq dired-listing-switches "-alGhvF --group-directories-first")
+    (setq dired-listing-switches (if (eq system-type 'windows-nt)
+                                     "-alh"
+                                   "-alGhvF --group-directories-first"))
 
     ;; auto-revert dired buffers if file changed on disk
     (setq dired-auto-revert-buffer t)

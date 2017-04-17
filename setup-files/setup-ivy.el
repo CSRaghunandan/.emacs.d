@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:45:55 csraghunandan>
+;; Time-stamp: <2017-04-18 00:54:44 csraghunandan>
 
 ;; Smart M-x (smex): sort extended commands by last invoked
 ;; https://github.com/nonsequitur/smex/
@@ -14,8 +14,8 @@
 
   (setq ivy-use-virtual-buffers t
 	ivy-height 13
+        ivy-count-format "%d/%d "
 	ivy-initial-inputs-alist nil
-	ivy-count-format ""
 	ivy-virtual-abbreviate 'full ; Show the full virtual file paths
 	ivy-extra-directories nil ; default value: ("../" "./")
         ivy-wrap t)
