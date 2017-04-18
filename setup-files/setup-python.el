@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 16:54:53 csraghunandan>
+;; Time-stamp: <2017-04-18 16:47:25 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -7,7 +7,7 @@
                ("M-." . anaconda-mode-find-definitions)
                ("M-," . anaconda-mode-go-back-definitions)))
   :config
-  (setq python-shell-interpreter "python3")
+  (setq python-shell-interpreter "python")
   ;; don't try to guess python indent offset
   (setq python-indent-guess-indent-offset nil)
   (add-hook 'python-mode-hook 'company-mode)
