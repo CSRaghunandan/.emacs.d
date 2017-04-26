@@ -25,6 +25,7 @@
         sp-backward-kill-word
         sp-delete-char
         sp-kill-hybrid-sexp
+        sp-kill-region
         sp-kill-sexp
         sp-kill-word
         sp-select-next-thing
