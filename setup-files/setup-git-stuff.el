@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-26 13:03:38 csraghunandan>
+;; Time-stamp: <2017-04-27 17:15:08 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -20,7 +20,16 @@
   (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
   (add-hook 'prog-mode-hook #'diff-hl-mode)
   ;; integate diff-hl with magit
-  (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh))
+  (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
+
+  (bind-key "C-c h d"
+            (defhydra diff-hl-hunk-hydra (:color red)
+              ("p" diff-hl-previous-hunk "prev hunk")
+              ("n" diff-hl-next-hunk "next hunk")
+              ("d" diff-hl-diff-goto-hunk "goto hunk")
+              ("r" diff-hl-revert-hunk "revert hunk")
+              ("m" diff-hl-mark-hunk "mark hunk")
+              ("q" nil "quit" :color blue))))
 
 ;; git-messenger: popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
