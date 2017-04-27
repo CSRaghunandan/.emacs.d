@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:27:52 csraghunandan>
+;; Time-stamp: <2017-04-27 11:59:37 csraghunandan>
 
 ;; abbrev: expand abbreviations
 (use-package abbrev :ensure nil
@@ -8,7 +8,9 @@
   (setq save-abbrevs 'silently)
 
   (defconst rag/abbrev-hooks '(prog-mode-hook
-                               org-mode-hook)
+                               org-mode-hook
+                               text-mode-hook
+                               erc-mode-hook)
     "List of hooks of major modes in which abbrev should be enabled.")
 
   (defun rag/turn-on-abbrev ()
