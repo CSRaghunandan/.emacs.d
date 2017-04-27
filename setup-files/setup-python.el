@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-18 16:47:25 csraghunandan>
+;; Time-stamp: <2017-04-25 16:02:16 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -10,9 +10,11 @@
   (setq python-shell-interpreter "python")
   ;; don't try to guess python indent offset
   (setq python-indent-guess-indent-offset nil)
-  (add-hook 'python-mode-hook 'company-mode)
-  (add-hook 'python-mode-hook 'smart-dash-mode)
-  (add-hook 'python-mode-hook 'flycheck-mode)
+  (add-hook 'python-mode-hook (lambda ()
+                                (company-mode)
+                                (smart-dash-mode)
+                                (flycheck-mode)
+                                (page-break-lines-mode)))
   ;; enable company-mode completions in inferior python process
   (add-hook 'inferior-python-mode-hook 'company-mode)
 

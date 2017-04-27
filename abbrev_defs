@@ -780,6 +780,7 @@
     ("prerelease" "pre-release" nil 0)
     ("presance" "presence" nil 0)
     ("prespective" "perspective" nil 0)
+    ("privelages" "privileges" nil 0)
     ("privleged" "privileged" nil 0)
     ("probelm" "problem" nil 0)
     ("probelms" "problems" nil 0)
