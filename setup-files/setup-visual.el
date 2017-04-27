@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-20 17:33:30 csraghunandan>
+;; Time-stamp: <2017-04-27 12:22:59 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -61,6 +61,11 @@
 (setq ring-bell-function 'ignore)
 ;; Do not make mouse wheel accelerate its action (example: scrolling)
 (setq mouse-wheel-progressive-speed nil)
+
+;; display date and time
+(display-time-mode)
+(setq display-time-format "%a,%b-%d %H:%M")
+(setq display-time-default-load-average nil)
 
 ;; set continuation indicators to right fringe only
 (setf (cdr (assq 'continuation fringe-indicator-alist))
