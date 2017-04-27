@@ -1,5 +1,6 @@
-;; Time-stamp: <2016-12-09 12:43:32 csraghunandan>
+;; Time-stamp: <2017-04-27 12:03:11 csraghunandan>
 
+;; TODO: Add auctex configuration here
 ;; LaTeX
 ;; https://www.gnu.org/software/auctex/
 (use-package auctex

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-27 11:43:51 csraghunandan>
+;; Time-stamp: <2017-04-27 13:10:06 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -60,6 +60,7 @@
   (setq org-clock-into-drawer "CLOCKING")
 
   ;; (setq org-babel-python-command "python3")
+  ;; TODO: Add more languages here to the list: rust, typescript, C/C++, bash/sh
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
@@ -310,7 +311,8 @@ Execute this command while the point is on or after the hyper-linked org link."
                               nil start end)))))))
   (bind-key "C-c d l" 'modi/org-delete-link org-mode-map)
 
-  ;;; Org Cliplink
+  ;; Org Cliplink: insert the link in the clipboard as an org link. Adds the
+  ;; title of the page as the description
   ;; https://github.com/rexim/org-cliplink
   (use-package org-cliplink
     :bind (:map org-mode-map
@@ -319,9 +321,11 @@ Execute this command while the point is on or after the hyper-linked org link."
                 ("C-c C-S-l" . org-cliplink)))
 
   ;; org-download: easily add images to org buffers
+  ;; https://github.com/abo-abo/org-download
   (use-package org-download)
 
-  ;; export to github flavored markdown
+  ;; ox-gfm: export to github flavored markdown
+  ;; https://github.com/larstvei/ox-gfm
   (use-package ox-gfm)
 
   ;; pomodoro implementation in org
