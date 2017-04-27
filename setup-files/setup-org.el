@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-21 14:44:12 csraghunandan>
+;; Time-stamp: <2017-04-27 11:43:51 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -59,9 +59,6 @@
   ;; clock into a drawer called CLOCKING
   (setq org-clock-into-drawer "CLOCKING")
 
-  ;; have a higher column fill for org tags
-  (setq org-tags-column 90)
-
   ;; (setq org-babel-python-command "python3")
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -71,10 +68,6 @@
      (python . t)))
 
 ;;; Org Variables
-  ;; default of 100 fill-column for org-mode
-  (add-hook 'org-mode-hook (lambda()
-                             (setq-local fill-column 100)
-                             (savehist-mode -1)))
   ;; this looks better in my opinion
   (setq org-ellipsis " ")
   ;; no underlines for org-ellipse
