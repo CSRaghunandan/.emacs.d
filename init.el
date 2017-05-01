@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-24 12:11:52 csraghunandan>
+;; Time-stamp: <2017-05-01 17:15:23 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -101,6 +101,7 @@ Usage: (>=e \"25.0\"
 (require 'setup-tramp)
 (require 'setup-zenburn)
 (require 'setup-misc)
+(require 'setup-command-log-mode)
 (require 'setup-calendar)
 (require 'setup-minibuffer)
 (require 'setup-pragmatapro)
