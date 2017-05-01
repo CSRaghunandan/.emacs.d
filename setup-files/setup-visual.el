@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-27 13:05:48 csraghunandan>
+;; Time-stamp: <2017-05-01 17:34:31 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -77,20 +77,6 @@
 
 ;; make sure emacsclient starts at fullscreen
 (setq default-frame-alist `((fullscreen . maximized)))
-
-;; set PragmataPro font only if it available
-(defun rag-set-face (frame)
-  "Configure faces on frame creation"
-  (select-frame frame)
-  (if (display-graphic-p)
-      (progn
-        (when (member "PragmataPro" (font-family-list))
-            (set-frame-font "PragmataPro-13")))))
-(add-hook 'after-make-frame-functions 'rag-set-face)
-
-;; set frame font when running emacs normally
-(when (member "PragmataPro" (font-family-list))
-  (set-frame-font "PragmataPro-13"))
 
 ;; show full path of the open file in title
 (setq frame-title-format
