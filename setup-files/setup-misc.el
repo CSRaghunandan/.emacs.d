@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-12 11:38:15 csraghunandan>
+;; Time-stamp: <2017-05-01 17:21:19 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -81,6 +81,12 @@ not prevent downloading the actual packages (obviously)."
 ;; yaml-mode: major-mode for editing yaml files
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode)
+
+;; conf-mode: major-mdoe for editing conf files
+;; https://github.com/jrockway/emacs/blob/master/lisp/textmodes/conf-mode.el
+(use-package conf-mode
+  :mode (("\\.conf\\'"    . conf-space-mode)
+         ("\\.setup.*\\'" . conf-space-mode)))
 
 ;; disable-mouse: minor mode to disable mouse in emacs
 ;; https://github.com/purcell/disable-mouse
