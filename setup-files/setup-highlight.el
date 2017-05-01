@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-14 18:13:02 csraghunandan>
+;; Time-stamp: <2017-05-01 23:26:25 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -38,6 +38,12 @@
 ;; https://github.com/Fanael/highlight-numbers
 (use-package highlight-numbers
   :config (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+
+;; highlight-indent-guides: best indent guides solution for emacs
+;; https://github.com/DarthFennec/highlight-indent-guides
+(use-package highlight-indent-guides
+  :config
+  (setq highlight-indent-guides-method 'character))
 
 (defun prelude-font-lock-comment-annotations ()
   "Highlight a bunch of well known comment annotations.
