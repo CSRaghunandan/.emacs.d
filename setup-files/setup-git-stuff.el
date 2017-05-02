@@ -1,11 +1,27 @@
-;; Time-stamp: <2017-04-27 17:15:08 csraghunandan>
+;; Time-stamp: <2017-05-02 11:11:55 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
 (use-package magit
   :bind (("C-c m s" . magit-status)
           ("C-c m b" . magit-blame))
-  :config (setq magit-completing-read-function 'ivy-completing-read))
+  :config (setq magit-completing-read-function 'ivy-completing-read)
+
+  (defun wh/switch-magit-status-buffer ()
+    "Allow switching between open magit status buffers."
+    (interactive)
+    (let* ((buffers (--filter (eq #'magit-status-mode (with-current-buffer it major-mode))
+                              (buffer-list)))
+           (bufs-with-names (--map (cons
+                                    (with-current-buffer it
+                                      (projectile-project-name))
+                                    it)
+                                   buffers))
+           (chosen-buf
+            (cdr (assoc (completing-read "Git project: " bufs-with-names)
+                        bufs-with-names))))
+      (switch-to-buffer chosen-buf)))
+  (bind-key "C-c m p" #'wh/switch-magit-status-buffer))
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
