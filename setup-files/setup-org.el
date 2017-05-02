@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-27 13:10:06 csraghunandan>
+;; Time-stamp: <2017-05-02 18:43:11 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -64,6 +64,8 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
+     (sh . t)
+     (C . t)
      (haskell . t)
      (js . t)
      (python . t)))
