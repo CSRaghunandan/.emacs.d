@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-18 00:24:42 csraghunandan>
+;; Time-stamp: <2017-05-02 11:13:17 csraghunandan>
 
 ;; configuration for buffers
 
@@ -312,5 +312,24 @@ will be killed."
     (let ((dir (file-name-directory filename)))
       (unless (file-exists-p dir)
         (make-directory dir)))))
+
+(defun wh/switch-buffers-same-mode ()
+  "Allows us to switch between buffers of the same major mode"
+  (interactive)
+  (let* ((matching-bufs (--filter (eq major-mode (with-current-buffer it major-mode))
+                                  (buffer-list)))
+         (bufs-with-names (--map
+                           (cons
+                            (let ((proj-name (with-current-buffer it (projectile-project-name))))
+                              (if proj-name
+                                  (format "%s (%s)" (buffer-name it) proj-name)
+                                (buffer-name it)))
+                            it)
+                           matching-bufs))
+         (chosen-buf
+          (cdr (assoc (completing-read "Buffer: " bufs-with-names)
+                      bufs-with-names))))
+    (switch-to-buffer chosen-buf)))
+(bind-key "C-x B" #'wh/switch-buffers-same-mode)
 
 (provide 'setup-buffers)
