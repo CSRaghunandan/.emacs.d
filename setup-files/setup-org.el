@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-02 18:43:11 csraghunandan>
+;; Time-stamp: <2017-05-03 13:02:28 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -60,7 +60,7 @@
   (setq org-clock-into-drawer "CLOCKING")
 
   ;; (setq org-babel-python-command "python3")
-  ;; TODO: Add more languages here to the list: rust, typescript, C/C++, bash/sh
+  ;; TODO: Add more languages here to the list: rust, typescript, C++
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
@@ -412,6 +412,7 @@ text and copying to the killring."
 
   ;; remove unnecessary modes in org-journal
   (add-hook 'org-journal-mode-hook (lambda ()
-                                     (visual-line-mode -1))))
+                                     (visual-line-mode -1)
+                                     (org-sticky-header-mode -1))))
 
 (provide 'setup-org)
