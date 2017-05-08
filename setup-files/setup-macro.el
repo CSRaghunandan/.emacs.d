@@ -1,9 +1,9 @@
-;; Time-stamp: <2017-05-08 09:45:29 csraghunandan>
+;; Time-stamp: <2017-05-08 11:29:01 csraghunandan>
 
 ;; hydra for macros in emacs
 (defhydra hydra-macro (:hint nil :color pink :pre
                              (when defining-kbd-macro
-                                 (kmacro-end-macro 1)))
+                               (kmacro-end-macro 1)))
   "
   ^Create-Cycle^   ^Basic^           ^Insert^        ^Save^         ^Edit^
 ╭─────────────────────────────────────────────────────────────────────────╯
@@ -90,24 +90,24 @@ toggle between real end and logical end of the buffer."
                              [remap end-of-buffer] ',fname))))))
 
 (my-special-beginning-of-buffer dired
-                                (while (not (ignore-errors (dired-get-filename)))
-                                  (dired-next-line 1)))
+  (while (not (ignore-errors (dired-get-filename)))
+    (dired-next-line 1)))
 (my-special-end-of-buffer dired
-                          (dired-previous-line 1))
+  (dired-previous-line 1))
 
 (my-special-beginning-of-buffer occur
-                                (occur-next 1))
+  (occur-next 1))
 (my-special-end-of-buffer occur
-                          (occur-prev 1))
+  (occur-prev 1))
 
 (my-special-beginning-of-buffer ibuffer
-                                (ibuffer-forward-line 1))
+  (ibuffer-forward-line 1))
 (my-special-end-of-buffer ibuffer
-                          (ibuffer-backward-line 1))
+  (ibuffer-backward-line 1))
 
 (my-special-beginning-of-buffer org-agenda
-                                (org-agenda-next-item 1))
+  (org-agenda-next-item 1))
 (my-special-end-of-buffer org-agenda
-                          (org-agenda-previous-item 1))
+  (org-agenda-previous-item 1))
 
 (provide 'setup-macro)
