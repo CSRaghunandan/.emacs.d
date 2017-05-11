@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-11 23:57:21 csraghunandan>
+;; Time-stamp: <2017-05-12 00:02:23 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -43,6 +43,18 @@
   ;; only install yapfify if yapf is installed
   (when (executable-find "yapf")
     (use-package py-yapf))
+
+  ;; from https://www.snip2code.com/Snippet/127022/Emacs-auto-remove-unused-import-statemen
+  (defun python-remove-unused-imports()
+    "Use Autoflake to remove unused function"
+    "autoflake --remove-all-unused-imports -i unused_imports.py"
+    (interactive)
+    (if (executable-find "autoflake")
+        (progn
+          (shell-command (format "autoflake --remove-all-unused-imports -i %s"
+                                 (shell-quote-argument (buffer-file-name))))
+          (revert-buffer t t t))
+      (message "Error: Cannot find autoflake executable.")))
 
   ;; only install py-isort if isort is installed
   (when (executable-find "isort")
