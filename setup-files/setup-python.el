@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-25 16:02:16 csraghunandan>
+;; Time-stamp: <2017-05-11 23:06:04 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -40,12 +40,11 @@
   ;; https://github.com/ionrock/pytest-el
   (use-package pytest :defer t)
 
-  ;; yapfify: format python files automatically
-  ;; https://github.com/JorisE/yapfify
-  (use-package yapfify
-    :diminish (yapf-mode . "𝐘𝐚")
-    :config
-    (add-hook 'python-mode-hook 'yapf-mode))
+  ;; only install yapfify if yapf is installed
+  (when (executable-find "yapf")
+    (use-package py-yapf
+      :config
+      (add-hook 'python-mode-hook 'py-yapf-enable-on-save)))
 
   ;; sphinx-doc: add sphinx-doc comments easily
   ;; https://github.com/naiquevin/sphinx-doc.el
