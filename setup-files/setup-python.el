@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-12 00:13:25 csraghunandan>
+;; Time-stamp: <2017-05-12 00:32:55 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -56,7 +56,8 @@
           (revert-buffer t t t))
       (message "Error: Cannot find autoflake executable.")))
 
-  ;; only install py-isort if isort is installed
+  ;; py-isort: sort import statements in python buffers
+  ;; https://github.com/paetzke/py-isort.el
   (use-package py-isort
     :if (executable-find "isort")
     :config
@@ -73,6 +74,12 @@
   (use-package sphinx-doc
     :diminish sphinx-doc-mode
     :config (add-hook 'python-mode-hook 'sphinx-doc-mode))
+
+  ;; pip-requirements: Major mode for editing pip requirements files
+  ;; https://github.com/Wilfred/pip-requirements.el
+  (use-package pip-requirements
+    :config
+    (add-hook 'pip-requirements-mode 'company-mode))
 
   ;; python-docstring: format and highlight syntax for python docstrings
   ;; https://github.com/glyph/python-docstring-mode
