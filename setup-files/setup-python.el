@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-12 00:32:55 csraghunandan>
+;; Time-stamp: <2017-05-12 00:49:54 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -25,6 +25,28 @@
     :config
     (add-hook 'python-mode-hook 'anaconda-mode)
     (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
+
+  ;; pyenv: Python virtual environment interface for Emacs
+  ;; https://github.com/jorgenschaefer/pyvenv
+  (use-package pyvenv)
+
+  ;; pyenv-mode: Integrate pyenv with python-mode.
+  ;; https://github.com/proofit404/pyenv-mode
+  (use-package pyenv-mode
+    :if (executable-find "pyenv")
+    :config
+
+    (add-hook 'python-mode-hook 'pyenv-mode)
+
+    ;; integrate pyenv with projectile
+    (defun projectile-pyenv-mode-set ()
+      "Set pyenv version matching project name."
+      (let ((project (projectile-project-name)))
+        (if (member project (pyenv-mode-versions))
+            (pyenv-mode-set project)
+          (pyenv-mode-unset))))
+
+    (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set))
 
   ;; company-anaconda: company backend for anaconda
   ;; https://github.com/proofit404/company-anaconda
