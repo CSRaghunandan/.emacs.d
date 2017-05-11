@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:37:25 csraghunandan>
+;; Time-stamp: <2017-05-12 00:16:01 csraghunandan>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
@@ -26,27 +26,27 @@
 
   ;; hindent: format haskell code automatically
   ;; https://github.com/chrisdone/hindent
-  (when (executable-find "hindent")
-    (use-package hindent
-      :diminish hindent-mode "𝐇𝐢"
-      :config
-      (add-hook 'haskell-mode-hook #'hindent-mode)
-      ;; reformat the buffer using hindent on save
-      (setq hindent-reformat-buffer-on-save t)))
+  (use-package hindent
+    :if (executable-find "hindent")
+    :diminish hindent-mode "𝐇𝐢"
+    :config
+    (add-hook 'haskell-mode-hook #'hindent-mode)
+    ;; reformat the buffer using hindent on save
+    (setq hindent-reformat-buffer-on-save t))
 
   ;; structured-haskell-mode: paredit like features for haskell code
   ;; https://github.com/chrisdone/structured-haskell-mode
-  (when (executable-find "structured-haskell-mode")
-    (use-package shm
-      :diminish (structured-haskell-mode . "𝐒𝐇𝐌")
-      :config
-      (add-hook 'haskell-mode-hook 'structured-haskell-mode)
-      (add-hook 'structured-haskell-mode-hook (lambda ()
-                                                (smartparens-mode -1)
-                                                (smartparens-strict-mode -1)))
-      ;; add case splits for simple sum types
-      (require 'shm-case-split)
-      (bind-key "C-c |" 'shm/case-split haskell-mode-map)))
+  (use-package shm
+    :if (executable-find "structured-haskell-mode")
+    :diminish (structured-haskell-mode . "𝐒𝐇𝐌")
+    :config
+    (add-hook 'haskell-mode-hook 'structured-haskell-mode)
+    (add-hook 'structured-haskell-mode-hook (lambda ()
+                                              (smartparens-mode -1)
+                                              (smartparens-strict-mode -1)))
+    ;; add case splits for simple sum types
+    (require 'shm-case-split)
+    (bind-key "C-c |" 'shm/case-split haskell-mode-map))
 
   ;; enable hlint checker for flycheck
   (when (executable-find "hlint")

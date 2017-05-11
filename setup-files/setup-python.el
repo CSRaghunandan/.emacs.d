@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-12 00:02:23 csraghunandan>
+;; Time-stamp: <2017-05-12 00:13:25 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -41,8 +41,8 @@
   (use-package pytest :defer t)
 
   ;; only install yapfify if yapf is installed
-  (when (executable-find "yapf")
-    (use-package py-yapf))
+  (use-package py-yapf
+    :if (executable-find "yapf"))
 
   ;; from https://www.snip2code.com/Snippet/127022/Emacs-auto-remove-unused-import-statemen
   (defun python-remove-unused-imports()
@@ -57,16 +57,16 @@
       (message "Error: Cannot find autoflake executable.")))
 
   ;; only install py-isort if isort is installed
-  (when (executable-find "isort")
-    (use-package py-isort
-      :config
-      (add-hook 'python-mode-hook
-                (lambda ()
-                  (add-hook 'before-save-hook
-                            (lambda ()
-                              (time-stamp)
-                              (py-yapf-buffer)
-                              (py-isort-buffer)))))))
+  (use-package py-isort
+    :if (executable-find "isort")
+    :config
+    (add-hook 'python-mode-hook
+              (lambda ()
+                (add-hook 'before-save-hook
+                          (lambda ()
+                            (time-stamp)
+                            (py-yapf-buffer)
+                            (py-isort-buffer))))))
 
   ;; sphinx-doc: add sphinx-doc comments easily
   ;; https://github.com/naiquevin/sphinx-doc.el
