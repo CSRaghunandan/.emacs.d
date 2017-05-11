@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-01 17:34:50 csraghunandan>
+;; Time-stamp: <2017-05-12 01:23:35 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -109,6 +109,7 @@ Usage: (>=e \"25.0\"
 (require 'setup-purescript)
 (require 'setup-abbrev)
 (require 'setup-quickrun)
+(require 'setup-macro)
 
 ;; install all packages (if they already not installed by use-package)
 (package-install-selected-packages)
