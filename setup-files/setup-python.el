@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-11 23:06:04 csraghunandan>
+;; Time-stamp: <2017-05-11 23:57:21 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -42,9 +42,19 @@
 
   ;; only install yapfify if yapf is installed
   (when (executable-find "yapf")
-    (use-package py-yapf
+    (use-package py-yapf))
+
+  ;; only install py-isort if isort is installed
+  (when (executable-find "isort")
+    (use-package py-isort
       :config
-      (add-hook 'python-mode-hook 'py-yapf-enable-on-save)))
+      (add-hook 'python-mode-hook
+                (lambda ()
+                  (add-hook 'before-save-hook
+                            (lambda ()
+                              (time-stamp)
+                              (py-yapf-buffer)
+                              (py-isort-buffer)))))))
 
   ;; sphinx-doc: add sphinx-doc comments easily
   ;; https://github.com/naiquevin/sphinx-doc.el
