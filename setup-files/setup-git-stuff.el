@@ -1,10 +1,9 @@
-;; Time-stamp: <2017-05-02 11:11:55 csraghunandan>
+;; Time-stamp: <2017-05-12 08:53:25 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
 (use-package magit
-  :bind (("C-c m s" . magit-status)
-          ("C-c m b" . magit-blame))
+  :bind (("C-c m b" . magit-blame))
   :config (setq magit-completing-read-function 'ivy-completing-read)
 
   (defun wh/switch-magit-status-buffer ()
