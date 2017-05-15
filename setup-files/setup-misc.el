@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-01 17:21:19 csraghunandan>
+;; Time-stamp: <2017-05-15 07:57:08 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -91,6 +91,7 @@ not prevent downloading the actual packages (obviously)."
 ;; disable-mouse: minor mode to disable mouse in emacs
 ;; https://github.com/purcell/disable-mouse
 (use-package disable-mouse
+  :diminish global-disable-mouse-mode
   :config (global-disable-mouse-mode))
 
 (provide 'setup-misc)

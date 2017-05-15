@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-15 06:49:59 csraghunandan>
+;; Time-stamp: <2017-05-15 07:13:07 csraghunandan>
 
 ;; configuration for buffers
 
@@ -392,11 +392,6 @@ toggle between real end and logical end of the buffer."
   (occur-next 1))
 (my-special-end-of-buffer occur
   (occur-prev 1))
-
-(my-special-beginning-of-buffer ivy-occur-grep
-  (ivy-occur-next-line 4))
-(my-special-end-of-buffer ivy-occur-grep
-  (ivy-occur-previous-line 1))
 
 (my-special-beginning-of-buffer ibuffer
   (ibuffer-forward-line 1))
