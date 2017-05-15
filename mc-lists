@@ -5,6 +5,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         counsel-M-x
+        eval-defun
         hungry-delete-backward
         hungry-delete-forward
         hydra-change-case/body
@@ -12,6 +13,7 @@
         isearch-forward-symbol-at-point
         ivy-wgrep-change-to-wgrep-mode
         mwim-beginning-of-code-or-line
+        mwim-beginning-of-code-or-line-or-comment
         mwim-end-of-code-or-line
         org-beginning-of-line
         org-end-of-line
