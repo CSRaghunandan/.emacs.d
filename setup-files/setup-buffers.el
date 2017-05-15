@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-12 01:21:16 csraghunandan>
+;; Time-stamp: <2017-05-15 06:49:59 csraghunandan>
 
 ;; configuration for buffers
 
@@ -127,7 +127,7 @@ via the menu bar, and pays no attention to the menu-bar's frame."
     (interactive)
     (let ((frame (selected-frame)))
       (if (and (frame-live-p frame)
-               (not (window-minibuffer-p (frame-selected-window frame))))
+             (not (window-minibuffer-p (frame-selected-window frame))))
           (kill-buffer (current-buffer))
         (abort-recursive-edit)))))
 
@@ -143,7 +143,7 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*."
     (kill-current-buffer)))
 
 (>=e "26.0"
-  (bind-key "C-x k" 'modi/kill-buffer-dwim))
+    (bind-key "C-x k" 'modi/kill-buffer-dwim))
 
 (defun delete-file-and-buffer ()
   "Kill the current buffer and deletes the file it is visiting."
@@ -218,8 +218,8 @@ the scratch major mode is set to `org-mode' for such cases.
 Return the scratch buffer opened."
   (interactive "p")
   (if (and (or (null arg)               ; no prefix
-               (= arg 1))
-           (string-match-p "\\*scratch" (buffer-name)))
+            (= arg 1))
+         (string-match-p "\\*scratch" (buffer-name)))
       (switch-to-buffer (other-buffer))
     (let* ((mode-str (cl-case arg
                        (0  "fundamental-mode") ; C-0
@@ -229,7 +229,7 @@ Return the scratch buffer opened."
                        ;; derived mode, a read-only mode like `help-mode', open
                        ;; an `org-mode' scratch buffer instead.
                        (t (if (or (derived-mode-p 'special-mode) ; no prefix
-                                  (derived-mode-p 'dired-mode))
+                                 (derived-mode-p 'dired-mode))
                               "org-mode"
                             (format "%s" major-mode)))))
            (buf (get-buffer-create (concat "*scratch-" mode-str "*"))))
@@ -255,7 +255,7 @@ will be killed."
       ;; Revert only buffers containing files, which are not modified;
       ;; do not try to revert non-file buffers like *Messages*.
       (when (and filename
-                 (not (buffer-modified-p buf)))
+               (not (buffer-modified-p buf)))
         (if (file-readable-p filename)
             ;; If the file exists and is readable, revert the buffer.
             (with-current-buffer buf
@@ -383,24 +383,29 @@ toggle between real end and logical end of the buffer."
                      [remap end-of-buffer] ',fname))))))
 
 (my-special-beginning-of-buffer dired
-                                (while (not (ignore-errors (dired-get-filename)))
-                                  (dired-next-line 1)))
+  (while (not (ignore-errors (dired-get-filename)))
+    (dired-next-line 1)))
 (my-special-end-of-buffer dired
-                          (dired-previous-line 1))
+  (dired-previous-line 1))
 
 (my-special-beginning-of-buffer occur
-                                (occur-next 1))
+  (occur-next 1))
 (my-special-end-of-buffer occur
-                          (occur-prev 1))
+  (occur-prev 1))
+
+(my-special-beginning-of-buffer ivy-occur-grep
+  (ivy-occur-next-line 4))
+(my-special-end-of-buffer ivy-occur-grep
+  (ivy-occur-previous-line 1))
 
 (my-special-beginning-of-buffer ibuffer
-                                (ibuffer-forward-line 1))
+  (ibuffer-forward-line 1))
 (my-special-end-of-buffer ibuffer
-                          (ibuffer-backward-line 1))
+  (ibuffer-backward-line 1))
 
 (my-special-beginning-of-buffer org-agenda
-                                (org-agenda-next-item 1))
+  (org-agenda-next-item 1))
 (my-special-end-of-buffer org-agenda
-                          (org-agenda-previous-item 1))
+  (org-agenda-previous-item 1))
 
 (provide 'setup-buffers)
