@@ -15,3 +15,5 @@ company-statistics-cache.el
 *.elc
 .DS_STORE
 .git/
+tramp
+notes
