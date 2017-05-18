@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-02-12 13:30:38 csraghunandan>
+;; Time-stamp: <2017-05-18 16:03:15 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -87,3 +87,18 @@
    ("C-c s p" . rag/counsel-rg-project-at-point)))
 
 (provide 'setup-counsel)
+
+;; interesting counsel commands
+;; `counsel-file-jump' -> get all the files in a directory recursively
+;; `counsel-dired-jump' -> Jump to a directory (in dired) from a list of all
+;;                         directories below the current one.
+;; `counsel-colors-emacs' -> list all the colors emacs recognises
+;; `counsel-colors-web' -> list all the colors that the web browser recognises
+;; `counsel-command-history' -> browse through all the commands entered in `M-x'
+;; `counsel-yank-pop' -> access the kill ring using ivy
+;; `counsel-unicode-char' -> search through Unicode characters using ivy
+;; `counsel-rg' -> search the all files in the current directory using `ripgrep'
+;; `rag/counsel-rg-project-at-point' -> search all files in the current project
+;; `counsel-descbinds' -> lists all the key bindings in the current buffer
+;; `counsel-mark-ring' -> access the mark ring for the current buffer using ivy
+;; `counsel-faces' -> lists all the face colours in emacs
