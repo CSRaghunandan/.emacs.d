@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:43:47 csraghunandan>
+;; Time-stamp: <2017-05-18 15:39:14 csraghunandan>
 
 ;; bm: visible bookmarks within a buffer
 ;; https://github.com/joodland/bm
@@ -46,13 +46,15 @@
                                        :hint nil
                                        :body-pre (when (not (use-region-p))
                                                    (push-mark)))
-              "
+"
 Bookmark _n_ext (_N_ in lifo order)            toggle book_m_ark        ^^_/_ bm lines matching regexp                          toggle per_s_istence
          _p_revious (_P_ in lifo order)        _a_nnotate               _x_/_X_ remove all bm from current/all buffer(s)        _r_eturn to from where you started
+         show _A_nnotation
 "
               ("m"   bm-toggle)
               ("M"   bm-toggle :color blue)
               ("a"   bm-bookmark-annotate :color blue)
+              ("A"   bm-bookmark-show-annotation)
               ("n"   bm-common-next)
               ("N"   bm-lifo-next)
               ("p"   bm-common-previous)

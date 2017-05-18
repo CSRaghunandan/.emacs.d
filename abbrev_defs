@@ -931,6 +931,7 @@
     ("sufficiant" "sufficient" nil 0)
     ("suposed" "supposed" nil 0)
     ("suppossed" "supposed" nil 0)
+    ("supressed" "suppressed" nil 0)
     ("suprise" "surprise" nil 0)
     ("suprised" "surprised" nil 0)
     ("suprisingly" "surprisingly" nil 0)
@@ -1119,6 +1120,8 @@
 
 (define-abbrev-table 'inferior-python-mode-abbrev-table '())
 
+(define-abbrev-table 'intero-help-mode-abbrev-table '())
+
 (define-abbrev-table 'intero-repl-mode-abbrev-table '())
 
 (define-abbrev-table 'ivy-occur-grep-mode-abbrev-table '())
@@ -1221,6 +1224,8 @@
   '(
    ))
 
+(define-abbrev-table 'pip-requirements-mode-abbrev-table '())
+
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
 (define-abbrev-table 'process-menu-mode-abbrev-table '())
@@ -1231,7 +1236,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 
