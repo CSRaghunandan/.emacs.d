@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-05-18 16:03:15 csraghunandan>
+;; Time-stamp: <2017-05-22 15:26:46 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -23,10 +23,10 @@
   (defun given-file (cmd prompt) ; needs lexical-binding
     (lambda (source)
       (let ((target
-	     (let ((enable-recursive-minibuffers t))
-	       (read-file-name
-		(format "%s %s to:" prompt source)))))
-	(funcall cmd source target 1))))
+             (let ((enable-recursive-minibuffers t))
+               (read-file-name
+                (format "%s %s to:" prompt source)))))
+        (funcall cmd source target 1))))
   (defun confirm-delete-file (x)
     (dired-delete-file x 'confirm-each-subdirectory))
 
@@ -68,10 +68,10 @@
 
   ;; ignore . files or temporary files
   (setq counsel-find-file-ignore-regexp
-	(concat
-	 ;; File names beginning with # or .
-	 "\\(?:\\`[#.]\\)"
-	 ;; File names ending with # or ~
+        (concat
+         ;; File names beginning with # or .
+         "\\(?:\\`[#.]\\)"
+         ;; File names ending with # or ~
          "\\|\\(?:\\`.+?[#~]\\'\\)"))
 
   (bind-keys
