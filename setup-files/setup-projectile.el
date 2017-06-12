@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 17:53:18 csraghunandan>
+;; Time-stamp: <2017-06-12 17:56:32 csraghunandan>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
@@ -88,6 +88,21 @@ With prefix argument (`C-u'), also kill the special buffers."
                 (message "Killing buffer %s" buf-name)
                 (kill-buffer buf))))))))
 
+  (defun modi/projectile-find-file-literally (&optional arg)
+    "Jump to a project's file literally (see `find-file-literally') using
+completion.  With a prefix ARG invalidates the cache first.
+Using this function over `projectile-find-file' is useful for opening files that
+are slow to open because of their major mode. `find-file-literally' always opens
+files in Fundamental mode."
+    (interactive "P")
+    (projectile-maybe-invalidate-cache arg)
+    (projectile-completing-read
+     "Find file literally: "
+     (projectile-current-project-files)
+     :action `(lambda (file)
+                (find-file-literally (expand-file-name file ,(projectile-project-root)))
+                (run-hooks 'projectile-find-file-hook))))
+
   (bind-keys
    ("C-c p K" . modi/kill-non-project-buffers)
    ("C-c h p" . hydra-projectile/body)
@@ -113,7 +128,7 @@ _f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer         
 ^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      _s-p_/_p_: switch to any other project
 ^^    _d_: file curr dir      _o_: multi-occur       _K_/_s-k_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
 ^^    _r_: recent file        _G_: git-grep          ^^^^                             _z_: cache current
-^^    _D_: dir                _R_: counsel-rg-root   ^^    _Q_: replace regexp
+^^    _D_: dir                _R_: counsel-rg-root   ^^    _Q_: replace regexp        _l_: file literally
 "
     ("r" counsel-rg)
     ("R" rag/counsel-rg-project-at-point)
@@ -134,6 +149,7 @@ _f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer         
     ("o" projectile-multi-occur)
     ("p" projectile-switch-project)
     ("s-p" projectile-switch-project)
+    ("l"   modi/projectile-find-file-literally)
     ("P" projectile-switch-open-project)
     ("s" projectile-switch-project)
     ("r" projectile-recentf)
