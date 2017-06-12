@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 18:23:13 csraghunandan>
+;; Time-stamp: <2017-06-12 18:24:30 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -15,6 +15,8 @@ Try the repeated popping up to 10 times."
 ;; C-u C-SPC C-SPC, instead of having to type C-u C-SPC C-u C-SPC.
 (setq set-mark-command-repeat-pop t)
 
+;; Horizontally scroll only the current line
+;; https://www.reddit.com/r/emacs/comments/6au45k/is_it_possible_to_truncate_long_lines_the_same/
 (>=e "26.0"
     (setq auto-hscroll-mode 'current-line))
 
