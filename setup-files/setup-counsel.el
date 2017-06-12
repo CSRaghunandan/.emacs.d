@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-05-22 15:26:46 csraghunandan>
+;; Time-stamp: <2017-06-12 18:43:28 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper

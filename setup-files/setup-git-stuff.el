@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 18:14:15 csraghunandan>
+;; Time-stamp: <2017-06-12 18:35:42 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -34,7 +34,7 @@
                   magit-insert-modules-unpulled-from-pushremote
                   ;; Below will end up being the first of these newly added fns.
                   magit-insert-submodules))
-      (magit-add-section-hook 'magit-status-sections-hook `,fn nil :append))
+      (magit-add-section-hook 'magit-status-sections-hook `,fn nil :append)))
 
   (progn
     (defhydra hydra-magit (:color blue
