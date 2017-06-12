@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 18:04:39 csraghunandan>
+;; Time-stamp: <2017-06-12 18:14:15 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -22,6 +22,19 @@
                         bufs-with-names))))
       (switch-to-buffer chosen-buf)))
   (bind-key "C-c m p" #'wh/switch-magit-status-buffer)
+
+  (progn
+    ;; Magit Submodule support
+    ;; https://www.reddit.com/r/emacs/comments/6aiwk5/how_to_manage_multiple_gitrepositories_at_once/dhf47dg/
+    (dolist (fn '(;; Below will end up being the last of these newly added fns,
+                  ;; and the last element in `magit-status-sections-hook' too.
+                  magit-insert-modules-unpulled-from-upstream
+                  magit-insert-modules-unpushed-to-pushremote
+                  magit-insert-modules-unpushed-to-upstream
+                  magit-insert-modules-unpulled-from-pushremote
+                  ;; Below will end up being the first of these newly added fns.
+                  magit-insert-submodules))
+      (magit-add-section-hook 'magit-status-sections-hook `,fn nil :append))
 
   (progn
     (defhydra hydra-magit (:color blue
