@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-26 18:58:28 csraghunandan>
+;; Time-stamp: <2017-06-12 18:23:13 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -14,6 +14,9 @@ Try the repeated popping up to 10 times."
 ;; Ensure that we can quickly pop the mark several times by typing
 ;; C-u C-SPC C-SPC, instead of having to type C-u C-SPC C-u C-SPC.
 (setq set-mark-command-repeat-pop t)
+
+(>=e "26.0"
+    (setq auto-hscroll-mode 'current-line))
 
 ;; mwim: move to the beginning or end of line smartly
 ;; https://github.com/alezost/mwim.el
