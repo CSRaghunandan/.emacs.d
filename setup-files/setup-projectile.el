@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-03 12:29:40 csraghunandan>
+;; Time-stamp: <2017-06-12 17:53:18 csraghunandan>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
@@ -27,6 +27,7 @@
         `("--line-number" ; line numbers
           "--smart-case"
           "--follow" ; follow symlinks
+          "--max-columns 150"        ;Emacs doesn't handle long line lengths very well
           "--mmap") ; apply memory map optimization when possible
         "Default rg arguments used in the functions in `projectile' package.")
 
