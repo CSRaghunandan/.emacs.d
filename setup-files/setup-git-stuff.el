@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-12 08:53:25 csraghunandan>
+;; Time-stamp: <2017-06-12 17:47:32 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -59,6 +59,7 @@
 ;; git-link: emacs package for getting the github/gitlab/bitbucket URL
 ;; https://github.com/sshaw/git-link
 (use-package git-link
+  :commands (git-link git-link-commit git-link-homepage)
   :bind
   ("C-c g l" . git-link)
   ("C-c g c" . git-link-commit)
