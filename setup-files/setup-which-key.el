@@ -9,6 +9,8 @@
   ;; make which-key popup to the right
   (which-key-setup-side-window-right)
 
+  (setq which-key-compute-remaps t) ;Show correct descriptions for remapped keys
+
   ;; List of "special" keys for which a KEY is displayed as just K but with
   ;; "inverted video" face.
   (setq which-key-special-keys '("SPC"
