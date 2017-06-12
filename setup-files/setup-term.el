@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-16 14:20:39 csraghunandan>
+;; Time-stamp: <2017-06-12 12:40:43 csraghunandan>
 
 ;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://www.emacswiki.org/emacs/multi-term.el
@@ -63,7 +63,9 @@
                                 (beacon-mode -1)
                                 (hungry-delete-mode -1)))
 
-    (setq multi-term-buffer-name "term")))
+    (setq multi-term-buffer-name "term")
+
+    (setq multi-term-program "/bin/zsh")))
 
 (provide 'setup-term)
 

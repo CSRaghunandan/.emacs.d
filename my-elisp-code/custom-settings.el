@@ -13,7 +13,6 @@
  '(erc-modules
    (quote
     (autoaway autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands notify readonly ring smiley sound stamp spelling track)))
- '(explicit-shell-file-name "/usr/local/bin/bash")
  '(hl-sexp-background-color "#efebe9")
  '(ivy-mode t)
  '(org-agenda-files
@@ -49,7 +48,7 @@
      ("mt" "Add a TODO entry" entry
       (file+headline "~/org-mode-files/math.org" "captured ideas")
       (file "~/.emacs.d/org-capture-templates/todo.txt")))))
- '(org-modules (quote (org-habit org-info org-irc org-drill)) t)
+ '(org-modules (quote (org-habit org-info org-irc org-drill)))
  '(org-refile-allow-creating-parent-nodes (quote confirm))
  '(org-refile-targets (quote ((org-agenda-files :level . 1))))
  '(org-refile-use-outline-path (quote file))
@@ -60,7 +59,7 @@
      ("org" . "http://orgmode.org/elpa/"))))
  '(package-selected-packages
    (quote
-    (pyenv-mode pip-requirements py-isort py-yapf highlight-indent-guides command-log-mode org-sticky-header transpose-frame indium org-autolist mwim column-enforce-mode python-docstring intero racket-mode mocha-snippets git-link jade dumb-jump golden-ratio-scroll-screen org-plus-contrib diff-hl disable-mouse mocha markdown-toc cycle-quotes tide all-the-icons neotree smart-dash gitattributes-mode gitconfig-mode gitignore-mode org-download org-cliplink shm quickrun ivy-hydra yaml-mode toml-mode highlight-quoted highlight-numbers git-messenger tern js2-mode avy company visual-regexp smartparens auto-yasnippet json-snatcher rust-playground realgud inf-mongo psc-ide purescript-mode origami sicp headlong bookmark+ multi-term ace-link osx-trash ox-gfm ws-butler whole-line-or-region ibuffer-vc rainbow-mode web-beautify hindent sphinx-doc kurecolor which-key anzu counsel swiper ivy dired-quick-sort org-pomodoro dired+ free-keys recursive-narrow langtool pyvenv bm page-break-lines manage-minor-mode region-bindings-mode wgrep move-text visual-regexp-steroids hydra avy-zap imenu-anywhere company-statistics pytest volatile-highlights org-journal company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode flycheck expand-region exec-path-from-shell emmet-mode beacon auctex ace-window)))
+    (typescript-mode yasnippet pyenv-mode pip-requirements py-isort py-yapf highlight-indent-guides command-log-mode org-sticky-header transpose-frame indium org-autolist mwim column-enforce-mode python-docstring intero racket-mode mocha-snippets git-link jade dumb-jump golden-ratio-scroll-screen org-plus-contrib diff-hl disable-mouse mocha markdown-toc cycle-quotes tide all-the-icons neotree smart-dash gitattributes-mode gitconfig-mode gitignore-mode org-download org-cliplink shm quickrun ivy-hydra yaml-mode toml-mode highlight-quoted highlight-numbers git-messenger tern js2-mode avy company visual-regexp smartparens auto-yasnippet json-snatcher rust-playground realgud inf-mongo psc-ide purescript-mode origami sicp headlong bookmark+ multi-term ace-link osx-trash ox-gfm ws-butler whole-line-or-region ibuffer-vc rainbow-mode web-beautify hindent sphinx-doc kurecolor which-key anzu counsel swiper ivy dired-quick-sort org-pomodoro dired+ free-keys recursive-narrow langtool pyvenv bm page-break-lines manage-minor-mode region-bindings-mode wgrep move-text visual-regexp-steroids hydra avy-zap imenu-anywhere company-statistics pytest volatile-highlights org-journal company-anaconda anaconda-mode racer ac-html-bootstrap company-web company-tern cargo rust-mode web-completion-data flycheck-rust f info+ spaceline js2-refactor git-timemachine impatient-mode undo-tree google-this zenburn-theme web-mode use-package smex rainbow-delimiters projectile powerline multiple-cursors markdown-mode magit hungry-delete highlight-symbol haskell-snippets haskell-mode flycheck expand-region exec-path-from-shell emmet-mode beacon auctex ace-window)))
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
  '(python-shell-completion-native-enable nil)
@@ -71,4 +70,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(term ((t (:foreground "#E5D9BD")))))
+ '(term ((t (:foreground "#E5D9BD"))))
+ '(term-color-green ((t (:background "grey30" :foreground "#9F8300")))))
