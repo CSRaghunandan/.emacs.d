@@ -1,9 +1,10 @@
-;; Time-stamp: <2017-06-12 17:47:32 csraghunandan>
+;; Time-stamp: <2017-06-12 18:04:39 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
 (use-package magit
-  :bind (("C-c m b" . magit-blame))
+  :bind (("C-c m b" . magit-blame)
+         ("C-c m s" . hydra-magit/body))
   :config (setq magit-completing-read-function 'ivy-completing-read)
 
   (defun wh/switch-magit-status-buffer ()
@@ -20,7 +21,22 @@
             (cdr (assoc (completing-read "Git project: " bufs-with-names)
                         bufs-with-names))))
       (switch-to-buffer chosen-buf)))
-  (bind-key "C-c m p" #'wh/switch-magit-status-buffer))
+  (bind-key "C-c m p" #'wh/switch-magit-status-buffer)
+
+  (progn
+    (defhydra hydra-magit (:color blue
+                                  :columns 4)
+      "Magit"
+      ("g" magit-status "status")
+      ("s" magit-status "status")
+      ("l" magit-log-all-branches "log")
+      ("b" magit-branch-popup "branch popup")
+      ("r" magit-rebase-popup "rebase popup")
+      ("f" magit-fetch-popup "fetch popup")
+      ("P" magit-push-popup "push popup")
+      ("F" magit-pull-popup "pull popup")
+      ("W" magit-format-patch "format patch")
+      ("$" magit-process "process"))))
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
@@ -78,3 +94,19 @@
 ;; C-x v ] -> diff-hl-next-hunk
 ;; C-x v = -> diff-hl-goto-hunk
 ;; C-x v n -> diff-hl-revert-hunk
+
+;; magit
+;; |---------+----------------------------------|
+;; | Binding | Description                      |
+;; |---------+----------------------------------|
+;; | j n     | Jump to Untracked section        |
+;; | j u     | Jump to Unstaged section         |
+;; | j s     | Jump to Staged section           |
+;; | j p     | Jump to Unpushed section         |
+;; | M-p     | Jump to previous sibling section |
+;; | M-n     | Jump to next sibling section     |
+;; |---------+----------------------------------|
+
+;; Tip: Adding prefix to above jump commands also expands those sections and
+;; brings that section to the top of the buffer.
+;;   So `C-u j s' is analogous to doing `j s C-l C-l 4`
