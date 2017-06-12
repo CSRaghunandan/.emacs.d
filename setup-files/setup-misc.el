@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-15 07:57:08 csraghunandan>
+;; Time-stamp: <2017-06-12 16:54:30 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -87,6 +87,10 @@ not prevent downloading the actual packages (obviously)."
 (use-package conf-mode
   :mode (("\\.conf\\'"    . conf-space-mode)
          ("\\.setup.*\\'" . conf-space-mode)))
+
+;; systemd: Major mode for editing systemd units
+;; https://github.com/holomorph/systemd-mode
+(use-package systemd)
 
 ;; disable-mouse: minor mode to disable mouse in emacs
 ;; https://github.com/purcell/disable-mouse
