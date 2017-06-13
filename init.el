@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 12:01:20 csraghunandan>
+;; Time-stamp: <2017-06-12 19:18:21 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -111,6 +111,7 @@ Usage: (>=e \"25.0\"
 (require 'setup-quickrun)
 (require 'setup-macro)
 (require 'setup-help)
+(require 'setup-tldr)
 
 ;; install all packages (if they already not installed by use-package)
 (package-install-selected-packages)
