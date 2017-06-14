@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-08 11:35:01 csraghunandan>
+;; Time-stamp: <2017-06-14 13:34:57 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -45,6 +45,9 @@
   (setq org-refile-use-outline-path nil
         org-refile-targets '((org-agenda-files :level . 1)
                              (org-agenda-files :level . 2)))
+  (add-to-list
+   'ivy-completing-read-handlers-alist
+   '(org-capture-refile . completing-read-default))
 
   ;; override `avy-goto-char-timer' to C-' in org-mode-map
   (bind-key "C-'" 'avy-goto-char-timer org-mode-map)
