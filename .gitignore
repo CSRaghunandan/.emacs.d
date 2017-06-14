@@ -17,3 +17,6 @@ company-statistics-cache.el
 .git/
 tramp
 notes
+tldr/
+url/
+xkcd/
