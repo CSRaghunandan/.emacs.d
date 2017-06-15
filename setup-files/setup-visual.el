@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-01 17:34:31 csraghunandan>
+;; Time-stamp: <2017-06-15 12:48:38 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -97,7 +97,7 @@
 ;; enter page-break character in Emacs by entering `C-q C-l'
 (use-package page-break-lines
   :diminish page-break-lines-mode
-  :config (global-page-break-lines-mode))
+  :config (add-hook 'prog-mode-hook #'page-break-lines-mode))
 
 ;; all-the-icons: show icons in neotree/dired/modeline
 ;; https://github.com/domtronn/all-the-icons.el
