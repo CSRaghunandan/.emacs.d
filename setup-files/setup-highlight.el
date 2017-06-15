@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-11 18:17:21 csraghunandan>
+;; Time-stamp: <2017-06-15 14:13:24 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -44,8 +44,7 @@
 (use-package highlight-indent-guides
   :config
   (setq highlight-indent-guides-method 'character)
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  (setq highlight-indent-guides-character ?¦))
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 (defun prelude-font-lock-comment-annotations ()
   "Highlight a bunch of well known comment annotations.
