@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-14 13:34:57 csraghunandan>
+;; Time-stamp: <2017-06-15 09:50:29 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -235,7 +235,7 @@ this with to-do items than with projects or headings."
   (use-package langtool :defer 1
     :config
     ;; place the language-tool directory in $HOME
-    (setq langtool-language-tool-jar (concat user-home-directory "LanguageTool-3.5/languagetool-commandline.jar"))
+    (setq langtool-language-tool-jar (concat user-home-directory "LanguageTool-3.7/languagetool-commandline.jar"))
     (setq langtool-default-language "en-GB")
 
     ;; hydra for langtool check
