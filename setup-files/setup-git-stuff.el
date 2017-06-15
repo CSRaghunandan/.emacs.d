@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 18:35:42 csraghunandan>
+;; Time-stamp: <2017-06-15 09:56:40 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -62,7 +62,7 @@
 (use-package diff-hl
   :config
   (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
-  (add-hook 'prog-mode-hook #'diff-hl-mode)
+  (global-diff-hl-mode)
   ;; integate diff-hl with magit
   (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
 
