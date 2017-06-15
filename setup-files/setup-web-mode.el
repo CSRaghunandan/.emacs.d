@@ -1,10 +1,10 @@
-;; Time-stamp: <2017-02-12 13:20:48 csraghunandan>
+;; Time-stamp: <2017-06-15 09:37:30 csraghunandan>
 
 ;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
 (use-package web-mode
   :mode (("\\.html$" . web-mode)
-	 ("\\.djhtml$" . web-mode)
+         ("\\.djhtml$" . web-mode)
          ("\\.tsx$" . web-mode))
   :bind (("C-c o b" . browse-url-of-file)
          ("C-c [" . emmet-prev-edit-point)
@@ -44,12 +44,12 @@
     "Set `tern-mode' based on current language before running company-tern."
     (message "advice")
     (if (equal major-mode 'web-mode)
-	(let ((web-mode-cur-language
-	       (web-mode-language-at-pos)))
-	  (if (or (string= web-mode-cur-language "javascript")
-		  (string= web-mode-cur-language "jsx"))
-	      (unless tern-mode (tern-mode))
-	    (if tern-mode (tern-mode -1))))))
+        (let ((web-mode-cur-language
+               (web-mode-language-at-pos)))
+          (if (or (string= web-mode-cur-language "javascript")
+                 (string= web-mode-cur-language "jsx"))
+              (unless tern-mode (tern-mode))
+            (if tern-mode (tern-mode -1))))))
   (add-hook 'web-mode-hook 'company-mode)
 
   ;; ac-html-boostrap: bootstrap3 completions backend
