@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-15 07:13:07 csraghunandan>
+;; Time-stamp: <2017-06-16 14:33:46 csraghunandan>
 
 ;; configuration for buffers
 
@@ -304,13 +304,6 @@ will be killed."
 ;; press `C-x n w' when inside a recursive narrow to widen the buffer back to the
 ;; narrowed buffer instead of widening to the whole buffer
 (use-package recursive-narrow)
-
-(defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
-  "Create parent directory if not exists while visiting file."
-  (unless (file-exists-p filename)
-    (let ((dir (file-name-directory filename)))
-      (unless (file-exists-p dir)
-        (make-directory dir)))))
 
 (defun wh/switch-buffers-same-mode ()
   "Allows us to switch between buffers of the same major mode"

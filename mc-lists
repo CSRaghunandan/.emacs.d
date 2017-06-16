@@ -31,6 +31,7 @@
         sp-kill-sexp
         sp-kill-word
         sp-select-next-thing
+        sp-unwrap-sexp
         undefined
         wdired-finish-edit
         wgrep-finish-edit
