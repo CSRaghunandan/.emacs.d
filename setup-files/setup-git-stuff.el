@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-15 09:56:40 csraghunandan>
+;; Time-stamp: <2017-06-16 15:54:33 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -93,12 +93,6 @@
   ("C-c g l" . git-link)
   ("C-c g c" . git-link-commit)
   ("C-c g h" . git-link-homepage))
-
-;; git-modes: major modes for git config, ignore and attributes files
-;; https://github.com/magit/git-modes
-(use-package gitignore-mode)
-(use-package gitconfig-mode)
-(use-package gitattributes-mode)
 
 (provide 'setup-git-stuff)
 

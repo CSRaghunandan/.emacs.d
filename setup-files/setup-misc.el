@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 18:19:07 csraghunandan>
+;; Time-stamp: <2017-06-16 15:55:12 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -83,24 +83,6 @@ not prevent downloading the actual packages (obviously)."
 
 ;; enable recursive minibuffers
 (setq enable-recursive-minibuffers t)
-
-;; toml-mode: major mode for editing toml files
-;; https://github.com/dryman/toml-mode.el
-(use-package toml-mode)
-
-;; yaml-mode: major-mode for editing yaml files
-;; https://github.com/yoshiki/yaml-mode
-(use-package yaml-mode)
-
-;; conf-mode: major-mdoe for editing conf files
-;; https://github.com/jrockway/emacs/blob/master/lisp/textmodes/conf-mode.el
-(use-package conf-mode
-  :mode (("\\.conf\\'"    . conf-space-mode)
-         ("\\.setup.*\\'" . conf-space-mode)))
-
-;; systemd: Major mode for editing systemd units
-;; https://github.com/holomorph/systemd-mode
-(use-package systemd)
 
 ;; disable-mouse: minor mode to disable mouse in emacs
 ;; https://github.com/purcell/disable-mouse
