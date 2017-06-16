@@ -34,4 +34,9 @@
 (use-package dockerfile-mode
   :mode ("Dockerfile\\'" . dockerfile-mode))
 
+;; crontab-mode: major-mode for editing corntab files
+;; https://github.com/emacsorphanage/crontab-mode
+(use-package crontab-mode
+  :mode ("\\.?cron\\(tab\\)?\\'" . crontab-mode))
+
 (provide 'setup-config-files)
