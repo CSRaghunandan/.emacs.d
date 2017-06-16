@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-13 14:41:04 csraghunandan>
+;; Time-stamp: <2017-06-16 19:21:00 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -41,6 +41,23 @@
         company-show-numbers t
         company-require-match 'never
         company-tooltip-align-annotations t)
+
+  ;; Suspend page-break-lines-mode while company menu is active
+  ;; (see https://github.com/company-mode/company-mode/issues/416)
+  (defvar sanityinc/page-break-lines-on-p nil)
+  (make-variable-buffer-local 'sanityinc/page-break-lines-on-p)
+
+  (defun sanityinc/page-break-lines-disable (&rest ignore)
+    (when (setq sanityinc/page-break-lines-on-p (bound-and-true-p page-break-lines-mode))
+      (page-break-lines-mode -1)))
+
+  (defun sanityinc/page-break-lines-maybe-reenable (&rest ignore)
+    (when sanityinc/page-break-lines-on-p
+      (page-break-lines-mode 1)))
+
+  (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
+  (add-hook 'company-completion-finished-hook 'sanityinc/page-break-lines-maybe-reenable)
+  (add-hook 'company-completion-cancelled-hook 'sanityinc/page-break-lines-maybe-reenable)
 
   ;; company-statistics: sort the company candidates by the statistics
   ;; https://github.com/company-mode/company-statistics
