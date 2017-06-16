@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-08 10:58:49 csraghunandan>
+;; Time-stamp: <2017-06-16 20:59:15 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -566,5 +566,13 @@ associated with the original non-sudo filename."
                     (setq buffer-file-name old-buffer-file-name)
                     (when success
                       (revert-buffer t t))))))))
+
+(defun kill-back-to-indentation ()
+  "Kill from point back to the first non-whitespace character on the line."
+  (interactive)
+  (let ((prev-pos (point)))
+    (back-to-indentation)
+    (kill-region (point) prev-pos)))
+(bind-key "C-S-K" #'kill-back-to-indentation)
 
 (provide 'setup-editing)
