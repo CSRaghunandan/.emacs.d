@@ -7,11 +7,15 @@
   (if (display-graphic-p)
       (progn
         (when (member "PragmataPro" (font-family-list))
-          (set-frame-font "PragmataPro-13")))))
+          (progn
+            (require 'setup-pragmatapro)
+            (set-frame-font "PragmataPro-13"))))))
 (add-hook 'after-make-frame-functions 'rag-set-face)
 
 ;; set frame font when running emacs normally
 (when (member "PragmataPro" (font-family-list))
-  (set-frame-font "PragmataPro-13"))
+  (progn
+    (require 'setup-pragmatapro)
+    (set-frame-font "PragmataPro-13")))
 
 (provide 'setup-font-check)

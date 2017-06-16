@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-21 12:22:45 csraghunandan>
+;; Time-stamp: <2017-06-16 14:56:12 csraghunandan>
 
 ;; to get pragmatapro ligatures to work in emacs.
 (defun setup-pragmata-ligatures ()
