@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-16 15:55:12 csraghunandan>
+;; Time-stamp: <2017-06-17 17:44:19 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -89,5 +89,9 @@ not prevent downloading the actual packages (obviously)."
 (use-package disable-mouse
   :diminish global-disable-mouse-mode
   :config (global-disable-mouse-mode))
+
+;; hide-comnt: toggle comments in source code
+;; https://www.emacswiki.org/emacs/hide-comnt.el
+(use-package hide-comnt)
 
 (provide 'setup-misc)
