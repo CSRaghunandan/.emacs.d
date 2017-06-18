@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:44:24 csraghunandan>
+;; Time-stamp: <2017-06-18 19:04:16 csraghunandan>
 
 ;; info+: extend the standard `info.el' emacs library
 ;; https://www.emacswiki.org/emacs/InfoPlus
@@ -94,5 +94,30 @@ _t_: tags       _z_: customize    _q_: quit
   ("f" customize-apropos-faces "faces")
   ("g" customize-apropos-groups "groups")
   ("o" customize-apropos-options "options"))
+
+;; http://oremacs.com/2015/03/17/more-info/
+(defun ora-open-info (topic bufname)
+  "Open info on TOPIC in BUFNAME."
+  (if (get-buffer bufname)
+      (progn
+        (switch-to-buffer bufname)
+        (unless (string-match topic Info-current-file)
+          (Info-goto-node (format "(%s)" topic))))
+    (info topic bufname)))
+
+(defhydra hydra-info-to (:hint nil
+                               :color teal)
+  "
+_i_nfo      _o_rg      e_l_isp      e_L_isp intro      _e_macs      _c_alc      _g_rep emacs info"
+  ("i" info)
+  ("o" (ora-open-info "org" "*org info*"))
+  ("l" (ora-open-info "elisp" "*elisp info*"))
+  ("L" (ora-open-info "eintr" "*elisp intro info*"))
+  ("e" (ora-open-info "emacs" "*emacs info*"))
+  ("c" (ora-open-info "calc" "*calc info*"))
+  ("C" (ora-open-info "cl" "*emacs common lisp info*"))
+  ("g" counsel-ag-emacs-info))
+
+(bind-key "C-c h i" #'hydra-info-to/body)
 
 (provide 'setup-info)
