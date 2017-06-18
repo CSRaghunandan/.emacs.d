@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-18 19:04:16 csraghunandan>
+;; Time-stamp: <2017-06-18 19:10:57 csraghunandan>
 
 ;; info+: extend the standard `info.el' emacs library
 ;; https://www.emacswiki.org/emacs/InfoPlus
@@ -66,7 +66,10 @@ Info-mode:
       ("q"   Info-exit "Info exit")
       ("C-g" nil "cancel" :color blue))
 
-(bind-key "?" 'hydra-info/body Info-mode-map)
+(bind-keys
+ :map Info-mode-map
+ ("?" . hydra-info/body)
+ ("y" . bury-buffer))
 
 (bind-key "C-c h a"
           (defhydra hydra-apropos (:color blue
