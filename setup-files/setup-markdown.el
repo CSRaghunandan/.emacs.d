@@ -1,12 +1,14 @@
-;; Time-stamp: <2017-02-12 16:49:04 csraghunandan>
+;; Time-stamp: <2017-06-20 22:47:30 csraghunandan>
 
 ;; markdown: simple and quick outline mode
 ;; http://jblevins.org/projects/markdown-mode/
+;; https://github.com/defunkt/markdown-moed
 (use-package markdown-mode
-  :mode (("\\.md\\'"       . markdown-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'"       . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown")
   :config
-
   ;; markdown-toc: generate table of contents for markdown
   ;; https://github.com/ardumont/markdown-toc
   (use-package markdown-toc))
