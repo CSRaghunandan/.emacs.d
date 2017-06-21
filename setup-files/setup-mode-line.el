@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-15 08:18:26 csraghunandan>
+;; Time-stamp: <2017-06-21 21:05:12 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -20,7 +20,6 @@
     (spaceline-spacemacs-theme)
     (spaceline-info-mode)
     (spaceline-toggle-anzu-off)
-    (spaceline-toggle-hud-off)
     (spaceline-toggle-buffer-modified-on)
     (spaceline-toggle-erc-track-on)
     (spaceline-toggle-minor-modes-off)
