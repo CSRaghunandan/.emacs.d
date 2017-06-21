@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-03-08 12:17:11 csraghunandan>
+;; Time-stamp: <2017-06-21 17:52:50 csraghunandan>
 
 ;; ibuffer: for easy management of buffers
 (use-package ibuffer
@@ -12,7 +12,8 @@
               (lambda ()
                 (ibuffer-vc-set-filter-groups-by-vc-root)
                 (unless (eq ibuffer-sorting-mode 'alphabetic)
-                  (ibuffer-do-sort-by-alphabetic))
+                  (ibuffer-do-sort-by-alphabetic)
+                  (ibuffer-do-sort-by-major-mode))
                 (ibuffer-auto-mode 1)))
 
     (eval-after-load 'ibuffer
