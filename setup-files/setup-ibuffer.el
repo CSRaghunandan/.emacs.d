@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-21 17:52:50 csraghunandan>
+;; Time-stamp: <2017-06-21 23:12:54 csraghunandan>
 
 ;; ibuffer: for easy management of buffers
 (use-package ibuffer
@@ -53,6 +53,8 @@
   (add-to-list #'ibuffer-never-show-predicates "^\\*Messages")
   (add-to-list #'ibuffer-never-show-predicates "^\\*Scratch")
   (add-to-list #'ibuffer-never-show-predicates "^\\*Bookmark List")
+  ;; hide filter groups which are empty
+  (setq ibuffer-show-empty-filter-groups nil)
 
   (>=e "26"
       (bind-key "C-x C-b" #'ibuffer-jump)
@@ -150,8 +152,6 @@
   (bind-key "." 'hydra-ibuffer-main/body ibuffer-mode-map)
 
   ;; dont ask for confirmation whenever killing a buffer
-  (setq ibuffer-expert t)
-  ;; hide filter groups which are empty
-  (setq ibuffer-show-empty-filter-groups nil))
+  (setq ibuffer-expert t))
 
 (provide 'setup-ibuffer)
