@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-06-12 18:43:28 csraghunandan>
+;; Time-stamp: <2017-06-25 03:28:50 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -47,16 +47,8 @@
   ;; the `--follow' option to allow search through symbolic links (part of
   ;; `modi/rg-arguments').
   (when (executable-find "rg")
-    (progn
-      (setq counsel-rg-base-command
-            (mapconcat 'identity
-                       (append '("\\rg") ; used unaliased version of `rg': \rg
-                               modi/rg-arguments
-                               '("--no-heading" ; no file names above matching content
-                                 "%s" ; This MUST be %s, not %S
-                                        ; https://github.com/abo-abo/swiper/issues/427
-                                 ))
-                       " "))))
+    (setq counsel-rg-base-command
+          "rg --line-number --smart-case --follow --max-columns 150 --mmap --no-heading %s"))
 
   (defun rag/counsel-rg-project-at-point ()
     "use counsel rg to search for the word at point in the project"

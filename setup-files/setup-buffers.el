@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-16 14:33:46 csraghunandan>
+;; Time-stamp: <2017-06-23 03:16:21 csraghunandan>
 
 ;; configuration for buffers
 
@@ -145,6 +145,7 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*."
 (>=e "26.0"
     (bind-key "C-x k" 'modi/kill-buffer-dwim))
 
+;; TODO: ask if you really want to delete the file
 (defun delete-file-and-buffer ()
   "Kill the current buffer and deletes the file it is visiting."
   (interactive)
