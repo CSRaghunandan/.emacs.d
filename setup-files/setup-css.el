@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 02:31:49 csraghunandan>
+;; Time-stamp: <2017-06-26 03:33:54 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode
@@ -12,6 +12,7 @@
   (add-hook 'css-mode-hook 'company-mode)
   (add-hook 'css-mode-hook 'flycheck-mode)
 
-  (add-hook 'css-mode-hook 'prettify-js-mode))
+  (when (executable-find "prettier")
+    (add-hook 'css-mode-hook 'prettify-js-mode)))
 
 (provide 'setup-css)

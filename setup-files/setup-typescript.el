@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 02:50:34 csraghunandan>
+;; Time-stamp: <2017-06-26 03:33:25 csraghunandan>
 
 ;; typescript config
 
@@ -24,7 +24,8 @@
       (flycheck-mode)
 
       ;; format typescript files using prettier
-      (prettier-js-mode)
+      (when (executable-find "prettier")
+        (prettier-js-mode))
 
       ;; company-backends setup
       (set (make-local-variable 'company-backends)

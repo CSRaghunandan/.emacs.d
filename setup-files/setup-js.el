@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 02:48:12 csraghunandan>
+;; Time-stamp: <2017-06-26 03:33:04 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -60,9 +60,10 @@
 
   ;; prettier-emacs: minor-mode to prettify javascript files on save
   ;; https://github.com/prettier/prettier-emacs
-  (use-package prettier-js
-    :config
-    (add-hook 'js2-mode-hook 'prettier-js-mode))
+  (when (executable-find "prettier")
+    (use-package prettier-js
+      :config
+      (add-hook 'js2-mode-hook 'prettier-js-mode)))
 
   ;; xref-js2: Jump to references/definitions using ag & js2-mode's AST in Emacs
   ;; https://github.com/nicolaspetton/xref-js2
