@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-15 09:50:29 csraghunandan>
+;; Time-stamp: <2017-06-25 11:28:35 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -337,16 +337,6 @@ Execute this command while the point is on or after the hyper-linked org link."
   ;; https://github.com/lolownia/org-pomodoro
   (use-package org-pomodoro
     :bind ("C-c o p" . org-pomodoro))
-
-  ;; org-sticky-headers
-  ;; https://github.com/alphapapa/org-sticky-header
-  (use-package org-sticky-header
-    :config
-    ;; show the full path for the org-mode header
-    (setq org-sticky-header-full-path 'full)
-    (setq org-sticky-header-always-show-header
-          (if org-sticky-header-full-path t nil))
-    (add-hook 'org-mode-hook 'org-sticky-header-mode))
 
   (defun rag/copy-id-to-clipboard()
     "Copy the ID property value to killring,
