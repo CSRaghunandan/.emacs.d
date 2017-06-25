@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 01:23:21 csraghunandan>
+;; Time-stamp: <2017-06-26 01:25:01 csraghunandan>
 
 ;; configuration for buffers
 
@@ -188,7 +188,7 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*."
  ("C-c m v" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
  ("s-u" . revert-buffer-no-confirm)
- ("C-c s n" . rag/copy-buffer-file-name-as-kill))
+ ("C-c s n" . modi/copy-buffer-file-name))
 
 ;; diminish auto-revert-mode emacs
 (use-package autorevert
