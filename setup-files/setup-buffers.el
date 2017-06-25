@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-23 03:16:21 csraghunandan>
+;; Time-stamp: <2017-06-26 01:23:21 csraghunandan>
 
 ;; configuration for buffers
 
@@ -63,23 +63,29 @@ Example: M-644 M-x modi/set-file-permissions."
         (goto-char (point-max))))))
 (advice-add 'message :after #'modi/messages-auto-tail)
 
-(defun rag/copy-buffer-file-name-as-kill (choice)
-  "Copy the buffer-file-name to the kill-ring"
-  (interactive "Copy Buffer Name (F) Full, (D) Directory, (N) Name")
-  (let ((new-kill-string)
-        (name (if (eq major-mode 'dired-mode)
-                  (dired-get-filename)
-                (or (buffer-file-name) ""))))
-    (cond ((eq choice ?f)
-           (setq new-kill-string name))
-          ((eq choice ?d)
-           (setq new-kill-string (file-name-directory name)))
-          ((eq choice ?n)
-           (setq new-kill-string (file-name-nondirectory name)))
-          (t (message "Quit")))
-    (when new-kill-string
-      (message "%s copied" new-kill-string)
-      (kill-new new-kill-string))))
+;; Display the file path of the file in current buffer and also copy it to
+;; the kill-ring
+;; http://camdez.com/blog/2013/11/14/emacs-show-buffer-file-name/
+(defun modi/copy-buffer-file-name (arg)
+  "Show the full path to the current file in the minibuffer and also copy it.
+If the full file path has a sub-string \"_xyz\" where xyz is the user name,
+replace that with \"_${USER}\".
+    C-u COMMAND -> Copy only the file name (not the full path).
+C-u C-u COMMAND -> Copy the full path without env var replacement."
+  (interactive "p")
+  (let* ((file-name-full (buffer-file-name))
+         (file-name (when file-name-full
+                      (cl-case arg
+                        (4 (file-name-nondirectory file-name-full)) ;C-u
+                        (16 file-name-full)                         ;C-u C-u
+                        (t ;If $USER==xyz, replace _xyz with _${USER} in file name
+                         (replace-regexp-in-string ;No prefix
+                          (concat "_" (getenv "USER")) "_$USER" file-name-full))))))
+    (if file-name
+        (progn
+          (kill-new file-name)
+          (message "Copied file name `%s'" file-name))
+      (error "Buffer not visiting a file"))))
 
 ;;; Reopen Killed File
 ;; http://emacs.stackexchange.com/a/3334/115
