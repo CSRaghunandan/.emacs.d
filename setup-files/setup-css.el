@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 02:24:50 csraghunandan>
+;; Time-stamp: <2017-06-26 02:31:49 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode
@@ -10,6 +10,8 @@
   ;; fontify colors with `rainbow-mode'
   (add-hook 'css-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'company-mode)
-  (add-hook 'css-mode-hook 'flycheck-mode))
+  (add-hook 'css-mode-hook 'flycheck-mode)
+
+  (add-hook 'css-mode-hook 'prettify-js-mode))
 
 (provide 'setup-css)
