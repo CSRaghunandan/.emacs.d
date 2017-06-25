@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:30:46 csraghunandan>
+;; Time-stamp: <2017-06-26 02:24:50 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode
@@ -10,15 +10,6 @@
   ;; fontify colors with `rainbow-mode'
   (add-hook 'css-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'company-mode)
-  (add-hook 'css-mode-hook 'flycheck-mode)
-
-  ;; format CSS buffers on save
-  (when (executable-find "js-beautify")
-    (add-hook 'css-mode-hook
-              (lambda ()
-                (add-hook 'before-save-hook
-                          (lambda ()
-                            (time-stamp)
-                            (web-beautify-css-buffer)) nil t)))))
+  (add-hook 'css-mode-hook 'flycheck-mode))
 
 (provide 'setup-css)

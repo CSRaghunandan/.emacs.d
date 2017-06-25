@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-15 10:07:08 csraghunandan>
+;; Time-stamp: <2017-06-26 02:27:19 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -45,24 +45,17 @@
 
   ;; js2-refactor: refactoring options for emacs
   ;; https://github.com/magnars/js2-refactor.el
-  (use-package js2-refactor :defer t
+  (use-package js2-refactor
     :diminish js2-refactor-mode "𝐉𝐫"
     :config (js2r-add-keybindings-with-prefix "C-c j r"))
 
   (add-hook 'js2-mode-hook 'js2-refactor-mode)
 
-  ;; web-beautify: Format HTML, CSS and JavaScript/JSON by js-beautify
-  ;; https://github.com/yasuyk/web-beautify
-  (when (executable-find "js-beautify")
-    (use-package web-beautify
-      :config
-      ;; format JS buffers on save
-      (add-hook 'js2-mode-hook
-                (lambda ()
-                  (add-hook 'before-save-hook
-                            (lambda ()
-                              (time-stamp)
-                              (web-beautify-js-buffer)) nil t)))))
+  ;; prettier-emacs: minor-mode to prettify javascript files on save
+  ;; https://github.com/prettier/prettier-emacs
+  (use-package prettier-js
+    :config
+    (add-hook 'js2-mode-hook 'prettier-js-mode))
 
   ;; json-snatcher: get the path of any JSON element easily
   ;; https://github.com/Sterlingg/json-snatcher
