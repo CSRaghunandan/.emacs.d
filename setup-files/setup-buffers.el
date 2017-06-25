@@ -1,15 +1,22 @@
-;; Time-stamp: <2017-06-26 01:32:39 csraghunandan>
+;; Time-stamp: <2017-06-26 01:55:45 csraghunandan>
 
 ;; configuration for buffers
 
 ;; prevent switching to a visible buffer
 (setq switch-to-visible-buffer nil)
 
-;; make buffers with same name unique
-(setq uniquify-buffer-name-style 'forward)
-(setq uniquify-separator "/")
-(setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
-(setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+;;; Uniquify
+;; The library uniquify overrides Emacs’ default mechanism for making buffer
+;; names unique (using suffixes like <2>, <3> etc.) with a more sensible
+;; behaviour which use parts of the file names to make the buffer names
+;; distinguishable.
+(use-package uniquify :ensure nil
+  :config
+  ;; make buffers with same name unique
+  (setq uniquify-buffer-name-style 'forward)
+  (setq uniquify-separator "/")
+  (setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
+  (setq uniquify-ignore-buffers-re "^\\*")) ; don't muck with special buffers
 
 ;; make emacs auto-refresh all buffers when files have changed on the disk
 (global-auto-revert-mode t)
