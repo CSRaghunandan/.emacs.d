@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 02:27:19 csraghunandan>
+;; Time-stamp: <2017-06-26 02:48:12 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -41,13 +41,20 @@
 
   ;; company-tern: company backend for tern
   ;; http://ternjs.net/doc/manual.html#emacs
-  (use-package company-tern)
+  (use-package company-tern
+    :config
+    ;; Disable completion keybindings, as we use xref-js2 instead
+    (define-key tern-mode-keymap (kbd "M-.") nil)
+    (define-key tern-mode-keymap (kbd "M-,") nil))
 
   ;; js2-refactor: refactoring options for emacs
   ;; https://github.com/magnars/js2-refactor.el
   (use-package js2-refactor
     :diminish js2-refactor-mode "𝐉𝐫"
-    :config (js2r-add-keybindings-with-prefix "C-c j r"))
+    :bind
+    (:map js2-mode-map
+          ("C-k" . js2r-kill))
+    :config (js2r-add-keybindings-with-prefix "C-c C-r"))
 
   (add-hook 'js2-mode-hook 'js2-refactor-mode)
 
@@ -56,6 +63,18 @@
   (use-package prettier-js
     :config
     (add-hook 'js2-mode-hook 'prettier-js-mode))
+
+  ;; xref-js2: Jump to references/definitions using ag & js2-mode's AST in Emacs
+  ;; https://github.com/nicolaspetton/xref-js2
+  (use-package xref-js2
+    :config
+
+    ;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
+    ;; unbind it.
+    (define-key js-mode-map (kbd "M-.") nil)
+
+    (add-hook 'js2-mode-hook (lambda ()
+      (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
 
   ;; json-snatcher: get the path of any JSON element easily
   ;; https://github.com/Sterlingg/json-snatcher
