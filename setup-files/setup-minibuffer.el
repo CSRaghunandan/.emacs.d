@@ -1,11 +1,13 @@
-;; Time-stamp: <2017-02-02 20:22:57 csraghunandan>
+;; Time-stamp: <2017-06-26 01:40:43 csraghunandan>
 
 ;; configuration for minibuffer
 
-;; recursive minibuffers
-(setq enable-recursive-minibuffers t)   ; enable to use minibuffer recursively.
-(if (booleanp enable-recursive-minibuffers)
-    (minibuffer-depth-indicate-mode t))
+;; http://oremacs.com/2016/06/06/counsel-set-variable/
+(when (not (bound-and-true-p disable-recursive-edit-in-minibuffer))
+  ;; Allow to read from minibuffer while in minibuffer.
+  (setq enable-recursive-minibuffers t)
+  ;; Show the minibuffer depth (when larger than 1)
+  (minibuffer-depth-indicate-mode 1))
 
 ;; resize minibuffer window to accommodate text
 (setq resize-mini-window t)
