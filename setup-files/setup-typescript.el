@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-11 13:50:39 csraghunandan>
+;; Time-stamp: <2017-06-26 02:50:34 csraghunandan>
 
 ;; typescript config
 
@@ -23,6 +23,9 @@
       ;; enable flycheck
       (flycheck-mode)
 
+      ;; format typescript files using prettier
+      (prettier-js-mode)
+
       ;; company-backends setup
       (set (make-local-variable 'company-backends)
            '((company-tide company-files company-yasnippet))))
@@ -34,8 +37,7 @@
                 (add-hook 'before-save-hook
                           (lambda()
                             (time-stamp)
-                            (xah-clean-whitespace)
-                            (tide-format-before-save)) nil t)))
+                            (xah-clean-whitespace)) nil t)))
 
     ;; add tslint checker for flycheck
     (flycheck-add-next-checker 'typescript-tide
