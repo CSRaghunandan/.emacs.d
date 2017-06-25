@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 01:25:01 csraghunandan>
+;; Time-stamp: <2017-06-26 01:32:39 csraghunandan>
 
 ;; configuration for buffers
 
@@ -151,18 +151,18 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*."
 (>=e "26.0"
     (bind-key "C-x k" 'modi/kill-buffer-dwim))
 
-;; TODO: ask if you really want to delete the file
-(defun delete-file-and-buffer ()
-  "Kill the current buffer and deletes the file it is visiting."
+;;; Current File Buffer Actions
+;; Delete current buffer file
+(defun modi/delete-current-buffer-file ()
+  "Deletes file connected to current buffer and kills buffer."
   (interactive)
   (let ((filename (buffer-file-name)))
-    (when filename
-      (if (vc-backend filename)
-          (vc-delete-file filename)
-        (progn
-          (delete-file filename)
-          (message "Deleted file %s" filename)
-          (kill-buffer))))))
+    (when (and filename
+               (file-exists-p filename)
+               (yes-or-no-p "Are you sure you want to delete this file? "))
+      (delete-file filename)
+      (message "File `%s' successfully deleted." filename))
+    (kill-buffer (current-buffer))))
 
 (defun rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
@@ -184,7 +184,7 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*."
 (bind-keys
  ("C-c o k" . rag/reopen-killed-file)
  ("C-c o K" . rag/reopen-killed-file-fancy)
- ("C-c r m" . delete-file-and-buffer)
+ ("C-c r m" . modi/delete-current-buffer-file)
  ("C-c m v" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
  ("s-u" . revert-buffer-no-confirm)
