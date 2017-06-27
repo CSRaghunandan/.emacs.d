@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 12:50:32 csraghunandan>
+;; Time-stamp: <2017-06-27 18:31:00 csraghunandan>
 
 ;; smartparens: for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -33,6 +33,34 @@
 
   (bind-keys
    :map smartparens-mode-map
+   ("C-M-f" . sp-forward-sexp)
+   ("C-M-b" . sp-backward-sexp)
+   ("C-M-d" . sp-down-sexp)
+   ("C-M-a" . sp-backward-down-sexp)
+   ("C-S-d" . sp-beginning-of-sexp)
+   ("C-S-a" . sp-end-of-sexp)
+   ("C-M-e" . sp-up-sexp)
+   ("C-M-u" . sp-backward-up-sexp)
+   ("M-P" . sp-previous-sexp)
+   ("M-N" . sp-next-sexp)
+   ("C-M-k" . sp-kill-sexp)
+   ("C-M-w" . sp-copy-sexp)
+   ("M-<delete>" . sp-unwrap-sexp)
+   ("M-<backspace>" . sp-backward-unwrap-sexp)
+   ("C-<right>" . sp-forward-slurp-sexp)
+   ("C-<left>" . sp-forward-barf-sexp)
+   ("C-M-<left>" . sp-backward-slurp-sexp)
+   ("C-M-<right>" . sp-backward-barf-sexp)
+   ("M-D" . sp-splice-sexp)
+   ("C-M-<delete>" . sp-splice-sexp-killing-forward)
+   ("C-M-<backspace>" . sp-splice-sexp-killing-backward)
+   ("C-S-<backspace>" . sp-splice-sexp-killing-around)
+   ("C-]" . sp-select-next-thing-exchange)
+   ("C-M-]" . sp-select-next-thing)
+   ("C-M-SPC" . sp-mark-sexp)
+   ("M-F" . sp-forward-symbol)
+   ("M-B" . sp-backward-symbol)
+
    ("C-k" . sp-kill-hybrid-sexp)
    ("M-k" . sp-kill-whole-line)
    ("C-c R" . sp-rewrap-sexp)
@@ -51,9 +79,6 @@
    ("C-c `" . wrap-with-back-quotes))
 
   (show-smartparens-global-mode +1)
-
-  ;; use default smartparens bindings
-  (sp-use-smartparens-bindings)
 
   ;; enable smartparens globally
   (smartparens-global-mode)
