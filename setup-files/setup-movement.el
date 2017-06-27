@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 18:24:30 csraghunandan>
+;; Time-stamp: <2017-06-27 19:06:42 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -80,10 +80,6 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
 ;; dumb-jump: jump to definitions using `rg' or `ag'
 ;; https://github.com/jacktasia/dumb-jump
 (use-package dumb-jump
-  :bind (:map dumb-jump-mode-map
-         ("M-g o" . dumb-jump-go-other-window)
-         ("M-g j" . dumb-jump-go)
-         ("M-g b" . dumb-jump-back))
   :init
   (setq dumb-jump-selector 'ivy)
   (add-hook 'prog-mode-hook #'dumb-jump-mode))
