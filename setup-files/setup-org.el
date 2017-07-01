@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-25 11:28:35 csraghunandan>
+;; Time-stamp: <2017-07-01 23:36:47 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -444,7 +444,6 @@ text and copying to the killring."
 
   ;; remove unnecessary modes in org-journal
   (add-hook 'org-journal-mode-hook (lambda ()
-                                     (visual-line-mode -1)
-                                     (org-sticky-header-mode -1))))
+                                     (visual-line-mode -1))))
 
 (provide 'setup-org)

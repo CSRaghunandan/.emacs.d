@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-27 18:31:00 csraghunandan>
+;; Time-stamp: <2017-07-02 01:34:54 csraghunandan>
 
 ;; smartparens: for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -82,7 +82,8 @@
 
   ;; enable smartparens globally
   (smartparens-global-mode)
-  (smartparens-global-strict-mode) ; only allows you to insert or delete
+  ;; wait till `smartparens-strict-mode' and `hungry-delete-mode' conflict is fixed
+  ;; (smartparens-global-strict-mode) ; only allows you to insert or delete
                                    ; brackets in pairs
 
   (require 'smartparens-config)
@@ -136,27 +137,7 @@ _t_: transpose      _T_: hyb-transpose    _q_: quit
   (setq sp-show-pair-delay 0.1)
 
   ;; no more pair mismatch messages
-  (setq sp-message-width nil)
-
-  ;; fix smartparens-strict-mode and hungry-delete conflict
-  (dolist (key '([remap delete-char]
-                 [remap delete-forward-char]))
-
-    (define-key smartparens-strict-mode-map key
-      '(menu-item "maybe-sp-delete-char" nil
-                  :filter (lambda (&optional _)
-                            (unless (looking-at-p "[[:space:]\n]")
-                              #'sp-delete-char)))))
-
-  (dolist (key '([remap backward-delete-char-untabify]
-                 [remap backward-delete-char]
-                 [remap delete-backward-char]))
-
-    (define-key smartparens-strict-mode-map key
-      '(menu-item "maybe-sp-backward-delete-char" nil
-                  :filter (lambda (&optional _)
-                            (unless (looking-back "[[:space:]\n]" 1)
-                              #'sp-backward-delete-char))))))
+  (setq sp-message-width nil))
 
 (provide 'setup-smartparens)
 
