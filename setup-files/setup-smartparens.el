@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-02 01:34:54 csraghunandan>
+;; Time-stamp: <2017-07-02 11:18:08 csraghunandan>
 
 ;; smartparens: for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -82,8 +82,7 @@
 
   ;; enable smartparens globally
   (smartparens-global-mode)
-  ;; wait till `smartparens-strict-mode' and `hungry-delete-mode' conflict is fixed
-  ;; (smartparens-global-strict-mode) ; only allows you to insert or delete
+  (smartparens-global-strict-mode) ; only allows you to insert or delete
                                    ; brackets in pairs
 
   (require 'smartparens-config)
