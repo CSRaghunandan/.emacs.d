@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-15 12:48:38 csraghunandan>
+;; Time-stamp: <2017-07-08 18:07:45 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -116,5 +116,9 @@
   (set-face-attribute 'column-enforce-face nil
                       :underline nil :foreground "firebrick3")
   (setq column-enforce-comments nil))
+
+;; indicate buffer boundaries in the fringe
+(setq-default indicate-buffer-boundaries '((top . right)
+                                           (bottom . right)))
 
 (provide 'setup-visual)
