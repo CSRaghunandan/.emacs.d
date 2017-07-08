@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-23 03:12:37 csraghunandan>
+;; Time-stamp: <2017-07-08 13:53:42 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -58,12 +58,8 @@ not prevent downloading the actual packages (obviously)."
 ;; make links clickable
 (add-hook 'prog-mode-hook 'goto-address-mode)
 
-;; view-mode. Used to view long files like `less' command
-(use-package view
-  :diminish (view-mode . "𝐕"))
-
 ;; load bookmark list
-(bookmark-bmenu-list)
+;; (bookmark-bmenu-list)
 
 (defun conditional-disable-modes ()
   ;; disable heavy minor modes if file is large (above 2MB)
@@ -83,11 +79,5 @@ not prevent downloading the actual packages (obviously)."
 
 ;; enable recursive minibuffers
 (setq enable-recursive-minibuffers t)
-
-;; disable-mouse: minor mode to disable mouse in emacs
-;; https://github.com/purcell/disable-mouse
-(use-package disable-mouse
-  :diminish global-disable-mouse-mode
-  :config (global-disable-mouse-mode))
 
 (provide 'setup-misc)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-27 11:59:55 csraghunandan>
+;; Time-stamp: <2017-07-08 13:57:22 csraghunandan>
 
 ;; ERC: the irc client for emacs
 (use-package erc :defer t
@@ -56,6 +56,14 @@
   (setq erc-rename-buffers t)
   ;; Interpret mIRC-style color commands in IRC chats
   (setq erc-interpret-mirc-color t))
+
+;; erc-image: Fetch and show received images in a ERC buffer
+;; https://github.com/kidd/erc-image.el
+(use-package erc-image
+  :after erc
+  :config
+  (add-to-list 'erc-modules 'image)
+  (erc-update-modules))
 
 (provide 'setup-erc)
 
