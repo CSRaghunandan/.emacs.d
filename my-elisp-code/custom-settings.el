@@ -15,43 +15,6 @@
     (autoaway autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands notify readonly ring smiley sound stamp spelling track)))
  '(hl-sexp-background-color "#efebe9")
  '(ivy-mode t)
- '(org-agenda-files
-   (quote
-    ("~/org-mode-files/life.org" "~/org-mode-files/work.org" "~/org-mode-files/math.org" "~/org-mode-files/computer-science.org")))
- '(org-capture-templates
-   (quote
-    (("c" "Computer Science template")
-     ("cb" "Add a book to read list" entry
-      (file+headline "~/org-mode-files/computer-science.org" "Read List")
-      (file "~/.emacs.d/org-capture-templates/book.txt"))
-     ("ct" "Add a TODO entry" entry
-      (file+headline "~/org-mode-files/computer-science.org" "captured ideas")
-      (file "~/.emacs.d/org-capture-templates/todo.txt"))
-     ("l" "Life capture template")
-     ("lb" "Add a book to read list" entry
-      (file+headline "~/org-mode-files/life.org" "Read List")
-      (file "~/.emacs.d/org-capture-templates/book.txt"))
-     ("lt" "Add a TODO entry" entry
-      (file+headline "~/org-mode-files/life.org" "captured ideas")
-      "~/.emacs.d/org-capture-templates/todo.txt")
-     ("w" "Work capture template")
-     ("wb" "Add a book to read list" entry
-      (file+headline "~/org-mode-files/work.org" "Read List")
-      (file "~/.emacs.d/org-capture-templates/book.txt"))
-     ("wt" "Add a TODO entry" entry
-      (file+headline "~/org-mode-files/work.org" "captured ideas")
-      (file "~/.emacs.d/org-capture-templates/todo.txt"))
-     ("m" "Math capture template")
-     ("mb" "Add a book to read list" entry
-      (file+headline "~/org-mode-files/math.org" "Read List")
-      (file "~/.emacs.d/org-capture-templates/book.txt"))
-     ("mt" "Add a TODO entry" entry
-      (file+headline "~/org-mode-files/math.org" "captured ideas")
-      (file "~/.emacs.d/org-capture-templates/todo.txt")))))
- '(org-modules (quote (org-habit org-info org-irc org-drill)))
- '(org-refile-allow-creating-parent-nodes (quote confirm))
- '(org-refile-targets (quote ((org-agenda-files :level . 1))))
- '(org-refile-use-outline-path (quote file))
  '(package-archives
    (quote
     (("melpa" . "https://melpa.org/packages/")

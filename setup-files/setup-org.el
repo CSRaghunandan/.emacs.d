@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-08 13:25:09 csraghunandan>
+;; Time-stamp: <2017-07-08 20:18:41 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -29,7 +29,7 @@
   ;; Modules that should always be loaded together with org.el.
   ;; `org-modules' default: '(org-w3m org-bbdb org-bibtex org-docview org-gnus
   ;;                          org-info org-irc org-mhe org-rmail)
-  (setq org-modules '(org-info org-irc org-drill org-habit))
+  (setq org-modules '(org-info org-irc org-drill org-habit org-gnus))
 
   ;; Set my default org-export backends. This variable needs to be set before
   ;; org.el is loaded.
@@ -41,10 +41,29 @@
 
   :config
 
+  ;; org agenda files
+  (setq org-agenda-files '("~/gtd/inbox.org"
+                           "~/gtd/gtd.org"
+                           "~/gtd/tickler.org"))
+
+  ;; org capture templates
+  (setq org-capture-templates '(("t" "Todo [inbox]" entry
+                                 (file+headline "~/gtd/inbox.org" "Tasks")
+                                 "* TODO %i%?")
+                                ("T" "Tickler" entry
+                                 (file+headline "~/gtd/tickler.org" "Tickler")
+                                 "* %i%? \n %U")
+                                ("b" "Add a book to read list" entry
+                                 (file+headline "~/org-mode-files/inbox.org")
+                                 (file "~/.emacs.d/org-capture-templates/book.txt"))))
+
   ;; settings for org-refile
-  (setq org-refile-use-outline-path nil
-        org-refile-targets '((org-agenda-files :level . 1)
-                             (org-agenda-files :level . 2)))
+  (setq org-refile-use-outline-path 'file)
+  (setq org-refile-allow-creating-parent-nodes 'confirm)
+  (setq org-refile-targets '(("~/gtd/gtd.org" :maxlevel . 3)
+                             ("~/gtd/someday.org" :level . 1)
+                             ("~/gtd/tickler.org" :maxlevel . 2)))
+
   (add-to-list
    'ivy-completing-read-handlers-alist
    '(org-capture-refile . completing-read-default))
