@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-06-25 03:28:50 csraghunandan>
+;; Time-stamp: <2017-07-11 01:20:47 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -48,7 +48,7 @@
   ;; `modi/rg-arguments').
   (when (executable-find "rg")
     (setq counsel-rg-base-command
-          "rg --line-number --smart-case --follow --max-columns 150 --mmap --no-heading %s"))
+          "rg --line-number --smart-case --follow --mmap --no-heading %s"))
 
   (defun rag/counsel-rg-project-at-point ()
     "use counsel rg to search for the word at point in the project"
