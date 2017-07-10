@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-09 18:46:09 csraghunandan>
+;; Time-stamp: <2017-07-11 01:28:55 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -52,11 +52,12 @@
                                  (file+headline "~/org/tickler.org" "Tickler")
                                  "* %i%? \n %U")
                                 ("b" "Add a book to read list" entry
-                                 (file+headline "~/org/inbox.org")
+                                 (file+headline "~/org/inbox.org" "Read list")
                                  (file "~/.emacs.d/org-capture-templates/book.txt"))))
 
   ;; settings for org-refile
-  (setq org-refile-use-outline-path 'file)
+  (setq org-refile-use-outline-path 'file
+        org-outline-path-complete-in-steps nil)
   (setq org-refile-allow-creating-parent-nodes 'confirm)
   (setq org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
                              ("~/org/someday.org" :level . 1)
