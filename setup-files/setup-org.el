@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-08 20:18:41 csraghunandan>
+;; Time-stamp: <2017-07-09 18:46:09 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -8,23 +8,23 @@
   ;; from the `load-path'.
   (when (bound-and-true-p org-load-version-dev)
     (>= "25.0" ; `directory-files-recursively' is not available in older emacsen
-        (let ((org-stable-install-path (car (directory-files-recursively
-                                             package-user-dir
-                                             "org-plus-contrib-[0-9]+"
-                                             :include-directories))))
-          (setq load-path (delete org-stable-install-path load-path))
-          ;; Also ensure that the associated path is removed from Info search list
-          (setq Info-directory-list (delete org-stable-install-path
-                                            Info-directory-list))
+       (let ((org-stable-install-path (car (directory-files-recursively
+                                            package-user-dir
+                                            "org-plus-contrib-[0-9]+"
+                                            :include-directories))))
+         (setq load-path (delete org-stable-install-path load-path))
+         ;; Also ensure that the associated path is removed from Info search list
+         (setq Info-directory-list (delete org-stable-install-path
+                                           Info-directory-list))
 
-          ;; Also delete the path to the org directory that ships with emacs
-          (dolist (path load-path)
-            (when (string-match-p (concat "emacs/"
-                                          (replace-regexp-in-string
-                                           "\\.[0-9]+\\'" "" emacs-version)
-                                          "/lisp/org\\'")
-                                  path)
-              (setq load-path (delete path load-path)))))))
+         ;; Also delete the path to the org directory that ships with emacs
+         (dolist (path load-path)
+           (when (string-match-p (concat "emacs/"
+                                         (replace-regexp-in-string
+                                          "\\.[0-9]+\\'" "" emacs-version)
+                                         "/lisp/org\\'")
+                                 path)
+             (setq load-path (delete path load-path)))))))
 
   ;; Modules that should always be loaded together with org.el.
   ;; `org-modules' default: '(org-w3m org-bbdb org-bibtex org-docview org-gnus
@@ -35,34 +35,32 @@
   ;; org.el is loaded.
   (setq org-export-backends '(ascii html latex md gfm odt))
 
-
-
   :mode ("\\.org\\'" . org-mode)
 
   :config
 
   ;; org agenda files
-  (setq org-agenda-files '("~/gtd/inbox.org"
-                           "~/gtd/gtd.org"
-                           "~/gtd/tickler.org"))
+  (setq org-agenda-files '("~/org/inbox.org"
+                           "~/org/gtd.org"
+                           "~/org/tickler.org"))
 
   ;; org capture templates
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                 (file+headline "~/gtd/inbox.org" "Tasks")
+                                 (file+headline "~/org/inbox.org" "Tasks")
                                  "* TODO %i%?")
                                 ("T" "Tickler" entry
-                                 (file+headline "~/gtd/tickler.org" "Tickler")
+                                 (file+headline "~/org/tickler.org" "Tickler")
                                  "* %i%? \n %U")
                                 ("b" "Add a book to read list" entry
-                                 (file+headline "~/org-mode-files/inbox.org")
+                                 (file+headline "~/org/inbox.org")
                                  (file "~/.emacs.d/org-capture-templates/book.txt"))))
 
   ;; settings for org-refile
   (setq org-refile-use-outline-path 'file)
   (setq org-refile-allow-creating-parent-nodes 'confirm)
-  (setq org-refile-targets '(("~/gtd/gtd.org" :maxlevel . 3)
-                             ("~/gtd/someday.org" :level . 1)
-                             ("~/gtd/tickler.org" :maxlevel . 2)))
+  (setq org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
+                             ("~/org/someday.org" :level . 1)
+                             ("~/org/tickler.org" :maxlevel . 2)))
 
   (add-to-list
    'ivy-completing-read-handlers-alist
@@ -180,8 +178,6 @@
   ;; blank lines are removed when exiting code edit buffer
   (setq org-src-strip-leading-and-trailing-blank-lines t)
 
-
-
   ;; http://sachachua.com/blog/2013/01/emacs-org-task-related-keyboard-shortcuts-agenda/
   (defun sacha/org-agenda-done (&optional arg)
     "Mark current TODO as done.
@@ -272,8 +268,6 @@ _C_: correct  _p_: prev error _d_: done checking
       ("q" nil "quit" :color blue))
     (bind-key "C-c h l" 'hydra-langtool/body org-mode-map))
 
-
-
   (define-key org-mode-map "\"" #'endless/round-quotes)
 
   (defun endless/round-quotes (italicize)
@@ -283,7 +277,7 @@ With prefix argument ITALICIZE, insert /“”/ instead
 Inside a code-block, just call `self-insert-command'."
     (interactive "P")
     (if (and (derived-mode-p 'org-mode)
-             (org-in-block-p '("src" "latex" "html")))
+           (org-in-block-p '("src" "latex" "html")))
         (call-interactively #'self-insert-command)
       (if (looking-at "”[/=_\\*]?")
           (goto-char (match-end 0))
@@ -304,7 +298,7 @@ leave point in the middle.
 Inside a code-block, just call `self-insert-command'."
     (interactive "P")
     (if (and (derived-mode-p 'org-mode)
-             (org-in-block-p '("src" "latex" "html")))
+           (org-in-block-p '("src" "latex" "html")))
         (call-interactively #'self-insert-command)
       (if (looking-at "['’][=_/\\*]?")
           (goto-char (match-end 0))
@@ -312,8 +306,6 @@ Inside a code-block, just call `self-insert-command'."
             (insert "’")
           (insert "‘’")
           (forward-char -1)))))
-
-
 
   ;; http://emacs.stackexchange.com/a/10712/115
   (defun modi/org-delete-link ()
@@ -357,6 +349,16 @@ Execute this command while the point is on or after the hyper-linked org link."
   (use-package org-pomodoro
     :bind ("C-c o p" . org-pomodoro))
 
+  ;; org-sticky-headers
+  ;; https://github.com/alphaapapa/org-sticky-header
+  (use-package org-sticky-header
+    :config
+    ;; show full path from the org-mode header
+    (setq org-sticky-header-full-path 'full)
+    (setq org-sticky-header-always-show-header
+          (if org-sticky-header-full-path t nil))
+    (add-hook 'org-mode-hook #'org-sticky-header-mode))
+
   (defun rag/copy-id-to-clipboard()
     "Copy the ID property value to killring,
 if no ID is there then create a new unique ID.
@@ -365,17 +367,17 @@ This function works only in org-mode buffers.
 The purpose of this function is to easily construct id:-links to
 org-mode items. If its assigned to a key it saves you marking the
 text and copying to the killring."
-         (interactive)
-         (when (eq major-mode 'org-mode) ; do this only in org-mode buffers
-           (setq mytmpid (funcall 'org-id-get-create))
-           (kill-new mytmpid)
-           (message "Copied %s to killring (clipboard)" mytmpid)))
+    (interactive)
+    (when (eq major-mode 'org-mode) ; do this only in org-mode buffers
+      (setq mytmpid (funcall 'org-id-get-create))
+      (kill-new mytmpid)
+      (message "Copied %s to killring (clipboard)" mytmpid)))
   (bind-key "s-i" 'rag/copy-id-to-clipboard org-mode-map)
 
   (bind-key "C-c h c" 'hydra-org-clock/body org-mode-map)
   (defhydra hydra-org-clock (:color blue
                                     :hint nil)
-"
+    "
 ^Clock:^ ^In/out^     ^Edit^   ^Summary^    | ^Timers:^ ^Run^           ^Insert
 -^-^-----^-^----------^-^------^-^----------|--^-^------^-^-------------^------
 (_?_)   _i_n         _e_dit    _g_oto entry | (_z_)     _r_elative      ti_m_e
@@ -383,26 +385,54 @@ text and copying to the killring."
 ^ ^     _o_ut        ^ ^       _r_eport     |  ^ ^      _p_ause toggle
 ^ ^     ^ ^          ^ ^       ^ ^          |  ^ ^      _s_top
 "
-  ("i" org-clock-in)
-  ("c" org-clock-in-last)
-  ("o" org-clock-out)
-  ("e" org-clock-modify-effort-estimate)
-  ("q" org-clock-cancel)
-  ("g" org-clock-goto)
-  ("d" org-clock-display)
-  ("r" org-clock-report)
-  ("?" (org-info "Clocking commands"))
-  ("r" org-timer-start)
-  ("n" org-timer-set-timer)
-  ("p" org-timer-pause-or-continue)
-  ("s" org-timer-stop)
-  ("m" org-timer)
-  ("t" org-timer-item)
-  ("z" (org-info "Timers"))))
+    ("i" org-clock-in)
+    ("c" org-clock-in-last)
+    ("o" org-clock-out)
+    ("e" org-clock-modify-effort-estimate)
+    ("q" org-clock-cancel)
+    ("g" org-clock-goto)
+    ("d" org-clock-display)
+    ("r" org-clock-report)
+    ("?" (org-info "Clocking commands"))
+    ("r" org-timer-start)
+    ("n" org-timer-set-timer)
+    ("p" org-timer-pause-or-continue)
+    ("s" org-timer-stop)
+    ("m" org-timer)
+    ("t" org-timer-item)
+    ("z" (org-info "Timers"))))
+
+(defun modi/package-dependency-check-ignore (orig-ret)
+  "Remove the `black listed packages' from ORIG-RET.
+
+Packages listed in the let-bound `pkg-black-list' will not be auto-installed
+even if they are found as dependencies.
+
+It is known that this advice is not effective when installed packages
+asynchronously using `paradox'. Below is effective on synchronous
+package installations."
+  (let ((pkg-black-list '(org))
+        new-ret
+        pkg-name)
+    (dolist (pkg-struct orig-ret)
+      (setq pkg-name (package-desc-name pkg-struct))
+      (if (member pkg-name pkg-black-list)
+          (message (concat "Package `%s' will not be installed. "
+                           "See `modi/package-dependency-check-ignore'.")
+                   pkg-name)
+        (push pkg-struct new-ret)))
+    ;; It's *very* critical that the order of packages stays the same in NEW-RET
+    ;; as in ORIG-RET. The `push' command flips the order, so use `reverse'
+    ;; to flip the order back to the original.
+    ;;   Without this step, you will get package activation errors when
+    ;; installing packages with dependencies.
+    (setq new-ret (reverse new-ret))
+    new-ret))
+(advice-add 'package-compute-transaction :filter-return #'modi/package-dependency-check-ignore)
 
 (defadvice org-archive-subtree (around fix-hierarchy activate)
   (let* ((fix-archive-p (and (not current-prefix-arg)
-                             (not (use-region-p))))
+                           (not (use-region-p))))
          (afile (org-extract-archive-file (org-get-local-archive-location)))
          (buffer (or (find-buffer-visiting afile) (find-file-noselect afile))))
     ad-do-it
@@ -463,6 +493,7 @@ text and copying to the killring."
 
   ;; remove unnecessary modes in org-journal
   (add-hook 'org-journal-mode-hook (lambda ()
-                                     (visual-line-mode -1))))
+                                     (visual-line-mode -1)
+                                     (org-sticky-header-mode -1))))
 
 (provide 'setup-org)
