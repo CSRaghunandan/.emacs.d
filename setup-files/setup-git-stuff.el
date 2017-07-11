@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 01:47:23 csraghunandan>
+;; Time-stamp: <2017-07-11 12:22:10 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -45,11 +45,12 @@
       ("l" magit-log-all-branches "log")
       ("b" magit-branch-popup "branch popup")
       ("r" magit-rebase-popup "rebase popup")
+      ("R" magit-show-refs-popup "show refs")
       ("f" magit-fetch-popup "fetch popup")
       ("P" magit-push-popup "push popup")
       ("F" magit-pull-popup "pull popup")
       ("W" magit-format-patch "format patch")
-      ("$" magit-process "process"))))
+      ("$" magit-process-buffer "process"))))
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
