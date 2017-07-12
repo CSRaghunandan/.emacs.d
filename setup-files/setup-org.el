@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-11 01:28:55 csraghunandan>
+;; Time-stamp: <2017-07-12 21:20:04 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -271,43 +271,6 @@ _C_: correct  _p_: prev error _d_: done checking
 
   (define-key org-mode-map "\"" #'endless/round-quotes)
 
-  (defun endless/round-quotes (italicize)
-    "Insert “” and leave point in the middle.
-With prefix argument ITALICIZE, insert /“”/ instead
-\(meant for org-mode).
-Inside a code-block, just call `self-insert-command'."
-    (interactive "P")
-    (if (and (derived-mode-p 'org-mode)
-           (org-in-block-p '("src" "latex" "html")))
-        (call-interactively #'self-insert-command)
-      (if (looking-at "”[/=_\\*]?")
-          (goto-char (match-end 0))
-        (when italicize
-          (if (derived-mode-p 'markdown-mode)
-              (insert "__")
-            (insert "//"))
-          (forward-char -1))
-        (insert "“”")
-        (forward-char -1))))
-
-  (define-key org-mode-map "'" #'endless/apostrophe)
-
-  (defun endless/apostrophe (opening)
-    "Insert ’ in prose or `self-insert-command' in code.
-With prefix argument OPENING, insert ‘’ instead and
-leave point in the middle.
-Inside a code-block, just call `self-insert-command'."
-    (interactive "P")
-    (if (and (derived-mode-p 'org-mode)
-           (org-in-block-p '("src" "latex" "html")))
-        (call-interactively #'self-insert-command)
-      (if (looking-at "['’][=_/\\*]?")
-          (goto-char (match-end 0))
-        (if (null opening)
-            (insert "’")
-          (insert "‘’")
-          (forward-char -1)))))
-
   ;; http://emacs.stackexchange.com/a/10712/115
   (defun modi/org-delete-link ()
     "Replace an org link of the format [[LINK][DESCRIPTION]] with DESCRIPTION.
@@ -431,6 +394,7 @@ package installations."
     new-ret))
 (advice-add 'package-compute-transaction :filter-return #'modi/package-dependency-check-ignore)
 
+;; archive subtrees/headings while also preserving their context
 (defadvice org-archive-subtree (around fix-hierarchy activate)
   (let* ((fix-archive-p (and (not current-prefix-arg)
                            (not (use-region-p))))
