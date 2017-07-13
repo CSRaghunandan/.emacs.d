@@ -1,17 +1,25 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-07-11 01:20:47 csraghunandan>
+;; Time-stamp: <2017-07-13 15:13:37 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
 (use-package counsel
   :diminish counsel-mode
   :bind*
-  (("M-x" . counsel-M-x)
-   ("C-x C-f" . counsel-find-file)
+  (([remap execute-extended-command] . counsel-M-x)
    :map ivy-minibuffer-map
    ("M-y" . ivy-next-line-and-call))
 
-  :init (counsel-mode)
+  :init
+  (counsel-mode)
+
+  (bind-keys
+   :map read-expression-map
+   ("C-r" . counsel-expression-history))
+
+  (with-eval-after-load 'org-agenda
+    (bind-key "C-c C-q" #'counsel-org-tag-agenda org-agenda-mode-map))
+
   :config
   ;; ignore case sensitivity for counsel grep
   (setq counsel-grep-base-command "grep -nEi \"%s\" %s")
@@ -67,6 +75,13 @@
          "\\|\\(?:\\`.+?[#~]\\'\\)"))
 
   (bind-keys
+   ([remap describe-bindings] . counsel-descbinds)
+   ([remap finder-by-keyword] . counsel-package) ;C-h p
+   ([remap describe-variable] . counsel-describe-variable)
+   ([remap describe-function] . counsel-describe-function)
+   ([remap bookmark-jump] . counsel-bookmark) ;Jump to book or set it if it doesn't exist, C-x r b
+   ([remap bookmark-set] . counsel-bookmark)  ;C-x r m
+   ([remap find-file] . counsel-find-file)
    ("C-c g g" . counsel-git-grep)
    ("C-c m r" . counsel-mark-ring)
    ("C-c f" . counsel-imenu)
