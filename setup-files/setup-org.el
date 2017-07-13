@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-13 15:56:01 csraghunandan>
+;; Time-stamp: <2017-07-13 16:02:11 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -215,6 +215,77 @@ this with to-do items than with projects or headings."
    ("C-#" . org-table-rotate-recalc-marks)
    ("C-c }" . org-table-toggle-coordinate-overlays)
    ("C-c {" . org-table-toggle-formula-debugger))
+
+  ;; Recalculate all org tables in the buffer when saving.
+  ;; http://emacs.stackexchange.com/a/22221/115
+  ;; Thu Jul 14 17:06:28 EDT 2016 - kmodi
+  ;; Do not enable the buffer-wide recalculation by default because if an org
+  ;; buffer has an org-table formula (like "#+TBLFM: $1=@#-1"), a *Calc*
+  ;; buffer is created when `org-table-recalculate-buffer-tables' is run each
+  ;; time.
+  (defvar-local modi/org-table-enable-buffer-wide-recalculation nil
+    "When non-nil, all the org tables in the buffer will be recalculated when
+saving the file.
+This variable is buffer local.")
+  ;; Mark `modi/org-table-enable-buffer-wide-recalculation' as a safe local
+  ;; variable as long as its value is t or nil. That way you are not prompted
+  ;; to add that to `safe-local-variable-values' in custom.el.
+  (put 'modi/org-table-enable-buffer-wide-recalculation 'safe-local-variable #'booleanp)
+
+  (defun modi/org-table-recalculate-buffer-tables (&rest args)
+    "Wrapper function for `org-table-recalculate-buffer-tables' that runs
+that function only if `modi/org-table-enable-buffer-wide-recalculation' is
+non-nil.
+Also, this function has optional ARGS that is needed for any function that is
+added to `org-export-before-processing-hook'. This would be useful if this
+function is ever added to that hook."
+    (when modi/org-table-enable-buffer-wide-recalculation
+      (org-table-recalculate-buffer-tables)))
+
+  (defun modi/org-table-recalculate-before-save ()
+    "Recalculate all org tables in the buffer before saving."
+    (add-hook 'before-save-hook #'modi/org-table-recalculate-buffer-tables nil :local))
+  (add-hook 'org-mode-hook #'modi/org-table-recalculate-before-save)
+
+  (defun org-table-mark-field ()
+    "Mark the current table field."
+    (interactive)
+    ;; Do not try to jump to the beginning of field if the point is already there
+    (when (not (looking-back "|\\s-?"))
+      (org-table-beginning-of-field 1))
+    (set-mark-command nil)
+    (org-table-end-of-field 1))
+
+  (defhydra hydra-org-table-mark-field
+    (:body-pre (org-table-mark-field)
+               :color red
+               :hint nil)
+    "
+   ^^      ^🠙^     ^^
+   ^^      _p_     ^^
+🠘 _b_  selection  _f_ 🠚          | org table mark ▯field▮ |
+   ^^      _n_     ^^
+   ^^      ^🠛^     ^^
+"
+    ("x" exchange-point-and-mark "exchange point/mark")
+    ("f" (lambda (arg)
+           (interactive "p")
+           (when (eq 1 arg)
+             (setq arg 2))
+           (org-table-end-of-field arg)))
+    ("b" (lambda (arg)
+           (interactive "p")
+           (when (eq 1 arg)
+             (setq arg 2))
+           (org-table-beginning-of-field arg)))
+    ("n" next-line)
+    ("p" previous-line)
+    ("q" nil "cancel" :color blue))
+
+  (bind-keys
+   :map org-mode-map
+   :filter (org-at-table-p)
+   ("S-SPC" . hydra-org-table-mark-field/body))
 
   (bind-keys
    ("C-c a" . org-agenda)
