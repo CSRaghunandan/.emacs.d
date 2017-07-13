@@ -1,31 +1,9 @@
-;; Time-stamp: <2017-07-12 21:20:04 csraghunandan>
+;; Time-stamp: <2017-07-13 15:49:55 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
 (use-package org
   :preface
-  ;; If `org-load-version-dev' is non-nil, remove the older versions of org
-  ;; from the `load-path'.
-  (when (bound-and-true-p org-load-version-dev)
-    (>= "25.0" ; `directory-files-recursively' is not available in older emacsen
-       (let ((org-stable-install-path (car (directory-files-recursively
-                                            package-user-dir
-                                            "org-plus-contrib-[0-9]+"
-                                            :include-directories))))
-         (setq load-path (delete org-stable-install-path load-path))
-         ;; Also ensure that the associated path is removed from Info search list
-         (setq Info-directory-list (delete org-stable-install-path
-                                           Info-directory-list))
-
-         ;; Also delete the path to the org directory that ships with emacs
-         (dolist (path load-path)
-           (when (string-match-p (concat "emacs/"
-                                         (replace-regexp-in-string
-                                          "\\.[0-9]+\\'" "" emacs-version)
-                                         "/lisp/org\\'")
-                                 path)
-             (setq load-path (delete path load-path)))))))
-
   ;; Modules that should always be loaded together with org.el.
   ;; `org-modules' default: '(org-w3m org-bbdb org-bibtex org-docview org-gnus
   ;;                          org-info org-irc org-mhe org-rmail)
@@ -53,7 +31,10 @@
                                  "* %i%? \n %U")
                                 ("b" "Add a book to read list" entry
                                  (file+headline "~/org/inbox.org" "Read list")
-                                 (file "~/.emacs.d/org-capture-templates/book.txt"))))
+                                 (file "~/.emacs.d/org-capture-templates/book.txt"))
+                                ("n" "Note" entry
+                                 (file "") ;empty string defaults to `org-default-notes-file'
+                                 "\n* %?\n  Context:\n    %i\n  Entered on %U")))
 
   ;; settings for org-refile
   (setq org-refile-use-outline-path 'file
@@ -157,6 +138,13 @@
   (setq org-M-RET-may-split-line nil)
   ;; preserve indentation inside of source blocks
   (setq org-src-preserve-indentation t)
+
+  ;; Do not add the default indentation of 2 spaces when exiting the *Org Src*
+  ;; buffer (the buffer you get when you do «C-c '» while in a block like
+  ;; #+BEGIN_SRC
+  (setq org-edit-src-content-indentation 0)
+
+  (setq org-default-notes-file "~/org/.notes.org")
 
   (setq org-catch-invisible-edits 'smart) ; http://emacs.stackexchange.com/a/2091/115
   (setq org-indent-indentation-per-level 1) ; default = 2
@@ -268,8 +256,6 @@ _C_: correct  _p_: prev error _d_: done checking
       ("d"  langtool-check-done :color blue)
       ("q" nil "quit" :color blue))
     (bind-key "C-c h l" 'hydra-langtool/body org-mode-map))
-
-  (define-key org-mode-map "\"" #'endless/round-quotes)
 
   ;; http://emacs.stackexchange.com/a/10712/115
   (defun modi/org-delete-link ()
