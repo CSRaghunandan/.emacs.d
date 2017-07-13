@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-13 15:49:55 csraghunandan>
+;; Time-stamp: <2017-07-13 15:56:01 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -351,6 +351,21 @@ text and copying to the killring."
     ("m" org-timer)
     ("t" org-timer-item)
     ("z" (org-info "Timers"))))
+
+;;; Defuns
+;; http://emacs.stackexchange.com/a/13854/115
+;; Heading▮   --(C-c C-t)--> * TODO Heading▮
+;; * Heading▮ --(C-c C-t)--> * TODO Heading▮
+(defun modi/org-first-convert-to-heading (orig-fun &rest args)
+  (let ((is-heading))
+    (save-excursion
+      (forward-line 0)
+      (when (looking-at "^\\*")
+        (setq is-heading t)))
+    (unless is-heading
+      (org-toggle-heading))
+    (apply orig-fun args)))
+(advice-add 'org-todo :around #'modi/org-first-convert-to-heading)
 
 (defun modi/package-dependency-check-ignore (orig-ret)
   "Remove the `black listed packages' from ORIG-RET.
