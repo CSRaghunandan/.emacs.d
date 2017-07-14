@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-21 21:07:25 csraghunandan>
+;; Time-stamp: <2017-07-14 16:22:46 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -113,6 +113,7 @@ Usage: (>=e \"25.0\"
 (require 'setup-tldr)
 (require 'setup-config-files)
 (require 'setup-shell)
+(require 'setup-smerge)
 ;; install all packages (if they already not installed by use-package)
 (package-install-selected-packages)
 
