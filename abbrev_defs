@@ -521,6 +521,7 @@
     ("geting" "getting" nil 0)
     ("gettin" "getting" nil 0)
     ("gievn" "given" nil 0)
+    ("ginormus" "ginormous" nil 0)
     ("giveing" "giving" nil 0)
     ("gloabl" "global" nil 0)
     ("goign" "going" nil 0)
@@ -1188,6 +1189,8 @@
 
 (define-abbrev-table 'magit-status-mode-abbrev-table '())
 
+(define-abbrev-table 'magit-submodule-list-mode-abbrev-table '())
+
 (define-abbrev-table 'markdown-mode-abbrev-table '())
 
 (define-abbrev-table 'message-mode-abbrev-table '())
@@ -1236,9 +1239,7 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
 
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 
@@ -1247,6 +1248,8 @@
 (define-abbrev-table 'racer-help-mode-abbrev-table '())
 
 (define-abbrev-table 'racket-describe-mode-abbrev-table '())
+
+(define-abbrev-table 'racket-logger-mode-abbrev-table '())
 
 (define-abbrev-table 'racket-mode-abbrev-table '())
 
@@ -1281,6 +1284,8 @@
 (define-abbrev-table 'special-mode-abbrev-table '())
 
 (define-abbrev-table 'speedbar-mode-abbrev-table '())
+
+(define-abbrev-table 'systemd-mode-abbrev-table '())
 
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
 

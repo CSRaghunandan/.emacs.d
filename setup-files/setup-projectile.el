@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 17:56:32 csraghunandan>
+;; Time-stamp: <2017-07-14 16:10:00 csraghunandan>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
@@ -118,17 +118,23 @@ files in Fundamental mode."
     ("b" projectile-switch-to-buffer-other-window "buffer")
     ("q" nil "cancel" :color blue))
 
+  (defun modi/projectile-switch-project-magit-status ()
+    "Switch to other project and open Magit status there."
+    (interactive)
+    (let ((projectile-switch-project-action #'magit-status))
+      (call-interactively #'projectile-switch-project)))
+
   (defhydra hydra-projectile (:color teal
                                      :hint  nil)
     "
      PROJECTILE: %(if (fboundp 'projectile-project-root) (projectile-project-root) \"TBD\")
 ^^^^       Find               ^^   Search/Tags       ^^^^       Buffers               ^^   Cache                     ^^^^       Other
 ^^^^--------------------------^^---------------------^^^^-----------------------------^^------------------------------------------------------------------
-_f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer               _c_: cache clear               ^^    _E_: edit project's .dir-locals.el
-^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      _s-p_/_p_: switch to any other project
-^^    _d_: file curr dir      _o_: multi-occur       _K_/_s-k_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
-^^    _r_: recent file        _G_: git-grep          ^^^^                             _z_: cache current
-^^    _D_: dir                _R_: counsel-rg-root   ^^    _Q_: replace regexp        _l_: file literally
+^^    _f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer               _c_: cache clear               ^^    _E_: edit project's .dir-locals.el
+^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      ^^    _p_: switch to any other project
+^^    _d_: file curr dir      _o_: multi-occur       ^^    _K_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
+^^    _r_: recent file        _G_: git-grep          ^^    _Q_: replace regexp        _z_: cache current             ^^    _S_: switch to magit status other project
+^^    _D_: dir                _R_: counsel-rg-root   ^^^^                             _l_: file literally
 "
     ("r" counsel-rg)
     ("R" rag/counsel-rg-project-at-point)
@@ -137,18 +143,19 @@ _f_/_s-f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer         
     ("c" projectile-invalidate-cache)
     ("d" projectile-find-file-in-directory)
     ("f" projectile-find-file)
-    ("s-f" projectile-find-file)
+    ("f" projectile-find-file)
     ("F" projectile-find-file-dwim)
     ("D" projectile-find-dir)
     ("E" projectile-edit-dir-locals)
     ("g" ggtags-update-tags)
+    ("S" modi/projectile-switch-project-magit-status)
     ("i" projectile-ibuffer)
     ("K" projectile-kill-buffers)
-    ("s-k" projectile-kill-buffers)
+    ("k" projectile-kill-buffers)
     ("m" projectile-multi-occur)
     ("o" projectile-multi-occur)
     ("p" projectile-switch-project)
-    ("s-p" projectile-switch-project)
+    ("p" projectile-switch-project)
     ("l"   modi/projectile-find-file-literally)
     ("P" projectile-switch-open-project)
     ("s" projectile-switch-project)
