@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-08 13:53:42 csraghunandan>
+;; Time-stamp: <2017-07-15 23:55:05 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -59,7 +59,7 @@ not prevent downloading the actual packages (obviously)."
 (add-hook 'prog-mode-hook 'goto-address-mode)
 
 ;; load bookmark list
-;; (bookmark-bmenu-list)
+(bookmark-bmenu-list)
 
 (defun conditional-disable-modes ()
   ;; disable heavy minor modes if file is large (above 2MB)

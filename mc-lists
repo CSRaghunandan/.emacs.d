@@ -35,6 +35,7 @@
         undefined
         wdired-finish-edit
         wgrep-finish-edit
+        wrap-with-double-quotes
         ))
 
 (setq mc/cmds-to-run-once
