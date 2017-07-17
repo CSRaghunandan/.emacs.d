@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "/Users/csraghunandan/.emacs.d/bookmarks")
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
@@ -15,6 +15,7 @@
     (autoaway autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands notify readonly ring smiley sound stamp spelling track)))
  '(hl-sexp-background-color "#efebe9")
  '(ivy-mode t)
+ '(magit-log-section-arguments (quote ("--graph" "--color" "-n256")))
  '(package-archives
    (quote
     (("melpa" . "https://melpa.org/packages/")
