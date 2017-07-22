@@ -1,12 +1,12 @@
-;; Time-stamp: <2017-07-17 10:57:29 csraghunandan>
+;; Time-stamp: <2017-07-22 13:35:06 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
 (use-package magit
   :bind (("C-c m b" . magit-blame)
-         ("C-c m s" . hydra-magit/body)
-         ("C-c m p" . wh/switch-magit-status-buffer))
-  :init
+         ("C-c m s" . hydra-magit/body))
+
+  :config (setq magit-completing-read-function 'ivy-completing-read)
   (progn
     ;; Magit Submodule support
     ;; https://www.reddit.com/r/emacs/comments/6aiwk5/how_to_manage_multiple_gitrepositories_at_once/dhf47dg/
@@ -19,8 +19,6 @@
                   ;; Below will end up being the first of these newly added fns.
                   magit-insert-submodules))
       (magit-add-section-hook 'magit-status-sections-hook `,fn nil :append)))
-
-  :config (setq magit-completing-read-function 'ivy-completing-read)
 
   (defun wh/switch-magit-status-buffer ()
     "Allow switching between open magit status buffers."
@@ -36,7 +34,7 @@
             (cdr (assoc (completing-read "Git project: " bufs-with-names)
                         bufs-with-names))))
       (switch-to-buffer chosen-buf)))
-
+  (bind-key "C-C m p" #'wh/switch-magit-status-buffer)
   (progn
     (defhydra hydra-magit (:color blue
                                   :columns 4)

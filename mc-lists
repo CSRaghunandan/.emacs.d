@@ -10,6 +10,8 @@
         hungry-delete-forward
         hydra-change-case/body
         hydra-change-case/modi/upcase-and-exit
+        hydra-change-case/xah-cycle-letter-case
+        indent-for-tab-command
         isearch-forward-symbol-at-point
         ivy-wgrep-change-to-wgrep-mode
         mwim-beginning-of-code-or-line
