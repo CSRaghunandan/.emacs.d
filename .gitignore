@@ -33,3 +33,6 @@ xkcd/
 smex-items
 projectile-bookmarks.eld
 anaconda-mode/
+
+# ignore irony folder
+irony/
