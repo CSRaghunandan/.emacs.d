@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-04-18 00:47:13 csraghunandan>
+;; Time-stamp: <2017-07-22 13:33:21 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
@@ -19,14 +19,13 @@
     ;; Dired listing switches
     ;;  -a : Do not ignore entries starting with .
     ;;  -l : Use long listing format.
-    ;;  -G : Do not print group names like 'users'
     ;;  -h : Human-readable sizes like 1K, 234M, ..
     ;;  -v : Do natural sort .. so the file names starting with . will show up first.
     ;;  -F : Classify filenames by appending '*' to executables,'/' to directories, etc.
     ;; default value for dired: "-al"
     (setq dired-listing-switches (if (eq system-type 'windows-nt)
                                      "-alh"
-                                   "-alGhvF --group-directories-first"))
+                                   "-alhvF --group-directories-first"))
 
     ;; auto-revert dired buffers if file changed on disk
     (setq dired-auto-revert-buffer t)
@@ -87,6 +86,12 @@ It added extra strings at the front and back of the default dired buffer name."
     (lambda ()
       (interactive)
       (mapc #'find-file (reverse (dired-get-marked-files))))))
+
+;; dired-collapse: collapse unique nested paths in dired listing
+;; https://github.com/Fuco1/dired-hacks#dired-collapse
+(use-package dired-collapse
+  :config
+  (add-hook 'dired-mode-hook 'dired-collapse-mode))
 
 (require 'dired-aux)
 
