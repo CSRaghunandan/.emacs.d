@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-22 13:54:14 csraghunandan>
+;; Time-stamp: <2017-08-02 14:04:06 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -67,6 +67,7 @@ Usage: (>=e \"25.0\"
 (require 'setup-ace-window)
 (require 'setup-projectile)
 (require 'setup-yas)
+(require 'setup-buffers)
 (require 'setup-ivy)
 (require 'setup-counsel)
 (require 'setup-swiper)
@@ -84,7 +85,6 @@ Usage: (>=e \"25.0\"
 (require 'setup-python)
 (require 'setup-tex)
 (require 'setup-origami)
-(require 'setup-buffers)
 (require 'setup-duplicate-line)
 (require 'setup-white-space)
 (require 'setup-mc)

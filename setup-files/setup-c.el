@@ -74,7 +74,11 @@
 ;; cmake-ide: Use Emacs as a C/C++ IDE
 ;; https://github.com/atilaneves/cmake-ide
 ;; (use-package cmake-ide
-  ;; :config (cmake-ide-setup))
+;;   :config (cmake-ide-setup))
+
+;; To have cmake-ide automatically create a compilation commands file in your
+;; project root create a .dir-locals.el containing the following:
+;; ((nil . ((cmake-ide-build-dir . "<PATH_TO_PROJECT_BUILD_DIRECTORY>"))))
 
 (use-package cc-mode
   :config

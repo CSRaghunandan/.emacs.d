@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 18:25:49 csraghunandan>
+;; Time-stamp: <2017-08-02 14:10:33 csraghunandan>
 
 ;; Smart M-x (smex): sort extended commands by last invoked
 ;; https://github.com/nonsequitur/smex/
@@ -22,7 +22,7 @@
         ivy-wrap t)
 
   (bind-keys
-   :map ivy-occur-mode-map
+   :map ivy-occur-grep-mode-map
    ("n" . ivy-occur-next-line)
    ("p" . ivy-occur-previous-line)
    ("b" . backward-char)
