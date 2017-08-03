@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-22 13:35:06 csraghunandan>
+;; Time-stamp: <2017-08-03 20:11:53 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -48,6 +48,7 @@
       ("f" magit-fetch-popup "fetch popup")
       ("P" magit-push-popup "push popup")
       ("F" magit-pull-popup "pull popup")
+      ("f" magit-log-buffer-file-popup "file log popup")
       ("W" magit-format-patch "format patch")
       ("$" magit-process-buffer "process"))))
 
