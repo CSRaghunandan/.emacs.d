@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-06 10:45:12 csraghunandan>
+;; Time-stamp: <2017-08-06 10:47:08 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -319,7 +319,7 @@ If OPTION is \\='(16), only align the tags in the current heading."
      ((equal '(16) option)
       (org-set-tags-command nil :align-only-current))
      (t
-      (counsel-org-tag)))))
+      (counsel-org-tag))))
 
   (use-package langtool :defer 1
     :config
