@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-07-13 15:13:37 csraghunandan>
+;; Time-stamp: <2017-08-06 09:21:48 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -21,8 +21,13 @@
     (bind-key "C-c C-q" #'counsel-org-tag-agenda org-agenda-mode-map))
 
   :config
-  ;; ignore case sensitivity for counsel grep
-  (setq counsel-grep-base-command "grep -nEi \"%s\" %s")
+
+  (if (executable-find "rg")
+      ;; if rg is installed, use rg for `counsel-grep-or-swiper'
+      (setq counsel-grep-base-command
+            "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+    ;; ignore case sensitivity for counsel grep
+    (setq counsel-grep-base-command "grep -nEi \"%s\" %s"))
 
   (defun reloading (cmd)
     (lambda (x)

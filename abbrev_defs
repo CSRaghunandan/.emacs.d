@@ -41,6 +41,8 @@
 
 (define-abbrev-table 'change-log-mode-abbrev-table '())
 
+(define-abbrev-table 'cmake-mode-abbrev-table '())
+
 (define-abbrev-table 'comint-mode-abbrev-table '())
 
 (define-abbrev-table 'completion-list-mode-abbrev-table '())
@@ -104,6 +106,8 @@
 (define-abbrev-table 'free-keys-mode-abbrev-table '())
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
+
+(define-abbrev-table 'gdb-script-mode-abbrev-table '())
 
 (define-abbrev-table 'gfm-mode-abbrev-table '())
 
@@ -331,6 +335,7 @@
     ("conected" "connected" nil 0)
     ("conferance" "conference" nil 0)
     ("configration" "configuration" nil 0)
+    ("configuraiton" "configuration" nil 0)
     ("confirmmation" "confirmation" nil 0)
     ("conjuntion" "conjunction" nil 0)
     ("considerit" "considerate" nil 0)
@@ -767,7 +772,7 @@
     ("perscriptions" "prescriptions" nil 0)
     ("personalyl" "personally" nil 0)
     ("pleasent" "pleasant" nil 0)
-    ("plugin" "plug-in" nil 0)
+    ("plugin" "plug-in" nil 2)
     ("poeple" "people" nil 0)
     ("porblem" "problem" nil 0)
     ("porblems" "problems" nil 0)
@@ -1089,6 +1094,8 @@
 
 (define-abbrev-table 'grep-mode-abbrev-table '())
 
+(define-abbrev-table 'gud-mode-abbrev-table '())
+
 (define-abbrev-table 'haskell-cabal-mode-abbrev-table '())
 
 (define-abbrev-table 'haskell-compilation-mode-abbrev-table '())
@@ -1117,7 +1124,17 @@
 
 (define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
 
+(define-abbrev-table 'indium-debugger-frames-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-debugger-locals-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-inspector-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-repl-mode-abbrev-table '())
+
 (define-abbrev-table 'inf-mongo-mode-abbrev-table '())
+
+(define-abbrev-table 'inferior-haskell-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-python-mode-abbrev-table '())
 
@@ -1239,7 +1256,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 
@@ -1256,6 +1275,22 @@
 (define-abbrev-table 'racket-profile-mode-abbrev-table '())
 
 (define-abbrev-table 'racket-repl-mode-abbrev-table '())
+
+(define-abbrev-table 'realgud:info-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-dependency-tree-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-diagnostics-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-location-stack-visualize-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-preprocess-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-references-tree-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-taglist-mode-abbrev-table '())
 
 (define-abbrev-table 'rust-mode-abbrev-table '())
 
