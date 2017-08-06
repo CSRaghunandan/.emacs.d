@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-08-06 09:21:48 csraghunandan>
+;; Time-stamp: <2017-08-06 10:22:05 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -25,7 +25,7 @@
   (if (executable-find "rg")
       ;; if rg is installed, use rg for `counsel-grep-or-swiper'
       (setq counsel-grep-base-command
-            "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+            "rg --smart-case -M 120 --no-heading --line-number --color never '%s' %s")
     ;; ignore case sensitivity for counsel grep
     (setq counsel-grep-base-command "grep -nEi \"%s\" %s"))
 
@@ -61,12 +61,7 @@
   ;; `modi/rg-arguments').
   (when (executable-find "rg")
     (setq counsel-rg-base-command
-          "rg --line-number --smart-case --follow --mmap --no-heading %s"))
-
-  (defun rag/counsel-rg-project-at-point ()
-    "use counsel rg to search for the word at point in the project"
-    (interactive)
-    (counsel-rg (thing-at-point 'symbol) (projectile-project-root)))
+          "rg --line-number --color never --smart-case --follow --mmap --no-heading %s"))
 
   ;; find file at point
   (setq counsel-find-file-at-point t)
@@ -95,8 +90,7 @@
    ("C-c d s" . describe-symbol)
    ("C-c d f" . counsel-faces)
    ("C-c d d" . counsel-descbinds)
-   ("C-c r g" . counsel-rg)
-   ("C-c s p" . rag/counsel-rg-project-at-point)))
+   ("C-c r g" . counsel-rg)))
 
 (provide 'setup-counsel)
 
