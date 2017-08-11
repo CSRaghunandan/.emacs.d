@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-16 14:56:12 csraghunandan>
+;; Time-stamp: <2017-08-11 13:25:26 csraghunandan>
 
 ;; to get pragmatapro ligatures to work in emacs.
 (defun setup-pragmata-ligatures ()
@@ -147,19 +147,7 @@
 		  ("~~>"  . ?)
 		  ("~>>"  . ?)
                   ("->"   . ?)
-                  ("def" . ?𝑭)
-                  ("function" . ?𝑭)
-                  ("or" . ?⋁)
-                  ("and" . ?⋀)
-                  ("for" . ?∀)
-                  ("in" . ?∈)
-                  ("not in" . ?∉)
-                  ("null" . ?∅)
-                  ("empty" . ?∅)
-                  ("return" . #x27fc)
-                  ("yield" . #x27fb)
-                  ("True" . #x1d54b)
-                  ("False" . #x1d53d)))))
+                  ("function" . ?𝑭)))))
 
 (defun refresh-pretty ()
   (prettify-symbols-mode -1)
