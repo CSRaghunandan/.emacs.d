@@ -85,6 +85,16 @@
   ;; start the rtags process automatically if it's not started
   ;; (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
 
+  ;; clang-format: format C/C++ files using clang-format
+  (use-package clang-format
+    :config
+    (add-hook 'c-mode-common-hook
+              (lambda ()
+                (add-hook 'before-save-hook
+                          (lambda ()
+                            (time-stamp)
+                            (clang-format-buffer)) nil t))))
+
   ;; configure autocompletions for C/C++ using irony
   (add-hook 'c-mode-common-hook 'company-mode)
   (add-hook 'c-mode-common-hook 'irony-mode)
@@ -93,7 +103,7 @@
 
   (add-hook 'c-mode-common-hook 'smart-dash-mode)
 
-  (setq-default c-default-style "linux"
-        c-basic-offset 4))
+  (setq-default c-default-style "k&r"
+        c-basic-offset 2))
 
 (provide 'setup-c)

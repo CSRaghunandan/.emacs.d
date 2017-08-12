@@ -15,6 +15,8 @@
   '(
    ))
 
+(define-abbrev-table 'bibtex-mode-abbrev-table '())
+
 (define-abbrev-table 'bmkp-edit-bookmark-record-mode-abbrev-table '())
 
 (define-abbrev-table 'bmkp-edit-bookmark-records-mode-abbrev-table '())
@@ -34,6 +36,8 @@
 (define-abbrev-table 'c-mode-abbrev-table
   '(
    ))
+
+(define-abbrev-table 'calc-trail-mode-abbrev-table '())
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
@@ -739,6 +743,7 @@
     ("opposit" "opposite" nil 0)
     ("oppotunities" "opportunities" nil 0)
     ("oppotunity" "opportunity" nil 0)
+    ("optimiziations" "optimizations" nil 0)
     ("orginization" "organization" nil 0)
     ("orginized" "organized" nil 0)
     ("originial" "original" nil 0)
@@ -1215,6 +1220,8 @@
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
 
 (define-abbrev-table 'mocha-compilation-mode-abbrev-table '())
+
+(define-abbrev-table 'neotree-mode-abbrev-table '())
 
 (define-abbrev-table 'objc-mode-abbrev-table
   '(
