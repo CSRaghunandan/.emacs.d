@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-12 00:16:01 csraghunandan>
+;; Time-stamp: <2017-08-13 18:08:07 csraghunandan>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
@@ -51,7 +51,14 @@
   ;; enable hlint checker for flycheck
   (when (executable-find "hlint")
     (flycheck-add-next-checker 'intero
-                               'haskell-hlint)))
+                               'haskell-hlint))
+
+  ;; hasky-stack: interface to stack haskell development tool
+  ;; https://github.com/hasky-mode/hasky-stack
+  (use-package hasky-stack
+    :bind
+    (("C-c s i" . hasky-stack-new)
+     ("C-c s e" . hasky-stack-execute))))
 
 (provide 'setup-haskell)
 
