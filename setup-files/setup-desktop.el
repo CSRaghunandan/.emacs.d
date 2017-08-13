@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-17 16:18:11 csraghunandan>
+;; Time-stamp: <2017-08-13 11:23:12 csraghunandan>
 
 ;; desktop: save the current emacs session
 (use-package desktop
@@ -37,8 +37,11 @@
                   ;; tags-table-list
                   )))
 
-  ;; fix bug when restoring desktop in emacsclient
-  (setq desktop-restore-frames nil)
+  (>=e "25.0"
+      nil
+    ;; 'Fix' the frameset error at startup
+    ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=17352
+    (setq desktop-restore-frames nil))
 
   ;; http://emacs.stackexchange.com/a/20036/115
   (defun rag/bury-star-buffers ()
