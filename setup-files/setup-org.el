@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-13 11:49:06 csraghunandan>
+;; Time-stamp: <2017-08-13 11:53:09 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -60,6 +60,10 @@
 
   ;; clock into a drawer called CLOCKING
   (setq org-clock-into-drawer "CLOCKING")
+
+  ;; Show drawers, e.g. :PROPERTIES:, when we expand a heading.
+  ;; See http://emacs.stackexchange.com/a/22540/304
+  (remove-hook 'org-cycle-hook #'org-cycle-hide-drawers)
 
   ;; Don't underline dates, it's distracting.
   (custom-set-faces
