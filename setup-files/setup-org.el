@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-06 10:47:08 csraghunandan>
+;; Time-stamp: <2017-08-13 11:49:06 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -60,6 +60,10 @@
 
   ;; clock into a drawer called CLOCKING
   (setq org-clock-into-drawer "CLOCKING")
+
+  ;; Don't underline dates, it's distracting.
+  (custom-set-faces
+   '(org-date ((((class color)) (:underline nil))) t)))
 
   ;; (setq org-babel-python-command "python3")
   ;; TODO: Add more languages here to the list: rust, typescript, C++
