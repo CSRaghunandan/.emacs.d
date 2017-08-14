@@ -67,7 +67,7 @@
 
   ;; Don't underline dates, it's distracting.
   (custom-set-faces
-   '(org-date ((((class color)) (:underline nil))) t)))
+   '(org-date ((((class color)) (:underline nil))) t))
 
   ;; (setq org-babel-python-command "python3")
   ;; TODO: Add more languages here to the list: rust, typescript, C++
