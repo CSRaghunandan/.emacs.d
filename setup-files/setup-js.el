@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-06 17:29:03 csraghunandan>
+;; Time-stamp: <2017-08-15 23:35:26 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -12,6 +12,9 @@
   :bind (:map js2-mode-map
               ("C-c C-l" . indium-eval-buffer))
   :config
+  ;; have 2 space indentation by default
+  (setq js-indent-level 2)
+
   ;; extra features for imenu
   (add-hook 'js2-mode-hook (lambda ()
                              (js2-imenu-extras-mode)))

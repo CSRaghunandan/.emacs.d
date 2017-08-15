@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 03:33:25 csraghunandan>
+;; Time-stamp: <2017-08-16 00:17:17 csraghunandan>
 
 ;; typescript config
 
@@ -30,6 +30,9 @@
       ;; company-backends setup
       (set (make-local-variable 'company-backends)
            '((company-tide company-files company-yasnippet))))
+
+    ;; use 2 space indentation
+    (setq typescript-indent-level 2)
 
     (add-hook 'typescript-mode-hook #'my-tide-setup-hook)
     (add-hook 'typescript-mode-hook #'company-mode)
