@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-15 23:35:26 csraghunandan>
+;; Time-stamp: <2017-08-16 01:12:03 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -97,8 +97,7 @@
       ("sl" js2r-forward-slurp)
       ("ba" js2r-forward-barf)
       ("k" js2r-kill)
-      ("q" nil)
-      ))
+      ("q" nil)))
 
   (add-hook 'js2-mode-hook 'js2-refactor-mode)
 
@@ -139,10 +138,12 @@
   ;; mocha: emacs mode for running mocha tests
   ;; https://github.com/scottaj/mocha.el
   (use-package mocha
-    :bind
-    (("C-c m P" . mocha-test-project)
-     ("C-c m f" . mocha-test-file)
-     ("C-c m p" . mocha-test-at-point)))
+    :config
+    (dolist (m (list js2-mode-map typescript-mode-map))
+      (bind-keys
+       ("C-c m P" . mocha-test-project)
+       ("C-c m f" . mocha-test-file)
+       ("C-c m p" . mocha-test-at-point))))
 
   ;; mocha-snippets: snippets for mocha test framework
   ;; https://github.com/cowboyd/mocha-snippets.el
