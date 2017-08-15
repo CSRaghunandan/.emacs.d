@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-26 01:40:43 csraghunandan>
+;; Time-stamp: <2017-08-15 19:29:57 csraghunandan>
 
 ;; configuration for minibuffer
 
@@ -14,10 +14,10 @@
 
 (defun my-minibuffer-setup-hook ()
   "disable whole-line-or-region inside minibuffer"
-  (whole-line-or-region-mode))
+  (whole-line-or-region-local-mode -1))
 (defun my-minibuffer-exit-hook ()
   "enable it again after exiting minibuffer"
-  (whole-line-or-region-mode))
+  (whole-line-or-region-local-mode))
 
 (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)

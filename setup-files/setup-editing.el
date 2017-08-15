@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-11 00:53:24 csraghunandan>
+;; Time-stamp: <2017-08-15 19:27:55 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -89,8 +89,8 @@ Position the cursor at it's beginning, according to the current mode."
 ;; operate on current line if no region is defined
 ;; https://github.com/purcell/whole-line-or-region/blob/master/whole-line-or-region.el
 (use-package whole-line-or-region
-  :diminish whole-line-or-region-mode
-  :config (whole-line-or-region-mode))
+ :diminish whole-line-or-region-mode
+ :config (whole-line-or-region-global-mode))
 
 
 
