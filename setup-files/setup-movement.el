@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-27 19:06:42 csraghunandan>
+;; Time-stamp: <2017-08-15 20:12:26 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -19,6 +19,9 @@ Try the repeated popping up to 10 times."
 ;; https://www.reddit.com/r/emacs/comments/6au45k/is_it_possible_to_truncate_long_lines_the_same/
 (>=e "26.0"
     (setq auto-hscroll-mode 'current-line))
+
+(>=e "25.0"
+    (setq fast-but-imprecise-scrolling t))
 
 ;; mwim: move to the beginning or end of line smartly
 ;; https://github.com/alezost/mwim.el
