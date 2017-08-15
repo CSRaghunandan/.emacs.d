@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-15 19:27:55 csraghunandan>
+;; Time-stamp: <2017-08-15 22:43:57 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -318,7 +318,7 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
                             web-mode
                             css-mode
                             python-mode
-                            cc-mode
+                            c++-mode
                             c-mode
                             racket-mode
                             typescript-mode

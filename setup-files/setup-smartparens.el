@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-13 23:55:06 csraghunandan>
+;; Time-stamp: <2017-08-16 00:19:17 csraghunandan>
 
 ;; smartparens: for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -95,7 +95,9 @@
                    typescript-mode
                    c-mode
                    c++-mode
-                   sh-mode)
+                   sh-mode
+                   go-mode
+                   shell-mode)
     (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
     (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
                                               ("* ||\n[i]" "RET"))))
