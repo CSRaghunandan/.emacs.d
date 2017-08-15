@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-16 00:17:17 csraghunandan>
+;; Time-stamp: <2017-08-16 00:38:33 csraghunandan>
 
 ;; typescript config
 
@@ -60,6 +60,16 @@
         (when (and tslint (file-executable-p tslint))
           (setq-local flycheck-typescript-tslint-executable tslint))))
 
-    (add-hook 'flycheck-mode-hook #'use-tslint-from-node-modules)))
+    (add-hook 'flycheck-mode-hook #'use-tslint-from-node-modules))
+
+  (defun typescript/open-region-in-playground (start end)
+    "Open selected region in http://www.typescriptlang.org/Playground
+                 If nothing is selected - open the whole current buffer."
+    (interactive (if (use-region-p)
+                     (list (region-beginning) (region-end))
+                   (list (point-min) (point-max))))
+    (browse-url (concat "http://www.typescriptlang.org/Playground#src="
+                        (url-hexify-string (buffer-substring-no-properties start end)))))
+  (bind-key "C-c T p" #'typescript/open-region-in-playground typescript-mode-map))
 
 (provide 'setup-typescript)
