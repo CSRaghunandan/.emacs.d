@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-13 18:08:07 csraghunandan>
+;; Time-stamp: <2017-08-16 00:52:41 csraghunandan>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
@@ -52,6 +52,11 @@
   (when (executable-find "hlint")
     (flycheck-add-next-checker 'intero
                                'haskell-hlint))
+
+  ;; hlint-refactor:Emacs bindings for hlint's --refactor option
+  ;; https://github.com/mpickering/hlint-refactor-mode
+  (use-package hlint-refactor
+    :config (add-hook 'haskell-mode-hook #'hlint-refactor-mode))
 
   ;; hasky-stack: interface to stack haskell development tool
   ;; https://github.com/hasky-mode/hasky-stack
