@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-15 09:37:30 csraghunandan>
+;; Time-stamp: <2017-08-16 01:16:23 csraghunandan>
 
 ;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -6,7 +6,8 @@
   :mode (("\\.html$" . web-mode)
          ("\\.djhtml$" . web-mode)
          ("\\.tsx$" . web-mode))
-  :bind (("C-c o b" . browse-url-of-file)
+  :bind (:map web-mode-map
+         ("C-c o b" . browse-url-of-file)
          ("C-c [" . emmet-prev-edit-point)
          ("C-c ]" . emmet-next-edit-point))
   :config
