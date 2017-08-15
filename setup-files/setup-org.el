@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-13 11:53:09 csraghunandan>
+;; Time-stamp: <2017-08-16 01:30:32 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -390,7 +390,7 @@ Execute this command while the point is on or after the hyper-linked org link."
   ;; pomodoro implementation in org
   ;; https://github.com/lolownia/org-pomodoro
   (use-package org-pomodoro
-    :bind ("C-c o p" . org-pomodoro))
+    :config (bind-key "C-c o p" #'org-pomodoro org-mode-map))
 
   ;; org-sticky-headers
   ;; https://github.com/alphaapapa/org-sticky-header
