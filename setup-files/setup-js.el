@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-16 01:12:03 csraghunandan>
+;; Time-stamp: <2017-08-16 12:11:35 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -141,6 +141,7 @@
     :config
     (dolist (m (list js2-mode-map typescript-mode-map))
       (bind-keys
+       :map m
        ("C-c m P" . mocha-test-project)
        ("C-c m f" . mocha-test-file)
        ("C-c m p" . mocha-test-at-point))))
