@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-15 14:13:24 csraghunandan>
+;; Time-stamp: <2017-08-17 18:53:18 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -22,7 +22,9 @@
 ;; rainbow-mode: colorize color names in buffers
 ;; https://github.com/emacsmirror/rainbow-mode/blob/master/rainbow-mode.el
 (use-package rainbow-mode
-  :diminish (rainbow-mode . ""))
+  :diminish (rainbow-mode . "")
+  :init
+  (add-hook 'help-mode-hook #'rainbow-mode))
 
 ;; beacon: blink the cursor whenever scrolling or switching between windows
 ;; https://github.com/Malabarba/beacon
