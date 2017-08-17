@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-13 11:23:12 csraghunandan>
+;; Time-stamp: <2017-08-18 01:26:11 csraghunandan>
 
 ;; desktop: save the current emacs session
 (use-package desktop
@@ -37,13 +37,10 @@
                   ;; tags-table-list
                   )))
 
-  (>=e "25.0"
-      nil
-    ;; 'Fix' the frameset error at startup
-    ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=17352
-    (setq desktop-restore-frames nil))
-
   ;; http://emacs.stackexchange.com/a/20036/115
+  ;; fix warning upon restoring desktop save file
+  (setq desktop-restore-frames nil)
+
   (defun rag/bury-star-buffers ()
     "Bury all star buffers."
     (mapc (lambda (buf)
