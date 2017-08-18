@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-16 01:30:32 csraghunandan>
+;; Time-stamp: <2017-08-19 01:12:51 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -69,16 +69,24 @@
   (custom-set-faces
    '(org-date ((((class color)) (:underline nil))) t))
 
-  ;; (setq org-babel-python-command "python3")
-  ;; TODO: Add more languages here to the list: rust, typescript, C++
+  ;; ob-rust: evaluate rust src blocks
+  (use-package ob-rust)
+
+  ;; ob-http: make http requests with org-mode babel
+  ;; https://github.com/zweifisch/ob-http
+  (use-package ob-http)
+
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
      (shell . t)
+     (css . t)
+     (http . t)
      (C . t)
      (haskell . t)
      (js . t)
-     (python . t)))
+     (python . t)
+     (rust . t)))
 
 ;;; Org Variables
   ;; this looks better in my opinion
