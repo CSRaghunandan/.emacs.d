@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-08-06 10:22:05 csraghunandan>
+;; Time-stamp: <2017-08-20 00:30:37 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -25,7 +25,7 @@
   (if (executable-find "rg")
       ;; if rg is installed, use rg for `counsel-grep-or-swiper'
       (setq counsel-grep-base-command
-            "rg --smart-case -M 120 --no-heading --line-number --color never '%s' %s")
+            "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
     ;; ignore case sensitivity for counsel grep
     (setq counsel-grep-base-command "grep -nEi \"%s\" %s"))
 
@@ -61,7 +61,7 @@
   ;; `modi/rg-arguments').
   (when (executable-find "rg")
     (setq counsel-rg-base-command
-          "rg --line-number --color never --smart-case --follow --mmap --no-heading %s"))
+          "rg --line-number --color never -i --follow --mmap --no-heading %s"))
 
   ;; find file at point
   (setq counsel-find-file-at-point t)
