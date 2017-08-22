@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-12 12:40:43 csraghunandan>
+;; Time-stamp: <2017-08-22 20:01:37 csraghunandan>
 
 ;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://www.emacswiki.org/emacs/multi-term.el
@@ -59,6 +59,7 @@
     ;; disable some unnecessary minor-modes in term-mode
     (add-hook 'term-mode-hook (lambda ()
                                 (yas-minor-mode -1)
+                                (whole-line-or-region-local-mode -1)
                                 (setq-local global-hl-line-mode nil)
                                 (beacon-mode -1)
                                 (hungry-delete-mode -1)))
