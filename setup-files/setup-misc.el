@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-15 23:55:05 csraghunandan>
+;; Time-stamp: <2017-08-26 00:20:40 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -79,5 +79,47 @@ not prevent downloading the actual packages (obviously)."
 
 ;; enable recursive minibuffers
 (setq enable-recursive-minibuffers t)
+
+(when (eq system-type 'darwin)
+  (setq source-directory "/Users/csraghunandan/Library/Caches/Homebrew/emacs--git"))
+
+(defvar emacs-git-branch
+  (when (and emacs-repository-version
+             (file-exists-p source-directory))
+    (let ((shell-return
+           (replace-regexp-in-string
+            "[\n)]" " "                 ;Replace newline and ) chars with spaces
+            (shell-command-to-string
+             (concat "cd " source-directory " && "
+                     "git branch --contains "
+                     emacs-repository-version)))))
+      ;; Below regexp is tested for following "git branch --contains" values
+      ;; Output for a commit in master branch too
+      ;;   "* (HEAD detached at origin/emacs-25)
+      ;;     master
+      ;;   "
+      ;; Output for a commit only in emacs-25 branch
+      ;;   "* (HEAD detached at origin/emacs-25)
+      ;;   "
+      ;; (message "%S" shell-return)
+      (when (not (string= "" shell-return))
+	(string-match ".*[/ ]\\([^ ]+?\\)\\s-*$" shell-return)
+	(match-string-no-properties 1 shell-return))))
+  "Name of git branch from which the current emacs is built.")
+
+(defun emacs-version-dev (here)
+  "Display emacs build info and also save it to the kill-ring.
+If HERE is non-nil, also insert the string at point."
+  (interactive "P")
+  (let ((emacs-build-info
+         (concat "Emacs version: " (emacs-version) ","
+                 " built using commit " emacs-repository-version ".\n\n"
+                 "./configure options:\n  " system-configuration-options "\n\n"
+                 "Features:\n  " system-configuration-features "\n")))
+    (kill-new emacs-build-info)
+    (message "%s" emacs-build-info)
+    (when here
+      (insert emacs-build-info))
+    emacs-build-info))
 
 (provide 'setup-misc)
