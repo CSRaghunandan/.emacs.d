@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-13 13:27:16 csraghunandan>
+;; Time-stamp: <2017-08-26 00:13:59 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -63,6 +63,23 @@
 ;; Do not make mouse wheel accelerate its action (example: scrolling)
 (setq mouse-wheel-progressive-speed nil)
 
+(setq frame-resize-pixelwise t) ; Allow frame size to inc/dec by a pixel
+(setq tooltip-mode nil) ; Disable tooltip appearance on mouse hover
+
+(setq frame-title-format
+      `("emacs "
+        ;; If `emacs-git-branch' is non-nil, show that
+        (emacs-git-branch ,(concat "[" emacs-git-branch "]")
+                          ;; Else show the version number
+                          ,(concat (number-to-string emacs-major-version)
+                                   "."
+                                   (number-to-string emacs-minor-version)))
+        "   "
+        (buffer-file-name "%f" ;Show full file path if buffer is showing a file
+                          (dired-directory dired-directory ;Else if in dired mode, show the directory name
+                                           "%b")) ;Else show the buffer name (*scratch*, *Messages*, etc)
+        " %*"))
+
 ;; display date and time
 (setq display-time-format "%a,%b-%d %H:%M")
 (setq display-time-default-load-average nil)
@@ -78,12 +95,6 @@
 
 ;; make sure emacsclient starts at fullscreen
 (setq default-frame-alist `((fullscreen . maximized)))
-
-;; show full path of the open file in title
-(setq frame-title-format
-      '((:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name))
-                 "%b"))))
 
 ;; remove ugly scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
