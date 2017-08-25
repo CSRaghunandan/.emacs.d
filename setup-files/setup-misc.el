@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-26 00:20:40 csraghunandan>
+;; Time-stamp: <2017-08-26 00:29:35 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -121,5 +121,8 @@ If HERE is non-nil, also insert the string at point."
     (when here
       (insert emacs-build-info))
     emacs-build-info))
+
+;; Quitting emacs via `C-x C-c` or the GUI 'X' button
+(setq confirm-kill-emacs #'y-or-n-p)
 
 (provide 'setup-misc)
