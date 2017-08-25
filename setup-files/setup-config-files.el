@@ -1,9 +1,5 @@
 ;; Timestamp: <2017-06-16 15:51:40>
 
-;; toml-mode: major mode for editing toml files
-;; https://github.com/dryman/toml-mode.el
-(use-package toml-mode)
-
 ;; yaml-mode: major-mode for editing yaml files
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode)
