@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-25 23:47:11 csraghunandan>
+;; Time-stamp: <2017-08-26 01:08:10 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -79,7 +79,7 @@
                       :weight 'normal :foreground "#BFEBBF"
                       :background "gray30")
   (set-face-attribute 'mode-line-inactive nil
-                      :box '(:line-width 2 :color "gray20")
+                      :box '(:line-width 2 :color "gray30")
                       :weight 'normal :foreground "gray70"
                       :background "gray20")
   (set-face-attribute 'powerline-active2 nil
