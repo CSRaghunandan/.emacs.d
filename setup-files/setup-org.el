@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-19 01:12:51 csraghunandan>
+;; Time-stamp: <2017-08-30 10:35:25 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -104,10 +104,6 @@
   ;; Insert only timestamp when closing an org TODO item
   (setq org-log-done 'timestamp)
 
-  (setq org-agenda-archives-mode nil) ; required in org 8.0+
-  (setq org-agenda-skip-comment-trees nil)
-  (setq org-agenda-skip-function nil)
-
   ;; Display entities like \tilde, \alpha, etc in UTF-8 characters
   (setq org-pretty-entities t)
 
@@ -155,69 +151,25 @@
   ;; preserve indentation inside of source blocks
   (setq org-src-preserve-indentation t)
 
-  ;; Do not add the default indentation of 2 spaces when exiting the *Org Src*
-  ;; buffer (the buffer you get when you do «C-c '» while in a block like
-  ;; #+BEGIN_SRC
-  (setq org-edit-src-content-indentation 0)
-
   (setq org-default-notes-file "~/org/.notes.org")
 
   (setq org-catch-invisible-edits 'smart) ; http://emacs.stackexchange.com/a/2091/115
   (setq org-indent-indentation-per-level 1) ; default = 2
 
-  ;; Prevent renumbering/sorting footnotes when a footnote is added/removed.
-  ;; Doing so would create a big diff in an org file containing lot of
-  ;; footnotes even if only one footnote was added/removed.
-  (setq org-footnote-auto-adjust nil)
-
-  ;; Do NOT try to auto-evaluate entered text as formula when I begin a field's
-  ;; content with "=" e.g. |=123=|. More often than not, I use the "=" to
-  ;; simply format that field text as verbatim. As now the below variable is
-  ;; set to nil, formula will not be automatically evaluated when hitting TAB.
-  ;; But you can still using ‘C-c =’ to evaluate it manually when needed.
-  (setq org-table-formula-evaluate-inline nil) ; default = t
+  (with-eval-after-load 'org-footnote
+    ;; Prevent renumbering/sorting footnotes when a footnote is added/removed.
+    ;; Doing so would create a big diff in an Org file containing lot of
+    ;; footnotes even if only one footnote was added/removed.
+    (setq org-footnote-auto-adjust nil)) ;`'sort' - only sort
+                                        ;`'renumber' - only renumber
+                                        ;`t' - sort and renumber
+                                        ;`nil' - do nothing (default)
 
   ;; imenu should use a depth of 3 instead of 2
   (setq org-imenu-depth 3)
 
   ;; blank lines are removed when exiting code edit buffer
   (setq org-src-strip-leading-and-trailing-blank-lines t)
-
-  ;; http://sachachua.com/blog/2013/01/emacs-org-task-related-keyboard-shortcuts-agenda/
-  (defun sacha/org-agenda-done (&optional arg)
-    "Mark current TODO as done.
-This changes the line at point, all other lines in the agenda referring to
-the same tree node, and the headline of the tree node in the Org-mode file."
-    (interactive "P")
-    (org-agenda-todo "DONE"))
-
-  (defun sacha/org-agenda-mark-done-and-add-followup ()
-    "Mark the current TODO as done and add another task after it.
-Creates it at the same level as the previous task, so it's better to use
-this with to-do items than with projects or headings."
-    (interactive)
-    (org-agenda-todo "DONE")
-    (org-agenda-switch-to)
-    (org-capture 0 "t")
-    (org-metadown 1)
-    (org-metaright 1))
-
-  (defun sacha/org-agenda-new ()
-    "Create a new note or task at the current agenda item.
-Creates it at the same level as the previous task, so it's better to use
-this with to-do items than with projects or headings."
-    (interactive)
-    (org-agenda-switch-to)
-    (org-capture 0))
-
-  ;; add key bindings for agenda mode
-  (add-hook 'org-agenda-mode-hook
-            (lambda ()
-              (bind-keys
-               :map org-agenda-mode-map
-               ("x" . sacha/org-agenda-done)
-               ("X" . sacha/org-agenda-mark-done-and-add-followup)
-               ("N" . sacha/org-agenda-new))))
 
   ;; Bind the "org-table-*" command ONLY when the point is in an org table.
   (bind-keys
@@ -452,21 +404,6 @@ text and copying to the killring."
     ("m" org-timer)
     ("t" org-timer-item)
     ("z" (org-info "Timers"))))
-
-;;; Defuns
-;; http://emacs.stackexchange.com/a/13854/115
-;; Heading▮   --(C-c C-t)--> * TODO Heading▮
-;; * Heading▮ --(C-c C-t)--> * TODO Heading▮
-(defun modi/org-first-convert-to-heading (orig-fun &rest args)
-  (let ((is-heading))
-    (save-excursion
-      (forward-line 0)
-      (when (looking-at "^\\*")
-        (setq is-heading t)))
-    (unless is-heading
-      (org-toggle-heading))
-    (apply orig-fun args)))
-(advice-add 'org-todo :around #'modi/org-first-convert-to-heading)
 
 (defun modi/package-dependency-check-ignore (orig-ret)
   "Remove the `black listed packages' from ORIG-RET.
