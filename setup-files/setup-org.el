@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-30 10:35:25 csraghunandan>
+;; Time-stamp: <2017-08-30 10:37:53 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -274,6 +274,13 @@ function is ever added to that hook."
           ("SOMEDAY"  . (:foreground "#FFEF9F" :weight bold))
           ("CANCELED" . (:foreground "red" :weight bold :strike-through t))
           ("DONE"     . (:foreground "SeaGreen4" :weight bold))))
+
+  ;; Allow multiple line Org emphasis markup
+  ;; http://emacs.stackexchange.com/a/13828/115
+  (setcar (nthcdr 4 org-emphasis-regexp-components) 20) ;Up to 20 lines, default is just 1
+  ;; Below is needed to apply the modified `org-emphasis-regexp-components'
+  ;; settings from above.
+  (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
 
   ;; Counsel and Org tags
   (defun modi/counsel-org-tag (&optional option)
