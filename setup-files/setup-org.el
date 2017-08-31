@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-30 10:37:53 csraghunandan>
+;; Time-stamp: <2017-08-31 10:58:35 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -117,6 +117,13 @@
   (setq org-speed-commands-user '(("m" . org-mark-subtree)))
   ;; heading leading stars for headlines
   (setq org-hide-leading-stars t)
+
+  ;; fold / overview  - collapse everything, show only level 1 headlines
+  ;; content          - show only headlines
+  ;; nofold / showall - expand all headlines except the ones with :archive:
+  ;;                    tag and property drawers
+  ;; showeverything   - same as above but without exceptions
+  (setq org-startup-folded 'showall)
 
   ;; Prevent auto insertion of blank lines before headings and list items
   (setq org-blank-before-new-entry '((heading)
