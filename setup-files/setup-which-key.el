@@ -5,20 +5,11 @@
 (use-package which-key
   :diminish which-key-mode
   :config
-  (which-key-mode)
   ;; make which-key popup to the right
   (which-key-setup-side-window-right)
 
   (setq which-key-compute-remaps t) ;Show correct descriptions for remapped keys
-
-  ;; List of "special" keys for which a KEY is displayed as just K but with
-  ;; "inverted video" face.
-  (setq which-key-special-keys '("SPC"
-                                 "TAB"
-                                 "RET"
-                                 "DLT" ; delete key
-                                 "BS" ; backspace key
-                                 "ESC"))
+  (setq which-key-allow-multiple-replacements t) ;Default = nil
 
   (setq which-key-replacement-alist
         ;; Replacements for how part or whole of FUNCTION is replaced when
@@ -51,6 +42,8 @@
     "C-x a"   "abbrev/expand"
     "C-x r"   "rectangle/register/bookmark"
     "C-x v"   "VC"
-    "C-c C-v" "org-babel"))
+    "C-c C-v" "org-babel")
+
+  (which-key-mode 1))
 
 (provide 'setup-which-key)
