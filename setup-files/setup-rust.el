@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 20:13:41 csraghunandan>
+;; Time-stamp: <2017-09-04 20:53:43 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -25,10 +25,6 @@
     :bind (:map rust-mode-map
                 (("C-c C-t" . racer-describe)))
     :config
-
-    (unless (executable-find "racer")
-      (warn "rust-mode: couldn't find racer, IDE like features disabled"))
-
     (defun my-racer-mode-hook ()
       (set (make-local-variable 'company-backends)
            '((company-capf company-files company-yasnippet))))

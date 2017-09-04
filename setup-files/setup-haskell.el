@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 20:10:35 csraghunandan>
+;; Time-stamp: <2017-09-04 20:53:30 csraghunandan>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
@@ -30,9 +30,6 @@
     :if (executable-find "hindent")
     :diminish hindent-mode "𝐇𝐢"
     :config
-    (unless (executable-find "hindent")
-      (warn "haskell-mode: couldn't find hindent. Haskell source files won't be automatically formatted"))
-
     (add-hook 'haskell-mode-hook #'hindent-mode)
     ;; reformat the buffer using hindent on save
     (setq hindent-reformat-buffer-on-save t))
@@ -43,9 +40,6 @@
     :if (executable-find "structured-haskell-mode")
     :diminish (structured-haskell-mode . "𝐒𝐇𝐌")
     :config
-    (unless (executable-find "structured-haskell-mode")
-      (warn "haskell-mode: couldn't find SHM. paredit like features disabled"))
-
     (add-hook 'haskell-mode-hook 'structured-haskell-mode)
     (add-hook 'structured-haskell-mode-hook (lambda ()
                                               (smartparens-mode -1)

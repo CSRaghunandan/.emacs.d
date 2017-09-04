@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-16 00:38:33 csraghunandan>
+;; Time-stamp: <2017-09-04 20:48:46 csraghunandan>
 
 ;; typescript config
 
@@ -24,8 +24,9 @@
       (flycheck-mode)
 
       ;; format typescript files using prettier
-      (when (executable-find "prettier")
-        (prettier-js-mode))
+      (if (executable-find "prettier")
+          (prettier-js-mode)
+        (warn "typesecript-mode: prettier executable not found, automatic formatting of .ts files are disabled"))
 
       ;; company-backends setup
       (set (make-local-variable 'company-backends)
@@ -44,8 +45,10 @@
                             (xah-clean-whitespace)) nil t)))
 
     ;; add tslint checker for flycheck
-    (flycheck-add-next-checker 'typescript-tide
-                               'typescript-tslint)
+    (if (executable-find "tslint")
+        (flycheck-add-next-checker 'typescript-tide
+                                   'typescript-tslint)
+      (warn "typescript-mode: tslint not found. Flycheck support for tslint disabled"))
 
     ;; use project local tslint versions instead of global
     (defun use-tslint-from-node-modules ()

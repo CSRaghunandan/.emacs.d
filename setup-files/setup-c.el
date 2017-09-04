@@ -107,6 +107,7 @@
 
   ;; clang-format: format C/C++ files using clang-format
   (use-package clang-format
+    :if (executable-find "clang-format")
     :config
     (add-hook 'c-mode-common-hook
               (lambda ()

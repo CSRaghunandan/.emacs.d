@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-16 12:11:35 csraghunandan>
+;; Time-stamp: <2017-09-04 20:51:51 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -23,6 +23,7 @@
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package tern
     :diminish tern-mode "𝐓𝐞"
+    :if (executable-find "tern")
     :config
     (defun my-js-mode-hook ()
       "Hook for `js-mode'."
@@ -45,6 +46,7 @@
   ;; company-tern: company backend for tern
   ;; http://ternjs.net/doc/manual.html#emacs
   (use-package company-tern
+    :if (executable-find "tern")
     :config
     ;; Disable completion keybindings, as we use xref-js2 instead
     (define-key tern-mode-keymap (kbd "M-.") nil)
@@ -103,10 +105,10 @@
 
   ;; prettier-emacs: minor-mode to prettify javascript files on save
   ;; https://github.com/prettier/prettier-emacs
-  (when (executable-find "prettier")
-    (use-package prettier-js
-      :config
-      (add-hook 'js2-mode-hook 'prettier-js-mode)))
+  (use-package prettier-js
+    :if (executable-find "prettier")
+    :config
+    (add-hook 'js2-mode-hook 'prettier-js-mode))
 
   ;; xref-js2: Jump to references/definitions using ag & js2-mode's AST in Emacs
   ;; https://github.com/nicolaspetton/xref-js2

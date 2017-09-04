@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 16:03:55 csraghunandan>
+;; Time-stamp: <2017-09-04 20:55:31 csraghunandan>
 
 ;; golang configuration
 
@@ -43,36 +43,26 @@
 
   ;; integrate go-guru analysis tool to emacs
   (use-package go-guru
-    :if (executable-find "guru")
-    :config
-    (unless (executable-find "guru")
-      (warn "go-mode: couldn't find guru, refactoring commands won't work")))
+    :if (executable-find "guru"))
 
   ;; gorepl-mode: A minor emacs mode for Go REPL.
   ;; https://github.com/manute/gorepl-mode
   (use-package gorepl-mode
     :if (executable-find "gore")
-    :commands (gorepl-run gorepl-run-load-current-file)
-    :config
-    (unless (executable-find "gore")
-      (warn "go-mode: couldn't find gore, REPL support disabled")))
+    :commands (gorepl-run gorepl-run-load-current-file))
 
   ;; company-go: company backend for golang
   ;; https://github.com/nsf/gocode/tree/master/emacs-company
   (use-package company-go
     :if (executable-find "gocode")
-    :init (setq command-go-gocode-command "gocode")
     :config
-
     (defun my-go-mode-hook()
       (set (make-local-variable 'company-backends)
            '((company-go company-files company-yasnippet))))
 
-    (if (executable-find command-go-gocode-command)
-        (add-hook 'go-mode-hook (lambda ()
-                                  (company-mode)
-                                  (my-go-mode-hook)))
-      (warn "go-mode: couldn't find gocode, code completion won't work")))
+    (add-hook 'go-mode-hook (lambda ()
+                              (company-mode)
+                              (my-go-mode-hook))))
 
   ;; gotest: Emacs mode to go unit test command line tool
   ;; https://github.com/nlamirault/gotest.el
@@ -80,10 +70,7 @@
 
   ;; go-rename: extra refactoring commands for go
   (use-package go-rename
-    :if (executable-find "gorename")
-    :config
-    (unless (executable-find "gorename")
-      (warn "go-mode: couldn't find gorename, extra refactoring commands won't work"))))
+    :if (executable-find "gorename")))
 
 (provide 'setup-go)
 
