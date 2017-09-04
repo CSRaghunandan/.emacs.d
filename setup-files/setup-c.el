@@ -6,6 +6,8 @@
 ;; Source code completion using Irony
 ;; Syntax checking with Flycheck
 ;; CMake automation with cmake-ide
+;; C/C++ code disassembler using disaster
+;; modern C++ font-lock support
 
 ;; A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs
 ;; based on clang.
@@ -18,19 +20,7 @@
   ;; ivy completion frontend for rtags
   (use-package ivy-rtags
     :config
-    (setq rtags-display-result-backend 'ivy))
-
-  ;; TODO: after you learn how to use CMake, start using rtags, till then irony
-  ;; will suffice
-  ;; (use-package flycheck-rtags
-  ;;   :config
-  ;;   (defun my-flycheck-rtags-setup ()
-  ;;     (flycheck-select-checker 'rtags)
-  ;;     (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
-  ;;     )
-  ;;   ;; c-mode-common-hook is also called by c++-mode
-  ;;   (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup))
-  )
+    (setq rtags-display-result-backend 'ivy)))
 
 ;; irony: A C/C++ minor mode for Emacs powered by libclang
 ;; https://github.com/Sarcasm/irony-mode
@@ -75,10 +65,6 @@
 ;; https://github.com/atilaneves/cmake-ide
 ;; (use-package cmake-ide
 ;;   :config (cmake-ide-setup))
-
-;; To have cmake-ide automatically create a compilation commands file in your
-;; project root create a .dir-locals.el containing the following:
-;; ((nil . ((cmake-ide-build-dir . "<PATH_TO_PROJECT_BUILD_DIRECTORY>"))))
 
 ;; Disassemble C/C++ code under cursor in Emacs
 ;; https://github.com/jart/disaster
@@ -141,3 +127,8 @@
         c-basic-offset 2))
 
 (provide 'setup-c)
+
+;;; notes
+;; To have cmake-ide automatically create a compilation commands file in your
+;; project root create a .dir-locals.el containing the following:
+;; ((nil . ((cmake-ide-build-dir . "<PATH_TO_PROJECT_BUILD_DIRECTORY>"))))
