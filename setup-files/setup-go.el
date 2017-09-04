@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 16:00:07 csraghunandan>
+;; Time-stamp: <2017-09-04 16:03:55 csraghunandan>
 
 ;; golang configuration
 
@@ -43,6 +43,7 @@
 
   ;; integrate go-guru analysis tool to emacs
   (use-package go-guru
+    :if (executable-find "guru")
     :config
     (unless (executable-find "guru")
       (warn "go-mode: couldn't find guru, refactoring commands won't work")))
@@ -50,6 +51,7 @@
   ;; gorepl-mode: A minor emacs mode for Go REPL.
   ;; https://github.com/manute/gorepl-mode
   (use-package gorepl-mode
+    :if (executable-find "gore")
     :commands (gorepl-run gorepl-run-load-current-file)
     :config
     (unless (executable-find "gore")
@@ -58,6 +60,7 @@
   ;; company-go: company backend for golang
   ;; https://github.com/nsf/gocode/tree/master/emacs-company
   (use-package company-go
+    :if (executable-find "gocode")
     :init (setq command-go-gocode-command "gocode")
     :config
 
@@ -77,6 +80,7 @@
 
   ;; go-rename: extra refactoring commands for go
   (use-package go-rename
+    :if (executable-find "gorename")
     :config
     (unless (executable-find "gorename")
       (warn "go-mode: couldn't find gorename, extra refactoring commands won't work"))))

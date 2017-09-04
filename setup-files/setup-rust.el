@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-02 14:17:38 csraghunandan>
+;; Time-stamp: <2017-09-04 16:09:04 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -20,6 +20,7 @@
   ;; racer: autocompletions/jump to definitions and eldoc support
   ;; https://github.com/racer-rust/emacs-racer
   (use-package racer
+    :if (executable-find "racer")
     :diminish racer-mode "𝐑𝐚"
     :bind (:map rust-mode-map
                 (("C-c C-t" . racer-describe)))
