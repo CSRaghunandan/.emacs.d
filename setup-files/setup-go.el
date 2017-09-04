@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 15:57:05 csraghunandan>
+;; Time-stamp: <2017-09-04 15:59:08 csraghunandan>
 
 ;; golang configuration
 
@@ -76,6 +76,9 @@
   (use-package gotest)
 
   ;; go-rename: extra refactoring commands for go
-  (use-package go-rename))
+  (use-package go-rename
+    :config
+    (unless (executable-find "gorename")
+      (warn "go-mode: couldn't find gorename, extra refactoring commands won't work"))))
 
 (provide 'setup-go)
