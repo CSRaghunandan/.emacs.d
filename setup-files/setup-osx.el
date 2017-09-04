@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-31 12:08:28 csraghunandan>
+;; Time-stamp: <2017-09-04 15:30:26 csraghunandan>
 
 ;; All the macOS related configuration
 
@@ -10,7 +10,7 @@
 ;; https://github.com/lunaryorn/osx-trash.el
 (use-package exec-path-from-shell
   :init
-  (when (memq window-system '(mac ns x))
+  (when (eq system-type 'darwin)
     (exec-path-from-shell-initialize)))
 
 ;; delete files by moving to trash in macOS
