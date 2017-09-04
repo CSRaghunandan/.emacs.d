@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 16:09:04 csraghunandan>
+;; Time-stamp: <2017-09-04 20:13:41 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -25,6 +25,10 @@
     :bind (:map rust-mode-map
                 (("C-c C-t" . racer-describe)))
     :config
+
+    (unless (executable-find "racer")
+      (warn "rust-mode: couldn't find racer, IDE like features disabled"))
+
     (defun my-racer-mode-hook ()
       (set (make-local-variable 'company-backends)
            '((company-capf company-files company-yasnippet))))
@@ -40,14 +44,15 @@
   (add-hook 'rust-mode-hook #'racer-mode)
 
   ;; format rust buffers using rustfmt(if it is installed)
-  (when (executable-find "rustfmt")
+  (if (executable-find "rustfmt")
     (add-hook 'rust-mode-hook
               (lambda ()
                 (add-hook 'before-save-hook
                           (lambda ()
                             (time-stamp)
                             (xah-clean-whitespace)
-                            (rust-format-buffer)) nil t))))
+                            (rust-format-buffer)) nil t)))
+    (warn "rust-mode: rustfmt not foud, automatic source code formatting disabled"))
 
   (defun wh/rust-toggle-mutability ()
     "Toggle the mutability of the variable at point."

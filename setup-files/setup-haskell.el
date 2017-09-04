@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-16 00:52:41 csraghunandan>
+;; Time-stamp: <2017-09-04 20:10:35 csraghunandan>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
@@ -30,6 +30,9 @@
     :if (executable-find "hindent")
     :diminish hindent-mode "𝐇𝐢"
     :config
+    (unless (executable-find "hindent")
+      (warn "haskell-mode: couldn't find hindent. Haskell source files won't be automatically formatted"))
+
     (add-hook 'haskell-mode-hook #'hindent-mode)
     ;; reformat the buffer using hindent on save
     (setq hindent-reformat-buffer-on-save t))
@@ -40,6 +43,9 @@
     :if (executable-find "structured-haskell-mode")
     :diminish (structured-haskell-mode . "𝐒𝐇𝐌")
     :config
+    (unless (executable-find "structured-haskell-mode")
+      (warn "haskell-mode: couldn't find SHM. paredit like features disabled"))
+
     (add-hook 'haskell-mode-hook 'structured-haskell-mode)
     (add-hook 'structured-haskell-mode-hook (lambda ()
                                               (smartparens-mode -1)
@@ -49,13 +55,15 @@
     (bind-key "C-c |" 'shm/case-split haskell-mode-map))
 
   ;; enable hlint checker for flycheck
-  (when (executable-find "hlint")
+  (if (executable-find "hlint")
     (flycheck-add-next-checker 'intero
-                               'haskell-hlint))
+                               'haskell-hlint)
+    (warn "haskell-mode: coulnd't find hlint, flycheck support for hlint disabled"))
 
   ;; hlint-refactor:Emacs bindings for hlint's --refactor option
   ;; https://github.com/mpickering/hlint-refactor-mode
   (use-package hlint-refactor
+    :if (executable-find "hlint")
     :config (add-hook 'haskell-mode-hook #'hlint-refactor-mode))
 
   ;; hasky-stack: interface to stack haskell development tool
