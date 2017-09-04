@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-26 01:08:10 csraghunandan>
+;; Time-stamp: <2017-09-04 13:27:16 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -57,6 +57,10 @@
                           :background "gray27")
       (set-face-attribute 'magit-diff-context-highlight nil
                           :foreground "grey70" :background "gray27")))
+
+  (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
+                      :background "gray27"
+                      :foreground nil)
 
   ;; strike-through unmatched parenthesis
   (set-face-attribute 'rainbow-delimiters-unmatched-face nil
