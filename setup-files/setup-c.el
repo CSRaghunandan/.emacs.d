@@ -85,6 +85,10 @@
   ;; start the rtags process automatically if it's not started
   ;; (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
 
+  ;; adds font-lock highlighting for modern C++ upto C++17
+  (use-package modern-cpp-font-lock
+    :config (modern-c++-font-lock-global-mode t))
+
   ;; clang-format: format C/C++ files using clang-format
   (use-package clang-format
     :config
