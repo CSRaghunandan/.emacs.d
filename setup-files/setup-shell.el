@@ -24,4 +24,16 @@
                (1 'default t)
                (2 font-lock-variable-name-face t)))))
 
+;; company-shell: company backend for shell scripts
+;; https://github.com/Alexander-Miller/company-shell
+(use-package company-shell
+  :after sh-script
+  :config
+  (setq company-shell-delete-duplicates t)
+  (defun my-sh-mode-hook()
+    (set (make-local-variable 'company-backends)
+         '(company-shell company-files company-yasnippet)))
+  (add-hook 'sh-mode-hook #'my-sh-mode-hook)
+  (add-hook 'sh-mode-hook 'company-mode))
+
 (provide 'setup-shell)
