@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 15:45:43 csraghunandan>
+;; Time-stamp: <2017-09-04 15:50:55 csraghunandan>
 
 ;; golang configuration
 
@@ -69,6 +69,10 @@
         (add-hook 'go-mode-hook (lambda ()
                                   (company-mode)
                                   (my-go-mode-hook)))
-      (warn "go-mode: couldn't find gocode, code completion won't work"))))
+      (warn "go-mode: couldn't find gocode, code completion won't work")))
+
+  ;; gotest: Emacs mode to go unit test command line tool
+  ;; https://github.com/nlamirault/gotest.el
+  (use-package gotest))
 
 (provide 'setup-go)
