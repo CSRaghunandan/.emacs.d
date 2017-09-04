@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 15:59:08 csraghunandan>
+;; Time-stamp: <2017-09-04 16:00:07 csraghunandan>
 
 ;; golang configuration
 
@@ -82,3 +82,11 @@
       (warn "go-mode: couldn't find gorename, extra refactoring commands won't work"))))
 
 (provide 'setup-go)
+
+;; commands to install all the tools required for go configuration to work
+;; go get -u github.com/motemen/gore
+;; go get -u github.com/nsf/gocode
+;; go get -u golang.org/x/tools/cmd/godoc
+;; go get -u golang.org/x/tools/cmd/goimports
+;; go get -u golang.org/x/tools/cmd/gorename
+;; go get -u golang.org/x/tools/cmd/guru
