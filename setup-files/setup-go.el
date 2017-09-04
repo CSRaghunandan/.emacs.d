@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 15:50:55 csraghunandan>
+;; Time-stamp: <2017-09-04 15:57:05 csraghunandan>
 
 ;; golang configuration
 
@@ -73,6 +73,9 @@
 
   ;; gotest: Emacs mode to go unit test command line tool
   ;; https://github.com/nlamirault/gotest.el
-  (use-package gotest))
+  (use-package gotest)
+
+  ;; go-rename: extra refactoring commands for go
+  (use-package go-rename))
 
 (provide 'setup-go)
