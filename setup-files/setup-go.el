@@ -1,10 +1,11 @@
-;; Time-stamp: <2017-06-15 14:22:12 csraghunandan>
+;; Time-stamp: <2017-09-04 15:45:43 csraghunandan>
 
 ;; golang configuration
 
 ;; go-mode: major-mode for editing go files
 ;; https://github.com/dominikh/go-mode.el
 (use-package go-mode
+  :interpreter "go"
   :config
   (setq gofmt-command "~/go/bin/goimports")
   ;; Using -s with goimports is not supported with upstream goimports.
@@ -28,6 +29,7 @@
   ;; go-eldoc: eldoc for go language
   ;; https://github.com/syohex/emacs-go-eldoc
   (use-package go-eldoc
+    :commands go-eldoc-setup
     :config (add-hook 'go-mode-hook 'go-eldoc-setup))
 
   ;; go-playground:GNU/Emacs mode that setup local Go playground for code
@@ -39,9 +41,34 @@
 
   (add-hook 'go-mode-hook #'flycheck-mode)
 
-  ;;TODO: company setup for go
-  ;;TODO: go to def setup
-  ;;TODO: refactoring tools setup
-  )
+  ;; integrate go-guru analysis tool to emacs
+  (use-package go-guru
+    :config
+    (unless (executable-find "guru")
+      (warn "go-mode: couldn't find guru, refactoring commands won't work")))
+
+  ;; gorepl-mode: A minor emacs mode for Go REPL.
+  ;; https://github.com/manute/gorepl-mode
+  (use-package gorepl-mode
+    :commands (gorepl-run gorepl-run-load-current-file)
+    :config
+    (unless (executable-find "gore")
+      (warn "go-mode: couldn't find gore, REPL support disabled")))
+
+  ;; company-go: company backend for golang
+  ;; https://github.com/nsf/gocode/tree/master/emacs-company
+  (use-package company-go
+    :init (setq command-go-gocode-command "gocode")
+    :config
+
+    (defun my-go-mode-hook()
+      (set (make-local-variable 'company-backends)
+           '((company-go company-files company-yasnippet))))
+
+    (if (executable-find command-go-gocode-command)
+        (add-hook 'go-mode-hook (lambda ()
+                                  (company-mode)
+                                  (my-go-mode-hook)))
+      (warn "go-mode: couldn't find gocode, code completion won't work"))))
 
 (provide 'setup-go)
