@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-12 00:57:25 csraghunandan>
+;; Time-stamp: <2017-09-04 20:44:56 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -35,7 +35,8 @@
   (use-package pyenv-mode
     :if (executable-find "pyenv")
     :config
-
+    (unless (executable-find "pyenv")
+      (warn "python-mode: unable to find pyenv. No virtual environment support for python-mode"))
     (add-hook 'python-mode-hook 'pyenv-mode)
 
     ;; integrate pyenv with projectile
@@ -64,7 +65,10 @@
 
   ;; only install yapfify if yapf is installed
   (use-package py-yapf
-    :if (executable-find "yapf"))
+    :if (executable-find "yapf")
+    :config
+    (unless (executable-find "yapf")
+      (warn "python-mode: yapf not found. Automatic formatting of buffers disabled")))
 
   ;; from https://www.snip2code.com/Snippet/127022/Emacs-auto-remove-unused-import-statemen
   (defun python-remove-unused-imports()
@@ -76,13 +80,15 @@
           (shell-command (format "autoflake --remove-all-unused-imports -i %s"
                                  (shell-quote-argument (buffer-file-name))))
           (revert-buffer t t t))
-      (message "Error: Cannot find autoflake executable.")))
+      (warn "python-mode: Cannot find autoflake executable, automatic removal of unused imports disabled")))
 
   ;; py-isort: sort import statements in python buffers
   ;; https://github.com/paetzke/py-isort.el
   (use-package py-isort
     :if (executable-find "isort")
     :config
+    (unless (executable-find "isort")
+      (warn "python-mode: unable to find isort executable. Sorting of import statements disabled"))
     (add-hook 'python-mode-hook
               (lambda ()
                 (add-hook 'before-save-hook
