@@ -80,6 +80,15 @@
 ;; project root create a .dir-locals.el containing the following:
 ;; ((nil . ((cmake-ide-build-dir . "<PATH_TO_PROJECT_BUILD_DIRECTORY>"))))
 
+;; Disassemble C/C++ code under cursor in Emacs
+;; https://github.com/jart/disaster
+(use-package disaster
+  :config
+  (dolist (m (list c-mode-map c++-mode-map))
+    (bind-keys
+     :map m
+     ("C-c d c" . disaster))))
+
 (use-package cc-mode
   :config
   ;; start the rtags process automatically if it's not started
