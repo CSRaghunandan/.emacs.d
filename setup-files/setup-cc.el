@@ -53,10 +53,10 @@
 
   (use-package flycheck-irony
     :config
-    (defun +cc|init-c++11-clang-options ()
+    (defun +cc|init-c++14-clang-options ()
       (make-local-variable 'irony-additional-clang-options)
       (cl-pushnew "-std=c++14" irony-additional-clang-options :test 'equal))
-    (add-hook 'c++-mode-hook #'+cc|init-c++11-clang-options)
+    (add-hook 'c++-mode-hook #'+cc|init-c++14-clang-options)
 
     (eval-after-load 'flycheck
       '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
