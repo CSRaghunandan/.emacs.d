@@ -55,7 +55,7 @@
     :config
     (defun +cc|init-c++11-clang-options ()
       (make-local-variable 'irony-additional-clang-options)
-      (cl-pushnew "-std=c++11" irony-additional-clang-options :test 'equal))
+      (cl-pushnew "-std=c++14" irony-additional-clang-options :test 'equal))
     (add-hook 'c++-mode-hook #'+cc|init-c++11-clang-options)
 
     (eval-after-load 'flycheck
