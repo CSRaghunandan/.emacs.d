@@ -132,7 +132,7 @@
   (setq-default c-default-style "k&r"
         c-basic-offset 2))
 
-(provide 'setup-c)
+(provide 'setup-cc)
 
 ;;; notes
 ;; To have cmake-ide automatically create a compilation commands file in your
