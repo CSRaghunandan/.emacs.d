@@ -34,6 +34,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-date ((((class color)) (:underline nil))))
- '(term ((t (:foreground "#E5D9BD"))))
- '(term-color-green ((t (:background "grey30" :foreground "#9F8300")))))
+ )

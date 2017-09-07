@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-07 18:25:30 csraghunandan>
+;; Time-stamp: <2017-09-07 18:31:26 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -64,6 +64,11 @@
    '(org-checkbox ((t (:foreground "gray70" :background nil
                                    :weight bold :box nil))))
    '(org-priority ((t (:foreground "gray70" :weight bold
-                                   :inherit nil))))))
+                                   :inherit nil))))
+   '(org-date ((((class color)) (:underline nil))))
+
+   ;; term face config
+   '(term ((t (:foreground "#E5D9BD"))))
+   '(term-color-green ((t (:background "grey30" :foreground "#9F8300"))))))
 
 (provide 'setup-zenburn)
