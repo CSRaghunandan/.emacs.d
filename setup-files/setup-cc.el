@@ -9,81 +9,83 @@
 ;; C/C++ code disassembler using disaster
 ;; modern C++ font-lock support
 
-;; A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs
-;; based on clang.
-;; https://github.com/Andersbakken/rtags
-(use-package rtags
+(use-package cc-mode :defer t
   :config
 
-  (rtags-enable-standard-keybindings)
-
-  ;; ivy completion frontend for rtags
-  (use-package ivy-rtags
+  ;; A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs
+  ;; based on clang.
+  ;; https://github.com/Andersbakken/rtags
+  (use-package rtags
     :config
-    (setq rtags-display-result-backend 'ivy)))
 
-;; irony: A C/C++ minor mode for Emacs powered by libclang
-;; https://github.com/Sarcasm/irony-mode
-(use-package irony
-  :config
-  ;; company backend for irony completion server
-  ;; https://github.com/Sarcasm/company-irony
-  (use-package company-irony)
-  ;; completions for C/C++ header files
-  ;; https://github.com/hotpxl/company-irony-c-headers
-  (use-package company-irony-c-headers)
+    (rtags-enable-standard-keybindings)
 
-  (defun my-irony-mode-hook ()
-    (define-key irony-mode-map [remap completion-at-point]
-      'irony-completion-at-point-async)
-    (define-key irony-mode-map [remap complete-symbol]
-      'irony-completion-at-point-async))
+    ;; ivy completion frontend for rtags
+    (use-package ivy-rtags
+      :config
+      (setq rtags-display-result-backend 'ivy))
 
-  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+    ;; start the rtags process automatically if it's not started
+    ;; (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
+    )
 
-  (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
-  (setq company-backends (delete 'company-semantic company-backends))
+  ;; cmake-ide: Use Emacs as a C/C++ IDE
+  ;; https://github.com/atilaneves/cmake-ide
+  ;; (use-package cmake-ide
+  ;;   :config (cmake-ide-setup))
 
-  (defun my-c-mode-hook ()
-    (set (make-local-variable 'company-backends)
-         '((company-irony-c-headers company-irony company-files company-yasnippet))))
-
-  (add-hook 'c-mode-common-hook #'my-c-mode-hook)
-
-  (use-package flycheck-irony
+  ;; Disassemble C/C++ code under cursor in Emacs
+  ;; https://github.com/jart/disaster
+  (use-package disaster
     :config
-    (defun +cc|init-c++14-clang-options ()
-      (make-local-variable 'irony-additional-clang-options)
-      (cl-pushnew "-std=c++14" irony-additional-clang-options :test 'equal))
-    (add-hook 'c++-mode-hook #'+cc|init-c++14-clang-options)
+    (dolist (m (list c-mode-map c++-mode-map))
+      (bind-keys
+       :map m
+       ("C-c d c" . disaster))))
 
-    (eval-after-load 'flycheck
-      '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+  ;; irony: A C/C++ minor mode for Emacs powered by libclang
+  ;; https://github.com/Sarcasm/irony-mode
+  (use-package irony
+    :config
+    ;; company backend for irony completion server
+    ;; https://github.com/Sarcasm/company-irony
+    (use-package company-irony)
+    ;; completions for C/C++ header files
+    ;; https://github.com/hotpxl/company-irony-c-headers
+    (use-package company-irony-c-headers)
 
-  ;; irony-eldoc: eldoc support for irony
-  ;; https://github.com/ikirill/irony-eldoc
-  (use-package irony-eldoc
-    :config (add-hook 'irony-mode-hook #'irony-eldoc)))
+    (defun my-irony-mode-hook ()
+      (define-key irony-mode-map [remap completion-at-point]
+        'irony-completion-at-point-async)
+      (define-key irony-mode-map [remap complete-symbol]
+        'irony-completion-at-point-async))
 
-;; cmake-ide: Use Emacs as a C/C++ IDE
-;; https://github.com/atilaneves/cmake-ide
-;; (use-package cmake-ide
-;;   :config (cmake-ide-setup))
+    (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-;; Disassemble C/C++ code under cursor in Emacs
-;; https://github.com/jart/disaster
-(use-package disaster
-  :config
-  (dolist (m (list c-mode-map c++-mode-map))
-    (bind-keys
-     :map m
-     ("C-c d c" . disaster))))
+    (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
+    (setq company-backends (delete 'company-semantic company-backends))
 
-(use-package cc-mode
-  :config
-  ;; start the rtags process automatically if it's not started
-  ;; (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
+    (defun my-c-mode-hook ()
+      (set (make-local-variable 'company-backends)
+           '((company-irony-c-headers company-irony company-files company-yasnippet))))
+
+    (add-hook 'c-mode-common-hook #'my-c-mode-hook)
+
+    (use-package flycheck-irony
+      :config
+      (defun +cc|init-c++14-clang-options ()
+        (make-local-variable 'irony-additional-clang-options)
+        (cl-pushnew "-std=c++14" irony-additional-clang-options :test 'equal))
+      (add-hook 'c++-mode-hook #'+cc|init-c++14-clang-options)
+
+      (eval-after-load 'flycheck
+        '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+
+    ;; irony-eldoc: eldoc support for irony
+    ;; https://github.com/ikirill/irony-eldoc
+    (use-package irony-eldoc
+      :config (add-hook 'irony-mode-hook #'irony-eldoc)))
 
   (defun +cc|extra-fontify-c++ ()
     ;; We could place some regexes into `c-mode-common-hook', but
