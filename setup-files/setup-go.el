@@ -1,10 +1,10 @@
-;; Time-stamp: <2017-09-04 20:55:31 csraghunandan>
+;; Time-stamp: <2017-09-10 14:42:10 csraghunandan>
 
 ;; golang configuration
 
 ;; go-mode: major-mode for editing go files
 ;; https://github.com/dominikh/go-mode.el
-(use-package go-mode
+(use-package go-mode :defer t
   :interpreter "go"
   :config
   (setq gofmt-command "~/go/bin/goimports")

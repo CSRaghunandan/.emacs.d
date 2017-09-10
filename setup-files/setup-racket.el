@@ -1,8 +1,8 @@
-;; Time-stamp: <2017-02-10 14:19:02 csraghunandan>
+;; Time-stamp: <2017-09-10 14:41:11 csraghunandan>
 
 ;; racket-mode: major mode for editing racket files
 ;; https://github.com/greghendershott/racket-mode
-(use-package racket-mode
+(use-package racket-mode :defer t
   :config
   (defun my-racket-mode-hook ()
     (set (make-local-variable 'company-backends)
