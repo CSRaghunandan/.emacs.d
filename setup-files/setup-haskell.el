@@ -1,8 +1,8 @@
-;; Time-stamp: <2017-09-04 20:53:30 csraghunandan>
+;; Time-stamp: <2017-09-10 14:21:56 csraghunandan>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
-(use-package haskell-mode
+(use-package haskell-mode :defer t
   :config
   ;; more snippets for haskell-mode
   ;; https://github.com/haskell/haskell-snippets
