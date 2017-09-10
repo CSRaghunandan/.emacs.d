@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-03 20:11:53 csraghunandan>
+;; Time-stamp: <2017-09-10 18:50:51 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -122,6 +122,12 @@ First      -> First (no change)."
         (setf (car (car args)) author-abbr))
       (car args))                       ;'(AUTHOR-ABBR DATE)
     (advice-add 'magit-log-format-margin :filter-args #'modi/magit-log--abbreviate-author)))
+
+;; git-modes: major modes for git config, ignore and attributes files
+;; https://github.com/magit/git-modes
+(use-package gitignore-mode)
+(use-package gitconfig-mode)
+(use-package gitattributes-mode)
 
 (provide 'setup-git-stuff)
 

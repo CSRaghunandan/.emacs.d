@@ -19,12 +19,6 @@
 (use-package nginx-mode
   :mode (("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode)))
 
-;; git-modes: major modes for git config, ignore and attributes files
-;; https://github.com/magit/git-modes
-(use-package gitignore-mode)
-(use-package gitconfig-mode)
-(use-package gitattributes-mode)
-
 ;; crontab-mode: major-mode for editing corntab files
 ;; https://github.com/emacsorphanage/crontab-mode
 (use-package crontab-mode
