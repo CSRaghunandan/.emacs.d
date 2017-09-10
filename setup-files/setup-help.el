@@ -1,11 +1,11 @@
-;; Time-stamp: <2017-06-12 12:04:44 csraghunandan>
+;; Time-stamp: <2017-09-10 08:58:53 csraghunandan>
 
 ;; helpful: A better Emacs *help* buffer
 ;; https://github.com/Wilfred/helpful
 (use-package helpful
   :bind
-  (("C-c h c" . helpful-command)
-   ("C-c h f" . helpful-function)
-   ("C-c h m" . helpful-macro)))
+  (("C-c e c" . helpful-command)
+   ("C-c e f" . helpful-function)
+   ("C-c e m" . helpful-macro)))
 
 (provide 'setup-help)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-14 16:23:02 csraghunandan>
+;; Time-stamp: <2017-09-10 09:00:16 csraghunandan>
 
 ;; hydra: tie related commands into a family of short bindings with a common
 ;; prefix - a Hydra
@@ -22,4 +22,4 @@
 ;; hydras: flycheck, ibuffer, origami, move, yasnippet, info, macros
 ;;         dired sort, bm, projectile, toggle case, langtools, kruecolor
 ;;         smartparens, multi-term, aprops, quickrun, org-clock, command-log
-;;         magit, info-to, js2-refactor, mark-org-table, smerge-mode
+;;         magit, info-to, js2-refactor, mark-org-table, smerge-mode, font-resize
