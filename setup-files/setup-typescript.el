@@ -1,10 +1,10 @@
-;; Time-stamp: <2017-09-04 20:48:46 csraghunandan>
+;; Time-stamp: <2017-09-10 14:30:06 csraghunandan>
 
 ;; typescript config
 
 ;; typescript: major mode for editing typescript files
 ;; https://github.com/ananthakumaran/typescript.el
-(use-package typescript-mode
+(use-package typescript-mode :defer t
   :config
 
   ;; tide: TypeScript Interactive Development Environment for Emacs

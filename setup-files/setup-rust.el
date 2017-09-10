@@ -1,10 +1,10 @@
-;; Time-stamp: <2017-09-04 20:53:43 csraghunandan>
+;; Time-stamp: <2017-09-10 14:29:08 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
 ;; rust-mode: major-mode for editing rust files
 ;; https://github.com/rust-lang/rust-mode
-(use-package rust-mode
+(use-package rust-mode :defer t
   :config
   ;; add flycheck support for rust
   ;; https://github.com/flycheck/flycheck-rust

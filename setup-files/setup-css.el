@@ -1,7 +1,7 @@
-;; Time-stamp: <2017-09-04 21:38:59 csraghunandan>
+;; Time-stamp: <2017-09-10 14:30:28 csraghunandan>
 
 ;; css-mode config
-(use-package css-mode
+(use-package css-mode :defer t
   :config
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)
