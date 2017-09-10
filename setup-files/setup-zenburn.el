@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-07 18:31:26 csraghunandan>
+;; Time-stamp: <2017-09-10 17:26:02 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -48,8 +48,8 @@
 
    ;; make everything look gray
    '(font-lock-comment-delimiter-face ((t (:foreground "gray55"))))
-   '(font-lock-comment-face ((t (:foreground "gray55" :slant italic))))
-   '(font-lock-doc-face ((t (:foreground "gray70" :slant italic))))
+   '(font-lock-comment-face ((t (:foreground "gray55"))))
+   '(font-lock-doc-face ((t (:foreground "gray70"))))
    '(shm-current-face ((t (:background "gray27"))))
    '(hl-line ((t (:background "gray27"))))
    '(fringe ((t (:background "gray27"))))
