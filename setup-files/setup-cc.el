@@ -34,6 +34,16 @@
   ;; (use-package cmake-ide
   ;;   :config (cmake-ide-setup))
 
+  ;; cmake-mode: major-mode for editing cmake files
+  (use-package cmake-mode :defer t
+    :config
+    ;; cmake-font-lock: emacs font lock rules for CMake
+    ;; https://github.com/Lindydancer/cmake-font-lock
+    (use-package cmake-font-lock
+      :config
+      (autoload 'cmake-font-lock-activate "cmake-font-lock" nil t)
+      (add-hook 'cmake-mode-hook 'cmake-font-lock-activate)))
+
   ;; Disassemble C/C++ code under cursor in Emacs
   ;; https://github.com/jart/disaster
   (use-package disaster

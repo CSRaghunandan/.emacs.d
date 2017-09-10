@@ -30,7 +30,4 @@
 (use-package crontab-mode
   :mode ("\\.?cron\\(tab\\)?\\'" . crontab-mode))
 
-;; cmake-mode: major-mode for editing cmake files
-(use-package cmake-mode)
-
 (provide 'setup-config-files)
