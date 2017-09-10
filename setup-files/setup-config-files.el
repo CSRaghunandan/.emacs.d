@@ -25,11 +25,6 @@
 (use-package gitconfig-mode)
 (use-package gitattributes-mode)
 
-;; dockerfile-mode: An emacs mode for handling Dockerfiles
-;; https://github.com/spotify/dockerfile-mode
-(use-package dockerfile-mode
-  :mode ("Dockerfile\\'" . dockerfile-mode))
-
 ;; crontab-mode: major-mode for editing corntab files
 ;; https://github.com/emacsorphanage/crontab-mode
 (use-package crontab-mode

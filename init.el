@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-10 08:32:11 csraghunandan>
+;; Time-stamp: <2017-09-10 18:19:22 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -106,6 +106,7 @@
 (require 'setup-shell)
 (require 'setup-smerge)
 (require 'setup-nov)
+(require 'docker)
 
 ;; install all packages (if they already not installed by use-package)
 (package-install-selected-packages)
