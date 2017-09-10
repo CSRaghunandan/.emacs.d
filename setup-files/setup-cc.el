@@ -141,8 +141,17 @@
 
   (add-hook 'c-mode-common-hook 'smart-dash-mode)
 
-  (setq-default c-default-style "k&r"
-        c-basic-offset 2))
+  (c-add-style "llvm"
+               '("gnu"
+	         (fill-column . 80)
+	         (c++-indent-level . 2)
+	         (c-basic-offset . 2)
+	         (indent-tabs-mode . nil)
+	         (c-offsets-alist . ((arglist-intro . ++)
+				     (innamespace . 0)
+				     (member-init-intro . ++)))))
+
+  (setq-default c-default-style "llvm"))
 
 (provide 'setup-cc)
 
