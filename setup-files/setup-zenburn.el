@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-11 15:55:08 csraghunandan>
+;; Time-stamp: <2017-09-11 16:03:19 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -72,11 +72,11 @@
    '(term-color-green ((t (:background "grey30" :foreground "#9F8300"))))
 
    ;; markdown header face config
-   '(markdown-header-face-1 ((t (:foreground "#DFAF8F" :weight bold))))
-   '(markdown-header-face-2 ((t (:foreground "#BFEBBF" :weight bold))))
-   '(markdown-header-face-3 ((t (:foreground "#7CB8BB" :weight bold))))
-   '(markdown-header-face-4 ((t (:foreground "#D0BF8F" :weight bold))))
-   '(markdown-header-face-5 ((t (:foreground "#93E0E3" :weight bold))))
+   '(markdown-header-face-1 ((t (:foreground "#DFAF8F" :weight bold :height 1.8))))
+   '(markdown-header-face-2 ((t (:foreground "#BFEBBF" :weight bold :height 1.6))))
+   '(markdown-header-face-3 ((t (:foreground "#7CB8BB" :weight bold :height 1.4))))
+   '(markdown-header-face-4 ((t (:foreground "#D0BF8F" :weight bold :height 1.2))))
+   '(markdown-header-face-5 ((t (:foreground "#93E0E3" :weight bold :height 1.1))))
    '(markdown-header-face-6 ((t (:foreground "#9FC59F" :weight bold))))))
 
 (provide 'setup-zenburn)
