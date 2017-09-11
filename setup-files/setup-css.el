@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-10 14:30:28 csraghunandan>
+;; Time-stamp: <2017-09-11 15:29:38 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode :defer t
@@ -13,7 +13,7 @@
   (add-hook 'css-mode-hook 'flycheck-mode)
 
   (if (executable-find "prettier")
-      (add-hook 'css-mode-hook 'prettify-js-mode)
+      (add-hook 'css-mode-hook 'prettier-js-mode)
     (warn "css-mode: prettier not found, automatic formatting of CSS files are disabled")))
 
 (provide 'setup-css)
