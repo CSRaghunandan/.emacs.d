@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-10 14:42:43 csraghunandan>
+;; Time-stamp: <2017-09-11 15:54:04 csraghunandan>
 
 ;; markdown: simple and quick outline mode
 ;; http://jblevins.org/projects/markdown-mode/
@@ -11,7 +11,11 @@
   :config
   ;; markdown-toc: generate table of contents for markdown
   ;; https://github.com/ardumont/markdown-toc
-  (use-package markdown-toc))
+  (use-package markdown-toc)
+
+  (setq markdown-fontify-code-blocks-natively t)
+  (setq markdown-list-indent-width 2)
+  (setq-default markdown-hide-markup t))
 
 (provide 'setup-markdown)
 
