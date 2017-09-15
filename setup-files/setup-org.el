@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-11 15:33:24 csraghunandan>
+;; Time-stamp: <2017-09-15 13:26:05 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -357,6 +357,12 @@ Execute this command while the point is on or after the hyper-linked org link."
   ;; ox-twbs: Export org-mode docs as HTML compatible with Twitter Bootstrap.
   ;; https://github.com/marsmining/ox-twbs
   (use-package ox-twbs)
+
+  ;; org-toc: toc-org is an Emacs utility to have an up-to-date table of
+  ;; contents in the org files without exporting (useful primarily for readme
+  ;; files on GitHub)
+  ;; https://github.com/snosov1/toc-org
+  (use-package toc-org)
 
   ;; pomodoro implementation in org
   ;; https://github.com/lolownia/org-pomodoro
