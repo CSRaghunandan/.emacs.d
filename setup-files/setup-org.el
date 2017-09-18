@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-15 13:26:05 csraghunandan>
+;; Time-stamp: <2017-09-18 14:53:37 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -106,6 +106,9 @@
 
   ;; Display entities like \tilde, \alpha, etc in UTF-8 characters
   (setq org-pretty-entities t)
+
+  ;; highlight latex stuff
+  (setq org-highlight-latex-and-related '(latex))
 
   ;; Render subscripts and superscripts in org buffers
   (setq org-pretty-entities-include-sub-superscripts t)
