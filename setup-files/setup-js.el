@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-18 14:46:01 csraghunandan>
+;; Time-stamp: <2017-09-18 16:18:16 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -7,7 +7,6 @@
 (use-package js2-mode
   :mode
   (("\\.js$" . js2-mode)
-   ("\\.json$" . js2-jsx-mode)
    ("\\.jsx$" . js2-jsx-mode))
   :bind (:map js2-mode-map
               ("C-c C-l" . indium-eval-buffer))
