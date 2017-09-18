@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 20:51:51 csraghunandan>
+;; Time-stamp: <2017-09-18 14:46:01 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -141,6 +141,7 @@
   ;; https://github.com/scottaj/mocha.el
   (use-package mocha
     :config
+    (require 'typescript-mode)
     (dolist (m (list js2-mode-map typescript-mode-map))
       (bind-keys
        :map m
