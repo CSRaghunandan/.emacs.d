@@ -44,15 +44,6 @@
       (autoload 'cmake-font-lock-activate "cmake-font-lock" nil t)
       (add-hook 'cmake-mode-hook 'cmake-font-lock-activate)))
 
-  ;; Disassemble C/C++ code under cursor in Emacs
-  ;; https://github.com/jart/disaster
-  (use-package disaster
-    :config
-    (dolist (m (list c-mode-map c++-mode-map))
-      (bind-keys
-       :map m
-       ("C-c d c" . disaster))))
-
   ;; irony: A C/C++ minor mode for Emacs powered by libclang
   ;; https://github.com/Sarcasm/irony-mode
   (use-package irony
@@ -86,7 +77,7 @@
       :config
       (defun +cc|init-c++14-clang-options ()
         (make-local-variable 'irony-additional-clang-options)
-        (cl-pushnew "-std=c++14" irony-additional-clang-options :test 'equal))
+        (cl-pushnew "-std=c++14 -Wall -Wextra -pedantic" irony-additional-clang-options :test 'equal))
       (add-hook 'c++-mode-hook #'+cc|init-c++14-clang-options)
 
       (eval-after-load 'flycheck
