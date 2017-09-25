@@ -77,7 +77,7 @@
       :config
       (defun +cc|init-c++14-clang-options ()
         (make-local-variable 'irony-additional-clang-options)
-        (cl-pushnew "-std=c++14 -Wall -Wextra -pedantic" irony-additional-clang-options :test 'equal))
+        (cl-pushnew "-std=c++14 -Wall -Wextra -Wpedantic" irony-additional-clang-options :test 'equal))
       (add-hook 'c++-mode-hook #'+cc|init-c++14-clang-options)
 
       (eval-after-load 'flycheck
