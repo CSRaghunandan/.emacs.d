@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-11 13:37:47 csraghunandan>
+;; Time-stamp: <2017-09-25 12:48:58 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -38,7 +38,7 @@
 (require 'setup-org)
 (require 'setup-backup)
 (require 'setup-region-bindings-mode)
-(require 'setup-neotree)
+(require 'setup-treemacs)
 (require 'setup-search)
 (require 'setup-ibuffer)
 (require 'setup-recentf)
