@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-26 18:32:39 csraghunandan>
+;; Time-stamp: <2017-09-26 18:36:04 csraghunandan>
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
@@ -17,7 +17,7 @@
           treemacs-sorting 'alphabetic-desc
           treemacs-show-hidden-files t
           treemacs-never-persist nil
-          treemacs-is-never-other-window nil
+          treemacs-is-never-other-window t
           treemacs-goto-tag-strategy 'refetch-index)
 
     (treemacs-follow-mode t)
