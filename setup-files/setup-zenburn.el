@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-11 16:03:19 csraghunandan>
+;; Time-stamp: <2017-09-26 18:15:02 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -24,9 +24,10 @@
    '(powerline-inactive2 ((t (:background "gray20"))))
 
    ;; ivy minibuffer config
-   '(ivy-minibuffer-match-face-4 ((t (:background "pink4"))))
-   '(ivy-minibuffer-match-face-3 ((t (:background "CadetBlue4"))))
-   '(ivy-minibuffer-match-face-2 ((t (:background "DarkSeaGreen4"))))
+   '(ivy-minibuffer-match-face-4 ((t (:background "pink4" :underline t))))
+   '(ivy-minibuffer-match-face-3 ((t (:background "SteelBlue3" :underline t))))
+   '(ivy-minibuffer-match-face-2 ((t (:background "DarkSeaGreen4" :underline t))))
+   '(ivy-current-match ((t (:foreground "#F0DFAF" :underline nil :weight bold))))
    '(golden-ratio-scroll-highlight-line-face ((t (:background "gray27"
                                                               :weight normal))))
    ;; magit faces
