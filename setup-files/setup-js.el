@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-18 16:18:16 csraghunandan>
+;; Time-stamp: <2017-09-26 11:24:36 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -151,5 +151,11 @@
   ;; mocha-snippets: snippets for mocha test framework
   ;; https://github.com/cowboyd/mocha-snippets.el
   (use-package mocha-snippets))
+
+;; json-mode: Major mode for editing JSON files with emacs
+;; https://github.com/joshwnj/json-mode
+(use-package json-mode
+  :config
+  (add-hook 'json-mode 'prettier-js-mode))
 
 (provide 'setup-js)
