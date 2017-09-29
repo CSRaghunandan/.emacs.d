@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-30 01:48:07 csraghunandan>
+;; Time-stamp: <2017-09-30 02:30:29 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -10,7 +10,11 @@
 ;; https://github.com/milkypostman/powerline
 (use-package powerline
   :config
-  (setq powerline-default-separator 'utf-8)
+
+  (when (eq system-type 'darwin)
+    (setq powerline-image-apple-rgb t))
+  (setq powerline-default-separator 'wave)
+  (setq powerline-height 17)
 
   ;; spaceline: spacemacs powerline theme
   ;; https://github.com/TheBB/spaceline

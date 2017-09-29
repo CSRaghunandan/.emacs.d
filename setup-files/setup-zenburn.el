@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-30 01:55:53 csraghunandan>
+;; Time-stamp: <2017-09-30 02:23:26 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -21,7 +21,7 @@
 
    '(powerline-active1 ((t (:background "gray35" :foreground "#BFEBBF"))))
    '(powerline-active2 ((t (:background "gray35" :foreground "#BFEBBF"))))
-   '(powerline-inactive1 ((t (:background "#383838"))))
+   '(powerline-inactive1 ((t (:background "gray35"))))
    '(powerline-inactive2 ((t (:background "#383838"))))
 
    ;; ivy minibuffer config
