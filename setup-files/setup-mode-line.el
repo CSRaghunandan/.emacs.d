@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-21 21:05:12 csraghunandan>
+;; Time-stamp: <2017-09-30 01:48:07 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -10,7 +10,7 @@
 ;; https://github.com/milkypostman/powerline
 (use-package powerline
   :config
-  (setq powerline-default-separator nil)
+  (setq powerline-default-separator 'utf-8)
 
   ;; spaceline: spacemacs powerline theme
   ;; https://github.com/TheBB/spaceline

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-26 18:15:02 csraghunandan>
+;; Time-stamp: <2017-09-30 01:55:53 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -11,17 +11,18 @@
    '(default ((t (:foreground "#DCDCCC" :background "#383838"))))
 
    ;; mode-line related config
-   '(mode-line ((t (:box (:line-width 2 :color "gray30")
-                         :weight normal :foreground "#BFEBBF"
-                         :background "gray30"))))
-   '(mode-line-inactive ((t (:box (:line-width 2 :color "gray30")
+   '(mode-line ((t (:box (:line-width 1 :color "gray35")
+                         :weight normal :foreground "#94BFF3"
+                         :background "#383838"))))
+   '(mode-line-inactive ((t (:box (:line-width 1 :color "gray35")
                                   :weight normal :foreground "gray70"
-                                  :background "gray20"))))
-   '(powerline-active1 ((t (:background "gray30"))))
-   '(powerline-active2 ((t (:background "gray30"))))
-   '(mode-line-buffer-id ((t (:foreground "#FFECBA" :weight bold))))
-   '(powerline-inactive1 ((t (:background "gray20"))))
-   '(powerline-inactive2 ((t (:background "gray20"))))
+                                  :background "#383838"))))
+   '(mode-line-buffer-id ((t (:foreground "#FFEBB9" :weight bold))))
+
+   '(powerline-active1 ((t (:background "gray35" :foreground "#BFEBBF"))))
+   '(powerline-active2 ((t (:background "gray35" :foreground "#BFEBBF"))))
+   '(powerline-inactive1 ((t (:background "#383838"))))
+   '(powerline-inactive2 ((t (:background "#383838"))))
 
    ;; ivy minibuffer config
    '(ivy-minibuffer-match-face-4 ((t (:background "pink4" :underline t))))

@@ -53,11 +53,15 @@
 
 (define-abbrev-table 'conf-colon-mode-abbrev-table '())
 
+(define-abbrev-table 'conf-desktop-mode-abbrev-table '())
+
 (define-abbrev-table 'conf-javaprop-mode-abbrev-table '())
 
 (define-abbrev-table 'conf-ppd-mode-abbrev-table '())
 
 (define-abbrev-table 'conf-space-mode-abbrev-table '())
+
+(define-abbrev-table 'conf-toml-mode-abbrev-table '())
 
 (define-abbrev-table 'conf-unix-mode-abbrev-table '())
 
@@ -819,6 +823,7 @@
     ("reccomend" "recommend" nil 0)
     ("reccommend" "recommend" nil 0)
     ("receieve" "receive" nil 0)
+    ("recepie" "recipe" nil 0)
     ("recieve" "receive" nil 0)
     ("recieved" "received" nil 1)
     ("recieving" "receiving" nil 0)
@@ -1171,6 +1176,8 @@
 
 (define-abbrev-table 'js2-mode-abbrev-table '())
 
+(define-abbrev-table 'json-mode-abbrev-table '())
+
 (define-abbrev-table 'latex-mode-abbrev-table '())
 
 (define-abbrev-table 'lisp-mode-abbrev-table '())
@@ -1180,6 +1187,8 @@
 (define-abbrev-table 'literate-purescript-mode-abbrev-table '())
 
 (define-abbrev-table 'log-edit-mode-abbrev-table '())
+
+(define-abbrev-table 'log4e-mode-abbrev-table '())
 
 (define-abbrev-table 'magit-cherry-mode-abbrev-table '())
 
@@ -1223,6 +1232,8 @@
 
 (define-abbrev-table 'neotree-mode-abbrev-table '())
 
+(define-abbrev-table 'ob-http-mode-abbrev-table '())
+
 (define-abbrev-table 'objc-mode-abbrev-table
   '(
    ))
@@ -1240,7 +1251,7 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
-    ("i" "I" nil 6)
+    ("i" "I" nil 7)
    ))
 
 (define-abbrev-table 'outline-mode-abbrev-table '())
@@ -1263,9 +1274,7 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
 
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 
@@ -1346,6 +1355,8 @@
 (define-abbrev-table 'tide-references-mode-abbrev-table '())
 
 (define-abbrev-table 'toml-mode-abbrev-table '())
+
+(define-abbrev-table 'treemacs-mode-abbrev-table '())
 
 (define-abbrev-table 'typescript-mode-abbrev-table '())
 
