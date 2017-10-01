@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-10 09:00:05 csraghunandan>
+;; Time-stamp: <2017-10-01 10:04:47 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -81,7 +81,7 @@
         " %*"))
 
 ;; display date and time
-(setq display-time-format "%a,%b-%d %H:%M")
+(setq display-time-format "%a-%d %H:%M")
 (setq display-time-default-load-average nil)
 (display-time-mode)
 
