@@ -803,6 +803,7 @@
     ("proceding" "proceeding" nil 0)
     ("proctetion" "protection" nil 0)
     ("prominant" "prominent" nil 0)
+    ("propreitory" "proprietary" nil 1)
     ("protction" "protection" nil 0)
     ("protoge" "protege" nil 0)
     ("psoition" "position" nil 0)

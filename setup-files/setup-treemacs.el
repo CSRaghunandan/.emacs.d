@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-26 18:43:25 csraghunandan>
+;; Time-stamp: <2017-10-02 10:35:34 csraghunandan>
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
@@ -10,7 +10,7 @@
           treemacs-indentation 2
           treemacs-git-integration t
           treemacs-collapse-dirs 3
-          treemacs-silent-refresh nil
+          treemacs-silent-refresh t
           treemacs-change-root-without-asking nil
           treemacs-sorting 'alphabetic-desc
           treemacs-show-hidden-files t
