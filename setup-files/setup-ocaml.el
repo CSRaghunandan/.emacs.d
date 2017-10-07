@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-07 23:36:36 csraghunandan>
+;; Time-stamp: <2017-10-08 00:16:50 csraghunandan>
 
 ;; configuration for OCaml mode
 
@@ -13,6 +13,8 @@
            ("\\.topml$" . tuareg-mode))
     :defer t
     :init
+    (add-hook 'tuareg-mode-hook (lambda ()
+                                  (abbrev-mode -1)))
 
     ;; Make OCaml-generated files invisible to filename completion
     (dolist (ext '(".cmo" ".cmx" ".cma" ".cmxa" ".cmi" ".cmxs" ".cmt" ".cmti" ".annot"))
@@ -70,6 +72,6 @@
   ;; https://github.com/OCamlPro/ocp-indent
   (use-package ocp-indent :defer t
     :init
-  (add-hook 'tuareg-mode-hook 'ocp-indent-caml-mode-setup)))
+    (add-hook 'tuareg-mode-hook 'ocp-setup-indent)))
 
 (provide 'setup-ocaml)
