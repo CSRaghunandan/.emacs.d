@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-10 14:29:08 csraghunandan>
+;; Time-stamp: <2017-10-08 00:42:42 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -95,3 +95,9 @@ foo -> &foo[..]"
     :config (setq rust-playground-basedir "~/Code-files/rust/playground/")))
 
 (provide 'setup-rust)
+
+;; to disable automatic formatting of buffers, put this in `.dir-locals.el'
+;; ((rust-mode
+;;   (before-save-hook . (lambda ()
+;;                         (time-stamp)
+;;                         (ws-butler-after-save)))))
