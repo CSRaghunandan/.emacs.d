@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-25 12:48:58 csraghunandan>
+;; Time-stamp: <2017-10-07 23:14:27 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -80,6 +80,7 @@
 (require 'setup-mc)
 (require 'setup-js)
 (require 'setup-typescript)
+(require 'setup-ocaml)
 (require 'setup-web-mode)
 (require 'setup-css)
 (require 'setup-eshell)
