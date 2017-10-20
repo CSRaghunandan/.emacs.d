@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-16 12:13:17 csraghunandan>
+;; Time-stamp: <2017-10-21 02:55:02 csraghunandan>
 
 ;; dockerfile-mode: An emacs mode for handling Dockerfiles
 ;; https://github.com/spotify/dockerfile-mode
@@ -14,5 +14,9 @@
 ;; https://github.com/meqif/docker-compose-mode
 (use-package docker-compose-mode
   :defer t)
+
+;; docker-tramp: TRAMP integration for docker containers
+;; https://github.com/emacs-pe/docker-tramp.el
+(use-package docker-tramp)
 
 (provide 'setup-docker)
