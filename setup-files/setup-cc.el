@@ -26,7 +26,8 @@
       (setq rtags-display-result-backend 'ivy))
 
     ;; start the rtags process automatically if it's not started
-    ;; (add-hook 'c-mode-common-hook 'rtags-start-process-unless-running)
+    ;; (add-hook 'c-mode-hook 'rtags-start-process-unless-running)
+    ;; (add-hook 'c++-mode-hook 'rtags-start-process-unless-running)
     )
 
   ;; cmake-ide: Use Emacs as a C/C++ IDE
@@ -71,7 +72,8 @@
       (set (make-local-variable 'company-backends)
            '((company-irony-c-headers company-irony company-files company-yasnippet))))
 
-    (add-hook 'c-mode-common-hook #'my-c-mode-hook)
+    (add-hook 'c++-mode-hook #'my-c-mode-hook)
+    (add-hook 'c-mode-hook #'my-c-mode-hook)
 
     (use-package flycheck-irony
       :config
@@ -117,7 +119,13 @@
   (use-package clang-format
     :if (executable-find "clang-format")
     :config
-    (add-hook 'c-mode-common-hook
+    (add-hook 'c++-mode-hook
+              (lambda ()
+                (add-hook 'before-save-hook
+                          (lambda ()
+                            (time-stamp)
+                            (clang-format-buffer)) nil t)))
+    (add-hook 'c-mode-hook
               (lambda ()
                 (add-hook 'before-save-hook
                           (lambda ()
@@ -125,12 +133,16 @@
                             (clang-format-buffer)) nil t))))
 
   ;; configure autocompletions for C/C++ using irony
-  (add-hook 'c-mode-common-hook 'company-mode)
-  (add-hook 'c-mode-common-hook 'irony-mode)
+  (add-hook 'c++-mode-hook 'company-mode)
+  (add-hook 'c-mode-hook 'company-mode)
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
 
-  (add-hook 'c-mode-common-hook 'flycheck-mode)
+  (add-hook 'c++-mode-hook 'flycheck-mode)
+  (add-hook 'c-mode-hook 'flycheck-mode)
 
-  (add-hook 'c-mode-common-hook 'smart-dash-mode)
+  (add-hook 'c++-mode-hook 'smart-dash-mode)
+  (add-hook 'c-mode-hook 'smart-dash-mode)
 
   (c-add-style "llvm"
                '("gnu"
