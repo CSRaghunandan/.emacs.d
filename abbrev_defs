@@ -604,6 +604,7 @@
     ("importent" "important" nil 0)
     ("importnat" "important" nil 0)
     ("impossable" "impossible" nil 0)
+    ("improvemenets" "improvements" nil 0)
     ("improvemnt" "improvement" nil 0)
     ("improvment" "improvement" nil 0)
     ("includ" "include" nil 0)
@@ -733,7 +734,6 @@
     ("omw" "on my way" nil 0)
     ("oneof" "one of" nil 0)
     ("onepoint" "one point" nil 0)
-    ("online" "on-line" nil 0)
     ("ont he" "on the" nil 0)
     ("onthe" "on the" nil 0)
     ("onyl" "only" nil 0)
@@ -1253,7 +1253,7 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
-    ("i" "I" nil 7)
+    ("i" "I" nil 17)
    ))
 
 (define-abbrev-table 'outline-mode-abbrev-table '())
@@ -1276,7 +1276,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 

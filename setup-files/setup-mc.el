@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-15 16:44:17 csraghunandan>
+;; Time-stamp: <2017-10-27 16:47:57 csraghunandan>
 
 ;; multiple-cursors: Add multiple cursors support for emacs
 ;; https://github.com/magnars/multiple-cursors.el
@@ -8,7 +8,7 @@
          ("C-<" . mc/mark-previous-like-this)
          ("C-x C-m" . mc/mark-all-dwim))
 
-  :bind (:map region-bindings-mode-map
+  :bind (:map selected-keymap
               ("a" . mc/mark-all-like-this)
               ("p" . mc/mark-previous-like-this)
               ("n" . mc/mark-next-like-this)

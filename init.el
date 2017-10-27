@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-07 23:14:27 csraghunandan>
+;; Time-stamp: <2017-10-27 16:48:48 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -37,7 +37,7 @@
 (require 'setup-osx)
 (require 'setup-org)
 (require 'setup-backup)
-(require 'setup-region-bindings-mode)
+(require 'setup-selected)
 (require 'setup-treemacs)
 (require 'setup-search)
 (require 'setup-ibuffer)
