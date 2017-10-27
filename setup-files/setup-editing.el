@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-15 22:43:57 csraghunandan>
+;; Time-stamp: <2017-10-27 16:56:06 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -293,10 +293,6 @@ C-u C-u C-u M-x xah-cycle-letter-case -> Force capitalize."
 (defun modi/upcase ()     (interactive) (xah-cycle-letter-case 4))
 (defun modi/downcase ()   (interactive) (xah-cycle-letter-case 16))
 (defun modi/capitalize () (interactive) (xah-cycle-letter-case 64))
-
-(bind-keys
- :map region-bindings-mode-map
- ("~" . hydra-change-case/body))
 
 (bind-key "M-c" (defhydra hydra-change-case (:color blue
                                                      :hint nil)

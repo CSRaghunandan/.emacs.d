@@ -6,6 +6,7 @@
   :diminish selected-minor-mode
   :bind (:map selected-keymap
               ("w" . kill-region)
+              ("~" . hydra-change-case/body)
               ("c" . copy-region-as-kill)
               ("d" . duplicate-current-line-or-region)
               ("W" . recursive-narrow-or-widen-dwim)
