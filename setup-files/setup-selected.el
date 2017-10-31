@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-27 16:46:47 csraghunandan>
+;; Time-stamp: <2017-10-31 12:28:21 csraghunandan>
 
 ;; selected: Keymap for when region is active
 ;; https://github.com/Kungsgeten/selected.el
@@ -18,7 +18,7 @@
               ("s" . rag/kill-rectangle-replace-with-space)
               ("l" . align-hydra/body)
               ("t" . xah-title-case-region-or-line))
-  :config
+  :init
   (selected-global-mode))
 
 (provide 'setup-selected)
