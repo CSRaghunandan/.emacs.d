@@ -147,8 +147,8 @@
   (c-add-style "llvm"
                '("gnu"
 	         (fill-column . 80)
-	         (c++-indent-level . 2)
-	         (c-basic-offset . 2)
+	         (c++-indent-level . 4)
+	         (c-basic-offset . 4)
 	         (indent-tabs-mode . nil)
 	         (c-offsets-alist . ((arglist-intro . ++)
 				     (innamespace . 0)
