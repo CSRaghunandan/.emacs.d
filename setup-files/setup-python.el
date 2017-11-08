@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-04 20:52:34 csraghunandan>
+;; Time-stamp: <2017-11-08 20:54:26 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -88,7 +88,7 @@
                           (lambda ()
                             (time-stamp)
                             (py-yapf-buffer)
-                            (py-isort-buffer))))))
+                            (py-isort-buffer)) nil t))))
 
   ;; sphinx-doc: add sphinx-doc comments easily
   ;; https://github.com/naiquevin/sphinx-doc.el
