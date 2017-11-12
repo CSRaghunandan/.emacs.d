@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-26 11:28:21 csraghunandan>
+;; Time-stamp: <2017-11-12 14:51:34 csraghunandan>
 
 ;; configuration for buffers
 
@@ -20,6 +20,7 @@
 
 ;; make emacs auto-refresh all buffers when files have changed on the disk
 (global-auto-revert-mode t)
+(setq auto-revert-remote-files t)
 (setq auto-revert-verbose nil)
 
 ;; get rid of all the tabs in a buffer
