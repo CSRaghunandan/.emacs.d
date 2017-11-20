@@ -23,10 +23,4 @@
   :defer t
   :mode (("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode)))
 
-;; crontab-mode: major-mode for editing corntab files
-;; https://github.com/emacsorphanage/crontab-mode
-(use-package crontab-mode
-  :defer t
-  :mode ("\\.?cron\\(tab\\)?\\'" . crontab-mode))
-
 (provide 'setup-config-files)
