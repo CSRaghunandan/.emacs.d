@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-16 01:32:04 csraghunandan>
+;; Time-stamp: <2017-11-29 12:27:52 csraghunandan>
 
 ;; swiper: isearch with an overview!
 ;; https://github.com/abo-abo/swiper
@@ -6,7 +6,10 @@
   :bind (:map isearch-mode-map
               ("C-c s" . swiper-from-isearch)) ; isearch > swiper
   :bind
-  (("C-s" . counsel-grep-or-swiper))
+  ;; https://github.com/abo-abo/swiper/issues/1331
+  ;; use swiper command for C-s till `counsel-grep-or-swiper' is fixed for emacs
+  ;; master build
+  (("C-s" . swiper))
   :config (setq swiper-action-recenter t))
 
 (provide 'setup-swiper)
