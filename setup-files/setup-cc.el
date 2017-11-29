@@ -144,6 +144,11 @@
   (add-hook 'c++-mode-hook 'smart-dash-mode)
   (add-hook 'c-mode-hook 'smart-dash-mode)
 
+  (>=e "26.0"
+      (sp-local-pair 'c-mode "'" nil :actions nil))
+  (>=e "26.0"
+      (sp-local-pair 'c++-mode "'" nil :actions nil))
+
   (c-add-style "llvm"
                '("gnu"
 	         (fill-column . 80)
