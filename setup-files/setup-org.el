@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-18 14:53:37 csraghunandan>
+;; Time-stamp: <2017-11-29 12:18:26 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -90,8 +90,6 @@
 
 ;;; Org Variables
   ;; this looks better in my opinion
-  (setq org-ellipsis " ")
-  ;; no underlines for org-ellipse
   (set-face-attribute 'org-ellipsis nil :underline nil :foreground "#E0CF9F")
   ;; hide emphasis markup characters
   (setq org-hide-emphasis-markers t)
