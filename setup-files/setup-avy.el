@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:28:27 csraghunandan>
+;; Time-stamp: <2017-11-29 20:01:56 csraghunandan>
 
 ;; avy: package for jumping to visible text using character based decision tree
 ;; https://github.com/abo-abo/avy
@@ -7,8 +7,6 @@
   (("C-`" . avy-goto-word-1)
    ("C-'" . avy-goto-char-timer))
   :config
-  ;; push mark before jumping to any
-  (advice-add 'swiper :before 'avy-push-mark)
 
   ;; use home row keys for avy jumps
   (setq avy-keys-alist
