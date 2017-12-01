@@ -34,6 +34,11 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
+;; diminish-mode: to hide minor modes in mode-line
+;; https://github.com/emacsmirror/diminish
+(use-package diminish
+  :ensure t)
+
 (require 'setup-osx)
 (require 'setup-org)
 (require 'setup-backup)

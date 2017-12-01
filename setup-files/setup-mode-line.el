@@ -2,10 +2,6 @@
 
 ;; diminish, powerline, spaceline, eldoc
 
-;; diminish-mode: to hide minor modes in mode-line
-;; https://github.com/emacsmirror/diminish
-(use-package diminish :demand t)
-
 ;; powerline: a better looking mode line for emacs
 ;; https://github.com/milkypostman/powerline
 (use-package powerline
