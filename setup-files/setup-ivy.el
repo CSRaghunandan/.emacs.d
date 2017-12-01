@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-02 14:10:33 csraghunandan>
+;; Time-stamp: <2017-12-02 00:54:21 csraghunandan>
 
 ;; Smart M-x (smex): sort extended commands by last invoked
 ;; https://github.com/nonsequitur/smex/
@@ -19,7 +19,8 @@
         ivy-virtual-abbreviate 'full ; Show the full virtual file paths
         ivy-extra-directories nil ; default value: ("../" "./")
         ivy-format-function 'ivy-format-function-arrow
-        ivy-wrap t)
+        ivy-wrap t
+        ivy-use-selectable-prompt t)
 
   (bind-keys
    :map ivy-occur-grep-mode-map
@@ -45,3 +46,14 @@
 ;; * press C-' when in ivy-minibuffer to use avy to select completion candidates
 ;; * press `~' when in `counsel-find-file' to go to home directory
 ;; * press `//' when in `counsel-find-file' to go to root directory
+;; Press `C-p RET' to select the current candidate you are typing instead of `C-M-j'
+;; Press `M-o w' to copy the current candidate to the kill ring.
+;; Press `M-o i' to insert the current candidate into the buffer.
+;; `C-d' in `ivy-occur' to delete entries from the ivy-occur file
+;; `counsel-org-capture' ->  completion for org-capture
+;; `counsel-minibuffer-history' -> generalization of counsel-expression-history and counsel-shell-command-history
+;; `counsel-org-file' ->  browse all attachments for the current Org file
+;; `counsel-org-goto' -> completion for Org headings
+;; `counsel-org-goto-all' -> completion for Org headings in all open buffers
+;; `ivy-switch-view' ->  select a window configuration, decoupled from ivy-switch-buffer
+;; `counsel-fzf' -> completion for fzf
