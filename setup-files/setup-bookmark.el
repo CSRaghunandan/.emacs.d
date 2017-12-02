@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-18 15:39:14 csraghunandan>
+;; Time-stamp: <2017-12-02 12:16:53 csraghunandan>
 
 ;; bm: visible bookmarks within a buffer
 ;; https://github.com/joodland/bm
@@ -41,7 +41,7 @@
           (deactivate-mark))
       (bm-bookmark-regexp)))
 
-  (bind-key "C-c b"
+  (bind-key "C-c h b"
             (defhydra hydra-bm (:color pink
                                        :hint nil
                                        :body-pre (when (not (use-region-p))
