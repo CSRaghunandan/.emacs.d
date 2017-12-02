@@ -1,18 +1,9 @@
-;; Time-stamp: <2017-12-02 15:08:44 csraghunandan>
+;; Time-stamp: <2017-12-02 15:14:21 csraghunandan>
 
 ;; xkcd
 ;; https://github.com/vibhavp/emacs-xkcd
 (use-package xkcd
-  :bind
-  (:map xkcd-mode-map
-        ("/" . xkcd-get)
-        ("g" . xkcd-get-latest)
-        ("c" . xkcd-get-latest-cached)
-        ("p" . xkcd-prev)
-        ("n" . xkcd-next)
-        ("v" . xkcd-open-browser)
-        ("w" . xkcd-copy-link)
-        ("?" . xkcd-open-explanation-browser)))
+  :defer t)
 
 (provide 'setup-xkcd)
 
