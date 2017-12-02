@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-04-05 11:45:02 csraghunandan>
+;; Time-stamp: <2017-12-02 12:09:02 csraghunandan>
 
 ;; ace-window: quick switching of windows
 ;; https://github.com/abo-abo/ace-window
@@ -10,6 +10,7 @@
 
   ;; display the ace-window key to switch to in mode-line
   (ace-window-display-mode 1)
+
   ;; enable aw dispatch even for just one window
   (setq aw-dispatch-always t)
 
@@ -33,11 +34,15 @@
   (setq aw-dispatch-alist
     '((?x aw-delete-window " Ace - Delete Window")
       (?m aw-swap-window " Ace - Swap Window")
-      (?n aw-flip-window nil " Ace - Flip Window")
+      (?M aw-move-window "Move Window")
+      (?n aw-flip-window)
+      (?u aw-switch-buffer-other-window "Switch Buffer Other Window")
+      (?j aw-switch-buffer-in-window "Select Buffer")
       (?o delete-other-windows " Ace - Maximize Window")
       (?c hydra-window-scroll/body)
       (?t aw-split-window-fair "Ace- split fairly")
-      (?y hydra-window-size/body))))
+      (?y hydra-window-size/body)
+      (?? aw-show-dispatch-help))))
 
 (provide 'setup-ace-window)
 
@@ -49,11 +54,14 @@
 ;;
 ;; x - delete window
 ;; m - swap (move) window
-;; v - split window vertically
-;; b - split window horizontally
+;; t - split window fairly
+;; M - move window
+;; u - switch buffer other window
+;; j - switch buffer in window
 ;; n - select the previous window
 ;; i - maximize window (select which window)
 ;; o - maximize current window
+;; ? - show help for ace-window
 ;;
 ;; Usage: <ace-window BINDING> x <WINDOW-CHAR> will delete that window
 
