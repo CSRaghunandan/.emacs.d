@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-16 13:08:27 csraghunandan>
+;; Time-stamp: <2017-12-02 13:14:41 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -31,9 +31,6 @@ not prevent downloading the actual packages (obviously)."
 
 ;; enable disabled commands
 (setq disabled-command-function nil)
-
-;; set default tab width to 4
-(setq-default tab-width 4)
 
 ;; don't use dialog boxes
 (setq use-dialog-box nil)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-27 16:56:06 csraghunandan>
+;; Time-stamp: <2017-12-02 13:14:50 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -19,6 +19,9 @@
 
 ;; always insert spaces, do not insert tabs
 (setq-default indent-tabs-mode nil)
+;; set default tab width to 4
+(setq-default tab-width 4)
+
 (setq-default fill-column 80) ;; default is 70
 
 ;; By default, Emacs thinks a sentence is a full-stop followed by 2 spaces.
