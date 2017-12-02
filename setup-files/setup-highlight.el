@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-17 18:53:18 csraghunandan>
+;; Time-stamp: <2017-12-02 13:28:26 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -56,5 +56,9 @@ This functions should be added to the hooks of major modes for programming."
           1 font-lock-warning-face t))))
 
 (add-hook 'prog-mode-hook #'prelude-font-lock-comment-annotations)
+
+;; enable some extra syntax highlighting for dash
+(with-eval-after-load 'dash
+  (dash-enable-font-lock))
 
 (provide 'setup-highlight)

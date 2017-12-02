@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:26:15 csraghunandan>
+;; Time-stamp: <2017-12-02 13:28:17 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -28,10 +28,6 @@ not prevent downloading the actual packages (obviously)."
 ;; default idle delay for eldoc is way too long
 (setq eldoc-idle-delay 0.1
       eldoc-echo-area-use-multiline-p nil)
-
-;; enable some extra syntax highlighting for dash
-(with-eval-after-load 'dash
-  (dash-enable-font-lock))
 
 (bind-key* "C-?" 'help-command)
 
