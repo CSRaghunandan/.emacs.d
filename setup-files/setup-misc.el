@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:23:06 csraghunandan>
+;; Time-stamp: <2017-12-02 13:26:15 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -39,10 +39,6 @@ not prevent downloading the actual packages (obviously)."
 (setq echo-keystrokes 0.01)
 ;; set all yes or no prompts to y or n
 (fset 'yes-or-no-p 'y-or-n-p)
-;; more info in apropos
-(setq apropos-do-all t)
-;; always select help window when opened
-(setq-default help-window-select t)
 ;; garbage collect when focus out
 (add-hook 'focus-out-hook 'garbage-collect)
 ;; make links clickable
