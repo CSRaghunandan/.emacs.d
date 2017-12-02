@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:21:32 csraghunandan>
+;; Time-stamp: <2017-12-02 13:23:06 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -64,8 +64,5 @@ not prevent downloading the actual packages (obviously)."
 
 ;; prefer new files if one exists while loading
 (setq load-prefer-newer t)
-
-;; enable recursive minibuffers
-(setq enable-recursive-minibuffers t)
 
 (provide 'setup-misc)
