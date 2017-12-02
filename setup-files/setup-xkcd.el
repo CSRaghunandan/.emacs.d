@@ -1,21 +1,18 @@
-;; Time-stamp: <2017-06-14 13:42:32 csraghunandan>
+;; Time-stamp: <2017-12-02 15:08:44 csraghunandan>
 
 ;; xkcd
 ;; https://github.com/vibhavp/emacs-xkcd
 (use-package xkcd
-  :defer t
-  :config
-  (progn
-    (bind-keys
-     :map xkcd-mode-map
-     ("/" . xkcd-get)
-     ("g" . xkcd-get-latest)
-     ("c" . xkcd-get-latest-cached)
-     ("p" . xkcd-prev)
-     ("n" . xkcd-next)
-     ("v" . xkcd-open-browser)
-     ("w" . xkcd-copy-link)
-     ("?" . xkcd-open-explanation-browser))))
+  :bind
+  (:map xkcd-mode-map
+        ("/" . xkcd-get)
+        ("g" . xkcd-get-latest)
+        ("c" . xkcd-get-latest-cached)
+        ("p" . xkcd-prev)
+        ("n" . xkcd-next)
+        ("v" . xkcd-open-browser)
+        ("w" . xkcd-copy-link)
+        ("?" . xkcd-open-explanation-browser)))
 
 (provide 'setup-xkcd)
 
