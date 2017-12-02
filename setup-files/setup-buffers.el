@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 12:42:08 csraghunandan>
+;; Time-stamp: <2017-12-02 12:50:28 csraghunandan>
 
 ;; configuration for buffers
 
@@ -225,6 +225,7 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
   (interactive)
   (split-window-below)
   (other-window 1))
+
 (defun rag/split-right-and-move ()
   "split window right and move there"
   (interactive)
@@ -300,7 +301,6 @@ will be killed."
   (message "Finished reverting buffers containing unmodified files."))
 
 (defvar my-skippable-buffers '("*Messages*"
-                               "*scratch*"
                                "*Help*"
                                "*Bookmark List*"
                                "*Ibuffer*"
@@ -331,12 +331,6 @@ will be killed."
 
 (global-set-key [remap next-buffer] 'my-next-buffer)
 (global-set-key [remap previous-buffer] 'my-previous-buffer)
-
-;; recursive narrow or widen buffers
-;; https://github.com/nflath/recursive-narrow/blob/master/recursive-narrow.el
-;; press `C-x n w' when inside a recursive narrow to widen the buffer back to the
-;; narrowed buffer instead of widening to the whole buffer
-(use-package recursive-narrow)
 
 (defun wh/switch-buffers-same-mode ()
   "Allows us to switch between buffers of the same major mode"
