@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-16 19:21:00 csraghunandan>
+;; Time-stamp: <2017-12-02 13:00:47 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -36,7 +36,7 @@
   ;; set defaults for company-mode
   (setq company-tooltip-flip-when-above t
         company-minimum-prefix-length 3
-        company-idle-delay 0.4
+        company-idle-delay 0.2
         company-selection-wrap-around t
         company-show-numbers t
         company-require-match 'never
