@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-11-12 14:51:34 csraghunandan>
+;; Time-stamp: <2017-12-02 12:20:10 csraghunandan>
 
 ;; configuration for buffers
 
@@ -27,12 +27,6 @@
 (defun rag/untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)) nil)
-
-;; transpose-frame: Transpose windows arrangement in a frame
-;; https://www.emacswiki.org/emacs/transpose-frame.el
-(use-package transpose-frame
-  :bind (("C-x t f" . transpose-frame)
-         ("C-x t r" . rotate-frame)))
 
 ;;; File Permissions
 (defun modi/set-file-permissions (perm)
