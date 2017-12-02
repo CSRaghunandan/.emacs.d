@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:18:58 csraghunandan>
+;; Time-stamp: <2017-12-02 13:21:32 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -47,9 +47,6 @@ not prevent downloading the actual packages (obviously)."
 (add-hook 'focus-out-hook 'garbage-collect)
 ;; make links clickable
 (add-hook 'prog-mode-hook 'goto-address-mode)
-
-;; load bookmark list
-(bookmark-bmenu-list)
 
 (defun conditional-disable-modes ()
   ;; disable heavy minor modes if file is large (above 2MB)

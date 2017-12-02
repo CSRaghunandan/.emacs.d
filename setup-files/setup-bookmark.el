@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 12:16:53 csraghunandan>
+;; Time-stamp: <2017-12-02 13:21:44 csraghunandan>
 
 ;; bm: visible bookmarks within a buffer
 ;; https://github.com/joodland/bm
@@ -76,6 +76,9 @@ Bookmark _n_ext (_N_ in lifo order)            toggle book_m_ark        ^^_/_ bm
 ;; http://oremacs.com/2015/01/06/rushing-headlong/
 (use-package headlong
   :bind (("s-b" . headlong-bookmark-jump)))
+
+;; load bookmark list
+(bookmark-bmenu-list)
 
 (provide 'setup-bookmark)
 
