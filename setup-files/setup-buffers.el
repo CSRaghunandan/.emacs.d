@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 12:24:34 csraghunandan>
+;; Time-stamp: <2017-12-02 12:42:08 csraghunandan>
 
 ;; configuration for buffers
 
@@ -158,6 +158,24 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
 
 (>=e "26.0"
     (bind-key "C-x k" 'modi/kill-buffer-dwim))
+
+(defun modi/quit-and-kill-window ()
+  "Quit window and kill instead of burying the buffer in it."
+  (interactive)
+  (quit-window :kill))
+
+;;;; Read-only Buffer Bindings
+;; Update bindings in few read-only modes
+;; http://stackoverflow.com/a/27091776/1219634
+;; Cannot set below to `'(map1 map2)'; it has to be `(list map1 map2)'.
+(defconst modi/read-only-mode-maps (list special-mode-map
+                                         tabulated-list-mode-map)
+  "List of read-only mode maps in which few key bindings need to be updated.")
+(dolist (map modi/read-only-mode-maps)
+  (define-key map (kbd "y") #'bury-buffer)                ;Only bury
+  (define-key map (kbd "k") #'modi/kill-buffer-dwim)      ;Only kill
+  (define-key map (kbd "z") #'quit-window)                ;Quit + bury
+  (define-key map (kbd "q") #'modi/quit-and-kill-window))  ;Quit + kill
 
 ;;; Current File Buffer Actions
 ;; Delete current buffer file
