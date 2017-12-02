@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:28:26 csraghunandan>
+;; Time-stamp: <2017-12-02 14:46:55 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -39,7 +39,9 @@
 ;; highlight-numbers: fontify numbers
 ;; https://github.com/Fanael/highlight-numbers
 (use-package highlight-numbers
-  :config (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+  :config
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode)
+  (add-hook 'org-mode-hook 'highlight-numbers-mode))
 
 ;; highlight-indent-guides: best indent guides solution for emacs
 ;; https://github.com/DarthFennec/highlight-indent-guides
