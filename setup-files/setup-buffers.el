@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 12:20:10 csraghunandan>
+;; Time-stamp: <2017-12-02 12:24:34 csraghunandan>
 
 ;; configuration for buffers
 
@@ -150,10 +150,10 @@ via the menu bar, and pays no attention to the menu-bar's frame."
 When called in the minibuffer, get out of the minibuffer
 using `abort-recursive-edit'.
 If KILL-NEXT-ERROR-BUFFER is non-nil, kill the `next-error' buffer.
-Examples of such buffers: *gtags-global*, *ag*, *Occur*."
+Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
   (interactive "P")
   (if kill-next-error-buffer
-      (kill-buffer (next-error-find-buffer))
+      (kill-buffer (next-error-find-buffer :avoid-current))
     (kill-current-buffer)))
 
 (>=e "26.0"
