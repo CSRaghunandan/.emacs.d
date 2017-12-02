@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-08 11:25:44 csraghunandan>
+;; Time-stamp: <2017-12-02 15:03:48 csraghunandan>
 
 ;; view the list recently opened files
 (use-package recentf :defer 1
@@ -20,5 +20,3 @@
           "loaddefs.el")))
 
 (provide 'setup-recentf)
-
-;; `C-x R' -> will show the list of recently opened directories
