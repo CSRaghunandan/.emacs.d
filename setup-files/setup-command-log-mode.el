@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-05-01 17:15:08 csraghunandan>
+;; Time-stamp: <2017-12-02 12:58:30 csraghunandan>
 
 ;; Command Log Mode: log all commands in a buffer or all buffers
 ;; https://github.com/lewang/command-log-mode
@@ -18,7 +18,7 @@
 
   (bind-key "C-c h L"
             (defhydra hydra-command-log (:color teal
-                                         :columns 7)
+                                         :columns 6)
      "Command Log"
      ("c" command-log-mode "toggle mode")
      ("o" clm/open-command-log-buffer "open log buffer")
