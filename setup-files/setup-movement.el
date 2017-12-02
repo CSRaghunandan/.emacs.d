@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-15 20:12:26 csraghunandan>
+;; Time-stamp: <2017-12-02 13:19:18 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -86,5 +86,15 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   :init
   (setq dumb-jump-selector 'ivy)
   (add-hook 'prog-mode-hook #'dumb-jump-mode))
+
+(setq recenter-positions '(0.50 0.07 0.93)) ;default: '(middle top bottom)
+;; First C-l  -> 0.50: Put point vertically at the middle of the window
+;; Second C-l -> 0.07: Put point close to the top of the window. If
+;;                     (window-height) returns 70, that's roughly 4 lines.
+;; Third C-l  -> 0.93: Put point close to the bottom of the window ~ 3 lines.
+;; With the default values of `recenter-positions' and `scroll-margin' (0),
+;; the "top" position is the first line of the window, and the "bottom"
+;; position is the last line. Above settings provides a margin of 3 or 4 lines
+;; for my default window size for the "top" and "bottom" iterations.
 
 (provide 'setup-movement)
