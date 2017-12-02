@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-25 16:11:46 csraghunandan>
+;; Time-stamp: <2017-12-02 14:39:56 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -6,7 +6,9 @@
   :bind (("C-c m b" . magit-blame)
          ("C-c m s" . hydra-magit/body))
 
-  :config (setq magit-completing-read-function 'ivy-completing-read)
+  :config
+  (setq magit-completing-read-function 'ivy-completing-read)
+
   (progn
     ;; Magit Submodule support
     ;; https://www.reddit.com/r/emacs/comments/6aiwk5/how_to_manage_multiple_gitrepositories_at_once/dhf47dg/
@@ -35,24 +37,25 @@
                         bufs-with-names))))
       (switch-to-buffer chosen-buf)))
   (bind-key "C-C m p" #'wh/switch-magit-status-buffer)
-  (progn
-    (defhydra hydra-magit (:color blue
-                                  :columns 4)
-      "Magit"
-      ("g" magit-status "status")
-      ("s" magit-status "status")
-      ("l" magit-log-all-branches "log")
-      ("b" magit-branch-popup "branch popup")
-      ("r" magit-rebase-popup "rebase popup")
-      ("R" magit-show-refs-popup "show refs")
-      ("f" magit-fetch-popup "fetch popup")
-      ("P" magit-push-popup "push popup")
-      ("F" magit-pull-popup "pull popup")
-      ("d" magit-diff-popup "diff popup")
-      ("D" magit-diff-buffer-file-popup "diff file popup")
-      ("p" magit-log-buffer-file-popup "file log popup")
-      ("W" magit-format-patch "format patch")
-      ("$" magit-process-buffer "process"))))
+
+  (defhydra hydra-magit (:color blue
+                                :columns 5)
+    "Magit"
+    ("g" magit-status "status")
+    ("s" magit-status "status")
+    ("l" magit-log-all-branches "log")
+    ("b" magit-branch-popup "branch popup")
+    ("r" magit-rebase-popup "rebase popup")
+    ("R" magit-show-refs-popup "show refs")
+    ("f" magit-fetch-popup "fetch popup")
+    ("P" magit-push-popup "push popup")
+    ("F" magit-pull-popup "pull popup")
+    ("d" magit-diff-popup "diff popup")
+    ("D" magit-diff-buffer-file-popup "diff file popup")
+    ("p" magit-log-buffer-file-popup "file log popup")
+    ("W" magit-format-patch "format patch")
+    ("$" magit-process-buffer "process")
+    ("q" nil "cancel" :color blue)))
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
@@ -80,7 +83,7 @@
 
 ;; git-messenger: popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
-(use-package git-messenger
+(use-package git-messenger :defer t
   :config
   ;; Enable magit-show-commit instead of pop-to-buffer
   (setq git-messenger:use-magit-popup t)
