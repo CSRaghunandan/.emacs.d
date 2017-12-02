@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:14:50 csraghunandan>
+;; Time-stamp: <2017-12-02 13:33:10 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -357,7 +357,6 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 
 (bind-keys
  ("C-c o s" . cycle-spacing)
- ("M-?" . mark-paragraph)
  ("C-h" . delete-backward-char)
  ("C-M-h" . backward-kill-word)
  ("M-;" . comment-line)
