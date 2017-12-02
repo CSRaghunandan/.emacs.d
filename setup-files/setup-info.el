@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-06-18 19:10:57 csraghunandan>
+;; Time-stamp: <2017-12-02 14:55:20 csraghunandan>
 
 ;; info+: extend the standard `info.el' emacs library
 ;; https://www.emacswiki.org/emacs/InfoPlus
@@ -119,7 +119,7 @@ _i_nfo      _o_rg      e_l_isp      e_L_isp intro      _e_macs      _c_alc      
   ("e" (ora-open-info "emacs" "*emacs info*"))
   ("c" (ora-open-info "calc" "*calc info*"))
   ("C" (ora-open-info "cl" "*emacs common lisp info*"))
-  ("g" counsel-ag-emacs-info))
+  ("q" nil " cancel" :color blue))
 
 (bind-key "C-c h i" #'hydra-info-to/body)
 
