@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 12:50:28 csraghunandan>
+;; Time-stamp: <2017-12-02 12:52:28 csraghunandan>
 
 ;; configuration for buffers
 
@@ -350,32 +350,6 @@ will be killed."
                       bufs-with-names))))
     (switch-to-buffer chosen-buf)))
 (bind-key "C-x B" #'wh/switch-buffers-same-mode)
-
-(defmacro my-special-beginning-of-buffer (mode &rest forms)
-  "Define a special version of `beginning-of-buffer' in MODE.
-
-The special function is defined such that the point first moves
-to `point-min' and then FORMS are evaluated.  If the point did
-not change because of the evaluation of FORMS, jump
-unconditionally to `point-min'.  This way repeated invocations
-toggle between real beginning and logical beginning of the
-buffer."
-  (declare (indent 1))
-  (let ((fname (intern (concat "my-" (symbol-name mode) "-beginning-of-buffer")))
-        (mode-map (intern (concat (symbol-name mode) "-mode-map")))
-        (mode-hook (intern (concat (symbol-name mode) "-mode-hook"))))
-    `(progn
-       (defun ,fname ()
-         (interactive)
-         (let ((p (point)))
-           (goto-char (point-min))
-           ,@forms
-           (when (= p (point))
-             (goto-char (point-min)))))
-       (add-hook ',mode-hook
-                 (lambda ()
-                   (define-key ,mode-map
-                     [remap beginning-of-buffer] ',fname))))))
 
 ;; beginend: Emacs package to redefine M-< and M-> for some modes
 ;; https://github.com/DamienCassou/beginend
