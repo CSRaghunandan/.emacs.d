@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-08-20 00:30:37 csraghunandan>
+;; Time-stamp: <2017-12-02 13:05:44 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -83,7 +83,6 @@
    ([remap bookmark-set] . counsel-bookmark)  ;C-x r m
    ([remap find-file] . counsel-find-file)
    ("C-c g g" . counsel-git-grep)
-   ("C-c m r" . counsel-mark-ring)
    ("C-c f" . counsel-imenu)
    ("M-y" . counsel-yank-pop)
    ("C-c F" . ivy-imenu-anywhere)
@@ -104,7 +103,6 @@
 ;; `counsel-yank-pop' -> access the kill ring using ivy
 ;; `counsel-unicode-char' -> search through Unicode characters using ivy
 ;; `counsel-rg' -> search the all files in the current directory using `ripgrep'
-;; `rag/counsel-rg-project-at-point' -> search all files in the current project
 ;; `counsel-descbinds' -> lists all the key bindings in the current buffer
 ;; `counsel-mark-ring' -> access the mark ring for the current buffer using ivy
 ;; `counsel-faces' -> lists all the face colours in emacs
