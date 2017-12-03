@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 14:56:39 csraghunandan>
+;; Time-stamp: <2017-12-04 00:25:07 csraghunandan>
 
 ;; Smart M-x (smex): sort extended commands by last invoked
 ;; https://github.com/nonsequitur/smex/
@@ -20,7 +20,8 @@
         ivy-extra-directories nil ; default value: ("../" "./")
         ivy-format-function 'ivy-format-function-arrow
         ivy-wrap t
-        ivy-use-selectable-prompt t)
+        ivy-use-selectable-prompt t
+        ivy-dynamic-exhibit-delay-ms 200)
 
   (bind-keys
    :map ivy-occur-grep-mode-map
