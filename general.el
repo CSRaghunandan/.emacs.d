@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-26 00:40:29 csraghunandan>
+;; Time-stamp: <2017-12-02 22:56:30 csraghunandan>
 
 ;;; Emacs version check
 (defmacro >=e (version &rest body)
@@ -58,5 +58,19 @@ If HERE is non-nil, also insert the string at point."
 
 ;; Quitting emacs via `C-x C-c` or the GUI 'X' button
 (setq confirm-kill-emacs #'y-or-n-p)
+
+(setq user-mail-address "csraghunandan@betonindia.in")
+
+(defun is-mac-p ()
+  (eq system-type 'darwin))
+
+(defun is-linux-p ()
+  (eq system-type 'gnu/linux))
+
+(defun is-windows-p ()
+  (or
+   (eq system-type 'ms-dos)
+   (eq system-type 'windows-nt)
+   (eq system-type 'cygwin)))
 
 (provide 'general)

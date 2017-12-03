@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-07-08 13:57:22 csraghunandan>
+;; Time-stamp: <2017-12-03 13:01:49 csraghunandan>
 
 ;; ERC: the irc client for emacs
 (use-package erc :defer t
@@ -33,7 +33,7 @@
            (concat "ERC " (buffer-name (current-buffer)))
            (concat "\\<" (nth 0 (erc-parse-user nick)) "> " message)))))
 
-    (if (eq system-type 'darwin)
+    (if (is-mac-p)
         (add-hook 'erc-text-matched-hook 'erc-terminal-notifier-text-matched)))
 
   ;; set directory to save erc log files

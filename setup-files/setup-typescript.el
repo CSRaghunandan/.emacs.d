@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-10 14:30:06 csraghunandan>
+;; Time-stamp: <2017-12-03 13:02:10 csraghunandan>
 
 ;; typescript config
 
@@ -56,7 +56,7 @@
                     (or (buffer-file-name) default-directory)
                     "node_modules"))
              (tslint (and root
-                          (expand-file-name (if (eq system-type 'windows-nt)
+                          (expand-file-name (if (is-windows-p)
                                                 "node_modules/.bin/tslint.cmd"
                                               "node_modules/.bin/tslint")
                                             root))))
