@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 14:55:20 csraghunandan>
+;; Time-stamp: <2017-12-03 13:06:28 csraghunandan>
 
 ;; info+: extend the standard `info.el' emacs library
 ;; https://www.emacswiki.org/emacs/InfoPlus
@@ -111,7 +111,7 @@ _t_: tags       _z_: customize    _q_: quit
 (defhydra hydra-info-to (:hint nil
                                :color teal)
   "
-_i_nfo      _o_rg      e_l_isp      e_L_isp intro      _e_macs      _c_alc      _g_rep emacs info"
+_i_nfo      _o_rg      e_l_isp      e_L_isp intro      _e_macs      _c_alc      _q_uit"
   ("i" info)
   ("o" (ora-open-info "org" "*org info*"))
   ("l" (ora-open-info "elisp" "*elisp info*"))
