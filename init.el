@@ -25,14 +25,14 @@
 
 
 
-;; add imenu support for use-package declarations
-(setq use-package-enable-imenu-support t)
-
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; updage packages archive
   (package-install 'use-package)) ; install the latest version of use-package
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
+
+;; add imenu support for use-package declarations
+(setq use-package-enable-imenu-support t)
 
 ;; diminish-mode: to hide minor modes in mode-line
 ;; https://github.com/emacsmirror/diminish
