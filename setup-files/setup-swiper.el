@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-04 13:24:12 csraghunandan>
+;; Time-stamp: <2017-12-05 00:59:49 csraghunandan>
 
 ;; swiper: isearch with an overview!
 ;; https://github.com/abo-abo/swiper
@@ -12,6 +12,7 @@
 (provide 'setup-swiper)
 
 ;; swiper
-;; press `M-n' to select the symbol at point in swiper
-;; press `C-c s' to search regexp from isearch to swiper
-;; press `C-S-s' to search all the open files(can be slow)
+;; `M-p' -> previous search item
+;; `M-n' -> next search item
+;; `M-n' -> to select the symbol at point in swiper
+;; `C-c s' -> to search regexp from isearch to swiper
