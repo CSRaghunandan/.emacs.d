@@ -1,13 +1,13 @@
-;; Time-stamp: <2017-12-05 00:59:49 csraghunandan>
+;; Time-stamp: <2017-12-07 10:59:51 csraghunandan>
 
 ;; swiper: isearch with an overview!
 ;; https://github.com/abo-abo/swiper
 (use-package swiper
-  :bind (:map isearch-mode-map
+  :bind (("C-s" . counsel-grep-or-swiper)
+         :map isearch-mode-map
               ("C-c s" . swiper-from-isearch)) ; isearch > swiper
   :config
-  (setq swiper-action-recenter t)
-  (bind-key "C-s" #'counsel-grep-or-swiper))
+  (setq swiper-action-recenter t))
 
 (provide 'setup-swiper)
 
