@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-31 12:28:21 csraghunandan>
+;; Time-stamp: <2017-12-07 17:26:04 csraghunandan>
 
 ;; selected: Keymap for when region is active
 ;; https://github.com/Kungsgeten/selected.el
@@ -9,7 +9,6 @@
               ("~" . hydra-change-case/body)
               ("c" . copy-region-as-kill)
               ("d" . duplicate-current-line-or-region)
-              ("W" . recursive-narrow-or-widen-dwim)
               ("E" . eval-region)
               ("e" . er/expand-region)
               ("f" . fill-region)
