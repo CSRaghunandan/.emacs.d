@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-04 13:39:14 csraghunandan>
+;; Time-stamp: <2017-12-12 15:41:05 csraghunandan>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
@@ -133,7 +133,7 @@ files in Fundamental mode."
 ^^    _f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer               _c_: cache clear               ^^    _E_: edit project's .dir-locals.el
 ^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      ^^    _p_: switch to any other project
 ^^    _d_: file curr dir      _o_: multi-occur       ^^    _K_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
-^^    _r_: recent file        _G_: git-grep          ^^    _Q_: replace regexp        _z_: cache current             ^^    _S_: switch to magit status other project
+^^    _R_: recent file        _G_: git-grep          ^^    _Q_: replace regexp        _z_: cache current             ^^    _S_: switch to magit status other project
 ^^    _D_: dir                                       ^^^^                             _l_: file literally
 "
     ("r" counsel-rg)
@@ -158,7 +158,7 @@ files in Fundamental mode."
     ("l"   modi/projectile-find-file-literally)
     ("P" projectile-switch-open-project)
     ("s" projectile-switch-project)
-    ("r" projectile-recentf)
+    ("R" projectile-recentf)
     ("x" projectile-remove-known-project)
     ("X" projectile-cleanup-known-projects)
     ("z" projectile-cache-current-file)
