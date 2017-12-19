@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-11-29 12:18:26 csraghunandan>
+;; Time-stamp: <2017-12-19 18:47:24 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -100,7 +100,7 @@
   ;; insert a note after rescheduling a TODO
   (setq org-log-reschedule 'note)
   ;; Insert only timestamp when closing an org TODO item
-  (setq org-log-done 'timestamp)
+  (setq org-log-done 'time)
 
   ;; Display entities like \tilde, \alpha, etc in UTF-8 characters
   (setq org-pretty-entities t)

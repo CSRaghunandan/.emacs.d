@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-01 10:04:47 csraghunandan>
+;; Time-stamp: <2017-12-14 17:14:55 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -40,7 +40,7 @@
     ";; True glory consists in doing what deserves to be written in writing what
 ;; deserves to be read. -- Pliny the Elder\n\n"
     ";; The whole point of getting things done is knowing what to leave undone. -- Oswald Chambers\n\n"
-    ";; Do not communicate by sharing memory; instead, share memory by communicating."))
+    ";; Do not communicate by sharing memory; instead, share memory by communicating.\n\n"))
 
 ;; populate the initial scratch buffer with a random quote.
 (setq initial-scratch-message (random-choice programming-quotes))
