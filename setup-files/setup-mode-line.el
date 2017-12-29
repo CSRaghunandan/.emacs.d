@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-30 02:30:29 csraghunandan>
+;; Time-stamp: <2017-12-29 12:24:17 csraghunandan>
 
 ;; diminish, powerline, spaceline, eldoc
 
@@ -31,14 +31,13 @@
 
     (spaceline-define-segment mc
       "Display the number of multiple cursors"
-      (if (> (mc/num-cursors) 1)
+      (when (> (mc/num-cursors) 1)
         (concat "mc: " (format
                         "%d"
-                        (mc/num-cursors)))
-        nil))
+                        (mc/num-cursors)))))
 
     ;; show projectile project root and indicate when narrowed
-    (spaceline-spacemacs-theme '(narrow mc projectile-root))))
+    (spaceline-spacemacs-theme '(mc narrow projectile-root))))
 
 ;; eldoc: show function parameters/ type of thing at point
 (use-package eldoc :diminish eldoc-mode)
