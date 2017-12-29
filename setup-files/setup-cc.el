@@ -15,7 +15,7 @@
   ;; A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs
   ;; based on clang.
   ;; https://github.com/Andersbakken/rtags
-  (use-package rtags
+  (use-package rtags :defer t
     :config
 
     (rtags-enable-standard-keybindings)
