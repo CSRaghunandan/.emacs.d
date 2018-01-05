@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-29 12:54:48 csraghunandan>
+;; Time-stamp: <2018-01-05 16:27:25 csraghunandan>
 
 ;; configuration for OCaml mode
 
@@ -13,7 +13,8 @@
            ("\\.topml$" . tuareg-mode))
     :defer t
     :init
-    (setq tuareg-use-abbrev nil)
+    (add-hook 'tuareg-mode-hook (lambda ()
+                                  (abbrev-mode -1)))
 
     ;; Make OCaml-generated files invisible to filename completion
     (dolist (ext '(".cmo" ".cmx" ".cma" ".cmxa" ".cmi" ".cmxs" ".cmt" ".cmti" ".annot"))
