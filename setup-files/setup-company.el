@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-29 22:56:47 csraghunandan>
+;; Time-stamp: <2018-01-09 11:59:55 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -48,8 +48,7 @@ In that case, insert the number."
     (define-key map " " (lambda ()
                           (interactive)
                           (company-abort)
-                          (self-insert-command 1)))
-    (define-key map (kbd "<return>") nil))
+                          (self-insert-command 1))))
 
   ;; set defaults for company-mode
   (setq company-tooltip-flip-when-above t
