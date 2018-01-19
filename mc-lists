@@ -14,6 +14,7 @@
         indent-for-tab-command
         isearch-forward-symbol-at-point
         ivy-wgrep-change-to-wgrep-mode
+        kill-region
         mwim-beginning-of-code-or-line
         mwim-beginning-of-code-or-line-or-comment
         mwim-end-of-code-or-line

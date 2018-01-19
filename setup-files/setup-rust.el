@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-08 00:42:42 csraghunandan>
+;; Time-stamp: <2018-01-15 22:22:45 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -39,16 +39,16 @@
   (add-hook 'flycheck-mode-hook 'flycheck-rust-setup)
   (add-hook 'rust-mode-hook #'racer-mode)
 
-  ;; format rust buffers using rustfmt(if it is installed)
-  (if (executable-find "rustfmt")
-    (add-hook 'rust-mode-hook
-              (lambda ()
-                (add-hook 'before-save-hook
-                          (lambda ()
-                            (time-stamp)
-                            (xah-clean-whitespace)
-                            (rust-format-buffer)) nil t)))
-    (warn "rust-mode: rustfmt not foud, automatic source code formatting disabled"))
+  ;; ;; format rust buffers using rustfmt(if it is installed)
+  ;; (if (executable-find "rustfmt")
+  ;;   (add-hook 'rust-mode-hook
+  ;;             (lambda ()
+  ;;               (add-hook 'before-save-hook
+  ;;                         (lambda ()
+  ;;                           (time-stamp)
+  ;;                           (xah-clean-whitespace)
+  ;;                           (rust-format-buffer)) nil t)))
+  ;;   (warn "rust-mode: rustfmt not foud, automatic source code formatting disabled"))
 
   (defun wh/rust-toggle-mutability ()
     "Toggle the mutability of the variable at point."
