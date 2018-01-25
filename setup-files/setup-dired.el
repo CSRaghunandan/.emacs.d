@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-01-26 01:10:53 csraghunandan>
+;; Time-stamp: <2018-01-26 01:33:35 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
@@ -102,5 +102,9 @@ It added extra strings at the front and back of the default dired buffer name."
                       (set-window-configuration wnd))))
       (error "no more than 2 files should be marked"))))
 (define-key dired-mode-map "E" 'ora-ediff-files)
+
+;; make dired use the same buffer when moving up a directory
+(define-key dired-mode-map (kbd "^")
+  (lambda () (interactive) (find-alternate-file "..")))
 
 (provide 'setup-dired)
