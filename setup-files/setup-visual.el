@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-14 17:14:55 csraghunandan>
+;; Time-stamp: <2018-01-26 00:31:37 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -110,10 +110,6 @@
 (use-package page-break-lines
   :diminish page-break-lines-mode
   :config (add-hook 'prog-mode-hook #'page-break-lines-mode))
-
-;; all-the-icons: show icons in neotree/dired/modeline
-;; https://github.com/domtronn/all-the-icons.el
-(use-package all-the-icons)
 
 ;; column-enforce-mode: highlight characters which exceed fill-column
 ;; https://github.com/jordonbiondo/column-enforce-mode
