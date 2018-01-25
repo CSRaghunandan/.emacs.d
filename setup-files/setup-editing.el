@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:33:10 csraghunandan>
+;; Time-stamp: <2018-01-26 00:24:37 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -142,7 +142,7 @@ Position the cursor at it's beginning, according to the current mode."
       (indicate-copied-region (length (car killed-rectangle)))))
 
 ;; expand-region: expand region semantically
-;; https://www.emacswiki.org/emacs/GotoChg
+;; https://github.com/magnars/expand-region.el/tree/f99b7630efcdb47c9c6182489c55fba3bcaee521
 (use-package expand-region
   :bind ("C-=" . er/expand-region)
   :config

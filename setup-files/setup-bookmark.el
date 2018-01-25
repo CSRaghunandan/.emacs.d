@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:21:44 csraghunandan>
+;; Time-stamp: <2018-01-26 00:23:34 csraghunandan>
 
 ;; bm: visible bookmarks within a buffer
 ;; https://github.com/joodland/bm
@@ -66,11 +66,6 @@ Bookmark _n_ext (_N_ in lifo order)            toggle book_m_ark        ^^_/_ bm
               ("r"   pop-to-mark-command :color blue)
               ("RET" nil "cancel" :color blue)
               ("q"   nil "cancel" :color blue))))
-
-;; bookmark+: Enhance the bookmark functionalities of vanilla bookmarks
-;; https://www.emacswiki.org/emacs/BookmarkPlus#Bookmark%2b
-(use-package bookmark+
-  :config (require 'bookmark+))
 
 ;; headlong: allows to easily jump to bookmarks
 ;; http://oremacs.com/2015/01/06/rushing-headlong/

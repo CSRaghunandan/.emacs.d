@@ -1,9 +1,4 @@
-;; Time-stamp: <2017-12-03 13:06:28 csraghunandan>
-
-;; info+: extend the standard `info.el' emacs library
-;; https://www.emacswiki.org/emacs/InfoPlus
-(use-package info+
-  :config (require 'info+))
+;; Time-stamp: <2018-01-26 00:25:22 csraghunandan>
 
 (defhydra hydra-info (:color blue
                       :hint nil)
