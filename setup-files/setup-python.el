@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-11-08 20:54:26 csraghunandan>
+;; Time-stamp: <2018-01-31 12:59:21 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -14,7 +14,7 @@
                                 (company-mode)
                                 (smart-dash-mode)
                                 (flycheck-mode)
-                                (page-break-lines-mode)))
+                                (setq-local tab-width 4)))
   ;; enable company-mode completions in inferior python process
   (add-hook 'inferior-python-mode-hook 'company-mode)
 
