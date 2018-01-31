@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-01-15 22:22:45 csraghunandan>
+;; Time-stamp: <2018-01-31 10:07:40 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -9,6 +9,15 @@
   ;; add flycheck support for rust
   ;; https://github.com/flycheck/flycheck-rust
   (use-package flycheck-rust)
+
+  ;; https://github.com/dryman/toml-mode.el
+  ;; toml-mode: major mode for editing TOML files
+  (use-package toml-mode
+    :mode "/\\(Cargo.lock\\|\\.cargo/config\\)\\'")
+
+  (with-eval-after-load 'smartparens
+    ;; Don't pair lifetime specifiers
+    (sp-local-pair 'rust-mode "'" nil :actions nil))
 
   ;; cargo-mode: execute cargo commands easily
   ;; https://github.com/kwrooijen/cargo.el
