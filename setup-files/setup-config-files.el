@@ -10,7 +10,8 @@
 (use-package conf-mode
   :defer t
   :mode (("\\.conf\\'"    . conf-space-mode)
-         ("\\.setup.*\\'" . conf-space-mode)))
+         ("\\.setup.*\\'" . conf-space-mode)
+         ("/\\(Cargo.lock\\|\\.cargo/config\\)\\'" . conf-toml-mode)))
 
 ;; systemd: Major mode for editing systemd units
 ;; https://github.com/holomorph/systemd-mode
