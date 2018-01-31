@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-10 14:42:10 csraghunandan>
+;; Time-stamp: <2018-01-31 12:50:09 csraghunandan>
 
 ;; golang configuration
 
@@ -31,13 +31,6 @@
   (use-package go-eldoc
     :commands go-eldoc-setup
     :config (add-hook 'go-mode-hook 'go-eldoc-setup))
-
-  ;; go-playground:GNU/Emacs mode that setup local Go playground for code
-  ;; snippets like play.golang.org or even better :)
-  ;; https://github.com/grafov/go-playground
-  (use-package go-playground
-    :bind (:map go-mode-map
-                (("C-c g p" . go-playground))))
 
   (add-hook 'go-mode-hook #'flycheck-mode)
 
