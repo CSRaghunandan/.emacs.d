@@ -1,4 +1,9 @@
-;; Time-stamp: <2018-01-26 00:25:22 csraghunandan>
+;; Time-stamp: <2018-02-06 12:03:07 csraghunandan>
+
+;; info-colors: Extra colors for Emacs info-mode
+;; https://github.com/ubolonton/info-colors/tree/a8ebb7b8efa314c08ea8110d8b1876afb562bb45
+(use-package info-colors
+  :config (add-hook 'Info-selection-hook 'info-colors-fontify-node))
 
 (defhydra hydra-info (:color blue
                       :hint nil)
