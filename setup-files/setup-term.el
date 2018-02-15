@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-01-26 00:26:10 csraghunandan>
+;; Time-stamp: <2018-02-15 15:37:49 csraghunandan>
 
 ;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://github.com/emacsorphanage/multi-term/tree/f954e4e18b0a035151d34852387e724d87a3316f
@@ -66,7 +66,7 @@
 
     (setq multi-term-buffer-name "term")
 
-    (setq multi-term-program "/bin/zsh")))
+    (setq multi-term-program (getenv "SHELL"))))
 
 (provide 'setup-term)
 
