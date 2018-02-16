@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-02-16 10:29:52 csraghunandan>
+;; Time-stamp: <2018-02-16 12:51:11 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -53,6 +53,10 @@
                             (xah-clean-whitespace)
                             (rust-format-buffer)) nil t)))
     (warn "rust-mode: rustfmt not foud, automatic source code formatting disabled"))
+
+  (if (executable-find "cargo-clippy")
+      (flycheck-add-next-checker 'rust-cargo
+                                 'rust-clippy))
 
   (defun wh/rust-toggle-mutability ()
     "Toggle the mutability of the variable at point."
