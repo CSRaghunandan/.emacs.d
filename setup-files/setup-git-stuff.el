@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 14:39:56 csraghunandan>
+;; Time-stamp: <2018-02-22 12:16:33 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -8,6 +8,15 @@
 
   :config
   (setq magit-completing-read-function 'ivy-completing-read)
+
+  (defun mu-magit-kill-buffers ()
+    "Restore window configuration and kill all Magit buffers."
+    (interactive)
+    (let ((buffers (magit-mode-get-buffers)))
+      (magit-restore-window-configuration)
+      (mapc #'kill-buffer buffers)))
+
+  (bind-key "Q" #'mu-magit-kill-buffers magit-status-mode-map)
 
   (progn
     ;; Magit Submodule support
