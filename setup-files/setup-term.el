@@ -1,9 +1,17 @@
-;; Time-stamp: <2018-02-15 15:37:49 csraghunandan>
+;; Time-stamp: <2018-02-26 09:13:15 csraghunandan>
 
 ;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://github.com/emacsorphanage/multi-term/tree/f954e4e18b0a035151d34852387e724d87a3316f
 (use-package multi-term
   :config
+  ;; Some userlike the cursor return to the position it was before I opened the
+  ;; dedicated terminal window.
+  (setq multi-term-dedicated-close-back-to-open-buffer-p t)
+
+  ;; eterm-256color: Customizable 256 colors for emacs term and ansi-term
+  ;; https://github.com/dieggsy/eterm-256color
+  (use-package eterm-256color
+    :config  (add-hook 'term-mode-hook #'eterm-256color-mode))
 
   (defun last-term-buffer (l)
     "Return most recently used term buffer."

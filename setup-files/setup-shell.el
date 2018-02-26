@@ -60,4 +60,7 @@
   (add-hook 'sh-mode-hook #'my-sh-mode-hook)
   (add-hook 'sh-mode-hook 'company-mode))
 
+;; On shells, please handle properly the ansi escape codes
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 (provide 'setup-shell)
