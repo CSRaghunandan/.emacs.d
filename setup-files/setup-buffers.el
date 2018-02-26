@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 12:52:28 csraghunandan>
+;; Time-stamp: <2018-02-26 12:10:06 csraghunandan>
 
 ;; configuration for buffers
 
@@ -362,5 +362,20 @@ will be killed."
     (progn
       (ivy-occur-previous-line 1)))
   (add-hook 'ivy-occur-grep-mode-hook #'beginend-ivy-occur-mode))
+
+(defun duplicate-buffer (new-name)
+  "Create a copy of the current buffer with the filename NEW-NAME.
+The original buffer and file are untouched."
+  (interactive (list (read-from-minibuffer "New name: " (buffer-file-name))))
+
+  (let ((filename (buffer-file-name))
+        (new-directory (file-name-directory new-name))
+        (contents (buffer-substring (point-min) (point-max))))
+    (unless filename (error "Buffer '%s' is not visiting a file!" (buffer-name)))
+
+    (make-directory new-directory t)
+    (find-file new-name)
+    (insert contents)
+    (basic-save-buffer)))
 
 (provide 'setup-buffers)
