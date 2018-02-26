@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2017-12-02 13:05:44 csraghunandan>
+;; Time-stamp: <2018-02-26 07:56:19 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -45,13 +45,11 @@
 
   (ivy-add-actions
    'counsel-find-file
-   `(("c" ,(given-file #'copy-file "Copy") "copy")
-     ("d" ,(reloading #'confirm-delete-file) "delete")
-     ("m" ,(reloading (given-file #'rename-file "Move")) "move")))
+   `(("m" ,(reloading (given-file #'rename-file "Move")) "move")
+     ("d" ,(reloading #'confirm-delete-file) "delete")))
   (ivy-add-actions
-   'counsel-projectile-find-file
-   `(("c" ,(given-file #'copy-file "Copy") "copy")
-     ("d" ,(reloading #'confirm-delete-file) "delete")
+   'projectile-find-file
+   `(("d" ,(reloading #'confirm-delete-file) "delete")
      ("m" ,(reloading (given-file #'rename-file "Move")) "move")
      ("b" counsel-find-file-cd-bookmark-action "cd bookmark")))
 
@@ -106,3 +104,10 @@
 ;; `counsel-descbinds' -> lists all the key bindings in the current buffer
 ;; `counsel-mark-ring' -> access the mark ring for the current buffer using ivy
 ;; `counsel-faces' -> lists all the face colours in emacs
+;; `counsel-ibuffer' -> run swiper search on content
+;; `counsel-apropos' -> search apropos through counsel
+;; `counsel-org-entity' -> search through a list of all the available org entities
+;; `counsel-org-got-all' -> search through all headings for the open org files
+;; `modi/counsel-org-tag' -> Adds aligning tags across file/heading
+;; `counsel-org-agenda-headlines' -> search headings of all the files in org agenda list
+;; `counsel-org-file' -> browse through all the attachments for a given org file
