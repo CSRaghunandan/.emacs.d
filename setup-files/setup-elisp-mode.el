@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-02-26 11:39:06 csraghunandan>
+;; Time-stamp: <2018-02-27 00:41:16 csraghunandan>
 
 ;; emacs-lisp-mpde
 ;; configure company mode for emacs-lisp-mode
@@ -40,12 +40,5 @@
     ;; as the quoted symbol.
     (set-face-attribute 'highlight-quoted-quote nil
                         :inherit 'highlight-quoted-symbol)))
-
-(dolist (hook '(emacs-lisp-mode-hook
-                racket-mode-hook))
-  (add-hook hook
-            (lambda ()
-              (setq use-hl-line nil)
-              (hl-sexp-mode))))
 
 (provide 'setup-elisp-mode)
