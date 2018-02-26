@@ -24,4 +24,8 @@
   :defer t
   :mode (("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode)))
 
+;; emacs mode for editing ssh config files.
+;; https://github.com/jhgorrell/ssh-config-mode-el
+(use-package ssh-config-mode)
+
 (provide 'setup-config-files)
