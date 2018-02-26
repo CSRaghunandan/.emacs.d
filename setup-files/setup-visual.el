@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-01-26 00:31:37 csraghunandan>
+;; Time-stamp: <2018-02-26 13:30:49 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -46,8 +46,6 @@
 (setq initial-scratch-message (random-choice programming-quotes))
 ;; set scratch major mode to `emacs-lisp-mode'
 (setq initial-major-mode 'emacs-lisp-mode)
-;; Show a random programming quote in scratch buffer
-(random-choice programming-quotes)
 
 
 
