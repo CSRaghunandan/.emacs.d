@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-02-26 07:56:19 csraghunandan>
+;; Time-stamp: <2018-02-26 08:07:43 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -93,8 +93,8 @@
 
 ;; interesting counsel commands
 ;; `counsel-file-jump' -> get all the files in a directory recursively
-;; `counsel-dired-jump' -> Jump to a directory (in dired) from a list of all
-;;                         directories below the current one.
+;; `counsel-dired-jump' -> Switch to any open dired buffer
+;; `counsel-locate' -> use locate command to find a file and search through the results
 ;; `counsel-colors-emacs' -> list all the colors emacs recognises
 ;; `counsel-colors-web' -> list all the colors that the web browser recognises
 ;; `counsel-command-history' -> browse through all the commands entered in `M-x'
@@ -111,3 +111,4 @@
 ;; `modi/counsel-org-tag' -> Adds aligning tags across file/heading
 ;; `counsel-org-agenda-headlines' -> search headings of all the files in org agenda list
 ;; `counsel-org-file' -> browse through all the attachments for a given org file
+;; `counsel-yank-directory' -> yank the current directory in minibuffer with `C-M-y'
