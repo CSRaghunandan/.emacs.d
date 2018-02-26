@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-10-02 10:35:34 csraghunandan>
+;; Time-stamp: <2018-02-26 09:30:02 csraghunandan>
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
@@ -7,7 +7,7 @@
   (progn
     (setq treemacs-follow-after-init t
           treemacs-width 35
-          treemacs-indentation 2
+          treemacs-indentation 1
           treemacs-git-integration t
           treemacs-collapse-dirs 3
           treemacs-silent-refresh t
@@ -16,7 +16,8 @@
           treemacs-show-hidden-files t
           treemacs-never-persist nil
           treemacs-is-never-other-window t
-          treemacs-goto-tag-strategy 'refetch-index)
+          treemacs-goto-tag-strategy 'refetch-index
+          treemacs-indentation-string (propertize " ⫶ " 'face 'font-lock-comment-face))
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t))
