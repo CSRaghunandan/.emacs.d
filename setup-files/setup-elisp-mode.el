@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:34:49 csraghunandan>
+;; Time-stamp: <2018-02-26 11:39:06 csraghunandan>
 
 ;; emacs-lisp-mpde
 ;; configure company mode for emacs-lisp-mode
@@ -32,6 +32,20 @@
   ;; highlight-quoted: highlight lisp quoted and quotes symbols
   ;; https://github.com/Fanael/highlight-quoted
   (use-package highlight-quoted
-    :config (add-hook 'emacs-lisp-mode-hook #'highlight-quoted-mode)))
+    :config
+    (add-hook 'emacs-lisp-mode-hook #'highlight-quoted-mode)
+    (add-hook 'lisp-mode-hook #'highlight-quoted-mode)
+
+    ;; Highlight the ' character itself in the same colour
+    ;; as the quoted symbol.
+    (set-face-attribute 'highlight-quoted-quote nil
+                        :inherit 'highlight-quoted-symbol)))
+
+(dolist (hook '(emacs-lisp-mode-hook
+                racket-mode-hook))
+  (add-hook hook
+            (lambda ()
+              (setq use-hl-line nil)
+              (hl-sexp-mode))))
 
 (provide 'setup-elisp-mode)
