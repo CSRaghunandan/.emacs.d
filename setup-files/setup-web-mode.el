@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-08-16 01:16:23 csraghunandan>
+;; Time-stamp: <2018-02-27 00:36:42 csraghunandan>
 
 ;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -52,10 +52,6 @@
               (unless tern-mode (tern-mode))
             (if tern-mode (tern-mode -1))))))
   (add-hook 'web-mode-hook 'company-mode)
-
-  ;; ac-html-boostrap: bootstrap3 completions backend
-  ;; https://github.com/osv/ac-html-bootstrap
-  (use-package ac-html-bootstrap :defer t)
 
   ;; company-web: to get completion for HTML stuff
   ;; https://github.com/osv/company-web
