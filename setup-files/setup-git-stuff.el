@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-02-22 12:16:33 csraghunandan>
+;; Time-stamp: <2018-03-01 16:37:26 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -92,10 +92,11 @@
 
 ;; git-messenger: popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
-(use-package git-messenger :defer t
+(use-package git-messenger
   :config
   ;; Enable magit-show-commit instead of pop-to-buffer
   (setq git-messenger:use-magit-popup t)
+  (setq git-messenger:show-detail t)
 
   (bind-key "C-c g m" 'git-messenger:popup-message)
   (bind-key "m" 'git-messenger:copy-message git-messenger-map))
