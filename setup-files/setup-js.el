@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-26 11:24:36 csraghunandan>
+;; Time-stamp: <2018-03-01 16:32:36 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -150,7 +150,12 @@
 
   ;; mocha-snippets: snippets for mocha test framework
   ;; https://github.com/cowboyd/mocha-snippets.el
-  (use-package mocha-snippets))
+  (use-package mocha-snippets)
+
+  ;; Adds the node_modules/.bin directory to the buffer exec_path. E.g. support project local eslint installations.
+  ;; https://github.com/codesuki/add-node-modules-path/tree/master
+  (use-package add-node-modules-path
+    :config (add-hook 'js-mode-hook #'add-node-modules-path)))
 
 ;; json-mode: Major mode for editing JSON files with emacs
 ;; https://github.com/joshwnj/json-mode

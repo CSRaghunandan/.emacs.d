@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-03 13:02:10 csraghunandan>
+;; Time-stamp: <2018-03-01 16:34:17 csraghunandan>
 
 ;; typescript config
 
@@ -50,20 +50,7 @@
                                    'typescript-tslint)
       (warn "typescript-mode: tslint not found. Flycheck support for tslint disabled"))
 
-    ;; use project local tslint versions instead of global
-    (defun use-tslint-from-node-modules ()
-      (let* ((root (locate-dominating-file
-                    (or (buffer-file-name) default-directory)
-                    "node_modules"))
-             (tslint (and root
-                          (expand-file-name (if (is-windows-p)
-                                                "node_modules/.bin/tslint.cmd"
-                                              "node_modules/.bin/tslint")
-                                            root))))
-        (when (and tslint (file-executable-p tslint))
-          (setq-local flycheck-typescript-tslint-executable tslint))))
-
-    (add-hook 'flycheck-mode-hook #'use-tslint-from-node-modules))
+    (add-hook 'typescript-mode-hook 'add-node-modules-path))
 
   (defun typescript/open-region-in-playground (start end)
     "Open selected region in http://www.typescriptlang.org/Playground
