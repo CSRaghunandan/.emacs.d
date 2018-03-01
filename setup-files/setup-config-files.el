@@ -28,4 +28,9 @@
 ;; https://github.com/jhgorrell/ssh-config-mode-el
 (use-package ssh-config-mode)
 
+;; dot-env: An Emacs major mode for .env files
+;; https://github.com/preetpalS/emacs-dotenv-mode/tree/master
+(use-package dotenv-mode
+  :mode (("\\.env\\..*\\'" . dotenv-mode)))
+
 (provide 'setup-config-files)

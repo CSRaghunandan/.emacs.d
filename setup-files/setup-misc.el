@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:28:17 csraghunandan>
+;; Time-stamp: <2018-03-01 16:19:35 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -53,6 +53,10 @@ not prevent downloading the actual packages (obviously)."
 (use-package google-this
   :diminish google-this-mode
   :config (google-this-mode 1))
+
+;; for when you want to disable the mouse
+;; https://github.com/purcell/disable-mouse/tree/master
+(use-package disable-mouse)
 
 ;; prefer new files if one exists while loading
 (setq load-prefer-newer t)
