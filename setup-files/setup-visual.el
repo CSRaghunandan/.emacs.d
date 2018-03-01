@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-02-26 13:30:49 csraghunandan>
+;; Time-stamp: <2018-03-01 16:02:29 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -175,5 +175,14 @@ Font Size:     _C--_/_-_ Decrease     _C-=_/_=_ Increase     _C-0_/_0_ Reset    
   ("q"   nil :color blue))
 
 (bind-key "C-c h f" 'hydra-font-resize/body)
+
+
+
+;; dimer: Interactively highlight which buffer is active by dimming the others.
+;; https://github.com/gonewest818/dimmer.el/tree/master
+(use-package dimmer
+  :config
+  (setq-default dimmer-fraction 0.15)
+  (add-hook 'after-init-hook 'dimmer-mode))
 
 (provide 'setup-visual)
