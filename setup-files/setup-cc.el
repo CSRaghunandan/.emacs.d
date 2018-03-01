@@ -38,6 +38,8 @@
   ;; cmake-mode: major-mode for editing cmake files
   (use-package cmake-mode :defer t
     :config
+    (add-hook 'cmake-mode-hook 'company-mode)
+
     ;; cmake-font-lock: emacs font lock rules for CMake
     ;; https://github.com/Lindydancer/cmake-font-lock
     (use-package cmake-font-lock
