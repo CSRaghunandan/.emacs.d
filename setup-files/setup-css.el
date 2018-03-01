@@ -1,11 +1,14 @@
-;; Time-stamp: <2017-09-11 15:29:38 csraghunandan>
+;; Time-stamp: <2018-03-01 16:48:17 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode :defer t
   :config
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)
-         '((company-css company-files company-yasnippet))))
+         (>=e "26.0"
+             '((company-capf company-files company-yasnippet))
+           '((company-css company-files company-yasnippet)))))
+
   (add-hook 'css-mode-hook 'my-css-mode-hook)
   ;; fontify colors with `rainbow-mode'
   (add-hook 'css-mode-hook 'rainbow-mode)
