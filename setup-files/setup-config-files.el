@@ -26,11 +26,13 @@
 
 ;; emacs mode for editing ssh config files.
 ;; https://github.com/jhgorrell/ssh-config-mode-el
-(use-package ssh-config-mode)
+(use-package ssh-config-mode
+  :defer t)
 
 ;; dot-env: An Emacs major mode for .env files
 ;; https://github.com/preetpalS/emacs-dotenv-mode/tree/master
 (use-package dotenv-mode
+  :defer t
   :mode (("\\.env\\..*\\'" . dotenv-mode)))
 
 (provide 'setup-config-files)

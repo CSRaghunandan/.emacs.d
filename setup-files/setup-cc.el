@@ -9,7 +9,7 @@
 ;; C/C++ code disassembler using disaster
 ;; modern C++ font-lock support
 
-(use-package cc-mode :defer t
+(use-package cc-mode
   :config
 
   ;; A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs
