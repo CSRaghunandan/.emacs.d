@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-01 16:19:35 csraghunandan>
+;; Time-stamp: <2018-03-02 11:18:57 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -60,5 +60,10 @@ not prevent downloading the actual packages (obviously)."
 
 ;; prefer new files if one exists while loading
 (setq load-prefer-newer t)
+
+;; regex-tool: A regular expression IDE for Emacs, to help with the creation and testing of regular expressions.
+;; https://github.com/jwiegley/regex-tool
+(use-package regex-tool
+  :defer t)
 
 (provide 'setup-misc)
