@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-02-26 08:07:43 csraghunandan>
+;; Time-stamp: <2018-03-02 14:52:59 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -23,9 +23,10 @@
   :config
 
   (if (executable-find "rg")
-      ;; if rg is installed, use rg for `counsel-grep-or-swiper'
-      (setq counsel-grep-base-command
-            "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+      ;; if rg is installed, use rg for `counsel-grep-or-swiper' and `counsel-rg'
+      (setq counsel-grep-base-command "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
+            ;; add `--follow' option to allow search through symbolic links
+            counsel-rg-base-command "rg --line-number --color never -i --follow --mmap --no-heading %s")
     ;; ignore case sensitivity for counsel grep
     (setq counsel-grep-base-command "grep -nEi \"%s\" %s"))
 
@@ -52,14 +53,6 @@
    `(("d" ,(reloading #'confirm-delete-file) "delete")
      ("m" ,(reloading (given-file #'rename-file "Move")) "move")
      ("b" counsel-find-file-cd-bookmark-action "cd bookmark")))
-
-  ;; counsel-rg
-  ;; Redefine `counsel-rg-base-command' with my required options, especially
-  ;; the `--follow' option to allow search through symbolic links (part of
-  ;; `modi/rg-arguments').
-  (when (executable-find "rg")
-    (setq counsel-rg-base-command
-          "rg --line-number --color never -i --follow --mmap --no-heading %s"))
 
   ;; find file at point
   (setq counsel-find-file-at-point t)
