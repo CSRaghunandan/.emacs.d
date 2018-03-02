@@ -1,13 +1,13 @@
-;; Time-stamp: <2018-02-26 11:57:24 csraghunandan>
+;; Time-stamp: <2018-03-02 15:57:42 csraghunandan>
 
 ;; helpful: A better Emacs *help* buffer
 ;; https://github.com/Wilfred/helpful
 (use-package helpful
   :bind*
-  (("C-? k" . helpful-key)
-   ("C-? v" . helpful-variable)
+  (([remap describe-variable] . helpful-variable)
+   ([remap describe-function] . helpful-function)
+   ("C-? k" . helpful-key)
    ("C-? f" . helpful-callable)
-   ("C-? F" . helpful-function)
    ("C-? C" . helpful-command)
    ("C-c C-." . helpful-at-point)))
 
