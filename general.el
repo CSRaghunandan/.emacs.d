@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 22:56:30 csraghunandan>
+;; Time-stamp: <2018-03-03 13:03:21 csraghunandan>
 
 ;;; Emacs version check
 (defmacro >=e (version &rest body)
@@ -15,7 +15,17 @@ Example:
        ,@body))
 
 (when (eq system-type 'darwin)
-  (setq source-directory "/Users/csraghunandan/Library/Caches/Homebrew/emacs--git"))
+  (setq source-directory
+        (concat user-home-directory "/Library/Caches/Homebrew/emacs--git")))
+
+(defun byte-recompile-elpa ()
+  "Force byte-compile every `.el' file in `package-user-dir'.
+The `.el' files are re-compiled even if the corresponding `.elc' files exist,
+in all the sub-directories under `package-user-dir'.
+If the `.elc' file does not exist, this function *does not* compile the
+corresponding `.el' file."
+  (interactive)
+  (byte-recompile-directory package-user-dir nil :force))
 
 (defvar emacs-git-branch
   (when (and emacs-repository-version
@@ -59,7 +69,7 @@ If HERE is non-nil, also insert the string at point."
 ;; Quitting emacs via `C-x C-c` or the GUI 'X' button
 (setq confirm-kill-emacs #'y-or-n-p)
 
-(setq user-mail-address "csraghunandan@betonindia.in")
+(setq user-mail-address "rnraghunandan@gmail.com")
 
 (defun is-mac-p ()
   (eq system-type 'darwin))
