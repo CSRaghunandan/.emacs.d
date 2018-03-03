@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-12 15:41:05 csraghunandan>
+;; Time-stamp: <2018-03-03 09:49:52 csraghunandan>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
@@ -25,8 +25,8 @@
     (progn
       (defconst modi/rg-arguments
         `("--line-number" ; line numbers
-          "--smart-case"
           "--follow" ; follow symlinks
+          "--color never"
           "--max-columns 150"        ;Emacs doesn't handle long line lengths very well
           "--mmap") ; apply memory map optimization when possible
         "Default rg arguments used in the functions in `projectile' package.")
@@ -105,66 +105,16 @@ files in Fundamental mode."
 
   (bind-keys
    ("C-c p K" . modi/kill-non-project-buffers)
-   ("C-c h p" . hydra-projectile/body)
-   ("C-c p r" . projectile-replace-regexp))
+   ("C-c p r" . projectile-replace-regexp)
+   ("C-c s m" . modi/projectile-switch-project-magit-status))
 
 
-
-  (defhydra hydra-projectile-other-window (:color teal)
-    "projectile-other-window"
-    ("f" projectile-find-file-other-window "file")
-    ("g" projectile-find-file-dwim-other-window "file dwim")
-    ("d" projectile-find-dir-other-window "dir")
-    ("b" projectile-switch-to-buffer-other-window "buffer")
-    ("q" nil "cancel" :color blue))
 
   (defun modi/projectile-switch-project-magit-status ()
     "Switch to other project and open Magit status there."
     (interactive)
     (let ((projectile-switch-project-action #'magit-status))
       (call-interactively #'projectile-switch-project)))
-
-  (defhydra hydra-projectile (:color teal
-                                     :hint  nil)
-    "
-     PROJECTILE: %(if (fboundp 'projectile-project-root) (projectile-project-root) \"TBD\")
-^^^^       Find               ^^   Search/Tags       ^^^^       Buffers               ^^   Cache                     ^^^^       Other
-^^^^--------------------------^^---------------------^^^^-----------------------------^^------------------------------------------------------------------
-^^    _f_: file               _r_: counsel-rg        ^^    _i_: Ibuffer               _c_: cache clear               ^^    _E_: edit project's .dir-locals.el
-^^    _F_: file dwim          _g_: update gtags      ^^    _b_: switch to buffer      _x_: remove known project      ^^    _p_: switch to any other project
-^^    _d_: file curr dir      _o_: multi-occur       ^^    _K_: kill all buffers      _X_: cleanup non-existing      ^^    _P_: switch to an open project
-^^    _R_: recent file        _G_: git-grep          ^^    _Q_: replace regexp        _z_: cache current             ^^    _S_: switch to magit status other project
-^^    _D_: dir                                       ^^^^                             _l_: file literally
-"
-    ("r" counsel-rg)
-    ("G" counsel-git-grep)
-    ("b" projectile-switch-to-buffer)
-    ("c" projectile-invalidate-cache)
-    ("d" projectile-find-file-in-directory)
-    ("f" projectile-find-file)
-    ("f" projectile-find-file)
-    ("F" projectile-find-file-dwim)
-    ("D" projectile-find-dir)
-    ("E" projectile-edit-dir-locals)
-    ("g" ggtags-update-tags)
-    ("S" modi/projectile-switch-project-magit-status)
-    ("i" projectile-ibuffer)
-    ("K" projectile-kill-buffers)
-    ("k" projectile-kill-buffers)
-    ("m" projectile-multi-occur)
-    ("o" projectile-multi-occur)
-    ("p" projectile-switch-project)
-    ("p" projectile-switch-project)
-    ("l"   modi/projectile-find-file-literally)
-    ("P" projectile-switch-open-project)
-    ("s" projectile-switch-project)
-    ("R" projectile-recentf)
-    ("x" projectile-remove-known-project)
-    ("X" projectile-cleanup-known-projects)
-    ("z" projectile-cache-current-file)
-    ("4" hydra-projectile-other-window/body "other window")
-    ("Q" projectile-replace-regexp)
-    ("q" nil "cancel" :color blue))
 
   (projectile-mode))
 
@@ -181,4 +131,5 @@ files in Fundamental mode."
 ;; * use `projectile-replace-regexp' [C-c Q] to replace regexp in the project
 ;; * use `projectile-find-dir' to select all the directories in a project
 ;; * use `projectile-dired' to open the dired buffer of project root
-;; * run `C-c p h' to open the hydra for projectile
+;; `projectile-edit-dir-locals' -> to edit the .dirlocals of the project
+;; `projectile-find-file-in-known-projects' -> to find file in all known projects
