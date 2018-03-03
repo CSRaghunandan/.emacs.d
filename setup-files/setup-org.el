@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-19 18:47:24 csraghunandan>
+;; Time-stamp: <2018-03-03 09:52:02 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -369,6 +369,20 @@ Execute this command while the point is on or after the hyper-linked org link."
   ;; https://github.com/lolownia/org-pomodoro
   (use-package org-pomodoro
     :config (bind-key "C-c o p" #'org-pomodoro org-mode-map))
+
+  ;; Make C-u C-return insert heading *at point* (not respecting content),
+  ;; even when the point is directly after a list item.
+  ;; Reason: http://lists.gnu.org/r/emacs-orgmode/2018-02/msg00368.html
+  (defun modi/org-insert-heading-respect-content (&optional invisible-ok)
+    "Insert heading with `org-insert-heading-respect-content' set to t.
+With \\[universal-argument] prefix, insert Org heading directly at
+point."
+    (interactive)
+    (let ((respect-content (unless current-prefix-arg
+                             '(4))))
+      (org-insert-heading respect-content invisible-ok)))
+  (advice-add 'org-insert-heading-respect-content :override
+              #'modi/org-insert-heading-respect-content)
 
   ;; org-sticky-headers
   ;; https://github.com/alphaapapa/org-sticky-header
