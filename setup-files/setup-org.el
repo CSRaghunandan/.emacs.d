@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-03 09:52:02 csraghunandan>
+;; Time-stamp: <2018-03-03 09:55:27 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -383,6 +383,53 @@ point."
       (org-insert-heading respect-content invisible-ok)))
   (advice-add 'org-insert-heading-respect-content :override
               #'modi/org-insert-heading-respect-content)
+
+  (defun bjm/org-headline-to-top ()
+    "Move the current org headline to the top of its section"
+    (interactive)
+    ;; check if we are at the top level
+    (let ((lvl (org-current-level)))
+      (cond
+       ;; above all headlines so nothing to do
+       ((not lvl)
+        (message "No headline to move"))
+       ((= lvl 1)
+        ;; if at top level move current tree to go above first headline
+        (org-cut-subtree)
+        (beginning-of-buffer)
+        ;; test if point is now at the first headline and if not then
+        ;; move to the first headline
+        (unless (looking-at-p "*")
+          (org-next-visible-heading 1))
+        (org-paste-subtree))
+       ((> lvl 1)
+        ;; if not at top level then get position of headline level above
+        ;; current section and refile to that position. Inspired by
+        ;; https://gist.github.com/alphapapa/2cd1f1fc6accff01fec06946844ef5a5
+        (let* ((org-reverse-note-order t)
+               (pos (save-excursion
+                      (outline-up-heading 1)
+                      (point)))
+               (filename (buffer-file-name))
+               (rfloc (list nil filename nil pos)))
+          (org-refile nil nil rfloc))))))
+
+  (defun bjm/org-agenda-item-to-top ()
+    "Move the current agenda item to the top of the subtree in its file"
+    (interactive)
+    ;; save buffers to preserve agenda
+    (org-save-all-org-buffers)
+    ;; switch to buffer for current agenda item
+    (org-agenda-switch-to)
+    ;; move item to top
+    (bjm/org-headline-to-top)
+    ;; go back to agenda view
+    (switch-to-buffer (other-buffer (current-buffer) 1))
+    ;; refresh agenda
+    (org-agenda-redo))
+
+  ;; bind to key 1
+  (bind-key "1" 'bjm/org-agenda-item-to-top org-agenda-mode-map)
 
   ;; org-sticky-headers
   ;; https://github.com/alphaapapa/org-sticky-header
