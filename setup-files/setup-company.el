@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-01-09 11:59:55 csraghunandan>
+;; Time-stamp: <2018-03-04 20:30:57 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -74,12 +74,14 @@ In that case, insert the number."
 
   (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
   (add-hook 'company-completion-finished-hook 'sanityinc/page-break-lines-maybe-reenable)
-  (add-hook 'company-completion-cancelled-hook 'sanityinc/page-break-lines-maybe-reenable)
+  (add-hook 'company-completion-cancelled-hook 'sanityinc/page-break-lines-maybe-reenable))
 
-  ;; company-statistics: sort the company candidates by the statistics
-  ;; https://github.com/company-mode/company-statistics
-  (use-package company-statistics :defer 1
-    :config (company-statistics-mode)))
+;; company-statistics: sort the company candidates by the statistics
+;; https://github.com/company-mode/company-statistics
+(use-package company-statistics
+  :defer 1
+  :after company
+  :config (company-statistics-mode))
 
 (provide 'setup-company)
 

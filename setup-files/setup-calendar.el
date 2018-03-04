@@ -1,11 +1,10 @@
-;; Time-stamp: <2017-02-12 13:29:24 csraghunandan>
+;; Time-stamp: <2018-03-04 20:48:51 csraghunandan>
 
 ;; calendar config
 (use-package calendar :defer t
+  :hook ((calendar-today-visible . calendar-mark-today))
+  :bind (("s-d" . sk/insert-date))
   :config
-  ;; Highlight today's date in the calendar
-  (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
-
   (defun sk/insert-date (prefix)
     "Insert the current date. With prefix-argument, write out the day and month name."
     (interactive "P")
@@ -13,7 +12,6 @@
                    ((not prefix) "%Y-%m-%d")
                    ((equal prefix '(4)) "%A, %d %B %Y")
                    ((equal prefix '(16)) "%Y-%m-%d %H:%M:%S"))))
-      (insert (format-time-string format))))
-  (bind-key "s-d" 'sk/insert-date))
+      (insert (format-time-string format)))))
 
 (provide 'setup-calendar)

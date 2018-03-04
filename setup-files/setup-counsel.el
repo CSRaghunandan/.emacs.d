@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-03-02 15:57:48 csraghunandan>
+;; Time-stamp: <2018-03-04 20:29:57 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -44,12 +44,6 @@
   (defun confirm-delete-file (x)
     (dired-delete-file x 'confirm-each-subdirectory))
 
-  ;; Add more ivy features for projectile related commands
-  ;; https://github.com/ericdanan/counsel-projectile/tree/master
-  (use-package counsel-projectile
-    :config
-    (counsel-projectile-mode 1))
-
   (ivy-add-actions
    'counsel-find-file
    `(("m" ,(reloading (given-file #'rename-file "Move")) "move")
@@ -86,6 +80,13 @@
    ("C-c d f" . counsel-faces)
    ("C-c d d" . counsel-descbinds)
    ("C-c r g" . counsel-rg)))
+
+;; Add more ivy features for projectile related commands
+;; https://github.com/ericdanan/counsel-projectile/tree/master
+(use-package counsel-projectile
+  :after counsel
+  :config
+  (counsel-projectile-mode 1))
 
 (provide 'setup-counsel)
 

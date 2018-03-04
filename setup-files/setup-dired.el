@@ -1,10 +1,12 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-01-26 01:33:35 csraghunandan>
+;; Time-stamp: <2018-03-04 21:25:04 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
   :bind (:map dired-mode-map
-              ("S" . ora-dired-get-size))
+              ("S" . ora-dired-get-size)
+              ("E" . ora-ediff-files)
+              ("^" . rag/dired-up-dir))
   :config
   (progn
     ;; mark symlinks
@@ -39,13 +41,6 @@ It added extra strings at the front and back of the default dired buffer name."
 
     (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name))
 
-  ;; dired-quick-sort: hydra to sort files in dired
-  ;; Press `S' to invoke dired-quick-sort hydra
-  ;; https://gitlab.com/xuhdev/dired-quick-sort
-  (use-package dired-quick-sort
-    :bind (:map dired-mode-map
-                ("s" . hydra-dired-quick-sort/body)))
-
   (defvar du-program-name (executable-find "du"))
   (defun ora-dired-get-size ()
     "Get the size of a folder recursively"
@@ -58,6 +53,31 @@ It added extra strings at the front and back of the default dired buffer name."
          (progn
            (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
            (match-string 1))))))
+
+  ;; use the same buffer for going up a directory in dired
+  (defun rag/dired-up-dir()
+    (interactive) (find-alternate-file ".."))
+
+  ;; https://oremacs.com/2017/03/18/dired-ediff/
+  (defun ora-ediff-files ()
+    (interactive)
+    (let ((files (dired-get-marked-files))
+          (wnd (current-window-configuration)))
+      (if (<= (length files) 2)
+          (let ((file1 (car files))
+                (file2 (if (cdr files)
+                           (cadr files)
+                         (read-file-name
+                          "file: "
+                          (dired-dwim-target-directory)))))
+            (if (file-newer-than-file-p file1 file2)
+                (ediff-files file2 file1)
+              (ediff-files file1 file2))
+            (add-hook 'ediff-after-quit-hook-internal
+                      (lambda ()
+                        (setq ediff-after-quit-hook-internal nil)
+                        (set-window-configuration wnd))))
+        (error "no more than 2 files should be marked"))))
 
   ;; dired-x: to hide uninteresting files in dired
   (use-package dired-x :ensure nil
@@ -72,39 +92,22 @@ It added extra strings at the front and back of the default dired buffer name."
 ;; dired-collapse: collapse unique nested paths in dired listing
 ;; https://github.com/Fuco1/dired-hacks#dired-collapse
 (use-package dired-collapse
-  :config
-  (add-hook 'dired-mode-hook 'dired-collapse-mode))
+  :after dired
+  :hook ((dired-mode . dired-collapse-mode)))
 
 ;; diredfl:Extra Emacs font lock rules for a more colourful dired
 ;; https://github.com/purcell/diredfl/tree/085eabf2e70590ec8e31c1e66931d652d8eab432
 (use-package diredfl
+  :after dired
   :config
   (diredfl-global-mode))
 
-;; https://oremacs.com/2017/03/18/dired-ediff/
-(defun ora-ediff-files ()
-  (interactive)
-  (let ((files (dired-get-marked-files))
-        (wnd (current-window-configuration)))
-    (if (<= (length files) 2)
-        (let ((file1 (car files))
-              (file2 (if (cdr files)
-                         (cadr files)
-                       (read-file-name
-                        "file: "
-                        (dired-dwim-target-directory)))))
-          (if (file-newer-than-file-p file1 file2)
-              (ediff-files file2 file1)
-            (ediff-files file1 file2))
-          (add-hook 'ediff-after-quit-hook-internal
-                    (lambda ()
-                      (setq ediff-after-quit-hook-internal nil)
-                      (set-window-configuration wnd))))
-      (error "no more than 2 files should be marked"))))
-(define-key dired-mode-map "E" 'ora-ediff-files)
-
-;; make dired use the same buffer when moving up a directory
-(define-key dired-mode-map (kbd "^")
-  (lambda () (interactive) (find-alternate-file "..")))
+;; dired-quick-sort: hydra to sort files in dired
+;; Press `S' to invoke dired-quick-sort hydra
+;; https://gitlab.com/xuhdev/dired-quick-sort
+(use-package dired-quick-sort
+  :after dired
+  :bind (:map dired-mode-map
+              ("s" . hydra-dired-quick-sort/body)))
 
 (provide 'setup-dired)
