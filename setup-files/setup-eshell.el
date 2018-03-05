@@ -11,9 +11,6 @@
                ("<tab>" . completion-at-point)
                ("C-c M-o" . eshell-clear-buffer))))
 
-  ;; fetch the $PATH variable to eshell
-  (add-hook 'eshell-mode-hook '(lambda ()(exec-path-from-shell-initialize)))
-
   (defun eshell-clear-buffer ()
     "Clear terminal"
     (interactive)

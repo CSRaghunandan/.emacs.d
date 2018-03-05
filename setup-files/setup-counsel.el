@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-03-04 20:29:57 csraghunandan>
+;; Time-stamp: <2018-03-05 12:24:44 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -84,7 +84,7 @@
 ;; Add more ivy features for projectile related commands
 ;; https://github.com/ericdanan/counsel-projectile/tree/master
 (use-package counsel-projectile
-  :after counsel
+  :after (counsel projectile)
   :config
   (counsel-projectile-mode 1))
 

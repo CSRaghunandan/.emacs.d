@@ -1,10 +1,13 @@
-;; Time-stamp: <2018-03-01 16:37:26 csraghunandan>
+;; Time-stamp: <2018-03-05 12:27:17 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
 (use-package magit
   :bind (("C-c m b" . magit-blame)
-         ("C-c m s" . hydra-magit/body))
+         ("C-c m s" . hydra-magit/body)
+         ("C-c m p" . wh/switch-magit-status-buffer)
+         :map magit-status-mode-map
+         ("Q" . mu-magit-kill-buffers))
 
   :config
   (setq magit-completing-read-function 'ivy-completing-read)
@@ -15,8 +18,6 @@
     (let ((buffers (magit-mode-get-buffers)))
       (magit-restore-window-configuration)
       (mapc #'kill-buffer buffers)))
-
-  (bind-key "Q" #'mu-magit-kill-buffers magit-status-mode-map)
 
   (progn
     ;; Magit Submodule support
@@ -45,7 +46,6 @@
             (cdr (assoc (completing-read "Git project: " bufs-with-names)
                         bufs-with-names))))
       (switch-to-buffer chosen-buf)))
-  (bind-key "C-C m p" #'wh/switch-magit-status-buffer)
 
   (defhydra hydra-magit (:color blue
                                 :columns 5)
@@ -68,38 +68,36 @@
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
-(use-package git-timemachine :defer t
+(use-package git-timemachine
   :diminish git-timemachine-mode "𝐓𝐦"
   :bind (("C-c g t" . git-timemachine-toggle)))
 
 ;; diff-hl: highlight diffs in the fringe
 ;; https://github.com/dgutov/diff-hl
 (use-package diff-hl
-  :config
-  (add-hook 'dired-mode-hook #'diff-hl-dired-mode)
+  :hook ((dired-mode . diff-hl-dired-mode)
+         (magit-post-refresh . diff-hl-magit-post-refresh))
+  :init
   (global-diff-hl-mode)
-  ;; integate diff-hl with magit
-  (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
-
-  (bind-key "C-c h d"
-            (defhydra diff-hl-hunk-hydra (:color red)
-              ("p" diff-hl-previous-hunk "prev hunk")
-              ("n" diff-hl-next-hunk "next hunk")
-              ("d" diff-hl-diff-goto-hunk "goto hunk")
-              ("r" diff-hl-revert-hunk "revert hunk")
-              ("m" diff-hl-mark-hunk "mark hunk")
-              ("q" nil "quit" :color blue))))
+  :bind (("C-c h d" . diff-hl-hunk-hydra/body))
+  :config
+  (defhydra diff-hl-hunk-hydra (:color red)
+    ("p" diff-hl-previous-hunk "prev hunk")
+    ("n" diff-hl-next-hunk "next hunk")
+    ("d" diff-hl-diff-goto-hunk "goto hunk")
+    ("r" diff-hl-revert-hunk "revert hunk")
+    ("m" diff-hl-mark-hunk "mark hunk")
+    ("q" nil "quit" :color blue)))
 
 ;; git-messenger: popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
 (use-package git-messenger
+  :after popup
+  :bind(("C-c g m" . git-messenger:popup-message))
   :config
   ;; Enable magit-show-commit instead of pop-to-buffer
   (setq git-messenger:use-magit-popup t)
-  (setq git-messenger:show-detail t)
-
-  (bind-key "C-c g m" 'git-messenger:popup-message)
-  (bind-key "m" 'git-messenger:copy-message git-messenger-map))
+  (setq git-messenger:show-detail t))
 
 ;; git-link: emacs package for getting the github/gitlab/bitbucket URL
 ;; https://github.com/sshaw/git-link

@@ -1,25 +1,12 @@
-;; Time-stamp: <2017-04-27 11:59:37 csraghunandan>
+;; Time-stamp: <2018-03-04 22:26:28 csraghunandan>
 
 ;; abbrev: expand abbreviations
 (use-package abbrev :ensure nil
   :diminish abbrev-mode
+  :hook ((prog-mode org-mode text-mode erc-mode) . abbrev-mode)
   :config
   ;; Silently save abbrevs on quitting emacs
   (setq save-abbrevs 'silently)
-
-  (defconst rag/abbrev-hooks '(prog-mode-hook
-                               org-mode-hook
-                               text-mode-hook
-                               erc-mode-hook)
-    "List of hooks of major modes in which abbrev should be enabled.")
-
-  (defun rag/turn-on-abbrev ()
-    "Turn on abbrev only for specific modes"
-    (interactive)
-    (dolist (hook rag/abbrev-hooks)
-      (add-hook hook #'abbrev-mode)))
-  (rag/turn-on-abbrev)
-
   ;;Read the abbreviations file on startup
   (quietly-read-abbrev-file)
 

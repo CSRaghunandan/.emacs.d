@@ -1,4 +1,4 @@
-;; Timestamp: <2017-06-21 21:00:10>
+;; Time-stamp: <2018-03-05 12:30:14 csraghunandan>
 
 ;; configuration for shell mode
 
@@ -51,7 +51,6 @@
 ;; company-shell: company backend for shell scripts
 ;; https://github.com/Alexander-Miller/company-shell
 (use-package company-shell
-  :after sh-script
   :config
   (setq company-shell-delete-duplicates t)
   (defun my-sh-mode-hook()

@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-03-04 21:25:04 csraghunandan>
+;; Time-stamp: <2018-03-05 12:25:55 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
@@ -92,13 +92,11 @@ It added extra strings at the front and back of the default dired buffer name."
 ;; dired-collapse: collapse unique nested paths in dired listing
 ;; https://github.com/Fuco1/dired-hacks#dired-collapse
 (use-package dired-collapse
-  :after dired
   :hook ((dired-mode . dired-collapse-mode)))
 
 ;; diredfl:Extra Emacs font lock rules for a more colourful dired
 ;; https://github.com/purcell/diredfl/tree/085eabf2e70590ec8e31c1e66931d652d8eab432
 (use-package diredfl
-  :after dired
   :config
   (diredfl-global-mode))
 
@@ -106,7 +104,6 @@ It added extra strings at the front and back of the default dired buffer name."
 ;; Press `S' to invoke dired-quick-sort hydra
 ;; https://gitlab.com/xuhdev/dired-quick-sort
 (use-package dired-quick-sort
-  :after dired
   :bind (:map dired-mode-map
               ("s" . hydra-dired-quick-sort/body)))
 

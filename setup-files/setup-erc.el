@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-03 13:01:49 csraghunandan>
+;; Time-stamp: <2018-03-05 12:26:19 csraghunandan>
 
 ;; ERC: the irc client for emacs
 (use-package erc :defer t
@@ -60,7 +60,6 @@
 ;; erc-image: Fetch and show received images in a ERC buffer
 ;; https://github.com/kidd/erc-image.el
 (use-package erc-image
-  :after erc
   :config
   (add-to-list 'erc-modules 'image)
   (erc-update-modules))

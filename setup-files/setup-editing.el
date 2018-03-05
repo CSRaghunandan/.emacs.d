@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-01-26 00:24:37 csraghunandan>
+;; Time-stamp: <2018-03-04 22:23:44 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -365,11 +365,9 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 ;; configuration for auto-fill-mode
 (use-package simple :ensure nil
   :diminish auto-fill-function
+  :hook ((prog-mode text-mode org-mode) . auto-fill-mode)
   :config
-  (setq comment-auto-fill-only-comments t)
-  (add-hook 'prog-mode-hook 'auto-fill-mode)
-  (add-hook 'text-mode-hook 'auto-fill-mode)
-  (add-hook 'org-mode-hook 'auto-fill-mode))
+  (setq comment-auto-fill-only-comments t))
 
 (defun indent-buffer ()
   "Indent the currently visited buffer."
