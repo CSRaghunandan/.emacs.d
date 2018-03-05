@@ -1,14 +1,20 @@
-;; Time-stamp: <2018-03-04 22:26:28 csraghunandan>
+;; Time-stamp: <2018-03-05 14:15:34 csraghunandan>
 
 ;; abbrev: expand abbreviations
 (use-package abbrev :ensure nil
   :diminish abbrev-mode
-  :hook ((prog-mode org-mode text-mode erc-mode) . abbrev-mode)
+  :hook
+  ((prog-mode org-mode text-mode erc-mode LaTeX-mode) . abbrev-mode)
+  (expand-load
+   . (lambda ()
+       (add-hook 'expand-expand-hook 'indent-according-to-mode)
+       (add-hook 'expand-jump-hook 'indent-according-to-mode)))
   :config
   ;; Silently save abbrevs on quitting emacs
   (setq save-abbrevs 'silently)
   ;;Read the abbreviations file on startup
-  (quietly-read-abbrev-file)
+  (if (file-exists-p abbrev-file-name)
+      (quietly-read-abbrev-file))
 
   (defun endless/simple-get-word ()
     (car-safe (save-excursion (ispell-get-word nil))))
