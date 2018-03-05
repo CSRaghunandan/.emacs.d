@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 22:57:46 csraghunandan>
+;; Time-stamp: <2018-03-05 14:33:53 csraghunandan>
 
 ;; All the macOS related configuration
 
@@ -7,18 +7,17 @@
 
 ;; exec-path-from-shell: ensure environment variables inside Emacs look the same
 ;; as in the users shell
-;; https://github.com/lunaryorn/osx-trash.el
+;; https://github.com/purcell/exec-path-from-shell
 (use-package exec-path-from-shell
-  :init
-  (when (is-mac-p)
-    (exec-path-from-shell-initialize)))
+  :if (is-mac-p)
+  :init (exec-path-from-shell-initialize))
 
 ;; delete files by moving to trash in macOS
 ;; https://github.com/lunaryorn/osx-trash.el
 (use-package osx-trash
+  :if (is-mac-p)
   :config
-  (when (is-mac-p)
-    (osx-trash-setup))
-  (setq delete-by-moving-to-trash t))
+  (setq delete-by-moving-to-trash t)
+  (osx-trash-setup))
 
 (provide 'setup-osx)
