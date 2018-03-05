@@ -9,14 +9,13 @@
         (when (member "PragmataPro" (font-family-list))
           (progn
             (require 'setup-pragmatapro)
-            (set-face-attribute 'default nil :font "PragmataPro" :height 125)
-            (toggle-frame-maximized))))))
+            (set-frame-font "PragmataPro-13" nil t))))))
 (add-hook 'after-make-frame-functions #'rag-set-face)
 
 ;; set frame font when running emacs normally
 (when (member "PragmataPro" (font-family-list))
   (progn
     (require 'setup-pragmatapro)
-    (set-face-attribute 'default nil :font "PragmataPro" :height 125)))
+    (set-frame-font "PragmataPro-13" nil t)))
 
 (provide 'setup-font-check)
