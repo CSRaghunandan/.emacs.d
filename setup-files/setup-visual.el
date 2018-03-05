@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-01 17:21:59 csraghunandan>
+;; Time-stamp: <2018-03-05 17:40:15 csraghunandan>
 
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
@@ -92,7 +92,7 @@
       )
 
 ;; make sure emacsclient starts at fullscreen
-(setq default-frame-alist `((fullscreen . maximized)))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; remove ugly scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
