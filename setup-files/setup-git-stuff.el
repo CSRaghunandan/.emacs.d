@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-05 12:27:17 csraghunandan>
+;; Time-stamp: <2018-03-05 14:46:58 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -6,6 +6,8 @@
   :bind (("C-c m b" . magit-blame)
          ("C-c m s" . hydra-magit/body)
          ("C-c m p" . wh/switch-magit-status-buffer)
+         ("C-c M-g" . magit-file-popup)
+         ("C-x M-g" . magit-dispatch-popup)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers))
 
@@ -60,8 +62,6 @@
     ("P" magit-push-popup "push popup")
     ("F" magit-pull-popup "pull popup")
     ("d" magit-diff-popup "diff popup")
-    ("D" magit-diff-buffer-file-popup "diff file popup")
-    ("p" magit-log-buffer-file-popup "file log popup")
     ("W" magit-format-patch "format patch")
     ("$" magit-process-buffer "process")
     ("q" nil "cancel" :color blue)))
