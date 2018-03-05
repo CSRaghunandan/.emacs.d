@@ -1,19 +1,19 @@
-;; Time-stamp: <2018-03-05 12:20:51 csraghunandan>
+;; Time-stamp: <2018-03-05 13:02:45 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
 ;; rust-mode: major-mode for editing rust files
 ;; https://github.com/rust-lang/rust-mode
 (use-package rust-mode
-  :hook ((rust-mode . flycheck-mode)
-         (rust-mode . smart-dash-mode)
-         (rust-mode . racer-mode)
-
+  :hook ((rust-mode . (lambda ()
+                        (flycheck-mode)
+                        (smart-dash-mode)
+                        (racer-mode)))
          (flycheck-mode . flycheck-rust-setup)
-
-         (racer-mode . my-racer-mode-hook)
-         (racer-mode . company-mode)
-         (racer-mode .  eldoc-mode))
+         (racer-mode . (lambda ()
+                         (my-racer-mode-hook)
+                         (company-mode)
+                         (eldoc-mode))))
 
   :bind (:map rust-mode-map
          ("C-c v t" . wh/rust-toggle-visibility)
