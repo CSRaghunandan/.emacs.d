@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-02-26 13:04:45 csraghunandan>
+;; Time-stamp: <2018-03-05 16:22:07 csraghunandan>
 
 ;; a collection of yasnippet snippets for many languages
 ;; https://github.com/AndreaCrotti/yasnippet-snippets
@@ -34,6 +34,7 @@ _r_eload    e_x_pand    _?_ list    aya _e_xpand
 
 ;; auto-yasnippet: create disposable snippets on the fly
 ;; https://github.com/abo-abo/auto-yasnippet
-(use-package auto-yasnippet)
+(use-package auto-yasnippet
+  :after yasnippet)
 
 (provide 'setup-yas)
