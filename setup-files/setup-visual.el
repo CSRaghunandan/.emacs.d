@@ -1,10 +1,9 @@
-;; Time-stamp: <2018-03-05 17:40:15 csraghunandan>
 
+;; Time-stamp: <2018-03-06 10:52:41 csraghunandan>
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
 (use-package rainbow-delimiters
-  :config
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  :hook ((prog-mode . rainbow-delimiters-mode)))
 
 ;; better defaults
 ;; don't show splash screen when starting emacs
@@ -12,38 +11,29 @@
 ;; don't echo startup message of GNU emacs
 (setq inhibit-startup-echo-area-message t)
 
-(defun random-choice (list)
-  "Return a random element from LIST."
-  (let ((random-index (random (length list))))
-    (nth random-index list)))
+;; Supply a random fortune cookie as the *scratch* message.
+(defun my-fortune-scratch-message ()
+  (interactive)
+  (let ((fortune
+         (when (executable-find "fortune")
+           (with-temp-buffer
+             (shell-command "fortune" t)
+             (let ((comment-start ";;")
+                   (comment-empty-lines t)
+                   (tab-width 4))
+               (untabify (point-min) (point-max))
+               (comment-region (point-min) (point-max)))
+             (delete-trailing-whitespace (point-min) (point-max))
+             (concat (buffer-string) "\n")))))
+    (if (called-interactively-p 'any)
+        (insert fortune)
+      fortune)))
 
-(defvar programming-quotes
-  '(";; First, solve the problem. Then, write the code. -- John Johnson\n\n"
-    ";; The computing scientist’s main challenge is not to get confused by the
-;; complexities of his own making. -- E. W. Dijkstra\n\n"
-    ";; There are two ways of constructing a software design: One way is to make
-;; it so simple that there are obviously no deficiencies and the other way is to
-;; make it so complicated that there are no obvious deficiencies. -- C. A. R. Hoare\n\n"
-    ";; Controlling complexity is the essence of computer programming. -- Brian Kernigan\n\n"
-    ";; if you’re willing to restrict the flexibility of your approach, you can
-;; almost always do something better. -- John Carmack\n\n"
-    ";; Measuring programming progress by lines of code is like measuring
-;; aircraft building progress by weight. -- Bill Gates\n\n"
-    ";; The best code is no code at all.\n\n"
-    ";; There is not now, nor has there ever been, nor will there ever be, any
-;; programming language in which it is the least bit difficult to write bad code.\n\n"
-    ";; Code never lies, comments sometimes do. -- Ron Jeffries\n\n"
-    ";; Simplicity carried to the extreme becomes elegance. -- Jon Franklin\n\n"
-    ";; The unavoidable price of reliability is simplicity. -- C. A. R. Hoare\n\n"
-    ";; Good code is short, simple, and symmetrical – the challenge is figuring
-;; out how to get there. -- Sean Parent\n\n"
-    ";; True glory consists in doing what deserves to be written in writing what
-;; deserves to be read. -- Pliny the Elder\n\n"
-    ";; The whole point of getting things done is knowing what to leave undone. -- Oswald Chambers\n\n"
-    ";; Do not communicate by sharing memory; instead, share memory by communicating.\n\n"))
+;; initial-scratch-message
+(let ((fortune (my-fortune-scratch-message)))
+  (when fortune
+    (setq initial-scratch-message fortune)))
 
-;; populate the initial scratch buffer with a random quote.
-(setq initial-scratch-message (random-choice programming-quotes))
 ;; set scratch major mode to `emacs-lisp-mode'
 (setq initial-major-mode 'emacs-lisp-mode)
 
@@ -107,7 +97,7 @@
 ;; enter page-break character in Emacs by entering `C-q C-l'
 (use-package page-break-lines
   :diminish page-break-lines-mode
-  :config (add-hook 'prog-mode-hook #'page-break-lines-mode))
+  :hook ((prog-mode . page-break-lines-mode)))
 
 ;; column-enforce-mode: highlight characters which exceed fill-column
 ;; https://github.com/jordonbiondo/column-enforce-mode
@@ -181,8 +171,8 @@ Font Size:     _C--_/_-_ Decrease     _C-=_/_=_ Increase     _C-0_/_0_ Reset    
 ;; dimer: Interactively highlight which buffer is active by dimming the others.
 ;; https://github.com/gonewest818/dimmer.el/tree/master
 (use-package dimmer
+  :hook ((after-init . dimmer-mode))
   :config
-  (setq-default dimmer-fraction 0.1)
-  (add-hook 'after-init-hook 'dimmer-mode))
+  (setq-default dimmer-fraction 0.1))
 
 (provide 'setup-visual)
