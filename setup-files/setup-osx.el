@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-05 14:33:53 csraghunandan>
+;; Time-stamp: <2018-03-06 21:52:55 csraghunandan>
 
 ;; All the macOS related configuration
 
@@ -10,7 +10,9 @@
 ;; https://github.com/purcell/exec-path-from-shell
 (use-package exec-path-from-shell
   :if (is-mac-p)
-  :init (exec-path-from-shell-initialize))
+  :init
+  (setq exec-path-from-shell-check-startup-files nil)
+  (exec-path-from-shell-initialize))
 
 ;; delete files by moving to trash in macOS
 ;; https://github.com/lunaryorn/osx-trash.el
