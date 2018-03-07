@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-03 09:55:27 csraghunandan>
+;; Time-stamp: <2018-03-07 10:07:36 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -441,6 +441,19 @@ point."
           (if org-sticky-header-full-path t nil))
     (add-hook 'org-mode-hook #'org-sticky-header-mode))
 
+  (defun org-archive-done-tasks ()
+    (interactive)
+    (org-map-entries
+     (lambda ()
+       (org-archive-subtree)
+       (setq org-map-continue-from (outline-previous-heading)))
+     "/DONE" 'file)
+    (org-map-entries
+     (lambda ()
+       (org-archive-subtree)
+       (setq org-map-continue-from (outline-previous-heading)))
+     "/CANCELLED" 'file))
+
   (defun rag/copy-id-to-clipboard()
     "Copy the ID property value to killring,
 if no ID is there then create a new unique ID.
@@ -483,34 +496,6 @@ text and copying to the killring."
     ("m" org-timer)
     ("t" org-timer-item)
     ("z" (org-info "Timers"))))
-
-(defun modi/package-dependency-check-ignore (orig-ret)
-  "Remove the `black listed packages' from ORIG-RET.
-
-Packages listed in the let-bound `pkg-black-list' will not be auto-installed
-even if they are found as dependencies.
-
-It is known that this advice is not effective when installed packages
-asynchronously using `paradox'. Below is effective on synchronous
-package installations."
-  (let ((pkg-black-list '(org))
-        new-ret
-        pkg-name)
-    (dolist (pkg-struct orig-ret)
-      (setq pkg-name (package-desc-name pkg-struct))
-      (if (member pkg-name pkg-black-list)
-          (message (concat "Package `%s' will not be installed. "
-                           "See `modi/package-dependency-check-ignore'.")
-                   pkg-name)
-        (push pkg-struct new-ret)))
-    ;; It's *very* critical that the order of packages stays the same in NEW-RET
-    ;; as in ORIG-RET. The `push' command flips the order, so use `reverse'
-    ;; to flip the order back to the original.
-    ;;   Without this step, you will get package activation errors when
-    ;; installing packages with dependencies.
-    (setq new-ret (reverse new-ret))
-    new-ret))
-(advice-add 'package-compute-transaction :filter-return #'modi/package-dependency-check-ignore)
 
 ;; archive subtrees/headings while also preserving their context
 (defadvice org-archive-subtree (around fix-hierarchy activate)
