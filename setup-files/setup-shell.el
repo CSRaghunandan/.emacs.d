@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 12:34:07 csraghunandan>
+;; Time-stamp: <2018-03-12 12:46:28 csraghunandan>
 
 ;; configuration for shell mode
 
@@ -11,7 +11,20 @@
 
 (use-package sh-script
   :hook ((sh-mode . flycheck-mode))
+  :mode (("\\.aliases\\'" . sh-mode)
+         ("\\.[a-zA-Z]+rc\\'" . sh-mode)
+         ("crontab.*\\'" . sh-mode))
   :config
+  ;; Use sh-mode when opening `.zsh' files, and when opening Prezto runcoms.
+  (dolist (pattern '("\\.zsh\\'"
+                     "zlogin\\'"
+                     "zlogout\\'"
+                     "zpreztorc\\'"
+                     "zprofile\\'"
+                     "zshenv\\'"
+                     "zshrc\\'"))
+    (add-to-list 'auto-mode-alist (cons pattern 'sh-mode)))
+
   (defun +sh--match-variables-in-quotes (limit)
     "Search for variables in double-quoted strings bounded by LIMIT."
     (with-syntax-table sh-mode-syntax-table
