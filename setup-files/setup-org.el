@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:47:32 csraghunandan>
+;; Time-stamp: <2018-03-13 02:59:33 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -57,6 +57,11 @@
   ;; make sure all checkboxes under a todo is done before marking the parent
   ;; task as done.
   (setq org-enforce-todo-checkbox-dependencies t)
+
+  (font-lock-add-keywords
+   'org-mode
+   `(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)" 1 'org-headline-done prepend))
+   'append)
 
   ;; clock into a drawer called CLOCKING
   (setq org-clock-into-drawer "CLOCKING")
