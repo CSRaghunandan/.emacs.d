@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 23:46:18 csraghunandan>
+;; Time-stamp: <2018-03-13 00:04:30 csraghunandan>
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell
@@ -44,9 +44,9 @@
     (set-face-attribute 'mode-line-inactive nil :underline  line)
     (set-face-attribute 'mode-line          nil :box        nil)
     (set-face-attribute 'mode-line-inactive nil :box        nil)
-    (set-face-attribute 'mode-line          nil :background zenburn-bg-1)
-    (set-face-attribute 'mode-line          nil :foreground zenburn-green+3)
-    (set-face-attribute 'mode-line-inactive nil :background zenburn-bg+1)
+    (set-face-attribute 'mode-line          nil :background "gray30")
+    (set-face-attribute 'mode-line-inactive nil :background zenburn-bg-1)
+    (set-face-attribute 'mode-line          nil :foreground zenburn-green+4)
     (set-face-attribute 'mode-line-inactive nil :foreground "gray70")))
 
 (provide 'setup-mode-line)
