@@ -1,10 +1,44 @@
-;; Time-stamp: <2018-03-13 00:04:30 csraghunandan>
+;; Time-stamp: <2018-03-13 00:41:39 csraghunandan>
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell
 (use-package mode-line-bell
   :defer 1
   :config (mode-line-bell-mode))
+
+(defvar mu-eyebrowse-mode-line
+  '(:propertize
+    (:eval
+     (when (and (bound-and-true-p eyebrowse-mode)
+                (< 1 (length (eyebrowse--get 'window-configs))))
+       (let* ((num (eyebrowse--get 'current-slot))
+              (tag (when num
+                     (nth 2 (assoc num (eyebrowse--get 'window-configs)))))
+              (str (concat
+                    " "
+                    (if (and tag (< 0 (length tag)))
+                        tag
+                      (when num (int-to-string num)))
+                    " ")))
+         str)))
+    face (:background "#81a2be" :foreground "#373b41"))
+  "Mode line format for Eyebrowse.")
+
+(put 'mu-eyebrowse-mode-line 'risky-local-variable t)
+
+(setq-default mode-line-format
+              '("%e"
+                mu-eyebrowse-mode-line
+                mode-line-front-space
+                mode-line-mule-info
+                mode-line-client
+                mode-line-modified
+                mode-line-remote
+                mode-line-frame-identification
+                mode-line-buffer-identification " " mode-line-position
+                (vc-mode vc-mode)
+                (multiple-cursors-mode mc/mode-line)
+                " " mode-line-modes mode-line-end-spaces))
 
 ;; Tabs and ribbons for the mode-line
 ;; https://github.com/tarsius/moody

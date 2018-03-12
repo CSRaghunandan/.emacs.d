@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 13:19:18 csraghunandan>
+;; Time-stamp: <2018-03-13 00:45:48 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -86,6 +86,11 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   :init
   (setq dumb-jump-selector 'ivy)
   (add-hook 'prog-mode-hook #'dumb-jump-mode))
+
+;; A simple-minded way of managing window configs in emacs
+;; https://github.com/wasamasa/eyebrowse
+(use-package eyebrowse
+  :config (eyebrowse-mode t))
 
 (setq recenter-positions '(0.50 0.07 0.93)) ;default: '(middle top bottom)
 ;; First C-l  -> 0.50: Put point vertically at the middle of the window

@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:47:02 csraghunandan>
+;; Time-stamp: <2018-03-13 00:47:38 csraghunandan>
 
 ;; Smart M-x (smex): sort extended commands by last invoked
 ;; https://github.com/nonsequitur/smex/
@@ -28,11 +28,7 @@
    ("b" . backward-char)
    ("f" . forward-char)
    ("v" . ivy-occur-press) ; default f
-   ("RET" . ivy-occur-press))
-
-  (bind-keys
-   ("C-c v p" . ivy-push-view)
-   ("C-c u" . ivy-resume)))
+   ("RET" . ivy-occur-press)))
 
 (provide 'setup-ivy)
 

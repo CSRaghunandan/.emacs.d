@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 12:09:02 csraghunandan>
+;; Time-stamp: <2018-03-13 00:44:16 csraghunandan>
 
 ;; ace-window: quick switching of windows
 ;; https://github.com/abo-abo/ace-window
@@ -7,9 +7,6 @@
   :bind* ("C-c w" . ace-window)
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-
-  ;; display the ace-window key to switch to in mode-line
-  (ace-window-display-mode 1)
 
   ;; enable aw dispatch even for just one window
   (setq aw-dispatch-always t)
