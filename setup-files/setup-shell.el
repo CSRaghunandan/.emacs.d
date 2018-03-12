@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 12:46:28 csraghunandan>
+;; Time-stamp: <2018-03-12 13:07:21 csraghunandan>
 
 ;; configuration for shell mode
 
@@ -78,3 +78,6 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (provide 'setup-shell)
+
+;; install `shellcheck' for providing linting for shell scripts. It'll
+;; automatically be enabled by flycheck if installed
