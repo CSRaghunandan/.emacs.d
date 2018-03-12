@@ -1,9 +1,15 @@
-;; Time-stamp: <2018-03-13 00:20:12 csraghunandan>
+;; Time-stamp: <2018-03-13 02:44:27 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
 (defvar gc-cons-threshold--orig gc-cons-threshold)
-(setq gc-cons-threshold (* 100 1024 1024))
+(setq gc-cons-threshold (* 100 1024 1024)
+      gc-cons-percentage 0.6)
+
+(defun rag-set-gc-threshold ()
+  "Reset `gc-cons-threshold' and `gc-cons-percentage' to their default values."
+  (setq gc-cons-threshold gc-cons-threshold--orig
+        gc-cons-percentage 0.1))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -120,6 +126,6 @@
 (unless (server-running-p) (server-start))
 
 ;; set gc-cons-threshold back to original value
-(setq gc-cons-threshold gc-cons-threshold--orig)
+(add-hook 'emacs-startup-hook #'rag-set-gc-threshold)
 
 ;;; init.el ends here
