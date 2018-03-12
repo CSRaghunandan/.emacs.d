@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 00:41:39 csraghunandan>
+;; Time-stamp: <2018-03-13 01:18:04 csraghunandan>
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell
@@ -56,9 +56,7 @@
 ;; https://github.com/tarsius/minions
 (use-package minions
   :init (minions-mode)
-  :config
-  (setq minions-direct '(flycheck-mode
-                         multiple-cursors-mode)))
+  :config (setq minions-direct '(flycheck-mode)))
 
 ;; macro to rename mode-name for major-modes
 (defmacro rename-modeline (package-name mode new-name)
