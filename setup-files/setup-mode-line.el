@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 23:19:13 csraghunandan>
+;; Time-stamp: <2018-03-12 23:46:18 csraghunandan>
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell
@@ -6,6 +6,8 @@
   :defer 1
   :config (mode-line-bell-mode))
 
+;; Tabs and ribbons for the mode-line
+;; https://github.com/tarsius/moody
 (use-package moody
   :config
   (setq moody-slant-function #'moody-slant-apple-rgb)
@@ -16,6 +18,8 @@
   (column-number-mode)
   (size-indication-mode))
 
+;; A minor-mode menu for the mode line
+;; https://github.com/tarsius/minions
 (use-package minions
   :init (minions-mode)
   :config
@@ -34,12 +38,15 @@
 
 (let ((line (face-attribute 'mode-line :underline)))
   (zenburn-with-color-variables
+
     (set-face-attribute 'mode-line          nil :overline   line)
     (set-face-attribute 'mode-line-inactive nil :overline   line)
     (set-face-attribute 'mode-line-inactive nil :underline  line)
     (set-face-attribute 'mode-line          nil :box        nil)
     (set-face-attribute 'mode-line-inactive nil :box        nil)
-    (set-face-attribute 'mode-line-inactive nil :background zenburn-bg+05)
-    (set-face-attribute 'mode-line-inactive nil :foreground zenburn-blue-2)))
+    (set-face-attribute 'mode-line          nil :background zenburn-bg-1)
+    (set-face-attribute 'mode-line          nil :foreground zenburn-green+3)
+    (set-face-attribute 'mode-line-inactive nil :background zenburn-bg+1)
+    (set-face-attribute 'mode-line-inactive nil :foreground "gray70")))
 
 (provide 'setup-mode-line)
