@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-05 13:02:45 csraghunandan>
+;; Time-stamp: <2018-03-12 22:48:20 csraghunandan>
 
 ;; rust-mode, racer, cargo
 
@@ -77,7 +77,6 @@ foo -> &foo[..]"
 (use-package racer
   :after rust-mode
   :if (executable-find "racer")
-  :diminish racer-mode "𝐑𝐚"
   :bind (:map rust-mode-map
               (("C-c C-t" . racer-describe)))
   :config
@@ -89,7 +88,6 @@ foo -> &foo[..]"
 ;; https://github.com/kwrooijen/cargo.el
 (use-package cargo
   :after rust-mode
-  :diminish (cargo-minor-mode . "𝐂𝐚")
   :hook ((rust-mode . cargo-minor-mode)))
 
 ;; add flycheck support for rust

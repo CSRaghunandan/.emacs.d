@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-02-26 12:10:06 csraghunandan>
+;; Time-stamp: <2018-03-12 22:45:35 csraghunandan>
 
 ;; configuration for buffers
 
@@ -215,10 +215,6 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
  ("C-c m d" . make-directory)
  ("s-u" . revert-buffer-no-confirm)
  ("C-c s n" . modi/copy-buffer-file-name))
-
-;; diminish auto-revert-mode emacs
-(use-package autorevert
-  :diminish auto-revert-mode)
 
 (defun rag/split-below-and-move ()
   "split window below and move there"

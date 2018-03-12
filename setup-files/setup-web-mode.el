@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-02-27 00:36:42 csraghunandan>
+;; Time-stamp: <2018-03-12 22:54:31 csraghunandan>
 
 ;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -60,8 +60,7 @@
   ;; emmet-mode: dynamic snippets for HTML
   ;; https://github.com/smihica/emmet-mode
   (use-package emmet-mode
-    :init (setq emmet-move-cursor-between-quotes t) ;; default nil
-    :diminish (emmet-mode . "𝐄𝐦"))
+    :init (setq emmet-move-cursor-between-quotes t)) ;; default nil
   ;; start emmet mode after web-mode launches
   (add-hook 'web-mode-hook 'emmet-mode)
 
@@ -71,7 +70,6 @@
 ;; impatient mode: Live refresh of web pages
 ;; https://github.com/skeeto/impatient-mode
 (use-package impatient-mode :defer t
-  :diminish (impatient-mode . "𝐈𝐦")
   :commands (impatient-mode))
 
 (provide 'setup-web-mode)

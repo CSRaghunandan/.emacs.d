@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-06 18:32:26 csraghunandan>
+;; Time-stamp: <2018-03-12 22:47:12 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -40,7 +40,6 @@
 ;; https://github.com/magnars/js2-refactor.el
 (use-package js2-refactor
   :after js2-mode
-  :diminish js2-refactor-mode "𝐉𝐫"
   :bind
   (:map js2-mode-map
         ("C-k" . js2r-kill)
@@ -90,7 +89,6 @@
 ;; tern: IDE like features for javascript and completion
 ;; http://ternjs.net/doc/manual.html#emacs
 (use-package tern
-  :diminish tern-mode "𝐓𝐞"
   :if (executable-find "tern")
   ;; Disable completion keybindings, as we use xref-js2 instead
   :bind ((:map tern-mode-keymap

@@ -1,11 +1,10 @@
-;; Time-stamp: <2018-03-04 20:30:57 csraghunandan>
+;; Time-stamp: <2018-03-12 22:45:40 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
 ;; company: auto-completion backend for emacs
 ;; http://company-mode.github.io/
 (use-package company
-  :diminish company-mode
   :config
   (bind-keys
    :map company-active-map

@@ -1,12 +1,10 @@
-;; Time-stamp: <2017-09-10 14:41:32 csraghunandan>
+;; Time-stamp: <2018-03-12 22:47:38 csraghunandan>
 
 ;; configuration for purescript
 
 ;; purescript-mode: major mode for editing purescript files
 ;; https://github.com/dysinger/purescript-mode
 (use-package purescript-mode :defer t
-  :diminish (purescript-indentation-mode . "𝐈𝐧")
-  :diminish (psc-ide-mode . "𝐏-𝐈𝐃𝐄")
   :config
   (add-hook 'purescript-mode-hook 'turn-on-purescript-decl-scan)
 

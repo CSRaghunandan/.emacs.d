@@ -1,11 +1,10 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-03-05 16:22:21 csraghunandan>
+;; Time-stamp: <2018-03-12 22:45:44 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
 (use-package counsel
   :after ivy
-  :diminish counsel-mode
   :bind*
   (([remap execute-extended-command] . counsel-M-x)
    :map ivy-minibuffer-map

@@ -1,9 +1,8 @@
-;; Time-stamp: <2018-02-22 22:36:07 csraghunandan>
+;; Time-stamp: <2018-03-12 22:48:34 csraghunandan>
 
 ;; selected: Keymap for when region is active
 ;; https://github.com/Kungsgeten/selected.el
 (use-package selected
-  :diminish selected-minor-mode
   :bind (:map selected-keymap
               ("w" . whole-line-or-region-kill-region)
               ("~" . hydra-change-case/body)

@@ -3,7 +3,6 @@
 ;; which-key : show popup of keybindings starting with a prefix
 ;; https://github.com/justbur/emacs-which-key
 (use-package which-key
-  :diminish which-key-mode
   :config
   ;; make which-key popup to the right
   (which-key-setup-side-window-right)

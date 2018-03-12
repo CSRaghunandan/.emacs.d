@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-05 14:46:58 csraghunandan>
+;; Time-stamp: <2018-03-12 22:46:18 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -69,7 +69,6 @@
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
 (use-package git-timemachine
-  :diminish git-timemachine-mode "𝐓𝐦"
   :bind (("C-c g t" . git-timemachine-toggle)))
 
 ;; diff-hl: highlight diffs in the fringe

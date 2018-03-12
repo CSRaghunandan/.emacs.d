@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 12:35:54 csraghunandan>
+;; Time-stamp: <2018-03-12 22:47:32 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -138,8 +138,7 @@
   ;; enable org-indent mode on startup
   (setq org-startup-indented t)
 
-  (use-package org-indent :ensure nil
-    :diminish (org-indent-mode . "𝐈"))
+  (use-package org-indent :ensure nil)
 
   ;; strike through done headlines
   (setq org-fontify-done-headline t)

@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-06 11:12:36 csraghunandan>
+;; Time-stamp: <2018-03-12 22:46:30 csraghunandan>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
@@ -25,7 +25,6 @@
 ;; https://github.com/chrisdone/structured-haskell-mode
 (use-package shm
   :if (executable-find "structured-haskell-mode")
-  :diminish (structured-haskell-mode . "𝐒𝐇𝐌")
   :hook ((haskell-mode . structured-haskell-mode)
          (structured-haskell-mode . (lambda ()
                                       (smartparens-mode -1)
@@ -41,7 +40,6 @@
 ;; intero-mode: IDE features for haskell
 ;; commercialhaskell.github.io/intero
 (use-package intero
-  :diminish inter-mode "𝐈𝐧"
   :after haskell-mode
   :config
   ;; enable hlint checker for flycheck
@@ -54,7 +52,6 @@
 ;; https://github.com/chrisdone/hindent
 (use-package hindent
   :if (executable-find "hindent")
-  :diminish hindent-mode "𝐇𝐢"
   :hook (haskell-mode . hindent-mode)
   :config
   ;; reformat the buffer using hindent on save

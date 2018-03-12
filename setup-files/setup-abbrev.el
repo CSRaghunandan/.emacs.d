@@ -1,8 +1,7 @@
-;; Time-stamp: <2018-03-05 14:15:34 csraghunandan>
+;; Time-stamp: <2018-03-12 22:45:24 csraghunandan>
 
 ;; abbrev: expand abbreviations
 (use-package abbrev :ensure nil
-  :diminish abbrev-mode
   :hook
   ((prog-mode org-mode text-mode erc-mode LaTeX-mode) . abbrev-mode)
   (expand-load

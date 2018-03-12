@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-09-30 02:23:26 csraghunandan>
+;; Time-stamp: <2018-03-12 23:19:26 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -9,20 +9,6 @@
    'zenburn
    ;; make zenburn background theme darker
    '(default ((t (:foreground "#DCDCCC" :background "#383838"))))
-
-   ;; mode-line related config
-   '(mode-line ((t (:box (:line-width 1 :color "gray35")
-                         :weight normal :foreground "#94BFF3"
-                         :background "#383838"))))
-   '(mode-line-inactive ((t (:box (:line-width 1 :color "gray35")
-                                  :weight normal :foreground "gray70"
-                                  :background "#383838"))))
-   '(mode-line-buffer-id ((t (:foreground "#FFEBB9" :weight bold))))
-
-   '(powerline-active1 ((t (:background "gray35" :foreground "#BFEBBF"))))
-   '(powerline-active2 ((t (:background "gray35" :foreground "#BFEBBF"))))
-   '(powerline-inactive1 ((t (:background "gray35"))))
-   '(powerline-inactive2 ((t (:background "#383838"))))
 
    ;; ivy minibuffer config
    '(ivy-minibuffer-match-face-4 ((t (:background "pink4" :underline t))))

@@ -1,9 +1,8 @@
-;; Time-stamp: <2017-08-16 00:19:17 csraghunandan>
+;; Time-stamp: <2018-03-12 22:48:39 csraghunandan>
 
 ;; smartparens: for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
 (use-package smartparens
-  :diminish (smartparens-mode . "𝐬")
   :config
   (setq sp-ignore-modes-list (quote (minibuffer-inactive-mode
                                      web-mode

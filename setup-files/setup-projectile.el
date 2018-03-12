@@ -1,9 +1,8 @@
-;; Time-stamp: <2018-03-03 09:49:52 csraghunandan>
+;; Time-stamp: <2018-03-12 22:47:46 csraghunandan>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
 (use-package projectile
-  :diminish projectile-mode
   :config
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)

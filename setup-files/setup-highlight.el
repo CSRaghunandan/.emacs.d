@@ -1,11 +1,10 @@
-;; Time-stamp: <2018-02-27 00:57:11 csraghunandan>
+;; Time-stamp: <2018-03-12 22:46:49 csraghunandan>
 
 ;; All the highlight stuff config
 
 ;; highlight-symbol: move to next/prev occurrences of symbol + highlight
 ;; https://github.com/nschum/highlight-symbol.el
 (use-package highlight-symbol
-  :diminish highlight-symbol-mode
   :bind (("M-n" . highlight-symbol-next)
          ("M-p" . highlight-symbol-prev))
   :config (highlight-symbol-nav-mode))
@@ -13,7 +12,6 @@
 ;; volatile-highlights: highlight specific operations like undo, yank
 ;; https://github.com/k-talo/volatile-highlights.el
 (use-package volatile-highlights
-  :diminish volatile-highlights-mode
   :config (volatile-highlights-mode t))
 
 ;; enable hl-line-mode globally
@@ -22,14 +20,12 @@
 ;; rainbow-mode: colorize color names in buffers
 ;; https://github.com/emacsmirror/rainbow-mode/blob/master/rainbow-mode.el
 (use-package rainbow-mode
-  :diminish (rainbow-mode . "")
   :init
   (add-hook 'help-mode-hook #'rainbow-mode))
 
 ;; beacon: blink the cursor whenever scrolling or switching between windows
 ;; https://github.com/Malabarba/beacon
 (use-package beacon
-  :diminish beacon-mode
   :config
   (beacon-mode)
   (setq beacon-size 25)

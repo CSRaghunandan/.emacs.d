@@ -1,10 +1,9 @@
-;; Time-stamp: <2018-03-05 16:59:07 csraghunandan>
+;; Time-stamp: <2018-03-12 22:45:48 csraghunandan>
 
 ;; flyspell, flycheck
 
 ;; flypsell: on the fly spell checking
 (use-package flyspell
-  :diminish flyspell-mode
   :hook
   ((prog-mode . flyspell-prog-mode)
    (org-mode . flyspell-mode))
@@ -20,8 +19,7 @@
 
 ;; flycheck: on the fly syntax checking
 ;; http://www.flycheck.org/en/latest/
-(use-package flycheck
-  :diminish flycheck-mode)
+(use-package flycheck)
 
 ;; flycheck-posframe: Show flycheck errors via posframe.el
 ;; https://github.com/alexmurray/flycheck-posframe

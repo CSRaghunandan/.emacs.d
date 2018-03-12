@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-02-12 13:23:52 csraghunandan>
+;; Time-stamp: <2018-03-12 22:48:26 csraghunandan>
 
 ;; isearch config
 
@@ -63,7 +63,6 @@ See the command `isearch-forward-symbol' for more information."
 ;;; anzu: show number of searches in isearch
 ;; https://github.com/syohex/emacs-anzu
 (use-package anzu
-  :diminish anzu-mode
   :config
   (setq anzu-search-threshold 1000)
   (setq anzu-replace-to-string-separator " => ")

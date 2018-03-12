@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-04 22:23:44 csraghunandan>
+;; Time-stamp: <2018-03-12 22:46:14 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -92,7 +92,6 @@ Position the cursor at it's beginning, according to the current mode."
 ;; operate on current line if no region is defined
 ;; https://github.com/purcell/whole-line-or-region/blob/master/whole-line-or-region.el
 (use-package whole-line-or-region
- :diminish whole-line-or-region-mode
  :config (whole-line-or-region-global-mode))
 
 
@@ -151,7 +150,6 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; subword: subword movement and editing for camelCase
 (use-package subword
-  :diminish subword-mode
   :config (global-subword-mode))
 
 ;; save-place: save cursor position when buffer is killed
@@ -364,7 +362,6 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 
 ;; configuration for auto-fill-mode
 (use-package simple :ensure nil
-  :diminish auto-fill-function
   :hook ((prog-mode text-mode org-mode) . auto-fill-mode)
   :config
   (setq comment-auto-fill-only-comments t))
@@ -493,7 +490,6 @@ Version 2017-01-11"
 ;; undo-tree: Treat undo history as a tree
 ;; https://www.emacswiki.org/emacs/UndoTree
 (use-package undo-tree
-  :diminish undo-tree-mode
   :bind (("s-/" . undo-tree-redo))
   :init (global-undo-tree-mode))
 

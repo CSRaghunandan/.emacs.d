@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-02 11:18:57 csraghunandan>
+;; Time-stamp: <2018-03-12 22:47:17 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -51,7 +51,6 @@ not prevent downloading the actual packages (obviously)."
 ;; google-this : google line, region, symbol, etc.
 ;; https://github.com/Malabarba/emacs-google-this
 (use-package google-this
-  :diminish google-this-mode
   :config (google-this-mode 1))
 
 ;; for when you want to disable the mouse

@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-05 16:22:07 csraghunandan>
+;; Time-stamp: <2018-03-12 22:49:17 csraghunandan>
 
 ;; a collection of yasnippet snippets for many languages
 ;; https://github.com/AndreaCrotti/yasnippet-snippets
@@ -7,7 +7,6 @@
 ;; yasnippet: snippets tool for emacs
 ;; https://github.com/capitaomorte/yasnippet
 (use-package yasnippet
-  :diminish yas-minor-mode
   :requires yasnippet-snippets
   :config
   (yas-global-mode)

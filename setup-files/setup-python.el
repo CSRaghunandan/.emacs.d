@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-01-31 12:59:21 csraghunandan>
+;; Time-stamp: <2018-03-12 22:48:06 csraghunandan>
 
 ;; Python configuration
 (use-package python
@@ -21,7 +21,6 @@
   ;; anaconda-mode: bring IDE like features for python-mode
   ;; https://github.com/proofit404/anaconda-mode
   (use-package anaconda-mode
-    :diminish (anaconda-mode . "𝐀𝐧")
     :config
     (add-hook 'python-mode-hook 'anaconda-mode)
     (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
@@ -93,7 +92,6 @@
   ;; sphinx-doc: add sphinx-doc comments easily
   ;; https://github.com/naiquevin/sphinx-doc.el
   (use-package sphinx-doc
-    :diminish sphinx-doc-mode
     :config (add-hook 'python-mode-hook 'sphinx-doc-mode))
 
   ;; pip-requirements: Major mode for editing pip requirements files
@@ -105,7 +103,6 @@
   ;; python-docstring: format and highlight syntax for python docstrings
   ;; https://github.com/glyph/python-docstring-mode
   (use-package python-docstring
-    :diminish python-docstring-mode
     :config (add-hook 'python-mode-hook 'python-docstring-mode)))
 
 (provide 'setup-python)
