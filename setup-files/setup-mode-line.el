@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 01:18:04 csraghunandan>
+;; Time-stamp: <2018-03-13 02:33:12 csraghunandan>
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell
@@ -34,11 +34,12 @@
                 mode-line-client
                 mode-line-modified
                 mode-line-remote
-                mode-line-frame-identification
                 mode-line-buffer-identification " " mode-line-position
                 (vc-mode vc-mode)
                 (multiple-cursors-mode mc/mode-line)
-                " " mode-line-modes mode-line-end-spaces))
+                " " mode-line-modes
+                " " mode-line-misc-info
+                mode-line-end-spaces))
 
 ;; Tabs and ribbons for the mode-line
 ;; https://github.com/tarsius/moody
