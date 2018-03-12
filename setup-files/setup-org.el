@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-07 10:07:36 csraghunandan>
+;; Time-stamp: <2018-03-12 12:35:54 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -434,12 +434,12 @@ point."
   ;; org-sticky-headers
   ;; https://github.com/alphaapapa/org-sticky-header
   (use-package org-sticky-header
+    :hook ((org-mode . org-sticky-header-mode))
     :config
     ;; show full path from the org-mode header
     (setq org-sticky-header-full-path 'full)
     (setq org-sticky-header-always-show-header
-          (if org-sticky-header-full-path t nil))
-    (add-hook 'org-mode-hook #'org-sticky-header-mode))
+          (if org-sticky-header-full-path t nil)))
 
   (defun org-archive-done-tasks ()
     (interactive)
@@ -556,12 +556,9 @@ text and copying to the killring."
 ;; * C-c C-f to view next entry
 ;; * C-c C-b to view previous entry
 (use-package org-journal :defer 2
-  :config
-  (bind-key "C-c o j" 'org-journal-new-entry)
-
-  ;; remove unnecessary modes in org-journal
-  (add-hook 'org-journal-mode-hook (lambda ()
-                                     (visual-line-mode -1)
-                                     (org-sticky-header-mode -1))))
+  :bind (("C-c o j" . org-journal-new-entry))
+  :hook ((org-journal-mode . (lambda ()
+                               (visual-line-mode -1)
+                               (org-sticky-header-mode -1)))))
 
 (provide 'setup-org)

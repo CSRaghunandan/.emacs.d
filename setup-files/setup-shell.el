@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-05 12:30:14 csraghunandan>
+;; Time-stamp: <2018-03-12 12:34:07 csraghunandan>
 
 ;; configuration for shell mode
 
@@ -10,6 +10,7 @@
 `sh-mode'.")
 
 (use-package sh-script
+  :hook ((sh-mode . flycheck-mode))
   :config
   (defun +sh--match-variables-in-quotes (limit)
     "Search for variables in double-quoted strings bounded by LIMIT."
@@ -51,13 +52,14 @@
 ;; company-shell: company backend for shell scripts
 ;; https://github.com/Alexander-Miller/company-shell
 (use-package company-shell
+  :hook ((sh-mode . my-sh-mode-hook)
+         (sh-mode . company-mode))
   :config
   (setq company-shell-delete-duplicates t)
+
   (defun my-sh-mode-hook()
     (set (make-local-variable 'company-backends)
-         '(company-shell company-files company-yasnippet)))
-  (add-hook 'sh-mode-hook #'my-sh-mode-hook)
-  (add-hook 'sh-mode-hook 'company-mode))
+         '(company-shell company-files company-yasnippet))))
 
 ;; On shells, please handle properly the ansi escape codes
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
