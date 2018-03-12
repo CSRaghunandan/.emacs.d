@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-01-19 15:31:35 csraghunandan>
+;; Time-stamp: <2018-03-13 00:20:12 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -33,11 +33,6 @@
 
 ;; add imenu support for use-package declarations
 (setq use-package-enable-imenu-support t)
-
-;; diminish-mode: to hide minor modes in mode-line
-;; https://github.com/emacsmirror/diminish
-(use-package diminish
-  :ensure t)
 
 (require 'setup-osx)
 (require 'setup-org)
