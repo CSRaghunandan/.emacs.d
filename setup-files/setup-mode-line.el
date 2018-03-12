@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 02:33:12 csraghunandan>
+;; Time-stamp: <2018-03-13 03:04:46 csraghunandan>
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell
@@ -50,8 +50,7 @@
   (setq moody-mode-line-height 22)
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode)
-  (column-number-mode)
-  (size-indication-mode))
+  (column-number-mode))
 
 ;; A minor-mode menu for the mode line
 ;; https://github.com/tarsius/minions
