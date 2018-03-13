@@ -1,19 +1,18 @@
-;; Time-stamp: <2018-03-01 16:48:17 csraghunandan>
+;; Time-stamp: <2018-03-13 23:01:39 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode :defer t
+  :hook ((css-mode . (lambda ()
+                       (rainbow-mode)
+                       (my-css-mode-hook)
+                       (company-mode)
+                       (flycheck-mode))))
   :config
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)
          (>=e "26.0"
              '((company-capf company-files company-yasnippet))
            '((company-css company-files company-yasnippet)))))
-
-  (add-hook 'css-mode-hook 'my-css-mode-hook)
-  ;; fontify colors with `rainbow-mode'
-  (add-hook 'css-mode-hook 'rainbow-mode)
-  (add-hook 'css-mode-hook 'company-mode)
-  (add-hook 'css-mode-hook 'flycheck-mode)
 
   (if (executable-find "prettier")
       (add-hook 'css-mode-hook 'prettier-js-mode)
