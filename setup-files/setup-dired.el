@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-03-05 12:25:55 csraghunandan>
+;; Time-stamp: <2018-03-13 11:18:32 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
@@ -81,11 +81,12 @@ It added extra strings at the front and back of the default dired buffer name."
 
   ;; dired-x: to hide uninteresting files in dired
   (use-package dired-x :ensure nil
+    :demand t
+    :hook ((dired-mode . dired-omit-mode))
     :config
     (setq dired-omit-verbose nil)
     ;; hide backup, autosave, *.*~ files
     ;; omit mode can be toggled using `C-x M-o' in dired buffer.
-    (add-hook 'dired-mode-hook #'dired-omit-mode)
     (setq dired-omit-files
           (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$"))))
 
@@ -97,8 +98,7 @@ It added extra strings at the front and back of the default dired buffer name."
 ;; diredfl:Extra Emacs font lock rules for a more colourful dired
 ;; https://github.com/purcell/diredfl/tree/085eabf2e70590ec8e31c1e66931d652d8eab432
 (use-package diredfl
-  :config
-  (diredfl-global-mode))
+  :config (diredfl-global-mode))
 
 ;; dired-quick-sort: hydra to sort files in dired
 ;; Press `S' to invoke dired-quick-sort hydra

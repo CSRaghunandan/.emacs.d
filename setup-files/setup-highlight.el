@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:46:49 csraghunandan>
+;; Time-stamp: <2018-03-13 11:15:48 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -20,8 +20,7 @@
 ;; rainbow-mode: colorize color names in buffers
 ;; https://github.com/emacsmirror/rainbow-mode/blob/master/rainbow-mode.el
 (use-package rainbow-mode
-  :init
-  (add-hook 'help-mode-hook #'rainbow-mode))
+  :hook ((helpful-mode . rainbow-mode)))
 
 ;; beacon: blink the cursor whenever scrolling or switching between windows
 ;; https://github.com/Malabarba/beacon
@@ -35,21 +34,18 @@
 ;; highlight-numbers: fontify numbers
 ;; https://github.com/Fanael/highlight-numbers
 (use-package highlight-numbers
-  :config
-  (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+  :hook ((prog-mode . highlight-numbers-mode)))
 
 ;; highlight-indent-guides: best indent guides solution for emacs
 ;; https://github.com/DarthFennec/highlight-indent-guides
 (use-package highlight-indent-guides
-  :config
-  (setq highlight-indent-guides-method 'character)
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+  :hook ((prog-mode . highlight-indent-guides-mode))
+  :config (setq highlight-indent-guides-method 'character))
 
 ;; hl-todo: Highlight TODO keywords
 ;; https://github.com/tarsius/hl-todo/tree/master
 (use-package hl-todo
-  :config
-  (global-hl-todo-mode))
+  :config (global-hl-todo-mode))
 
 ;; enable some extra syntax highlighting for dash
 (with-eval-after-load 'dash

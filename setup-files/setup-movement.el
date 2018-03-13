@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 00:45:48 csraghunandan>
+;; Time-stamp: <2018-03-13 10:17:23 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -76,16 +76,15 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
 ;; scroll half screen up or down and highlight current line before and after scrolling
 ;; https://github.com/jixiuf/golden-ratio-scroll-screen
 (use-package golden-ratio-scroll-screen
-  :config
-  (bind-key "C-v" #'golden-ratio-scroll-screen-up)
-  (bind-key "M-v" #'golden-ratio-scroll-screen-down))
+  :bind (("C-v" . golden-ratio-scroll-screen-up)
+         ("M-v" . golden-ratio-scroll-screen-down)))
 
 ;; dumb-jump: jump to definitions using `rg' or `ag'
 ;; https://github.com/jacktasia/dumb-jump
 (use-package dumb-jump
+  :hook ((prog-mode . dumb-jump-mode))
   :init
-  (setq dumb-jump-selector 'ivy)
-  (add-hook 'prog-mode-hook #'dumb-jump-mode))
+  (setq dumb-jump-selector 'ivy))
 
 ;; A simple-minded way of managing window configs in emacs
 ;; https://github.com/wasamasa/eyebrowse
