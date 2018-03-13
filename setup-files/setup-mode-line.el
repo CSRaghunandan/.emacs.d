@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 03:04:46 csraghunandan>
+;; Time-stamp: <2018-03-13 11:24:12 csraghunandan>
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell
@@ -45,9 +45,12 @@
 ;; https://github.com/tarsius/moody
 (use-package moody
   :config
-  (setq moody-slant-function #'moody-slant-apple-rgb)
+  ;; only use apple-rgb for MacOS
+  (when (is-mac-p)
+    (setq moody-slant-function #'moody-slant-apple-rgb))
   (setq x-underline-at-descent-line t)
   (setq moody-mode-line-height 22)
+
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode)
   (column-number-mode))
