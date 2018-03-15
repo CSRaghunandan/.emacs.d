@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 23:17:09 csraghunandan>
+;; Time-stamp: <2018-03-15 20:28:43 csraghunandan>
 
 ;; flyspell, flycheck
 
@@ -23,9 +23,10 @@
 
 ;; flycheck-posframe: Show flycheck errors via posframe.el
 ;; https://github.com/alexmurray/flycheck-posframe
-(use-package flycheck-posframe
+(use-package flycheck-posframe :defer t
   :after flycheck
-  :hook (flycheck-mode . flycheck-posframe-mode)
-  :config (flycheck-posframe-configure-pretty-defaults))
+  ;; :hook (flycheck-mode . flycheck-posframe-mode)
+  ;; :config (flycheck-posframe-configure-pretty-defaults)
+  )
 
 (provide 'setup-fly)
