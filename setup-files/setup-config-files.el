@@ -3,7 +3,8 @@
 ;; yaml-mode: major-mode for editing yaml files
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode
-  :defer t)
+  :defer t
+  :hook ((yaml-mode . highlight-numbers-mode)))
 
 ;; conf-mode: major-mdoe for editing conf files
 ;; https://github.com/jrockway/emacs/blob/master/lisp/textmodes/conf-mode.el
