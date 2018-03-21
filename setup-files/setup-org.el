@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 02:59:33 csraghunandan>
+;; Time-stamp: <2018-03-21 10:59:22 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -50,6 +50,7 @@
 
   ;; override `avy-goto-char-timer' to C-' in org-mode-map
   (bind-key "C-'" 'avy-goto-char-timer org-mode-map)
+  (bind-key "C-c C-/" #'org-refile org-mode-map)
 
   ;; add a tag to make ordered tasks more visible
   (setq org-track-ordered-property-with-tag t)
