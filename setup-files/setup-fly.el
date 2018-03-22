@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-15 20:28:43 csraghunandan>
+;; Time-stamp: <2018-03-22 17:40:00 csraghunandan>
 
 ;; flyspell, flycheck
 
@@ -25,8 +25,7 @@
 ;; https://github.com/alexmurray/flycheck-posframe
 (use-package flycheck-posframe :defer t
   :after flycheck
-  ;; :hook (flycheck-mode . flycheck-posframe-mode)
-  ;; :config (flycheck-posframe-configure-pretty-defaults)
-  )
+  :hook (flycheck-mode . flycheck-posframe-mode)
+  :config (flycheck-posframe-configure-pretty-defaults))
 
 (provide 'setup-fly)
