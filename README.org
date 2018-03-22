@@ -4,18 +4,19 @@ My emacs config.
 - Work in progress and is subject to frequent changes.
 - Ivy as the preferred completion frontend for emacs.
 - Very minimal theme with no toolbar, no scrollbars, no line numbers and use zenburn theme.
-- Tested to work with emacs 25.1-1 and master build on macOS Sierra and linux.
+- Tested to work with emacs 26.0.91 and 27.0.50 on macOS Sierra and linux.
 
 ** Key points
 - =use-package= for faster load times and loading packages only when necessary.
 - Certain packages will only work if you have the associated applications installed
-  - =ripgrep=
-  - =git=
-  - =aspell=
-  - =racer=
-  - =jedi=
-  - =LanguageTools=
-  - =coreutils= (only if you’re on macOS. Needed by =dired=)
+  - =ripgrep= -> as an alternative for grep and to grep entire project
+  - =aspell= -> for spellcheck
+  - =racer= -> for autocompletion and jump to def in rust files
+  - =jedi= -> for autocompletion and jump to def in python files
+  - =tern= -> for autocompletion and jump to def in javascript files
+  - =LanguageTools= -> check for grammar mistakes
+  - =coreutils= -> only if you’re on macOS. Needed by =dired=
+  - =fortune= -> for getting a random quote in *scratch* buffer
 
 * Feedback
 Open to any feedback, corrections.
