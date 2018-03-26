@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:46:18 csraghunandan>
+;; Time-stamp: <2018-03-23 18:05:02 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -10,7 +10,7 @@
          ("C-x M-g" . magit-dispatch-popup)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers))
-
+  :bind* ("C-c p v". magit-status)
   :config
   (setq magit-completing-read-function 'ivy-completing-read)
 
