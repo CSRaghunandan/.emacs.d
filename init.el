@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 02:44:27 csraghunandan>
+;; Time-stamp: <2018-03-27 11:34:03 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -14,7 +14,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-(package-initialize)
 
 ;; load directory for configuration files for emacs
 (add-to-list 'load-path (concat user-emacs-directory "setup-files/"))
