@@ -1,11 +1,12 @@
-;; Time-stamp: <2018-03-23 17:51:28 csraghunandan>
+;; Time-stamp: <2018-04-01 19:15:57 csraghunandan>
 
 ;; avy: package for jumping to visible text using character based decision tree
 ;; https://github.com/abo-abo/avy
 (use-package avy
   :bind
   (("C-`" . avy-goto-word-1)
-   ("C-'" . avy-goto-char-timer))
+   ("C-'" . avy-goto-char-timer)
+   ("M-g M-g" . avy-goto-line))
   :config (setq avy-style 'pre))
 
 ;; ace-link: quickly traverse through links in info
