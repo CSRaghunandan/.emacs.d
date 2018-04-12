@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 10:17:23 csraghunandan>
+;; Time-stamp: <2018-04-12 18:06:40 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -50,8 +50,8 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   ("b" backward-char)
   ("a" mwim-beginning-of-code-or-line-or-comment)
   ("e" mwim-end-of-code-or-line)
-  ("v" golden-ratio-scroll-screen-up)
-  ("V" golden-ratio-scroll-screen-down)
+  ("v" scroll-up)
+  ("V" scroll-down)
   ("F" forward-word)
   ("B" backward-word)
   ("l" recenter-top-bottom)
