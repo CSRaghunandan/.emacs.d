@@ -1,15 +1,11 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-03-12 22:45:44 csraghunandan>
+;; Time-stamp: <2018-04-13 10:31:51 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
 (use-package counsel
   :after ivy
-  :bind*
-  (([remap execute-extended-command] . counsel-M-x)
-   :map ivy-minibuffer-map
-   ("M-y" . ivy-next-line-and-call))
-
+  :bind* (([remap execute-extended-command] . counsel-M-x))
   :init
   (counsel-mode)
 
@@ -74,7 +70,6 @@
    ([remap find-file] . counsel-find-file)
    ("C-c g g" . counsel-git-grep)
    ("C-c f" . counsel-imenu)
-   ("M-y" . counsel-yank-pop)
    ("C-c F" . ivy-imenu-anywhere)
    ("C-c d s" . describe-symbol)
    ("C-c d f" . counsel-faces)
@@ -85,8 +80,7 @@
 ;; https://github.com/ericdanan/counsel-projectile/tree/master
 (use-package counsel-projectile
   :after (counsel projectile)
-  :config
-  (counsel-projectile-mode 1))
+  :config (counsel-projectile-mode 1))
 
 (provide 'setup-counsel)
 
