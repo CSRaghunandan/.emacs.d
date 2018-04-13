@@ -36,3 +36,9 @@ anaconda-mode/
 
 # ignore irony folder
 irony/
+
+# ignore the quickstart autoloads file
+package-quickstart.el
+
+# ignore ord id locations
+.org-id-locations
