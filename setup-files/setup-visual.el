@@ -1,5 +1,5 @@
 
-;; Time-stamp: <2018-03-12 22:49:03 csraghunandan>
+;; Time-stamp: <2018-04-21 23:30:51 csraghunandan>
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
 (use-package rainbow-delimiters
@@ -172,5 +172,10 @@ Font Size:     _C--_/_-_ Decrease     _C-=_/_=_ Increase     _C-0_/_0_ Reset    
   :hook ((after-init . dimmer-mode))
   :config
   (setq-default dimmer-fraction 0.1))
+
+;; fontify-face: Fontify symbols representing faces with that face.
+;; https://github.com/Fuco1/fontify-face/tree/master
+(use-package fontify-face
+  :defer t)
 
 (provide 'setup-visual)
