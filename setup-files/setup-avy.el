@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-04-01 19:15:57 csraghunandan>
+;; Time-stamp: <2018-04-25 13:52:55 csraghunandan>
 
 ;; avy: package for jumping to visible text using character based decision tree
 ;; https://github.com/abo-abo/avy
@@ -19,3 +19,5 @@
             #'(lambda () (bind-key "C-c M-a" #'ace-link-org org-mode-map))))
 
 (provide 'setup-avy)
+
+;; z - avy action key to zap to character

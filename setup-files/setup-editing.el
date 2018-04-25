@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:46:14 csraghunandan>
+;; Time-stamp: <2018-04-25 08:53:12 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -150,10 +150,12 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; subword: subword movement and editing for camelCase
 (use-package subword
+  :defer 1
   :config (global-subword-mode))
 
 ;; save-place: save cursor position when buffer is killed
 (use-package saveplace
+  :defer 2
   :config (save-place-mode))
 
 

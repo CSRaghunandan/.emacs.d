@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:45:35 csraghunandan>
+;; Time-stamp: <2018-04-25 08:51:31 csraghunandan>
 
 ;; configuration for buffers
 
@@ -11,6 +11,7 @@
 ;; behaviour which use parts of the file names to make the buffer names
 ;; distinguishable.
 (use-package uniquify :ensure nil
+  :defer 2
   :config
   ;; make buffers with same name unique
   (setq uniquify-buffer-name-style 'forward)
