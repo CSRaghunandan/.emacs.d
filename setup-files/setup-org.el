@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-21 10:59:22 csraghunandan>
+;; Time-stamp: <2018-04-27 17:13:44 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -305,7 +305,8 @@ If OPTION is \\='(16), only align the tags in the current heading."
   (use-package langtool :defer 1
     :config
     ;; place the language-tool directory in $HOME
-    (setq langtool-language-tool-jar (concat user-home-directory "LanguageTool-3.7/languagetool-commandline.jar"))
+    (setq langtool-language-tool-jar
+          (concat user-home-directory "/usr/local/Cellar/languagetool/4.1/libexec/languagetool-commandline.jar"))
     (setq langtool-default-language "en-GB")
 
     ;; hydra for langtool check
