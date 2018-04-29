@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-01-15 12:56:26 csraghunandan>
+;; Time-stamp: <2018-04-29 14:28:14 csraghunandan>
 
 ;; quickrun - Execute editing buffer and show its output quickly.
 ;; https://github.com/syohex/emacs-quickrun
