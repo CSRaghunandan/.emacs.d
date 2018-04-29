@@ -9,7 +9,7 @@
 ;; C/C++ code disassembler using disaster
 ;; modern C++ font-lock support
 
-(use-package cc-mode
+(use-package cc-mode :ensure nil
   :config
 
   ;; A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs
@@ -145,13 +145,6 @@
 
   (add-hook 'c++-mode-hook 'smart-dash-mode)
   (add-hook 'c-mode-hook 'smart-dash-mode)
-
-  ;; https://github.com/Fuco1/smartparens/issues/815
-  ;; remove this once this issue is fixed for emacs master
-  (>=e "26.0"
-      (sp-local-pair 'c-mode "'" nil :actions nil))
-  (>=e "26.0"
-      (sp-local-pair 'c++-mode "'" nil :actions nil))
 
   (c-add-style "llvm"
                '("gnu"
