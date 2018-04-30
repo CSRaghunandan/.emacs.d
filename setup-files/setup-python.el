@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-04-30 17:37:29 csraghunandan>
+;; Time-stamp: <2018-04-30 17:49:54 csraghunandan>
 
 (use-package python
   :ensure nil
@@ -82,4 +82,4 @@
 (use-package sphinx-doc
   :hook ((python-mode . sphinx-doc-mode)))
 
-(provide 'setup-python-lsp)
+(provide 'setup-python)

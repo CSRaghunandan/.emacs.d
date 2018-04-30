@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 23:19:26 csraghunandan>
+;; Time-stamp: <2018-04-30 17:55:42 csraghunandan>
 
 ;; zenburn: A pleasing dark theme for emacs
 ;; https://github.com/bbatsov/zenburn-emacs
@@ -9,6 +9,19 @@
    'zenburn
    ;; make zenburn background theme darker
    '(default ((t (:foreground "#DCDCCC" :background "#383838"))))
+
+   ;; mode-line configuration
+   (let ((line (face-attribute 'mode-line :underline)))
+     (zenburn-with-color-variables
+       (set-face-attribute 'mode-line          nil :overline   line)
+       (set-face-attribute 'mode-line-inactive nil :overline   line)
+       (set-face-attribute 'mode-line-inactive nil :underline  line)
+       (set-face-attribute 'mode-line          nil :box        nil)
+       (set-face-attribute 'mode-line-inactive nil :box        nil)
+       (set-face-attribute 'mode-line          nil :background "gray30")
+       (set-face-attribute 'mode-line-inactive nil :background zenburn-bg-1)
+       (set-face-attribute 'mode-line          nil :foreground zenburn-green+4)
+       (set-face-attribute 'mode-line-inactive nil :foreground "gray70")))
 
    ;; ivy minibuffer config
    '(ivy-minibuffer-match-face-4 ((t (:background "pink4" :underline t))))

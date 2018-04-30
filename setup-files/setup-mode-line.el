@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-20 09:10:09 csraghunandan>
+;; Time-stamp: <2018-04-30 17:55:41 csraghunandan>
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell
@@ -72,18 +72,5 @@
 (rename-modeline "js2-mode" js2-mode "JS2")
 (rename-modeline "typescript-mode" typescript-mode "TS")
 (rename-modeline "haskell-mode" haskell-mode "𝞴=")
-
-(let ((line (face-attribute 'mode-line :underline)))
-  (zenburn-with-color-variables
-
-    (set-face-attribute 'mode-line          nil :overline   line)
-    (set-face-attribute 'mode-line-inactive nil :overline   line)
-    (set-face-attribute 'mode-line-inactive nil :underline  line)
-    (set-face-attribute 'mode-line          nil :box        nil)
-    (set-face-attribute 'mode-line-inactive nil :box        nil)
-    (set-face-attribute 'mode-line          nil :background "gray30")
-    (set-face-attribute 'mode-line-inactive nil :background zenburn-bg-1)
-    (set-face-attribute 'mode-line          nil :foreground zenburn-green+4)
-    (set-face-attribute 'mode-line-inactive nil :foreground "gray70")))
 
 (provide 'setup-mode-line)
