@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-21 10:00:39 csraghunandan>
+;; Time-stamp: <2018-05-02 01:34:24 csraghunandan>
 
 ;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://github.com/emacsorphanage/multi-term/tree/f954e4e18b0a035151d34852387e724d87a3316f
@@ -38,12 +38,13 @@
               ("d" multi-term-dedicated-toggle "Dedicated terminal")
               ("q" nil "Quit" :color blue)))
 
-  (use-package term
+  (use-package term :ensure nil
     :config
-
     ;; bind-keys for term-mode
     (setq term-bind-key-alist
           '(("C-c C-c" . term-interrupt-subjob)
+            ("C-v" . scroll-up)
+            ("M-v" . scroll-down)
             ("C-c C-e" . term-send-esc)
             ("C-c C-j" . term-line-mode)
             ("C-c C-k" . term-char-mode)
