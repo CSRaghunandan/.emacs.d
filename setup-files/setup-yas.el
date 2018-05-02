@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:49:17 csraghunandan>
+;; Time-stamp: <2018-05-02 13:01:41 csraghunandan>
 
 ;; a collection of yasnippet snippets for many languages
 ;; https://github.com/AndreaCrotti/yasnippet-snippets
@@ -29,7 +29,33 @@ _r_eload    e_x_pand    _?_ list    aya _e_xpand
               ("c" aya-create)
               ("e" aya-expand)
               ("?" yas-describe-tables)
-              ("q" nil "cancel" :color blue))))
+              ("q" nil "cancel" :color blue)))
+
+  ;; No need to be so verbose
+  (setq yas-verbosity 1)
+
+  ;; Wrap around region
+  (setq yas-wrap-around-region t)
+
+  ;; Inter-field navigation
+  (defun yas/goto-end-of-active-field ()
+    (interactive)
+    (let* ((snippet (car (yas--snippets-at-point)))
+           (position (yas--field-end (yas--snippet-active-field snippet))))
+      (if (= (point) position)
+          (move-end-of-line 1)
+        (goto-char position))))
+
+  (defun yas/goto-start-of-active-field ()
+    (interactive)
+    (let* ((snippet (car (yas--snippets-at-point)))
+           (position (yas--field-start (yas--snippet-active-field snippet))))
+      (if (= (point) position)
+          (move-beginning-of-line 1)
+        (goto-char position))))
+
+  (define-key yas-keymap (kbd "C-e") 'yas/goto-end-of-active-field)
+  (define-key yas-keymap (kbd "C-a") 'yas/goto-start-of-active-field))
 
 ;; auto-yasnippet: create disposable snippets on the fly
 ;; https://github.com/abo-abo/auto-yasnippet
