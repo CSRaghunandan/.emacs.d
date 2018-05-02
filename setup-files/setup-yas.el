@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-02 13:01:41 csraghunandan>
+;; Time-stamp: <2018-05-02 13:04:12 csraghunandan>
 
 ;; a collection of yasnippet snippets for many languages
 ;; https://github.com/AndreaCrotti/yasnippet-snippets
@@ -36,6 +36,9 @@ _r_eload    e_x_pand    _?_ list    aya _e_xpand
 
   ;; Wrap around region
   (setq yas-wrap-around-region t)
+
+  ;; Jump to end of snippet definition
+  (define-key yas-keymap (kbd "C-j") 'yas-exit-all-snippets)
 
   ;; Inter-field navigation
   (defun yas/goto-end-of-active-field ()
