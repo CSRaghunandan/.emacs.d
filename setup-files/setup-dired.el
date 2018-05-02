@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-05-02 13:09:46 csraghunandan>
+;; Time-stamp: <2018-05-02 13:17:25 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
@@ -10,6 +10,8 @@
               ("C-a" . dired-back-to-start-of-files))
   :config
   (progn
+    ;; follow symlinks in dired
+    (setq find-file-visit-truename t)
 
     ;; C-a is nicer in dired if it moves back to start of files
     (defun dired-back-to-start-of-files ()
