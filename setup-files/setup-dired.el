@@ -1,14 +1,21 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-03-13 11:18:32 csraghunandan>
+;; Time-stamp: <2018-05-02 13:09:46 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
   :bind (:map dired-mode-map
               ("S" . ora-dired-get-size)
               ("E" . ora-ediff-files)
-              ("^" . rag/dired-up-dir))
+              ("^" . rag/dired-up-dir)
+              ("C-a" . dired-back-to-start-of-files))
   :config
   (progn
+
+    ;; C-a is nicer in dired if it moves back to start of files
+    (defun dired-back-to-start-of-files ()
+      (interactive)
+      (backward-char (- (current-column) 2)))
+
     ;; mark symlinks
     (setq dired-ls-F-marks-symlinks t)
     ;; Never prompt for recursive copies of a directory
