@@ -1,6 +1,10 @@
-;; Time-stamp: <2018-04-22 09:37:22 csraghunandan>
+;; Time-stamp: <2018-05-04 00:45:20 csraghunandan>
 
 ;; rust-mode, RLS, cargo
+
+;; lsp-rust: Rust support for lsp-mode using the Rust Language Server.
+;; https://github.com/emacs-lsp/lsp-rust
+(use-package lsp-rust)
 
 ;; rust-mode: major-mode for editing rust files
 ;; https://github.com/rust-lang/rust-mode
@@ -70,11 +74,6 @@ foo -> &foo[..]"
     (insert "&")
     (forward-symbol 1)
     (insert "[..]")))
-
-;; racer: autocompletions/jump to definitions and eldoc support
-;; https://github.com/racer-rust/emacs-racer
-(use-package racer
-  :defer t)
 
 ;; cargo-mode: execute cargo commands easily
 ;; https://github.com/kwrooijen/cargo.el

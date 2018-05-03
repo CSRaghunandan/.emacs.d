@@ -1,17 +1,15 @@
-;; Time-stamp: <2018-04-22 09:38:49 csraghunandan>
+;; Time-stamp: <2018-05-04 00:09:01 csraghunandan>
 
 ;; lsp-mode:  Emacs client/library for the Language Server Protocol
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
   :config (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
 
-;; lsp-rust: Rust support for lsp-mode using the Rust Language Server.
-;; https://github.com/emacs-lsp/lsp-rust
-(use-package lsp-rust)
-
 ;; company-lsp: Company completion backend for lsp-mode.
 ;; https://github.com/tigersoldier/company-lsp/
-(use-package company-lsp)
+(use-package company-lsp
+  :config
+  (push 'company-lsp company-backends))
 
 ;; lsp-ui: This contains all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
 ;; https://github.com/emacs-lsp/lsp-ui
