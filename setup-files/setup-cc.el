@@ -17,19 +17,11 @@
 ;; https://github.com/sonatard/clang-format
 (use-package clang-format
   :if (executable-find "clang-format")
-  :config
-  (add-hook 'c++-mode-hook
-            (lambda ()
-              (add-hook 'before-save-hook
-                        (lambda ()
-                          (time-stamp)
-                          (clang-format-buffer)) nil t)))
-  (add-hook 'c-mode-hook
-            (lambda ()
-              (add-hook 'before-save-hook
-                        (lambda ()
-                          (time-stamp)
-                          (clang-format-buffer)) nil t))))
+  :hook ((c-mode c++-mode) . (lambda ()
+                               (add-hook 'before-save-hook
+                                         (lambda ()
+                                           (time-stamp)
+                                           (clang-format-buffer)) nil t))))
 
 ;; cquery: Emacs client for cquery, a low-latency language server supporting multi-million line C++ code-bases
 ;; https://github.com/cquery-project/emacs-cquery
