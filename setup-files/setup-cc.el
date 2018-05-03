@@ -14,6 +14,7 @@
   :hook (c++-mode . modern-c++-font-lock-mode))
 
 ;; clang-format: format C/C++ files using clang-format
+;; https://github.com/sonatard/clang-format
 (use-package clang-format
   :if (executable-find "clang-format")
   :config
@@ -94,3 +95,16 @@
   (setq-default c-default-style "llvm"))
 
 (provide 'setup-cc)
+
+;; cquery cross-reference extension:
+;; (lsp-ui-peek-find-custom 'base "$cquery/base")
+;; (lsp-ui-peek-find-custom 'callers "$cquery/callers")
+;; (lsp-ui-peek-find-custom 'derived "$cquery/derived")
+;; (lsp-ui-peek-find-custom 'vars "$cquery/vars")
+
+;; Call/member/inheritance Hierarchies
+;; cquery-member-hierarchy
+;; (cquery-call-hierarchy nil) -> caller hierarchy
+;; (cquery-call-hierarchy t) -> callee hierarchy
+;; (cquery-inheritance-hierarchy nil) -> base hierarchy
+;; (cquery-inheritance-hierarchy t) -> derived hierarchy
