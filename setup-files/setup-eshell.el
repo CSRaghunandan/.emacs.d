@@ -2,6 +2,7 @@
 
 ;; ehsell config
 (use-package eshell
+  :ensure nil
   :config
 
   (add-hook 'eshell-mode-hook

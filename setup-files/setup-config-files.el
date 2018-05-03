@@ -9,6 +9,7 @@
 ;; conf-mode: major-mdoe for editing conf files
 ;; https://github.com/jrockway/emacs/blob/master/lisp/textmodes/conf-mode.el
 (use-package conf-mode
+  :ensure nil
   :defer t
   :mode (("\\.conf\\'"    . conf-space-mode)
          ("\\.setup.*\\'" . conf-space-mode)

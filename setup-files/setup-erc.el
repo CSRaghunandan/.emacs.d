@@ -1,7 +1,8 @@
-;; Time-stamp: <2018-03-05 12:26:19 csraghunandan>
+;; Time-stamp: <2018-05-04 00:31:45 csraghunandan>
 
 ;; ERC: the irc client for emacs
 (use-package erc :defer t
+  :ensure nil
   :config
   ;; don't show messages when a users quits or joins
   (setq erc-hide-list '("PART" "QUIT" "JOIN"))

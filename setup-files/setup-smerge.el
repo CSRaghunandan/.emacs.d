@@ -1,7 +1,8 @@
-;; Time-stamp: <2017-07-14 16:22:01 csraghunandan>
+;; Time-stamp: <2018-05-04 00:32:36 csraghunandan>
 
 ;;; Smerge - to resolve merge conflicts
 (use-package smerge-mode
+  :ensure nil
   :bind (("C-c h r" . hydra-smerge/body))
   :init
   (progn

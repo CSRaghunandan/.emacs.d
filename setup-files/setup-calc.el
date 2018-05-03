@@ -2,6 +2,7 @@
 
 ;; calc config
 (use-package calc
+  :ensure nil
   :bind (("C-x c" . calc)
           ("C-x ," . quick-calc))
   :config

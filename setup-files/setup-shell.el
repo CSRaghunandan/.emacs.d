@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 13:07:21 csraghunandan>
+;; Time-stamp: <2018-05-04 00:32:26 csraghunandan>
 
 ;; configuration for shell mode
 
@@ -10,6 +10,7 @@
 `sh-mode'.")
 
 (use-package sh-script
+  :ensure nil
   :hook ((sh-mode . flycheck-mode))
   :mode (("\\.aliases\\'" . sh-mode)
          ("\\.[a-zA-Z]+rc\\'" . sh-mode)

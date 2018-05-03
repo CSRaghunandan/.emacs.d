@@ -2,6 +2,7 @@
 
 ;; ibuffer: for easy management of buffers
 (use-package ibuffer
+  :ensure nil
   :config
 
   ;; ibuffer-vc: show version control info in ibuffer

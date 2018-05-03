@@ -2,6 +2,7 @@
 
 ;; desktop: save the current emacs session
 (use-package desktop
+  :ensure nil
   :defer 2
   :config
   (setq desktop-dirname (concat user-emacs-directory "desktop")

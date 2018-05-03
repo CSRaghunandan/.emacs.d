@@ -1,7 +1,8 @@
-;; Time-stamp: <2018-03-04 20:48:51 csraghunandan>
+;; Time-stamp: <2018-05-04 00:31:56 csraghunandan>
 
 ;; calendar config
 (use-package calendar :defer t
+  :ensure nil
   :hook ((calendar-today-visible . calendar-mark-today))
   :bind (("s-d" . sk/insert-date))
   :config

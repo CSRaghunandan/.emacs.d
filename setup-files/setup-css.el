@@ -1,7 +1,8 @@
-;; Time-stamp: <2018-03-13 23:01:39 csraghunandan>
+;; Time-stamp: <2018-05-04 00:31:16 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode :defer t
+  :ensure nil
   :hook ((css-mode . (lambda ()
                        (rainbow-mode)
                        (my-css-mode-hook)

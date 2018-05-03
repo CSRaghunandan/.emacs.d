@@ -1,9 +1,10 @@
-;; Time-stamp: <2018-03-22 17:40:00 csraghunandan>
+;; Time-stamp: <2018-05-04 00:30:23 csraghunandan>
 
 ;; flyspell, flycheck
 
 ;; flypsell: on the fly spell checking
 (use-package flyspell
+  :ensure nil
   :hook
   ((prog-mode . flyspell-prog-mode)
    (org-mode . flyspell-mode))
