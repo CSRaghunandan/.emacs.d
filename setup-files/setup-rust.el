@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-04 00:45:20 csraghunandan>
+;; Time-stamp: <2018-05-05 12:51:01 csraghunandan>
 
 ;; rust-mode, RLS, cargo
 
@@ -40,7 +40,7 @@
                             (lambda ()
                               (time-stamp)
                               (xah-clean-whitespace)
-                              (rust-format-buffer)) nil t)))
+                              (lsp-format-buffer)) nil t)))
     (warn "rust-mode: rustfmt not foud, automatic source code formatting disabled"))
 
   (defun wh/rust-toggle-mutability ()
