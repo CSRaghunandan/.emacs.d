@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-01 16:34:17 csraghunandan>
+;; Time-stamp: <2018-05-05 13:11:53 csraghunandan>
 
 ;; typescript config
 
@@ -37,12 +37,6 @@
 
     (add-hook 'typescript-mode-hook #'my-tide-setup-hook)
     (add-hook 'typescript-mode-hook #'company-mode)
-    (add-hook 'typescript-mode-hook
-              (lambda ()
-                (add-hook 'before-save-hook
-                          (lambda()
-                            (time-stamp)
-                            (xah-clean-whitespace)) nil t)))
 
     ;; add tslint checker for flycheck
     (if (executable-find "tslint")
