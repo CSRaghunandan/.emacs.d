@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-23 12:24:31 csraghunandan>
+;; Time-stamp: <2018-05-05 13:29:27 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -119,7 +119,7 @@
 ;; json-snatcher: get the path of any JSON element easily
 ;; https://github.com/Sterlingg/json-snatcher
 (use-package json-snatcher
-  :hook ((js2-mode . js-mode-bindings))
+  :hook ((json-mode . js-mode-bindings))
   :config
   (defun js-mode-bindings ()
     "Sets a hotkey for using the json-snatcher plugin"
