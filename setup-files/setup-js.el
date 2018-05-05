@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-05 13:29:27 csraghunandan>
+;; Time-stamp: <2018-05-05 18:39:30 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -114,7 +114,8 @@
 ;; https://github.com/prettier/prettier-emacs
 (use-package prettier-js
   :if (executable-find "prettier")
-  :hook ((js2-mode . prettier-js-mode)))
+  :hook ((js2-mode . prettier-js-mode)
+         (js2-jsx-mode . prettier-js-mode)))
 
 ;; json-snatcher: get the path of any JSON element easily
 ;; https://github.com/Sterlingg/json-snatcher
