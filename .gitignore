@@ -30,6 +30,7 @@ tldr/
 xkcd/
 smex-items
 projectile-bookmarks.eld
+.cache/
 
 # ignore the quickstart autoloads file
 package-quickstart.el
