@@ -13,16 +13,6 @@
 (use-package modern-cpp-font-lock
   :hook (c++-mode . modern-c++-font-lock-mode))
 
-;; clang-format: format C/C++ files using clang-format
-;; https://github.com/sonatard/clang-format
-(use-package clang-format
-  :if (executable-find "clang-format")
-  :hook ((c-mode c++-mode) . (lambda ()
-                               (add-hook 'before-save-hook
-                                         (lambda ()
-                                           (time-stamp)
-                                           (clang-format-buffer)) nil t))))
-
 ;; cquery: Emacs client for cquery, a low-latency language server supporting multi-million line C++ code-bases
 ;; https://github.com/cquery-project/emacs-cquery
 (use-package cquery
@@ -51,7 +41,12 @@
          ((c++-mode c-mode) . (lambda ()
                                 (setq-local company-transformers nil)
                                 (setq-local company-lsp-async t)
-                                (setq-local company-lsp-cache-candidates nil))))
+                                (setq-local company-lsp-cache-candidates nil)))
+         ((c-mode c++-mode) . (lambda ()
+                                (add-hook 'before-save-hook
+                                          (lambda ()
+                                            (time-stamp)
+                                            (lsp-format-buffer)) nil t))))
   :config
   (defun +cc|extra-fontify-c++ ()
     ;; We could place some regexes into `c-mode-common-hook', but
@@ -77,13 +72,13 @@
 
   (c-add-style "llvm"
                '("gnu"
-	             (fill-column . 80)
-	             (c++-indent-level . 4)
-	             (c-basic-offset . 4)
-	             (indent-tabs-mode . nil)
-	             (c-offsets-alist . ((arglist-intro . ++)
-				                     (innamespace . 0)
-				                     (member-init-intro . ++)))))
+                 (fill-column . 80)
+                 (c++-indent-level . 4)
+                 (c-basic-offset . 4)
+                 (indent-tabs-mode . nil)
+                 (c-offsets-alist . ((arglist-intro . ++)
+                                     (innamespace . 0)
+                                     (member-init-intro . ++)))))
   (setq-default c-default-style "llvm"))
 
 (provide 'setup-cc)
