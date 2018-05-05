@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-05 12:51:01 csraghunandan>
+;; Time-stamp: <2018-05-05 13:07:19 csraghunandan>
 
 ;; rust-mode, RLS, cargo
 
@@ -39,7 +39,6 @@
                   (add-hook 'before-save-hook
                             (lambda ()
                               (time-stamp)
-                              (xah-clean-whitespace)
                               (lsp-format-buffer)) nil t)))
     (warn "rust-mode: rustfmt not foud, automatic source code formatting disabled"))
 
