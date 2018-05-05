@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-04 00:31:16 csraghunandan>
+;; Time-stamp: <2018-05-05 18:30:45 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode :defer t
@@ -7,7 +7,8 @@
                        (rainbow-mode)
                        (my-css-mode-hook)
                        (company-mode)
-                       (flycheck-mode))))
+                       (flycheck-mode)
+                       (emmet-mode))))
   :config
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)
