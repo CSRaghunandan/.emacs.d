@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-05 18:36:07 csraghunandan>
+;; Time-stamp: <2018-05-05 19:05:57 csraghunandan>
 
 ;; company-web: to get completion for HTML stuff
 ;; https://github.com/osv/company-web
@@ -14,6 +14,7 @@
          ("C-c o b" . browse-url-of-file)
          ("C-c [" . emmet-prev-edit-point)
          ("C-c ]" . emmet-next-edit-point))
+  :hook ((web-mode . company-mode))
   :config
   ;; highlight matching tag
   (setq web-mode-enable-current-element-highlight t)
@@ -47,8 +48,6 @@
   (unless (string-equal "tsx" (file-name-extension buffer-file-name))
     (add-hook 'web-mode-hook 'my-web-mode-hook))
 
-  (add-hook 'web-mode-hook 'smartparens-mode)
-
   ;; Enable JavaScript completion between <script>...</script> etc.
   (defadvice company-tern (before web-mode-set-up-ac-sources activate)
     "Set `tern-mode' based on current language before running company-tern."
@@ -60,7 +59,6 @@
                  (string= web-mode-cur-language "jsx"))
               (unless tern-mode (tern-mode))
             (if tern-mode (tern-mode -1))))))
-  (add-hook 'web-mode-hook 'company-mode)
 
   ;; colorize colors in buffers
   (setq web-mode-enable-css-colorization t))
