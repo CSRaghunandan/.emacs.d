@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-05 11:55:05 csraghunandan>
+;; Time-stamp: <2018-05-05 13:15:00 csraghunandan>
 
 (use-package python
   :ensure nil
@@ -78,3 +78,8 @@
   :hook ((python-mode . sphinx-doc-mode)))
 
 (provide 'setup-python)
+
+;; to get all the functionalities of thepython language server, install using
+;; pip the below packages:
+;;   python-language-server, Jedi, Rope, Pyflakes, McCabe, pycodestyle,
+;;   pydocstyle, yapf, pyls-mypy, pyls-isort
