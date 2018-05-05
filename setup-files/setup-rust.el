@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-05 13:07:19 csraghunandan>
+;; Time-stamp: <2018-05-05 13:54:07 csraghunandan>
 
 ;; rust-mode, RLS, cargo
 
@@ -27,10 +27,6 @@
     (set (make-local-variable 'company-backends)
          '((company-lsp company-yasnippet company-files))))
   (add-hook 'rust-mode-hook #'my-rust-mode-hook)
-
-  (with-eval-after-load 'smartparens
-    ;; Don't pair lifetime specifiers
-    (sp-local-pair 'rust-mode "'" nil :actions nil))
 
   ;; format rust buffers using rustfmt(if it is installed)
   (if (executable-find "rustfmt")
