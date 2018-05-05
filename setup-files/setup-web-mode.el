@@ -1,4 +1,8 @@
-;; Time-stamp: <2018-03-12 22:54:31 csraghunandan>
+;; Time-stamp: <2018-05-05 18:36:07 csraghunandan>
+
+;; company-web: to get completion for HTML stuff
+;; https://github.com/osv/company-web
+(use-package company-web)
 
 ;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -19,12 +23,17 @@
     (tide-setup)
     ;;enable eldoc-mode
     (eldoc-mode)
+    ;; highlight identifiers
+    (tide-hl-identifier-mode +1)
     ;; enable flycheck
     (flycheck-mode)
 
     ;; company-backends setup
     (set (make-local-variable 'company-backends)
-         '((company-tide company-files company-yasnippet))))
+         '((company-tide company-files company-yasnippet)))
+
+    ;; enable typescript-tslint checker
+    (flycheck-add-mode 'typescript-tslint 'web-mode))
 
   (add-hook 'web-mode-hook
             (lambda ()
@@ -53,17 +62,6 @@
             (if tern-mode (tern-mode -1))))))
   (add-hook 'web-mode-hook 'company-mode)
 
-  ;; company-web: to get completion for HTML stuff
-  ;; https://github.com/osv/company-web
-  (use-package company-web)
-
-  ;; emmet-mode: dynamic snippets for HTML
-  ;; https://github.com/smihica/emmet-mode
-  (use-package emmet-mode
-    :init (setq emmet-move-cursor-between-quotes t)) ;; default nil
-  ;; start emmet mode after web-mode launches
-  (add-hook 'web-mode-hook 'emmet-mode)
-
   ;; colorize colors in buffers
   (setq web-mode-enable-css-colorization t))
 
@@ -71,5 +69,11 @@
 ;; https://github.com/skeeto/impatient-mode
 (use-package impatient-mode :defer t
   :commands (impatient-mode))
+
+;; emmet-mode: dynamic snippets for HTML
+;; https://github.com/smihica/emmet-mode
+(use-package emmet-mode
+  :hook ((web-mode . emmet-mode))
+  :init (setq emmet-move-cursor-between-quotes t)) ;; default nil
 
 (provide 'setup-web-mode)
