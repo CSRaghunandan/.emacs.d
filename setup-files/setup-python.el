@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-04-30 17:49:54 csraghunandan>
+;; Time-stamp: <2018-05-05 11:55:05 csraghunandan>
 
 (use-package python
   :ensure nil
@@ -45,11 +45,6 @@
 ;; pytest: for testing python code
 ;; https://github.com/ionrock/pytest-el
 (use-package pytest :defer t)
-
-;; py-isort: sort import statements in python buffers
-;; https://github.com/paetzke/py-isort.el
-(use-package py-isort
-  :if (executable-find "isort"))
 
 ;; pyenv-mode: Integrate pyenv with python-mode.
 ;; https://github.com/proofit404/pyenv-mode
