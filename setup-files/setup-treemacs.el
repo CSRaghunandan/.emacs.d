@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-02-26 10:22:07 csraghunandan>
+;; Time-stamp: <2018-05-06 09:28:33 csraghunandan>
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
@@ -21,7 +21,12 @@
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
-    (treemacs-git-mode 'extended))
+    (pcase (cons (not (null (executable-find "git")))
+                 (not (null (executable-find "python3"))))
+      (`(t . t)
+       (treemacs-git-mode 'extended))
+      (`(t . _)
+       (treemacs-git-mode 'simple))))
 
   :bind
   (:map global-map

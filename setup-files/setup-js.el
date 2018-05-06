@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-05 18:39:30 csraghunandan>
+;; Time-stamp: <2018-05-06 09:38:19 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -160,8 +160,9 @@
 ;; json-mode: Major mode for editing JSON files with emacs
 ;; https://github.com/joshwnj/json-mode
 (use-package json-mode
-  :hook ((json-mode . prettier-js-mode))
   :config
+  (when (executable-find "prettier")
+    (add-hook 'json-mode-hook #'prettier-js-mode))
   (setq json-reformat:indent-width 2)
   (setq json-reformat:pretty-string? t))
 
