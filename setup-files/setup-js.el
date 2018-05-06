@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-06 12:01:35 csraghunandan>
+;; Time-stamp: <2018-05-06 12:18:48 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -9,10 +9,13 @@
   (("\\.js$" . js2-mode)
    ("\\.jsx$" . js2-jsx-mode))
   :hook ((js2-mode . (lambda ()
-                       (js2-imenu-extras-mode)
                        (flycheck-mode)
                        (my-tide-setup-hook)
-                       (company-mode))))
+                       (company-mode)))
+         (js2-jsx-mode . (lambda ()
+                           (flycheck-mode)
+                           (my-tide-setup-hook)
+                           (company-mode))))
   :config
   ;; have 2 space indentation by default
   (setq-default js-indent-level 2)
@@ -143,7 +146,8 @@
 ;; Adds the node_modules/.bin directory to the buffer exec_path. E.g. support project local eslint installations.
 ;; https://github.com/codesuki/add-node-modules-path/tree/master
 (use-package add-node-modules-path
-  :hook ((js2-mode . add-node-modules-path)))
+  :hook ((js2-mode . add-node-modules-path)
+         (js2-jsx-mode . add-node-modules-path)))
 
 ;; json-mode: Major mode for editing JSON files with emacs
 ;; https://github.com/joshwnj/json-mode
