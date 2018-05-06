@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-06 09:38:19 csraghunandan>
+;; Time-stamp: <2018-05-06 12:01:35 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -10,7 +10,9 @@
    ("\\.jsx$" . js2-jsx-mode))
   :hook ((js2-mode . (lambda ()
                        (js2-imenu-extras-mode)
-                       (flycheck-mode))))
+                       (flycheck-mode)
+                       (my-tide-setup-hook)
+                       (company-mode))))
   :config
   ;; have 2 space indentation by default
   (setq-default js-indent-level 2)
@@ -22,19 +24,29 @@
 
   ;; turn off all warnings in js2-mode
   (setq js2-mode-show-parse-errors t)
-  (setq js2-mode-show-strict-warnings nil))
+  (setq js2-mode-show-strict-warnings nil)
 
-;; xref-js2: Jump to references/definitions using ag & js2-mode's AST in Emacs
-;; https://github.com/nicolaspetton/xref-js2
-(use-package xref-js2
-  :after js2-mode
-  :config
-  ;; js-mode (which js2 is based on) binds "M-." which conflicts with xref, so
-  ;; unbind it.
-  (define-key js-mode-map (kbd "M-.") nil)
-  (add-hook 'js2-mode-hook
-            (lambda ()
-              (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
+  (defun my-tide-setup-hook ()
+    ;; configure tide
+    (tide-setup)
+    ;; highlight identifiers
+    (tide-hl-identifier-mode +1)
+    ;;enable eldoc-mode
+    (eldoc-mode)
+    ;; enable flycheck
+    (flycheck-mode)
+
+    ;; format typescript files using prettier
+    (if (executable-find "prettier")
+        (prettier-js-mode)
+      (warn "typesecript-mode: prettier executable not found, automatic formatting of .ts files are disabled"))
+
+    ;; company-backends setup
+    (set (make-local-variable 'company-backends)
+         '((company-tide company-files company-yasnippet)))
+
+    ;; configure javascript-tide checker to run after your default javascript checker
+    (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)))
 
 ;; js2-refactor: refactoring options for emacs
 ;; https://github.com/magnars/js2-refactor.el
@@ -85,30 +97,6 @@
     ("ba" js2r-forward-barf)
     ("k" js2r-kill)
     ("q" nil)))
-
-;; tern: IDE like features for javascript and completion
-;; http://ternjs.net/doc/manual.html#emacs
-(use-package tern
-  :if (executable-find "tern")
-  ;; Disable completion keybindings, as we use xref-js2 instead
-  :bind ((:map tern-mode-keymap
-               ("M-." . nil)
-               ("M-," . nil)))
-  :hook ((js2-mode . (lambda ()
-                       (tern-mode)
-                       (my-js-mode-hook)
-                       (company-mode))))
-  :config
-  (defun my-js-mode-hook ()
-    "Hook for `js-mode'."
-    (set (make-local-variable 'company-backends)
-         '((company-tern company-files company-yasnippet)))))
-
-;; company-tern: company backend for tern
-;; http://ternjs.net/doc/manual.html#emacs
-(use-package company-tern
-  :after tern
-  :if (executable-find "tern"))
 
 ;; prettier-emacs: minor-mode to prettify javascript files on save
 ;; https://github.com/prettier/prettier-emacs
