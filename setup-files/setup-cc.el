@@ -17,7 +17,7 @@
 ;; https://github.com/cquery-project/emacs-cquery
 (use-package cquery
   :init
-  (setq cquery-executable "/usr/local/bin/cquery")
+  (setq cquery-executable (executable-find "cquery"))
   (setq cquery-extra-init-params
         '(:index (:comments 2) :cacheFormat "msgpack"
                  :completion (:detailedLabel t)))
