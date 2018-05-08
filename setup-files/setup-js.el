@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-06 12:18:48 csraghunandan>
+;; Time-stamp: <2018-05-08 12:39:16 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -156,6 +156,7 @@
   (when (executable-find "prettier")
     (add-hook 'json-mode-hook #'prettier-js-mode))
   (setq json-reformat:indent-width 2)
-  (setq json-reformat:pretty-string? t))
+  (setq json-reformat:pretty-string? t)
+  (setq js-indent-level 2))
 
 (provide 'setup-js)
