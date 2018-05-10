@@ -1,8 +1,9 @@
-;; Time-stamp: <2018-04-27 17:13:44 csraghunandan>
+;; Time-stamp: <2018-05-10 17:20:27 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
 (use-package org
+  :ensure org-plus-contrib
   :preface
   ;; Modules that should always be loaded together with org.el.
   ;; `org-modules' default: '(org-w3m org-bbdb org-bibtex org-docview org-gnus
@@ -437,16 +438,6 @@ point."
   ;; bind to key 1
   (bind-key "1" 'bjm/org-agenda-item-to-top org-agenda-mode-map)
 
-  ;; org-sticky-headers
-  ;; https://github.com/alphaapapa/org-sticky-header
-  (use-package org-sticky-header
-    :hook ((org-mode . org-sticky-header-mode))
-    :config
-    ;; show full path from the org-mode header
-    (setq org-sticky-header-full-path 'full)
-    (setq org-sticky-header-always-show-header
-          (if org-sticky-header-full-path t nil)))
-
   (defun org-archive-done-tasks ()
     (interactive)
     (org-map-entries
@@ -564,7 +555,16 @@ text and copying to the killring."
 (use-package org-journal :defer 2
   :bind (("C-c o j" . org-journal-new-entry))
   :hook ((org-journal-mode . (lambda ()
-                               (visual-line-mode -1)
-                               (org-sticky-header-mode -1)))))
+                               (visual-line-mode -1)))))
+
+;; org-sticky-headers
+;; https://github.com/alphaapapa/org-sticky-header
+(use-package org-sticky-header
+  :hook ((org-mode . org-sticky-header-mode))
+  :config
+  ;; show full path from the org-mode header
+  (setq org-sticky-header-full-path 'full)
+  (setq org-sticky-header-always-show-header
+        (if org-sticky-header-full-path t nil)))
 
 (provide 'setup-org)

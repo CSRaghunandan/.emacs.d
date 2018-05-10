@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-07 17:24:50 csraghunandan>
+;; Time-stamp: <2018-05-10 17:05:34 csraghunandan>
 ;; Author: C S Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -27,7 +27,7 @@
 (setq custom-file (concat user-emacs-directory "my-elisp-code/custom-settings.el"))
 (load custom-file :noerror :nomessage) ; load custom-file silently
 (load (locate-user-emacs-file "general.el") nil :nomessage)
-
+(load (locate-user-emacs-file "setup-packages.el") nil :nomessage)
 
 
 (unless (package-installed-p 'use-package) ; unless it is already installed
