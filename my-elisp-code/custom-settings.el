@@ -11,7 +11,6 @@
  '(erc-modules
    '(autoaway autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands notify readonly ring smiley sound stamp spelling track))
  '(hl-sexp-background-color "#efebe9")
- '(ivy-mode t)
  '(magit-log-section-arguments '("--graph" "--color" "-n256"))
  '(org-agenda-files
    '("~/Code-files/CareVision/docs/android-tasks.org" "~/org/inbox.org" "~/org/gtd.org" "~/org/tickler.org"))
