@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-11 11:06:57 csraghunandan>
+;; Time-stamp: <2018-05-11 11:37:05 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -29,7 +29,8 @@
   (beacon-mode)
   (setq beacon-size 25)
   ;; don't blink in shell-mode
-  (add-to-list 'beacon-dont-blink-major-modes 'comint-mode))
+  (add-to-list 'beacon-dont-blink-major-modes #'comint-mode)
+  (add-to-list 'beacon-dont-blink-major-modes #'term-mode))
 
 ;; highlight-numbers: fontify numbers
 ;; https://github.com/Fanael/highlight-numbers

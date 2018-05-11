@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-02 01:40:29 csraghunandan>
+;; Time-stamp: <2018-05-11 11:28:35 csraghunandan>
 
 ;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://github.com/emacsorphanage/multi-term/tree/f954e4e18b0a035151d34852387e724d87a3316f
@@ -71,7 +71,6 @@
                               (yas-minor-mode -1)
                               (whole-line-or-region-local-mode -1)
                               (setq-local global-hl-line-mode nil)
-                              (beacon-mode -1)
                               (hungry-delete-mode -1)))
 
   (setq multi-term-buffer-name "term")
