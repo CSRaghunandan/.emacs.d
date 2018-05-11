@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-23 18:05:02 csraghunandan>
+;; Time-stamp: <2018-05-11 11:11:07 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -140,6 +140,11 @@ First      -> First (no change)."
 (use-package gitignore-mode)
 (use-package gitconfig-mode)
 (use-package gitattributes-mode)
+
+;; gist: Yet another Emacs paste mode, this one for Gist.
+;; https://github.com/defunkt/gist.el
+(use-package gist
+  :defer t)
 
 (provide 'setup-git-stuff)
 
