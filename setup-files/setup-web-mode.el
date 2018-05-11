@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-06 12:09:30 csraghunandan>
+;; Time-stamp: <2018-05-11 14:41:49 csraghunandan>
 
 ;; company-web: to get completion for HTML stuff
 ;; https://github.com/osv/company-web
@@ -18,6 +18,12 @@
   :config
   ;; highlight matching tag
   (setq web-mode-enable-current-element-highlight t)
+
+  (defun my-unfontify-function (beg end)
+    (remove-list-of-text-properties beg end '(display)))
+  (defun my-register-unfontify ()
+    (setq font-lock-unfontify-region-function 'my-unfontify-function))
+  (add-hook 'web-mode-hook 'my-register-unfontify t)
 
   (defun my-tide-setup-hook ()
     ;; configure tide
