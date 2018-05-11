@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-04-25 08:51:31 csraghunandan>
+;; Time-stamp: <2018-05-11 10:36:59 csraghunandan>
 
 ;; configuration for buffers
 
@@ -374,5 +374,32 @@ The original buffer and file are untouched."
     (find-file new-name)
     (insert contents)
     (basic-save-buffer)))
+
+;;; Narrow/Widen
+;; http://endlessparentheses.com/emacs-narrow-or-widen-dwim.html
+(defun endless/narrow-or-widen-dwim (p)
+  "Widen if buffer is narrowed, narrow-dwim otherwise.
+Dwim means: region, org-src-block, org-subtree, or defun,
+whichever applies first. Narrowing to org-src-block actually
+calls `org-edit-src-code'.
+With prefix P, don't widen, just narrow even if buffer is already
+narrowed."
+  (interactive "P")
+  (declare (interactive-only))
+  (cond ((and (buffer-narrowed-p) (not p))
+         (widen))
+        ((region-active-p)
+         (narrow-to-region (region-beginning) (region-end)))
+        ((derived-mode-p 'org-mode)
+         (cond
+          ((ignore-errors (org-edit-src-code) t))
+          ((ignore-errors (org-narrow-to-block) t))
+          (t
+           (org-narrow-to-subtree))))
+        ((derived-mode-p 'latex-mode)
+         (LaTeX-narrow-to-environment))
+        (t
+         (narrow-to-defun))))
+(bind-key "C-x n n" #'endless/narrow-or-widen-dwim)
 
 (provide 'setup-buffers)
