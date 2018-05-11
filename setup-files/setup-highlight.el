@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-13 11:15:48 csraghunandan>
+;; Time-stamp: <2018-05-11 11:06:57 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -40,7 +40,9 @@
 ;; https://github.com/DarthFennec/highlight-indent-guides
 (use-package highlight-indent-guides
   :hook ((prog-mode . highlight-indent-guides-mode))
-  :config (setq highlight-indent-guides-method 'character))
+  :config
+  (setq highlight-indent-guides-method 'character)
+  (setq highlight-indent-guides-responsive 'top))
 
 ;; hl-todo: Highlight TODO keywords
 ;; https://github.com/tarsius/hl-todo/tree/master
