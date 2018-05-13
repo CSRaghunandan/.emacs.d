@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-11 10:36:59 csraghunandan>
+;; Time-stamp: <2018-05-13 19:22:09 csraghunandan>
 
 ;; configuration for buffers
 
@@ -156,9 +156,18 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
   (if kill-next-error-buffer
       (kill-buffer (next-error-find-buffer :avoid-current))
     (kill-current-buffer)))
-
 (>=e "26.0"
     (bind-key "C-x k" 'modi/kill-buffer-dwim))
+(>=e "26.0"
+    (bind-chord "XX" #'modi/kill-buffer-dwim))
+
+;;; Toggle between buffers
+;; http://www.emacswiki.org/emacs/SwitchingBuffers
+(defun toggle-between-buffers ()
+  "Toggle between 2 buffers"
+  (interactive)
+  (switch-to-buffer (other-buffer)))
+(bind-chord "ZZ" #'toggle-between-buffers)
 
 (defun modi/quit-and-kill-window ()
   "Quit window and kill instead of burying the buffer in it."
