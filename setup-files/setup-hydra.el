@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-03 09:50:45 csraghunandan>
+;; Time-stamp: <2018-05-13 19:51:05 csraghunandan>
 
 ;; hydra: tie related commands into a family of short bindings with a common
 ;; prefix - a Hydra
@@ -23,3 +23,4 @@
 ;;         dired sort, bm, toggle case, langtools, kruecolor
 ;;         smartparens, multi-term, aprops, quickrun, org-clock, command-log
 ;;         magit, info-to, js2-refactor, mark-org-table, smerge-mode, font-resize
+;;         pdftools, timestamps
