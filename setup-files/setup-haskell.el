@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:46:30 csraghunandan>
+;; Time-stamp: <2018-05-13 14:01:56 csraghunandan>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
@@ -14,12 +14,6 @@
     "Hook for `haskell-mode'."
     (set (make-local-variable 'company-backends)
          '((company-intero company-files company-yasnippet))))
-
-;; hlint-refactor:Emacs bindings for hlint's --refactor option
-;; https://github.com/mpickering/hlint-refactor-mode
-(use-package hlint-refactor
-  :if (executable-find "hlint")
-  :hook (haskell-mode . hlint-refactor-mode))
 
 ;; structured-haskell-mode: paredit like features for haskell code
 ;; https://github.com/chrisdone/structured-haskell-mode
@@ -41,17 +35,22 @@
 ;; commercialhaskell.github.io/intero
 (use-package intero
   :after haskell-mode
+  :ensure-system-package (hlint . "stack install hlint")
   :config
   ;; enable hlint checker for flycheck
-  (if (executable-find "hlint")
-      (flycheck-add-next-checker 'intero
-                                 'haskell-hlint)
-    (warn "haskell-mode: coulnd't find hlint, flycheck support for hlint disabled")))
+  (flycheck-add-next-checker 'intero
+                             'haskell-hlint))
+
+;; hlint-refactor:Emacs bindings for hlint's --refactor option
+;; https://github.com/mpickering/hlint-refactor-mode
+(use-package hlint-refactor
+  :ensure-system-package (refactor . "stack install apply-refact")
+  :hook (haskell-mode . hlint-refactor-mode))
 
 ;; hindent: format haskell code automatically
 ;; https://github.com/chrisdone/hindent
 (use-package hindent
-  :if (executable-find "hindent")
+  :ensure-system-package (hindent . "stack install hindent")
   :hook (haskell-mode . hindent-mode)
   :config
   ;; reformat the buffer using hindent on save

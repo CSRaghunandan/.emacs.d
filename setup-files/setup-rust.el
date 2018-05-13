@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-05 13:54:07 csraghunandan>
+;; Time-stamp: <2018-05-13 13:32:17 csraghunandan>
 
 ;; rust-mode, RLS, cargo
 
@@ -21,6 +21,7 @@
          ("C-c v t" . wh/rust-toggle-visibility)
          ("C-c m t" . wh/rust-toggle-mutability)
          ("C-c v s" . wh/rust-vec-as-slice))
+  :ensure-system-package (rustfmt . "cargo install rustfmt")
   :config
 
   (defun my-rust-mode-hook ()
@@ -29,14 +30,12 @@
   (add-hook 'rust-mode-hook #'my-rust-mode-hook)
 
   ;; format rust buffers using rustfmt(if it is installed)
-  (if (executable-find "rustfmt")
-      (add-hook 'rust-mode-hook
-                (lambda ()
-                  (add-hook 'before-save-hook
-                            (lambda ()
-                              (time-stamp)
-                              (lsp-format-buffer)) nil t)))
-    (warn "rust-mode: rustfmt not foud, automatic source code formatting disabled"))
+  (add-hook 'rust-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook
+                        (lambda ()
+                          (time-stamp)
+                          (lsp-format-buffer)) nil t)))
 
   (defun wh/rust-toggle-mutability ()
     "Toggle the mutability of the variable at point."

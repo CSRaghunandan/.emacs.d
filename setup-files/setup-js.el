@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-08 12:39:16 csraghunandan>
+;; Time-stamp: <2018-05-13 13:58:48 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -16,14 +16,16 @@
                            (flycheck-mode)
                            (my-tide-setup-hook)
                            (company-mode))))
+  :ensure-system-package ((prettier . "npm i -g prettier")
+                          (eslint . "npm i -g eslint")
+                          (eslint_d . "npm i -g eslint_d"))
   :config
   ;; have 2 space indentation by default
   (setq-default js-indent-level 2)
   (setq-default js2-basic-offset 2)
 
   ;; use eslint_d insetad of eslint for faster linting
-  (when (executable-find "eslint_d")
-    (setq flycheck-javascript-eslint-executable "eslint_d"))
+  (setq flycheck-javascript-eslint-executable "eslint_d")
 
   ;; turn off all warnings in js2-mode
   (setq js2-mode-show-parse-errors t)
@@ -40,9 +42,7 @@
     (flycheck-mode)
 
     ;; format typescript files using prettier
-    (if (executable-find "prettier")
-        (prettier-js-mode)
-      (warn "typesecript-mode: prettier executable not found, automatic formatting of .ts files are disabled"))
+    (prettier-js-mode)
 
     ;; company-backends setup
     (set (make-local-variable 'company-backends)
@@ -104,7 +104,6 @@
 ;; prettier-emacs: minor-mode to prettify javascript files on save
 ;; https://github.com/prettier/prettier-emacs
 (use-package prettier-js
-  :if (executable-find "prettier")
   :hook ((js2-mode . prettier-js-mode)
          (js2-jsx-mode . prettier-js-mode)))
 
@@ -153,8 +152,7 @@
 ;; https://github.com/joshwnj/json-mode
 (use-package json-mode
   :config
-  (when (executable-find "prettier")
-    (add-hook 'json-mode-hook #'prettier-js-mode))
+  (add-hook 'json-mode-hook #'prettier-js-mode)
   (setq json-reformat:indent-width 2)
   (setq json-reformat:pretty-string? t)
   (setq js-indent-level 2))

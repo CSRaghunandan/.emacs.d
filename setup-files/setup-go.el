@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-01-31 12:50:09 csraghunandan>
+;; Time-stamp: <2018-05-13 18:19:48 csraghunandan>
 
 ;; golang configuration
 
@@ -6,8 +6,9 @@
 ;; https://github.com/dominikh/go-mode.el
 (use-package go-mode :defer t
   :interpreter "go"
+  :ensure-system-package (goimports . "go get -u golang.org/x/tools/cmd/goimports")
   :config
-  (setq gofmt-command "~/go/bin/goimports")
+  (setq gofmt-command (executable-find "goimports"))
   ;; Using -s with goimports is not supported with upstream goimports.
   ;; See https://github.com/golang/go/issues/8759 . Instead, use
   ;; $ go get github.com/jzelinskie/tools/cmd/goimports
@@ -36,18 +37,18 @@
 
   ;; integrate go-guru analysis tool to emacs
   (use-package go-guru
-    :if (executable-find "guru"))
+    :ensure-system-package (guru . "go get -u golang.org/x/tools/cmd/guru"))
 
   ;; gorepl-mode: A minor emacs mode for Go REPL.
   ;; https://github.com/manute/gorepl-mode
   (use-package gorepl-mode
-    :if (executable-find "gore")
+    :ensure-system-package (gore . "go get -u github.com/motemen/gore")
     :commands (gorepl-run gorepl-run-load-current-file))
 
   ;; company-go: company backend for golang
   ;; https://github.com/nsf/gocode/tree/master/emacs-company
   (use-package company-go
-    :if (executable-find "gocode")
+    :ensure-system-package (gocode . "go get -u github.com/nsf/gocode")
     :config
     (defun my-go-mode-hook()
       (set (make-local-variable 'company-backends)
@@ -63,7 +64,8 @@
 
   ;; go-rename: extra refactoring commands for go
   (use-package go-rename
-    :if (executable-find "gorename")))
+    :ensure-system-package
+    (gorename . "go get -u golang.org/x/tools/cmd/gorename")))
 
 (provide 'setup-go)
 

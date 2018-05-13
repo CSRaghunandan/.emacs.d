@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-05 14:39:09 csraghunandan>
+;; Time-stamp: <2018-05-13 18:08:07 csraghunandan>
 
 ;; typescript config
 
@@ -9,6 +9,7 @@
                               (my-tide-setup-hook)
                               (add-node-modules-path)
                               (company-mode))))
+  :ensure-system-package (tslint . "npm i -g tslint")
   :bind ((:map typescript-mode-map
                ("C-c C-t" . tide-documentation-at-point)
                ("C-c T p" . typescript/open-region-in-playground)))
@@ -38,9 +39,7 @@
     (flycheck-mode)
 
     ;; format typescript files using prettier
-    (if (executable-find "prettier")
-        (prettier-js-mode)
-      (warn "typesecript-mode: prettier executable not found, automatic formatting of .ts files are disabled"))
+    (prettier-js-mode)
 
     ;; company-backends setup
     (set (make-local-variable 'company-backends)
@@ -50,9 +49,7 @@
   (setq typescript-indent-level 2)
 
   ;; add tslint checker for flycheck
-  (if (executable-find "tslint")
-      (flycheck-add-next-checker 'typescript-tide
-                                 'typescript-tslint)
-    (warn "typescript-mode: tslint not found. Flycheck support for tslint disabled")))
+  (flycheck-add-next-checker 'typescript-tide
+                             'typescript-tslint))
 
 (provide 'setup-typescript)
