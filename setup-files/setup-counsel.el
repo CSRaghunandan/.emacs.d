@@ -1,11 +1,13 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-04-13 10:31:51 csraghunandan>
+;; Time-stamp: <2018-05-13 18:55:34 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
 (use-package counsel
   :after ivy
   :bind* (([remap execute-extended-command] . counsel-M-x))
+  :chords (("JJ" . counsel-imenu)
+           (";'" . counsel-M-x))
   :init
   (counsel-mode)
 
@@ -69,8 +71,6 @@
    ([remap bookmark-set] . counsel-bookmark)  ;C-x r m
    ([remap find-file] . counsel-find-file)
    ("C-c g g" . counsel-git-grep)
-   ("C-c f" . counsel-imenu)
-   ("C-c F" . ivy-imenu-anywhere)
    ("C-c d s" . describe-symbol)
    ("C-c d f" . counsel-faces)
    ("C-c d d" . counsel-descbinds)

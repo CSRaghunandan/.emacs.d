@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-10 17:31:21 csraghunandan>
+;; Time-stamp: <2018-05-13 18:49:49 csraghunandan>
 
 ;; Smart M-x (smex): sort extended commands by last invoked
 ;; https://github.com/nonsequitur/smex/
@@ -11,6 +11,12 @@
   :bind (("C-c u" . ivy-resume))
   :init (ivy-mode 1)
   :config
+
+  (bind-chords
+   :map ivy-minibuffer-map
+   ("m," . ivy-beginning-of-buffer)
+   (",." . ivy-end-of-buffer))
+
   (setq ivy-use-virtual-buffers t
         ivy-height 13
         ivy-count-format "%d/%d "

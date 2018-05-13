@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-04 00:31:02 csraghunandan>
+;; Time-stamp: <2018-05-13 18:40:21 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -366,6 +366,8 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 
 ;; configuration for auto-fill-mode
 (use-package simple :ensure nil
+  :chords (("m," . beginning-of-buffer)
+           (",." . end-of-buffer))
   :hook ((prog-mode text-mode org-mode) . auto-fill-mode)
   :config
   (setq comment-auto-fill-only-comments t))
