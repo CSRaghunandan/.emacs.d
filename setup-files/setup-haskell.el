@@ -1,8 +1,8 @@
-;; Time-stamp: <2018-05-13 14:01:56 csraghunandan>
+;; Time-stamp: <2018-05-14 21:56:23 csraghunandan>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
-(use-package haskell-mode
+(use-package haskell-mode :defer t
   :hook
   ((haskell-mode . (lambda ()
                      (intero-mode)

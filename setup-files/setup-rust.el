@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-14 13:50:02 csraghunandan>
+;; Time-stamp: <2018-05-14 21:57:14 csraghunandan>
 
 ;; rust-mode, RLS, cargo
 
@@ -8,7 +8,7 @@
 
 ;; rust-mode: major-mode for editing rust files
 ;; https://github.com/rust-lang/rust-mode
-(use-package rust-mode
+(use-package rust-mode :defer t
   :hook ((rust-mode . (lambda ()
                         (lsp-rust-enable)
                         (lsp-ui-mode)
