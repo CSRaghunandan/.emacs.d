@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-13 13:32:17 csraghunandan>
+;; Time-stamp: <2018-05-14 13:50:02 csraghunandan>
 
 ;; rust-mode, RLS, cargo
 
@@ -21,7 +21,10 @@
          ("C-c v t" . wh/rust-toggle-visibility)
          ("C-c m t" . wh/rust-toggle-mutability)
          ("C-c v s" . wh/rust-vec-as-slice))
-  :ensure-system-package (rustfmt . "cargo install rustfmt")
+  :ensure-system-package
+  ((rustfmt . "rustup component add rustfmt-preview")
+   (racer . "cargo install racer")
+   (rls . "rustup component add rls-preview rust-analysis rust-src"))
   :config
 
   (defun my-rust-mode-hook ()
