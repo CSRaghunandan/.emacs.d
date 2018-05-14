@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-13 13:13:36 csraghunandan>
+;; Time-stamp: <2018-05-14 13:01:58 csraghunandan>
 
 (use-package python
   :ensure nil
@@ -6,7 +6,8 @@
                           (require 'lsp-python)
                           (lsp-python-enable)
                           (lsp-ui-mode)
-                          (eldoc-mode)
+                          (eldoc-mode -1)
+                          (lsp-ui-doc-mode)
                           (flycheck-mode)
                           (smart-dash-mode)
                           (company-mode)))
