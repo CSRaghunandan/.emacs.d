@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-14 13:01:58 csraghunandan>
+;; Time-stamp: <2018-05-15 12:12:33 csraghunandan>
 
 (use-package python
   :ensure nil
@@ -50,7 +50,8 @@
 ;; pyenv-mode: Integrate pyenv with python-mode.
 ;; https://github.com/proofit404/pyenv-mode
 (use-package pyenv-mode
-  :ensure-system-package pyenv
+  :ensure-system-package
+  (pyenv . "curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash")
   :hook ((python-mode . pyenv-mode))
   :config
   ;; integrate pyenv with projectile
