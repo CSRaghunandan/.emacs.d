@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-11 11:11:07 csraghunandan>
+;; Time-stamp: <2018-05-15 16:17:58 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -20,6 +20,9 @@
     (let ((buffers (magit-mode-get-buffers)))
       (magit-restore-window-configuration)
       (mapc #'kill-buffer buffers)))
+
+  ;; show word granularity within diff hunks
+  (setq-default magit-diff-refine-hunk 'all)
 
   (progn
     ;; Magit Submodule support
