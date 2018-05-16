@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-16 22:16:25 csraghunandan>
+;; Time-stamp: <2018-05-16 23:10:56 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -44,7 +44,7 @@
   :config
   (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-responsive 'top)
-  (setq highlight-indent-guides-delay 0))
+  (setq highlight-indent-guides-delay 0.05))
 
 ;; hl-todo: Highlight TODO keywords
 ;; https://github.com/tarsius/hl-todo/tree/master
