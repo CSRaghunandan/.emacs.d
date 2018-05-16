@@ -1,5 +1,5 @@
 
-;; Time-stamp: <2018-04-21 23:30:51 csraghunandan>
+;; Time-stamp: <2018-05-15 17:35:18 csraghunandan>
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
 (use-package rainbow-delimiters
@@ -96,7 +96,8 @@
 ;; https://github.com/purcell/page-break-lines
 ;; enter page-break character in Emacs by entering `C-q C-l'
 (use-package page-break-lines
-  :hook ((prog-mode . page-break-lines-mode)))
+  :hook ((prog-mode . page-break-lines-mode)
+         (org-mode . page-break-lines-mode)))
 
 ;; column-enforce-mode: highlight characters which exceed fill-column
 ;; https://github.com/jordonbiondo/column-enforce-mode
