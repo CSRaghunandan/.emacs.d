@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-04 00:30:23 csraghunandan>
+;; Time-stamp: <2018-05-16 22:36:32 csraghunandan>
 
 ;; flyspell, flycheck
 
@@ -6,8 +6,9 @@
 (use-package flyspell
   :ensure nil
   :hook
-  ((prog-mode . flyspell-prog-mode)
-   (org-mode . flyspell-mode))
+  ;; manually invoke `flyspell-prog-mode' if you need to check for spelling in comments
+  ((org-mode . flyspell-mode)
+   (markdown-mode . flyspell-mode))
   :config
   ;; Save a new word to personal dictionary without asking
   (setq ispell-silently-savep t)
