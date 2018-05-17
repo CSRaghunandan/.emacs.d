@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-16 22:36:32 csraghunandan>
+;; Time-stamp: <2018-05-17 19:29:56 csraghunandan>
 
 ;; flyspell, flycheck
 
@@ -6,9 +6,9 @@
 (use-package flyspell
   :ensure nil
   :hook
-  ;; manually invoke `flyspell-prog-mode' if you need to check for spelling in comments
   ((org-mode . flyspell-mode)
-   (markdown-mode . flyspell-mode))
+   (markdown-mode . flyspell-mode)
+   (prog-mode . flyspell-prog-mode))
   :config
   ;; Save a new word to personal dictionary without asking
   (setq ispell-silently-savep t)
@@ -18,6 +18,14 @@
 
   ;; use aspell as the default dictionary
   (setq ispell-program-name "aspell"))
+
+;; flyspell-lazy: Improve Emacs flyspell responsiveness using idle timers
+;; https://github.com/rolandwalker/flyspell-lazy/tree/master
+(use-package flyspell-lazy
+  :after flyspell
+  :config
+  (flyspell-lazy-mode 1)
+  (add-to-list 'ispell-extra-args "--sug-mode=ultra"))
 
 ;; flycheck: on the fly syntax checking
 ;; http://www.flycheck.org/en/latest/
