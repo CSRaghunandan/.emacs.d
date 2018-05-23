@@ -1,5 +1,5 @@
 
-;; Time-stamp: <2018-05-15 17:35:18 csraghunandan>
+;; Time-stamp: <2018-05-23 21:19:39 csraghunandan>
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
 (use-package rainbow-delimiters
@@ -83,6 +83,10 @@
 
 ;; make sure emacsclient starts at fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; make the titlebar transparent in mac
+(when (is-mac-p)
+  (add-to-list 'default-frame-alist '(ns-appearance . dark)))
 
 ;; remove ugly scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
