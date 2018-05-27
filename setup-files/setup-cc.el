@@ -37,7 +37,8 @@
                                 (eldoc-mode)
                                 (flycheck-mode)
                                 (smart-dash-mode)
-                                (company-mode)))
+                                (company-mode)
+                                (+cc|extra-fontify-c++)))
          ((c++-mode c-mode) . (lambda ()
                                 (setq-local company-transformers nil)
                                 (setq-local company-lsp-async t)
@@ -48,6 +49,14 @@
                                             (time-stamp)
                                             (lsp-format-buffer)) nil t))))
   :config
+  ;;;###autoload
+  (defun +cc|fontify-constants ()
+    "Better fontification for preprocessor constants"
+    (when (memq major-mode '(c-mode c++-mode))
+      (font-lock-add-keywords
+       nil '(("\\<[A-Z]*_[A-Z_]+\\>" . font-lock-constant-face)
+             ("\\<[A-Z]\\{3,\\}\\>"  . font-lock-constant-face))
+       t)))
 
   (c-add-style "llvm"
                '("gnu"
