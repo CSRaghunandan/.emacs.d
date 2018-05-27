@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-27 12:23:35 csraghunandan>
+;; Time-stamp: <2018-05-27 12:23:55 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -53,7 +53,7 @@
   (setq hl-todo-keyword-faces
         `(("TODO"  . ,(face-foreground 'warning))
           ("FIXME" . ,(face-foreground 'error))
-          ("NOTE"  . ,(face-foreground 'success))))
+          ("NOTE"  . ,(face-foreground 'success)))))
 
 ;; enable some extra syntax highlighting for dash
 (with-eval-after-load 'dash
