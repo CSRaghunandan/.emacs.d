@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-27 13:09:59 csraghunandan>
+;; Time-stamp: <2018-05-27 13:18:57 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -158,5 +158,9 @@
   (setq json-reformat:indent-width 2)
   (setq json-reformat:pretty-string? t)
   (setq js-indent-level 2))
+
+;; eslintd-fix: Emacs minor-mode to automatically fix javascript with eslint_d.
+;; https://github.com/aaronjensen/eslintd-fix/tree/master
+(use-package eslintd-fix)
 
 (provide 'setup-js)
