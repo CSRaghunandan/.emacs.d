@@ -58,6 +58,12 @@
              ("\\<[A-Z]\\{3,\\}\\>"  . font-lock-constant-face))
        t)))
 
+  (sp-with-modes '(c-mode c++-mode)
+    (sp-local-pair "/*" "*/" :post-handlers '(("||\n[i]" "RET") ("| " "SPC")))
+    ;; Doxygen blocks
+    (sp-local-pair "/**" "*/" :post-handlers '(("||\n[i]" "RET") ("||\n[i]" "SPC")))
+    (sp-local-pair "/*!" "*/" :post-handlers '(("||\n[i]" "RET") ("[d-1]< | " "SPC"))))
+
   (c-add-style "llvm"
                '("gnu"
                  (fill-column . 80)
