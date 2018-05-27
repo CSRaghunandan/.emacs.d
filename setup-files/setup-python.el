@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-15 12:12:33 csraghunandan>
+;; Time-stamp: <2018-05-27 12:53:40 csraghunandan>
 
 (use-package python
   :ensure nil
@@ -17,6 +17,17 @@
   :config
   ;; don't try to guess python indent offset
   (setq python-indent-guess-indent-offset nil)
+
+  (when (executable-find "ipython")
+    (setq python-shell-interpreter "ipython"
+          python-shell-interpreter-args "-i --simple-prompt --no-color-info"
+          python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+          python-shell-prompt-block-regexp "\\.\\.\\.\\.: "
+          python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+          python-shell-completion-setup-code
+          "from IPython.core.completerlib import module_completion"
+          python-shell-completion-string-code
+          "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"))
 
   (defun my-python-mode-hook ()
     (set (make-local-variable 'company-backends)
