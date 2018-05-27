@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-14 21:57:14 csraghunandan>
+;; Time-stamp: <2018-05-27 13:04:09 csraghunandan>
 
 ;; rust-mode, RLS, cargo
 
@@ -26,6 +26,7 @@
    (racer . "cargo install racer")
    (rls . "rustup component add rls-preview rust-analysis rust-src"))
   :config
+  (setq rust-indent-method-chain t)
 
   (defun my-rust-mode-hook ()
     (set (make-local-variable 'company-backends)
