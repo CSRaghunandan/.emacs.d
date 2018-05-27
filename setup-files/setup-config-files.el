@@ -38,4 +38,8 @@
   :defer t
   :mode (("\\.env\\..*\\'" . dotenv-mode)))
 
+;; apache-mode: Major mode for editing Apache configuration files
+;; https://github.com/emacs-php/apache-mode
+(use-package apache-mode)
+
 (provide 'setup-config-files)
