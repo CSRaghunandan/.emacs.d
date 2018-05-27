@@ -48,27 +48,6 @@
                                             (time-stamp)
                                             (lsp-format-buffer)) nil t))))
   :config
-  (defun +cc|extra-fontify-c++ ()
-    ;; We could place some regexes into `c-mode-common-hook', but
-    ;; note that their evaluation order matters.
-    ;; NOTE modern-cpp-font-lock will eventually supercede some of these rules
-    (font-lock-add-keywords
-     nil '(;; c++11 string literals
-           ;;       L"wide string"
-           ;;       L"wide string with UNICODE codepoint: \u2018"
-           ;;       u8"UTF-8 string", u"UTF-16 string", U"UTF-32 string"
-           ("\\<\\([LuU8]+\\)\".*?\"" 1 font-lock-keyword-face)
-           ;;       R"(user-defined literal)"
-           ;;       R"( a "quot'd" string )"
-           ;;       R"delimiter(The String Data" )delimiter"
-           ;;       R"delimiter((a-z))delimiter" is equivalent to "(a-z)"
-           ("\\(\\<[uU8]*R\"[^\\s-\\\\()]\\{0,16\\}(\\)" 1 font-lock-keyword-face t) ; start delimiter
-           (   "\\<[uU8]*R\"[^\\s-\\\\()]\\{0,16\\}(\\(.*?\\))[^\\s-\\\\()]\\{0,16\\}\"" 1 font-lock-string-face t)  ; actual string
-           (   "\\<[uU8]*R\"[^\\s-\\\\()]\\{0,16\\}(.*?\\()[^\\s-\\\\()]\\{0,16\\}\"\\)" 1 font-lock-keyword-face t) ; end delimiter
-           ) t))
-
-  ;; fontify C++11 string literals
-  (add-hook 'c++-mode-hook #'+cc|extra-fontify-c++)
 
   (c-add-style "llvm"
                '("gnu"
