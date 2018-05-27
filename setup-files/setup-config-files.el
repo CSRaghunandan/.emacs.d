@@ -24,7 +24,8 @@
 ;; https://github.com/ajc/nginx-mode
 (use-package nginx-mode
   :defer t
-  :mode (("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode)))
+  :mode (("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode)
+         ("nginx.conf" . nginx-mode)))
 
 ;; emacs mode for editing ssh config files.
 ;; https://github.com/jhgorrell/ssh-config-mode-el
