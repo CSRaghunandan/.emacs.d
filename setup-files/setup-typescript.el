@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-13 18:08:07 csraghunandan>
+;; Time-stamp: <2018-05-27 13:11:52 csraghunandan>
 
 ;; typescript config
 
@@ -50,6 +50,8 @@
 
   ;; add tslint checker for flycheck
   (flycheck-add-next-checker 'typescript-tide
-                             'typescript-tslint))
+                             'typescript-tslint)
+
+  (setq tide-completion-detailed t))
 
 (provide 'setup-typescript)

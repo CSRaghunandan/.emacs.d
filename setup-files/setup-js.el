@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-13 13:58:48 csraghunandan>
+;; Time-stamp: <2018-05-27 13:09:59 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -21,8 +21,9 @@
                           (eslint_d . "npm i -g eslint_d"))
   :config
   ;; have 2 space indentation by default
-  (setq-default js-indent-level 2)
-  (setq-default js2-basic-offset 2)
+  (setq js-indent-level 2
+        js2-basic-offset 2
+        js-chain-indent t)
 
   ;; use eslint_d insetad of eslint for faster linting
   (setq flycheck-javascript-eslint-executable "eslint_d")
@@ -30,6 +31,7 @@
   ;; turn off all warnings in js2-mode
   (setq js2-mode-show-parse-errors t)
   (setq js2-mode-show-strict-warnings nil)
+  (setq js2-strict-missing-semi-warning nil)
 
   (defun my-tide-setup-hook ()
     ;; configure tide
