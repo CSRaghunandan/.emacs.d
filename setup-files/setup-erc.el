@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-28 15:40:18 csraghunandan>
+;; Time-stamp: <2018-05-28 15:41:31 csraghunandan>
 
 ;; ERC: the irc client for emacs
 (use-package erc :defer t
@@ -80,7 +80,19 @@
     (if (get-buffer "irc.freenode.net:6667")
 	    (erc-track-switch-buffer 1)
 	  (when (y-or-n-p "Start ERC? ")
-	    (erc :server "irc.freenode.net" :port 6667 :nick "rememberYou")))))
+	    (erc :server "irc.freenode.net" :port 6667 :nick "rememberYou"))))
+
+  (defun my/erc-count-users ()
+    "Displays the number of users connected on the current channel."
+    (interactive)
+    (if (get-buffer "irc.freenode.net:6667")
+	    (let ((channel (erc-default-target)))
+	      (if (and channel (erc-channel-p channel))
+		      (message "%d users are online on %s"
+			           (hash-table-count erc-channel-users)
+			           channel)
+	        (user-error "The current buffer is not a channel")))
+	  (user-error "You must first start ERC"))))
 
 ;; erc-image: Fetch and show received images in a ERC buffer
 ;; https://github.com/kidd/erc-image.el
