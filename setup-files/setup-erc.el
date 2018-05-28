@@ -1,8 +1,10 @@
-;; Time-stamp: <2018-05-28 15:29:16 csraghunandan>
+;; Time-stamp: <2018-05-28 15:40:18 csraghunandan>
 
 ;; ERC: the irc client for emacs
 (use-package erc :defer t
   :ensure nil
+  :bind (("C-c e" . my/erc-start-or-switch))
+  :hook ((erc-send-pre . my/erc-preprocess))
   :config
   ;; don't show messages when a users quits or joins
   (setq erc-hide-list '("PART" "QUIT" "JOIN"))
@@ -64,12 +66,26 @@
 
   ;; hide messsages when lurkers join or quit
   (setq erc-lurker-hide-list (quote ("JOIN" "PART" "QUIT")))
-  (setq erc-lurker-threshold-time 43200))
+  (setq erc-lurker-threshold-time 43200)
+
+  (defun my/erc-preprocess (string)
+    "Avoids channel flooding."
+    (setq str
+	      (string-trim
+	       (replace-regexp-in-string "\n+" " " str))))
+
+  (defun my/erc-start-or-switch ()
+    "Connects to ERC, or switch to last active buffer."
+    (interactive)
+    (if (get-buffer "irc.freenode.net:6667")
+	    (erc-track-switch-buffer 1)
+	  (when (y-or-n-p "Start ERC? ")
+	    (erc :server "irc.freenode.net" :port 6667 :nick "rememberYou")))))
 
 ;; erc-image: Fetch and show received images in a ERC buffer
 ;; https://github.com/kidd/erc-image.el
 (use-package erc-image
-  :after
+  :after erc
   :config
   (add-to-list 'erc-modules 'image)
   (erc-update-modules))
