@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-04 00:31:45 csraghunandan>
+;; Time-stamp: <2018-05-28 15:20:38 csraghunandan>
 
 ;; ERC: the irc client for emacs
 (use-package erc :defer t
@@ -64,6 +64,11 @@
   :config
   (add-to-list 'erc-modules 'image)
   (erc-update-modules))
+
+;; erc-hl-nicks: Nickname Highlighting for ERC
+;; https://github.com/leathekd/erc-hl-nicks/tree/master
+(use-package erc-hl-nicks
+  :after erc)
 
 (provide 'setup-erc)
 
