@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-28 15:20:38 csraghunandan>
+;; Time-stamp: <2018-05-28 15:29:16 csraghunandan>
 
 ;; ERC: the irc client for emacs
 (use-package erc :defer t
@@ -56,11 +56,20 @@
   ;; use sensible names for irc buffers
   (setq erc-rename-buffers t)
   ;; Interpret mIRC-style color commands in IRC chats
-  (setq erc-interpret-mirc-color t))
+  (setq erc-interpret-mirc-color t)
+
+  (setq erc-autojoin-timing 'ident)
+  (setq erc-fill-function 'erc-fill-static)
+  (setq erc-fill-static-center 22)
+
+  ;; hide messsages when lurkers join or quit
+  (setq erc-lurker-hide-list (quote ("JOIN" "PART" "QUIT")))
+  (setq erc-lurker-threshold-time 43200))
 
 ;; erc-image: Fetch and show received images in a ERC buffer
 ;; https://github.com/kidd/erc-image.el
 (use-package erc-image
+  :after
   :config
   (add-to-list 'erc-modules 'image)
   (erc-update-modules))
