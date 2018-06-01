@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-06 09:28:33 csraghunandan>
+;; Time-stamp: <2018-06-01 17:06:54 csraghunandan>
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
@@ -8,11 +8,12 @@
     (setq treemacs-follow-after-init t
           treemacs-width 35
           treemacs-indentation 1
-          treemacs-collapse-dirs 3
+          treemacs-follow-after-init t
+          treemacs-recenter-after-file-follow nil
+          treemacs-collapse-dirs (if (executable-find "python") 3 0)
           treemacs-silent-refresh t
           treemacs-silent-filewatch t
           treemacs-change-root-without-asking t
-          treemacs-recenter-after-file-follow t
           treemacs-sorting 'alphabetic-desc
           treemacs-show-hidden-files t
           treemacs-never-persist nil
@@ -30,11 +31,13 @@
 
   :bind
   (:map global-map
-        ([f8] . treemacs-toggle)
-        ("C-c s t" . treemacs-find-file)))
+        ([f8] . treemacs)
+        ("C-c f" . treemacs-select-window)))
 
-(use-package treemacs-projectile :defer t
+(use-package treemacs-projectile
+  :defer t
+  :after treemacs projectile
   :bind (:map global-map
-              ("C-c o p" . treemacs-projectile-toggle)))
+              ("C-c o p" . treemacs-projectile)))
 
 (provide 'setup-treemacs)
