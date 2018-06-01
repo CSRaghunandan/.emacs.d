@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-01 17:06:54 csraghunandan>
+;; Time-stamp: <2018-06-01 18:46:06 csraghunandan>
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
@@ -19,6 +19,10 @@
           treemacs-never-persist nil
           treemacs-is-never-other-window t
           treemacs-indentation-string (propertize " ⫶ " 'face 'font-lock-comment-face))
+
+    ;; don't show files in .gitignore
+    (setq treemacs-python-executable (executable-find "python3"))
+    (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
