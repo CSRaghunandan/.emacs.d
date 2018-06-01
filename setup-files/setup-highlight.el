@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-01 10:08:11 csraghunandan>
+;; Time-stamp: <2018-06-01 10:15:32 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -54,11 +54,7 @@
 ;; hl-todo: Highlight TODO keywords
 ;; https://github.com/tarsius/hl-todo/tree/master
 (use-package hl-todo
-  :config (global-hl-todo-mode)
-  (setq hl-todo-keyword-faces
-        `(("TODO"  . ,(face-foreground 'warning))
-          ("FIXME" . ,(face-foreground 'error))
-          ("NOTE"  . ,(face-foreground 'success)))))
+  :config (global-hl-todo-mode))
 
 ;; enable some extra syntax highlighting for dash
 (with-eval-after-load 'dash
