@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-27 12:23:55 csraghunandan>
+;; Time-stamp: <2018-06-01 10:08:11 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -44,7 +44,12 @@
   :config
   (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-responsive 'top)
-  (setq highlight-indent-guides-delay 0.05))
+  (setq highlight-indent-guides-delay 0.05)
+
+  ;; https://github.com/DarthFennec/highlight-indent-guides/issues/40
+  (defun jay/cleanup-hig-strings (x)
+    (remove-text-properties 0 (length x) '(highlight-indent-guides-prop nil display) x))
+  (advice-add 'ivy-cleanup-string :after #'jay/cleanup-hig-strings))
 
 ;; hl-todo: Highlight TODO keywords
 ;; https://github.com/tarsius/hl-todo/tree/master
