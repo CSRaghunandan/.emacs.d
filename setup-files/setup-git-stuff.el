@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-15 16:17:58 csraghunandan>
+;; Time-stamp: <2018-06-03 10:58:37 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -6,12 +6,14 @@
   :bind (("C-c m b" . magit-blame)
          ("C-c m s" . hydra-magit/body)
          ("C-c m p" . wh/switch-magit-status-buffer)
-         ("C-c M-g" . magit-file-popup)
          ("C-x M-g" . magit-dispatch-popup)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers))
   :bind* ("C-c p v". magit-status)
   :config
+  ;; Enable the binding for magit-file=popup
+  (global-magit-file-mode 1)
+
   (setq magit-completing-read-function 'ivy-completing-read)
 
   (defun mu-magit-kill-buffers ()
@@ -172,3 +174,7 @@ First      -> First (no change)."
 ;; Tip: Adding prefix to above jump commands also expands those sections and
 ;; brings that section to the top of the buffer.
 ;;   So `C-u j s' is analogous to doing `j s C-l C-l 4`
+
+;; magit-edit-line-commit' and
+;; `magit-diff-edit-hunk-commit', which allow editing the commit that
+;; added the line at point.
