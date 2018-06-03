@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-01 10:15:32 csraghunandan>
+;; Time-stamp: <2018-06-03 13:26:15 csraghunandan>
 
 ;; All the highlight stuff config
 
@@ -44,7 +44,6 @@
   :config
   (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-responsive 'top)
-  (setq highlight-indent-guides-delay 0.05)
 
   ;; https://github.com/DarthFennec/highlight-indent-guides/issues/40
   (defun jay/cleanup-hig-strings (x)
