@@ -1,10 +1,10 @@
-;; Time-stamp: <2018-03-12 22:48:34 csraghunandan>
+;; Time-stamp: <2018-06-03 13:39:55 csraghunandan>
 
 ;; selected: Keymap for when region is active
 ;; https://github.com/Kungsgeten/selected.el
 (use-package selected
   :bind (:map selected-keymap
-              ("w" . whole-line-or-region-kill-region)
+              ("w" . sp-kill-region)
               ("~" . hydra-change-case/body)
               ("c" . copy-region-as-kill)
               ("d" . duplicate-current-line-or-region)
