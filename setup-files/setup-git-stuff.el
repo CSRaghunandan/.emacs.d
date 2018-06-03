@@ -1,12 +1,11 @@
-;; Time-stamp: <2018-06-03 10:58:37 csraghunandan>
+;; Time-stamp: <2018-06-03 11:04:05 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
 (use-package magit
   :bind (("C-c m b" . magit-blame)
-         ("C-c m s" . hydra-magit/body)
          ("C-c m p" . wh/switch-magit-status-buffer)
-         ("C-x M-g" . magit-dispatch-popup)
+         ("C-c m s" . magit-dispatch-popup)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers))
   :bind* ("C-c p v". magit-status)
@@ -52,24 +51,7 @@
            (chosen-buf
             (cdr (assoc (completing-read "Git project: " bufs-with-names)
                         bufs-with-names))))
-      (switch-to-buffer chosen-buf)))
-
-  (defhydra hydra-magit (:color blue
-                                :columns 5)
-    "Magit"
-    ("g" magit-status "status")
-    ("s" magit-status "status")
-    ("l" magit-log-all-branches "log")
-    ("b" magit-branch-popup "branch popup")
-    ("r" magit-rebase-popup "rebase popup")
-    ("R" magit-show-refs-popup "show refs")
-    ("f" magit-fetch-popup "fetch popup")
-    ("P" magit-push-popup "push popup")
-    ("F" magit-pull-popup "pull popup")
-    ("d" magit-diff-popup "diff popup")
-    ("W" magit-format-patch "format patch")
-    ("$" magit-process-buffer "process")
-    ("q" nil "cancel" :color blue)))
+      (switch-to-buffer chosen-buf))))
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
