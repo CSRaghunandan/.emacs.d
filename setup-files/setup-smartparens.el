@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-05 18:53:06 csraghunandan>
+;; Time-stamp: <2018-06-03 13:52:52 csraghunandan>
 
 ;; smartparens: for movement, editing and inserting parenthesis
 ;; https://github.com/Fuco1/smartparens
@@ -138,7 +138,16 @@ _t_: transpose      _T_: hyb-transpose    _q_: quit
   (setq sp-show-pair-delay 0.1)
 
   ;; no more pair mismatch messages
-  (setq sp-message-width nil))
+  (setq sp-message-width nil)
+
+  (defun sp-strict-kill-line-or-region (&optional arg)
+    "Kill active region or current line."
+    (interactive "p")
+    (if (use-region-p)
+        (sp-kill-region (region-beginning) (region-end))
+      (sp-kill-whole-line)))
+
+  (bind-key* "C-w" #'sp-strict-kill-line-or-region smartparens-mode-map))
 
 (provide 'setup-smartparens)
 
