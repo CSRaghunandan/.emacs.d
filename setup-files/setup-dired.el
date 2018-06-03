@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-05-02 13:17:25 csraghunandan>
+;; Time-stamp: <2018-06-03 13:20:24 csraghunandan>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
@@ -26,6 +26,9 @@
     (setq dired-recursive-deletes 'always)
     ;; makes dired guess the target directory
     (setq dired-dwim-target t)
+
+    (>=e "27.0"
+        (setq dired-create-destination-dirs t))
 
     ;; Dired listing switches
     ;;  -a : Do not ignore entries starting with .
