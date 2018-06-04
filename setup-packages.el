@@ -1,9 +1,10 @@
-;; Time-stamp: <2018-05-13 13:02:09 csraghunandan>
+;; Time-stamp: <2018-06-04 14:44:32 csraghunandan>
 
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; updage packages archive
   (package-install 'use-package)) ; install the latest version of use-package
 (eval-when-compile (require 'use-package))
+(require 'bind-key)
 (setq use-package-always-ensure t)
 
 ;; add imenu support for use-package declarations
