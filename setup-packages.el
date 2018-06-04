@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-06-04 14:44:32 csraghunandan>
+;; Time-stamp: <2018-06-04 22:39:03 csraghunandan>
 
 (unless (package-installed-p 'use-package) ; unless it is already installed
-  (package-refresh-contents) ; updage packages archive
+  (package-refresh-contents) ; update packages archive
   (package-install 'use-package)) ; install the latest version of use-package
 (eval-when-compile (require 'use-package))
 (require 'bind-key)
