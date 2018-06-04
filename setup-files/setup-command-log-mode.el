@@ -1,4 +1,4 @@
-;; Time-stamp: <2017-12-02 12:58:30 csraghunandan>
+;; Time-stamp: <2018-06-04 14:29:35 csraghunandan>
 
 ;; Command Log Mode: log all commands in a buffer or all buffers
 ;; https://github.com/lewang/command-log-mode
@@ -30,3 +30,6 @@
      ("q" nil "cancel" :color blue))))
 
 (provide 'setup-command-log-mode)
+
+;; there is also `view-lossage' commands which shows all the commands entered
+;; till the execution of `view-lossage'

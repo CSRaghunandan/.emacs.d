@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-03 11:04:05 csraghunandan>
+;; Time-stamp: <2018-06-04 14:08:59 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -160,3 +160,5 @@ First      -> First (no change)."
 ;; magit-edit-line-commit' and
 ;; `magit-diff-edit-hunk-commit', which allow editing the commit that
 ;; added the line at point.
+
+;; when in `magit-blame', press 'c' to cycle between styles

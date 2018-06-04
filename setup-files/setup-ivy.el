@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-13 18:49:49 csraghunandan>
+;; Time-stamp: <2018-06-04 14:28:33 csraghunandan>
 
 ;; Smart M-x (smex): sort extended commands by last invoked
 ;; https://github.com/nonsequitur/smex/
@@ -58,3 +58,45 @@
 ;; `ivy-switch-view' ->  select a window configuration, decoupled from ivy-switch-buffer
 ;; `counsel-fzf' -> completion for fzf
 ;; `C-c C-k' in `ivy-switch-buffer' to kill the buffer while still in ivy-minibuffer
+
+;; Call `ivy-immediate-done' if you want to use whatever you typed in the
+;; search field, and ignore the suggestions provided by ivy in the list.
+;;
+;;  C-u <`ivy-alt-done' binding> <-- `ivy-immediate-done'
+;;
+;; This is useful especially when renaming files (and the name you want to
+;; rename to partially matches one of the existing files).
+;;
+;; |----------------------------+----------------+------------------------------------------------------|
+;; | Command                    | ivy map        | Function                                             |
+;; |                            | Bindings       |                                                      |
+;; |----------------------------+----------------+------------------------------------------------------|
+;; | ivy-done                   | C-j            | Exit the minibuffer with the selected candidate.     |
+;; |                            | (default: C-m) | Try to leave `ivy' as soon as possible.              |
+;; |----------------------------+----------------+------------------------------------------------------|
+;; | ivy-alt-done               | C-m or RET     | Exit the minibuffer with the selected candidate.     |
+;; |                            | (default: C-j) | When ARG is t, acts like `ivy-immediate-done'.       |
+;; |                            |                | Try NOT to leave `ivy' at the soonest. For           |
+;; |                            |                | instance, if a directory name completion is          |
+;; |                            |                | possible, do that and list that directory's          |
+;; |                            |                | content in `ivy' instead of opening that dir         |
+;; |                            |                | in `dired'.                                          |
+;; |----------------------------+----------------+------------------------------------------------------|
+;; | ivy-immediate-done         | C-S-m          | Exit the minibuffer with the current text,           |
+;; |                            |                | ignoring the candidates.                             |
+;; |----------------------------+----------------+------------------------------------------------------|
+;; | ivy-partial-or-done        | TAB            | Attempts partial completion, extending current line  |
+;; |                            |                | input as much as possible. "TAB TAB" is the same as  |
+;; |                            |                | `ivy-alt-done'.                                      |
+;; |----------------------------+----------------+------------------------------------------------------|
+;; | ivy-call                   | C-M-m          | Call the current action without exiting completion.  |
+;; |----------------------------+----------------+------------------------------------------------------|
+;; | ivy-next-line-and-call     | C-M-n          | Move cursor vertically down ARG candidates.          |
+;; |                            |                | Call the permanent action if possible.               |
+;; | ivy-previous-line-and-call | C-M-p          | Move cursor vertically up ARG candidates.            |
+;; |                            |                | Call the permanent action if possible.               |
+;; |----------------------------+----------------+------------------------------------------------------|
+;; | ivy-dispatching-done       | M-o            | Presents valid actions from which to choose. When    |
+;; |                            |                | only one action is available, there is no difference |
+;; |                            |                | between this and `ivy-done'.                         |
+;; |----------------------------+----------------+------------------------------------------------------|
