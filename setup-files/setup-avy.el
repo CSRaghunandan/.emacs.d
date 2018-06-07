@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-04-25 13:52:55 csraghunandan>
+;; Time-stamp: <2018-06-07 16:57:23 csraghunandan>
 
 ;; avy: package for jumping to visible text using character based decision tree
 ;; https://github.com/abo-abo/avy
@@ -11,7 +11,7 @@
 
 ;; ace-link: quickly traverse through links in info
 ;; https://github.com/abo-abo/ace-link
-(use-package ace-link
+(use-package ace-link :defer t
   :config
   (ace-link-setup-default)
   ;; add ace-link-org binding to org-mode buffers

@@ -40,6 +40,7 @@
 
 ;; apache-mode: Major mode for editing Apache configuration files
 ;; https://github.com/emacs-php/apache-mode
-(use-package apache-mode)
+(use-package apache-mode
+  :defer t)
 
 (provide 'setup-config-files)
