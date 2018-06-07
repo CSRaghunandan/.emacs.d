@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-04 22:39:53 csraghunandan>
+;; Time-stamp: <2018-06-07 16:37:04 csraghunandan>
 ;; Author: Chakvarathy Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -66,7 +66,6 @@
 (require 'setup-mode-line)
 (require 'setup-editing)
 (require 'setup-racket)
-(require 'setup-hungry-delete)
 (require 'setup-rust)
 (require 'setup-lsp)
 (require 'setup-cc)
