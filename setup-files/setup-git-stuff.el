@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-06 11:54:59 csraghunandan>
+;; Time-stamp: <2018-06-07 17:10:54 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -111,9 +111,13 @@ First      -> First (no change)."
 
 ;; git-modes: major modes for git config, ignore and attributes files
 ;; https://github.com/magit/git-modes
-(use-package gitignore-mode)
-(use-package gitconfig-mode)
-(use-package gitattributes-mode)
+(use-package gitignore-mode
+  :defer t
+  :mode ((".gitignore_global" . gitignore-mode)))
+(use-package gitconfig-mode
+  :defer t)
+(use-package gitattributes-mode
+  :defer t)
 
 ;; gist: Yet another Emacs paste mode, this one for Gist.
 ;; https://github.com/defunkt/gist.el
