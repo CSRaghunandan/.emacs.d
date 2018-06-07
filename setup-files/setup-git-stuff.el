@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-04 14:08:59 csraghunandan>
+;; Time-stamp: <2018-06-06 11:54:59 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -24,19 +24,6 @@
 
   ;; show word granularity within diff hunks
   (setq-default magit-diff-refine-hunk 'all)
-
-  (progn
-    ;; Magit Submodule support
-    ;; https://www.reddit.com/r/emacs/comments/6aiwk5/how_to_manage_multiple_gitrepositories_at_once/dhf47dg/
-    (dolist (fn '(;; Below will end up being the last of these newly added fns,
-                  ;; and the last element in `magit-status-sections-hook' too.
-                  magit-insert-modules-unpulled-from-upstream
-                  magit-insert-modules-unpushed-to-pushremote
-                  magit-insert-modules-unpushed-to-upstream
-                  magit-insert-modules-unpulled-from-pushremote
-                  ;; Below will end up being the first of these newly added fns.
-                  magit-insert-submodules))
-      (magit-add-section-hook 'magit-status-sections-hook `,fn nil :append)))
 
   (defun wh/switch-magit-status-buffer ()
     "Allow switching between open magit status buffers."
