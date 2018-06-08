@@ -1,9 +1,9 @@
-;; Time-stamp: <2017-06-14 13:37:23 csraghunandan>
+;; Time-stamp: <2018-06-07 23:20:43 csraghunandan>
 
 ;; TLDR
 ;; https://github.com/tldr-pages/tldr
 ;; https://github.com/kuanyui/tldr.el
-(use-package tldr :ensure t
+(use-package tldr
   :bind (("C-x / t" . tldr)))
 
 ;; Related -- curl cheat.sh
