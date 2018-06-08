@@ -1,9 +1,10 @@
-;; Time-stamp: <2018-06-04 14:28:33 csraghunandan>
+;; Time-stamp: <2018-06-08 13:59:11 csraghunandan>
 
-;; Smart M-x (smex): sort extended commands by last invoked
-;; https://github.com/nonsequitur/smex/
-(use-package smex
-  :config (smex-initialize))
+;; amx: An alternative M-x interface for Emacs.
+;; https://github.com/DarwinAwardWinner/amx
+(use-package amx
+  :config
+  (amx-mode))
 
 ;; ivy: incremental narrowing framework for Emacs
 ;; https://github.com/abo-abo/swiper
