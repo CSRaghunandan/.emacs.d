@@ -1,9 +1,13 @@
-;; Time-stamp: <2018-03-06 21:52:55 csraghunandan>
+;; Time-stamp: <2018-06-08 15:24:18 csraghunandan>
 
 ;; All the macOS related configuration
 
 (when (is-mac-p)
-  (setq ns-function-modifier 'hyper)) ; make Fn key do Hyper
+  (setq ns-function-modifier 'hyper ; make Fn key do Hyper
+        ns-use-thin-smoothing t
+        ns-use-mwheel-momentum t
+        ns-use-mwheel-acceleration t
+        pixel-scroll-mode t))
 
 ;; exec-path-from-shell: ensure environment variables inside Emacs look the same
 ;; as in the users shell
