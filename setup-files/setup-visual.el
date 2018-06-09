@@ -1,5 +1,5 @@
 
-;; Time-stamp: <2018-05-23 21:19:39 csraghunandan>
+;; Time-stamp: <2018-06-09 17:01:10 csraghunandan>
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
 (use-package rainbow-delimiters
@@ -67,11 +67,6 @@
                           (dired-directory dired-directory ;Else if in dired mode, show the directory name
                                            "%b")) ;Else show the buffer name (*scratch*, *Messages*, etc)
         " %*"))
-
-;; display date and time
-(setq display-time-format "%a-%d %H:%M")
-(setq display-time-default-load-average nil)
-(display-time-mode)
 
 ;; set continuation indicators to right fringe only
 (setf (cdr (assq 'continuation fringe-indicator-alist))
