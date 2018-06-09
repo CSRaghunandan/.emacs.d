@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-09 13:24:39 csraghunandan>
+;; Time-stamp: <2018-06-09 13:27:33 csraghunandan>
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
@@ -36,14 +36,7 @@
     (defun treemacs--setup-mode-line ()
       "Create either a simple modeline, or integrate into spaceline."
       (setq mode-line-format
-            (cond ((fboundp 'spaceline-install)
-                   (spaceline-install
-                    "treemacs" '((workspace-number
-                                  :face highlight-face)
-                                 major-mode)
-                    nil)
-                   '("%e" (:eval (spaceline-ml-treemacs))))
-                  ((memq 'moody-mode-line-buffer-identification
+            (cond ((memq 'moody-mode-line-buffer-identification
                          (default-value 'mode-line-format))
                    '(:eval (moody-tab " Treemacs " 10 'down)))
                   (t
