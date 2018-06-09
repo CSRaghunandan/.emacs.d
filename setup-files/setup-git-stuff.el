@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-07 17:10:54 csraghunandan>
+;; Time-stamp: <2018-06-09 16:18:14 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -12,6 +12,17 @@
   :config
   ;; Enable the binding for magit-file=popup
   (global-magit-file-mode 1)
+
+  ;; Magit Submodule support
+  ;; https://www.reddit.com/r/emacs/comments/6aiwk5/how_to_manage_multiple_gitrepositories_at_once/dhf47dg/
+  (dolist (fn '(;; Below will end up being the last of these newly added fns,
+                ;; and the last element in `magit-status-sections-hook' too.
+                magit-insert-modules-unpulled-from-upstream
+                magit-insert-modules-unpushed-to-pushremote
+                magit-insert-modules-unpushed-to-upstream
+                ;; Below will end up being the first of these newly added fns.
+                magit-insert-modules-unpulled-from-pushremote))
+    (magit-add-section-hook 'magit-status-sections-hook `,fn nil :append))
 
   (setq magit-completing-read-function 'ivy-completing-read)
 
