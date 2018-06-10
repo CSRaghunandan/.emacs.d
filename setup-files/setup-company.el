@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-07 17:04:20 csraghunandan>
+;; Time-stamp: <2018-06-11 02:54:40 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
@@ -13,8 +13,12 @@
   (company-show-numbers t)
   (company-require-match 'never)
   (company-tooltip-align-annotations t)
+  (company-dabbrev-downcase nil "don't downcase results from company-dabbrev")
+  (company-dabbrev-other-buffers t "use only buffers with same major-mode for company-dabbrev")
 
   :bind
+  (("M-/" . hippie-expand) ;; replace `dabbrev-expand' with `hippie-expand' which does a lot more
+   ("C-<tab>" . company-dabbrev))
   (:map company-active-map
         ("M-p" . nil)
         ("M-n" . nil)
@@ -26,15 +30,6 @@
         ("C-t" . company-show-doc-buffer))
 
   :config
-  ;; replace `dabbrev-expand' with `hippie-expand' which does a lot more
-  (bind-key "M-/" 'hippie-expand)
-
-  ;; don't downcase results from company-dabbrev
-  (setq company-dabbrev-downcase nil)
-  ;; use only buffers with same major-mode for company-dabbrev
-  (setq company-dabbrev-other-buffers t)
-  (bind-key "C-<tab>" 'company-dabbrev)
-
   (defun ora-company-number ()
     "Forward to `company-complete-number'.
 Unless the number is potentially part of the candidate.
@@ -89,7 +84,6 @@ In that case, insert the number."
 ;; `C-t' to view the documentation of the current completion candidate
 ;; `C-w' to jump to the source code of the completion candidate (does not work
 ;; with all major-modes)
-;; `C-g' to view the documentation of the current completion candidate in minibuffer
 ;; `M-/' to execute `hippie-expand'
 ;; Press `0-9' to select that company candidate
 ;; Press any non matching character to quit company
