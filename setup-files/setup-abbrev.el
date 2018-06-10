@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:45:24 csraghunandan>
+;; Time-stamp: <2018-06-11 01:48:08 csraghunandan>
 
 ;; abbrev: expand abbreviations
 (use-package abbrev :ensure nil
@@ -8,9 +8,11 @@
    . (lambda ()
        (add-hook 'expand-expand-hook 'indent-according-to-mode)
        (add-hook 'expand-jump-hook 'indent-according-to-mode)))
+  :bind
+  ("C-;" . endless/ispell-word-then-abbrev)
+  :custom
+  (save-abbrevs 'silently "Silently save abbrevs on quitting emacs")
   :config
-  ;; Silently save abbrevs on quitting emacs
-  (setq save-abbrevs 'silently)
   ;;Read the abbreviations file on startup
   (if (file-exists-p abbrev-file-name)
       (quietly-read-abbrev-file))
@@ -49,8 +51,6 @@ abort completely with `C-g'."
               bef aft)
             (message "\"%s\" now expands to \"%s\" %sally"
                      bef aft (if p "loc" "glob")))
-        (user-error "No typo at or before point"))))
-
-  (bind-key* "C-;" 'endless/ispell-word-then-abbrev))
+        (user-error "No typo at or before point")))))
 
 (provide 'setup-abbrev)

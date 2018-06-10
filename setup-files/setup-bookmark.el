@@ -1,9 +1,8 @@
-;; Time-stamp: <2018-06-07 16:57:47 csraghunandan>
+;; Time-stamp: <2018-06-11 01:52:21 csraghunandan>
 
 ;; bm: visible bookmarks within a buffer
 ;; https://github.com/joodland/bm
-(use-package bm
-  :defer t
+(use-package bm :defer t
   :config
   ;; buffer persistence on by default
   (setq-default bm-buffer-persistence t)

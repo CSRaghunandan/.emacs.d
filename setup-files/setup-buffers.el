@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-13 19:22:09 csraghunandan>
+;; Time-stamp: <2018-06-11 01:56:46 csraghunandan>
 
 ;; configuration for buffers
 
@@ -12,12 +12,11 @@
 ;; distinguishable.
 (use-package uniquify :ensure nil
   :defer 2
-  :config
-  ;; make buffers with same name unique
-  (setq uniquify-buffer-name-style 'forward)
-  (setq uniquify-separator "/")
-  (setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
-  (setq uniquify-ignore-buffers-re "^\\*")) ; don't muck with special buffers
+  :custom
+  (uniquify-buffer-name-style 'forward)
+  (uniquify-separator "/")
+  (uniquify-after-kill-buffer-p t "rename after killing uniquified")
+  (uniquify-ignore-buffers-re "^\\*" "don't muck with special buffers"))
 
 ;; make emacs auto-refresh all buffers when files have changed on the disk
 (global-auto-revert-mode t)
@@ -360,14 +359,14 @@ will be killed."
 ;; beginend: Emacs package to redefine M-< and M-> for some modes
 ;; https://github.com/DamienCassou/beginend
 (use-package beginend
+  :hook (ivy-occur-grep-mode . beginend-ivy-occur-mode)
+  :init (beginend-global-mode)
   :config
-  (beginend-global-mode)
   (beginend-define-mode ivy-occur-mode
     (progn
       (ivy-occur-next-line 4))
     (progn
-      (ivy-occur-previous-line 1)))
-  (add-hook 'ivy-occur-grep-mode-hook #'beginend-ivy-occur-mode))
+      (ivy-occur-previous-line 1))))
 
 (defun duplicate-buffer (new-name)
   "Create a copy of the current buffer with the filename NEW-NAME.
