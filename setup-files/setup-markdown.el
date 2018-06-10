@@ -1,9 +1,9 @@
-;; Time-stamp: <2017-09-11 15:54:04 csraghunandan>
+;; Time-stamp: <2018-06-10 23:59:29 csraghunandan>
 
 ;; markdown: simple and quick outline mode
 ;; http://jblevins.org/projects/markdown-mode/
 ;; https://github.com/defunkt/markdown-moed
-(use-package markdown-mode :defer t
+(use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'"       . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))

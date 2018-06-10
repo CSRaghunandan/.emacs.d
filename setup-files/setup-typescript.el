@@ -1,10 +1,10 @@
-;; Time-stamp: <2018-05-27 13:11:52 csraghunandan>
+;; Time-stamp: <2018-06-10 23:59:39 csraghunandan>
 
 ;; typescript config
 
 ;; typescript: major mode for editing typescript files
 ;; https://github.com/ananthakumaran/typescript.el
-(use-package typescript-mode :defer t
+(use-package typescript-mode
   :hook ((typescript-mode . (lambda ()
                               (my-tide-setup-hook)
                               (add-node-modules-path)

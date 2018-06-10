@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-05-13 17:32:53 csraghunandan>
+;; Time-stamp: <2018-06-11 00:01:22 csraghunandan>
 
 ;; css-mode config
-(use-package css-mode :defer t
+(use-package css-mode
   :ensure nil
   :mode (("\\.scss\\'" . css-mode)
          ("\\.sass\\'" . css-mode))

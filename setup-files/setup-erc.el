@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-05-28 15:41:31 csraghunandan>
+;; Time-stamp: <2018-06-11 00:03:03 csraghunandan>
 
 ;; ERC: the irc client for emacs
-(use-package erc :defer t
+(use-package erc
   :ensure nil
   :bind (("C-c e" . my/erc-start-or-switch))
   :hook ((erc-send-pre . my/erc-preprocess))

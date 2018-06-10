@@ -1,8 +1,8 @@
-;; Time-stamp: <2018-06-09 13:27:33 csraghunandan>
+;; Time-stamp: <2018-06-11 00:02:04 csraghunandan>
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
-(use-package treemacs :defer t
+(use-package treemacs
   :config
   (progn
     (setq treemacs-follow-after-init t
@@ -48,7 +48,6 @@
         ("C-c f" . treemacs-select-window)))
 
 (use-package treemacs-projectile
-  :defer t
   :after treemacs projectile
   :bind (:map global-map
               ("C-c o p" . treemacs-projectile)))

@@ -1,9 +1,8 @@
-;; Time-stamp: <2018-03-13 00:48:06 csraghunandan>
+;; Time-stamp: <2018-06-11 00:00:05 csraghunandan>
 
 ;; desktop: save the current emacs session
-(use-package desktop
+(use-package desktop :defer 2
   :ensure nil
-  :defer 2
   :config
   (setq desktop-dirname (concat user-emacs-directory "desktop")
         desktop-base-file-name "emacs.desktop"

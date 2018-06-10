@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-01-05 16:27:25 csraghunandan>
+;; Time-stamp: <2018-06-11 00:03:33 csraghunandan>
 
 ;; configuration for OCaml mode
 
@@ -11,7 +11,6 @@
   (use-package tuareg
     :mode (("\\.ml[ily]?$" . tuareg-mode)
            ("\\.topml$" . tuareg-mode))
-    :defer t
     :init
     (add-hook 'tuareg-mode-hook (lambda ()
                                   (abbrev-mode -1)))

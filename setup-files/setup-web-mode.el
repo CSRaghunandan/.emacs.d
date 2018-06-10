@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-13 17:40:08 csraghunandan>
+;; Time-stamp: <2018-06-10 23:59:00 csraghunandan>
 
 ;; company-web: to get completion for HTML stuff
 ;; https://github.com/osv/company-web
@@ -71,7 +71,7 @@
 
 ;; impatient mode: Live refresh of web pages
 ;; https://github.com/skeeto/impatient-mode
-(use-package impatient-mode :defer t
+(use-package impatient-mode
   :commands (impatient-mode))
 
 ;; emmet-mode: dynamic snippets for HTML

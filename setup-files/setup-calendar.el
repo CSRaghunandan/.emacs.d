@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-05-13 19:45:59 csraghunandan>
+;; Time-stamp: <2018-06-11 00:02:19 csraghunandan>
 
 ;; calendar config
-(use-package calendar :defer t
+(use-package calendar
   :ensure nil
   :hook ((calendar-today-visible . calendar-mark-today))
   :bind (("s-d" . help/hydra/timestamp/body))

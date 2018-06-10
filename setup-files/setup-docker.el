@@ -1,9 +1,8 @@
-;; Time-stamp: <2018-06-07 17:05:46 csraghunandan>
+;; Time-stamp: <2018-06-11 00:08:33 csraghunandan>
 
 ;; dockerfile-mode: An emacs mode for handling Dockerfiles
 ;; https://github.com/spotify/dockerfile-mode
 (use-package dockerfile-mode
-  :defer t
   :mode ("Dockerfile\\'" . dockerfile-mode))
 
 ;; docker: manager docker from emacs

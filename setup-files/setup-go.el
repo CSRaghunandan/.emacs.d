@@ -1,10 +1,10 @@
-;; Time-stamp: <2018-05-13 18:19:48 csraghunandan>
+;; Time-stamp: <2018-06-11 00:01:01 csraghunandan>
 
 ;; golang configuration
 
 ;; go-mode: major-mode for editing go files
 ;; https://github.com/dominikh/go-mode.el
-(use-package go-mode :defer t
+(use-package go-mode
   :interpreter "go"
   :ensure-system-package (goimports . "go get -u golang.org/x/tools/cmd/goimports")
   :config

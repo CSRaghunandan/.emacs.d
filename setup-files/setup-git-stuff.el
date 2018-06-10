@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-09 16:18:14 csraghunandan>
+;; Time-stamp: <2018-06-11 00:03:45 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -123,7 +123,6 @@ First      -> First (no change)."
 ;; git-modes: major modes for git config, ignore and attributes files
 ;; https://github.com/magit/git-modes
 (use-package gitignore-mode
-  :defer t
   :mode ((".gitignore_global" . gitignore-mode)))
 (use-package gitconfig-mode
   :defer t)

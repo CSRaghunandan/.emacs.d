@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-11 11:28:35 csraghunandan>
+;; Time-stamp: <2018-06-11 00:06:40 csraghunandan>
 
 ;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://github.com/emacsorphanage/multi-term/tree/f954e4e18b0a035151d34852387e724d87a3316f
@@ -34,8 +34,7 @@
 
 ;; eterm-256color: Customizable 256 colors for emacs term and ansi-term
 ;; https://github.com/dieggsy/eterm-256color
-(use-package eterm-256color
-  :defer t
+(use-package eterm-256color :defer t
   :hook ((term-mode . eterm-256color-mode)))
 
 (use-package term :ensure nil
