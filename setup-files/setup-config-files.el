@@ -27,6 +27,12 @@
   :mode (("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode)
          ("nginx.conf" . nginx-mode)))
 
+;; Add Nginx directives keywords to company-mode keywords alist.
+;; https://github.com/stardiviner/company-nginx/
+(use-package company-nginx
+  :after nginx-mode
+  :hook (nginx-mode . company-nginx-keywords))
+
 ;; emacs mode for editing ssh config files.
 ;; https://github.com/jhgorrell/ssh-config-mode-el
 (use-package ssh-config-mode
