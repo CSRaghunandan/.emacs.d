@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-11 22:24:59 csraghunandan>
+;; Time-stamp: <2018-06-12 00:39:39 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -57,7 +57,9 @@ not prevent downloading the actual packages (obviously)."
 ;; for when you want to disable the mouse
 ;; https://github.com/purcell/disable-mouse/tree/master
 (use-package disable-mouse
-  :config (global-disable-mouse-mode))
+  :defer 1
+  :hook ((prog-mode . disable-mouse-mode)
+         (magit-mode . disable-mouse-mode)))
 
 ;; prefer new files if one exists while loading
 (setq load-prefer-newer t)
