@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-11 22:12:20 csraghunandan>
+;; Time-stamp: <2018-06-11 22:16:38 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -27,7 +27,7 @@ not prevent downloading the actual packages (obviously)."
 
 ;; default idle delay for eldoc is way too long
 (setq eldoc-idle-delay 0.1
-      eldoc-echo-area-use-multiline-p nil)
+      eldoc-echo-area-use-multiline-p t)
 
 (bind-key* "C-?" 'help-command)
 
