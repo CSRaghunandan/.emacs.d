@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-27 12:53:40 csraghunandan>
+;; Time-stamp: <2018-06-11 15:02:27 csraghunandan>
 
 (use-package python
   :ensure nil
@@ -10,7 +10,8 @@
                           (lsp-ui-doc-mode)
                           (flycheck-mode)
                           (smart-dash-mode)
-                          (company-mode)))
+                          (company-mode)
+                          (setq-local lsp-highlight-symbol-at-point nil)))
          (python-mode . (lambda ()
                           (setq-local tab-width 4)))
          (inferior-python-mode . company-mode))
