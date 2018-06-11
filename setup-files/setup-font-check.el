@@ -1,4 +1,4 @@
-;; TIme-stamp: <2017-05-01 17:31:30>
+;; Time-stamp: <2018-06-12 00:16:15 csraghunandan>
 
 ;; set PragmataPro font only if it available
 (defun rag-set-face (frame)
@@ -6,16 +6,14 @@
   (select-frame frame)
   (if (display-graphic-p)
       (progn
-        (when (member "PragmataPro" (font-family-list))
+        (when (member "Iosevka" (font-family-list))
           (progn
-            (require 'setup-pragmatapro)
-            (set-frame-font "PragmataPro-13" nil t))))))
+            (set-frame-font "Iosevka-12" nil t))))))
 (add-hook 'after-make-frame-functions #'rag-set-face)
 
 ;; set frame font when running emacs normally
-(when (member "PragmataPro" (font-family-list))
+(when (member "Iosevka" (font-family-list))
   (progn
-    (require 'setup-pragmatapro)
-    (set-frame-font "PragmataPro-13" nil t)))
+    (set-frame-font "Iosevka-12" nil t)))
 
 (provide 'setup-font-check)

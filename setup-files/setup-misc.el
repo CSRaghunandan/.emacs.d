@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-11 22:16:38 csraghunandan>
+;; Time-stamp: <2018-06-11 22:24:59 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -17,7 +17,8 @@ not prevent downloading the actual packages (obviously)."
 
 ;; to list all the keys-chord not bound to a command
 ;; https://github.com/Fuco1/free-keys
-(use-package free-keys)
+(use-package free-keys
+  :defer t)
 
 ;; enable disabled commands
 (setq disabled-command-function nil)
