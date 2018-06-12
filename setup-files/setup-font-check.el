@@ -1,6 +1,6 @@
-;; Time-stamp: <2018-06-12 00:16:15 csraghunandan>
+;; Time-stamp: <2018-06-12 11:47:45 csraghunandan>
 
-;; set PragmataPro font only if it available
+;; set Iosevka font only if it available
 (defun rag-set-face (frame)
   "Configure faces on frame creation"
   (select-frame frame)
