@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-12 00:39:39 csraghunandan>
+;; Time-stamp: <2018-06-14 00:05:08 csraghunandan>
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.
@@ -48,11 +48,6 @@ not prevent downloading the actual packages (obviously)."
     (rainbow-delimiters-mode -1)
     (highlight-indent-guides-mode -1)))
 (add-hook 'prog-mode-hook 'conditional-disable-modes)
-
-;; google-this : google line, region, symbol, etc.
-;; https://github.com/Malabarba/emacs-google-this
-(use-package google-this
-  :config (google-this-mode 1))
 
 ;; for when you want to disable the mouse
 ;; https://github.com/purcell/disable-mouse/tree/master
