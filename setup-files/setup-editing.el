@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-14 20:33:02 csraghunandan>
+;; Time-stamp: <2018-06-14 21:45:32 csraghunandan>
 
 ;;; configuration for all the editing stuff in emacs
 ;; Kill ring
@@ -239,9 +239,8 @@ abc |ghi        <-- point still after white space after calling this function."
         (t ; do nothing otherwise, includes the case where the point is at EOL
          )))
 ;; Delete extra horizontal white space after `kill-word' and `backward-kill-word'
-(advice-add 'sp-kill-word :after #'modi/just-one-space-post-kill-word)
-(advice-add 'sp-backward-kill-word :after #'modi/just-one-space-post-kill-word)
-(advice-add 'sp-kill-sexp :after #'modi/just-one-space-post-kill-word)
+(advice-add 'kill-word :after #'modi/just-one-space-post-kill-word)
+(advice-add 'backward-kill-word :after #'modi/just-one-space-post-kill-word)
 
 
 
