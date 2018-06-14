@@ -1,14 +1,12 @@
-;; Time-stamp: <2018-06-11 00:03:45 csraghunandan>
+;; Time-stamp: <2018-06-14 16:11:14 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
+;; `magit-status' is bound to `C-x g' by default
 (use-package magit
-  :bind (("C-c m b" . magit-blame)
-         ("C-c m p" . wh/switch-magit-status-buffer)
-         ("C-c m s" . magit-dispatch-popup)
+  :bind (("C-c m p" . wh/switch-magit-status-buffer)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers))
-  :bind* ("C-c p v". magit-status)
   :config
   ;; Enable the binding for magit-file=popup
   (global-magit-file-mode 1)
