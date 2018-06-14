@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-05-13 18:55:34 csraghunandan>
+;; Time-stamp: <2018-06-14 16:19:49 csraghunandan>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper
@@ -70,7 +70,6 @@
    ([remap bookmark-jump] . counsel-bookmark) ;Jump to book or set it if it doesn't exist, C-x r b
    ([remap bookmark-set] . counsel-bookmark)  ;C-x r m
    ([remap find-file] . counsel-find-file)
-   ("C-c g g" . counsel-git-grep)
    ("C-c d s" . describe-symbol)
    ("C-c d f" . counsel-faces)
    ("C-c d d" . counsel-descbinds)
