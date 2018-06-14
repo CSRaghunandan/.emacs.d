@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-03-12 22:48:26 csraghunandan>
+;; Time-stamp: <2018-06-14 21:39:41 csraghunandan>
 
 ;; isearch config
 
@@ -47,7 +47,8 @@ See the command `isearch-forward-symbol' for more information."
 
 ;; visual-regexp: A regexp/replace command for Emacs with interactive visual feedback
 ;; https://github.com/benma/visual-regexp.el
-(use-package visual-regexp)
+(use-package visual-regexp
+  :defer t)
 
 ;; visual-regexp-steroids: use modern regexp engines instead of emacs one.
 ;; https://github.com/benma/visual-regexp-steroids.el/
@@ -63,6 +64,7 @@ See the command `isearch-forward-symbol' for more information."
 ;;; anzu: show number of searches in isearch
 ;; https://github.com/syohex/emacs-anzu
 (use-package anzu
+  :defer t
   :config
   (setq anzu-search-threshold 1000)
   (setq anzu-replace-to-string-separator " => ")
