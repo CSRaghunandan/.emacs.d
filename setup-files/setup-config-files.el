@@ -46,4 +46,9 @@
 (use-package apache-mode
   :defer t)
 
+;; powershell: An Emacs mode for editing and running Microsoft PowerShell code.
+;; https://github.com/jschaf/powershell.el
+(use-package powershell
+  :defer t)
+
 (provide 'setup-config-files)
