@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-04-12 18:06:40 csraghunandan>
+;; Time-stamp: <2018-06-17 18:03:07 csraghunandan>
 
 ;; All the configuration related to movement in emacs
 
@@ -77,7 +77,9 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
 ;; https://github.com/jixiuf/golden-ratio-scroll-screen
 (use-package golden-ratio-scroll-screen
   :bind (("C-v" . golden-ratio-scroll-screen-up)
-         ("M-v" . golden-ratio-scroll-screen-down)))
+         ("M-v" . golden-ratio-scroll-screen-down))
+  :config
+  (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil :background nil :foreground nil))
 
 ;; dumb-jump: jump to definitions using `rg' or `ag'
 ;; https://github.com/jacktasia/dumb-jump

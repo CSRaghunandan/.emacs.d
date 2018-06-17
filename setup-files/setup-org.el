@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-11 01:50:27 csraghunandan>
+;; Time-stamp: <2018-06-17 18:11:12 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -72,10 +72,6 @@
   ;; Show drawers, e.g. :PROPERTIES:, when we expand a heading.
   ;; See http://emacs.stackexchange.com/a/22540/304
   (remove-hook 'org-cycle-hook #'org-cycle-hide-drawers)
-
-  ;; Don't underline dates, it's distracting.
-  (custom-set-faces
-   '(org-date ((((class color)) (:underline nil))) t))
 
   ;; ob-rust: evaluate rust src blocks
   (use-package ob-rust)

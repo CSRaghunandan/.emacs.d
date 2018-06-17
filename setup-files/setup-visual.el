@@ -1,9 +1,11 @@
 
-;; Time-stamp: <2018-06-09 17:01:10 csraghunandan>
+;; Time-stamp: <2018-06-17 18:06:20 csraghunandan>
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
 (use-package rainbow-delimiters
-  :hook ((prog-mode . rainbow-delimiters-mode)))
+  :hook ((prog-mode . rainbow-delimiters-mode))
+  :config
+  (set-face-attribute 'rainbow-delimiters-unmatched-face nil :foreground "red" :strike-through t))
 
 ;; better defaults
 ;; don't show splash screen when starting emacs
