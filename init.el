@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-07 16:37:04 csraghunandan>
+;; Time-stamp: <2018-06-17 18:14:50 csraghunandan>
 ;; Author: Chakvarathy Raghunandan
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
@@ -108,6 +108,7 @@
 (require 'xkcd)
 (require 'setup-docker)
 (require 'setup-pdf)
+(require 'setup-engine-mode)
 
 ;; install all packages (if they already not installed by use-package)
 (package-install-selected-packages)
