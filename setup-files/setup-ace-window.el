@@ -1,15 +1,16 @@
-;; Time-stamp: <2018-06-11 01:43:18 csraghunandan>
+;; Time-stamp: <2018-06-19 12:02:23 csraghunandan>
 
 ;; ace-window: quick switching of windows
 ;; https://github.com/abo-abo/ace-window
 (use-package ace-window
   :commands (ace-window)
   :bind* ("C-c w" . ace-window)
-  :custom
-  (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (aw-dispatch-always t "enable aw dispatch even for just one window")
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  ;; enable aw dispatch even for just one window
+  (setq aw-dispatch-always t)
   ;; add hydras to control window size and scroll other window
-  (aw-dispatch-alist
+  (setq aw-dispatch-alist
    '((?x aw-delete-window " Ace - Delete Window")
      (?m aw-swap-window " Ace - Swap Window")
      (?n aw-flip-window)
@@ -21,7 +22,6 @@
      (?y hydra-window-size/body)
      (?? aw-show-dispatch-help)))
 
-  :config
   (defhydra hydra-window-size (:color red)
     "Windows size"
     ("b" shrink-window-horizontally "shrink horizontal")

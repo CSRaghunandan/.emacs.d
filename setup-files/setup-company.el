@@ -1,21 +1,10 @@
-;; Time-stamp: <2018-06-11 02:54:40 csraghunandan>
+;; Time-stamp: <2018-06-19 11:05:50 csraghunandan>
 
 ;; company, company-quickhelp, company-statistics
 
 ;; company: auto-completion backend for emacs
 ;; http://company-mode.github.io/
 (use-package company
-  :custom
-  (company-tooltip-flip-when-above t)
-  (company-minimum-prefix-length 3)
-  (company-idle-delay 0.2)
-  (company-selection-wrap-around t)
-  (company-show-numbers t)
-  (company-require-match 'never)
-  (company-tooltip-align-annotations t)
-  (company-dabbrev-downcase nil "don't downcase results from company-dabbrev")
-  (company-dabbrev-other-buffers t "use only buffers with same major-mode for company-dabbrev")
-
   :bind
   (("M-/" . hippie-expand) ;; replace `dabbrev-expand' with `hippie-expand' which does a lot more
    ("C-<tab>" . company-dabbrev))
@@ -30,6 +19,19 @@
         ("C-t" . company-show-doc-buffer))
 
   :config
+
+  (setq company-tooltip-flip-when-above t)
+  (setq company-minimum-prefix-length 3)
+  (setq company-idle-delay 0.2)
+  (setq company-selection-wrap-around t)
+  (setq company-show-numbers t)
+  (setq company-require-match 'never)
+  (setq company-tooltip-align-annotations t)
+  ;; don't downcase results from company-dabbrev
+  (setq company-dabbrev-downcase nil)
+  ;; use only buffers with same major-mode for company-dabbrev
+  (setq company-dabbrev-other-buffers t)
+
   (defun ora-company-number ()
     "Forward to `company-complete-number'.
 Unless the number is potentially part of the candidate.

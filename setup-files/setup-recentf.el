@@ -1,12 +1,12 @@
-;; Time-stamp: <2018-06-11 01:29:07 csraghunandan>
+;; Time-stamp: <2018-06-19 11:35:15 csraghunandan>
 
 ;; view the list recently opened files
 (use-package recentf :defer 1
   :ensure nil
-  :custom
-  (recentf-max-menu-items 150)
-  (recentf-max-saved-items 150)
-  (recentf-exclude
+  :config
+  (setq recentf-max-menu-items 150)
+  (setq recentf-max-saved-items 150)
+  (setq recentf-exclude
    '("/elpa/" ;; ignore all files in elpa directory
      "recentf" ;; remove the recentf load file
      ".*?autoloads.el$"
@@ -18,7 +18,6 @@
      "NEWS" ;; don't include the NEWS file for recentf
      "bookmarks"  "bmk-bmenu" ;; ignore bookmarks file in .emacs.d
      "loaddefs.el"))
-  :config
   (recentf-mode))
 
 (provide 'setup-recentf)

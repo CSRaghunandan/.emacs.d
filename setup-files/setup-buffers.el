@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-11 01:56:46 csraghunandan>
+;; Time-stamp: <2018-06-19 11:08:03 csraghunandan>
 
 ;; configuration for buffers
 
@@ -12,11 +12,13 @@
 ;; distinguishable.
 (use-package uniquify :ensure nil
   :defer 2
-  :custom
-  (uniquify-buffer-name-style 'forward)
-  (uniquify-separator "/")
-  (uniquify-after-kill-buffer-p t "rename after killing uniquified")
-  (uniquify-ignore-buffers-re "^\\*" "don't muck with special buffers"))
+  :config
+  (setq uniquify-buffer-name-style 'forward)
+  (setq uniquify-separator "/")
+  ;; rename after killing uniquified
+  (setq uniquify-after-kill-buffer-p t)
+  ;; don't muck with special buffers
+  (setq uniquify-ignore-buffers-re "^\\*"))
 
 ;; make emacs auto-refresh all buffers when files have changed on the disk
 (global-auto-revert-mode t)

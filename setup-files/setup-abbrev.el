@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-11 01:48:08 csraghunandan>
+;; Time-stamp: <2018-06-19 12:02:43 csraghunandan>
 
 ;; abbrev: expand abbreviations
 (use-package abbrev :ensure nil
@@ -10,9 +10,10 @@
        (add-hook 'expand-jump-hook 'indent-according-to-mode)))
   :bind
   ("C-;" . endless/ispell-word-then-abbrev)
-  :custom
-  (save-abbrevs 'silently "Silently save abbrevs on quitting emacs")
   :config
+  ;; Silently save abbrevs on quitting emacs
+  (setq save-abbrevs 'silently)
+
   ;;Read the abbreviations file on startup
   (if (file-exists-p abbrev-file-name)
       (quietly-read-abbrev-file))
