@@ -1,14 +1,14 @@
-;; Time-stamp: <2018-06-17 18:11:12 csraghunandan>
+;; Time-stamp: <2018-06-21 23:30:24 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
 (use-package org
-  :ensure org-plus-contrib
+  :ensure nil
   :preface
   ;; Modules that should always be loaded together with org.el.
   ;; `org-modules' default: '(org-w3m org-bbdb org-bibtex org-docview org-gnus
   ;;                          org-info org-irc org-mhe org-rmail)
-  (setq org-modules '(org-info org-irc org-drill org-habit org-gnus))
+  (setq org-modules '(org-info org-irc org-habit org-gnus))
 
   ;; Set my default org-export backends. This variable needs to be set before
   ;; org.el is loaded.
