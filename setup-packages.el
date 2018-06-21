@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-21 23:29:56 csraghunandan>
+;; Time-stamp: <2018-06-22 04:00:13 csraghunandan>
 
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; update packages archive
@@ -6,9 +6,6 @@
 (eval-when-compile (require 'use-package))
 (require 'bind-key)
 (setq use-package-always-ensure t)
-
-;; add imenu support for use-package declarations
-(setq use-package-enable-imenu-support t)
 
 ;; Manage your installed packages with emacs
 ;; https://github.com/jabranham/system-packages
