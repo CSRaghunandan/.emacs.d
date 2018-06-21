@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-09 17:06:07 csraghunandan>
+;; Time-stamp: <2018-06-22 03:21:47 csraghunandan>
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell
@@ -9,8 +9,7 @@
 (defvar mu-eyebrowse-mode-line
   '(:propertize
     (:eval
-     (when (and (bound-and-true-p eyebrowse-mode)
-                (< 1 (length (eyebrowse--get 'window-configs))))
+     (when (bound-and-true-p eyebrowse-mode)
        (let* ((num (eyebrowse--get 'current-slot))
               (tag (when num
                      (nth 2 (assoc num (eyebrowse--get 'window-configs)))))
@@ -18,7 +17,8 @@
                     " "
                     (if (and tag (< 0 (length tag)))
                         tag
-                      (when num (int-to-string num)))
+                      (when num
+                        (int-to-string num)))
                     " ")))
          str)))
     face (:background "#81a2be" :foreground "#373b41"))
