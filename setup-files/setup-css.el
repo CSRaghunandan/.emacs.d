@@ -1,10 +1,9 @@
-;; Time-stamp: <2018-06-11 00:01:22 csraghunandan>
+;; Time-stamp: <2018-06-22 04:02:19 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode
   :ensure nil
-  :mode (("\\.scss\\'" . css-mode)
-         ("\\.sass\\'" . css-mode))
+  :mode (("\\.sass\\'" . css-mode))
   :hook ((css-mode . (lambda ()
                        (rainbow-mode)
                        (my-css-mode-hook)
@@ -21,5 +20,11 @@
            '((company-css company-files company-yasnippet)))))
 
   (add-hook 'css-mode-hook 'prettier-js-mode))
+
+(use-package less-css-mode              ; Mode for Less CSS files
+  :mode "\\.less\\'")
+
+(use-package scss-mode                  ; Mode for SCSS files
+  :mode "\\.scss\\'")
 
 (provide 'setup-css)
