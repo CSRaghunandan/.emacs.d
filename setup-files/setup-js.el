@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-05-27 13:18:57 csraghunandan>
+;; Time-stamp: <2018-06-22 03:56:51 csraghunandan>
 
 ;; JavaScript configuration
 
@@ -27,6 +27,9 @@
 
   ;; use eslint_d insetad of eslint for faster linting
   (setq flycheck-javascript-eslint-executable "eslint_d")
+
+  ;; Try to highlight most ECMA built-ins
+  (validate-setq js2-highlight-level 3)
 
   ;; turn off all warnings in js2-mode
   (setq js2-mode-show-parse-errors t)
