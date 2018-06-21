@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-21 23:30:24 csraghunandan>
+;; Time-stamp: <2018-06-22 00:37:07 csraghunandan>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/
@@ -93,8 +93,6 @@
      (rust . t)))
 
 ;;; Org Variables
-  ;; this looks better in my opinion
-  (set-face-attribute 'org-ellipsis nil :underline nil :foreground "#E0CF9F")
   ;; hide emphasis markup characters
   (setq org-hide-emphasis-markers t)
   ;; Non-nil means insert state change notes and time stamps into a drawer.

@@ -1,11 +1,9 @@
 
-;; Time-stamp: <2018-06-17 18:06:20 csraghunandan>
+;; Time-stamp: <2018-06-22 00:34:45 csraghunandan>
 ;; https://github.com/Fanael/rainbow-delimiters
 ;; different colours for each nested delimiter
 (use-package rainbow-delimiters
-  :hook ((prog-mode . rainbow-delimiters-mode))
-  :config
-  (set-face-attribute 'rainbow-delimiters-unmatched-face nil :foreground "red" :strike-through t))
+  :hook ((prog-mode . rainbow-delimiters-mode)))
 
 ;; better defaults
 ;; don't show splash screen when starting emacs
@@ -109,8 +107,6 @@
                                 (column-enforce-mode))))
   ;; enforce a column of 80 for highlighting
   (setq column-enforce-column 80)
-  (set-face-attribute 'column-enforce-face nil
-                      :underline nil :foreground "firebrick3")
   (setq column-enforce-comments nil))
 
 ;; indicate buffer boundaries in the fringe

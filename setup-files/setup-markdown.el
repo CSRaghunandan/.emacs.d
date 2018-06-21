@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-17 17:55:24 csraghunandan>
+;; Time-stamp: <2018-06-22 00:36:07 csraghunandan>
 
 ;; markdown: simple and quick outline mode
 ;; http://jblevins.org/projects/markdown-mode/
@@ -15,14 +15,7 @@
 
   (setq markdown-fontify-code-blocks-natively t)
   (setq markdown-list-indent-width 2)
-  (setq-default markdown-hide-markup t)
-
-  (set-face-attribute markdown-header-face-1 nil :foreground "#DFAF8F" :weight 'bold)
-  (set-face-attribute markdown-header-face-2 nil :foreground "#BFEBBF" :weight 'bold)
-  (set-face-attribute markdown-header-face-3 nil :foreground "#7CB8BB" :weight 'bold)
-  (set-face-attribute markdown-header-face-4 nil :foreground "#D0BF8F" :weight 'bold)
-  (set-face-attribute markdown-header-face-5 nil :foreground "#93E0E3" :weight 'bold)
-  (set-face-attribute markdown-header-face-6 nil :foreground "#9FC59F" :weight 'bold))
+  (setq-default markdown-hide-markup t))
 
 (provide 'setup-markdown)
 
