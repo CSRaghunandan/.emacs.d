@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-14 16:11:14 csraghunandan>
+;; Time-stamp: <2018-06-22 04:05:47 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -6,7 +6,9 @@
 (use-package magit
   :bind (("C-c m p" . wh/switch-magit-status-buffer)
          :map magit-status-mode-map
-         ("Q" . mu-magit-kill-buffers))
+         ("Q" . mu-magit-kill-buffers)
+         (:map dired-mode-map
+               ("l" . magit-dired-log)))
   :config
   ;; Enable the binding for magit-file=popup
   (global-magit-file-mode 1)
