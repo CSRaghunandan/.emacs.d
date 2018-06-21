@@ -1,10 +1,11 @@
-;; Time-stamp: <2018-06-22 04:07:17 csraghunandan>
+;; Time-stamp: <2018-06-22 04:08:10 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
 ;; `magit-status' is bound to `C-x g' by default
 (use-package magit
   :bind (("C-c m p" . wh/switch-magit-status-buffer)
+         ("C-c v c" . magit-clone)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers)
          (:map magit-mode-map
