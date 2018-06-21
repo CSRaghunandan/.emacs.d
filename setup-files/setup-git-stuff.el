@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 04:05:47 csraghunandan>
+;; Time-stamp: <2018-06-22 04:07:17 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -7,6 +7,9 @@
   :bind (("C-c m p" . wh/switch-magit-status-buffer)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers)
+         (:map magit-mode-map
+               ([remap previous-line] . magit-previous-line)
+               ([remap next-line] . magit-next-line))
          (:map dired-mode-map
                ("l" . magit-dired-log)))
   :config
