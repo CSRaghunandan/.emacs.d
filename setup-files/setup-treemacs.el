@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 21:25:13 csraghunandan>
+;; Time-stamp: <2018-06-22 21:29:31 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -21,7 +21,7 @@
           treemacs-show-hidden-files t
           treemacs-never-persist nil
           treemacs-is-never-other-window t
-          treemacs-indentation-string (propertize " ⫶ " 'face 'font-lock-comment-face))
+          treemacs-indentation-string (propertize " ǀ " 'face 'font-lock-comment-face))
 
     ;; set the correct python3 executable path. This is needed for
     ;; treemacs-git-mode extended
