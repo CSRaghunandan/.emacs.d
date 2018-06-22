@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 04:02:19 csraghunandan>
+;; Time-stamp: <2018-06-22 11:55:19 csraghunandan>
 
 ;; css-mode config
 (use-package css-mode
@@ -26,5 +26,11 @@
 
 (use-package scss-mode                  ; Mode for SCSS files
   :mode "\\.scss\\'")
+
+;; eldoc-mode plug-in for css-mode
+;; https://github.com/zenozeng/css-eldoc/
+(use-package css-eldoc
+  :commands (turn-on-css-eldoc)
+  :hook (css-mode . turn-on-css-eldoc))
 
 (provide 'setup-css)
