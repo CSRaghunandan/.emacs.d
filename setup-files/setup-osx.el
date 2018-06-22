@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:17:28 csraghunandan>
+;; Time-stamp: <2018-06-22 22:31:50 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -7,10 +7,7 @@
 
 (when (is-mac-p)
   (setq ns-function-modifier 'hyper ; make Fn key do Hyper
-        ns-use-thin-smoothing t
-        ns-use-mwheel-momentum t
-        ns-use-mwheel-acceleration t
-        pixel-scroll-mode t))
+        ns-use-thin-smoothing t))
 
 ;; exec-path-from-shell: ensure environment variables inside Emacs look the same
 ;; as in the users shell
