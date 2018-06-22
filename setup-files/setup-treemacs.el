@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 20:12:55 csraghunandan>
+;; Time-stamp: <2018-06-22 21:25:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -23,8 +23,11 @@
           treemacs-is-never-other-window t
           treemacs-indentation-string (propertize " ⫶ " 'face 'font-lock-comment-face))
 
-    ;; don't show files in .gitignore
+    ;; set the correct python3 executable path. This is needed for
+    ;; treemacs-git-mode extended
     (setq treemacs-python-executable (executable-find "python3"))
+
+    ;; don't show files in .gitignore
     (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
 
     (treemacs-follow-mode t)
