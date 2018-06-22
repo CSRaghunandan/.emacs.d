@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 11:37:21 csraghunandan>
+;; Time-stamp: <2018-06-22 12:01:07 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -17,7 +17,11 @@
   ;; Enable the binding for magit-file=popup
   (global-magit-file-mode 1)
 
+  ;; show counts in magit-refs
   (setq magit-refs-show-commit-count 'all)
+
+  ;; don't ask for unsaved buffers for every magit operation. Very annoying
+  (setq  magit-save-repository-buffers 'dontask)
 
   ;; Refresh `magit-status' after saving a buffer
   (add-hook 'after-save-hook #'magit-after-save-refresh-status)
