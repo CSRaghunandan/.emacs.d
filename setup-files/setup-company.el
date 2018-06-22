@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:12:21 csraghunandan>
+;; Time-stamp: <2018-06-23 01:52:03 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -42,8 +42,10 @@ In that case, insert the number."
     (interactive)
     (let* ((k (this-command-keys))
            (re (concat "^" company-prefix k)))
-      (if (cl-find-if (lambda (s) (string-match re s))
-                      company-candidates)
+      (if (or (cl-find-if (lambda (s) (string-match re s))
+                          company-candidates)
+              (> (string-to-number k)
+                 (length company-candidates)))
           (self-insert-command 1)
         (company-complete-number
          (if (equal k "0")
