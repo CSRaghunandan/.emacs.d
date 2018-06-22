@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 04:08:10 csraghunandan>
+;; Time-stamp: <2018-06-22 11:25:27 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -16,6 +16,14 @@
   :config
   ;; Enable the binding for magit-file=popup
   (global-magit-file-mode 1)
+
+  (setq magit-refs-show-commit-count 'all)
+
+  ;; Refresh `magit-status' after saving a buffer
+  (add-hook 'after-save-hook #'magit-after-save-refresh-status)
+
+  ;; Refresh VC state when Magit refreshes the buffer to keep ibuffer-vc in sync
+  (add-hook 'magit-refresh-buffer-hook #'vc-refresh-state)
 
   ;; Magit Submodule support
   ;; https://www.reddit.com/r/emacs/comments/6aiwk5/how_to_manage_multiple_gitrepositories_at_once/dhf47dg/
