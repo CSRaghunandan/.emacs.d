@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:23:21 csraghunandan>
+;; Time-stamp: <2018-06-22 20:12:55 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -29,6 +29,8 @@
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode t)
+
     (pcase (cons (not (null (executable-find "git")))
                  (not (null (executable-find "python3"))))
       (`(t . t)
