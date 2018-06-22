@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 11:25:27 csraghunandan>
+;; Time-stamp: <2018-06-22 11:37:21 csraghunandan>
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git
@@ -145,6 +145,16 @@ First      -> First (no change)."
 ;; https://github.com/defunkt/gist.el
 (use-package gist
   :defer t)
+
+;; gitflow extensions for magit
+;; https://github.com/jtatarik/magit-gitflow/
+(use-package magit-gitflow
+  :after magit
+  :hook (magit-mode . turn-on-magit-gitflow)
+  :config
+  ;; Free C-f and use a more suitable key binding
+  (unbind-key "C-f" magit-gitflow-mode-map)
+  (bind-key "C-c v f" #'magit-gitflow-popup magit-gitflow-mode-map))
 
 (provide 'setup-git-stuff)
 
