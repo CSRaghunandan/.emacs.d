@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-19 12:02:23 csraghunandan>
+;; Time-stamp: <2018-06-22 12:07:32 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; ace-window: quick switching of windows
 ;; https://github.com/abo-abo/ace-window

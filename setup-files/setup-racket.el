@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-05-05 18:16:29 csraghunandan>
+;; Time-stamp: <2018-06-22 12:22:29 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; racket-mode: major mode for editing racket files
 ;; https://github.com/greghendershott/racket-mode

@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-03-03 13:03:21 csraghunandan>
+;; Time-stamp: <2018-06-22 12:24:46 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;;; Emacs version check
 (defmacro >=e (version &rest body)

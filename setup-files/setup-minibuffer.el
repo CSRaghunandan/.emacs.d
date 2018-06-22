@@ -1,4 +1,7 @@
-;; Time-stamp: <2017-12-02 13:23:42 csraghunandan>
+;; Time-stamp: <2018-06-22 12:16:56 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; configuration for minibuffer
 

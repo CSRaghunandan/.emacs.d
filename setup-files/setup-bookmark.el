@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-11 01:52:21 csraghunandan>
+;; Time-stamp: <2018-06-22 12:11:18 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; bm: visible bookmarks within a buffer
 ;; https://github.com/joodland/bm

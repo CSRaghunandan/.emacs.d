@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-07 23:20:43 csraghunandan>
+;; Time-stamp: <2018-06-22 12:23:14 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; TLDR
 ;; https://github.com/tldr-pages/tldr

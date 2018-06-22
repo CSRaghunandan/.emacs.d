@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-11 00:03:33 csraghunandan>
+;; Time-stamp: <2018-06-22 12:17:16 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; configuration for OCaml mode
 

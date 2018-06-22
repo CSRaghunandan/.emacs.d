@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-05-14 21:56:23 csraghunandan>
+;; Time-stamp: <2018-06-22 12:15:23 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode

@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-11 15:02:27 csraghunandan>
+;; Time-stamp: <2018-06-22 12:22:21 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 (use-package python
   :ensure nil

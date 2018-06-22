@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-04 14:29:35 csraghunandan>
+;; Time-stamp: <2018-06-22 12:12:15 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; Command Log Mode: log all commands in a buffer or all buffers
 ;; https://github.com/lewang/command-log-mode

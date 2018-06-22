@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-10 23:59:00 csraghunandan>
+;; Time-stamp: <2018-06-22 12:23:40 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; company-web: to get completion for HTML stuff
 ;; https://github.com/osv/company-web

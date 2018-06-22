@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-19 11:07:15 csraghunandan>
+;; Time-stamp: <2018-06-22 12:12:08 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; comint: all inferior processes inherit from comint-mode
 (use-package comint :ensure nil

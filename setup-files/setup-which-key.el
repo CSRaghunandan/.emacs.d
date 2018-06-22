@@ -1,5 +1,8 @@
 ;; Timestamp: <2016-11-29 13:19:18>
 
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+
 ;; which-key : show popup of keybindings starting with a prefix
 ;; https://github.com/justbur/emacs-which-key
 (use-package which-key

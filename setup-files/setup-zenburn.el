@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-22 00:47:16 csraghunandan>
+;; Time-stamp: <2018-06-22 12:24:03 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; function to disable all enabled themes
 (defun gh/disable-all-themes ()

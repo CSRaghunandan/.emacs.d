@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-05-17 19:29:56 csraghunandan>
+;; Time-stamp: <2018-06-22 12:15:03 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; flyspell, flycheck
 

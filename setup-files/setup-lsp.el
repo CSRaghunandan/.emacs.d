@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-05-04 00:09:01 csraghunandan>
+;; Time-stamp: <2018-06-22 12:16:37 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; lsp-mode:  Emacs client/library for the Language Server Protocol
 ;; https://github.com/emacs-lsp/lsp-mode

@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-17 14:52:00 csraghunandan>
+;; Time-stamp: <2018-06-22 12:15:31 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; All the highlight stuff config
 

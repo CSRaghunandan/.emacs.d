@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-11 00:01:01 csraghunandan>
+;; Time-stamp: <2018-06-22 12:15:17 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; golang configuration
 

@@ -1,5 +1,8 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-06-03 13:20:24 csraghunandan>
+;; Time-stamp: <2018-06-22 12:14:10 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil

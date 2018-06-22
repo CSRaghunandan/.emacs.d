@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-11 00:00:05 csraghunandan>
+;; Time-stamp: <2018-06-22 12:14:05 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; desktop: save the current emacs session
 (use-package desktop :defer 2

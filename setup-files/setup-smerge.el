@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-05-04 00:32:36 csraghunandan>
+;; Time-stamp: <2018-06-22 12:23:00 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;;; Smerge - to resolve merge conflicts
 (use-package smerge-mode

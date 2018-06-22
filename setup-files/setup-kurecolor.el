@@ -1,4 +1,7 @@
-;; Time-stamp: <2017-02-12 13:46:46 csraghunandan>
+;; Time-stamp: <2018-06-22 12:16:33 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; Kurecolor: color editing goodies for Emacs
 ;; https://github.com/emacsfodder/kurecolor

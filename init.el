@@ -1,5 +1,7 @@
-;; Time-stamp: <2018-06-17 18:14:50 csraghunandan>
-;; Author: Chakvarathy Raghunandan
+;; Time-stamp: <2018-06-22 12:25:09 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
 (defvar gc-cons-threshold--orig gc-cons-threshold)

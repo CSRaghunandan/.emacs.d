@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-22 12:01:07 csraghunandan>
+;; Time-stamp: <2018-06-22 12:06:33 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; https://magit.vc , https://github.com/magit/magit
 ;; magit: the git porcelain to manage git

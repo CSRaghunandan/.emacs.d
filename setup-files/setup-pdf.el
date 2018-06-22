@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-05-13 19:50:36 csraghunandan>
+;; Time-stamp: <2018-06-22 12:17:34 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; pdf-tools: Emacs support library for PDF files.
 ;; https://github.com/politza/pdf-tools

@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-11 00:03:03 csraghunandan>
+;; Time-stamp: <2018-06-22 12:14:55 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; ERC: the irc client for emacs
 (use-package erc

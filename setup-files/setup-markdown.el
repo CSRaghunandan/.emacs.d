@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-22 00:36:07 csraghunandan>
+;; Time-stamp: <2018-06-22 12:16:49 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; markdown: simple and quick outline mode
 ;; http://jblevins.org/projects/markdown-mode/

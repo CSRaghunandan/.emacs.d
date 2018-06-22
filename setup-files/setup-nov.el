@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-03-13 11:05:46 csraghunandan>
+;; Time-stamp: <2018-06-22 12:17:12 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; nov: Epub reader for emacs
 ;; https://github.com/wasamasa/nov.el

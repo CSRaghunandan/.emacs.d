@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-05-11 10:44:56 csraghunandan>
+;; Time-stamp: <2018-06-22 12:23:50 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; ws-butler: clean trailing whitespaces unobtrusively
 ;; https://github.com/lewang/ws-butler

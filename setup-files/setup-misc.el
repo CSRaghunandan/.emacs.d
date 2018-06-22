@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-14 00:05:08 csraghunandan>
+;; Time-stamp: <2018-06-22 12:17:00 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.

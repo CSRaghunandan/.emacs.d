@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-11 00:06:40 csraghunandan>
+;; Time-stamp: <2018-06-22 12:23:07 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; multi-term: manage multiple terminal windows easily within emacs
 ;; https://github.com/emacsorphanage/multi-term/tree/f954e4e18b0a035151d34852387e724d87a3316f

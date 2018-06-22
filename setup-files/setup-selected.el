@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-03 13:39:55 csraghunandan>
+;; Time-stamp: <2018-06-22 12:22:49 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; selected: Keymap for when region is active
 ;; https://github.com/Kungsgeten/selected.el

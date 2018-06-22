@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-11 00:04:12 csraghunandan>
+;; Time-stamp: <2018-06-22 12:16:45 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; manage-minor-mode: easily enable/disable minor-modes
 ;; https://github.com/ShingoFukuyama/manage-minor-mode

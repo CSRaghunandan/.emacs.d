@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-05-02 13:04:12 csraghunandan>
+;; Time-stamp: <2018-06-22 12:23:58 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; a collection of yasnippet snippets for many languages
 ;; https://github.com/AndreaCrotti/yasnippet-snippets

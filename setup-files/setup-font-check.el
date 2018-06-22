@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-12 11:47:45 csraghunandan>
+;; Time-stamp: <2018-06-22 12:15:07 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; set Iosevka font only if it available
 (defun rag-set-face (frame)

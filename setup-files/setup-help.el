@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-03-02 15:57:42 csraghunandan>
+;; Time-stamp: <2018-06-22 12:15:27 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; helpful: A better Emacs *help* buffer
 ;; https://github.com/Wilfred/helpful

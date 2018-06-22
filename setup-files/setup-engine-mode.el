@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-18 23:03:40 csraghunandan>
+;; Time-stamp: <2018-06-22 12:14:50 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; Minor mode for defining and querying search engines through Emacs.
 ;; https://github.com/hrs/engine-mode/

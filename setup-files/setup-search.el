@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-14 21:39:41 csraghunandan>
+;; Time-stamp: <2018-06-22 12:22:46 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; isearch config
 

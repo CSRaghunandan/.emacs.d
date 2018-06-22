@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-03-05 10:57:37 csraghunandan>
+;; Time-stamp: <2018-06-22 12:23:03 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; swiper: isearch with an overview!
 ;; https://github.com/abo-abo/swiper

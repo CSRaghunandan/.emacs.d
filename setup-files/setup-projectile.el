@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-04-25 08:53:58 csraghunandan>
+;; Time-stamp: <2018-06-22 12:17:41 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile

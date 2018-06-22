@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-22 04:00:13 csraghunandan>
+;; Time-stamp: <2018-06-22 12:25:18 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; update packages archive

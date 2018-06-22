@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-11 00:08:33 csraghunandan>
+;; Time-stamp: <2018-06-22 12:14:15 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; dockerfile-mode: An emacs mode for handling Dockerfiles
 ;; https://github.com/spotify/dockerfile-mode

@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-03-12 22:47:38 csraghunandan>
+;; Time-stamp: <2018-06-22 12:22:13 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; configuration for purescript
 

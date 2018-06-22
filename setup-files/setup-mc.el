@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-03-13 10:15:41 csraghunandan>
+;; Time-stamp: <2018-06-22 12:16:52 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; multiple-cursors: Add multiple cursors support for emacs
 ;; https://github.com/magnars/multiple-cursors.el

@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-05-04 00:32:26 csraghunandan>
+;; Time-stamp: <2018-06-22 12:22:53 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; configuration for shell mode
 

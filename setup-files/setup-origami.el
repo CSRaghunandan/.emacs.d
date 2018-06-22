@@ -1,4 +1,7 @@
-;; Time-stamp: <2017-02-12 16:50:38 csraghunandan>
+;; Time-stamp: <2018-06-22 12:17:24 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; origami: better folding package than hs-minor-mode
 ;; https://github.com/gregsexton/origami.el

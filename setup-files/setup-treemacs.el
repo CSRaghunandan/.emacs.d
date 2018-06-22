@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-06-13 23:37:52 csraghunandan>
+;; Time-stamp: <2018-06-22 12:23:21 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
