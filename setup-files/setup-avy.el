@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-24 10:07:33 csraghunandan>
+;; Time-stamp: <2018-06-24 10:24:14 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -17,7 +17,7 @@
 
   (defun avy-goto-paren-open ()
     (interactive)
-    (avy--generic-jump "(\\|{\\|[" nil 'pre))
+    (avy--generic-jump "(\\|{\\|\\[" nil 'pre))
 
   (defun avy-goto-paren-close ()
     (interactive)
