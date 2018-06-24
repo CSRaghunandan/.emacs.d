@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:12:40 csraghunandan>
+;; Time-stamp: <2018-06-24 11:17:21 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -25,9 +25,11 @@
   (add-hook 'css-mode-hook 'prettier-js-mode))
 
 (use-package less-css-mode              ; Mode for Less CSS files
+  :ensure nil
   :mode "\\.less\\'")
 
 (use-package scss-mode                  ; Mode for SCSS files
+  :ensure nil
   :mode "\\.scss\\'")
 
 ;; eldoc-mode plug-in for css-mode
