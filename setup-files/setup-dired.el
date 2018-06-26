@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-06-22 12:14:10 csraghunandan>
+;; Time-stamp: <2018-06-26 13:42:37 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -56,18 +56,16 @@ It added extra strings at the front and back of the default dired buffer name."
 
     (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name))
 
-  (defvar du-program-name (executable-find "du"))
+  ;;* rest
   (defun ora-dired-get-size ()
-    "Get the size of a folder recursively"
     (interactive)
-    (let ((files (dired-get-marked-files)))
-      (with-temp-buffer
-        (apply 'call-process du-program-name nil t nil "-sch" files)
-        (message
-         "Size of all marked files: %s"
-         (progn
-           (re-search-backward "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$")
-           (match-string 1))))))
+    (let* ((cmd (concat "du -sch "
+                        (mapconcat (lambda (x) (shell-quote-argument (file-name-nondirectory x)))
+                                   (dired-get-marked-files) " ")))
+           (res (shell-command-to-string cmd)))
+      (if (string-match "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$" res)
+          (message (match-string 1 res))
+        (error "unexpected output %s" res))))
 
   ;; use the same buffer for going up a directory in dired
   (defun rag/dired-up-dir()
@@ -82,9 +80,8 @@ It added extra strings at the front and back of the default dired buffer name."
           (let ((file1 (car files))
                 (file2 (if (cdr files)
                            (cadr files)
-                         (read-file-name
-                          "file: "
-                          (dired-dwim-target-directory)))))
+                         (read-file-name "file: "
+                                         (dired-dwim-target-directory)))))
             (if (file-newer-than-file-p file1 file2)
                 (ediff-files file2 file1)
               (ediff-files file1 file2))
