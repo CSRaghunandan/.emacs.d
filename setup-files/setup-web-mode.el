@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:23:40 csraghunandan>
+;; Time-stamp: <2018-06-27 19:00:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -52,7 +52,8 @@
 
     ;; company-backends setup
     (set (make-local-variable 'company-backends)
-         '((company-tide company-files company-yasnippet)))
+         '((company-tide company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev)))
 
     ;; enable typescript-tslint checker
     (flycheck-add-mode 'typescript-tslint 'web-mode))
@@ -65,7 +66,8 @@
   (defun my-web-mode-hook ()
     "Hook for `web-mode'."
     (set (make-local-variable 'company-backends)
-         '((company-css company-web-html company-files))))
+         '((company-capf company-web-html company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
   (unless (string-equal "tsx" (file-name-extension buffer-file-name))
     (add-hook 'web-mode-hook 'my-web-mode-hook))
 

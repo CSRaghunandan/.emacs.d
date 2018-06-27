@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:17:16 csraghunandan>
+;; Time-stamp: <2018-06-27 19:02:44 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -40,7 +40,8 @@
 
     (defun my-ocaml-mode-hook()
       (set (make-local-variable 'company-backends)
-           '((merlin-company-backend company-files company-yasnippet))))
+           '((merlin-company-backend company-files :with company-yasnippet)
+             (company-dabbrev-code company-dabbrev))))
     (add-hook 'tuareg-mode-hook #'my-ocaml-mode-hook)
     (add-hook 'tuareg-mode-hook 'company-mode))
 

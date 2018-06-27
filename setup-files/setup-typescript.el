@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:23:25 csraghunandan>
+;; Time-stamp: <2018-06-27 18:58:55 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -46,7 +46,8 @@
 
     ;; company-backends setup
     (set (make-local-variable 'company-backends)
-         '((company-tide company-files company-yasnippet))))
+         '((company-tide company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
 
   ;; use 2 space indentation
   (setq typescript-indent-level 2)

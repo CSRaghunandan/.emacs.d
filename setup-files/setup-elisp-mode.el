@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:14:46 csraghunandan>
+;; Time-stamp: <2018-06-27 18:53:57 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -12,7 +12,8 @@
   (defun my-elisp-mode-hook ()
     "Hook for `emacs-lisp-mode'"
     (set (make-local-variable 'company-backends)
-         '((company-capf company-yasnippet company-files))))
+         '((company-capf company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
   (add-hook 'emacs-lisp-mode-hook 'my-elisp-mode-hook)
   (add-hook 'emacs-lisp-mode-hook 'company-mode)
 

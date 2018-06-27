@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:15:17 csraghunandan>
+;; Time-stamp: <2018-06-27 18:59:44 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -55,7 +55,8 @@
     :config
     (defun my-go-mode-hook()
       (set (make-local-variable 'company-backends)
-           '((company-go company-files company-yasnippet))))
+           '((company-go company-files :with company-yasnippet)
+             (company-dabbrev-code company-dabbrev))))
 
     (add-hook 'go-mode-hook (lambda ()
                               (company-mode)

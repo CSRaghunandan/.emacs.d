@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:22:53 csraghunandan>
+;; Time-stamp: <2018-06-27 19:02:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -76,7 +76,8 @@
 
   (defun my-sh-mode-hook()
     (set (make-local-variable 'company-backends)
-         '(company-shell company-files company-yasnippet))))
+         '((company-shell company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev)))))
 
 ;; On shells, please handle properly the ansi escape codes
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)

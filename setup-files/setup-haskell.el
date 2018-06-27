@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:15:23 csraghunandan>
+;; Time-stamp: <2018-06-27 19:01:50 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -16,7 +16,8 @@
   (defun my-haskell-mode-hook ()
     "Hook for `haskell-mode'."
     (set (make-local-variable 'company-backends)
-         '((company-intero company-files company-yasnippet))))
+         '((company-intero company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
 
 ;; structured-haskell-mode: paredit like features for haskell code
 ;; https://github.com/chrisdone/structured-haskell-mode

@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:15:52 csraghunandan>
+;; Time-stamp: <2018-06-27 19:02:06 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -54,7 +54,8 @@
 
     ;; company-backends setup
     (set (make-local-variable 'company-backends)
-         '((company-tide company-files company-yasnippet)))
+         '((company-tide company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev)))
 
     ;; configure javascript-tide checker to run after your default javascript checker
     (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)))

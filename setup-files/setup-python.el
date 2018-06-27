@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:22:21 csraghunandan>
+;; Time-stamp: <2018-06-27 18:58:31 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -35,7 +35,8 @@
 
   (defun my-python-mode-hook ()
     (set (make-local-variable 'company-backends)
-         '(company-lsp company-yasnippet company-files)))
+         '((company-lsp company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
   (add-hook 'python-mode-hook #'my-python-mode-hook)
 
   ;; from https://www.snip2code.com/Snippet/127022/Emacs-auto-remove-unused-import-statemen
