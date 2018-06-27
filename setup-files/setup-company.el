@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-27 13:06:02 csraghunandan>
+;; Time-stamp: <2018-06-27 14:26:10 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -67,5 +67,4 @@
 ;; `C-w' to jump to the source code of the completion candidate (does not work
 ;; with all major-modes)
 ;; `M-/' to execute `hippie-expand'
-;; Press `0-9' to select that company candidate
 ;; Press any non matching character to quit company
