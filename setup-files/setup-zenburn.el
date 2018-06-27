@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:24:03 csraghunandan>
+;; Time-stamp: <2018-06-27 11:45:32 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -45,7 +45,7 @@
         (set-face-attribute 'mode-line-inactive nil :underline  line)
         (set-face-attribute 'mode-line          nil :box        nil)
         (set-face-attribute 'mode-line-inactive nil :box        nil)
-        (set-face-attribute 'mode-line          nil :background "gray30")
+        (set-face-attribute 'mode-line          nil :background "gray30" :weight 'bold)
         (set-face-attribute 'mode-line-inactive nil :background zenburn-bg-1)
         (set-face-attribute 'mode-line          nil :foreground zenburn-green+4)
         (set-face-attribute 'mode-line-inactive nil :foreground "gray70")))
