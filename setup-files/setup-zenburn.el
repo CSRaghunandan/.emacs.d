@@ -1,7 +1,11 @@
-;; Time-stamp: <2018-06-27 11:45:32 csraghunandan>
+;; Time-stamp: <2018-06-27 19:25:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+
+;; there seems to be a small bug with some faces which are inside a `with-eval-after-load'
+;; whenever I create a new frame with `C-x 5 2', some of the faces revert back
+;; to their default values. As a workaround, create a new frame using `ec &' command
 
 ;; function to disable all enabled themes
 (defun gh/disable-all-themes ()
@@ -35,7 +39,6 @@
 ;; https://github.com/bbatsov/zenburn-emacs
 (use-package zenburn-theme
   :init
-
   (defun gh/zenburn-theme-hook()
     ;; Moody mode-line configuration
     (let ((line (face-attribute 'mode-line :underline)))
