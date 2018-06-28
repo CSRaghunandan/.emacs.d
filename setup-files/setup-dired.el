@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-06-28 13:23:50 csraghunandan>
+;; Time-stamp: <2018-06-28 17:18:25 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -85,6 +85,24 @@ It added extra strings at the front and back of the default dired buffer name."
                            :sort nil
                            :initial-input nil)))
         (dired dir))))
+
+  (eval-after-load "recentf"
+    '(progn
+       (defun recentf-track-opened-file ()
+         "Insert the name of the dired or file just opened or written into the recent list."
+         (let ((buff-name (or buffer-file-name (and (derived-mode-p 'dired-mode) default-directory))))
+           (and buff-name
+                (recentf-add-file buff-name)))
+         ;; Must return nil because it is run from `write-file-functions'.
+         nil)
+
+       (defun recentf-track-closed-file ()
+         "Update the recent list when a file or dired buffer is killed.
+  That is, remove a non kept file from the recent list."
+         (let ((buff-name (or buffer-file-name (and (derived-mode-p 'dired-mode) default-directory))))
+           (and buff-name
+                (recentf-remove-if-non-kept buff-name))))
+       (add-hook 'dired-after-readin-hook 'recentf-track-opened-file)))
 
   ;; use the same buffer for going up a directory in dired
   (defun rag/dired-up-dir()
