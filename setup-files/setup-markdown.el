@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-28 16:29:52 csraghunandan>
+;; Time-stamp: <2018-06-28 16:44:50 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -12,16 +12,17 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")
   :config
-  ;; markdown-toc: generate table of contents for markdown
-  ;; https://github.com/ardumont/markdown-toc
-  (use-package markdown-toc)
-
   (setq markdown-fontify-code-blocks-natively t)
   (setq markdown-list-indent-width 2)
 
   ;; Don't change font in code blocks
   (set-face-attribute 'markdown-code-face nil
                       :inherit nil))
+
+;; markdown-toc: generate table of contents for markdown
+;; https://github.com/ardumont/markdown-toc
+(use-package markdown-toc
+  :after markdown-mode)
 
 (provide 'setup-markdown)
 
