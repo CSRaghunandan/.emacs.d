@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:22:37 csraghunandan>
+;; Time-stamp: <2018-06-28 12:36:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -20,7 +20,9 @@
      "/tmp/" ;; ignore temporary files
      "NEWS" ;; don't include the NEWS file for recentf
      "bookmarks"  "bmk-bmenu" ;; ignore bookmarks file in .emacs.d
-     "loaddefs.el"))
+     "loaddefs.el"
+     "^/\\(?:ssh\\|su\\|sudo\\)?:" ;; ignore tramp/ssh files
+     ))
   (recentf-mode))
 
 (provide 'setup-recentf)
