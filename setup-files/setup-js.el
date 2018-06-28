@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-27 19:02:06 csraghunandan>
+;; Time-stamp: <2018-06-28 14:04:55 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -32,7 +32,7 @@
   (setq flycheck-javascript-eslint-executable "eslint_d")
 
   ;; Try to highlight most ECMA built-ins
-  (validate-setq js2-highlight-level 3)
+  (setq js2-highlight-level 3)
 
   ;; turn off all warnings in js2-mode
   (setq js2-mode-show-parse-errors t)
