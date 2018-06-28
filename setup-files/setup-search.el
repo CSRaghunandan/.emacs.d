@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:22:46 csraghunandan>
+;; Time-stamp: <2018-06-28 12:32:20 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -70,8 +70,6 @@ See the command `isearch-forward-symbol' for more information."
   :defer t
   :config
   (setq anzu-search-threshold 1000)
-  (setq anzu-replace-to-string-separator " => ")
-  (global-set-key [remap query-replace] 'anzu-query-replace)
   (global-anzu-mode +1))
 
 ;;; Query exchange
@@ -102,5 +100,11 @@ happens within a region if one is selected."
    '(replace-eval-replacement replace-quote
                               (if (match-string 1) string-2 string-1))
    t t delimited nil nil start end))
+
+;; A helpful query-replace for Emacs
+;; https://github.com/Wilfred/ez-query-replace.el
+(use-package ez-query-replace
+  :bind (([remap query-replace] . ez-query-replace)
+         ("C-c M-%" . ez-query-replace-repeat)))
 
 (provide 'setup-search)
