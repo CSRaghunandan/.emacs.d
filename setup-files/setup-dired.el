@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-06-26 13:42:37 csraghunandan>
+;; Time-stamp: <2018-06-28 12:05:28 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -10,7 +10,8 @@
               ("S" . ora-dired-get-size)
               ("E" . ora-ediff-files)
               ("^" . rag/dired-up-dir)
-              ("C-a" . dired-back-to-start-of-files))
+              ("C-a" . dired-back-to-start-of-files)
+              ("C-c r d" . bjm/ivy-dired-recent-dirs))
   :config
   (progn
     ;; follow symlinks in dired
@@ -66,6 +67,24 @@ It added extra strings at the front and back of the default dired buffer name."
       (if (string-match "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$" res)
           (message (match-string 1 res))
         (error "unexpected output %s" res))))
+
+  ;; open recent directory, requires ivy (part of swiper)
+  ;; borrows from http://stackoverflow.com/questions/23328037/in-emacs-how-to-maintain-a-list-of-recent-directories
+  (defun bjm/ivy-dired-recent-dirs ()
+    "Present a list of recently used directories and open the selected one in dired"
+    (interactive)
+    (let ((recent-dirs
+           (delete-dups
+            (mapcar (lambda (file)
+                      (if (file-directory-p file) file (file-name-directory file)))
+                    recentf-list))))
+
+      (let ((dir (ivy-read "Directory: "
+                           recent-dirs
+                           :re-builder #'ivy--regex
+                           :sort nil
+                           :initial-input nil)))
+        (dired dir))))
 
   ;; use the same buffer for going up a directory in dired
   (defun rag/dired-up-dir()
