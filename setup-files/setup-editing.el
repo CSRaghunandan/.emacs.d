@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:14:32 csraghunandan>
+;; Time-stamp: <2018-06-28 15:59:44 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -583,5 +583,13 @@ associated with the original non-sudo filename."
   (global-hungry-delete-mode)
   (add-to-list 'hungry-delete-except-modes 'wdired-mode)
   (add-to-list 'hungry-delete-except-modes 'ivy-occur-mode))
+
+;; poporg is a small Emacs Lisp project to help editing program strings and
+;; comments using Org mode (or any other major mode).  This can be useful as it
+;; is often more convenient to edit large pieces of text, like Emacs Lisp or
+;; Python docstrings, in an org-mode buffer instead of in a comment or a string.
+;; https://github.com/QBobWatson/poporg
+(use-package poporg
+  :bind (("C-c o p" . poporg-dwin)))
 
 (provide 'setup-editing)
