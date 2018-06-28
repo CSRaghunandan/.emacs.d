@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-28 12:36:02 csraghunandan>
+;; Time-stamp: <2018-06-28 17:19:06 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -7,8 +7,8 @@
 (use-package recentf :defer 1
   :ensure nil
   :config
-  (setq recentf-max-menu-items 150)
-  (setq recentf-max-saved-items 150)
+  (setq recentf-max-menu-items 300)
+  (setq recentf-max-saved-items 300)
   (setq recentf-exclude
    '("/elpa/" ;; ignore all files in elpa directory
      "recentf" ;; remove the recentf load file
