@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-28 15:59:44 csraghunandan>
+;; Time-stamp: <2018-06-28 16:00:34 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -590,6 +590,6 @@ associated with the original non-sudo filename."
 ;; Python docstrings, in an org-mode buffer instead of in a comment or a string.
 ;; https://github.com/QBobWatson/poporg
 (use-package poporg
-  :bind (("C-c o p" . poporg-dwin)))
+  :bind (("C-c o p" . poporg-dwim)))
 
 (provide 'setup-editing)
