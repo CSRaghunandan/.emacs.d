@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:16:37 csraghunandan>
+;; Time-stamp: <2018-06-28 13:20:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -6,7 +6,10 @@
 ;; lsp-mode:  Emacs client/library for the Language Server Protocol
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
-  :config (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
+  :config
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
+  (add-to-list 'lsp-project-blacklist "^/Users/csraghunandan/Library/Caches/Homebrew/emacs--git/$")
+  (add-to-list 'lsp-project-blacklist "^/Users/csraghunandan/\\.emacs\\.d/$"))
 
 ;; company-lsp: Company completion backend for lsp-mode.
 ;; https://github.com/tigersoldier/company-lsp/
