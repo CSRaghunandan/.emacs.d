@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:06:33 csraghunandan>
+;; Time-stamp: <2018-06-28 11:57:18 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -170,7 +170,7 @@ First      -> First (no change)."
 ;; C-x v ] -> diff-hl-next-hunk
 ;; C-x v = -> diff-hl-goto-hunk
 ;; C-x v n -> diff-hl-revert-hunk
-
+;;
 ;; magit
 ;; |---------+----------------------------------|
 ;; | Binding | Description                      |
@@ -182,13 +182,16 @@ First      -> First (no change)."
 ;; | M-p     | Jump to previous sibling section |
 ;; | M-n     | Jump to next sibling section     |
 ;; |---------+----------------------------------|
-
+;;
 ;; Tip: Adding prefix to above jump commands also expands those sections and
 ;; brings that section to the top of the buffer.
 ;;   So `C-u j s' is analogous to doing `j s C-l C-l 4`
-
+;;
 ;; magit-edit-line-commit' and
 ;; `magit-diff-edit-hunk-commit', which allow editing the commit that
 ;; added the line at point.
-
+;;
 ;; when in `magit-blame', press 'c' to cycle between styles
+;;
+;; in git-timemachine, press 't' to select the revision of the file based on
+;; commit message
