@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:11:24 csraghunandan>
+;; Time-stamp: <2018-06-28 16:11:45 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -414,5 +414,22 @@ narrowed."
         (t
          (narrow-to-defun))))
 (bind-key "C-x n n" #'endless/narrow-or-widen-dwim)
+
+;; Don't kill the important buffers
+(defconst mu-do-not-kill-buffer-names '("*scratch*" "*Messages*")
+  "Names of buffers that should not be killed.")
+
+;;;###autoload
+(defun mu-do-not-kill-important-buffers ()
+  "Inhibit killing of important buffers.
+Add this to `kill-buffer-query-functions'."
+  (if (not (member (buffer-name) mu-do-not-kill-buffer-names))
+      t
+    (message "Not allowed to kill %s, burying instead" (buffer-name))
+    (bury-buffer)
+    nil))
+
+;; Don't kill important buffers
+(add-hook 'kill-buffer-query-functions #'mu-do-not-kill-important-buffers)
 
 (provide 'setup-buffers)
