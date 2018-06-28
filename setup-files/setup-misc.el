@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:17:00 csraghunandan>
+;; Time-stamp: <2018-06-28 16:08:34 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -55,9 +55,9 @@ not prevent downloading the actual packages (obviously)."
 ;; for when you want to disable the mouse
 ;; https://github.com/purcell/disable-mouse/tree/master
 (use-package disable-mouse
-  :defer 1
   :hook ((prog-mode . disable-mouse-mode)
-         (magit-mode . disable-mouse-mode)))
+         (magit-mode . disable-mouse-mode)
+         (minibuffer-setup . disable-mouse-mode)))
 
 ;; prefer new files if one exists while loading
 (setq load-prefer-newer t)
