@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:16:49 csraghunandan>
+;; Time-stamp: <2018-06-28 12:45:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -18,7 +18,11 @@
 
   (setq markdown-fontify-code-blocks-natively t)
   (setq markdown-list-indent-width 2)
-  (setq-default markdown-hide-markup t))
+  (setq-default markdown-hide-markup t)
+
+  ;; Don't change font in code blocks
+  (set-face-attribute 'markdown-code-face nil
+                      :inherit nil))
 
 (provide 'setup-markdown)
 
