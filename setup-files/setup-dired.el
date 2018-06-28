@@ -1,17 +1,17 @@
 ;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-06-28 12:05:28 csraghunandan>
+;; Time-stamp: <2018-06-28 13:23:50 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
-  :bind (:map dired-mode-map
-              ("S" . ora-dired-get-size)
-              ("E" . ora-ediff-files)
-              ("^" . rag/dired-up-dir)
-              ("C-a" . dired-back-to-start-of-files)
-              ("C-c r d" . bjm/ivy-dired-recent-dirs))
+  :bind (("C-c r d" . bjm/ivy-dired-recent-dirs)
+         (:map dired-mode-map
+               ("S" . ora-dired-get-size)
+               ("E" . ora-ediff-files)
+               ("^" . rag/dired-up-dir)
+               ("C-a" . dired-back-to-start-of-files)))
   :config
   (progn
     ;; follow symlinks in dired
