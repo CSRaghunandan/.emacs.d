@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:17:41 csraghunandan>
+;; Time-stamp: <2018-06-28 12:26:55 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -112,6 +112,8 @@ files in Fundamental mode."
    ("C-c s m" . modi/projectile-switch-project-magit-status))
 
 
+  ;; Remove dead projects when Emacs is idle
+  (run-with-idle-timer 10 nil #'projectile-cleanup-known-projects)
 
   (defun modi/projectile-switch-project-magit-status ()
     "Switch to other project and open Magit status there."
