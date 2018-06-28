@@ -1,7 +1,10 @@
-;; Time-stamp: <2018-06-22 12:25:18 csraghunandan>
+;; Time-stamp: <2018-06-29 03:06:44 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+
+;; enable imenu support for `use-package'
+(setq use-package-enable-imenu-support t)
 
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; update packages archive
