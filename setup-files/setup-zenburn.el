@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-27 19:25:02 csraghunandan>
+;; Time-stamp: <2018-06-29 11:52:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -102,7 +102,7 @@
     (set-face-attribute 'font-lock-doc-face nil :foreground "gray70")
     (with-eval-after-load "golden-ratio-scroll-screen"
      (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
-                         :background nil :foreground nil))
+                         :background nil :foreground nil :weight 'normal))
     (with-eval-after-load "shm"
      (set-face-attribute 'shm-current-face nil :background "gray27"))
     (set-face-attribute 'hl-line nil :background "gray27")
