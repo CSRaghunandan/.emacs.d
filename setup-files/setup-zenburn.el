@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-29 11:52:59 csraghunandan>
+;; Time-stamp: <2018-07-01 00:00:10 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -100,11 +100,15 @@
     (set-face-attribute 'font-lock-comment-delimiter-face nil :foreground "gray55")
     (set-face-attribute 'font-lock-comment-face nil :foreground "gray55")
     (set-face-attribute 'font-lock-doc-face nil :foreground "gray70")
+
     (with-eval-after-load "golden-ratio-scroll-screen"
-     (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
-                         :background nil :foreground nil :weight 'normal))
+      (set-face-foreground 'golden-ratio-scroll-highlight-line-face nil)
+      (set-face-background 'golden-ratio-scroll-highlight-line-face nil)
+      (set-face-bold 'golden-ratio-scroll-highlight-line-face nil))
+
     (with-eval-after-load "shm"
-     (set-face-attribute 'shm-current-face nil :background "gray27"))
+      (set-face-background 'sh-current-face "gray27"))
+
     (set-face-attribute 'hl-line nil :background "gray27")
     (set-face-attribute 'fringe nil :background "gray27")
     (set-face-attribute 'vhl/default-face nil :background  "gray27")
@@ -124,11 +128,18 @@
 
     ;; org-mode face
     (with-eval-after-load "org"
-      (set-face-attribute 'org-checkbox nil :foreground "gray70" :background nil
-                         :weight 'bold :box nil)
-      (set-face-attribute 'org-date nil :underline nil)
+      ;; set the face for `org-checkbox'
+      (set-face-foreground 'org-checkbox "gray70")
+      (set-face-background 'org-checkbox nil)
+      (set-face-bold 'org-checkbox t)
+      (set-face-attribute 'org-checkbox nil :box nil)
+
+      ;; do not underline `org-date' face
+      (set-face-underline 'org-date nil)
+
       ;; this looks better in my opinion
-      (set-face-attribute 'org-ellipsis nil :underline nil :foreground "#E0CF9F")))
+      (set-face-underline 'org-ellipsis nil)
+      (set-face-foreground 'org-ellipsis "#E0CF9F")))
 
   (gh/add-theme-hook 'zenburn #'gh/zenburn-theme-hook)
 
