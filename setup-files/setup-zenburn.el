@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-01 00:00:10 csraghunandan>
+;; Time-stamp: <2018-07-01 16:09:14 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -102,9 +102,8 @@
     (set-face-attribute 'font-lock-doc-face nil :foreground "gray70")
 
     (with-eval-after-load "golden-ratio-scroll-screen"
-      (set-face-foreground 'golden-ratio-scroll-highlight-line-face nil)
-      (set-face-background 'golden-ratio-scroll-highlight-line-face nil)
-      (set-face-bold 'golden-ratio-scroll-highlight-line-face nil))
+      (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
+                          :background 'unspecified :foreground 'unspecified))
 
     (with-eval-after-load "shm"
       (set-face-background 'sh-current-face "gray27"))
@@ -129,17 +128,14 @@
     ;; org-mode face
     (with-eval-after-load "org"
       ;; set the face for `org-checkbox'
-      (set-face-foreground 'org-checkbox "gray70")
-      (set-face-background 'org-checkbox nil)
-      (set-face-bold 'org-checkbox t)
-      (set-face-attribute 'org-checkbox nil :box nil)
+      (set-face-attribute 'org-checkbox nil :foreground "gray70" :background 'unspecified
+                          :weight 'bold :box nil)
 
       ;; do not underline `org-date' face
       (set-face-underline 'org-date nil)
 
       ;; this looks better in my opinion
-      (set-face-underline 'org-ellipsis nil)
-      (set-face-foreground 'org-ellipsis "#E0CF9F")))
+      (set-face-attribute 'org-ellipsis nil :underline 'unspecified :foreground "#E0CF9F")))
 
   (gh/add-theme-hook 'zenburn #'gh/zenburn-theme-hook)
 
