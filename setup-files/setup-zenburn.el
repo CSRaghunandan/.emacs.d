@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-01 16:09:14 csraghunandan>
+;; Time-stamp: <2018-07-02 18:00:32 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -124,6 +124,9 @@
                         :foreground "HotPink1" :bold t :background "#383838")
     (set-face-attribute 'hydra-face-teal nil
                         :foreground "SkyBlue1" :bold t :background "#383838")
+
+    ;; disable boxes for `header-line' face
+    (set-face-attribute 'header-line nil :box nil)
 
     ;; org-mode face
     (with-eval-after-load "org"
