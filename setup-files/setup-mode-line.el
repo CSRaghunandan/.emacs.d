@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:17:04 csraghunandan>
+;; Time-stamp: <2018-07-04 13:50:21 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -24,7 +24,7 @@
                         (int-to-string num)))
                     " ")))
          str)))
-    face (:background "#81a2be" :foreground "#373b41"))
+    face (:background "gray22" :foreground 'zenburn-green-4))
   "Mode line format for Eyebrowse.")
 
 (put 'mu-eyebrowse-mode-line 'risky-local-variable t)
