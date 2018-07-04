@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-28 11:57:18 csraghunandan>
+;; Time-stamp: <2018-07-04 13:54:09 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -69,6 +69,20 @@
             (cdr (assoc (completing-read "Git project: " bufs-with-names)
                         bufs-with-names))))
       (switch-to-buffer chosen-buf))))
+
+;; Add more actions to magit file operations
+(use-package magit-files
+  :ensure magit
+  :config
+  ;; Add more operations to the file popup
+  (magit-define-popup-action 'magit-file-popup
+    ?R "Rename file" 'magit-file-rename)
+  (magit-define-popup-action 'magit-file-popup
+    ?K "Delete file" 'magit-file-delete)
+  (magit-define-popup-action 'magit-file-popup
+    ?U "Untrack file" 'magit-file-untrack)
+  (magit-define-popup-action 'magit-file-popup
+    ?C "Checkout file" 'magit-file-checkout))
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
