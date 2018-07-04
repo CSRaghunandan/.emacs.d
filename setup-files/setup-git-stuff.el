@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-04 13:54:09 csraghunandan>
+;; Time-stamp: <2018-07-04 13:58:20 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -176,6 +176,12 @@ First      -> First (no change)."
   ;; Free C-f and use a more suitable key binding
   (unbind-key "C-f" magit-gitflow-mode-map)
   (bind-key "C-c v f" #'magit-gitflow-popup magit-gitflow-mode-map))
+
+;; rigid-tabs.el: Rigidify and adjust the visual alignment of TABs
+;; https://gitlab.com/wavexx/rigid-tabs.el
+(use-package rigid-tabs
+  :hook ((diff-mode-hook . rigid-tabs-diff-align)
+         (magit-refresh-buffer-hook . rigid-tabs-diff-align)))
 
 (provide 'setup-git-stuff)
 
