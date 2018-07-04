@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-28 13:44:20 csraghunandan>
+;; Time-stamp: <2018-07-04 13:55:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -178,10 +178,5 @@ Font Size:     _C--_/_-_ Decrease     _C-=_/_=_ Increase     _C-0_/_0_ Reset    
 ;; https://github.com/Fuco1/fontify-face/tree/master
 (use-package fontify-face
   :defer t)
-
-;; Emacs mode for wrapping visual-line-mode buffers at fill-column.
-;; https://github.com/joostkremers/visual-fill-column/
-(use-package visual-fill-column
-  :config (advice-add 'visual-line-mode :after #'visual-fill-column-mode))
 
 (provide 'setup-visual)
