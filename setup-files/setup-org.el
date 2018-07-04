@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:17:21 csraghunandan>
+;; Time-stamp: <2018-07-04 16:15:24 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -418,6 +418,49 @@ point."
                (filename (buffer-file-name))
                (rfloc (list nil filename nil pos)))
           (org-refile nil nil rfloc))))))
+
+  (defun has-space-at-boundary-p (string)
+    "Check whether STRING has any whitespace on the boundary.
+Return 'left, 'right, 'both or nil."
+    (let ((result nil))
+      (when (string-match-p "^[[:space:]]+" string)
+        (setq result 'left))
+      (when (string-match-p "[[:space:]]+$" string)
+        (if (eq result 'left)
+	        (setq result 'both)
+	      (setq result 'right)))
+      result))
+
+  (defun is-there-space-around-point-p ()
+    "Check whether there is whitespace around point.
+Return 'left, 'right, 'both or nil."
+    (let ((result nil))
+      (when (< (save-excursion
+                 (skip-chars-backward "[:space:]"))
+               0)
+        (setq result 'left))
+      (when (> (save-excursion
+                 (skip-chars-forward "[:space:]"))
+               0)
+        (if (eq result 'left)
+	        (setq result 'both)
+	      (setq result 'right)))
+      result))
+
+  (defun set-point-before-yanking (string)
+    "Put point in the appropriate place before yanking STRING."
+    (let ((space-in-yanked-string (has-space-at-boundary-p string))
+	      (space-at-point (is-there-space-around-point-p)))
+      (cond ((and (eq space-in-yanked-string 'left)
+		          (eq space-at-point 'left))
+	         (skip-chars-backward "[:space:]"))
+	        ((and (eq space-in-yanked-string 'right)
+		          (eq space-at-point 'right))
+	         (skip-chars-forward "[:space:]")))))
+
+  (add-hook 'text-mode-hook
+	        (lambda ()
+              (advice-add 'insert-for-yank :before #'set-point-before-yanking)))
 
   (defun bjm/org-agenda-item-to-top ()
     "Move the current agenda item to the top of the subtree in its file"
