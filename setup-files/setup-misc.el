@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-28 16:08:34 csraghunandan>
+;; Time-stamp: <2018-07-05 12:21:42 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -42,7 +42,7 @@ not prevent downloading the actual packages (obviously)."
 ;; garbage collect when focus out
 (add-hook 'focus-out-hook 'garbage-collect)
 ;; make links clickable
-(add-hook 'prog-mode-hook 'goto-address-mode)
+(add-hook 'prog-mode-hook 'goto-address-prog-mode)
 
 (defun conditional-disable-modes ()
   ;; disable heavy minor modes if file is large (above 2MB)
