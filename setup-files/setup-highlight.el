@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-22 12:15:31 csraghunandan>
+;; Time-stamp: <2018-07-05 12:24:52 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -29,8 +29,9 @@
 ;; https://github.com/Malabarba/beacon
 (use-package beacon
   :config
+  (setq beacon-size 15)
   (beacon-mode)
-  (setq beacon-size 25)
+
   ;; don't blink in shell-mode
   (add-to-list 'beacon-dont-blink-major-modes #'comint-mode)
   (add-to-list 'beacon-dont-blink-major-modes #'term-mode))
