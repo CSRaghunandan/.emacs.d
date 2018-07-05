@@ -54,4 +54,10 @@
 (use-package powershell
   :defer t)
 
+;; Better .csv files editing
+;; https://elpa.gnu.org/packages/csv-mode.html
+(use-package csv-mode
+  :mode "\\.[Cc][Ss][Vv]\\'"
+  :config (validate-setq csv-separators '("," ";" "|" " ")))
+
 (provide 'setup-config-files)
