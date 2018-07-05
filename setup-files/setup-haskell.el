@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-06-27 19:01:50 csraghunandan>
+;; Time-stamp: <2018-07-05 16:37:22 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -58,7 +58,17 @@
   :hook (haskell-mode . hindent-mode)
   :config
   ;; reformat the buffer using hindent on save
-  (setq hindent-reformat-buffer-on-save t))
+  (setq hindent-reformat-buffer-on-save t)
+
+  ;; Suppress errors when hindent--before-save fails
+  (with-eval-after-load 'hindent
+    (when (require 'nadvice)
+      (defun mu-hindent--before-save-wrapper (oldfun &rest args)
+        (with-demoted-errors "Error invoking hindent: %s"
+          (let ((debug-on-error nil))
+            (apply oldfun args))))
+      (advice-add
+       'hindent--before-save :around 'mu-hindent--before-save-wrapper))))
 
 (provide 'setup-haskell)
 
