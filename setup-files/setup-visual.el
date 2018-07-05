@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-04 13:55:26 csraghunandan>
+;; Time-stamp: <2018-07-05 16:52:18 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -172,7 +172,7 @@ Font Size:     _C--_/_-_ Decrease     _C-=_/_=_ Increase     _C-0_/_0_ Reset    
 (use-package dimmer
   :hook ((after-init . dimmer-mode))
   :config
-  (setq-default dimmer-fraction 0.1))
+  (setq-default dimmer-fraction 0.15))
 
 ;; fontify-face: Fontify symbols representing faces with that face.
 ;; https://github.com/Fuco1/fontify-face/tree/master
