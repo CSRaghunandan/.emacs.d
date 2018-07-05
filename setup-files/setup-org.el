@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-04 16:15:24 csraghunandan>
+;; Time-stamp: <2018-07-05 12:11:38 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -458,9 +458,15 @@ Return 'left, 'right, 'both or nil."
 		          (eq space-at-point 'right))
 	         (skip-chars-forward "[:space:]")))))
 
-  (add-hook 'text-mode-hook
-	        (lambda ()
-              (advice-add 'insert-for-yank :before #'set-point-before-yanking)))
+  (defun set-point-before-yanking-if-in-text-mode (string)
+    "Invoke `set-point-before-yanking' in text modes."
+    (when (derived-mode-p 'text-mode)
+      (set-point-before-yanking string)))
+
+  (advice-add
+   'insert-for-yank
+   :before
+   #'set-point-before-yanking-if-in-text-mode)
 
   (defun bjm/org-agenda-item-to-top ()
     "Move the current agenda item to the top of the subtree in its file"
