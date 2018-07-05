@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-02 18:00:32 csraghunandan>
+;; Time-stamp: <2018-07-05 13:51:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -106,7 +106,7 @@
                           :background 'unspecified :foreground 'unspecified))
 
     (with-eval-after-load "shm"
-      (set-face-background 'sh-current-face "gray27"))
+      (set-face-background 'shm-current-face "gray27"))
 
     (set-face-attribute 'hl-line nil :background "gray27")
     (set-face-attribute 'fringe nil :background "gray27")
