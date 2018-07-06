@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-06 11:51:59 csraghunandan>
+;; Time-stamp: <2018-07-06 13:56:38 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -77,7 +77,7 @@
     (set-face-attribute 'ivy-minibuffer-match-face-2 nil
                         :background "DarkSeaGreen4" :underline nil)
     (set-face-attribute 'ivy-current-match nil
-                        :foreground "#F0DFAF" :underline nil :weight 'bold)
+                        :foreground "#FFECBA" :underline nil :weight 'bold)
 
     ;; magit faces
     (set-face-attribute 'magit-popup-disabled-argument nil :foreground "gray55")
