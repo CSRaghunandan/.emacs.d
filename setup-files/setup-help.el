@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-06 11:51:59 csraghunandan>
+;; Time-stamp: <2018-07-06 15:39:14 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -7,11 +7,7 @@
 ;; https://github.com/Wilfred/helpful
 (use-package helpful
   :bind*
-  (([remap describe-variable] . helpful-variable)
-   ([remap describe-function] . helpful-function)
-   ("C-? k" . helpful-key)
-   ("C-? f" . helpful-callable)
-   ("C-? C" . helpful-command)
+  (("C-? k" . helpful-key)
    ("C-c C-." . helpful-at-point)))
 
 ;; more info in apropos

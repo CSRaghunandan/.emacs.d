@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-07-06 11:51:56 csraghunandan>
+;; Time-stamp: <2018-07-06 15:38:42 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -66,6 +66,10 @@
          "\\(?:\\`[#.]\\)"
          ;; File names ending with # or ~
          "\\|\\(?:\\`.+?[#~]\\'\\)"))
+
+  (setq counsel-mode-override-describe-bindings t
+        counsel-describe-function-function 'helpful-function
+        counsel-describe-variable-function 'helpful-variable)
 
   (bind-keys
    ([remap describe-bindings] . counsel-descbinds)
