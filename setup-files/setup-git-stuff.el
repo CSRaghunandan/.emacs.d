@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-04 13:58:20 csraghunandan>
+;; Time-stamp: <2018-07-06 11:25:31 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -83,6 +83,11 @@
     ?U "Untrack file" 'magit-file-untrack)
   (magit-define-popup-action 'magit-file-popup
     ?C "Checkout file" 'magit-file-checkout))
+
+;; Emacs bindings for libgit2
+;; https://github.com/magit/libegit2
+(use-package libgit
+  :after magit)
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
