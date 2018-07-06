@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-06-24 10:24:14 csraghunandan>
+;; Time-stamp: <2018-07-06 11:51:56 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
 
 ;; avy: package for jumping to visible text using character based decision tree
 ;; https://github.com/abo-abo/avy

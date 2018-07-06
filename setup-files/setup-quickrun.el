@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-06-22 12:22:25 csraghunandan>
+;; Time-stamp: <2018-07-06 11:51:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
 
 ;; quickrun - Execute editing buffer and show its output quickly.
 ;; https://github.com/syohex/emacs-quickrun

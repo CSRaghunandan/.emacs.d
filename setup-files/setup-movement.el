@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-06-22 12:17:08 csraghunandan>
+;; Time-stamp: <2018-07-06 11:51:57 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
 
 ;; All the configuration related to movement in emacs
 

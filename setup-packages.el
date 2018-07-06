@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-06-29 03:06:44 csraghunandan>
+;; Time-stamp: <2018-07-06 11:51:56 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
 
 ;; enable imenu support for `use-package'
 (setq use-package-enable-imenu-support t)

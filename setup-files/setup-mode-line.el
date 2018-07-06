@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-07-04 13:50:21 csraghunandan>
+;; Time-stamp: <2018-07-06 11:51:58 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
 
 ;; flash the modeline instead of ringing the bell
 ;; https://github.com/purcell/mode-line-bell

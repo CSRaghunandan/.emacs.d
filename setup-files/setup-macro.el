@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-06-22 12:16:41 csraghunandan>
+;; Time-stamp: <2018-07-06 11:51:58 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
 
 ;; hydra for macros in emacs
 (defhydra hydra-macro (:hint nil :color pink :pre

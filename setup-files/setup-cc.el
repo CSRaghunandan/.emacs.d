@@ -1,7 +1,7 @@
 ;; Timestamp: <2017-07-22 13:53:13>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
 
 ;; all the configuration for C/C++ projects
 

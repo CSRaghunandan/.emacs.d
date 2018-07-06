@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-07-05 13:51:15 csraghunandan>
+;; Time-stamp: <2018-07-06 11:51:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
 
 ;; there seems to be a small bug with some faces which are inside a `with-eval-after-load'
 ;; whenever I create a new frame with `C-x 5 2', some of the faces revert back

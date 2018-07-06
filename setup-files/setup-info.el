@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-06-22 12:15:42 csraghunandan>
+;; Time-stamp: <2018-07-06 11:51:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
 
 ;; info-colors: Extra colors for Emacs info-mode
 ;; https://github.com/ubolonton/info-colors/tree/a8ebb7b8efa314c08ea8110d8b1876afb562bb45
