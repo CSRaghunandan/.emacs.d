@@ -1,11 +1,7 @@
-;; Time-stamp: <2018-07-06 13:56:38 csraghunandan>
+;; Time-stamp: <2018-07-06 13:57:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
-
-;; there seems to be a small bug with some faces which are inside a `with-eval-after-load'
-;; whenever I create a new frame with `C-x 5 2', some of the faces revert back
-;; to their default values. As a workaround, create a new frame using `ec &' command
 
 ;; function to disable all enabled themes
 (defun gh/disable-all-themes ()
