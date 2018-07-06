@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-07-06 15:45:26 csraghunandan>
+;; Time-stamp: <2018-07-06 15:50:37 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -27,7 +27,9 @@
       ;; if rg is installed, use rg for `counsel-grep-or-swiper' and `counsel-rg'
       (setq counsel-grep-base-command "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
             ;; add `--follow' option to allow search through symbolic links
-            counsel-rg-base-command "rg --line-number --color never -i --follow --mmap --no-heading %s")
+            counsel-rg-base-command "rg --line-number --color never -i --follow --mmap --no-heading %s"
+            ;; Use ripgrep for counsel-git
+            counsel-git-cmd "rg --files")
     ;; ignore case sensitivity for counsel grep
     (setq counsel-grep-base-command "grep -nEi \"%s\" %s"))
 
@@ -75,14 +77,13 @@
         counsel-grep-post-action-hook '(recenter))
 
   (bind-keys
-   ([remap describe-bindings] . counsel-descbinds)
-   ([remap finder-by-keyword] . counsel-package) ;C-h p
-   ([remap bookmark-jump] . counsel-bookmark) ;Jump to book or set it if it doesn't exist, C-x r b
-   ([remap bookmark-set] . counsel-bookmark)  ;C-x r m
+   ([remap describe-bindings] . counsel-descbinds) ; C-? b
+   ([remap finder-by-keyword] . counsel-package) ; C-? p
+   ([remap bookmark-jump] . counsel-bookmark) ; Jump to book or set it if it doesn't exist, C-x r b
+   ([remap bookmark-set] . counsel-bookmark)
    ([remap find-file] . counsel-find-file)
    ("C-c d s" . describe-symbol)
    ("C-c d f" . counsel-faces)
-   ("C-c d d" . counsel-descbinds)
    ("C-c r g" . counsel-rg)))
 
 ;; Add more ivy features for projectile related commands
