@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-05 12:24:52 csraghunandan>
+;; Time-stamp: <2018-07-06 11:41:27 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghuandan rnraghunandan@gmail.com
@@ -33,8 +33,9 @@
   (beacon-mode)
 
   ;; don't blink in shell-mode
-  (add-to-list 'beacon-dont-blink-major-modes #'comint-mode)
-  (add-to-list 'beacon-dont-blink-major-modes #'term-mode))
+  (add-to-list 'beacon-dont-blink-major-modes #'comint-mode t)
+  (add-to-list 'beacon-dont-blink-major-modes #'term-mode t)
+  (add-to-list 'beacon-dont-blink-major-modes #'sql-interactive-mode t))
 
 ;; highlight-numbers: fontify numbers
 ;; https://github.com/Fanael/highlight-numbers
