@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-06 11:51:57 csraghunandan>
+;; Time-stamp: <2018-07-06 13:49:18 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -92,7 +92,9 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
 ;; A simple-minded way of managing window configs in emacs
 ;; https://github.com/wasamasa/eyebrowse
 (use-package eyebrowse
-  :config (eyebrowse-mode t))
+  :config
+  (eyebrowse-mode t)
+  (setq eyebrowse-mode-line-style nil))
 
 (setq recenter-positions '(0.50 0.07 0.93)) ;default: '(middle top bottom)
 ;; First C-l  -> 0.50: Put point vertically at the middle of the window
