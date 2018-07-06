@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-06 13:57:15 csraghunandan>
+;; Time-stamp: <2018-07-06 16:14:31 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -82,6 +82,8 @@
     (set-face-attribute 'magit-diff-file-heading-highlight nil :background "gray27")
     (set-face-attribute 'magit-diff-hunk-heading-highlight nil :background "gray27")
     (set-face-attribute 'magit-diff-context-highlight nil :background "gray27")
+    (set-face-attribute 'magit-branch-current nil :box 'unspecified :weight 'bold)
+    (set-face-attribute 'magit-branch-remote-head nil :box 'unspecified)
 
     ;; make function face brighter so it's easily distnguishable
     (set-face-attribute 'font-lock-function-name-face nil :foreground "CadetBlue1")
