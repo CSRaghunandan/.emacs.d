@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-07-06 11:51:58 csraghunandan>
+;; Time-stamp: <2018-07-07 18:07:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; amx: An alternative M-x interface for Emacs.
 ;; https://github.com/DarwinAwardWinner/amx

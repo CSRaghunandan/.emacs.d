@@ -1,7 +1,7 @@
-;; Timestamp: <2017-06-16 15:51:40>
+;; Time-stamp: <2018-07-07 18:11:33 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; yaml-mode: major-mode for editing yaml files
 ;; https://github.com/yoshiki/yaml-mode

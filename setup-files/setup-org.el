@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-07-06 11:51:56 csraghunandan>
+;; Time-stamp: <2018-07-07 18:07:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'
 ;; http://orgmode.org/

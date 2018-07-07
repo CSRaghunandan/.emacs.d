@@ -1,7 +1,7 @@
-;; Timestamp: <2016-11-29 13:19:18>
+;; Time-stamp: <2018-07-07 18:11:16 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; which-key : show popup of keybindings starting with a prefix
 ;; https://github.com/justbur/emacs-which-key

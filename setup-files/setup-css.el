@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-07-07 17:48:57 csraghunandan>
+;; Time-stamp: <2018-07-07 18:07:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; css-mode config
 (use-package css-mode

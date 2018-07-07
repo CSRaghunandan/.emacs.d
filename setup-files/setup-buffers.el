@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-07-07 17:52:58 csraghunandan>
+;; Time-stamp: <2018-07-07 18:07:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; configuration for buffers
 

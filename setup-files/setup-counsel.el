@@ -1,8 +1,8 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-07-06 15:50:37 csraghunandan>
+;; Time-stamp: <2018-07-07 18:07:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; counsel: ivy backends for a lot more commands
 ;; https://github.com/abo-abo/swiper

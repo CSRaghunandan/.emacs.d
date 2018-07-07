@@ -1,7 +1,7 @@
-;; Time-stamp: <2018-07-07 17:47:38 csraghunandan>
+;; Time-stamp: <2018-07-07 18:07:27 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; ibuffer: for easy management of buffers
 (use-package ibuffer

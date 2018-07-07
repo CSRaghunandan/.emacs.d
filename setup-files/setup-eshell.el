@@ -1,7 +1,7 @@
-;; TIme-stamp: <2017-01-05 15:49:39>
+;; Time-stamp: <2018-07-07 18:12:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
-;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; ehsell config
 (use-package eshell
