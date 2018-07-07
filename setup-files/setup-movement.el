@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-06 13:49:18 csraghunandan>
+;; Time-stamp: <2018-07-07 17:49:05 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -20,11 +20,9 @@ Try the repeated popping up to 10 times."
 
 ;; Horizontally scroll only the current line
 ;; https://www.reddit.com/r/emacs/comments/6au45k/is_it_possible_to_truncate_long_lines_the_same/
-(>=e "26.0"
-    (setq auto-hscroll-mode 'current-line))
+(setq auto-hscroll-mode 'current-line)
 
-(>=e "25.0"
-    (setq fast-but-imprecise-scrolling t))
+(setq fast-but-imprecise-scrolling t)
 
 ;; mwim: move to the beginning or end of line smartly
 ;; https://github.com/alezost/mwim.el

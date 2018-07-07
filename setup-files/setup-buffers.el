@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-06 11:51:59 csraghunandan>
+;; Time-stamp: <2018-07-07 17:52:58 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -132,24 +132,7 @@ Emacs session."
           (find-file file)))
     (error "No recently-killed files to reopen")))
 
-;;; Kill/Bury Buffer
-
-;; http://git.savannah.gnu.org/cgit/emacs.git/commit/?id=2e4f4c9d48c563ff8bec102b66da0225587786c6
-(>=e "26.0"
-    nil  ;The `kill-current-buffer' command will be defined in core in emacs 26+
-  (defun kill-current-buffer ()
-    "Kill the current buffer.
-When called in the minibuffer, get out of the minibuffer
-using `abort-recursive-edit'.
-This is like `kill-this-buffer', but it doesn't have to be invoked
-via the menu bar, and pays no attention to the menu-bar's frame."
-    (interactive)
-    (let ((frame (selected-frame)))
-      (if (and (frame-live-p frame)
-             (not (window-minibuffer-p (frame-selected-window frame))))
-          (kill-buffer (current-buffer))
-        (abort-recursive-edit)))))
-
+;; Kill/Bury Buffer
 (defun modi/kill-buffer-dwim (kill-next-error-buffer)
   "Kill the current buffer.
 When called in the minibuffer, get out of the minibuffer
@@ -160,10 +143,8 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
   (if kill-next-error-buffer
       (kill-buffer (next-error-find-buffer :avoid-current))
     (kill-current-buffer)))
-(>=e "26.0"
-    (bind-key "C-x k" 'modi/kill-buffer-dwim))
-(>=e "26.0"
-    (bind-chord "XX" #'modi/kill-buffer-dwim))
+(bind-key "C-x k" 'modi/kill-buffer-dwim)
+(bind-chord "XX" #'modi/kill-buffer-dwim)
 
 ;;; Toggle between buffers
 ;; http://www.emacswiki.org/emacs/SwitchingBuffers

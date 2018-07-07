@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-06 11:51:59 csraghunandan>
+;; Time-stamp: <2018-07-07 17:47:38 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -59,9 +59,7 @@
   ;; hide filter groups which are empty
   (setq ibuffer-show-empty-filter-groups nil)
 
-  (>=e "26"
-      (bind-key "C-x C-b" #'ibuffer-jump)
-    (bind-key* "C-x C-b" #'ibuffer))
+  (bind-key "C-x C-b" #'ibuffer-jump)
 
   (defhydra hydra-ibuffer-main (:color pink :hint nil)
     "

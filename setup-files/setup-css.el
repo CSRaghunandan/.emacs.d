@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-06 11:51:58 csraghunandan>
+;; Time-stamp: <2018-07-07 17:48:57 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan rnraghunandan@gmail.com
@@ -18,11 +18,8 @@
 
   (defun my-css-mode-hook ()
     (set (make-local-variable 'company-backends)
-         (>=e "26.0"
-             '((company-capf company-files :with company-yasnippet)
-               (company-dabbrev-code company-dabbrev))
-           '((company-css company-files :with company-yasnippet)
-             (company-dabbrev-code company-dabbrev)))))
+         '((company-capf company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
 
   (add-hook 'css-mode-hook 'prettier-js-mode))
 
