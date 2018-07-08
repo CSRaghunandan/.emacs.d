@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-07-07 18:07:13 csraghunandan>
+;; Time-stamp: <2018-07-08 22:30:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -73,8 +73,7 @@
         counsel-describe-function-function 'helpful-function
         counsel-describe-variable-function 'helpful-variable)
 
-  (setq counsel-yank-pop-preselect-last t
-        counsel-grep-post-action-hook '(recenter))
+  (setq counsel-grep-post-action-hook '(recenter))
 
   (bind-keys
    ([remap describe-bindings] . counsel-descbinds) ; C-? b
