@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-11 17:32:47 csraghunandan>
+;; Time-stamp: <2018-07-11 17:35:04 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -499,9 +499,11 @@ Return 'left, 'right, 'both or nil."
      "/CANCELLED" 'file))
 
   ;; Re-align tags when window shape changes
-  (after-load 'org-agenda
+  (with-eval-after-load 'org-agenda
               (add-hook 'org-agenda-mode-hook
-                        (lambda () (add-hook 'window-configuration-change-hook 'org-agenda-align-tags nil t))))
+                        (lambda ()
+                          (add-hook 'window-configuration-change-hook
+                                    'org-agenda-align-tags nil t))))
 
   (defun rag/copy-id-to-clipboard()
     "Copy the ID property value to killring,
