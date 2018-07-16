@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:27 csraghunandan>
+;; Time-stamp: <2018-07-16 14:52:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,6 +8,7 @@
 (use-package selected
   :bind (:map selected-keymap
               ("w" . sp-kill-region)
+              ("W" . kill-region)
               ("~" . hydra-change-case/body)
               ("c" . copy-region-as-kill)
               ("d" . duplicate-current-line-or-region)
