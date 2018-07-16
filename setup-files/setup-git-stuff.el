@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:14 csraghunandan>
+;; Time-stamp: <2018-07-16 10:43:58 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -206,6 +206,7 @@ First      -> First (no change)."
 ;; | j p     | Jump to Unpushed section         |
 ;; | M-p     | Jump to previous sibling section |
 ;; | M-n     | Jump to next sibling section     |
+;; | !!      | run a raw git command            |
 ;; |---------+----------------------------------|
 ;;
 ;; Tip: Adding prefix to above jump commands also expands those sections and
