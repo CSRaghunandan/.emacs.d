@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-17 16:17:56 csraghunandan>
+;; Time-stamp: <2018-07-17 16:38:07 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -95,17 +95,6 @@
 ;; to add sphinx-docs to a function, press `C-c M-d' on a function definition
 (use-package sphinx-doc
   :hook ((python-mode . sphinx-doc-mode)))
-
-;; virtualenv tool for emacs
-;; https://github.com/porterjamesj/virtualenvwrapper.el
-(use-package virtualenvwrapper
-  :ensure-system-package
-  ((virtualenv . "sudo pip install virtualenv"))
-  :config
-  ;; initialize venv for interactive shells
-  (venv-initialize-interactive-shells)
-  ;; Automatically activating a virtualenv when using projectile
-  (setq projectile-switch-project-action 'venv-projectile-auto-workon))
 
 (provide 'setup-python)
 
