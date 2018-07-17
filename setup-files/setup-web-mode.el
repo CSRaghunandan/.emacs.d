@@ -1,11 +1,13 @@
-;; Time-stamp: <2018-07-07 18:07:27 csraghunandan>
+;; Time-stamp: <2018-07-17 16:01:09 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
-;; company-web: to get completion for HTML stuff
-;; https://github.com/osv/company-web
-(use-package company-web)
+;; HTML support for lsp-mode using vscode-html-languageserver-bin
+;; https://github.com/emacs-lsp/lsp-html
+(use-package lsp-html
+  :ensure-system-package
+  (html-languageserver . "sudo npm i -g vscode-html-languageserver-bin"))
 
 ;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -58,18 +60,32 @@
     ;; enable typescript-tslint checker
     (flycheck-add-mode 'typescript-tslint 'web-mode))
 
+  (defun my-web-mode-hook ()
+    "company hook for `web-mode' for non-html buffers."
+    (set (make-local-variable 'company-backends)
+         '((company-capf company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
+
+  (defun my-lsp-html-mode-hook ()
+    " company hook for `web-mode' for html buffers."
+    (set (make-local-variable 'company-backends)
+         '((company-lsp company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
+
+  (defun lsp-html-setup ()
+    "Function to setup `lsp-html'"
+    (lsp-html-enable)
+    (lsp-ui-mode)
+    (flycheck-mode)
+    (my-lsp-html-mode-hook)
+    (setq-local lsp-highlight-symbol-at-point nil))
+
   (add-hook 'web-mode-hook
             (lambda ()
-              (when (string-equal "tsx" (file-name-extension buffer-file-name))
-                (my-tide-setup-hook))))
-
-  (defun my-web-mode-hook ()
-    "Hook for `web-mode'."
-    (set (make-local-variable 'company-backends)
-         '((company-capf company-web-html company-files :with company-yasnippet)
-           (company-dabbrev-code company-dabbrev))))
-  (unless (string-equal "tsx" (file-name-extension buffer-file-name))
-    (add-hook 'web-mode-hook 'my-web-mode-hook))
+              (pcase (file-name-extension buffer-file-name)
+                ("tsx" (my-tide-setup-hook))
+                ("html" (lsp-html-setup))
+                (_ (my-web-mode-hook)))))
 
   ;; colorize colors in buffers
   (setq web-mode-enable-css-colorization t))
