@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-17 16:10:02 csraghunandan>
+;; Time-stamp: <2018-07-17 18:12:53 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,7 +7,7 @@
 ;; https://github.com/emacs-lsp/lsp-html
 (use-package lsp-html
   :ensure-system-package
-  (html-languageserver . "sudo npm i -g vscode-html-languageserver-bin"))
+  (html-languageserver . "npm i -g vscode-html-languageserver-bin"))
 
 ;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode

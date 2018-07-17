@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-17 16:01:01 csraghunandan>
+;; Time-stamp: <2018-07-17 18:13:05 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -37,7 +37,7 @@
 ;; https://github.com/emacs-lsp/lsp-css
 (use-package lsp-css
   :ensure-system-package
-  (css-languageserver . "sudo npm i -g vscode-html-languageserver-bin"))
+  (css-languageserver . "npm i -g vscode-html-languageserver-bin"))
 
 (use-package less-css-mode              ; Mode for Less CSS files
   :ensure nil
