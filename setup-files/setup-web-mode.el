@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-17 16:01:09 csraghunandan>
+;; Time-stamp: <2018-07-17 16:10:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -76,7 +76,6 @@
     "Function to setup `lsp-html'"
     (lsp-html-enable)
     (lsp-ui-mode)
-    (flycheck-mode)
     (my-lsp-html-mode-hook)
     (setq-local lsp-highlight-symbol-at-point nil))
 
