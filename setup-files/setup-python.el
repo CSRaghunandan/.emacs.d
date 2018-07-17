@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-17 16:51:33 csraghunandan>
+;; Time-stamp: <2018-07-17 17:37:36 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -46,8 +46,7 @@
                 (add-hook 'before-save-hook
                           (lambda ()
                             (time-stamp)
-                            ;; (lsp-format-buffer)
-                            (lsp-restart-workspace)) nil t)))))
+                            (lsp-format-buffer)) nil t)))))
 
 ;; pytest: for testing python code
 ;; https://github.com/ionrock/pytest-el
