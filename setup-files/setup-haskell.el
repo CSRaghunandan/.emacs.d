@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:25 csraghunandan>
+;; Time-stamp: <2018-07-20 14:56:09 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,7 +11,8 @@
                      (intero-mode)
                      (my-haskell-mode-hook)
                      (company-mode)
-                     (setq haskell-indentation-mode nil))))
+                     (setq haskell-indentation-mode nil)
+                     (haskell-collapse-mode))))
   :config
   (defun my-haskell-mode-hook ()
     "Hook for `haskell-mode'."
