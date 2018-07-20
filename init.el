@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:12 csraghunandan>
+;; Time-stamp: <2018-07-20 18:00:34 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -29,6 +29,12 @@
 (setq custom-file (concat user-emacs-directory "my-elisp-code/custom-settings.el"))
 (load custom-file :noerror :nomessage) ; load custom-file silently
 (load (locate-user-emacs-file "general.el") nil :nomessage)
+
+;; run package-initialize if running emacs version < 27
+(>=e "27.0"
+    nil
+  (package-initialize))
+
 
 
 ;; load all use-package related configuration
