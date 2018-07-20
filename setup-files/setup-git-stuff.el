@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-16 10:43:58 csraghunandan>
+;; Time-stamp: <2018-07-20 15:32:53 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -88,6 +88,15 @@
 ;; https://github.com/magit/libegit2
 (use-package libgit
   :after magit)
+
+;; magit-todos: Show source file TODOs in Magit status buffer
+;; https://github.com/alphapapa/magit-todos
+(use-package magit-todos
+  :after magit
+  :hook (magit-mode . magit-todos-mode)
+  :config
+  (setq magit-todos-group-by
+        '(magit-todos-item-first-path-component magit-todos-item-keyword magit-todos-item-filename)))
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
