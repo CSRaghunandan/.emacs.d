@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-11 17:35:04 csraghunandan>
+;; Time-stamp: <2018-07-20 14:59:52 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -94,6 +94,9 @@
      (js . t)
      (python . t)
      (rust . t)))
+
+  (add-to-list
+   'org-src-lang-modes '("plantuml" . plantuml))
 
 ;;; Org Variables
   ;; hide emphasis markup characters
