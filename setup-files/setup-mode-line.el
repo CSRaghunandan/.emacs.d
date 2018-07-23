@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:25 csraghunandan>
+;; Time-stamp: <2018-07-23 11:54:16 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,6 +9,7 @@
   :defer 1
   :config (mode-line-bell-mode))
 
+;; Custom Eyebrowse mode-line indicator
 (defvar mu-eyebrowse-mode-line
   '(:propertize
     (:eval
@@ -20,11 +21,10 @@
                     " "
                     (if (and tag (< 0 (length tag)))
                         tag
-                      (when num
-                        (int-to-string num)))
+                      (when num (int-to-string num)))
                     " ")))
          str)))
-    face (:background "gray22" :foreground "#BFEBBF"))
+    face (:inherit highlight :underline nil))
   "Mode line format for Eyebrowse.")
 
 (put 'mu-eyebrowse-mode-line 'risky-local-variable t)
