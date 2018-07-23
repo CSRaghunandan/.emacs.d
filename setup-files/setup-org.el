@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-20 14:59:52 csraghunandan>
+;; Time-stamp: <2018-07-23 23:32:37 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -48,9 +48,10 @@
                              ("~/org/someday.org" :level . 1)
                              ("~/org/tickler.org" :maxlevel . 2)))
 
-  (add-to-list
-   'ivy-completing-read-handlers-alist
-   '(org-capture-refile . completing-read-default))
+  (with-eval-after-load "ivy"
+    (add-to-list
+    'ivy-completing-read-handlers-alist
+    '(org-capture-refile . completing-read-default)))
 
   ;; override `avy-goto-char-timer' to C-' in org-mode-map
   (bind-key "C-'" 'avy-goto-char-timer org-mode-map)

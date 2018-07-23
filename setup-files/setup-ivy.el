@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:26 csraghunandan>
+;; Time-stamp: <2018-07-23 23:52:09 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,8 +13,9 @@
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
   :bind (("C-c u" . ivy-resume))
-  :init (ivy-mode 1)
+  :defer 0.5
   :config
+  (ivy-mode)
 
   (bind-chords
    :map ivy-minibuffer-map

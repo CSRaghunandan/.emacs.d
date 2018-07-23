@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-07-08 22:30:15 csraghunandan>
+;; Time-stamp: <2018-07-23 23:52:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,17 +11,15 @@
   :bind* (([remap execute-extended-command] . counsel-M-x))
   :chords (("JJ" . counsel-imenu)
            (";'" . counsel-M-x))
-  :init
+  :defer 0.5
+  :bind
+  (:map read-expression-map
+        ("C-r" . counsel-expression-history))
+  :config
+
   (counsel-mode)
-
-  (bind-keys
-   :map read-expression-map
-   ("C-r" . counsel-expression-history))
-
   (with-eval-after-load 'org-agenda
     (bind-key "C-c C-q" #'counsel-org-tag-agenda org-agenda-mode-map))
-
-  :config
 
   (if (executable-find "rg")
       ;; if rg is installed, use rg for `counsel-grep-or-swiper' and `counsel-rg'

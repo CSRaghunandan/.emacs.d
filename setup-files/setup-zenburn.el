@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:27 csraghunandan>
+;; Time-stamp: <2018-07-23 23:31:45 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -66,14 +66,15 @@
     (set-face-attribute 'default nil :foreground "#DCDCCC" :background "#383838")
 
     ;; ivy minibuffer configuration
-    (set-face-attribute 'ivy-minibuffer-match-face-4 nil
-                        :background "pink4" :underline nil)
-    (set-face-attribute 'ivy-minibuffer-match-face-3 nil
-                        :background "SteelBlue3" :underline nil)
-    (set-face-attribute 'ivy-minibuffer-match-face-2 nil
-                        :background "DarkSeaGreen4" :underline nil)
-    (set-face-attribute 'ivy-current-match nil
-                        :foreground "#FFECBA" :underline nil :weight 'bold)
+    (with-eval-after-load "ivy"
+      (set-face-attribute 'ivy-minibuffer-match-face-4 nil
+                          :background "pink4" :underline nil)
+      (set-face-attribute 'ivy-minibuffer-match-face-3 nil
+                          :background "SteelBlue3" :underline nil)
+      (set-face-attribute 'ivy-minibuffer-match-face-2 nil
+                          :background "DarkSeaGreen4" :underline nil)
+      (set-face-attribute 'ivy-current-match nil
+                          :foreground "#FFECBA" :underline nil :weight 'bold))
 
     ;; magit faces
     (set-face-attribute 'magit-popup-disabled-argument nil :foreground "gray55")
