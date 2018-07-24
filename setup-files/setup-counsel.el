@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-07-23 23:52:15 csraghunandan>
+;; Time-stamp: <2018-07-24 15:26:01 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,7 +8,6 @@
 ;; https://github.com/abo-abo/swiper
 (use-package counsel
   :after ivy
-  :bind* (([remap execute-extended-command] . counsel-M-x))
   :chords (("JJ" . counsel-imenu)
            (";'" . counsel-M-x))
   :defer 0.5
@@ -74,11 +73,8 @@
   (setq counsel-grep-post-action-hook '(recenter))
 
   (bind-keys
-   ([remap describe-bindings] . counsel-descbinds) ; C-? b
    ([remap finder-by-keyword] . counsel-package) ; C-? p
-   ([remap bookmark-jump] . counsel-bookmark) ; Jump to book or set it if it doesn't exist, C-x r b
    ([remap bookmark-set] . counsel-bookmark)
-   ([remap find-file] . counsel-find-file)
    ("C-c d s" . describe-symbol)
    ("C-c d f" . counsel-faces)
    ("C-c r g" . counsel-rg)))
@@ -101,7 +97,7 @@
 ;; `counsel-yank-pop' -> access the kill ring using ivy
 ;; `counsel-unicode-char' -> search through Unicode characters using ivy
 ;; `counsel-rg' -> search the all files in the current directory using `ripgrep'
-;; `counsel-descbinds' -> lists all the key bindings in the current buffer
+;; `counsel-descbinds' -> lists all the key bindings in the current buffer `C-? b'
 ;; `counsel-mark-ring' -> access the mark ring for the current buffer using ivy
 ;; `counsel-faces' -> lists all the face colours in emacs
 ;; `counsel-ibuffer' -> run swiper search on content
@@ -112,3 +108,4 @@
 ;; `counsel-org-agenda-headlines' -> search headings of all the files in org agenda list
 ;; `counsel-org-file' -> browse through all the attachments for a given org file
 ;; `counsel-yank-directory' -> yank the current directory in minibuffer with `C-M-y'
+;; `counsel-bookmark' -> Jump to book or set it if it doesn't exist, C-x r b
