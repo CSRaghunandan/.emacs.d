@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-20 15:32:53 csraghunandan>
+;; Time-stamp: <2018-07-24 14:08:44 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -230,3 +230,5 @@ First      -> First (no change)."
 ;;
 ;; in git-timemachine, press 't' to select the revision of the file based on
 ;; commit message
+;;
+;; `magit-log-trace-definition' -> Find commits affecting a function
