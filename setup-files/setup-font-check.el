@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:26 csraghunandan>
+;; Time-stamp: <2018-07-24 14:27:21 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,14 +9,14 @@
   (select-frame frame)
   (if (display-graphic-p)
       (progn
-        (when (member "Iosevka" (font-family-list))
+        (when (member "Iosevka SS08" (font-family-list))
           (progn
-            (set-frame-font "Iosevka-12" nil t))))))
+            (set-frame-font "Iosevka SS08-12" nil t))))))
 (add-hook 'after-make-frame-functions #'rag-set-face)
 
 ;; set frame font when running emacs normally
-(when (member "Iosevka" (font-family-list))
+(when (member "Iosevka SS08" (font-family-list))
   (progn
-    (set-frame-font "Iosevka-12" nil t)))
+    (set-frame-font "Iosevka SS08-12" nil t)))
 
 (provide 'setup-font-check)
