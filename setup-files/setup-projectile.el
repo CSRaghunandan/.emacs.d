@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-11 16:43:29 csraghunandan>
+;; Time-stamp: <2018-07-24 13:47:17 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,6 +8,11 @@
 (use-package projectile
   :defer 1
   :config
+
+  ;; Use the previous prefix key for projectile
+  (setq projectile-keymap-prefix (kbd "C-c p"))
+  (unbind-key "C-c C-p" projectile-mode-map)
+
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)
 
