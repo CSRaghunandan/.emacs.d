@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-07-24 15:26:01 csraghunandan>
+;; Time-stamp: <2018-07-25 10:55:41 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,7 +22,7 @@
 
   (if (executable-find "rg")
       ;; if rg is installed, use rg for `counsel-grep-or-swiper' and `counsel-rg'
-      (setq counsel-grep-base-command "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
+      (setq counsel-grep-base-command "rg --line-number --color never -i --mmap --no-heading %s %s"
             ;; add `--follow' option to allow search through symbolic links
             counsel-rg-base-command "rg --line-number --color never -i --follow --mmap --no-heading %s"
             ;; Use ripgrep for counsel-git
