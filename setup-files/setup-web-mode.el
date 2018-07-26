@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-26 21:25:53 csraghunandan>
+;; Time-stamp: <2018-07-26 22:07:16 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -99,6 +99,8 @@
          ("C-c ]" . emmet-next-edit-point)))
   :config
   (setq emmet-move-cursor-between-quotes t)
-  (setq emmet-indentation 2))
+  (setq emmet-indentation 2)
+  (unbind-key "C-M-<left>" emmet-mode-keymap)
+  (unbind-key "C-M-<right>" emmet-mode-keymap))
 
 (provide 'setup-web-mode)
