@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-26 17:25:39 csraghunandan>
+;; Time-stamp: <2018-07-26 18:02:04 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,14 +8,11 @@
 ;; js2-mode: enhanced JavaScript editing mode
 ;; https://github.com/mooz/js2-mode
 (use-package js2-mode
-  :mode
-  (("\\.js$" . js2-mode)
-   )
+  :mode (("\\.js$" . js2-mode))
   :hook ((js2-mode . (lambda ()
                        (flycheck-mode)
                        (my-tide-setup-hook)
-                       (company-mode)))
-         )
+                       (company-mode))))
   :ensure-system-package ((prettier . "npm i -g prettier")
                           (eslint . "npm i -g eslint")
                           (eslint_d . "npm i -g eslint_d"))
@@ -175,6 +172,9 @@
   :hook (rjsx-mode . (lambda ()
                           (flycheck-mode)
                           (my-tide-setup-hook)
-                          (company-mode))))
+                          (company-mode)
+                          (indium-interaction-mode -1)
+                          (js2-refactor-mode -1)))
+  :config (unbind-key "C-c C-l" rjsx-mode-map))
 
 (provide 'setup-js)
