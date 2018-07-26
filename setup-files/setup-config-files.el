@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:11:33 csraghunandan>
+;; Time-stamp: <2018-07-27 00:37:50 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -58,6 +58,6 @@
 ;; https://elpa.gnu.org/packages/csv-mode.html
 (use-package csv-mode
   :mode "\\.[Cc][Ss][Vv]\\'"
-  :config (validate-setq csv-separators '("," ";" "|" " ")))
+  :config (setq csv-separators '("," ";" "|" " ")))
 
 (provide 'setup-config-files)
