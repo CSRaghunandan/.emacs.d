@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:26 csraghunandan>
+;; Time-stamp: <2018-07-26 13:36:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -26,6 +26,7 @@
   (setq lsp-ui-sideline-enable nil
         lsp-ui-doc-enable nil
         lsp-ui-flycheck-enable t
-        lsp-ui-imenu-enable t))
+        lsp-ui-imenu-enable t
+        lsp-ui-sideline-ignore-duplicate t))
 
 (provide 'setup-lsp)
