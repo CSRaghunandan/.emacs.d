@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-26 21:22:12 csraghunandan>
+;; Time-stamp: <2018-07-26 21:25:53 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -20,8 +20,6 @@
          ("\\.as[cp]x\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.hbs\\'" . web-mode))
-  :bind (:map web-mode-map
-         ("C-c o b" . browse-url-of-file))
   :hook ((web-mode . company-mode))
   :config
 
@@ -74,7 +72,8 @@
     (lsp-ui-mode)
     (my-lsp-html-mode-hook)
     (emmet-mode)
-    (setq-local lsp-highlight-symbol-at-point nil))
+    (setq-local lsp-highlight-symbol-at-point nil)
+    (local-set-key "C-c o b" #'browse-url-of-file))
 
   (add-hook 'web-mode-hook
             (lambda ()
