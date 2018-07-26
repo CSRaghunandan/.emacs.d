@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-26 21:14:02 csraghunandan>
+;; Time-stamp: <2018-07-26 21:22:12 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -21,9 +21,7 @@
          ("\\.erb\\'" . web-mode)
          ("\\.hbs\\'" . web-mode))
   :bind (:map web-mode-map
-         ("C-c o b" . browse-url-of-file)
-         ("C-c [" . emmet-prev-edit-point)
-         ("C-c ]" . emmet-next-edit-point))
+         ("C-c o b" . browse-url-of-file))
   :hook ((web-mode . company-mode))
   :config
 
@@ -96,6 +94,10 @@
 ;; emmet-mode: dynamic snippets for HTML
 ;; https://github.com/smihica/emmet-mode
 (use-package emmet-mode
+  :bind
+  ((:map emmet-mode-keymap
+         ("C-c [" . emmet-prev-edit-point)
+         ("C-c ]" . emmet-next-edit-point)))
   :config
   (setq emmet-move-cursor-between-quotes t)
   (setq emmet-indentation 2))
