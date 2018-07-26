@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-26 21:08:13 csraghunandan>
+;; Time-stamp: <2018-07-26 21:14:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -27,11 +27,9 @@
   :hook ((web-mode . company-mode))
   :config
 
-  (custom-set-variables
-   '(web-mode-markup-indent-offset 2)
-   '(web-mode-css-indent-offset 2)
-   '(web-mode-code-indent-offset 2)
-   '(css-indent-offset 2))
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
 
   ;; highlight matching tag
   (setq web-mode-enable-current-element-highlight t)
