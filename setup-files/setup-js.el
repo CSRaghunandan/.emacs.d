@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:14 csraghunandan>
+;; Time-stamp: <2018-07-26 17:25:39 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,15 +10,12 @@
 (use-package js2-mode
   :mode
   (("\\.js$" . js2-mode)
-   ("\\.jsx$" . js2-jsx-mode))
+   )
   :hook ((js2-mode . (lambda ()
                        (flycheck-mode)
                        (my-tide-setup-hook)
                        (company-mode)))
-         (js2-jsx-mode . (lambda ()
-                           (flycheck-mode)
-                           (my-tide-setup-hook)
-                           (company-mode))))
+         )
   :ensure-system-package ((prettier . "npm i -g prettier")
                           (eslint . "npm i -g eslint")
                           (eslint_d . "npm i -g eslint_d"))
@@ -114,7 +111,7 @@
 ;; https://github.com/prettier/prettier-emacs
 (use-package prettier-js
   :hook ((js2-mode . prettier-js-mode)
-         (js2-jsx-mode . prettier-js-mode)))
+         (rjsx-mode . prettier-js-mode)))
 
 ;; json-snatcher: get the path of any JSON element easily
 ;; https://github.com/Sterlingg/json-snatcher
@@ -155,7 +152,7 @@
 ;; https://github.com/codesuki/add-node-modules-path/tree/master
 (use-package add-node-modules-path
   :hook ((js2-mode . add-node-modules-path)
-         (js2-jsx-mode . add-node-modules-path)))
+         (rjsx-mode . add-node-modules-path)))
 
 ;; json-mode: Major mode for editing JSON files with emacs
 ;; https://github.com/joshwnj/json-mode
@@ -169,5 +166,15 @@
 ;; eslintd-fix: Emacs minor-mode to automatically fix javascript with eslint_d.
 ;; https://github.com/aaronjensen/eslintd-fix/tree/master
 (use-package eslintd-fix)
+
+;; rjsx-mode: A JSX major mode for Emacs
+;; https://github.com/felipeochoa/rjsx-mode
+(use-package rjsx-mode
+  :after js2-mode
+  :mode ("\\.jsx$" . rjsx-mode)
+  :hook (rjsx-mode . (lambda ()
+                          (flycheck-mode)
+                          (my-tide-setup-hook)
+                          (company-mode))))
 
 (provide 'setup-js)
