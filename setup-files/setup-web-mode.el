@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-17 18:12:53 csraghunandan>
+;; Time-stamp: <2018-07-26 21:08:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -77,6 +77,7 @@
     (lsp-html-enable)
     (lsp-ui-mode)
     (my-lsp-html-mode-hook)
+    (emmet-mode)
     (setq-local lsp-highlight-symbol-at-point nil))
 
   (add-hook 'web-mode-hook
@@ -97,7 +98,6 @@
 ;; emmet-mode: dynamic snippets for HTML
 ;; https://github.com/smihica/emmet-mode
 (use-package emmet-mode
-  :hook ((web-mode . emmet-mode))
   :config
   (setq emmet-move-cursor-between-quotes t)
   (setq emmet-indentation 2))
