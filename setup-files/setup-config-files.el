@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-27 00:37:50 csraghunandan>
+;; Time-stamp: <2018-07-27 11:29:47 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,7 +7,8 @@
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode
   :defer t
-  :hook ((yaml-mode . highlight-numbers-mode)))
+  :hook ((yaml-mode . (lambda ()
+                        (run-hooks 'prog-mode-hook)))))
 
 ;; conf-mode: major-mdoe for editing conf files
 ;; https://github.com/jrockway/emacs/blob/master/lisp/textmodes/conf-mode.el
