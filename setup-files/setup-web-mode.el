@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-26 22:07:16 csraghunandan>
+;; Time-stamp: <2018-07-28 10:58:24 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -73,7 +73,7 @@
     (my-lsp-html-mode-hook)
     (emmet-mode)
     (setq-local lsp-highlight-symbol-at-point nil)
-    (local-set-key "C-c o b" #'browse-url-of-file))
+    (bind-key "C-c o b" #'browse-url-of-file (current-local-map)))
 
   (add-hook 'web-mode-hook
             (lambda ()
