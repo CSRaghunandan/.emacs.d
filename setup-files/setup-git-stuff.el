@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-24 14:08:44 csraghunandan>
+;; Time-stamp: <2018-07-30 10:57:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -83,11 +83,6 @@
     ?U "Untrack file" 'magit-file-untrack)
   (magit-define-popup-action 'magit-file-popup
     ?C "Checkout file" 'magit-file-checkout))
-
-;; Emacs bindings for libgit2
-;; https://github.com/magit/libegit2
-(use-package libgit
-  :after magit)
 
 ;; magit-todos: Show source file TODOs in Magit status buffer
 ;; https://github.com/alphapapa/magit-todos
