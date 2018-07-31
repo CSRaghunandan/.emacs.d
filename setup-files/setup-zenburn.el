@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-23 23:31:45 csraghunandan>
+;; Time-stamp: <2018-07-31 20:59:55 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -108,7 +108,7 @@
       (set-face-background 'shm-current-face "gray27"))
 
     (set-face-attribute 'hl-line nil :background "gray27")
-    (set-face-attribute 'fringe nil :background "gray27")
+    (set-face-attribute 'fringe nil :background "gray30")
     (set-face-attribute 'vhl/default-face nil :background  "gray27")
     (set-face-attribute 'vertical-border nil :foreground "gray20")
 
