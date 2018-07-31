@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-31 21:11:24 csraghunandan>
+;; Time-stamp: <2018-07-31 21:25:47 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -18,7 +18,7 @@
               (tag (when num
                      (nth 2 (assoc num (eyebrowse--get 'window-configs)))))
               (str (concat
-                    " "
+                    "  "
                     (if (and tag (< 0 (length tag)))
                         tag
                       (when num (int-to-string num)))
