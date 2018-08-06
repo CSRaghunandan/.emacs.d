@@ -1,4 +1,7 @@
-;; Time-stamp: <2018-08-07 01:40:14 csraghunandan>
+;; Time-stamp: <2018-08-07 02:08:46 csraghunandan>
+
+;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; download custom iosevka font from here: https://github.com/hlissner/doom-emacs/files/2162978/fonts.tar.gz
 (set-fontset-font t '(#xe100 . #xe16f) "Iosevka")
