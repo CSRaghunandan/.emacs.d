@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:09:27 csraghunandan>
+;; Time-stamp: <2018-08-07 01:21:19 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -85,5 +85,52 @@ If HERE is non-nil, also insert the string at point."
    (eq system-type 'ms-dos)
    (eq system-type 'windows-nt)
    (eq system-type 'cygwin)))
+
+;; https://github.com/hlissner/doom-emacs/blob/develop/core/core-lib.el
+(defun doom--resolve-path-forms (spec &optional directory)
+  "Converts a simple nested series of or/and forms into a series of
+`file-exists-p' checks.
+For example
+  (doom--resolve-path-forms
+    '(or \"some-file\" (and path-var \"/an/absolute/path\"))
+    \"~\")
+Returns
+  '(let ((_directory \"~\"))
+     (or (file-exists-p (expand-file-name \"some-file\" _directory))
+         (and (file-exists-p (expand-file-name path-var _directory))
+              (file-exists-p \"/an/absolute/path\"))))
+This is used by `associate!', `file-exists-p!' and `project-file-exists-p!'."
+  (declare (pure t) (side-effect-free t))
+  (cond ((stringp spec)
+         `(file-exists-p
+           ,(if (file-name-absolute-p spec)
+                spec
+              `(expand-file-name ,spec ,directory))))
+        ((and (listp spec)
+              (memq (car spec) '(or and)))
+         `(,(car spec)
+           ,@(cl-loop for i in (cdr spec)
+                      collect (doom--resolve-path-forms i directory))))
+        ((or (symbolp spec)
+             (listp spec))
+         `(file-exists-p ,(if (and directory
+                                   (or (not (stringp directory))
+                                       (file-name-absolute-p directory)))
+                              `(expand-file-name ,spec ,directory)
+                            spec)))
+        (t spec)))
+
+(defmacro file-exists-p! (spec &optional directory)
+  "Returns t if the files in SPEC all exist.
+SPEC can be a single file or a list of forms/files. It understands nested (and
+...) and (or ...), as well.
+DIRECTORY is where to look for the files in SPEC if they aren't absolute. This
+doesn't apply to variables, however.
+For example:
+  (file-exists-p! (or doom-core-dir \"~/.config\" \"some-file\") \"~\")"
+  (if directory
+      `(let ((--directory-- ,directory))
+         ,(doom--resolve-path-forms spec '--directory--))
+    (doom--resolve-path-forms spec)))
 
 (provide 'general)

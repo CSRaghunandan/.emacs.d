@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-21 13:25:06 csraghunandan>
+;; Time-stamp: <2018-08-07 01:12:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -76,7 +76,49 @@
                  (c-offsets-alist . ((arglist-intro . ++)
                                      (innamespace . 0)
                                      (member-init-intro . ++)))))
-  (setq-default c-default-style "llvm"))
+  (setq-default c-default-style "llvm")
+
+  (defun +cc--re-search-for (regexp)
+    (save-excursion
+      (save-restriction
+        (save-match-data
+          (widen)
+          (goto-char (point-min))
+          (re-search-forward regexp magic-mode-regexp-match-limit t)))))
+
+  (defun +cc-c-c++-objc-mode (&optional file)
+    "Sets either `c-mode', `objc-mode' or `c++-mode', whichever is appropriate."
+    (let ((base (file-name-sans-extension buffer-file-name))
+          file)
+      (cond ((file-exists-p! (or (concat base ".cpp")
+                                 (concat base ".cc")))
+             (c++-mode))
+            ((or (file-exists-p! (or (concat base ".m")
+                                     (concat base ".mm")))
+                 (+cc--re-search-for
+                  (concat "^[ \t\r]*\\(?:"
+                          "@\\(?:class\\|interface\\|property\\|end\\)\\_>"
+                          "\\|#import +<Foundation/Foundation.h>"
+                          "\\|[-+] ([a-zA-Z0-9_]+)"
+                          "\\)")))
+             (objc-mode))
+            ((fboundp 'c-or-c++-mode) ; introduced in Emacs 26.1
+             (c-or-c++-mode))
+            ((+cc--re-search-for  ; TODO Remove this along with Emacs 25 support
+              (let ((id "[a-zA-Z0-9_]+") (ws "[ \t\r]+") (ws-maybe "[ \t\r]*"))
+                (concat "^" ws-maybe "\\(?:"
+                        "using"     ws "\\(?:namespace" ws "std;\\|std::\\)"
+                        "\\|" "namespace" "\\(:?" ws id "\\)?" ws-maybe "{"
+                        "\\|" "class"     ws id ws-maybe "[:{\n]"
+                        "\\|" "template"  ws-maybe "<.*>"
+                        "\\|" "#include"  ws-maybe "<\\(?:string\\|iostream\\|map\\)>"
+                        "\\)")))
+             (c++-mode))
+            ((c-mode)))))
+
+  ;; https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/cc/
+  ;; Activate `c-mode', `c++-mode' or `objc-mode' depending on heuristics
+  (add-to-list 'auto-mode-alist '("\\.h\\'" . +cc-c-c++-objc-mode)))
 
 ;; Major mode for editing QT Declarative (QML) code.
 ;; https://github.com/coldnew/qml-mode
