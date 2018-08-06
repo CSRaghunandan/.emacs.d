@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-20 18:00:34 csraghunandan>
+;; Time-stamp: <2018-08-07 01:28:09 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -96,6 +96,7 @@
 (require 'setup-kurecolor)
 (require 'setup-erc)
 (require 'setup-font-check)
+(require 'setup-iosevka-ligatures)
 (require 'setup-misc)
 (require 'setup-visual)
 (require 'setup-tramp)
