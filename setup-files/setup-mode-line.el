@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-31 21:25:47 csraghunandan>
+;; Time-stamp: <2018-08-06 12:00:20 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -24,7 +24,7 @@
                       (when num (int-to-string num)))
                     " ")))
          str)))
-    face (:weight 'bold))
+    face (:weight bold))
   "Mode line format for Eyebrowse.")
 
 (put 'mu-eyebrowse-mode-line 'risky-local-variable t)
