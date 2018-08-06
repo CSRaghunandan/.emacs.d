@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-16 14:52:59 csraghunandan>
+;; Time-stamp: <2018-08-06 17:43:46 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,8 +7,7 @@
 ;; https://github.com/Kungsgeten/selected.el
 (use-package selected
   :bind (:map selected-keymap
-              ("w" . sp-kill-region)
-              ("W" . kill-region)
+              ("w" . kill-region)
               ("~" . hydra-change-case/body)
               ("c" . copy-region-as-kill)
               ("d" . duplicate-current-line-or-region)
