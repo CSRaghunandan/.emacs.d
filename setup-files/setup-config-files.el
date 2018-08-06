@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-27 11:29:47 csraghunandan>
+;; Time-stamp: <2018-08-07 00:40:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -60,5 +60,10 @@
 (use-package csv-mode
   :mode "\\.[Cc][Ss][Vv]\\'"
   :config (setq csv-separators '("," ";" "|" " ")))
+
+;; major mode to edit hex files
+(use-package hexl
+  :ensure nil
+  :mode ("\\.\\(?:hex\\|nes\\)\\'" . hexl-mode))
 
 (provide 'setup-config-files)
