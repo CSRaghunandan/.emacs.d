@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-12 18:32:49 csraghunandan>
+;; Time-stamp: <2018-08-07 00:57:29 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,7 +8,7 @@
 (defvar +sh-builtin-keywords
   '("cat" "cat" "cd" "chmod" "chown" "cp" "curl" "date" "echo" "find" "git"
     "grep" "head" "kill" "less" "ls" "make" "mkdir" "mv" "pgrep" "pkill" "pwd"
-    "rm" "sleep" "sudo" "tail" "tee" "touch")
+    "rm" "sleep" "sudo" "touch" "tee" "tail")
   "A list of common shell commands and keywords to be fontified especially in
 `sh-mode'.")
 
@@ -36,7 +36,7 @@
         (while
             (and (setq res
                        (re-search-forward
-                        "\\(\\$\\)\\({.+?}\\|\\<.+?\\>\\)"
+                        "[^\\]\\(\\$\\)\\({.+?}\\|\\<[a-zA-Z0-9_]+\\|[@*#!]\\)"
                         limit t))
                  (not (eq (nth 3 (syntax-ppss)) ?\"))))
         res)))
@@ -47,11 +47,12 @@
       (let (res)
         (while
             (and (setq res
-                       (re-search-forward "\\(\\$(.+?)\\|`.+?`\\)"
+                       (re-search-forward "[^\\]\\(\\$(.+?)\\|`.+?`\\)"
                                           limit t))
                  (not (eq (nth 3 (syntax-ppss)) ?\"))))
         res)))
 
+  ;; https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/sh/config.el
   ;; 1. Fontifies variables in double quotes
   ;; 2. Fontify command substitution in double quotes
   ;; 3. Fontify built-in/common commands (see `+sh-builtin-keywords')
