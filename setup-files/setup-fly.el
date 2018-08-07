@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-30 14:05:16 csraghunandan>
+;; Time-stamp: <2018-08-07 15:40:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -20,14 +20,7 @@
   (setq flyspell-issue-message-flag nil)
 
   ;; use aspell as the default dictionary
-  (setq ispell-program-name "aspell"))
-
-;; flyspell-lazy: Improve Emacs flyspell responsiveness using idle timers
-;; https://github.com/rolandwalker/flyspell-lazy/tree/master
-(use-package flyspell-lazy
-  :after flyspell
-  :config
-  (flyspell-lazy-mode 1)
+  (setq ispell-program-name "aspell")
   (add-to-list 'ispell-extra-args "--sug-mode=ultra"))
 
 ;; flycheck: on the fly syntax checking
