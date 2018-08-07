@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-08-07 15:40:13 csraghunandan>
+;; Time-stamp: <2018-08-07 16:30:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -19,9 +19,12 @@
   ;; speed up flyspell
   (setq flyspell-issue-message-flag nil)
 
-  ;; use aspell as the default dictionary
-  (setq ispell-program-name "aspell")
-  (add-to-list 'ispell-extra-args "--sug-mode=ultra"))
+  ;; use hunspell as the default dictionary
+  (when (executable-find "hunspell")
+    (setq ispell-program-name (executable-find "hunspell"))
+    (setq ispell-really-hunspell t)
+    (setenv "DICTIONARY" "english")
+    (setq ispell-dictionary "english")))
 
 ;; flycheck: on the fly syntax checking
 ;; http://www.flycheck.org/en/latest/
@@ -60,3 +63,11 @@
   :config (flycheck-posframe-configure-pretty-defaults))
 
 (provide 'setup-fly)
+
+;; to install and configure hunspell:
+;; brew install hunspell or sudo apt install hunspell
+;; cd ~/Library/Spelling/
+;; wget http://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.aff
+;; wget http://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.dic
+;; ln -s en_GB.dic english.dic
+;; ln -s en_GB.aff english.aff

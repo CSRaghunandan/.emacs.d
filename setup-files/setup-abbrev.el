@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:14 csraghunandan>
+;; Time-stamp: <2018-08-07 16:32:09 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,7 +11,7 @@
    . (lambda ()
        (add-hook 'expand-expand-hook 'indent-according-to-mode)
        (add-hook 'expand-jump-hook 'indent-according-to-mode)))
-  :bind
+  :bind*
   ("C-;" . endless/ispell-word-then-abbrev)
   :config
   ;; Silently save abbrevs on quitting emacs
