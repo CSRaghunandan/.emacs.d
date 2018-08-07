@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-28 10:58:24 csraghunandan>
+;; Time-stamp: <2018-08-07 18:20:45 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -20,21 +20,43 @@
          ("\\.as[cp]x\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.hbs\\'" . web-mode))
-  :hook ((web-mode . company-mode))
+  :hook ((web-mode . company-mode)
+         (web-mode . (lambda ()
+                       (highlight-indent-guides-mode -1))))
   :config
 
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
 
+  (setq web-mode-enable-html-entities-fontification t
+        web-mode-auto-close-style 2)
+
+  (with-eval-after-load "smartparens"
+    (defun +web-is-auto-close-style-3 (_id action _context)
+      (and (eq action 'insert)
+           (eq web-mode-auto-close-style 3)))
+    (sp-local-pair 'web-mode "<" nil :unless '(:add +web-is-auto-close-style-3))
+
+    ;; let smartparens handle these
+    (setq web-mode-enable-auto-quoting nil
+          web-mode-enable-auto-pairing t)
+
+    ;; 1. Remove web-mode auto pairs whose end pair starts with a latter
+    ;;    (truncated autopairs like <?p and hp ?>). Smartparens handles these
+    ;;    better.
+    ;; 2. Strips out extra closing pairs to prevent redundant characters
+    ;;    inserted by smartparens.
+    (dolist (alist web-mode-engines-auto-pairs)
+      (setcdr alist
+              (cl-loop for pair in (cdr alist)
+                       unless (string-match-p "^[a-z-]" (cdr pair))
+                       collect (cons (car pair)
+                                     (string-trim-right (cdr pair) "\\(?:>\\|]\\|}\\)+")))))
+    (setf (alist-get nil web-mode-engines-auto-pairs) nil))
+
   ;; highlight matching tag
   (setq web-mode-enable-current-element-highlight t)
-
-  (defun my-unfontify-function (beg end)
-    (remove-list-of-text-properties beg end '(display)))
-  (defun my-register-unfontify ()
-    (setq font-lock-unfontify-region-function 'my-unfontify-function))
-  (add-hook 'web-mode-hook 'my-register-unfontify t)
 
   (defun my-tide-setup-hook ()
     ;; configure tide
