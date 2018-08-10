@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-08-11 01:56:05 csraghunandan>
+;; Time-stamp: <2018-08-11 02:01:36 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,8 +17,10 @@
 (use-package modern-cpp-font-lock
   :hook (c++-mode . modern-c++-font-lock-mode))
 
-;;
+;; clang-format: format C/C++ buffers using clang-format
+;; https://github.com/emacsorphanage/clang-format
 (use-package clang-format)
+
 ;; ccls: Emacs client for ccls, a C/C++ language server
 ;; https://github.com/MaskRay/emacs-ccls
 (use-package ccls
