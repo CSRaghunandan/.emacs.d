@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-08-07 01:12:59 csraghunandan>
+;; Time-stamp: <2018-08-11 01:56:05 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,26 +17,30 @@
 (use-package modern-cpp-font-lock
   :hook (c++-mode . modern-c++-font-lock-mode))
 
-;; cquery: Emacs client for cquery, a low-latency language server supporting multi-million line C++ code-bases
-;; https://github.com/cquery-project/emacs-cquery
-(use-package cquery
+;;
+(use-package clang-format)
+;; ccls: Emacs client for ccls, a C/C++ language server
+;; https://github.com/MaskRay/emacs-ccls
+(use-package ccls
+  :commands (lsp-css-enable)
   :init
-  (setq cquery-executable (executable-find "cquery"))
-  (setq cquery-extra-init-params
-        '(:index (:comments 2) :cacheFormat "msgpack"
-                 :completion (:detailedLabel t)))
+  (setq ccls-executable (executable-find "ccls"))
+  (setq ccls-extra-init-params '(:cacheFormat "msgpack"
+                                 :index (:comments 2)
+                                 :completion (:detailedLabel t)))
   :config
-  ;; enable cquery semantic highlighting
-  (setq cquery-sem-highlight-method 'font-lock))
+  ;; enable ccls semantic highlighting
+  (setq ccls-sem-highlight-method 'font-lock))
 
-(defun cquery//enable ()
+(defun ccls//enable ()
+  "Enable lsp-ccls"
   (condition-case nil
-      (lsp-cquery-enable)
+      (lsp-ccls-enable)
     (user-error nil)))
 
 (use-package cc-mode :ensure nil
   :hook (((c++-mode c-mode) . (lambda ()
-                                (cquery//enable)
+                                (ccls//enable)
                                 (lsp-ui-mode)
                                 (eldoc-mode)
                                 (flycheck-mode)
@@ -50,8 +54,23 @@
                                 (add-hook 'before-save-hook
                                           (lambda ()
                                             (time-stamp)
-                                            (lsp-format-buffer)) nil t))))
+                                            (clang-format-buffer)) nil t))))
+  :init
+  (c-add-style "llvm"
+               '("gnu"
+                 (fill-column . 80)
+                 (c++-indent-level . 4)
+                 (c-basic-offset . 4)
+                 (indent-tabs-mode . nil)
+                 (c-offsets-alist . ((arglist-intro . ++)
+                                     (innamespace . 0)
+                                     (member-init-intro . ++)))))
+  (setq c-default-style "llvm")
+
   :config
+  ;; For rainbow semantic highlighting
+  (ccls-use-default-rainbow-sem-highlight)
+
   ;;;###autoload
   (defun +cc|fontify-constants ()
     "Better fontification for preprocessor constants"
@@ -66,17 +85,6 @@
     ;; Doxygen blocks
     (sp-local-pair "/**" "*/" :post-handlers '(("||\n[i]" "RET") ("||\n[i]" "SPC")))
     (sp-local-pair "/*!" "*/" :post-handlers '(("||\n[i]" "RET") ("[d-1]< | " "SPC"))))
-
-  (c-add-style "llvm"
-               '("gnu"
-                 (fill-column . 80)
-                 (c++-indent-level . 4)
-                 (c-basic-offset . 4)
-                 (indent-tabs-mode . nil)
-                 (c-offsets-alist . ((arglist-intro . ++)
-                                     (innamespace . 0)
-                                     (member-init-intro . ++)))))
-  (setq-default c-default-style "llvm")
 
   (defun +cc--re-search-for (regexp)
     (save-excursion
@@ -127,15 +135,18 @@
 
 (provide 'setup-cc)
 
-;; cquery cross-reference extension:
-;; (lsp-ui-peek-find-custom 'base "$cquery/base")
-;; (lsp-ui-peek-find-custom 'callers "$cquery/callers")
-;; (lsp-ui-peek-find-custom 'derived "$cquery/derived")
-;; (lsp-ui-peek-find-custom 'vars "$cquery/vars")
+;; (ccls-xref-find-custom "$ccls/base")
+;; (ccls-xref-find-custom "$ccls/callers")
+;; Use lsp-goto-implementation or lsp-ui-peek-find-implementation for derived types/functions
+;; (ccls-xref-find-custom "$ccls/vars")
 
-;; Call/member/inheritance Hierarchies
-;; cquery-member-hierarchy
-;; (cquery-call-hierarchy nil) -> caller hierarchy
-;; (cquery-call-hierarchy t) -> callee hierarchy
-;; (cquery-inheritance-hierarchy nil) -> base hierarchy
-;; (cquery-inheritance-hierarchy t) -> derived hierarchy
+;; ;; Alternatively, use lsp-ui-peek interface
+;; (lsp-ui-peek-find-custom 'base "$ccls/base")
+;; (lsp-ui-peek-find-custom 'callers "$ccls/callers")
+;; (lsp-ui-peek-find-custom 'random "$ccls/random") ;; jump to a random declaration
+
+;; (ccls-member-hierarchy)
+;; (ccls-call-hierarchy nil) ; caller hierarchy
+;; (ccls-call-hierarchy t) ; callee hierarchy
+;; (ccls-inheritance-hierarchy nil) ; base hierarchy
+;; (ccls-inheritance-hierarchy t) ; derived hierarchy
