@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-08-11 11:51:21 csraghunandan>
+;; Time-stamp: <2018-08-11 15:04:36 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -107,5 +107,10 @@ happens within a region if one is selected."
 (use-package ez-query-replace
   :bind (([remap query-replace] . ez-query-replace)
          ("C-c M-%" . ez-query-replace-repeat)))
+
+;; fast, friendly searching with ripgrep and Emacs
+;; https://github.com/Wilfred/deadgrep
+(use-package deadgrep
+  :bind (("C-c d g" . deadgrep)))
 
 (provide 'setup-search)
