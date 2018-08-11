@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-08-11 14:40:58 csraghunandan>
+;; Time-stamp: <2018-08-11 14:55:08 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -30,6 +30,7 @@
   (setq company-show-numbers t)
   (setq company-require-match 'never)
   (setq company-tooltip-align-annotations t)
+
   ;; don't downcase results from company-dabbrev
   (setq company-dabbrev-downcase nil)
   ;; use only buffers with same major-mode for company-dabbrev
@@ -52,12 +53,11 @@
   (add-hook 'company-completion-finished-hook 'sanityinc/page-break-lines-maybe-reenable)
   (add-hook 'company-completion-cancelled-hook 'sanityinc/page-break-lines-maybe-reenable))
 
-;; company-statistics: sort the company candidates by the statistics
-;; https://github.com/company-mode/company-statistics
-(use-package company-statistics
-  :defer 1
-  :after company
-  :config (company-statistics-mode))
+;; company-prescient: Simple but effective sorting and filtering for Emacs.
+;; https://github.com/raxod502/prescient.el/tree/master
+(use-package company-prescient
+  :hook (company-mode . company-prescient-mode)
+  :config (prescient-persist-mode +1))
 
 (provide 'setup-company)
 
