@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:25 csraghunandan>
+;; Time-stamp: <2018-08-11 14:40:58 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -31,7 +31,7 @@
   (setq company-require-match 'never)
   (setq company-tooltip-align-annotations t)
   ;; don't downcase results from company-dabbrev
-  (setq company-dabbrev-downcase t)
+  (setq company-dabbrev-downcase nil)
   ;; use only buffers with same major-mode for company-dabbrev
   (setq company-dabbrev-other-buffers t)
 
