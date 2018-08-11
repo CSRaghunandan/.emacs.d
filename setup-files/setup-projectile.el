@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-24 13:47:17 csraghunandan>
+;; Time-stamp: <2018-08-11 13:39:05 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,6 +25,9 @@
     (f-descendant-of? project-root (expand-file-name "~/exercism")))
   (setq projectile-ignored-project-function #'my-projectile-ignore-project)
 
+  ;; ignore some common files for projectile
+  (setq projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o")
+        projectile-globally-ignored-files '(".DS_Store" "Icon" "TAGS"))
 
 
 ;;; Default rg arguments
