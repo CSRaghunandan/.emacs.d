@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:15 csraghunandan>
+;; Time-stamp: <2018-08-11 11:51:21 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -62,7 +62,8 @@ See the command `isearch-forward-symbol' for more information."
 
 ;; wgrep: Writable grep buffer and apply the changes to files
 ;; https://github.com/mhayashi1120/Emacs-wgrep
-(use-package wgrep)
+(use-package wgrep
+  :config (setq wgrep-auto-save-buffer t))
 
 ;;; anzu: show number of searches in isearch
 ;; https://github.com/syohex/emacs-anzu
