@@ -142,24 +142,31 @@
     ;; (setq magit-log-margin '(t age magit-log-margin-width t 18)) ;Default value
     ;; Show the commit ages with 1-char time units
     ;;   minute->m, hour->h, day->d, week->w, month->M, year->Y
-    ;; Also reduce the author column width to 10 as the author name is being
+    ;; Also reduce the author column width to 11 as the author name is being
     ;; abbreviated below.
     (setq magit-log-margin '(t age-abbreviated magit-log-margin-width :author 11)))
   :config
   (progn
-    ;; Abbreviate author name, show "F Last" instead of "First Last".
-    ;; If author's name is just "First", don't abbreviate it.
+    ;; Abbreviate author name. I added this so that I can view Magit log without
+    ;; too much commit message truncation even on narrow screens (like on phone).
     (defun modi/magit-log--abbreviate-author (&rest args)
       "The first arg is AUTHOR, abbreviate it.
-First Last -> F Last
-First      -> First (no change)."
-      ;; ARGS             -> '((AUTHOR DATE))
-      ;; (car ARGS)       -> '(AUTHOR DATE)
-      ;; (car (car ARGS)) -> AUTHOR
-      (let* ((author (car (car args)))
-             (author-abbr (replace-regexp-in-string "\\(.\\).*? +\\(.*\\)" "\\1 \\2" author)))
-        (setf (car (car args)) author-abbr))
-      (car args))                       ;'(AUTHOR-ABBR DATE)
+First Last  -> F Last
+First.Last  -> F Last
+Last, First -> F Last
+First       -> First (no change).
+It is assumed that the author has only one or two names."
+      ;; ARGS               -> '((REV AUTHOR DATE))
+      ;; (car ARGS)         -> '(REV AUTHOR DATE)
+      ;; (nth 1 (car ARGS)) -> AUTHOR
+      (let* ((author (nth 1 (car args)))
+             (author-abbr (if (string-match-p "," author)
+                              ;; Last, First -> F Last
+                              (replace-regexp-in-string "\\(.*?\\), *\\(.\\).*" "\\2 \\1" author)
+                            ;; First Last -> F Last
+                            (replace-regexp-in-string "\\(.\\).*?[. ]+\\(.*\\)" "\\1 \\2" author))))
+        (setf (nth 1 (car args)) author-abbr))
+      (car args))                       ;'(REV AUTHOR-ABBR DATE)
     (advice-add 'magit-log-format-margin :filter-args #'modi/magit-log--abbreviate-author)))
 
 ;; git-modes: major modes for git config, ignore and attributes files
