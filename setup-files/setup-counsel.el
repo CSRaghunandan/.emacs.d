@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-11 12:00:40 csraghunandan>
+;; Time-stamp: <2018-08-11 12:17:57 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -61,6 +61,25 @@
    `(("d" ,(reloading #'confirm-delete-file) "delete")
      ("m" ,(reloading (given-file #'rename-file "Move")) "move")
      ("b" counsel-find-file-cd-bookmark-action "cd bookmark")))
+
+  ;;;###autoload
+  (defun +ivy-git-grep-other-window-action (x)
+    "Opens the current candidate in another window."
+    (when (string-match "\\`\\(.*?\\):\\([0-9]+\\):\\(.*\\)\\'" x)
+      (select-window
+       (with-ivy-window
+         (let ((file-name   (match-string-no-properties 1 x))
+               (line-number (match-string-no-properties 2 x)))
+           (find-file-other-window (expand-file-name file-name (ivy-state-directory ivy-last)))
+           (goto-char (point-min))
+           (forward-line (1- (string-to-number line-number)))
+           (re-search-forward (ivy--regex ivy-text t) (line-end-position) t)
+           (run-hooks 'counsel-grep-post-action-hook)
+           (selected-window))))))
+
+  (ivy-add-actions
+   'counsel-ag ; also applies to `counsel-rg' & `counsel-pt'
+   '(("O" +ivy-git-grep-other-window-action "open in other window")))
 
   ;; find file at point
   (setq counsel-find-file-at-point t)
