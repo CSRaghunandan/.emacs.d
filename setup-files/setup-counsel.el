@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-09 11:19:43 csraghunandan>
+;; Time-stamp: <2018-08-11 12:00:40 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -46,8 +46,15 @@
 
   (ivy-add-actions
    'counsel-find-file
-   `(("m" ,(reloading (given-file #'rename-file "Move")) "move")
-     ("d" ,(reloading #'confirm-delete-file) "delete")))
+   `(("R" ,(reloading (given-file #'rename-file "Move")) "move")
+     ("F" find-file-other-frame "other frame")
+     ("d" ,(reloading #'confirm-delete-file) "delete")
+     ("p" (lambda (path) (with-ivy-window (insert (file-relative-name path default-directory)))) "insert relative path")
+     ("P" (lambda (path) (with-ivy-window (insert path))) "insert absolute path")
+     ("l" (lambda (path) "Insert org-link with relative path"
+            (with-ivy-window (insert (format "[[./%s]]" (file-relative-name path default-directory))))) "insert org-link (rel. path)")
+     ("L" (lambda (path) "Insert org-link with absolute path"
+            (with-ivy-window (insert (format "[[%s]]" path)))) "insert org-link (abs. path)")))
 
   (ivy-add-actions
    'counsel-projectile-find-file
@@ -75,6 +82,7 @@
   (bind-keys
    ([remap finder-by-keyword] . counsel-package) ; C-? p
    ([remap bookmark-set] . counsel-bookmark)
+   ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
    ("C-c d s" . describe-symbol)
    ("C-c d f" . counsel-faces)
    ("C-c r g" . counsel-rg)))
