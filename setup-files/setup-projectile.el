@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-08-11 13:39:05 csraghunandan>
+;; Time-stamp: <2018-08-12 14:29:35 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -28,6 +28,9 @@
   ;; ignore some common files for projectile
   (setq projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o")
         projectile-globally-ignored-files '(".DS_Store" "Icon" "TAGS"))
+
+  ;; include the project root directory in projectile-find-dir list
+  (setq projectile-find-dir-includes-top-level t)
 
 
 ;;; Default rg arguments
