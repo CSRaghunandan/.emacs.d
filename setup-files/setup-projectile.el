@@ -1,17 +1,14 @@
-;; Time-stamp: <2018-08-12 14:29:35 csraghunandan>
+;; Time-stamp: <2018-08-12 14:31:08 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
-(use-package projectile
-  :defer 1
+(use-package projectile :defer 1
   :config
-
-  ;; Use the previous prefix key for projectile
-  (setq projectile-keymap-prefix (kbd "C-c p"))
-  (unbind-key "C-c C-p" projectile-mode-map)
+  ;; Set the projectile-prefix-command binding
+  (bind-key "C-c p" 'projectile-command-map projectile-mode-map)
 
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)
