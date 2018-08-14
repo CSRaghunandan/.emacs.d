@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:07:19 csraghunandan>
+;; Time-stamp: <2018-08-15 03:32:28 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -16,7 +16,7 @@
   :hook ((rust-mode . (lambda ()
                         (lsp-rust-enable)
                         (lsp-ui-mode)
-                        (eldoc-mode)
+                        (lsp-ui-doc-mode)
                         (flycheck-mode)
                         (smart-dash-mode)
                         (company-mode))))
