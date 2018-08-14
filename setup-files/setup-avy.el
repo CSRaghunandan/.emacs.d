@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:14 csraghunandan>
+;; Time-stamp: <2018-08-15 01:09:53 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -14,6 +14,8 @@
    ("M-g ]" . avy-goto-paren-close))
   :config
   (setq avy-style 'pre)
+
+  (setq avy-indent-line-overlay t)
 
   (defun avy-goto-paren-open ()
     (interactive)
