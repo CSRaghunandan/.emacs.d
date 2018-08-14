@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-12 14:31:08 csraghunandan>
+;;; setup-projectile.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:05:48 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

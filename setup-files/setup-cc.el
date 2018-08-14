@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-11 02:01:36 csraghunandan>
+;;; setup-cc.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:54:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -70,8 +71,6 @@
   (setq c-default-style "llvm")
 
   :config
-  ;; For rainbow semantic highlighting
-  (ccls-use-default-rainbow-sem-highlight)
 
   ;;;###autoload
   (defun +cc|fontify-constants ()

@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-07-07 18:07:27 csraghunandan>
+;;; setup-quickrun.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:06:24 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

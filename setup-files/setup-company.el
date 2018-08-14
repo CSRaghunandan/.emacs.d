@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-11 14:55:08 csraghunandan>
+;;; setup-company.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:45:38 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-07-30 10:57:15 csraghunandan>
+;;; setup-git-stuff.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:57:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

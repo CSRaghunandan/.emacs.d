@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-07 01:28:09 csraghunandan>
+;;; init.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:34:16 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +8,11 @@
 (defvar gc-cons-threshold--orig gc-cons-threshold)
 (setq gc-cons-threshold (* 100 1024 1024)
       gc-cons-percentage 0.6)
+
+;; Every file opened and loaded by Emacs will run through this list to check for
+;; a proper handler for the file, but during startup, it won’t need any of them.
+(defvar rag--file-name-handler-alist file-name-handler-alist)
+(setq file-name-handler-alist nil)
 
 (defun rag-set-gc-threshold ()
   "Reset `gc-cons-threshold' and `gc-cons-percentage' to their default values."
@@ -130,5 +136,10 @@
 
 ;; set gc-cons-threshold back to original value
 (add-hook 'emacs-startup-hook #'rag-set-gc-threshold)
+
+;; set the file-name-handler-alist to its default value
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq file-name-handler-alist rag--file-name-handler-alist)))
 
 ;;; init.el ends here

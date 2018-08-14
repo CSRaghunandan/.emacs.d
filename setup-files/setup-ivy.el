@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-07-23 23:52:09 csraghunandan>
+;;; setup-ivy.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:02:37 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

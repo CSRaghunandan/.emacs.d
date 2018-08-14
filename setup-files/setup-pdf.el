@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-07-07 18:07:25 csraghunandan>
+;;; setup-pdf.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:05:38 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

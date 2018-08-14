@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-07 00:39:22 csraghunandan>
+;;; setup-js.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:02:48 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

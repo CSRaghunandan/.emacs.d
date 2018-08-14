@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-07-07 18:11:16 csraghunandan>
+;;; setup-which-key.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:10:27 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

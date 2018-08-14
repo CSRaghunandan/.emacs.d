@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-15 01:09:53 csraghunandan>
+;;; setup-avy.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:39:58 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

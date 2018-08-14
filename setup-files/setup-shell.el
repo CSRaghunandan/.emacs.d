@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-07 00:57:29 csraghunandan>
+;;; setup-shell.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:07:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

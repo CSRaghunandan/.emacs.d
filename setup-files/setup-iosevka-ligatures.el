@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-07 02:08:46 csraghunandan>
+;;; setup-iosevka-ligatures.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:58:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

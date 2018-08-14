@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-07 16:32:09 csraghunandan>
+;;; setup-abbrev.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:38:14 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

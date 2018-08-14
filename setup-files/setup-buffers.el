@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-07-07 18:07:26 csraghunandan>
+;;; setup-buffers.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:41:34 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

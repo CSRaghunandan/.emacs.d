@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-07-31 20:59:55 csraghunandan>
+;;; setup-zenburn.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:11:06 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-07 01:36:32 csraghunandan>
+;;; setup-font-check.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:57:01 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

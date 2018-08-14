@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-11 15:04:36 csraghunandan>
+;;; setup-search.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:07:29 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

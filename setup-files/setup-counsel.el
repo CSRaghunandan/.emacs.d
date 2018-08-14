@@ -1,5 +1,5 @@
-;;; -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-11 12:17:57 csraghunandan>
+;;; setup-counsel.el -*- lexical-binding: t -*-
+;; Time-stamp: <2018-08-15 02:49:33 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

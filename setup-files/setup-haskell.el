@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-07-20 14:56:09 csraghunandan>
+;;; setup-haskell.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 02:57:35 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>

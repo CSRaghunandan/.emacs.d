@@ -1,4 +1,5 @@
-;; Time-stamp: <2018-08-06 12:00:20 csraghunandan>
+;;; setup-mode-line.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2018-08-15 03:04:30 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
