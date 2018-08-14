@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-07-07 18:07:27 csraghunandan>
+;; Time-stamp: <2018-08-15 01:37:29 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -64,10 +64,7 @@
    ("M-F" . sp-forward-symbol)
    ("M-B" . sp-backward-symbol)
 
-   ("C-k" . sp-kill-hybrid-sexp)
-   ("M-k" . sp-kill-whole-line)
    ("C-c R" . sp-rewrap-sexp)
-
    ("M-[" . sp-backward-unwrap-sexp)
    ("M-]" . sp-unwrap-sexp)
 
