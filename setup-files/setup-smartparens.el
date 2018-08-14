@@ -1,4 +1,4 @@
-;; Time-stamp: <2018-08-15 01:37:29 csraghunandan>
+;; Time-stamp: <2018-08-15 01:39:36 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -78,12 +78,11 @@
    ("C-c \"" . wrap-with-double-quotes)
    ("C-c `" . wrap-with-back-quotes))
 
-  (show-smartparens-global-mode +1)
-
   ;; enable smartparens globally
   (smartparens-global-mode)
   (smartparens-global-strict-mode) ; only allows you to insert or delete
                                    ; brackets in pairs
+  (show-smartparens-global-mode +1)
 
   (require 'smartparens-config)
 
