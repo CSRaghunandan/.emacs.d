@@ -1,5 +1,5 @@
 ;;; setup-osx.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:16:15 csraghunandan>
+;; Time-stamp: <2018-08-15 03:39:20 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -34,8 +34,7 @@
        (setq exec-path
              (or (eval-when-compile
                    (when (require 'exec-path-from-shell nil t)
-                     (setq exec-path-from-shell-check-startup-files nil
-                           exec-path-from-shell-arguments (delete "-i" exec-path-from-shell-arguments))
+                     (setq exec-path-from-shell-check-startup-files nil)
                      (nconc exec-path-from-shell-variables '("GOPATH" "GOROOT" "PYTHONPATH"))
                      (exec-path-from-shell-initialize)
                      exec-path))
