@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:55:26 csraghunandan>
+;; Time-stamp: <2018-08-15 03:50:50 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -507,6 +507,9 @@ Version 2017-01-11"
 (unless (eq system-type 'windows-nt)
   (set-selection-coding-system 'utf-8))
 (prefer-coding-system 'utf-8)
+(setq-default buffer-file-coding-system 'utf-8)
+(when (fboundp 'set-charset-priority)
+  (set-charset-priority 'unicode)) ; pretty
 
 ;; smart-dash: underscores without having to press shift modifier for dash key
 (use-package smart-dash
