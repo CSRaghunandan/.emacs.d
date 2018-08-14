@@ -1,23 +1,24 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:34:16 csraghunandan>
+;; Time-stamp: <2018-08-15 04:09:55 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
-;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
-(defvar gc-cons-threshold--orig gc-cons-threshold)
-(setq gc-cons-threshold (* 100 1024 1024)
-      gc-cons-percentage 0.6)
-
 ;; Every file opened and loaded by Emacs will run through this list to check for
 ;; a proper handler for the file, but during startup, it won’t need any of them.
 (defvar rag--file-name-handler-alist file-name-handler-alist)
-(setq file-name-handler-alist nil)
+
+;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
+(defvar gc-cons-threshold--orig gc-cons-threshold)
+(setq gc-cons-threshold (* 100 1024 1024)
+      gc-cons-percentage 0.6
+      file-name-handler-alist nil)
 
 (defun rag-set-gc-threshold ()
   "Reset `gc-cons-threshold' and `gc-cons-percentage' to their default values."
   (setq gc-cons-threshold gc-cons-threshold--orig
-        gc-cons-percentage 0.1))
+        gc-cons-percentage 0.1
+        file-name-handler-alist rag--file-name-handler-alist))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -136,10 +137,5 @@
 
 ;; set gc-cons-threshold back to original value
 (add-hook 'emacs-startup-hook #'rag-set-gc-threshold)
-
-;; set the file-name-handler-alist to its default value
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (setq file-name-handler-alist rag--file-name-handler-alist)))
 
 ;;; init.el ends here
