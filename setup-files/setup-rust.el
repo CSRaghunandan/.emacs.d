@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:32:28 csraghunandan>
+;; Time-stamp: <2018-08-15 13:35:03 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,6 +17,7 @@
                         (lsp-rust-enable)
                         (lsp-ui-mode)
                         (lsp-ui-doc-mode)
+                        (eldoc-mode -1)
                         (flycheck-mode)
                         (smart-dash-mode)
                         (company-mode))))
