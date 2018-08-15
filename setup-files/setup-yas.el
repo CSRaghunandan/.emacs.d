@@ -1,5 +1,5 @@
 ;;; setup-yas.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:10:54 csraghunandan>
+;; Time-stamp: <2018-08-15 13:32:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,9 +11,15 @@
 ;; yasnippet: snippets tool for emacs
 ;; https://github.com/capitaomorte/yasnippet
 (use-package yasnippet
+  :commands (yas-minor-mode-on yas-expand yas-expand-snippet yas-lookup-snippet
+             yas-insert-snippet yas-new-snippet yas-visit-snippet-file)
   :requires yasnippet-snippets
+  :hook ((text-mode prog-mode snippet-mode) . yas-minor-mode-on)
+  :init
+  ;; Ensure `yas-reload-all' is called as late as possible. Other modules could
+  ;; have additional configuration for yasnippet. For example, file-templates.
+  (add-transient-hook! 'yas-minor-mode-hook (yas-reload-all))
   :config
-  (yas-global-mode)
   (setq yas-triggers-in-field t) ; Enable nested triggering of snippets
   (setq yas-prompt-functions '(yas-completing-prompt))
   (add-hook 'snippet-mode-hook '(lambda () (setq-local require-final-newline nil)))

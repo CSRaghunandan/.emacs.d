@@ -1,5 +1,5 @@
 ;;; general.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:37:10 csraghunandan>
+;; Time-stamp: <2018-08-15 13:15:03 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -133,5 +133,26 @@ For example:
       `(let ((--directory-- ,directory))
          ,(doom--resolve-path-forms spec '--directory--))
     (doom--resolve-path-forms spec)))
+
+(defvar doom--transient-counter 0)
+(defmacro add-transient-hook! (hook &rest forms)
+  "Attaches transient forms to a HOOK.
+HOOK can be a quoted hook or a sharp-quoted function (which will be advised).
+These forms will be evaluated once when that function/hook is first invoked,
+then it detaches itself."
+  (declare (indent 1))
+  (let ((append (eq (car forms) :after))
+        (fn (intern (format "doom-transient-hook-%s" (cl-incf doom--transient-counter)))))
+    `(when ,hook
+       (fset ',fn
+             (lambda (&rest _)
+               ,@forms
+               (cond ((functionp ,hook) (advice-remove ,hook #',fn))
+                     ((symbolp ,hook)   (remove-hook ,hook #',fn)))
+               (unintern ',fn nil)))
+       (cond ((functionp ,hook)
+              (advice-add ,hook ,(if append :after :before) #',fn))
+             ((symbolp ,hook)
+              (add-hook ,hook #',fn ,append))))))
 
 (provide 'general)
