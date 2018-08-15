@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:09:59 csraghunandan>
+;; Time-stamp: <2018-08-15 13:31:32 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -99,8 +99,7 @@
 ;; https://github.com/purcell/page-break-lines
 ;; enter page-break character in Emacs by entering `C-q C-l'
 (use-package page-break-lines
-  :hook ((prog-mode . page-break-lines-mode)
-         (org-mode . page-break-lines-mode)))
+  :hook ((prog-mode org-mode) . page-break-lines-mode))
 
 ;; column-enforce-mode: highlight characters which exceed fill-column
 ;; https://github.com/jordonbiondo/column-enforce-mode

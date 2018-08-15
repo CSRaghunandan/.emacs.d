@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:06:12 csraghunandan>
+;; Time-stamp: <2018-08-15 13:49:11 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,6 +11,7 @@
                           (lsp-python-enable)
                           (lsp-ui-mode)
                           (eldoc-mode -1)
+                          (lsp-ui-sideline-mode)
                           (lsp-ui-doc-mode)
                           (flycheck-mode)
                           (smart-dash-mode)
