@@ -1,5 +1,5 @@
 ;;; setup-packages.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:37:35 csraghunandan>
+;; Time-stamp: <2018-08-15 13:06:32 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -20,7 +20,8 @@
 
 ;; https://github.com/emacsorphanage/key-chord/tree/master
 (use-package key-chord
-  :config (key-chord-mode 1))
+  :hook (emacs-startup . (lambda ()
+                           (key-chord-mode 1))))
 
 (use-package use-package-chords)
 (use-package use-package-ensure-system-package)
