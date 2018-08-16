@@ -1,5 +1,5 @@
 ;;; setup-markdown.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:03:48 csraghunandan>
+;; Time-stamp: <2018-08-16 15:33:20 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,14 +8,18 @@
 ;; http://jblevins.org/projects/markdown-mode/
 ;; https://github.com/defunkt/markdown-moed
 (use-package markdown-mode
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'"       . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown")
+  :mode ("/README\\(?:\\.\\(?:markdown\\|md\\)\\)?\\'" . gfm-mode)
+  :init
+  (when (executable-find "pandoc")
+    (setq markdown-command "pandoc --from=markdown --to=html --standalone --mathjax --highlight-style=pygments"))
   :config
-  (setq markdown-fontify-code-blocks-natively t)
-  (setq markdown-list-indent-width 2)
-
+  (setq markdown-enable-wiki-links t
+        markdown-italic-underscore t
+        markdown-enable-math t ; syntax highlighting for latex fragments
+        markdown-list-indent-width 2
+        markdown-hide-urls nil ; trigger with `markdown-toggle-url-hiding'
+        markdown-fontify-code-blocks-natively t
+        markdown-gfm-uppercase-checkbox t) ; for compat with org-mode
   ;; Don't change font in code blocks
   (set-face-attribute 'markdown-code-face nil
                       :inherit nil))
@@ -24,6 +28,12 @@
 ;; https://github.com/ardumont/markdown-toc
 (use-package markdown-toc
   :after markdown-mode)
+
+;; pandoc-mode: An Emacs minor mode for interacting with Pandoc
+;; https://github.com/joostkremers/pandoc-mode
+(use-package pandoc-mode
+  :commands pandoc-mode
+  :hook (markdown-mode . conditionally-turn-on-pandoc))
 
 (provide 'setup-markdown)
 
