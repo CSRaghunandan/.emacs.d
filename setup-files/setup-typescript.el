@@ -1,5 +1,5 @@
 ;;; setup-typescript.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:09:49 csraghunandan>
+;; Time-stamp: <2018-08-16 15:05:47 csraghunandan>v
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -57,6 +57,23 @@
   (flycheck-add-next-checker 'typescript-tide
                              'typescript-tslint)
 
-  (setq tide-completion-detailed t))
+  (setq tide-completion-detailed t)
+
+  (add-hook 'tide-mode-hook
+            (lambda ()
+              (add-hook 'kill-buffer-hook #'+javascript|cleanup-tide-processes nil t))))
+
+;;;###autoload
+(defun +javascript|cleanup-tide-processes ()
+  "Clean up dangling tsserver processes if there are no more buffers with
+`tide-mode' active that belong to that server's project."
+  (when tide-mode
+    (unless (cl-loop with project-name = (tide-project-name)
+                     for buf in (delq (current-buffer) (buffer-list))
+                     if (and (buffer-local-value 'tide-mode buf)
+                             (with-current-buffer buf
+                               (string= (tide-project-name) project-name)))
+                     return buf)
+      (kill-process (tide-current-server)))))
 
 (provide 'setup-typescript)

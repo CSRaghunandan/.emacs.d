@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:02:48 csraghunandan>
+;; Time-stamp: <2018-08-16 14:58:49 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -170,7 +170,8 @@
 ;; https://github.com/felipeochoa/rjsx-mode
 (use-package rjsx-mode
   :after js2-mode
-  :mode ("\\.jsx$" . rjsx-mode)
+  :mode (("\\.jsx$" . rjsx-mode)
+         ("components/.+\\.js$" . rjsx-mode))
   :hook (rjsx-mode . (lambda ()
                           (flycheck-mode)
                           (my-tide-setup-hook)
