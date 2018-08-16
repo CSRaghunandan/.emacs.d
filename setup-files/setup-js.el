@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-16 14:58:49 csraghunandan>
+;; Time-stamp: <2018-08-16 15:09:27 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -178,6 +178,16 @@
                           (company-mode)
                           (indium-interaction-mode -1)
                           (js2-refactor-mode -1)))
+  :init
+  (defun +javascript-jsx-file-p ()
+    "Detect React or preact imports early in the file."
+    (and buffer-file-name
+         (string= (file-name-extension buffer-file-name) "js")
+         (re-search-forward "\\(^\\s-*import +React\\|\\( from \\|require(\\)[\"']p?react\\)"
+                            magic-mode-regexp-match-limit t)
+         (progn (goto-char (match-beginning 1))
+                (not (sp-point-in-string-or-comment)))))
+  (add-to-list 'magic-mode-alist '(+javascript-jsx-file-p . rjsx-mode))
   :config (unbind-key "C-c C-l" rjsx-mode-map))
 
 (provide 'setup-js)
