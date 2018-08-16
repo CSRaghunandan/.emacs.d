@@ -1,5 +1,5 @@
 ;;; setup-racket.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:06:42 csraghunandan>
+;; Time-stamp: <2018-08-16 15:41:21 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,6 +10,7 @@
   :hook ((racket-mode . (lambda ()
                           (my-racket-mode-hook)
                           (company-mode)))
+         (racket-mode . highlight-quoted-mode)
          (racket-repl-mode . (lambda ()
                                (my-racket-mode-hook)
                                (company-mode))))
