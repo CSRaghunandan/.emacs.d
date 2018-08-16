@@ -1,5 +1,5 @@
 ;;; setup-shell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:07:59 csraghunandan>
+;; Time-stamp: <2018-08-16 15:31:51 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -53,6 +53,11 @@
                  (not (eq (nth 3 (syntax-ppss)) ?\"))))
         res)))
 
+  ;; recognize function names with dashes in them
+  (add-to-list 'sh-imenu-generic-expression
+               '(sh (nil "^\\s-*function\\s-+\\([[:alpha:]_-][[:alnum:]_-]*\\)\\s-*\\(?:()\\)?" 1)
+                    (nil "^\\s-*\\([[:alpha:]_-][[:alnum:]_-]*\\)\\s-*()" 1)))
+
   ;; https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/sh/config.el
   ;; 1. Fontifies variables in double quotes
   ;; 2. Fontify command substitution in double quotes
@@ -71,6 +76,7 @@
 ;; company-shell: company backend for shell scripts
 ;; https://github.com/Alexander-Miller/company-shell
 (use-package company-shell
+  :after sh-script
   :hook ((sh-mode . my-sh-mode-hook)
          (sh-mode . company-mode))
   :config
