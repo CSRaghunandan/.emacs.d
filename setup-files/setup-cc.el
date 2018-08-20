@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 14:07:58 csraghunandan>
+;; Time-stamp: <2018-08-20 12:53:25 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -28,9 +28,7 @@
   :commands (lsp-css-enable)
   :init
   (setq ccls-executable (executable-find "ccls"))
-  (setq ccls-extra-init-params '(:cacheFormat "msgpack"
-                                 :index (:comments 2)
-                                 :completion (:detailedLabel t)))
+  (setq ccls-extra-init-params '(:index (:comments 2) :completion (:detailedLabel t)))
   :config
   ;; enable ccls semantic highlighting
   (setq ccls-sem-highlight-method 'font-lock))
