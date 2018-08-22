@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:02:37 csraghunandan>
+;; Time-stamp: <2018-08-22 11:15:36 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -41,6 +41,13 @@
    ("f" . forward-char)
    ("v" . ivy-occur-press) ; default f
    ("RET" . ivy-occur-press)))
+
+;; ivy-rich: More friendly interface for ivy
+;; https://github.com/Yevgnen/ivy-rich/
+(use-package ivy-rich
+  :config
+  (ivy-rich-mode 1)
+  (setq ivy-rich-path-style 'abbrev))
 
 (provide 'setup-ivy)
 
