@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-24 13:33:28 csraghunandan>
+;; Time-stamp: <2018-08-24 17:43:39 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -118,10 +118,6 @@
                                 (flycheck-mode)
                                 (smart-dash-mode)
                                 (company-mode)))
-         ((c++-mode c-mode) . (lambda ()
-                                (setq-local company-transformers nil)
-                                (setq-local company-lsp-async t)
-                                (setq-local company-lsp-cache-candidates nil)))
          ((c-mode c++-mode) . (lambda ()
                                 (add-hook 'before-save-hook
                                           (lambda ()
@@ -140,6 +136,22 @@
   (setq c-default-style "llvm")
 
   :config
+
+  (defun my-cc-common-mode-hook()
+    (set (make-local-variable 'company-backends)
+         '((company-lsp company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
+  (add-hook 'c++-mode-hook #'my-cc-common-mode-hook)
+  (add-hook 'c-mode-hook #'my-cc-common-mode-hook)
+
+  (add-hook 'c++-mode-hook (lambda ()
+                             (setq-local company-transformers nil)
+                             (setq-local company-lsp-async t)
+                             (setq-local company-lsp-cache-candidates nil)))
+  (add-hook 'c-mode-hook (lambda ()
+                           (setq-local company-transformers nil)
+                           (setq-local company-lsp-async t)
+                           (setq-local company-lsp-cache-candidates nil)))
 
   ;;;###autoload
   (defun +cc|fontify-constants ()
