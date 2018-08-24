@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-24 12:51:09 csraghunandan>
+;; Time-stamp: <2018-08-24 12:55:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,8 +17,6 @@
   ;; Set my default org-export backends. This variable needs to be set before
   ;; org.el is loaded.
   (setq org-export-backends '(ascii html latex md gfm odt))
-
-  :mode ("\\.org\\'" . org-mode)
 
   :config
 
