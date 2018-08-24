@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-20 12:53:25 csraghunandan>
+;; Time-stamp: <2018-08-24 13:26:47 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -28,10 +28,21 @@
   :commands (lsp-css-enable)
   :init
   (setq ccls-executable (executable-find "ccls"))
-  (setq ccls-extra-init-params '(:index (:comments 2) :completion (:detailedLabel t)))
+  (setq ccls-extra-init-params '(:completion
+          (
+           :detailedLabel t
+           :includeBlacklist
+           ("^/usr/(local/)?include/c\\+\\+/[0-9\\.]+/(bits|tr1|tr2|profile|ext|debug)/"
+            "^/usr/(local/)?include/c\\+\\+/v1/"
+            ))
+          :diagnostics (:frequencyMs 5000)
+          :index (:reparseForDependency 1)))
   :config
   ;; enable ccls semantic highlighting
-  (setq ccls-sem-highlight-method 'font-lock))
+  (setq ccls-sem-highlight-method 'font-lock)
+
+  (with-eval-after-load 'projectile
+    (add-to-list 'projectile-globally-ignored-directories ".ccls-cache")))
 
 (defun ccls//enable ()
   "Enable lsp-ccls"
