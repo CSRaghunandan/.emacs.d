@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 04:10:26 csraghunandan>
+;; Time-stamp: <2018-08-24 12:46:31 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -53,6 +53,7 @@
 (require 'setup-selected)
 (require 'setup-treemacs)
 (require 'setup-search)
+(require 'setup-rg)
 (require 'setup-ibuffer)
 (require 'setup-recentf)
 (require 'setup-desktop)
