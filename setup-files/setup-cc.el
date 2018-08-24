@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-24 13:26:47 csraghunandan>
+;; Time-stamp: <2018-08-24 13:33:28 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -42,7 +42,66 @@
   (setq ccls-sem-highlight-method 'font-lock)
 
   (with-eval-after-load 'projectile
-    (add-to-list 'projectile-globally-ignored-directories ".ccls-cache")))
+    (add-to-list 'projectile-globally-ignored-directories ".ccls-cache"))
+
+  ;; https://github.com/MaskRay/Config/blob/master/home/.config/doom/modules/private/my-cc/autoload.el#L10
+  (defun ccls/base () (interactive) (lsp-ui-peek-find-custom 'base "$ccls/base"))
+  (defun ccls/callers () (interactive) (lsp-ui-peek-find-custom 'callers "$ccls/callers"))
+  (defun ccls/vars (kind) (lsp-ui-peek-find-custom 'vars "$ccls/vars" (plist-put (lsp--text-document-position-params) :kind kind)))
+  (defun ccls/bases ()
+    (interactive)
+    (lsp-ui-peek-find-custom 'base "$ccls/inheritanceHierarchy"
+                             (append (lsp--text-document-position-params) '(:flat t :level 3))))
+  (defun ccls/derived ()
+    (interactive)
+    (lsp-ui-peek-find-custom 'derived "$ccls/inheritanceHierarchy"
+                             (append (lsp--text-document-position-params) '(:flat t :level 3 :derived t))))
+  (defun ccls/members ()
+    (interactive)
+    (lsp-ui-peek-find-custom 'base "$ccls/memberHierarchy"
+                             (append (lsp--text-document-position-params) '(:flat t))))
+
+  ;; The meaning of :role corresponds to https://github.com/maskray/ccls/blob/master/src/symbol.h
+
+  ;; References w/ Role::Address bit (e.g. variables explicitly being taken addresses)
+  (defun ccls/references-address ()
+    (interactive)
+    (lsp-ui-peek-find-custom
+     'address "textDocument/references"
+     (plist-put (lsp--text-document-position-params) :context
+                '(:role 128))))
+
+  ;; References w/ Role::Dynamic bit (macro expansions)
+  (defun ccls/references-macro ()
+    (interactive)
+    (lsp-ui-peek-find-custom
+     'address "textDocument/references"
+     (plist-put (lsp--text-document-position-params) :context
+                '(:role 64))))
+
+  ;; References w/o Role::Call bit (e.g. where functions are taken addresses)
+  (defun ccls/references-not-call ()
+    (interactive)
+    (lsp-ui-peek-find-custom
+     'address "textDocument/references"
+     (plist-put (lsp--text-document-position-params) :context
+                '(:excludeRole 32))))
+
+  ;; References w/ Role::Read
+  (defun ccls/references-read ()
+    (interactive)
+    (lsp-ui-peek-find-custom
+     'read "textDocument/references"
+     (plist-put (lsp--text-document-position-params) :context
+                '(:role 8))))
+
+  ;; References w/ Role::Write
+  (defun ccls/references-write ()
+    (interactive)
+    (lsp-ui-peek-find-custom
+     'write "textDocument/references"
+     (plist-put (lsp--text-document-position-params) :context
+                '(:role 16)))))
 
 (defun ccls//enable ()
   "Enable lsp-ccls"
