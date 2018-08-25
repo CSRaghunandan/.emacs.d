@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-15 02:49:33 csraghunandan>
+;; Time-stamp: <2018-08-26 00:28:00 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -58,8 +58,7 @@
 
   (ivy-add-actions
    'counsel-projectile-find-file
-   `(("d" ,(reloading #'confirm-delete-file) "delete")
-     ("m" ,(reloading (given-file #'rename-file "Move")) "move")
+   `(("m" ,(reloading (given-file #'rename-file "Move")) "move")
      ("b" counsel-find-file-cd-bookmark-action "cd bookmark")))
 
   ;;;###autoload
