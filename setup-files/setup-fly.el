@@ -1,5 +1,5 @@
 ;;; setup-fly.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:56:44 csraghunandan>
+;; Time-stamp: <2018-08-26 00:24:48 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -24,8 +24,8 @@
   (when (executable-find "hunspell")
     (setq ispell-program-name (executable-find "hunspell"))
     (setq ispell-really-hunspell t)
-    (setenv "DICTIONARY" "english")
-    (setq ispell-dictionary "english")))
+    (setenv "DICTIONARY" "en_GB")
+    (setq ispell-dictionary "en_GB")))
 
 ;; flycheck: on the fly syntax checking
 ;; http://www.flycheck.org/en/latest/
@@ -65,10 +65,9 @@
 
 (provide 'setup-fly)
 
-;; to install and configure hunspell:
+;; to install and configure hunspell on MacOS:
 ;; brew install hunspell or sudo apt install hunspell
 ;; cd ~/Library/Spelling/
 ;; wget http://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.aff
 ;; wget http://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.dic
-;; ln -s en_GB.dic english.dic
-;; ln -s en_GB.aff english.aff
+;; TODO: write instructions for linux and windows
