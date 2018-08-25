@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-26 00:28:00 csraghunandan>
+;; Time-stamp: <2018-08-26 00:31:12 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -46,10 +46,7 @@
 
   (ivy-add-actions
    'counsel-find-file
-   `(("R" ,(reloading (given-file #'rename-file "Move")) "move")
-     ("F" find-file-other-frame "other frame")
-     ("d" ,(reloading #'confirm-delete-file) "delete")
-     ("p" (lambda (path) (with-ivy-window (insert (file-relative-name path default-directory)))) "insert relative path")
+   `(("p" (lambda (path) (with-ivy-window (insert (file-relative-name path default-directory)))) "insert relative path")
      ("P" (lambda (path) (with-ivy-window (insert path))) "insert absolute path")
      ("l" (lambda (path) "Insert org-link with relative path"
             (with-ivy-window (insert (format "[[./%s]]" (file-relative-name path default-directory))))) "insert org-link (rel. path)")
