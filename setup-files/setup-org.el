@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-24 12:55:15 csraghunandan>
+;; Time-stamp: <2018-08-26 17:18:23 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -637,15 +637,21 @@ This function is heavily adapted from `org-between-regexps-p'."
               (beginning-of-line (if at-bol -1 0)))))
       (message "Point is not in an Org block")))
 
-  ;; When point is in any Org block, make M-return split the block
-  ;; instead of inserting heading.
-  (defun modi/org-meta-return-advice (&rest args)
-    "Do not call the original function if point is in an Org block."
-    (let ((do-not-run-orig-fn (modi/org-in-any-block-p)))
-      (when do-not-run-orig-fn
-        (modi/org-split-block))
-      do-not-run-orig-fn))
-  (advice-add 'org-meta-return :before-until #'modi/org-meta-return-advice)
+  (defun modi/org-meta-return (&optional arg)
+    "Insert a new heading or wrap a region in a table.
+Calls `org-insert-heading', `org-insert-item',
+`org-table-wrap-region', or `modi/org-split-block' depending on
+context.  When called with an argument, unconditionally call
+`org-insert-heading'."
+    (interactive "P")
+    (org-check-before-invisible-edit 'insert)
+    (or (run-hook-with-args-until-success 'org-metareturn-hook)
+        (call-interactively (cond (arg #'org-insert-heading)
+                                  ((org-at-table-p) #'org-table-wrap-region)
+                                  ((org-in-item-p) #'org-insert-item)
+                                  ((modi/org-in-any-block-p) #'modi/org-split-block)
+                                  (t #'org-insert-heading)))))
+  (advice-add 'org-meta-return :override #'modi/org-meta-return)
 
   ;; Make C-u C-return insert heading *at point* (not respecting content),
   ;; even when the point is directly after a list item.
