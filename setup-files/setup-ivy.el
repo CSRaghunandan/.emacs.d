@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-22 11:15:36 csraghunandan>
+;; Time-stamp: <2018-08-28 13:02:23 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -45,6 +45,7 @@
 ;; ivy-rich: More friendly interface for ivy
 ;; https://github.com/Yevgnen/ivy-rich/
 (use-package ivy-rich
+  :disabled t
   :config
   (ivy-rich-mode 1)
   (setq ivy-rich-path-style 'abbrev))
