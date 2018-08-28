@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-28 16:38:15 csraghunandan>
+;; Time-stamp: <2018-08-28 16:42:04 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -57,7 +57,11 @@
             (ivy-rich-switch-buffer-indicators (:width 4 :face error :align right)); return the buffer indicators
             (ivy-rich-switch-buffer-major-mode (:width 12 :face warning))          ; return the major mode info
             (ivy-rich-switch-buffer-project (:width 15 :face success))             ; return project name using `projectile'
-            (ivy-rich-switch-buffer-path (:width (lambda (x) (ivy-rich-switch-buffer-shorten-path x (ivy-rich-minibuffer-width 0.3))))))  ; return file path relative to project root or `default-directory' if project is nil
+            (ivy-rich-switch-buffer-path
+             (:width (lambda (x)
+                       (ivy-rich-switch-buffer-shorten-path
+                        x
+                        (ivy-rich-minibuffer-width 0.3))))))  ; return file path relative to project root or `default-directory' if project is nil
            :predicate
            (lambda (cand) (get-buffer cand)))
           counsel-M-x
