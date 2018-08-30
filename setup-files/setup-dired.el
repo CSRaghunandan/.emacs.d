@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-30 16:09:40 csraghunandan>
+;; Time-stamp: <2018-08-30 16:15:24 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -131,7 +131,10 @@ It added extra strings at the front and back of the default dired buffer name."
                         (lambda ()
                           (setq ediff-after-quit-hook-internal nil)
                           (set-window-configuration wnd)))))
-        (error "no more than 2 files should be marked"))))
+        (error "no more than 2 files should be marked")))
+
+    (setq dired-garbage-files-regexp
+          "\\.idx\\|\\.run\\.xml$\\|\\.bbl$\\|\\.bcf$\\|.blg$\\|-blx.bib$\\|.nav$\\|.snm$\\|.out$\\|.synctex.gz$\\|\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|pyg\\)\\)\\'"))
 
   ;; dired-x: to hide uninteresting files in dired
   (use-package dired-x :ensure nil
