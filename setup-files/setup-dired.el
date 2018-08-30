@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-30 16:01:11 csraghunandan>
+;; Time-stamp: <2018-08-30 16:09:40 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -121,7 +121,7 @@ It added extra strings at the front and back of the default dired buffer name."
                                          (dired-dwim-target-directory)))))
             (when (file-newer-than-file-p file1 file2)
               (cl-rotatef file1 file2))
-            (if (string-match "current ar archive" (sc (format "file %s" file1)))
+            (if (string-match "current ar archive" (shell-command-to-string (format "file %s" file1)))
                 (async-shell-command
                  (format "hexdump-diffuse %s %s"
                          (shell-quote-argument file1)
