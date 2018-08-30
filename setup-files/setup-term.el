@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:08:54 csraghunandan>
+;; Time-stamp: <2018-08-30 16:27:05 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -77,7 +77,8 @@
                               (hungry-delete-mode -1)))
 
   (setq multi-term-buffer-name "term")
-  (setq multi-term-program (getenv "SHELL")))
+  (setq multi-term-program (getenv "SHELL")
+        multi-term-switch-after-close 'PREVIOUS))
 
 (provide 'setup-term)
 
