@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-15 02:50:54 csraghunandan>
+;; Time-stamp: <2018-08-30 16:01:11 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -119,13 +119,18 @@ It added extra strings at the front and back of the default dired buffer name."
                            (cadr files)
                          (read-file-name "file: "
                                          (dired-dwim-target-directory)))))
-            (if (file-newer-than-file-p file1 file2)
-                (ediff-files file2 file1)
-              (ediff-files file1 file2))
-            (add-hook 'ediff-after-quit-hook-internal
-                      (lambda ()
-                        (setq ediff-after-quit-hook-internal nil)
-                        (set-window-configuration wnd))))
+            (when (file-newer-than-file-p file1 file2)
+              (cl-rotatef file1 file2))
+            (if (string-match "current ar archive" (sc (format "file %s" file1)))
+                (async-shell-command
+                 (format "hexdump-diffuse %s %s"
+                         (shell-quote-argument file1)
+                         (shell-quote-argument file2)))
+              (ediff-files file1 file2)
+              (add-hook 'ediff-after-quit-hook-internal
+                        (lambda ()
+                          (setq ediff-after-quit-hook-internal nil)
+                          (set-window-configuration wnd)))))
         (error "no more than 2 files should be marked"))))
 
   ;; dired-x: to hide uninteresting files in dired
