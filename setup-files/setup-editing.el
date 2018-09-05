@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-24 16:03:49 csraghunandan>
+;; Time-stamp: <2018-09-05 09:07:57 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -597,5 +597,11 @@ associated with the original non-sudo filename."
 ;; https://github.com/QBobWatson/poporg
 (use-package poporg
   :bind (("C-c o p" . poporg-dwim)))
+
+;; adaptive-wrap: Smart line-wrapping with wrap-prefix
+;; https://github.com/emacsmirror/adaptive-wrap/blob/master/adaptive-wrap.el
+(use-package adaptive-wrap
+  :hook (visual-line-mode . adaptive-wrap-prefix-mode)
+  :config (setq-default adaptive-wrap-extra-indent 2))
 
 (provide 'setup-editing)
