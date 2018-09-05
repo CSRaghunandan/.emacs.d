@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-24 17:43:39 csraghunandan>
+;; Time-stamp: <2018-09-05 08:59:14 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -209,6 +209,11 @@
   ;; https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/cc/
   ;; Activate `c-mode', `c++-mode' or `objc-mode' depending on heuristics
   (add-to-list 'auto-mode-alist '("\\.h\\'" . +cc-c-c++-objc-mode)))
+
+;; highlight doxygen comments in Emacs, including code blocks
+;; https://github.com/Lindydancer/highlight-doxygen/tree/master
+(use-package highlight-doxygen
+  :hook ((c-mode c++-mode) . highlight-doxygen-mode))
 
 ;; Major mode for editing QT Declarative (QML) code.
 ;; https://github.com/coldnew/qml-mode
