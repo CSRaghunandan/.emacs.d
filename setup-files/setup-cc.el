@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-09-05 08:59:14 csraghunandan>
+;; Time-stamp: <2018-09-13 17:02:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -45,21 +45,27 @@
     (add-to-list 'projectile-globally-ignored-directories ".ccls-cache"))
 
   ;; https://github.com/MaskRay/Config/blob/master/home/.config/doom/modules/private/my-cc/autoload.el#L10
-  (defun ccls/base () (interactive) (lsp-ui-peek-find-custom 'base "$ccls/base"))
-  (defun ccls/callers () (interactive) (lsp-ui-peek-find-custom 'callers "$ccls/callers"))
-  (defun ccls/vars (kind) (lsp-ui-peek-find-custom 'vars "$ccls/vars" (plist-put (lsp--text-document-position-params) :kind kind)))
-  (defun ccls/bases ()
+  (defun ccls/callee ()
     (interactive)
-    (lsp-ui-peek-find-custom 'base "$ccls/inheritanceHierarchy"
-                             (append (lsp--text-document-position-params) '(:flat t :level 3))))
-  (defun ccls/derived ()
+    (lsp-ui-peek-find-custom 'callee "$ccls/call"
+                             (plist-put (lsp--text-document-position-params) :callee t)))
+  (defun ccls/caller ()
     (interactive)
-    (lsp-ui-peek-find-custom 'derived "$ccls/inheritanceHierarchy"
-                             (append (lsp--text-document-position-params) '(:flat t :level 3 :derived t))))
-  (defun ccls/members ()
+    (lsp-ui-peek-find-custom 'caller "$ccls/call"
+                             (lsp--text-document-position-params)))
+  (defun ccls/vars (kind)
+    (lsp-ui-peek-find-custom 'vars "$ccls/vars"
+                             (plist-put (lsp--text-document-position-params) :kind kind)))
+  (defun ccls/base (level)
+    (lsp-ui-peek-find-custom 'base "$ccls/inheritance"
+                             (append (lsp--text-document-position-params) `(:level ,level))))
+  (defun ccls/derived (level)
+    (lsp-ui-peek-find-custom 'derived "$ccls/inheritance"
+                             (append (lsp--text-document-position-params) '(:level ,level :derived t))))
+  (defun ccls/member ()
     (interactive)
-    (lsp-ui-peek-find-custom 'base "$ccls/memberHierarchy"
-                             (append (lsp--text-document-position-params) '(:flat t))))
+    (lsp-ui-peek-find-custom 'member "$ccls/member"
+                             (lsp--text-document-position-params)))
 
   ;; The meaning of :role corresponds to https://github.com/maskray/ccls/blob/master/src/symbol.h
 
