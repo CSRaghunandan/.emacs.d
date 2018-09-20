@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-16 15:09:27 csraghunandan>
+;; Time-stamp: <2018-09-20 13:02:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -127,7 +127,7 @@
   :after js2-mode
   :bind (:map js2-mode-map
               ("C-c C-l" . indium-eval-buffer))
-  :hook ((js2-mode . indium-interaction-mode)))
+  :hook (((js2-mode typescript-mode) . indium-interaction-mode)))
 
 ;; mocha: emacs mode for running mocha tests
 ;; https://github.com/scottaj/mocha.el
