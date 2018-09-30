@@ -1,5 +1,5 @@
 ;;; setup-projectile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-16 14:51:02 csraghunandan>
+;; Time-stamp: <2018-09-30 11:31:41 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -29,31 +29,14 @@
 
   ;; include the project root directory in projectile-find-dir list
   (setq projectile-find-dir-includes-top-level t)
-
 
-;;; Default rg arguments
-  ;; https://github.com/BurntSushi/ripgrep
-  (when (executable-find "rg")
-    (progn
-      (defconst modi/rg-arguments
-        `("--line-number" ; line numbers
-          "--follow" ; follow symlinks
-          "--color never"
-          "--max-columns 150"        ;Emacs doesn't handle long line lengths very well
-          "--mmap") ; apply memory map optimization when possible
-        "Default rg arguments used in the functions in `projectile' package.")
+  ;; use turbo indexing method for proectile
+  (setq projectile-indexing-method 'turbo-alien)
 
-      (defun modi/advice-projectile-use-rg ()
-        "Always use `rg' for getting a list of all files in the project."
-        (mapconcat 'identity
-                   (append '("\\rg") ; used unaliased version of `rg': \rg
-                           modi/rg-arguments
-                           '("--null" ; output null separated results,
-                             "--files")) ; get file names matching the regex '' (all files)
-                   " "))
+  ;; use fd if it exists to generate projectile list
+  (when (executable-find "fd")
+    (setq projectile-git-command "fd . -0"))
 
-      (advice-add 'projectile-get-ext-command
-                  :override #'modi/advice-projectile-use-rg)))
 
 
   ;; Make the file list creation faster by NOT calling `projectile-get-sub-projects-files'
