@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-09-13 17:02:26 csraghunandan>
+;; Time-stamp: <2018-09-30 11:41:18 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -27,16 +27,23 @@
 (use-package ccls
   :commands (lsp-css-enable)
   :init
+;;;###autoload
+  (defvar +ccls-path-mappings [])
+
+;;;###autoload
+  (defvar +ccls-initial-blacklist [])
+
   (setq ccls-executable (executable-find "ccls"))
-  (setq ccls-extra-init-params '(:completion
-          (
-           :detailedLabel t
-           :includeBlacklist
-           ("^/usr/(local/)?include/c\\+\\+/[0-9\\.]+/(bits|tr1|tr2|profile|ext|debug)/"
-            "^/usr/(local/)?include/c\\+\\+/v1/"
-            ))
-          :diagnostics (:frequencyMs 5000)
-          :index (:reparseForDependency 1)))
+
+  (setq
+   ccls-extra-init-params
+   `(:clang (:pathMappings ,+ccls-path-mappings)
+            :completion
+            (:includeBlacklist
+             ("^/usr/(local/)?include/c\\+\\+/[0-9\\.]+/(bits|tr1|tr2|profile|ext|debug)/"
+              "^/usr/(local/)?include/c\\+\\+/v1/"
+              ))
+            :index (:initialBlacklist ,+ccls-initial-blacklist :trackDependency 1)))
   :config
   ;; enable ccls semantic highlighting
   (setq ccls-sem-highlight-method 'font-lock)
@@ -47,26 +54,18 @@
   ;; https://github.com/MaskRay/Config/blob/master/home/.config/doom/modules/private/my-cc/autoload.el#L10
   (defun ccls/callee ()
     (interactive)
-    (lsp-ui-peek-find-custom 'callee "$ccls/call"
-                             (plist-put (lsp--text-document-position-params) :callee t)))
+    (lsp-ui-peek-find-custom 'callee "$ccls/call" '(:callee t)))
   (defun ccls/caller ()
     (interactive)
-    (lsp-ui-peek-find-custom 'caller "$ccls/call"
-                             (lsp--text-document-position-params)))
+    (lsp-ui-peek-find-custom 'caller "$ccls/call"))
   (defun ccls/vars (kind)
-    (lsp-ui-peek-find-custom 'vars "$ccls/vars"
-                             (plist-put (lsp--text-document-position-params) :kind kind)))
-  (defun ccls/base (level)
-    (lsp-ui-peek-find-custom 'base "$ccls/inheritance"
-                             (append (lsp--text-document-position-params) `(:level ,level))))
-  (defun ccls/derived (level)
-    (lsp-ui-peek-find-custom 'derived "$ccls/inheritance"
-                             (append (lsp--text-document-position-params) '(:level ,level :derived t))))
-  (defun ccls/member ()
-    (interactive)
-    (lsp-ui-peek-find-custom 'member "$ccls/member"
-                             (lsp--text-document-position-params)))
-
+    (lsp-ui-peek-find-custom 'vars "$ccls/vars" `(:kind ,kind)))
+  (defun ccls/base (levels)
+    (lsp-ui-peek-find-custom 'base "$ccls/inheritance" `(:levels ,levels)))
+  (defun ccls/derived (levels)
+    (lsp-ui-peek-find-custom 'derived "$ccls/inheritance" `(:levels ,levels :derived t)))
+  (defun ccls/member (kind)
+    (lsp-ui-peek-find-custom 'member "$ccls/member" `(:kind ,kind)))
   ;; The meaning of :role corresponds to https://github.com/maskray/ccls/blob/master/src/symbol.h
 
   ;; References w/ Role::Address bit (e.g. variables explicitly being taken addresses)
