@@ -1,5 +1,5 @@
 ;;; setup-compile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 04:00:03 csraghunandan>
+;; Time-stamp: <2018-09-30 11:53:39 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,11 @@
 (setq compilation-always-kill t
       compilation-ask-about-save nil
       compilation-scroll-output t)
+
+;; https://gitlab.com/jgkamat/rmsbolt
+;; rmsbolt:A godbolt embedded in Emacs
+(use-package rmsbolt
+  :defer t)
 
 ;; quickrun - Execute editing buffer and show its output quickly.
 ;; https://github.com/syohex/emacs-quickrun
