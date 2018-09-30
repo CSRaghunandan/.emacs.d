@@ -1,5 +1,5 @@
 ;;; setup-projectile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-09-30 11:31:41 csraghunandan>
+;; Time-stamp: <2018-09-30 23:22:05 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -32,10 +32,6 @@
 
   ;; use turbo indexing method for proectile
   (setq projectile-indexing-method 'turbo-alien)
-
-  ;; use fd if it exists to generate projectile list
-  (when (executable-find "fd")
-    (setq projectile-git-command "fd . -0"))
 
 
 
