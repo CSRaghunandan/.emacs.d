@@ -1,5 +1,5 @@
 ;;; setup-pdf.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:05:38 csraghunandan>
+;; Time-stamp: <2018-10-01 15:37:45 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -84,6 +84,12 @@
     ("N" pdf-history-forward :color red)
     ("l" image-forward-hscroll :color red)
     ("h" image-backward-hscroll :color red)))
+
+;; pdfgrep: PDFGrep is a GNU/Emacs module providing grep comparable facilities but for PDF files
+;; https://github.com/jeremy-compostella/pdfgrep
+(use-package pdfgrep
+  :after pdf-tools
+  :config (pdfgrep-mode))
 
 (provide 'setup-pdf)
 

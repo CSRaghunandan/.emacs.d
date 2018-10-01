@@ -43,6 +43,8 @@
 
 (define-abbrev-table 'cargo-process-mode-abbrev-table '())
 
+(define-abbrev-table 'ccls-tree-mode-abbrev-table '())
+
 (define-abbrev-table 'change-log-mode-abbrev-table '())
 
 (define-abbrev-table 'cmake-mode-abbrev-table '())
@@ -474,6 +476,7 @@
     ("entree" "entree" nil :count 0)
     ("equippment" "equipment" nil :count 0)
     ("equivalant" "equivalent" nil :count 0)
+    ("erreneous" "erroneous" nil :count 0)
     ("esle" "else" nil :count 0)
     ("especally" "especially" nil :count 0)
     ("especialyl" "especially" nil :count 0)
@@ -1235,6 +1238,8 @@
 
 (define-abbrev-table 'magit-submodule-list-mode-abbrev-table '())
 
+(define-abbrev-table 'magit-todos-list-mode-abbrev-table '())
+
 (define-abbrev-table 'markdown-mode-abbrev-table '())
 
 (define-abbrev-table 'markdown-view-mode-abbrev-table '())
@@ -1289,7 +1294,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'quickrun--mode-abbrev-table '())
 
