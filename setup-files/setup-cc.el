@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-09-30 11:41:18 csraghunandan>
+;; Time-stamp: <2018-10-02 23:46:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,10 +17,6 @@
 ;; https://github.com/ludwigpacifici/modern-cpp-font-lock
 (use-package modern-cpp-font-lock
   :hook (c++-mode . modern-c++-font-lock-mode))
-
-;; clang-format: format C/C++ buffers using clang-format
-;; https://github.com/emacsorphanage/clang-format
-(use-package clang-format)
 
 ;; ccls: Emacs client for ccls, a C/C++ language server
 ;; https://github.com/MaskRay/emacs-ccls
@@ -127,7 +123,7 @@
                                 (add-hook 'before-save-hook
                                           (lambda ()
                                             (time-stamp)
-                                            (clang-format-buffer)) nil t))))
+                                            (lsp-format-buffer)) nil t))))
   :init
   (c-add-style "llvm"
                '("gnu"
