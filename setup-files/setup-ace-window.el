@@ -1,5 +1,5 @@
 ;;; setup-ace-window.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:39:38 csraghunandan>
+;; Time-stamp: <2018-10-16 16:39:24 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,8 +11,11 @@
   :bind* ("C-c w" . ace-window)
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  ;; ignore case
+  (setq aw-translate-char-function #'downcase)
   ;; enable aw dispatch even for just one window
   (setq aw-dispatch-always t)
+
   ;; add hydras to control window size and scroll other window
   (setq aw-dispatch-alist
    '((?x aw-delete-window " Ace - Delete Window")
