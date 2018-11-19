@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-24 12:46:31 csraghunandan>
+;; Time-stamp: <2018-11-20 00:13:07 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -122,7 +122,7 @@
 (require 'setup-shell)
 (require 'setup-smerge)
 (require 'setup-nov)
-(require 'xkcd)
+(require 'setup-xkcd)
 (require 'setup-docker)
 (require 'setup-pdf)
 (require 'setup-engine-mode)
