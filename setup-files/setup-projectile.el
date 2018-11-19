@@ -1,5 +1,5 @@
 ;;; setup-projectile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-09-30 23:22:05 csraghunandan>
+;; Time-stamp: <2018-11-20 00:18:31 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -31,7 +31,7 @@
   (setq projectile-find-dir-includes-top-level t)
 
   ;; use turbo indexing method for proectile
-  (setq projectile-indexing-method 'turbo-alien)
+  (setq projectile-indexing-method 'alien)
 
 
 
