@@ -1,5 +1,5 @@
 ;;; setup-fly.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-26 00:24:48 csraghunandan>
+;; Time-stamp: <2018-11-20 14:40:40 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,6 +13,16 @@
   ((org-mode . flyspell-mode)
    (markdown-mode . flyspell-mode)
    (prog-mode . flyspell-prog-mode))
+  :init
+  (setq ispell-dictionary-alist
+        '((nil "[A-Za-z]" "[^A-Za-z]" "[']" t
+               ("-d" "en_US" "-i" "utf-8") nil utf-8)
+          ("american"
+           "[A-Za-z]" "[^A-Za-z]" "[']" nil
+           ("-d" "en_US") nil utf-8)
+          ("british"
+           "[A-Za-z]" "[^A-Za-z]" "[']" nil
+           ("-d" "en_GB") nil utf-8)))
   :config
   ;; Save a new word to personal dictionary without asking
   (setq ispell-silently-savep t)
@@ -23,9 +33,8 @@
   ;; use hunspell as the default dictionary
   (when (executable-find "hunspell")
     (setq ispell-program-name (executable-find "hunspell"))
-    (setq ispell-really-hunspell t)
-    (setenv "DICTIONARY" "en_GB")
-    (setq ispell-dictionary "en_GB")))
+    (setq ispell-dictionary "british")
+    (setq ispell-really-hunspell t)))
 
 ;; flycheck: on the fly syntax checking
 ;; http://www.flycheck.org/en/latest/
