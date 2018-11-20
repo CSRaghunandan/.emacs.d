@@ -1,5 +1,5 @@
 ;;; setup-fly.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-11-20 14:40:40 csraghunandan>
+;; Time-stamp: <2018-11-20 14:46:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -80,3 +80,7 @@
 ;; wget http://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.aff
 ;; wget http://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.dic
 ;; TODO: write instructions for linux and windows
+;;
+;; for ArchLinux, do the following to install hunspell along with is dictionaries
+;; sudo pacman -S hunspell
+;; sudo pacman -S hunspell-en_US hunspell-en_GB
