@@ -1,5 +1,5 @@
 ;;; setup-osx.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:39:20 csraghunandan>
+;; Time-stamp: <2018-11-26 12:05:57 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -47,8 +47,6 @@
 ;; https://github.com/lunaryorn/osx-trash.el
 (use-package osx-trash
   :if (is-mac-p)
-  :config
-  (setq delete-by-moving-to-trash t)
-  (osx-trash-setup))
+  :config (osx-trash-setup))
 
 (provide 'setup-osx)
