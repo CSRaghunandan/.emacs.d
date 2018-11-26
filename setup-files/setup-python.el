@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 13:49:11 csraghunandan>
+;; Time-stamp: <2018-11-26 16:15:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -48,8 +48,7 @@
                 (add-hook 'before-save-hook
                           (lambda ()
                             (time-stamp)
-                            (lsp-format-buffer)
-                            (lsp-restart-workspace)) nil t)))))
+                            (lsp-format-buffer)) nil t)))))
 
 ;; pytest: for testing python code
 ;; https://github.com/ionrock/pytest-el
