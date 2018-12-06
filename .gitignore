@@ -39,3 +39,6 @@ package-quickstart.el
 
 # ignore var directory
 var/
+
+# ignore anaconda directory
+anaconda-mode/

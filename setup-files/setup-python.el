@@ -1,34 +1,25 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-11-26 16:15:02 csraghunandan>
+;; Time-stamp: <2018-12-06 20:59:42 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 (use-package python
   :ensure nil
-  :hook ((python-mode . (lambda ()
-                          (require 'lsp-python)
-                          (lsp-python-enable)
-                          (lsp-ui-mode)
-                          (eldoc-mode -1)
-                          (lsp-ui-sideline-mode)
-                          (lsp-ui-doc-mode)
-                          (flycheck-mode)
-                          (smart-dash-mode)
-                          (company-mode)
-                          (setq-local lsp-highlight-symbol-at-point nil)))
-         (python-mode . (lambda ()
-                          (setq-local tab-width 4)))
+  :bind (:map python-mode-map
+              (("C-c C-t" . anaconda-mode-show-doc)
+               ("M-." . anaconda-mode-find-definitions)
+               ("M-," . anaconda-mode-go-back-definitions)))
+  :hook ((python-mode .  (lambda ()
+                           (company-mode)
+                           (smart-dash-mode)
+                           (flycheck-mode)
+                           (setq-local tab-width 4)))
          (inferior-python-mode . company-mode))
+
   :config
   ;; don't try to guess python indent offset
   (setq python-indent-guess-indent-offset nil)
-
-  (defun my-python-mode-hook ()
-    (set (make-local-variable 'company-backends)
-         '((company-lsp company-files :with company-yasnippet)
-           (company-dabbrev-code company-dabbrev))))
-  (add-hook 'python-mode-hook #'my-python-mode-hook)
 
   ;; from https://www.snip2code.com/Snippet/127022/Emacs-auto-remove-unused-import-statemen
   (defun python-remove-unused-imports()
@@ -40,19 +31,33 @@
           (shell-command (format "autoflake --remove-all-unused-imports -i %s"
                                  (shell-quote-argument (buffer-file-name))))
           (revert-buffer t t t))
-      (warn "python-mode: Cannot find autoflake executable, automatic removal of unused imports disabled")))
-
-  (when (executable-find "yapf")
-    (add-hook 'python-mode-hook
-              (lambda ()
-                (add-hook 'before-save-hook
-                          (lambda ()
-                            (time-stamp)
-                            (lsp-format-buffer)) nil t)))))
+      (warn "python-mode: Cannot find autoflake executable, automatic removal of unused imports disabled"))))
 
 ;; pytest: for testing python code
 ;; https://github.com/ionrock/pytest-el
 (use-package pytest :defer t)
+
+;; format python buffers using yapf
+;; https://github.com/JorisE/yapfify/tree/master
+(use-package yapfify
+  :hook ((python-mode . yapf-mode)))
+
+;; anaconda-mode: bring IDE like features for python-mode
+;; https://github.com/proofit404/anaconda-mode
+(use-package anaconda-mode
+  :hook ((python-mode . anaconda-mode)
+         (python-mode . anaconda-eldoc-mode)))
+
+;; company-anaconda: company backend for anaconda
+;; https://github.com/proofit404/company-anaconda
+(use-package company-anaconda
+  :after anaconda-mode
+  :config
+  (defun my-anaconda-mode-hook ()
+    "Hook for `web-mode'."
+    (set (make-local-variable 'company-backends)
+         '((company-anaconda company-files company-yasnippet))))
+  (add-hook 'python-mode-hook 'my-anaconda-mode-hook))
 
 ;; pyenv-mode: Integrate pyenv with python-mode.
 ;; https://github.com/proofit404/pyenv-mode
@@ -69,6 +74,11 @@
           (pyenv-mode-set project)
         (pyenv-mode-unset))))
   (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set))
+
+;; py-isort: sort import statements in python buffers
+;; https://github.com/paetzke/py-isort.el
+(use-package py-isort
+  :if (executable-find "isort"))
 
 ;; python-docstring: format and highlight syntax for python docstrings
 ;; https://github.com/glyph/python-docstring-mode
@@ -88,7 +98,9 @@
 
 (provide 'setup-python)
 
-;; to get all the functionalities of thepython language server, install using
-;; pip the below packages:
-;;   python-language-server, Jedi, Rope, Pyflakes, McCabe, pycodestyle,
-;;   pydocstyle, yapf, pyls-mypy, pyls-isort
+;; python anaconda-mode config
+;; `C-c C-t' to show documentation of the thing at point
+;; `M-.' to jump to the definition of a function
+;; `M-,' to jump back from definition of a function
+;; yapf will automatically format the buffer on save :)
+;; to add sphinx-docs to a function, press `C-c M-d' on a function definition
