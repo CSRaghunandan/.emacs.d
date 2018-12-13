@@ -1,14 +1,10 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-14 00:34:44 csraghunandan>
+;; Time-stamp: <2018-12-14 01:02:33 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; rust-mode, RLS, cargo
-
-;; lsp-rust: Rust support for lsp-mode using the Rust Language Server.
-;; https://github.com/emacs-lsp/lsp-rust
-(use-package lsp-rust)
 
 ;; rust-mode: major-mode for editing rust files
 ;; https://github.com/rust-lang/rust-mode
