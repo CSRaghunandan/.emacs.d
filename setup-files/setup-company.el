@@ -1,5 +1,5 @@
 ;;; setup-company.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:45:38 csraghunandan>
+;; Time-stamp: <2018-12-14 02:31:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -59,6 +59,14 @@
 (use-package company-prescient
   :hook (company-mode . company-prescient-mode)
   :config (prescient-persist-mode +1))
+
+;; company-quickhelp: documentation popup for company
+;; https://github.com/expez/company-quickhelp/tree/master
+(use-package company-quickhelp
+  :after company
+  :config
+  (when (is-linux-p)
+    (company-quickhelp-mode)))
 
 (provide 'setup-company)
 
