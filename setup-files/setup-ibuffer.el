@@ -1,5 +1,5 @@
 ;;; setup-ibuffer.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:58:28 csraghunandan>
+;; Time-stamp: <2018-12-13 21:43:01 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -50,7 +50,7 @@
                   " "
                   (mode 16 16 :left :elide)
                   " "
-                  filename-and-process))))
+                  vc-relative-file))))
 
   ;; Don't show scratch and messages in iBuffer
   (require 'ibuf-ext)
