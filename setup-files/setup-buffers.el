@@ -1,5 +1,5 @@
 ;;; setup-buffers.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:41:34 csraghunandan>
+;; Time-stamp: <2018-12-13 20:18:56 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -413,5 +413,17 @@ Add this to `kill-buffer-query-functions'."
 
 ;; Don't kill important buffers
 (add-hook 'kill-buffer-query-functions #'mu-do-not-kill-important-buffers)
+
+;; vlf: View large files without slowing emacs to a crawl
+;; https://github.com/m00natic/vlfi
+(use-package vlf :defer t
+  :config
+  (defun ffap-vlf ()
+    "Find file at point with VLF."
+    (interactive)
+    (let ((file (ffap-file-at-point)))
+      (unless (file-exists-p file)
+        (error "File does not exist: %s" file))
+      (vlf file))))
 
 (provide 'setup-buffers)
