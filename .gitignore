@@ -45,3 +45,6 @@ anaconda-mode/
 
 # ignore bm directory
 bm-repository
+
+# ignore lsp session files
+.lsp-session*
