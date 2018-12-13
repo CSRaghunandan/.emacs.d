@@ -1,5 +1,5 @@
 ;;; setup-search.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-24 12:45:45 csraghunandan>
+;; Time-stamp: <2018-12-14 02:06:03 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -102,11 +102,5 @@ happens within a region if one is selected."
    '(replace-eval-replacement replace-quote
                               (if (match-string 1) string-2 string-1))
    t t delimited nil nil start end))
-
-;; A helpful query-replace for Emacs
-;; https://github.com/Wilfred/ez-query-replace.el
-(use-package ez-query-replace
-  :bind (([remap query-replace] . ez-query-replace)
-         ("C-c M-%" . ez-query-replace-repeat)))
 
 (provide 'setup-search)
