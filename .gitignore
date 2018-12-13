@@ -42,3 +42,6 @@ var/
 
 # ignore anaconda directory
 anaconda-mode/
+
+# ignore bm directory
+bm-repository
