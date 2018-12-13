@@ -1,5 +1,5 @@
 ;;; setup-css.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 23:03:49 csraghunandan>
+;; Time-stamp: <2018-12-14 01:14:09 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,10 +10,8 @@
          (company-dabbrev-code company-dabbrev))))
 
 (defun lsp-css-common-setup()
-  (lsp-ui-mode)
   (eldoc-mode)
   (flycheck-mode)
-  (my-css-mode-hook)
   (company-mode)
   (emmet-mode)
   (prettier-js-mode)
@@ -23,42 +21,31 @@
 (use-package css-mode
   :ensure nil
   :hook ((css-mode . (lambda ()
-                       (my-css-mode-setup)
-                       (lsp-css-common-setup))))
+                       (lsp-css-common-setup)
+                       (lsp))))
   :config
-  (defun my-css-mode-setup ()
-    (when (eq major-mode 'css-mode)
-      ;; Only enable in strictly css-mode, not scss-mode (css-mode-hook
-      ;; fires for scss-mode because scss-mode is derived from css-mode)
-      (lsp-css-enable)))
-
   (setq css-indent-offset 2))
-
-;; CSS, LESS, and SCSS/SASS support for lsp-mode using vscode-css-languageserver-bin
-;; https://github.com/emacs-lsp/lsp-css
-(use-package lsp-css
-  :defer t)
 
 (use-package less-css-mode              ; Mode for Less CSS files
   :ensure nil
   :mode "\\.less\\'"
   :hook ((less-css . (lambda ()
-                       (lsp-less-enable)
-                       (lsp-css-common-setup)))))
+                       (lsp-css-common-setup)
+                       (lsp)))))
 
 ;; major mode for editing sass files
 ;; https://github.com/nex3/sass-mode
 (use-package sass-mode
   :mode (("\\.sass\\'" . sass-mode))
   :hook ((sass-mode . (lambda ()
-                        (lsp-scss-enable)
-                        (lsp-css-common-setup)))))
+                        (lsp-css-common-setup)
+                        (lsp)))))
 
 (use-package scss-mode                  ; Mode for SCSS files
   :ensure nil
   :mode "\\.scss\\'"
   :hook ((sass-mode . (lambda ()
-                        (lsp-scss-enable)
-                        (lsp-css-common-setup)))))
+                        (lsp-css-common-setup)
+                        (lsp)))))
 
 (provide 'setup-css)
