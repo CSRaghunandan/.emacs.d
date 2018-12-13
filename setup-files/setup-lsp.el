@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 23:22:53 csraghunandan>
+;; Time-stamp: <2018-12-14 01:21:00 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,10 +8,7 @@
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
   :commands lsp
-  :config
-  (require 'lsp-clients)
-
-  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
+  :config (require 'lsp-clients))
 
 ;; company-lsp: Company completion backend for lsp-mode.
 ;; https://github.com/tigersoldier/company-lsp/
