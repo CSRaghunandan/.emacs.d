@@ -1,5 +1,5 @@
 ;;; setup-pdf.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-10-01 15:37:45 csraghunandan>
+;; Time-stamp: <2018-12-02 18:59:32 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,6 +22,9 @@
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
   ;; turn off cua so copy works
   (add-hook 'pdf-view-mode-hook (lambda () (cua-mode 0)))
+
+  ;; add history for PDF files
+  (add-hook 'pdf-view-mode-hook #'pdf-history-minor-mode)
   ;; more fine-grained zooming
   (setq pdf-view-resize-factor 1.1)
 

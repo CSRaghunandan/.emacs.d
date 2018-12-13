@@ -1,5 +1,5 @@
 ;;; setup-packages.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 13:06:32 csraghunandan>
+;; Time-stamp: <2018-12-13 19:58:47 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -24,7 +24,6 @@
                            (key-chord-mode 1))))
 
 (use-package use-package-chords)
-(use-package use-package-ensure-system-package)
 
 ;; http://emacs.stackexchange.com/a/26513/115
 (defun modi/package-dependency-check-ignore (orig-ret)

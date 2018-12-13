@@ -1,5 +1,5 @@
 ;;; setup-haskell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:57:35 csraghunandan>
+;; Time-stamp: <2018-12-13 19:56:04 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -41,7 +41,6 @@
 ;; commercialhaskell.github.io/intero
 (use-package intero
   :after haskell-mode
-  :ensure-system-package (hlint . "stack install hlint")
   :config
   ;; enable hlint checker for flycheck
   (flycheck-add-next-checker 'intero
@@ -50,13 +49,11 @@
 ;; hlint-refactor:Emacs bindings for hlint's --refactor option
 ;; https://github.com/mpickering/hlint-refactor-mode
 (use-package hlint-refactor
-  :ensure-system-package (refactor . "stack install apply-refact")
   :hook (haskell-mode . hlint-refactor-mode))
 
 ;; hindent: format haskell code automatically
 ;; https://github.com/chrisdone/hindent
 (use-package hindent
-  :ensure-system-package (hindent . "stack install hindent")
   :hook (haskell-mode . hindent-mode)
   :config
   ;; reformat the buffer using hindent on save

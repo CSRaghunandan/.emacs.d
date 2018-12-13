@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-09-20 13:02:15 csraghunandan>
+;; Time-stamp: <2018-12-13 19:53:29 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -14,9 +14,6 @@
                        (flycheck-mode)
                        (my-tide-setup-hook)
                        (company-mode))))
-  :ensure-system-package ((prettier . "npm i -g prettier")
-                          (eslint . "npm i -g eslint")
-                          (eslint_d . "npm i -g eslint_d"))
   :config
   ;; have 2 space indentation by default
   (setq js-indent-level 2

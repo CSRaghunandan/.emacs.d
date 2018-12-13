@@ -1,14 +1,12 @@
 ;;; setup-web-mode.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:10:11 csraghunandan>
+;; Time-stamp: <2018-12-13 19:54:24 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; HTML support for lsp-mode using vscode-html-languageserver-bin
 ;; https://github.com/emacs-lsp/lsp-html
-(use-package lsp-html
-  :ensure-system-package
-  (html-languageserver . "npm i -g vscode-html-languageserver-bin"))
+(use-package lsp-html)
 
 ;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode

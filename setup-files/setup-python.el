@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-06 20:59:42 csraghunandan>
+;; Time-stamp: <2018-12-13 19:57:10 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -62,8 +62,6 @@
 ;; pyenv-mode: Integrate pyenv with python-mode.
 ;; https://github.com/proofit404/pyenv-mode
 (use-package pyenv-mode
-  :ensure-system-package
-  (pyenv . "curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash")
   :hook ((python-mode . pyenv-mode))
   :config
   ;; integrate pyenv with projectile

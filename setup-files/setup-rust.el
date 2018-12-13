@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 13:37:27 csraghunandan>
+;; Time-stamp: <2018-12-13 19:57:43 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -27,10 +27,6 @@
          ("C-c v t" . wh/rust-toggle-visibility)
          ("C-c m t" . wh/rust-toggle-mutability)
          ("C-c v s" . wh/rust-vec-as-slice))
-  :ensure-system-package
-  ((rustfmt . "rustup component add rustfmt-preview")
-   (racer . "cargo install racer")
-   (rls . "rustup component add rls-preview rust-analysis rust-src"))
   :config
   (setq rust-indent-method-chain t)
 

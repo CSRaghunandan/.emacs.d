@@ -1,5 +1,5 @@
 ;;; setup-typescript.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-16 15:05:47 csraghunandan>v
+;; Time-stamp: <2018-12-13 19:54:00 csraghunandan>v
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,7 +13,6 @@
                               (my-tide-setup-hook)
                               (add-node-modules-path)
                               (company-mode))))
-  :ensure-system-package (tslint . "npm i -g tslint")
   :bind ((:map typescript-mode-map
                ("C-c C-t" . tide-documentation-at-point)
                ("C-c T p" . typescript/open-region-in-playground)))
