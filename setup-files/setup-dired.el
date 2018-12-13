@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-30 16:15:24 csraghunandan>
+;; Time-stamp: <2018-12-13 20:15:20 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -156,6 +156,10 @@ It added extra strings at the front and back of the default dired buffer name."
 ;; https://github.com/purcell/diredfl/tree/085eabf2e70590ec8e31c1e66931d652d8eab432
 (use-package diredfl
   :config (diredfl-global-mode))
+
+(use-package wdired :defer t
+  :ensure nil
+  :config (setq wdired-allow-to-change-permissions t))
 
 ;; dired-quick-sort: hydra to sort files in dired
 ;; Press `S' to invoke dired-quick-sort hydra
