@@ -1,12 +1,8 @@
 ;;; setup-web-mode.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 19:54:24 csraghunandan>
+;; Time-stamp: <2018-12-14 01:23:34 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
-
-;; HTML support for lsp-mode using vscode-html-languageserver-bin
-;; https://github.com/emacs-lsp/lsp-html
-(use-package lsp-html)
 
 ;; web-mode: major-mode for editing multiple web formats
 ;; http://web-mode.org/ , https://github.com/fxbois/web-mode
@@ -89,8 +85,7 @@
 
   (defun lsp-html-setup ()
     "Function to setup `lsp-html'"
-    (lsp-html-enable)
-    (lsp-ui-mode)
+    (lsp)
     (my-lsp-html-mode-hook)
     (emmet-mode)
     (setq-local lsp-highlight-symbol-at-point nil)
