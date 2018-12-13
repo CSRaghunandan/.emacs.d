@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 21:54:50 csraghunandan>
+;; Time-stamp: <2018-12-13 23:15:23 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -99,14 +99,12 @@
 
 (defun ccls//enable ()
   "Enable lsp-ccls"
-  (condition-case nil
-      (lsp-ccls-enable)
-    (user-error nil)))
+  (require 'ccls)
+  (lsp))
 
 (use-package cc-mode :ensure nil
   :hook (((c++-mode c-mode) . (lambda ()
                                 (ccls//enable)
-                                (lsp-ui-mode)
                                 (eldoc-mode)
                                 (lsp-ui-sideline-mode)
                                 (flycheck-mode)

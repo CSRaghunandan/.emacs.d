@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:03:14 csraghunandan>
+;; Time-stamp: <2018-12-13 23:22:53 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,10 +7,11 @@
 ;; lsp-mode:  Emacs client/library for the Language Server Protocol
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
+  :commands lsp
   :config
-  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
-  (add-to-list 'lsp-project-blacklist "^/Users/csraghunandan/Library/Caches/Homebrew/emacs--git/$")
-  (add-to-list 'lsp-project-blacklist "^/Users/csraghunandan/\\.emacs\\.d/$"))
+  (require 'lsp-clients)
+
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
 
 ;; company-lsp: Company completion backend for lsp-mode.
 ;; https://github.com/tigersoldier/company-lsp/

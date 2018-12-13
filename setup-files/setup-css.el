@@ -1,5 +1,5 @@
 ;;; setup-css.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 19:53:50 csraghunandan>
+;; Time-stamp: <2018-12-13 23:03:49 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -36,7 +36,8 @@
 
 ;; CSS, LESS, and SCSS/SASS support for lsp-mode using vscode-css-languageserver-bin
 ;; https://github.com/emacs-lsp/lsp-css
-(use-package lsp-css)
+(use-package lsp-css
+  :defer t)
 
 (use-package less-css-mode              ; Mode for Less CSS files
   :ensure nil
