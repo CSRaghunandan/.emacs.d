@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 19:57:43 csraghunandan>
+;; Time-stamp: <2018-12-14 00:34:44 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -14,11 +14,10 @@
 ;; https://github.com/rust-lang/rust-mode
 (use-package rust-mode
   :hook ((rust-mode . (lambda ()
-                        (lsp-rust-enable)
-                        (lsp-ui-mode)
-                        (lsp-ui-sideline-mode)
+                        (lsp)
                         (lsp-ui-doc-mode)
-                        (eldoc-mode -1)
+                        (lsp-ui-sideline-mode)
+                        (eldoc-mode)
                         (flycheck-mode)
                         (smart-dash-mode)
                         (company-mode))))
