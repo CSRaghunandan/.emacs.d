@@ -1,5 +1,5 @@
 ;;; setup-help.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:57:47 csraghunandan>
+;; Time-stamp: <2018-12-14 01:50:44 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,7 +8,7 @@
 ;; https://github.com/Wilfred/helpful
 (use-package helpful
   :bind*
-  (("C-? k" . helpful-key)
+  (("C-h k" . helpful-key)
    ("C-c C-." . helpful-at-point)))
 
 ;; more info in apropos

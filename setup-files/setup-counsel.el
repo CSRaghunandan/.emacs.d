@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-08-26 00:31:12 csraghunandan>
+;; Time-stamp: <2018-12-14 01:53:32 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -95,7 +95,7 @@
   (setq counsel-grep-post-action-hook '(recenter))
 
   (bind-keys
-   ([remap finder-by-keyword] . counsel-package) ; C-? p
+   ([remap finder-by-keyword] . counsel-package) ; C-h p
    ([remap bookmark-set] . counsel-bookmark)
    ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
    ("C-c d s" . describe-symbol)
@@ -120,7 +120,7 @@
 ;; `counsel-yank-pop' -> access the kill ring using ivy
 ;; `counsel-unicode-char' -> search through Unicode characters using ivy
 ;; `counsel-rg' -> search the all files in the current directory using `ripgrep'
-;; `counsel-descbinds' -> lists all the key bindings in the current buffer `C-? b'
+;; `counsel-descbinds' -> lists all the key bindings in the current buffer `C-h b'
 ;; `counsel-mark-ring' -> access the mark ring for the current buffer using ivy
 ;; `counsel-faces' -> lists all the face colours in emacs
 ;; `counsel-ibuffer' -> run swiper search on content

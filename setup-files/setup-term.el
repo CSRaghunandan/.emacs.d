@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-30 16:27:05 csraghunandan>
+;; Time-stamp: <2018-12-14 01:51:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -60,7 +60,6 @@
           ("C-y"     . term-paste)
           ("M-f"     . term-send-forward-word)
           ("M-b"     . term-send-backward-word)
-          ("C-h"     . term-send-backspace)
           ("M-p"     . term-send-up)
           ("M-n"     . term-send-down)
           ("M-d"     . term-send-forward-kill-word)

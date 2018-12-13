@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-09-05 09:07:57 csraghunandan>
+;; Time-stamp: <2018-12-14 01:51:34 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -361,10 +361,6 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
  ("C-c o s" . cycle-spacing)
  ("M-;" . comment-line)
  ("C-c o o" . xah-clean-whitespace))
-
-(bind-keys*
- ("C-h" . delete-backward-char)
- ("C-M-h" . backward-kill-word))
 
 ;; configuration for auto-fill-mode
 (use-package simple :ensure nil

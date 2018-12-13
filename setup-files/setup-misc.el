@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-11-26 12:05:47 csraghunandan>
+;; Time-stamp: <2018-12-14 01:53:16 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -35,8 +35,6 @@ not prevent downloading the actual packages (obviously)."
       eldoc-echo-area-use-multiline-p t)
 
 (setq delete-by-moving-to-trash t)
-
-(bind-key* "C-?" 'help-command)
 
 ;; echo commands as I type
 (setq echo-keystrokes 0.01)
