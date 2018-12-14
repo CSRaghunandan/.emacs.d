@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:09:38 csraghunandan>
+;; Time-stamp: <2018-12-14 13:17:12 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -26,7 +26,7 @@
 
     ;; set the correct python3 executable path. This is needed for
     ;; treemacs-git-mode extended
-    (setq treemacs-python-executable (executable-find "python3"))
+    (setq treemacs-python-executable (executable-find "python"))
 
     ;; don't show files in .gitignore
     (add-to-list 'treemacs-pre-file-insert-predicates #'treemacs-is-file-git-ignored?)
@@ -36,7 +36,7 @@
     (treemacs-fringe-indicator-mode t)
 
     (pcase (cons (not (null (executable-find "git")))
-                 (not (null (executable-find "python3"))))
+                 (not (null (executable-find "python"))))
       (`(t . t)
        (treemacs-git-mode 'extended))
       (`(t . _)
