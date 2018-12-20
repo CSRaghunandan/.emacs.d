@@ -48,3 +48,6 @@ bm-repository
 
 # ignore lsp session files
 .lsp-session*
+
+# magit forge database file
+forge-database.sqlite

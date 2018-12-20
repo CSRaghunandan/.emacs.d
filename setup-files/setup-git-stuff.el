@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:57:13 csraghunandan>
+;; Time-stamp: <2018-12-20 14:12:48 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -84,6 +84,15 @@
     ?U "Untrack file" 'magit-file-untrack)
   (magit-define-popup-action 'magit-file-popup
     ?C "Checkout file" 'magit-file-checkout))
+
+;; forge: Access Git forges for Magit
+;; https://github.com/magit/forge
+(use-package forge
+  :after magit
+  :bind ((:map forge-issue-section-map
+               ("C-c C-v" . forge-browse-topic))
+         (:map forge-pullreq-section-map
+               ("C-c C-v" . forge-browse-topic))))
 
 ;; magit-todos: Show source file TODOs in Magit status buffer
 ;; https://github.com/alphapapa/magit-todos
