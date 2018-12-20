@@ -1,5 +1,5 @@
 ;;; setup-packages.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 19:58:47 csraghunandan>
+;; Time-stamp: <2018-12-20 14:04:12 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,10 +13,6 @@
 (eval-when-compile (require 'use-package))
 (require 'bind-key)
 (setq use-package-always-ensure t)
-
-;; Manage your installed packages with emacs
-;; https://github.com/jabranham/system-packages
-(use-package system-packages)
 
 ;; https://github.com/emacsorphanage/key-chord/tree/master
 (use-package key-chord
