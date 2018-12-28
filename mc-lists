@@ -5,6 +5,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         counsel-M-x
+        dired-mark
         eval-defun
         hungry-delete-backward
         hungry-delete-forward

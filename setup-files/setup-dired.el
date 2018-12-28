@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-12-29 00:38:12 csraghunandan>
+;; Time-stamp: <2018-12-29 00:40:16 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -151,6 +151,12 @@ It added extra strings at the front and back of the default dired buffer name."
 ;; https://github.com/purcell/diredfl/tree/085eabf2e70590ec8e31c1e66931d652d8eab432
 (use-package diredfl
   :config (diredfl-global-mode))
+
+;; adds treemacs icons to dired buffers
+;; https://github.com/Alexander-Miller/treemacs/blob/master/src/extra/treemacs-icons-dired.el
+(use-package treemacs-icons-dired
+  :after treemacs dired
+  :config (treemacs-icons-dired-mode))
 
 (use-package wdired :defer t
   :ensure nil
