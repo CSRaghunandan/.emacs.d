@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-12-13 20:15:20 csraghunandan>
+;; Time-stamp: <2018-12-29 00:38:12 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -146,11 +146,6 @@ It added extra strings at the front and back of the default dired buffer name."
     ;; omit mode can be toggled using `C-x M-o' in dired buffer.
     (setq dired-omit-files
           (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$"))))
-
-;; dired-collapse: collapse unique nested paths in dired listing
-;; https://github.com/Fuco1/dired-hacks#dired-collapse
-(use-package dired-collapse
-  :hook ((dired-mode . dired-collapse-mode)))
 
 ;; diredfl:Extra Emacs font lock rules for a more colourful dired
 ;; https://github.com/purcell/diredfl/tree/085eabf2e70590ec8e31c1e66931d652d8eab432
