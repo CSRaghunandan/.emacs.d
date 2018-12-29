@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-14 01:51:34 csraghunandan>
+;; Time-stamp: <2018-12-30 01:14:55 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -69,7 +69,7 @@ the comment characters from the joined line."
 
 (bind-keys
  ("M-j" . rag/pull-up-line)
- ("s-j" . rag/push-up-line))
+ ("H-j" . rag/push-up-line))
 
 (defun rag/smart-open-line ()
   "Insert an empty line after the current line.
@@ -494,7 +494,7 @@ Version 2017-01-11"
 ;; undo-tree: Treat undo history as a tree
 ;; https://www.emacswiki.org/emacs/UndoTree
 (use-package undo-tree
-  :bind (("s-/" . undo-tree-redo))
+  :bind (("H-/" . undo-tree-redo))
   :init (global-undo-tree-mode))
 
 ;; utf-8 everywhere

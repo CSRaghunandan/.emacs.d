@@ -1,5 +1,5 @@
 ;;; setup-search.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-14 02:06:03 csraghunandan>
+;; Time-stamp: <2018-12-30 01:14:19 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -44,8 +44,8 @@ See the command `isearch-forward-symbol' for more information."
       (isearch-update)))))
 
 (bind-keys
- ("s-f" . isearch-forward-symbol-at-point)
- ("s-r" . rag/isearch-backward-symbol-at-point))
+ ("H-f" . isearch-forward-symbol-at-point)
+ ("H-r" . rag/isearch-backward-symbol-at-point))
 
 (bind-key "C-'" 'avy-isearch isearch-mode-map)
 

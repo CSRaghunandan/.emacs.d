@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-26 17:18:23 csraghunandan>
+;; Time-stamp: <2018-12-30 01:14:31 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -521,7 +521,7 @@ text and copying to the killring."
       (setq mytmpid (funcall 'org-id-get-create))
       (kill-new mytmpid)
       (message "Copied %s to killring (clipboard)" mytmpid)))
-  (bind-key "s-i" 'rag/copy-id-to-clipboard org-mode-map)
+  (bind-key "H-i" 'rag/copy-id-to-clipboard org-mode-map)
 
   (bind-key "C-c h c" 'hydra-org-clock/body org-mode-map)
   (defhydra hydra-org-clock (:color blue

@@ -1,5 +1,5 @@
 ;;; setup-buffers.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 20:18:56 csraghunandan>
+;; Time-stamp: <2018-12-30 01:13:49 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -209,7 +209,7 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
  ("C-c r m" . modi/delete-current-buffer-file)
  ("C-c m v" . rename-file-and-buffer)
  ("C-c m d" . make-directory)
- ("s-u" . revert-buffer-no-confirm)
+ ("H-u" . revert-buffer-no-confirm)
  ("C-c s n" . modi/copy-buffer-file-name))
 
 (defun rag/split-below-and-move ()
