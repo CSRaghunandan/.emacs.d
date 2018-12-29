@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-19 22:18:34 csraghunandan>
+;; Time-stamp: <2018-12-30 01:18:48 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,6 +22,9 @@
           treemacs-never-persist nil
           treemacs-is-never-other-window t
           treemacs-indentation-string (propertize " ǀ " 'face 'font-lock-comment-face))
+
+    ;; slightly lower the size of treemacs icons
+    (treemacs-resize-icons 18)
 
     ;; set the correct python3 executable path. This is needed for
     ;; treemacs-git-mode extended
