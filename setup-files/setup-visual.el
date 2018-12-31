@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 13:31:32 csraghunandan>
+;; Time-stamp: <2018-12-31 20:36:10 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -82,6 +82,7 @@
 
 ;; make sure emacsclient starts at fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(alpha . (95 . 95)))
 
 ;; make the titlebar transparent in mac
 (when (is-mac-p)
@@ -122,13 +123,6 @@
   :config (default-text-scale-mode))
 
 
-
-;; dimer: Interactively highlight which buffer is active by dimming the others.
-;; https://github.com/gonewest818/dimmer.el/tree/master
-(use-package dimmer
-  :hook ((after-init . dimmer-mode))
-  :config
-  (setq-default dimmer-fraction 0.15))
 
 ;; fontify-face: Fontify symbols representing faces with that face.
 ;; https://github.com/Fuco1/fontify-face/tree/master
