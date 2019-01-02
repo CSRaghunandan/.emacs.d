@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-28 20:02:16 csraghunandan>
+;; Time-stamp: <2019-01-02 21:41:58 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -40,42 +40,6 @@
    ("f" . forward-char)
    ("v" . ivy-occur-press) ; default f
    ("RET" . ivy-occur-press)))
-
-;; ivy-rich: More friendly interface for ivy
-;; https://github.com/Yevgnen/ivy-rich/
-(use-package ivy-rich
-  :config
-  (ivy-rich-mode 1)
-  (setq ivy-rich-path-style 'abbrev)
-
-  (setq ivy-rich--display-transformers-list
-        '(ivy-switch-buffer
-          (:columns
-           ((ivy-rich-candidate (:width 30))  ; return the candidate itself
-            (ivy-rich-switch-buffer-size (:width 7))  ; return the buffer size
-            (ivy-rich-switch-buffer-indicators (:width 4 :face error :align right)); return the buffer indicators
-            (ivy-rich-switch-buffer-major-mode (:width 12 :face warning))          ; return the major mode info
-            (ivy-rich-switch-buffer-project (:width 15 :face success))             ; return project name using `projectile'
-            (ivy-rich-switch-buffer-path
-             (:width (lambda (x)
-                       (ivy-rich-switch-buffer-shorten-path
-                        x
-                        (ivy-rich-minibuffer-width 0.3))))))  ; return file path relative to project root or `default-directory' if project is nil
-           :predicate
-           (lambda (cand) (get-buffer cand)))
-          counsel-M-x
-          (:columns
-           ((counsel-M-x-transformer (:width 40))  ; thr original transfomer
-            (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))  ; return the docstring of the command
-          counsel-describe-function
-          (:columns
-           ((counsel-describe-function-transformer (:width 40))  ; the original transformer
-            (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))  ; return the docstring of the function
-          counsel-describe-variable
-          (:columns
-           ((counsel-describe-variable-transformer (:width 40))  ; the original transformer
-            (ivy-rich-counsel-variable-docstring (:face font-lock-doc-face))))  ; return the docstring of the variable
-          )))
 
 (provide 'setup-ivy)
 
