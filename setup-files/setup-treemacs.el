@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-30 01:18:48 csraghunandan>
+;; Time-stamp: <2019-01-07 17:17:45 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -32,7 +32,6 @@
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode t)
 
     (pcase (cons (not (null (executable-find "git")))
                  (not (null (executable-find "python"))))
