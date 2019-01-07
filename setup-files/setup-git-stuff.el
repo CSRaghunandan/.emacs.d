@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-20 14:12:48 csraghunandan>
+;; Time-stamp: <2019-01-07 13:48:59 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,6 +10,7 @@
 (use-package magit
   :bind (("C-c m p" . wh/switch-magit-status-buffer)
          ("C-c v c" . magit-clone)
+         ("C-c p v" . magit-status)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers)
          (:map magit-mode-map
