@@ -1,5 +1,5 @@
 ;;; setup-fly.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-11-20 14:46:15 csraghunandan>
+;; Time-stamp: <2019-01-07 18:35:46 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -64,13 +64,6 @@
     ("m" flycheck-mode)
     ("s" flycheck-select-checker)
     ("v" flycheck-verify-setup)))
-
-;; flycheck-posframe: Show flycheck errors via posframe.el
-;; https://github.com/alexmurray/flycheck-posframe
-(use-package flycheck-posframe :defer t
-  :after flycheck
-  :hook (flycheck-mode . flycheck-posframe-mode)
-  :config (flycheck-posframe-configure-pretty-defaults))
 
 (provide 'setup-fly)
 
