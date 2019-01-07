@@ -1,5 +1,5 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:58:00 csraghunandan>
+;; Time-stamp: <2019-01-07 17:27:52 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -46,6 +46,7 @@
 ;; highlight-indent-guides: best indent guides solution for emacs
 ;; https://github.com/DarthFennec/highlight-indent-guides
 (use-package highlight-indent-guides
+  :disabled t
   :hook ((prog-mode . highlight-indent-guides-mode))
   :config
   (setq highlight-indent-guides-method 'character)
