@@ -1,5 +1,5 @@
 ;;; setup-avy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:39:58 csraghunandan>
+;; Time-stamp: <2019-01-09 00:40:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,11 +8,12 @@
 ;; https://github.com/abo-abo/avy
 (use-package avy
   :bind
-  (("C-`" . avy-goto-word-1)
-   ("C-'" . avy-goto-char-timer)
+  (("C-'" . avy-goto-char-timer)
    ("M-g M-g" . avy-goto-line)
    ("M-g [" . avy-goto-paren-open)
    ("M-g ]" . avy-goto-paren-close))
+  :bind*
+  ("C-," . avy-goto-word-1)
   :config
   (setq avy-style 'pre)
 
