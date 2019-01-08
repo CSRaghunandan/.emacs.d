@@ -1,5 +1,5 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-07 17:27:52 csraghunandan>
+;; Time-stamp: <2019-01-08 11:57:51 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -46,17 +46,20 @@
 ;; highlight-indent-guides: best indent guides solution for emacs
 ;; https://github.com/DarthFennec/highlight-indent-guides
 (use-package highlight-indent-guides
-  :disabled t
   :hook ((prog-mode . highlight-indent-guides-mode))
   :config
   (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-character ?\ǀ)
   (setq highlight-indent-guides-responsive 'top)
 
-  ;; https://github.com/DarthFennec/highlight-indent-guides/issues/40
-  (defun jay/cleanup-hig-strings (x)
-    (remove-text-properties 0 (length x) '(highlight-indent-guides-prop nil display) x))
-  (advice-add 'ivy-cleanup-string :after #'jay/cleanup-hig-strings))
+  ;; https://github.com/DarthFennec/highlight-indent-guides/issues/40#issuecomment-451553492
+  (defadvice ivy-cleanup-string (after my-ivy-cleanup-hig activate)
+    (let ((pos 0) (next 0) (limit (length str)) (prop 'highlight-indent-guides-prop))
+      (while (and pos next)
+        (setq next (text-property-not-all pos limit prop nil str))
+        (when next
+          (setq pos (text-property-any next limit prop nil str))
+          (remove-text-properties next pos '(display nil face nil) str))))))
 
 ;; hl-todo: Highlight TODO keywords
 ;; https://github.com/tarsius/hl-todo/tree/master
