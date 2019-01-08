@@ -1,5 +1,5 @@
 ;;; setup-company.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-14 02:31:26 csraghunandan>
+;; Time-stamp: <2019-01-08 14:00:55 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -51,8 +51,7 @@
       (page-break-lines-mode 1)))
 
   (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
-  (add-hook 'company-completion-finished-hook 'sanityinc/page-break-lines-maybe-reenable)
-  (add-hook 'company-completion-cancelled-hook 'sanityinc/page-break-lines-maybe-reenable))
+  (add-hook 'company-after-completion-hook 'sanityinc/page-break-lines-maybe-reenable))
 
 ;; company-prescient: Simple but effective sorting and filtering for Emacs.
 ;; https://github.com/raxod502/prescient.el/tree/master
