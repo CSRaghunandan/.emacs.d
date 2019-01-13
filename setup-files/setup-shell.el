@@ -1,5 +1,5 @@
 ;;; setup-shell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-16 15:31:51 csraghunandan>
+;; Time-stamp: <2019-01-14 00:43:44 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -29,6 +29,9 @@
                      "zshenv\\'"
                      "zshrc\\'"))
     (add-to-list 'auto-mode-alist (cons pattern 'sh-mode)))
+
+  ;; coloreize shell output
+  (setq comint-terminfo-terminal "ansi")
 
   (defun +sh--match-variables-in-quotes (limit)
     "Search for variables in double-quoted strings bounded by LIMIT."
