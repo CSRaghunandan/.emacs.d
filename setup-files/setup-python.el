@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 19:57:10 csraghunandan>
+;; Time-stamp: <2019-01-14 19:39:52 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -47,6 +47,13 @@
 (use-package anaconda-mode
   :hook ((python-mode . anaconda-mode)
          (python-mode . anaconda-eldoc-mode)))
+
+;; run multiple python linters parallely
+;; https://github.com/msherry/flycheck-pycheckers
+(use-package flycheck-pycheckers
+  :config
+  (with-eval-after-load 'flycheck
+    (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup)))
 
 ;; company-anaconda: company backend for anaconda
 ;; https://github.com/proofit404/company-anaconda
