@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-12-14 01:53:32 csraghunandan>
+;; Time-stamp: <2019-01-23 21:52:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,8 +12,12 @@
            (";'" . counsel-M-x))
   :defer 0.5
   :bind
-  (:map read-expression-map
-        ("C-r" . counsel-expression-history))
+  ((:map read-expression-map
+         ("C-r" . counsel-expression-history))
+   (:map counsel-find-file-map
+         ("<left>" . counsel-up-directory)
+         ("<right>" . counsel-down-directory)))
+
   :config
 
   (counsel-mode)
