@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2018-12-29 00:40:16 csraghunandan>
+;; Time-stamp: <2019-01-27 18:57:24 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -85,6 +85,13 @@ It added extra strings at the front and back of the default dired buffer name."
                            :sort nil
                            :initial-input nil)))
         (dired dir))))
+
+  ;; set some programs to run externally
+  (setq dired-guess-shell-alist-user '(("\\.jpg\\'" "feh")
+                                       ("\\.png\\'" "feh")
+                                       ("\\.mp4\\'" "vlc")
+                                       ("\\.mkv\\'" "vlc")v
+                                       ("\\.pdf\\'" "zathura")))
 
   (eval-after-load "recentf"
     '(progn
