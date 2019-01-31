@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-31 09:25:03 csraghunandan>
+;; Time-stamp: <2019-01-31 11:48:54 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -35,9 +35,6 @@ not prevent downloading the actual packages (obviously)."
       eldoc-echo-area-use-multiline-p t)
 
 (setq delete-by-moving-to-trash t)
-
-;; Improve performance for long lines in emacs
-(set-default bidi-paragraph-direction nil)
 
 ;; echo commands as I type
 (setq echo-keystrokes 0.01)
