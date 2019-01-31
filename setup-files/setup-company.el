@@ -1,5 +1,5 @@
 ;;; setup-company.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-08 14:00:55 csraghunandan>
+;; Time-stamp: <2019-01-31 11:52:03 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -20,10 +20,9 @@
         ("C-n" . company-select-next)
         ("C-p" . company-select-previous)
         ("<tab>" . company-complete-common)
+        ("C-f" . company-complete-common)
         ("C-t" . company-show-doc-buffer))
-
   :config
-
   (setq company-tooltip-flip-when-above t)
   (setq company-minimum-prefix-length 3)
   (setq company-idle-delay 0.2)
