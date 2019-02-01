@@ -1,5 +1,5 @@
 ;;; setup-buffers.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-30 01:13:49 csraghunandan>
+;; Time-stamp: <2019-02-01 16:21:24 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -76,8 +76,8 @@ Example: M-644 M-x modi/set-file-permissions."
 ;; http://camdez.com/blog/2013/11/14/emacs-show-buffer-file-name/
 (defun modi/copy-buffer-file-name (option &optional quiet)
   "Show the full path to the current file in the minibuffer and also copy it.
-If the full file path has a sub-string \"_xyz\" where xyz is the user name,
-replace that with \"_${USER}\".
+If the full file path has a sub-string \"xyz/\" where xyz is the
+user name, replace that with \"${USER}/\".
 If OPTION is \\='(4), copy only the file name (not the full path).
 If OPTION is \\='(16), copy the full path without the environment
 variable replacement.
@@ -89,9 +89,9 @@ Return the copied file name."
                       (cl-case (car option)
                         (4 (file-name-nondirectory file-name-full)) ;C-u
                         (16 file-name-full)                         ;C-u C-u
-                        (t ;If $USER==xyz, replace _xyz with _${USER} in file name
+                        (t ;If $USER==xyz, replace xyz/ with ${USER}/ in file name
                          (replace-regexp-in-string ;No prefix
-                          (concat "_" (getenv "USER")) "_$USER" file-name-full))))))
+                          (concat user-login-name "/") "${USER}/" file-name-full))))))
     (if file-name
         (progn
           (kill-new file-name)
