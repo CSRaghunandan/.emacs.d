@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-07 17:17:45 csraghunandan>
+;; Time-stamp: <2019-02-05 11:48:37 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -49,5 +49,8 @@
   :after treemacs projectile
   :bind (:map global-map
               ("C-c o p" . treemacs-projectile)))
+
+(use-package treemacs-magit
+  :after treemacs magit)
 
 (provide 'setup-treemacs)
