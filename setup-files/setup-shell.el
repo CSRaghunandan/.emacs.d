@@ -1,5 +1,5 @@
 ;;; setup-shell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-14 00:43:44 csraghunandan>
+;; Time-stamp: <2019-02-06 23:28:29 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -92,12 +92,6 @@
 
 ;; On shells, please handle properly the ansi escape codes
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
-;; An Emacs shell-mode (and comint-mode) extension that enables displaying small
-;; plots and graphics and lets users write shell commands in Emacs Lisp.
-;; https://github.com/riscy/shx-for-emacs
-(use-package shx
-  :config (shx-global-mode 1))
 
 (provide 'setup-shell)
 
