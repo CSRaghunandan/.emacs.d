@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-02 21:41:58 csraghunandan>
+;; Time-stamp: <2019-02-13 23:45:50 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -30,6 +30,7 @@
         ivy-extra-directories nil ; default value: ("../" "./")
         ivy-format-function 'ivy-format-function-arrow
         ivy-wrap t
+        ivy-action-wrap t
         ivy-use-selectable-prompt t)
 
   (bind-keys
