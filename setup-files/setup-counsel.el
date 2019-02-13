@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2019-01-23 21:52:02 csraghunandan>
+;; Time-stamp: <2019-02-13 23:43:22 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -94,8 +94,10 @@
 
   (setq counsel-mode-override-describe-bindings t
         counsel-describe-function-function 'helpful-function
-        counsel-describe-variable-function 'helpful-variable)
+        counsel-describe-variable-function 'helpful-variable
+        counsel-describe-function-preselect #'ivy-function-called-at-point)
 
+  (setq counsel-yank-pop-preselect-last t)
   (setq counsel-grep-post-action-hook '(recenter))
 
   (bind-keys
