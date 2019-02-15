@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-07 13:48:59 csraghunandan>
+;; Time-stamp: <2019-02-15 19:39:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -71,20 +71,6 @@
             (cdr (assoc (completing-read "Git project: " bufs-with-names)
                         bufs-with-names))))
       (switch-to-buffer chosen-buf))))
-
-;; Add more actions to magit file operations
-(use-package magit-files
-  :ensure magit
-  :config
-  ;; Add more operations to the file popup
-  (magit-define-popup-action 'magit-file-popup
-    ?R "Rename file" 'magit-file-rename)
-  (magit-define-popup-action 'magit-file-popup
-    ?K "Delete file" 'magit-file-delete)
-  (magit-define-popup-action 'magit-file-popup
-    ?U "Untrack file" 'magit-file-untrack)
-  (magit-define-popup-action 'magit-file-popup
-    ?C "Checkout file" 'magit-file-checkout))
 
 ;; forge: Access Git forges for Magit
 ;; https://github.com/magit/forge
@@ -193,16 +179,6 @@ It is assumed that the author has only one or two names."
 ;; https://github.com/defunkt/gist.el
 (use-package gist
   :defer t)
-
-;; gitflow extensions for magit
-;; https://github.com/jtatarik/magit-gitflow/
-(use-package magit-gitflow
-  :after magit
-  :hook (magit-mode . turn-on-magit-gitflow)
-  :config
-  ;; Free C-f and use a more suitable key binding
-  (unbind-key "C-f" magit-gitflow-mode-map)
-  (bind-key "C-c v f" #'magit-gitflow-popup magit-gitflow-mode-map))
 
 ;; rigid-tabs.el: Rigidify and adjust the visual alignment of TABs
 ;; https://gitlab.com/wavexx/rigid-tabs.el

@@ -1,5 +1,5 @@
 ;;; setup-zenburn.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-11-24 15:40:18 csraghunandan>
+;; Time-stamp: <2019-02-15 19:36:49 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -79,8 +79,6 @@
                           :foreground "#FFECBA" :underline nil :weight 'bold))
 
     ;; magit faces
-    (set-face-attribute 'magit-popup-disabled-argument nil :foreground "gray55")
-    (set-face-attribute 'magit-popup-key nil :foreground "#BFEBBF")
     (set-face-attribute 'magit-section-highlight nil :background "gray27")
     (set-face-attribute 'magit-diff-file-heading-highlight nil :background "gray27")
     (set-face-attribute 'magit-diff-hunk-heading-highlight nil :background "gray27")
