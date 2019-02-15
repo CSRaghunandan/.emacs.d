@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-05 11:48:37 csraghunandan>
+;; Time-stamp: <2019-02-15 19:47:28 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -52,5 +52,11 @@
 
 (use-package treemacs-magit
   :after treemacs magit)
+
+;; adds treemacs icons to dired buffers
+;; https://github.com/Alexander-Miller/treemacs/blob/master/src/extra/treemacs-icons-dired.el
+(use-package treemacs-icons-dired
+  :after treemacs dired
+  :config (treemacs-icons-dired-mode))
 
 (provide 'setup-treemacs)
