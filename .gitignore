@@ -51,3 +51,6 @@ bm-repository
 
 # magit forge database file
 forge-database.sqlite
+
+# add magit transient folder
+transient/
