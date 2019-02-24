@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-05 19:41:43 csraghunandan>
+;; Time-stamp: <2019-02-24 11:37:39 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,6 +22,7 @@
   :config
   ;; don't try to guess python indent offset
   (setq python-indent-guess-indent-offset nil)
+  (setq python-shell-completion-native-enable nil)
 
   (defun my-python-mode-hook ()
     (set (make-local-variable 'company-backends)
