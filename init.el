@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-11-20 00:13:07 csraghunandan>
+;; Time-stamp: <2019-02-26 00:21:20 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -61,7 +61,8 @@
 (require 'setup-ediff)
 (require 'setup-dired)
 (require 'setup-elisp-mode)
-(require 'setup-fly)
+(require 'setup-flycheck)
+(require 'setup-spell)
 (require 'setup-bookmark)
 (require 'setup-hydra)
 (require 'setup-company)
