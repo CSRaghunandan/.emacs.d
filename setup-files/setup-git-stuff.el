@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-26 16:29:22 csraghunandan>
+;; Time-stamp: <2019-02-26 16:34:49 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,7 +25,8 @@
   ;; modify a few magit parameters
   (setq magit-stash-arguments '("--include-untracked")
         magit-diff-refine-hunk t
-        magit-log-arguments '("--color" "--decorate" "--graph" "-n1024"))
+        magit-log-arguments '("--color" "--decorate" "--graph" "-n1024")
+        magit-section-visibility-indicator nil)
 
   ;; show counts in magit-refs
   (setq magit-refs-show-commit-count 'all)
