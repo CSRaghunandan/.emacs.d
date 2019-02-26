@@ -1,5 +1,5 @@
 ;;; setup-comint.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:44:05 csraghunandan>
+;; Time-stamp: <2019-02-26 20:15:08 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,6 +15,10 @@
   (setq comint-scroll-to-bottom-on-input t)
   ;; prevent comint process from echoing the command typed to the user
   (setq comint-process-echoes t)
+
+  ;; ignore duplicates in comint input
+  (setq comint-input-ignoredups t)
+
   ;; makes sense to not recenter to the middle for comint buffers. Only top/bottom
   (defun my-recenter-top-bottom ()
     (interactive)
