@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-03-02 14:30:00 csraghunandan>
+;; Time-stamp: <2019-03-02 14:35:38 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -495,6 +495,12 @@ Version 2017-01-11"
 ;; https://github.com/jackkamm/undo-propose-el
 (use-package undo-propose
   :bind (("C-x u" . undo-propose)))
+
+;; Emacs-lisp command for inteligently commenting and commenting the sexp under
+;; point.
+;; https://github.com/Malabarba/comment-or-uncomment-sexp
+(use-package comment-or-uncomment-sexp
+  :bind ("M-;" . comment-or-uncomment-sexp))
 
 ;; utf-8 everywhere
 (set-language-environment 'utf-8)
