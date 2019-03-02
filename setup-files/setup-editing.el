@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-30 01:14:55 csraghunandan>
+;; Time-stamp: <2019-03-02 14:30:00 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -491,11 +491,10 @@ Version 2017-01-11"
 (use-package move-text
   :config (move-text-default-bindings))
 
-;; undo-tree: Treat undo history as a tree
-;; https://www.emacswiki.org/emacs/UndoTree
-(use-package undo-tree
-  :bind (("H-/" . undo-tree-redo))
-  :init (global-undo-tree-mode))
+;; Safe undo navigation in emacs
+;; https://github.com/jackkamm/undo-propose-el
+(use-package undo-propose
+  :bind (("C-x u" . undo-propose)))
 
 ;; utf-8 everywhere
 (set-language-environment 'utf-8)
