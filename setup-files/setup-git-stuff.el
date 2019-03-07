@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-26 16:36:03 csraghunandan>
+;; Time-stamp: <2019-03-07 18:51:22 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -96,6 +96,10 @@
   :config
   (setq magit-todos-group-by
         '(magit-todos-item-first-path-component magit-todos-item-keyword magit-todos-item-filename)))
+
+;; Transient commands: replaces the old magit-popup
+(use-package transient :defer t
+  :config (transient-bind-q-to-quit))
 
 ;; git-timemachine: to rollback to different commits of files
 ;; https://github.com/pidu/git-timemachine
