@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-31 11:48:54 csraghunandan>
+;; Time-stamp: <2019-03-20 00:13:51 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -67,5 +67,15 @@ not prevent downloading the actual packages (obviously)."
 ;; https://github.com/jwiegley/regex-tool
 (use-package regex-tool
   :defer t)
+
+(defun rag-suspend-frame ()
+  "In a GUI environment, do nothing; otherwise `suspend-frame'."
+  (interactive)
+  (if (display-graphic-p)
+      (message "suspend-frame disabled for graphical displays.")
+    (suspend-frame)))
+
+(global-unset-key (kbd "C-z"))
+(bind-key "C-z C-z" 'rag-suspend-frame)
 
 (provide 'setup-misc)
