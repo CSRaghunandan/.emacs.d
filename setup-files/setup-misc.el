@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-03-20 00:13:51 csraghunandan>
+;; Time-stamp: <2019-03-20 00:18:16 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -77,5 +77,8 @@ not prevent downloading the actual packages (obviously)."
 
 (global-unset-key (kbd "C-z"))
 (bind-key "C-z C-z" 'rag-suspend-frame)
+
+;; use super-q to kill emacs. Useful when running emacs via emacsclient
+(bind-key "s-q" #'kill-emacs)
 
 (provide 'setup-misc)
