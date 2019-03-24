@@ -1,5 +1,5 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-08 11:57:51 csraghunandan>
+;; Time-stamp: <2019-03-24 15:30:30 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -69,5 +69,10 @@
 ;; enable some extra syntax highlighting for dash
 (with-eval-after-load 'dash
   (dash-enable-font-lock))
+
+;; Highlight escape sequences in Emacs
+;; https://github.com/dgutov/highlight-escape-sequences/
+(use-package highlight-escape-sequences
+  :config (hes-mode))
 
 (provide 'setup-highlight)
