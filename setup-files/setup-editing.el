@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-03-25 14:07:03 csraghunandan>
+;; Time-stamp: <2019-04-02 09:56:21 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -491,10 +491,9 @@ Version 2017-01-11"
 (use-package move-text
   :config (move-text-default-bindings))
 
-;; Safe undo navigation in emacs
-;; https://github.com/jackkamm/undo-propose-el
-(use-package undo-propose
-  :bind (("C-x u" . undo-propose)))
+;; undo-tree: tree like navigation for undo/redo in emacs
+(use-package undo-tree
+  :config (global-undo-tree-mode 1))
 
 ;; utf-8 everywhere
 (set-language-environment 'utf-8)
