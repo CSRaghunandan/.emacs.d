@@ -1,5 +1,5 @@
 ;;; setup-buffers.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-01 16:21:24 csraghunandan>
+;; Time-stamp: <2019-04-03 12:02:01 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -145,7 +145,6 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
       (kill-buffer (next-error-find-buffer :avoid-current))
     (kill-current-buffer)))
 (bind-key "C-x k" 'modi/kill-buffer-dwim)
-(bind-chord "XX" #'modi/kill-buffer-dwim)
 
 ;;; Toggle between buffers
 ;; http://www.emacswiki.org/emacs/SwitchingBuffers
