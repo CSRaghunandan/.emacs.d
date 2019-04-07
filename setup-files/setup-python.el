@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-24 11:37:39 csraghunandan>
+;; Time-stamp: <2019-04-07 17:07:32 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,7 +17,8 @@
                           (company-mode)
                           (setq-local lsp-highlight-symbol-at-point nil)))
          (python-mode . (lambda ()
-                          (setq-local tab-width 4)))
+                          (setq-local tab-width 4)
+                          (setq-default lsp-pyls-configuration-sources ["flake8"])))
          (inferior-python-mode . company-mode))
   :config
   ;; don't try to guess python indent offset
