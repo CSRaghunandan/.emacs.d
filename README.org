@@ -14,9 +14,7 @@ My emacs config.
   - =LanguageTools= -> check for grammar mistakes
   - =coreutils= -> only if you’re on macOS. Needed by =dired=
   - =fortune= -> for getting a random quote in *scratch* buffer
-- Install a custom built =Iosevka= font from [[https://github.com/hlissner/doom-emacs/files/2162978/fonts.tar.gz][here]]
-- If you are using built from master/trunk, use the =develop= branch for
-  [[https://github.com/dieggsy/eterm-256color/blob/devel/eterm-256color.el][eterm-256color.el]] otherwise you will run into errors when invoking =multi-term=
+- I use Iosevka font which can be downloaded [[https://github.com/be5invis/Iosevka/releases/download/v2.2.0/iosevka-ss08-2.2.0.zip][here]]
 
 * Feedback
 Open to any feedback, corrections.
