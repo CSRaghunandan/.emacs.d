@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-26 00:21:20 csraghunandan>
+;; Time-stamp: <2019-04-07 18:34:33 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -105,7 +105,6 @@
 (require 'setup-kurecolor)
 (require 'setup-erc)
 (require 'setup-font-check)
-(require 'setup-iosevka-ligatures)
 (require 'setup-misc)
 (require 'setup-visual)
 (require 'setup-tramp)

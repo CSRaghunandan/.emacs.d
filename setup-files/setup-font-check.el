@@ -1,5 +1,5 @@
 ;;; setup-font-check.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-14 02:43:12 csraghunandan>
+;; Time-stamp: <2019-04-07 18:41:49 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,11 +10,11 @@
   (select-frame frame)
   (if (display-graphic-p)
       (progn
-        (when (member "Iosevka" (font-family-list))
+        (when (member "Iosevka SS08" (font-family-list))
           (progn
             (if (is-linux-p)
-                (set-frame-font "Iosevka-10" nil t)
-              (set-frame-font "Iosevka-12" nil t)))))))
+                (set-frame-font "Iosevka SS08-10" nil t)
+              (set-frame-font "Iosevka SS08-12" nil t)))))))
 
 (add-hook 'after-make-frame-functions #'rag-set-face)
 
@@ -22,7 +22,7 @@
 (when (member "Iosevka" (font-family-list))
   (progn
     (if (is-linux-p)
-        (set-frame-font "Iosevka-10" nil t)
-      (set-frame-font "Iosevka-12" nil t))))
+        (set-frame-font "Iosevka SS08-10" nil t)
+      (set-frame-font "Iosevka SS08-12" nil t))))
 
   (provide 'setup-font-check)
