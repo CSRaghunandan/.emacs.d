@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-05-24 15:36:29 csraghunandan>
+;; Time-stamp: <2019-05-24 15:38:45 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -18,7 +18,8 @@
                           (setq-local lsp-highlight-symbol-at-point nil)))
          (python-mode . (lambda ()
                           (setq-local tab-width 4)
-                          (setq-default lsp-pyls-plugins-pylint-enabled nil)))
+                          (setq-local lsp-pyls-plugins-pylint-enabled nil)
+                          (setq-local lsp-pyls-plugins-rope-completion-enabled nil)))
          (inferior-python-mode . company-mode))
   :config
   ;; don't try to guess python indent offset
