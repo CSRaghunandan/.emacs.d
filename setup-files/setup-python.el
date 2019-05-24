@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-04-07 17:07:32 csraghunandan>
+;; Time-stamp: <2019-05-24 15:36:29 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -18,7 +18,7 @@
                           (setq-local lsp-highlight-symbol-at-point nil)))
          (python-mode . (lambda ()
                           (setq-local tab-width 4)
-                          (setq-default lsp-pyls-configuration-sources ["flake8"])))
+                          (setq-default lsp-pyls-plugins-pylint-enabled nil)))
          (inferior-python-mode . company-mode))
   :config
   ;; don't try to guess python indent offset
@@ -27,7 +27,7 @@
 
   (defun my-python-mode-hook ()
     (set (make-local-variable 'company-backends)
-         '((company-lsp company-files :with company-yasnippet)
+         '((company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
   (add-hook 'python-mode-hook #'my-python-mode-hook)
 
@@ -89,5 +89,5 @@
 
 ;; to get all the functionalities of thepython language server, install using
 ;; pip the below packages:
-;;   python-language-server, Jedi, Rope, Pyflakes, McCabe, pycodestyle,
+;;   python-language-server, Jedi, Pyflakes, McCabe, pycodestyle,
 ;;   pydocstyle, yapf, pyls-mypy, pyls-isort
