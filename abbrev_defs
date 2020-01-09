@@ -58,7 +58,7 @@
     ("alwyas" "always" nil :count 0)
     ("amde" "made" nil :count 0)
     ("ameria" "America" nil :count 0)
-    ("amke" "make" nil :count 1)
+    ("amke" "make" nil :count 2)
     ("amkes" "makes" nil :count 0)
     ("anbd" "and" nil :count 0)
     ("andone" "and one" nil :count 0)
@@ -682,6 +682,7 @@
     ("proceding" "proceeding" nil :count 0)
     ("proctetion" "protection" nil :count 0)
     ("prominant" "prominent" nil :count 0)
+    ("propogation" "propagation" nil :count 0)
     ("propreitory" "proprietary" nil :count 1)
     ("protction" "protection" nil :count 0)
     ("protoge" "protege" nil :count 0)
@@ -982,6 +983,6 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
-    ("i" "I" nil :count 31)
+    ("i" "I" nil :count 32)
    ))
 

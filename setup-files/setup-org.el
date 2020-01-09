@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-30 01:14:31 csraghunandan>
+;; Time-stamp: <2020-01-09 18:09:24 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,9 +10,9 @@
   :ensure nil
   :preface
   ;; Modules that should always be loaded together with org.el.
-  ;; `org-modules' default: '(org-w3m org-bbdb org-bibtex org-docview org-gnus
-  ;;                          org-info org-irc org-mhe org-rmail)
-  (setq org-modules '(org-info org-irc org-habit org-gnus))
+  ;; `org-modules' default: (ol-w3m ol-bbdb ol-bibtex ol-docview ol-gnus ol-info
+  ;;                         ol-irc ol-mhe ol-rmail ol-eww)
+  (setq org-modules '(ol-info ol-irc org-habit ol-gnus))
 
   ;; Set my default org-export backends. This variable needs to be set before
   ;; org.el is loaded.
