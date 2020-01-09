@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 23:15:23 csraghunandan>
+;; Time-stamp: <2019-10-10 18:57:55 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -119,8 +119,8 @@
   (c-add-style "llvm"
                '("gnu"
                  (fill-column . 80)
-                 (c++-indent-level . 4)
-                 (c-basic-offset . 4)
+                 (c++-indent-level . 2)
+                 (c-basic-offset . 2)
                  (indent-tabs-mode . nil)
                  (c-offsets-alist . ((arglist-intro . ++)
                                      (innamespace . 0)
