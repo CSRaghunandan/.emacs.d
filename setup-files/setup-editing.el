@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-10 11:41:03 csraghunandan>
+;; Time-stamp: <2020-01-10 12:13:47 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -152,11 +152,10 @@ Position the cursor at it's beginning, according to the current mode."
   (setq expand-region-contract-fast-key "|")
   (setq expand-region-reset-fast-key "<ESC><ESC>"))
 
-;; Simple, stable undo with redo for emacs.
-;; https://gitlab.com/ideasman42/emacs-undo-fu
-(use-package undo-fu
-  :bind (("C-/" . undo-fu-only-undo)
-         ("C-?" . undo-fu-only-redo)))
+;; undo-tree: tree like navigation for undo/redo in emacs
+;; article about undo-tree bugs: http://www.dr-qubit.org/Lost_undo-tree_history.html
+(use-package undo-tree
+  :config (global-undo-tree-mode 1))
 
 ;; subword: subword movement and editing for camelCase
 (use-package subword
