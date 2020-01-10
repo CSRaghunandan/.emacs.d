@@ -1,5 +1,5 @@
 ;;; setup-packages.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-20 14:04:12 csraghunandan>
+;; Time-stamp: <2020-01-10 11:58:50 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -20,6 +20,10 @@
                            (key-chord-mode 1))))
 
 (use-package use-package-chords)
+
+;; updates GPG keys used by ELPA package manager
+;; https://elpa.gnu.org/packages/gnu-elpa-keyring-update.html
+(use-package gnu-elpa-keyring-update)
 
 ;; http://emacs.stackexchange.com/a/26513/115
 (defun modi/package-dependency-check-ignore (orig-ret)
