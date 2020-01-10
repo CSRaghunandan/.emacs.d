@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-01-10 12:48:26 csraghunandan>
+;; Time-stamp: <2020-01-10 12:55:51 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -98,9 +98,11 @@
 
   (setq counsel-yank-pop-preselect-last t)
   (setq counsel-grep-post-action-hook '(recenter))
+  (put 'counsel-find-symbol 'no-counsel-M-x t)
 
   (bind-keys*
-   ("C-r" . counsel-minibuffer-history))
+   ("C-r" . counsel-minibuffer-history)
+   ("C-x b" . counsel-switch-buffer))
 
   (bind-key "C-r" #'counsel-shell-history shell-mode-map)
 
