@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2019-02-13 23:43:22 csraghunandan>
+;; Time-stamp: <2020-01-10 12:48:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,8 +8,7 @@
 ;; https://github.com/abo-abo/swiper
 (use-package counsel
   :after ivy
-  :chords (("JJ" . counsel-imenu)
-           (";'" . counsel-M-x))
+  :chords ((";'" . counsel-M-x))
   :defer 0.5
   :bind
   ((:map read-expression-map
@@ -100,12 +99,17 @@
   (setq counsel-yank-pop-preselect-last t)
   (setq counsel-grep-post-action-hook '(recenter))
 
+  (bind-keys*
+   ("C-r" . counsel-minibuffer-history))
+
+  (bind-key "C-r" #'counsel-shell-history shell-mode-map)
+
   (bind-keys
-   ([remap finder-by-keyword] . counsel-package) ; C-h p
    ([remap bookmark-set] . counsel-bookmark)
    ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
    ("C-c d s" . describe-symbol)
    ("C-c d f" . counsel-faces)
+   ("C-c P" . counsel-package)
    ("C-c r g" . counsel-rg)))
 
 ;; Add more ivy features for projectile related commands

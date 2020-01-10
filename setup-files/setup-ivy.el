@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-13 23:45:50 csraghunandan>
+;; Time-stamp: <2020-01-10 12:43:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,7 +12,7 @@
 ;; ivy: incremental narrowing framework for Emacs
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
-  :bind (("C-c u" . ivy-resume))
+  :bind (("C-c C-r" . ivy-resume))
   :defer 0.5
   :config
   (ivy-mode)
