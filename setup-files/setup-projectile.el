@@ -1,5 +1,5 @@
 ;;; setup-projectile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-10 13:23:34 csraghunandan>
+;; Time-stamp: <2020-01-10 13:39:08 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -26,10 +26,6 @@
   ;; ignore some common files for projectile
   (setq projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o")
         projectile-globally-ignored-files '(".DS_Store" "Icon" "TAGS"))
-
-  (add-to-list 'projectile-globally-ignored-directories ".ccls-cache")
-  (add-to-list 'projectile-project-root-files-bottom-up ".ccls-root")
-  (add-to-list 'projectile-project-root-files-top-down-recurring "compile_commands.json")
 
   ;; include the project root directory in projectile-find-dir list
   (setq projectile-find-dir-includes-top-level t)
