@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 13:44:46 csraghunandan>
+;; Time-stamp: <2020-01-14 22:00:47 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,6 +13,8 @@
  ;; set path for rust-analyzer
  ;; (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
  (setq lsp-rust-server 'rust-analyzer)
+ ;; disable rustic flycheck error display in modeline. Its redundant
+ (setq rustic-flycheck-setup-mode-line-p nil)
 
   :hook ((rustic-mode . (lambda ()
                         (lsp)
