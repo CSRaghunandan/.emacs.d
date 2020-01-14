@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-09 18:09:24 csraghunandan>
+;; Time-stamp: <2020-01-14 12:30:16 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -76,12 +76,13 @@
   ;; See http://emacs.stackexchange.com/a/22540/304
   (remove-hook 'org-cycle-hook #'org-cycle-hide-drawers)
 
-  ;; ob-rust: evaluate rust src blocks
-  (use-package ob-rust)
-
   ;; ob-http: make http requests with org-mode babel
   ;; https://github.com/zweifisch/ob-http
   (use-package ob-http)
+
+  ;; A helpful sidebar for Org mode
+  ;; https://github.com/alphapapa/org-sidebar
+  (use-package org-sidebar)
 
   (org-babel-do-load-languages
    'org-babel-load-languages
