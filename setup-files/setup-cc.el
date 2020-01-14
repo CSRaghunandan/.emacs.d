@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 16:13:19 csraghunandan>
+;; Time-stamp: <2020-01-14 16:16:58 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -164,23 +164,6 @@
        nil '(("\\<[A-Z]*_[0-9A-Z_]+\\>" . font-lock-constant-face)
              ("\\<[A-Z]\\{3,\\}\\>"  . font-lock-constant-face))
        t)))
-
-  ;;;###autoload
-  (defun +cc/reload-compile-db ()
-    "Reload the current project's JSON compilation database."
-    (interactive)
-    (unless (memq major-mode '(c-mode c++-mode objc-mode))
-      (user-error "Not a C/C++/ObjC buffer"))
-    ;; first rtag
-    (when (and (featurep 'rtags)
-               rtags-enabled
-               (executable-find rtags-rc-binary-name))
-      (with-temp-buffer
-        (message "Reloaded compile commands for rtags daemon")
-        (rtags-call-rc :silent t "-J" (or (doom-project-root) default-directory))))
-    ;; then irony
-    (when (and (featurep 'irony) irony-mode)
-      (+cc-init-irony-compile-options-h)))
 
   (sp-with-modes '(c-mode c++-mode)
     (sp-local-pair "/*" "*/" :post-handlers '(("||\n[i]" "RET") ("| " "SPC")))
