@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 12:40:43 csraghunandan>
+;; Time-stamp: <2020-01-14 13:13:36 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -16,11 +16,10 @@
   ;; use rust-analyzer for lsp
   (setq rustic-lsp-server 'rust-analyzer)
 
-  :hook ((rust-mode . (lambda ()
+  :hook ((rustic-mode . (lambda ()
                         ;; (lsp)
-                        ;; (lsp-ui-doc-mode)
-                        ;; (lsp-ui-sideline-mode)
-                        (eldoc-mode)
+                        (lsp-ui-doc-mode)
+                        (lsp-ui-sideline-mode)
                         (flycheck-mode)
                         (smart-dash-mode)
                         (company-mode))))
@@ -39,7 +38,7 @@
     (set (make-local-variable 'company-backends)
          '((company-lsp company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
-  (add-hook 'rust-mode-hook #'my-rust-mode-hook)
+  (add-hook 'rustic-mode-hook #'my-rust-mode-hook)
 
   (defun wh/rust-toggle-mutability ()
     "Toggle the mutability of the variable at point."
@@ -76,7 +75,7 @@ foo -> &foo[..]"
 (provide 'setup-rust)
 
 ;; to disable automatic formatting of buffers, put this in `.dir-locals.el'
-;; ((rust-mode
+;; ((rustic-mode
 ;;   (before-save-hook . (lambda ()
 ;;                         (time-stamp)
 ;;                         (ws-butler-after-save)))))
