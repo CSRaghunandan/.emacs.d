@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 12:30:16 csraghunandan>
+;; Time-stamp: <2020-01-14 16:11:49 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -93,8 +93,7 @@
      (C . t)
      (haskell . t)
      (js . t)
-     (python . t)
-     (rust . t)))
+     (python . t)))
 
   (add-to-list
    'org-src-lang-modes '("plantuml" . plantuml))

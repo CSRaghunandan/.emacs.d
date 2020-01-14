@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 14:21:20 csraghunandan>
+;; Time-stamp: <2020-01-14 16:13:19 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -24,6 +24,16 @@
   :init
   (setq ccls-executable (executable-find "ccls"))
 
+  :config
+  ;; enable ccls semantic highlighting
+  (setq ccls-sem-highlight-method 'font-lock)
+
+  ;;;###autoload
+  (defvar +ccls-path-mappings [])
+
+;;;###autoload
+  (defvar +ccls-initial-blacklist [])
+
   (setq
    ccls-initialization-options
    `(:clang
@@ -41,10 +51,6 @@
         "^/usr/(local/)?include/c\\+\\+/v1/"
         ]))
      :index (:initialBlacklist ,+ccls-initial-blacklist :parametersInDeclarations :json-false :trackDependency 1)))
-
-  :config
-  ;; enable ccls semantic highlighting
-  (setq ccls-sem-highlight-method 'font-lock)
 
   (with-eval-after-load 'projectile
     (add-to-list 'projectile-globally-ignored-directories ".ccls-cache")
