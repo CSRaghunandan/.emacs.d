@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 13:13:36 csraghunandan>
+;; Time-stamp: <2020-01-14 13:30:43 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,17 +9,18 @@
 ;; rust-mode: Rust development environment for Emacs
 ;; https://github.com/brotzeit/rustic
 (use-package rustic
-  :init
-
-  ;; set path for rust-analyzer
-  ;; (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
-  ;; use rust-analyzer for lsp
-  (setq rustic-lsp-server 'rust-analyzer)
+ :init
+ ;; use rust-analyzer for lsp
+ (setq rustic-lsp-server nil)
+ ;; set path for rust-analyzer
+ ;; (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
+ (setq lsp-rust-server 'rust-analyzer)
 
   :hook ((rustic-mode . (lambda ()
-                        ;; (lsp)
+                        (lsp)
                         (lsp-ui-doc-mode)
                         (lsp-ui-sideline-mode)
+                        (lsp-ui-sideline-toggle-symbols-info)
                         (flycheck-mode)
                         (smart-dash-mode)
                         (company-mode))))
