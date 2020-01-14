@@ -1,12 +1,10 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 13:30:43 csraghunandan>
+;; Time-stamp: <2020-01-14 13:44:46 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
-;; rust-mode, RLS, cargo
-
-;; rust-mode: Rust development environment for Emacs
+;; rustic-mode: Rust development environment for Emacs
 ;; https://github.com/brotzeit/rustic
 (use-package rustic
  :init
