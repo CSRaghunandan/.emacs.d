@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 19:53:29 csraghunandan>
+;; Time-stamp: <2020-01-14 21:49:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,6 +15,11 @@
                        (my-tide-setup-hook)
                        (company-mode))))
   :config
+
+  (with-eval-after-load 'projectile
+    (add-to-list 'projectile-globally-ignored-directories "node_modules")
+    (add-to-list 'projectile-project-root-files "package.json"))
+
   ;; have 2 space indentation by default
   (setq js-indent-level 2
         js2-basic-offset 2
@@ -25,11 +30,14 @@
 
   ;; Try to highlight most ECMA built-ins
   (setq js2-highlight-level 3)
+  ;; have a shorter idle time delay
+  (setq js2-idle-timer-delay 0.1)
 
   ;; turn off all warnings in js2-mode
-  (setq js2-mode-show-parse-errors t)
-  (setq js2-mode-show-strict-warnings nil)
-  (setq js2-strict-missing-semi-warning nil)
+  (setq js2-mode-show-parse-errors t
+        js2-mode-show-strict-warnings nil
+        js2-strict-missing-semi-warning nil
+        js2-strict-trailing-comma-warning nil)
 
   (defun my-tide-setup-hook ()
     ;; configure tide
