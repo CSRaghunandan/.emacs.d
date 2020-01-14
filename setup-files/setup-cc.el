@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-10 13:39:07 csraghunandan>
+;; Time-stamp: <2020-01-14 14:00:35 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -21,26 +21,27 @@
 ;; ccls: Emacs client for ccls, a C/C++ language server
 ;; https://github.com/MaskRay/emacs-ccls
 (use-package ccls
-  :commands (lsp-css-enable)
   :init
-;;;###autoload
-  (defvar +ccls-path-mappings [])
-
-;;;###autoload
-  (defvar +ccls-initial-blacklist [])
-
   (setq ccls-executable (executable-find "ccls"))
 
   (setq
-   ccls-extra-init-params
-   `(:clang (:pathMappings ,+ccls-path-mappings)
-            :completion
-            (:include
-             (:blacklist
-              ["^/usr/(local/)?include/c\\+\\+/[0-9\\.]+/(bits|tr1|tr2|profile|ext|debug)/"
-               "^/usr/(local/)?include/c\\+\\+/v1/"
-               ]))
-            :index (:initialBlacklist ,+ccls-initial-blacklist :trackDependency 1)))
+   ccls-initialization-options
+   `(:clang
+     (:excludeArgs
+      ;; Linux's gcc options. See ccls/wiki
+      ["-falign-jumps=1" "-falign-loops=1" "-fconserve-stack" "-fmerge-constants" "-fno-code-hoisting" "-fno-schedule-insns" "-fno-var-tracking-assignments" "-fsched-pressure"
+       "-mhard-float" "-mindirect-branch-register" "-mindirect-branch=thunk-inline" "-mpreferred-stack-boundary=2" "-mpreferred-stack-boundary=3" "-mpreferred-stack-boundary=4" "-mrecord-mcount" "-mindirect-branch=thunk-extern" "-mno-fp-ret-in-387" "-mskip-rax-setup"
+       "--param=allow-store-data-races=0" "-Wa arch/x86/kernel/macros.s" "-Wa -"]
+      :extraArgs []
+      :pathMappings ,+ccls-path-mappings)
+     :completion
+     (:include
+      (:blacklist
+       ["^/usr/(local/)?include/c\\+\\+/[0-9\\.]+/(bits|tr1|tr2|profile|ext|debug)/"
+        "^/usr/(local/)?include/c\\+\\+/v1/"
+        ]))
+     :index (:initialBlacklist ,+ccls-initial-blacklist :parametersInDeclarations :json-false :trackDependency 1)))
+
   :config
   ;; enable ccls semantic highlighting
   (setq ccls-sem-highlight-method 'font-lock)
@@ -109,6 +110,7 @@
                                 (ccls//enable)
                                 (eldoc-mode)
                                 (lsp-ui-sideline-mode)
+                                (lsp-ui-sideline-toggle-symbols-info)
                                 (flycheck-mode)
                                 (smart-dash-mode)
                                 (company-mode)))
