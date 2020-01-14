@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-01-10 12:55:51 csraghunandan>
+;; Time-stamp: <2020-01-14 12:01:27 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -101,8 +101,7 @@
   (put 'counsel-find-symbol 'no-counsel-M-x t)
 
   (bind-keys*
-   ("C-r" . counsel-minibuffer-history)
-   ("C-x b" . counsel-switch-buffer))
+   ("C-r" . counsel-minibuffer-history))
 
   (bind-key "C-r" #'counsel-shell-history shell-mode-map)
 
