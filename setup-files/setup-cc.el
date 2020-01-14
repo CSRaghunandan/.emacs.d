@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 14:00:35 csraghunandan>
+;; Time-stamp: <2020-01-14 14:21:20 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -109,6 +109,7 @@
   :hook (((c++-mode c-mode) . (lambda ()
                                 (ccls//enable)
                                 (eldoc-mode)
+                                (+cc-fontify-constants-h)
                                 (lsp-ui-sideline-mode)
                                 (lsp-ui-sideline-toggle-symbols-info)
                                 (flycheck-mode)
@@ -150,13 +151,30 @@
                            (setq-local company-lsp-cache-candidates nil)))
 
   ;;;###autoload
-  (defun +cc|fontify-constants ()
+  (defun +cc-fontify-constants-h ()
     "Better fontification for preprocessor constants"
     (when (memq major-mode '(c-mode c++-mode))
       (font-lock-add-keywords
-       nil '(("\\<[A-Z]*_[A-Z_]+\\>" . font-lock-constant-face)
+       nil '(("\\<[A-Z]*_[0-9A-Z_]+\\>" . font-lock-constant-face)
              ("\\<[A-Z]\\{3,\\}\\>"  . font-lock-constant-face))
        t)))
+
+  ;;;###autoload
+  (defun +cc/reload-compile-db ()
+    "Reload the current project's JSON compilation database."
+    (interactive)
+    (unless (memq major-mode '(c-mode c++-mode objc-mode))
+      (user-error "Not a C/C++/ObjC buffer"))
+    ;; first rtag
+    (when (and (featurep 'rtags)
+               rtags-enabled
+               (executable-find rtags-rc-binary-name))
+      (with-temp-buffer
+        (message "Reloaded compile commands for rtags daemon")
+        (rtags-call-rc :silent t "-J" (or (doom-project-root) default-directory))))
+    ;; then irony
+    (when (and (featurep 'irony) irony-mode)
+      (+cc-init-irony-compile-options-h)))
 
   (sp-with-modes '(c-mode c++-mode)
     (sp-local-pair "/*" "*/" :post-handlers '(("||\n[i]" "RET") ("| " "SPC")))
@@ -172,10 +190,17 @@
           (goto-char (point-min))
           (re-search-forward regexp magic-mode-regexp-match-limit t)))))
 
-  (defun +cc-c-c++-objc-mode (&optional file)
-    "Sets either `c-mode', `objc-mode' or `c++-mode', whichever is appropriate."
-    (let ((base (file-name-sans-extension buffer-file-name))
-          file)
+;;;###autoload
+  (defun +cc-c-c++-objc-mode ()
+    "Uses heuristics to detect `c-mode', `objc-mode' or `c++-mode'.
+1. Checks if there are nearby cpp/cc/m/mm files with the same name.
+2. Checks for ObjC and C++-specific keywords and libraries.
+3. Falls back to `+cc-default-header-file-mode', if set.
+4. Otherwise, activates `c-mode'.
+This is meant to replace `c-or-c++-mode' (introduced in Emacs 26.1), which
+doesn't support specification of the fallback mode and whose heuristics are
+simpler."
+    (let ((base (file-name-sans-extension (buffer-file-name (buffer-base-buffer)))))
       (cond ((file-exists-p! (or (concat base ".cpp")
                                  (concat base ".cc")))
              (c++-mode))
@@ -188,18 +213,18 @@
                           "\\|[-+] ([a-zA-Z0-9_]+)"
                           "\\)")))
              (objc-mode))
-            ((fboundp 'c-or-c++-mode) ; introduced in Emacs 26.1
-             (c-or-c++-mode))
-            ((+cc--re-search-for  ; TODO Remove this along with Emacs 25 support
+            ((+cc--re-search-for
               (let ((id "[a-zA-Z0-9_]+") (ws "[ \t\r]+") (ws-maybe "[ \t\r]*"))
                 (concat "^" ws-maybe "\\(?:"
-                        "using"     ws "\\(?:namespace" ws "std;\\|std::\\)"
-                        "\\|" "namespace" "\\(:?" ws id "\\)?" ws-maybe "{"
+                        "using" ws "\\(?:namespace" ws "std;\\|std::\\)"
+                        "\\|" "namespace" "\\(?:" ws id "\\)?" ws-maybe "{"
                         "\\|" "class"     ws id ws-maybe "[:{\n]"
                         "\\|" "template"  ws-maybe "<.*>"
                         "\\|" "#include"  ws-maybe "<\\(?:string\\|iostream\\|map\\)>"
                         "\\)")))
              (c++-mode))
+            ((functionp +cc-default-header-file-mode)
+             (funcall +cc-default-header-file-mode))
             ((c-mode)))))
 
   ;; https://github.com/hlissner/doom-emacs/blob/develop/modules/lang/cc/
