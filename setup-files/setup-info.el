@@ -1,5 +1,5 @@
 ;;; setup-info.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:58:38 csraghunandan>
+;; Time-stamp: <2020-01-15 17:24:04 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -124,6 +124,20 @@ _i_nfo      _o_rg      e_l_isp      e_L_isp intro      _e_macs      _c_alc      
   ("c" (ora-open-info "calc" "*calc info*"))
   ("C" (ora-open-info "cl" "*emacs common lisp info*"))
   ("q" nil " cancel" :color blue))
+
+(defun info-rename-buffer ()
+  "Rename current Info buffer to match its visiting manual."
+  (interactive)
+  ;; ignore  *Info cl* buffer
+  (unless (or (string-match-p "\\` " (buffer-name))
+              (string-match-p "temp-info-look" (buffer-name)))
+    ;; working horse:
+    (unless (ignore-errors
+              (rename-buffer
+               (format "*info %s*" (file-name-base Info-current-file))
+               'unique))
+      (user-error "%s" "This is not an Info buffer."))))
+(add-hook 'Info-selection-hook #'info-rename-buffer)
 
 (bind-key "C-c h i" #'hydra-info-to/body)
 
