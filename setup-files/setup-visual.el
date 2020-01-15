@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-13 23:38:34 csraghunandan>
+;; Time-stamp: <2020-01-15 09:39:10 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -48,8 +48,6 @@
 (setq-default cursor-type '(bar . 1))
 ;; disable annoying cursor blinks
 (blink-cursor-mode -1)
-;; disable the ugly toolbar
-(tool-bar-mode -1)
 ;; silence all bell rings
 (setq ring-bell-function 'ignore)
 ;; Do not make mouse wheel accelerate its action (example: scrolling)
@@ -86,9 +84,6 @@
 ;; make the titlebar transparent in mac
 (when (is-mac-p)
   (add-to-list 'default-frame-alist '(ns-appearance . dark)))
-
-;; remove ugly scrollbar
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; resize windows proportionally
 (setq window-combination-resize t)
