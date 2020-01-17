@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 16:11:49 csraghunandan>
+;; Time-stamp: <2020-01-17 19:00:03 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,6 +13,10 @@
   ;; `org-modules' default: (ol-w3m ol-bbdb ol-bibtex ol-docview ol-gnus ol-info
   ;;                         ol-irc ol-mhe ol-rmail ol-eww)
   (setq org-modules '(ol-info ol-irc org-habit ol-gnus))
+
+  ;; this will make sure auto-fill works for org-mode
+  (add-hook 'org-mode-hook (lambda ()
+                             (setq-local comment-auto-fill-only-comments nil)))
 
   ;; Set my default org-export backends. This variable needs to be set before
   ;; org.el is loaded.
