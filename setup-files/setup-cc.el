@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 16:16:58 csraghunandan>
+;; Time-stamp: <2020-01-19 01:06:37 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -102,9 +102,7 @@
   (defun ccls/references-write ()
     (interactive)
     (lsp-ui-peek-find-custom "textDocument/references"
-                             (plist-put (lsp--text-document-position-params) :role 16)))
-
-  (add-hook 'lsp-after-open-hook #'ccls-code-lens-mode))
+                             (plist-put (lsp--text-document-position-params) :role 16))))
 
 (defun ccls//enable ()
   "Enable lsp-ccls"
@@ -114,6 +112,7 @@
 (use-package cc-mode :ensure nil
   :hook (((c++-mode c-mode) . (lambda ()
                                 (ccls//enable)
+                                (setq-local ccls-code-lens-mode t)
                                 (eldoc-mode)
                                 (+cc-fontify-constants-h)
                                 (lsp-ui-sideline-mode)
