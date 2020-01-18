@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-17 19:00:03 csraghunandan>
+;; Time-stamp: <2020-01-18 17:16:23 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -103,8 +103,7 @@
    'org-src-lang-modes '("plantuml" . plantuml))
 
 ;;; Org Variables
-  ;; hide emphasis markup characters
-  (setq org-hide-emphasis-markers t)
+
   ;; Non-nil means insert state change notes and time stamps into a drawer.
   (setq org-log-into-drawer t)
   ;; insert a note after changing deadline for a TODO
