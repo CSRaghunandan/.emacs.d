@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-18 20:02:30 csraghunandan>
+;; Time-stamp: <2020-01-19 01:07:53 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,23 +11,20 @@
                           (require 'lsp-python-ms)
                           (lsp)
                           (lsp-ui-mode)
-                          ;; (lsp-ui-sideline-mode)
-                          ;; (lsp-ui-sideline-toggle-symbols-info)
                           (lsp-ui-doc-mode))))
   :init
   ;; set path of MS python language server
   (setq lsp-python-ms-executable
-        "~/src/dotnet/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer")
-)
+        "~/src/dotnet/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer"))
 
-;; TODO: add code formatter using blacken
+;; TODO: add code formatter using blacken and add flake8 linter
 (use-package python
   :ensure nil
   :hook ((python-mode . (lambda ()
                           (smart-dash-mode)
                           (company-mode)
                           (flycheck-mode)
-                          (eldoc-mode -1)))
+                          (eldoc-mode)))
          (python-mode . (lambda ()
                           (setq-local tab-width 4)))
          (inferior-python-mode . company-mode))
