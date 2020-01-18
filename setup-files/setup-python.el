@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-19 01:07:53 csraghunandan>
+;; Time-stamp: <2020-01-19 01:27:13 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,7 +17,7 @@
   (setq lsp-python-ms-executable
         "~/src/dotnet/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer"))
 
-;; TODO: add code formatter using blacken and add flake8 linter
+;; TODO: add pyflakes linter
 (use-package python
   :ensure nil
   :hook ((python-mode . (lambda ()
@@ -73,6 +73,12 @@
 ;; https://github.com/glyph/python-docstring-mode
 (use-package python-docstring
   :hook ((python-mode . python-docstring-mode)))
+
+;; Python Black formatter for Emacs
+;; https://github.com/pythonic-emacs/blacken/
+(use-package blacken
+  :hook ((python-mode . blacken-mode))
+  :config (setq blacken-line-length 80))
 
 ;; pip-requirements: Major mode for editing pip requirements files
 ;; https://github.com/Wilfred/pip-requirements.el
