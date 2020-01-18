@@ -1,29 +1,35 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-18 18:04:49 csraghunandan>
+;; Time-stamp: <2020-01-18 20:02:30 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
-(use-package python
-  :ensure nil
+;; emacs lsp-mode client for Microsoft's python language server
+;; https://github.com/emacs-lsp/lsp-python-ms
+(use-package lsp-python-ms
+  :hook ((python-mode . (lambda ()
+                          (require 'lsp-python-ms)
+                          (lsp)
+                          (lsp-ui-mode)
+                          ;; (lsp-ui-sideline-mode)
+                          ;; (lsp-ui-sideline-toggle-symbols-info)
+                          (lsp-ui-doc-mode))))
   :init
   ;; set path of MS python language server
   (setq lsp-python-ms-executable
-        "~/src/dotnet/python-language-server/output/bin/Release/Microsoft.Python.LanguageServer")
+        "~/src/dotnet/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer")
+)
 
+;; TODO: add code formatter using blacken
+(use-package python
+  :ensure nil
   :hook ((python-mode . (lambda ()
-                          (lsp)
-                          (lsp-ui-mode)
-                          (eldoc-mode -1)
-                          (lsp-ui-doc-mode)
-                          (flycheck-mode)
                           (smart-dash-mode)
                           (company-mode)
-                          (setq-local lsp-highlight-symbol-at-point nil)))
+                          (flycheck-mode)
+                          (eldoc-mode -1)))
          (python-mode . (lambda ()
-                          (setq-local tab-width 4)
-                          (setq-local lsp-pyls-plugins-pylint-enabled nil)
-                          (setq-local lsp-pyls-plugins-rope-completion-enabled nil)))
+                          (setq-local tab-width 4)))
          (inferior-python-mode . company-mode))
   :config
   ;; don't try to guess python indent offset
@@ -46,15 +52,7 @@
           (shell-command (format "autoflake --remove-all-unused-imports -i %s"
                                  (shell-quote-argument (buffer-file-name))))
           (revert-buffer t t t))
-      (warn "python-mode: Cannot find autoflake executable, automatic removal of unused imports disabled")))
-
-  (when (executable-find "yapf")
-    (add-hook 'python-mode-hook
-              (lambda ()
-                (add-hook 'before-save-hook
-                          (lambda ()
-                            (time-stamp)
-                            (lsp-format-buffer)) nil t)))))
+      (warn "python-mode: Cannot find autoflake executable, automatic removal of unused imports disabled"))))
 
 ;; pytest: for testing python code
 ;; https://github.com/ionrock/pytest-el
@@ -91,8 +89,3 @@
   :hook ((python-mode . sphinx-doc-mode)))
 
 (provide 'setup-python)
-
-;; to get all the functionalities of thepython language server, install using
-;; pip the below packages:
-;;   python-language-server, Jedi, Pyflakes, McCabe, pycodestyle,
-;;   pydocstyle, yapf, pyls-mypy, pyls-isort
