@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 13:59:30 csraghunandan>
+;; Time-stamp: <2020-01-18 20:01:02 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,6 +8,7 @@
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
   :commands lsp
+  :hook ((lsp-after-open . lsp-enable-imenu))
   :config (require 'lsp-clients)
   (setq lsp-prefer-flymake nil))
 
