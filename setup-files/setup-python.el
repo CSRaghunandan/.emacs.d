@@ -1,16 +1,20 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-05-24 15:38:45 csraghunandan>
+;; Time-stamp: <2020-01-18 18:04:49 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 (use-package python
   :ensure nil
+  :init
+  ;; set path of MS python language server
+  (setq lsp-python-ms-executable
+        "~/src/dotnet/python-language-server/output/bin/Release/Microsoft.Python.LanguageServer")
+
   :hook ((python-mode . (lambda ()
                           (lsp)
                           (lsp-ui-mode)
                           (eldoc-mode -1)
-                          (lsp-ui-sideline-mode)
                           (lsp-ui-doc-mode)
                           (flycheck-mode)
                           (smart-dash-mode)
