@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-19 01:27:13 csraghunandan>
+;; Time-stamp: <2020-01-19 09:44:00 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,14 +8,20 @@
 ;; https://github.com/emacs-lsp/lsp-python-ms
 (use-package lsp-python-ms
   :hook ((python-mode . (lambda ()
-                          (require 'lsp-python-ms)
+                          ;; (require 'lsp-python-ms)
+                          (setq-local lsp-ui-flycheck-enable nil)
                           (lsp)
                           (lsp-ui-mode)
+                          (setq-local flycheck-checker 'python-pycheckers)
                           (lsp-ui-doc-mode))))
   :init
   ;; set path of MS python language server
   (setq lsp-python-ms-executable
         "~/src/dotnet/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer"))
+
+;; Multiple syntax checker for Python in Emacs, using Flycheck
+;; https://github.com/msherry/flycheck-pycheckers
+(use-package flycheck-pycheckers)
 
 ;; TODO: add pyflakes linter
 (use-package python
