@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-10 12:43:15 csraghunandan>
+;; Time-stamp: <2020-01-22 22:52:19 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -40,7 +40,10 @@
    ("b" . backward-char)
    ("f" . forward-char)
    ("v" . ivy-occur-press) ; default f
-   ("RET" . ivy-occur-press)))
+   ("RET" . ivy-occur-press))
+
+  ;; https://github.com/abo-abo/swiper/issues/2397#issuecomment-572151817
+  (setq ivy-read-action-function 'ivy-hydra-read-action))
 
 (provide 'setup-ivy)
 
