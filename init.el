@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-22 14:05:35 csraghunandan>
+;; Time-stamp: <2020-01-23 11:31:52 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -97,7 +97,7 @@
 (require 'setup-misc)
 (require 'setup-visual)
 (require 'setup-tramp)
-(require 'setup-zenburn)
+(require 'setup-theme)
 (require 'setup-command-log-mode)
 (require 'setup-calendar)
 (require 'setup-minibuffer)
