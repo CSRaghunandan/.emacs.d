@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-15 19:47:28 csraghunandan>
+;; Time-stamp: <2020-01-23 12:02:38 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,7 +11,7 @@
   (progn
     (setq treemacs-follow-after-init t
           treemacs-width 35
-          treemacs-indentation 1
+          treemacs-indentation 2
           treemacs-recenter-after-file-follow nil
           treemacs-collapse-dirs (if (executable-find "python") 3 0)
           treemacs-silent-refresh t
@@ -20,8 +20,7 @@
           treemacs-sorting 'alphabetic-desc
           treemacs-show-hidden-files t
           treemacs-never-persist nil
-          treemacs-is-never-other-window t
-          treemacs-indentation-string (propertize " ǀ " 'face 'font-lock-comment-face))
+          treemacs-is-never-other-window t)
 
     ;; slightly lower the size of treemacs icons
     (treemacs-resize-icons 18)
