@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 13:21:10 csraghunandan>
+;; Time-stamp: <2020-01-23 13:40:11 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -125,9 +125,6 @@
 ;;     (set-face-attribute 'hydra-face-teal nil
 ;;                         :foreground "SkyBlue1" :bold t :background "#383838")
 
-;;     ;; disable boxes for `header-line' face
-;;     (set-face-attribute 'header-line nil :box nil)
-
 ;;     ;; org-mode face
 ;;     (with-eval-after-load "org"
 ;;       ;; set the face for `org-checkbox'
@@ -179,7 +176,11 @@
     (set-face-attribute markdown-header-face-3 nil :inherit 'outline-3)
     (set-face-attribute markdown-header-face-4 nil :inherit 'outline-4)
     (set-face-attribute markdown-header-face-5 nil :inherit 'outline-5)
-    (set-face-attribute markdown-header-face-6 nil :inherit 'outline-6))
+    (set-face-attribute markdown-header-face-6 nil :inherit 'outline-6)
+
+    ;; set face for volatile-highlights to be same as region face
+    (set-face-attribute 'vhl/default-face nil :background 'unspecified
+                        :inherit 'region))
 
   (gh/add-theme-hook 'doom-dark+ #'gh/doom-dark+-theme-hook)
 
