@@ -1,5 +1,5 @@
 ;;; setup-origami.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-01-18 16:37:45 csraghunandan>
+;; Time-stamp: <2020-01-23 12:55:41 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,5 +25,11 @@ _u_: undo      _n_: next    _o_: open all    _q_: quit
     ("q" nil :color blue))
 
   (global-origami-mode))
+
+;; lsp-origami provides support for origami.el using language server protocol’s
+;; textDocument/foldingRange functionality.
+;; https://github.com/emacs-lsp/lsp-origami/
+(use-package lsp-origami
+  :hook ((lsp-after-open . lsp-origami-mode)))
 
 (provide 'setup-origami)
