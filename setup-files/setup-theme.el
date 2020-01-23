@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 11:42:10 csraghunandan>
+;; Time-stamp: <2020-01-23 11:57:17 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -158,6 +158,15 @@
   (defun gh/doom-dark+-theme-hook()
     ;; My modifications for the doom-dark+ theme
     (set-face-attribute 'vertical-border nil :foreground "gray20")
+
+    (with-eval-after-load "golden-ratio-scroll-screen"
+      (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
+                          :background 'unspecified :foreground 'unspecified))
+
+    ;; make comments gray instead of green
+    (set-face-attribute 'font-lock-comment-delimiter-face nil :foreground "gray40")
+    (set-face-attribute 'font-lock-comment-face nil :foreground "gray40")
+    (set-face-attribute 'font-lock-doc-face nil :foreground "gray55")
 
     ;; TODO: fix diff-hl highlighting
     )
