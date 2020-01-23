@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-18 20:01:02 csraghunandan>
+;; Time-stamp: <2020-01-23 16:09:15 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,6 +9,8 @@
 (use-package lsp-mode
   :commands lsp
   :hook ((lsp-after-open . lsp-enable-imenu))
+  :bind (:map lsp-mode-map
+              ("C-c C-t" . lsp-describe-thing-at-point))
   :config (require 'lsp-clients)
   (setq lsp-prefer-flymake nil))
 

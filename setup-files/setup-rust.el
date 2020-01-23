@@ -1,10 +1,12 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 14:00:26 csraghunandan>
+;; Time-stamp: <2020-01-23 14:16:36 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; rustic-mode: Rust development environment for Emacs
+;; only need to install rust-analyzer, no need to install rls or racer for lsp
+;; to work for rust
 ;; https://github.com/brotzeit/rustic
 (use-package rustic
  :init
