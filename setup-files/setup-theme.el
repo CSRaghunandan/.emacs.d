@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 11:57:17 csraghunandan>
+;; Time-stamp: <2020-01-23 13:13:41 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -168,8 +168,9 @@
     (set-face-attribute 'font-lock-comment-face nil :foreground "gray40")
     (set-face-attribute 'font-lock-doc-face nil :foreground "gray55")
 
-    ;; TODO: fix diff-hl highlighting
-    )
+    (set-face-attribute 'diff-hl-change nil :background "#339CDB")
+    (set-face-attribute 'diff-hl-delete nil :background "#D16969")
+    (set-face-attribute 'diff-hl-insert nil :background "#579C4C"))
 
   (gh/add-theme-hook 'doom-dark+ #'gh/doom-dark+-theme-hook)
 
