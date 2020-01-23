@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 13:56:30 csraghunandan>
+;; Time-stamp: <2020-01-23 14:00:26 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,10 +8,10 @@
 ;; https://github.com/brotzeit/rustic
 (use-package rustic
  :init
- ;; use rust-analyzer for lsp
+ ;; We use the superior default client provided by `lsp-mode', not the
+ ;; one rustic-mode sets up for us
  (setq rustic-lsp-server nil)
- ;; set path for rust-analyzer
- ;; (setq lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server"))
+ ;; use rust-analyzer instead of rls
  (setq lsp-rust-server 'rust-analyzer)
  ;; disable rustic flycheck error display in modeline. Its redundant
  (setq rustic-flycheck-setup-mode-line-p nil)
