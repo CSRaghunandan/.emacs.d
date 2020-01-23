@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-14 22:00:47 csraghunandan>
+;; Time-stamp: <2020-01-23 13:56:30 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -24,11 +24,6 @@
                         (flycheck-mode)
                         (smart-dash-mode)
                         (company-mode))))
-
-  :bind (:map rustic-mode-map
-         ("C-c v t" . wh/rust-toggle-visibility)
-         ("C-c m t" . wh/rust-toggle-mutability)
-         ("C-c v s" . wh/rust-vec-as-slice))
   :config
   (setq rust-indent-method-chain t)
 
@@ -39,39 +34,7 @@
     (set (make-local-variable 'company-backends)
          '((company-lsp company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
-  (add-hook 'rustic-mode-hook #'my-rust-mode-hook)
-
-  (defun wh/rust-toggle-mutability ()
-    "Toggle the mutability of the variable at point."
-    (interactive)
-    (save-excursion
-      (racer-find-definition)
-      (back-to-indentation)
-      (forward-char 4)
-      (if (looking-at "mut ")
-          (delete-char 4)
-        (insert "mut "))))
-
-  (defun wh/rust-toggle-visibility ()
-    "Toggle the public visibility of the function at point."
-    (interactive)
-    (save-excursion
-      ;; If we're already at the beginning of the function definition,
-      ;; `beginning-of-defun' moves to the previous function, so move elsewhere.
-      (end-of-line)
-
-      (beginning-of-defun)
-      (if (looking-at "pub ")
-          (delete-char 4)
-        (insert "pub "))))
-
-  (defun wh/rust-vec-as-slice ()
-    "Convert the vector expression at point to a slice.
-foo -> &foo[..]"
-    (interactive)
-    (insert "&")
-    (forward-symbol 1)
-    (insert "[..]")))
+  (add-hook 'rustic-mode-hook #'my-rust-mode-hook))
 
 (provide 'setup-rust)
 
