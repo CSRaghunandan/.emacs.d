@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 13:13:41 csraghunandan>
+;; Time-stamp: <2020-01-23 13:21:10 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -168,9 +168,18 @@
     (set-face-attribute 'font-lock-comment-face nil :foreground "gray40")
     (set-face-attribute 'font-lock-doc-face nil :foreground "gray55")
 
+    ;; diff-hl config
     (set-face-attribute 'diff-hl-change nil :background "#339CDB")
     (set-face-attribute 'diff-hl-delete nil :background "#D16969")
-    (set-face-attribute 'diff-hl-insert nil :background "#579C4C"))
+    (set-face-attribute 'diff-hl-insert nil :background "#579C4C")
+
+    ;; markdown config
+    (set-face-attribute markdown-header-face-1 nil :inherit 'outline-1)
+    (set-face-attribute markdown-header-face-2 nil :inherit 'outline-2)
+    (set-face-attribute markdown-header-face-3 nil :inherit 'outline-3)
+    (set-face-attribute markdown-header-face-4 nil :inherit 'outline-4)
+    (set-face-attribute markdown-header-face-5 nil :inherit 'outline-5)
+    (set-face-attribute markdown-header-face-6 nil :inherit 'outline-6))
 
   (gh/add-theme-hook 'doom-dark+ #'gh/doom-dark+-theme-hook)
 
