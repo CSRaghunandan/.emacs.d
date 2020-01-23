@@ -1,5 +1,5 @@
 ;;; setup-comint.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-26 20:15:08 csraghunandan>
+;; Time-stamp: <2020-01-23 10:30:19 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -27,3 +27,6 @@
       (recenter-top-bottom))))
 
 (provide 'setup-comint)
+
+;; C-c M-o will clear comint buffers
+;; `[up]' and `[down]' will cycle the previous and next inputs
