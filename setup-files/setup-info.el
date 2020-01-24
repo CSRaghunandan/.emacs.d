@@ -1,7 +1,7 @@
 ;;; setup-info.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2020-01-15 17:24:04 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; info-colors: Extra colors for Emacs info-mode

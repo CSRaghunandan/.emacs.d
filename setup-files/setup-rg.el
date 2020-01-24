@@ -1,7 +1,7 @@
 ;;; setup-rg -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-08-24 12:46:17 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; fast, friendly searching with ripgrep and Emacs

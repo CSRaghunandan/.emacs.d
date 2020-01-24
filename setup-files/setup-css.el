@@ -1,7 +1,7 @@
 ;;; setup-css.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2020-01-24 11:35:16 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 (defun my-css-mode-hook ()

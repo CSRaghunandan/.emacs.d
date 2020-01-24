@@ -1,7 +1,7 @@
 ;;; setup-recentf.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-12-17 21:20:25 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; view the list recently opened files

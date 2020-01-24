@@ -1,7 +1,7 @@
 ;;; setup-markdown.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-08-16 15:33:20 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; markdown: simple and quick outline mode

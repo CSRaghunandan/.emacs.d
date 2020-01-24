@@ -1,7 +1,7 @@
 ;;; setup-avy.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2019-01-09 00:40:26 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; avy: package for jumping to visible text using character based decision tree

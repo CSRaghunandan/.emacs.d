@@ -1,7 +1,7 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2020-01-24 11:15:57 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; lsp-mode:  Emacs client/library for the Language Server Protocol

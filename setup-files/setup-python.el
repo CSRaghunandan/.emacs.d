@@ -1,7 +1,7 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2020-01-19 09:44:00 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; emacs lsp-mode client for Microsoft's python language server

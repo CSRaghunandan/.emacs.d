@@ -1,7 +1,7 @@
 ;;; setup-pdf.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-12-02 18:59:32 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; pdf-tools: Emacs support library for PDF files.

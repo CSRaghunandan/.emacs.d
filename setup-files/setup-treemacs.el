@@ -1,7 +1,7 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2020-01-23 12:02:38 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; treemacs: a tree layout file explorer for Emacs

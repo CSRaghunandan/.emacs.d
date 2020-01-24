@@ -1,7 +1,7 @@
 ;;; setup-ace-window.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-10-16 16:39:24 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; ace-window: quick switching of windows

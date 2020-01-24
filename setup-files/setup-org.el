@@ -1,7 +1,7 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2020-01-18 17:16:23 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; Org-mode configuration - Make sure you install the latest org-mode with `M-x' RET `org-plus-contrib'

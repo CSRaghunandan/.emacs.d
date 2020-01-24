@@ -1,7 +1,7 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2020-01-23 09:29:51 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; https://github.com/Fanael/rainbow-delimiters

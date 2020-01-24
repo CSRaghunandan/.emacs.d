@@ -1,7 +1,7 @@
 ;;; setup-company.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2019-01-31 11:52:03 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; company, company-quickhelp, company-statistics

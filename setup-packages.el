@@ -1,7 +1,7 @@
 ;;; setup-packages.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-10 11:58:50 csraghunandan>
+;; Time-stamp: <2020-01-24 17:49:31 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; enable imenu support for `use-package'

@@ -1,7 +1,7 @@
 ;;; setup-compile.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-09-30 11:53:39 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 (setq compilation-always-kill t

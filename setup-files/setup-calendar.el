@@ -1,7 +1,7 @@
 ;;; setup-calendar.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-12-30 01:14:09 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; calendar config

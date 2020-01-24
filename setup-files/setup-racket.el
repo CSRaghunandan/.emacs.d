@@ -1,7 +1,7 @@
 ;;; setup-racket.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-08-16 15:44:17 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; racket-mode: major mode for editing racket files

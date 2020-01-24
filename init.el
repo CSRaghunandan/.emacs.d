@@ -1,7 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-24 11:57:05 csraghunandan>
+;; Time-stamp: <2020-01-24 17:49:08 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; Every file opened and loaded by Emacs will run through this list to check for

@@ -1,7 +1,7 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
 ;; Time-stamp: <2020-01-14 12:01:27 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; counsel: ivy backends for a lot more commands

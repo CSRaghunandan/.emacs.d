@@ -1,7 +1,7 @@
 ;;; setup-help.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-12-14 01:50:44 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; helpful: A better Emacs *help* buffer

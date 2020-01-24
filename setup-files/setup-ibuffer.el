@@ -1,7 +1,7 @@
 ;;; setup-ibuffer.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-12-13 21:43:01 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; ibuffer: for easy management of buffers

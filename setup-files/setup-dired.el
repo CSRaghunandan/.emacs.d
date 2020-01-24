@@ -1,7 +1,7 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
 ;; Time-stamp: <2019-02-15 19:47:23 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; dired: file system manager for emacs

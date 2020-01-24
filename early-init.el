@@ -1,7 +1,7 @@
 ;;; early-init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-15 09:47:58 csraghunandan>
+;; Time-stamp: <2020-01-24 17:48:59 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 (setq package-quickstart t)

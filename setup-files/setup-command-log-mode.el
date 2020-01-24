@@ -1,7 +1,7 @@
 ;;; setup-command-log-mode.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-08-15 02:44:27 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; Command Log Mode: log all commands in a buffer or all buffers

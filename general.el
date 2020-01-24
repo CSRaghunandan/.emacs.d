@@ -1,7 +1,7 @@
 ;;; general.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 13:15:03 csraghunandan>
+;; Time-stamp: <2020-01-24 17:49:22 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;;; Emacs version check

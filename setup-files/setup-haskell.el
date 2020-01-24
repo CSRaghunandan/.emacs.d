@@ -1,7 +1,7 @@
 ;;; setup-haskell.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2018-12-13 19:56:04 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; haskell-mode: major mode for editing haskell files

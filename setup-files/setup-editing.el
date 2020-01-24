@@ -1,7 +1,7 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2020-01-10 12:13:47 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;;; configuration for all the editing stuff in emacs

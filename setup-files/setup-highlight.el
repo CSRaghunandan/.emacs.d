@@ -1,7 +1,7 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2019-03-24 15:30:30 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; All the highlight stuff config

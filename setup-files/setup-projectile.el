@@ -1,7 +1,7 @@
 ;;; setup-projectile.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2020-01-10 13:39:08 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; Projectile: Project Interaction Library for Emacs

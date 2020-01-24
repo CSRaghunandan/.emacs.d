@@ -1,7 +1,7 @@
 ;;; setup-spell.el -*- lexical-binding: t; -*-
 ;; Time-stamp: <2019-02-26 00:21:34 csraghunandan>
 
-;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
+;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; flypsell: on the fly spell checking
