@@ -1,5 +1,5 @@
 ;;; setup-css.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-14 01:14:09 csraghunandan>
+;; Time-stamp: <2020-01-24 11:29:19 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,6 +10,9 @@
          (company-dabbrev-code company-dabbrev))))
 
 (defun lsp-css-common-setup()
+  (lsp)
+  (lsp-ui-mode)
+  (lsp-ui-doc-mode)
   (eldoc-mode)
   (flycheck-mode)
   (company-mode)
@@ -20,32 +23,24 @@
 ;; css-mode config
 (use-package css-mode
   :ensure nil
-  :hook ((css-mode . (lambda ()
-                       (lsp-css-common-setup)
-                       (lsp))))
+  :hook ((css-mode . lsp-css-common-setup))
   :config
   (setq css-indent-offset 2))
 
 (use-package less-css-mode              ; Mode for Less CSS files
   :ensure nil
   :mode "\\.less\\'"
-  :hook ((less-css . (lambda ()
-                       (lsp-css-common-setup)
-                       (lsp)))))
+  :hook ((less-css . lsp-css-common-setup)))
 
 ;; major mode for editing sass files
 ;; https://github.com/nex3/sass-mode
 (use-package sass-mode
   :mode (("\\.sass\\'" . sass-mode))
-  :hook ((sass-mode . (lambda ()
-                        (lsp-css-common-setup)
-                        (lsp)))))
+  :hook ((sass-mode . lsp-css-common-setup)))
 
 (use-package scss-mode                  ; Mode for SCSS files
   :ensure nil
   :mode "\\.scss\\'"
-  :hook ((sass-mode . (lambda ()
-                        (lsp-css-common-setup)
-                        (lsp)))))
+  :hook ((sass-mode . lsp-css-common-setup)))
 
 (provide 'setup-css)

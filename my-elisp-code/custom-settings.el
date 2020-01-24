@@ -15,8 +15,7 @@
  '(magit-log-section-arguments '("--graph" "--color" "-n256"))
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
- '(org-agenda-files
-   '("~/Code-files/CareVision/docs/android-tasks.org" "~/org/inbox.org" "~/org/gtd.org" "~/org/tickler.org"))
+ '(org-agenda-files '("~/org/inbox.org" "~/org/gtd.org" "~/org/tickler.org"))
  '(package-archives
    '(("melpa" . "https://melpa.org/packages/")
      ("gnu" . "http://elpa.gnu.org/packages/")

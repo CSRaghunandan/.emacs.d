@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 16:09:15 csraghunandan>
+;; Time-stamp: <2020-01-24 11:15:57 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,14 +11,13 @@
   :hook ((lsp-after-open . lsp-enable-imenu))
   :bind (:map lsp-mode-map
               ("C-c C-t" . lsp-describe-thing-at-point))
-  :config (require 'lsp-clients)
+  :config
   (setq lsp-prefer-flymake nil))
 
 ;; company-lsp: Company completion backend for lsp-mode.
 ;; https://github.com/tigersoldier/company-lsp/
 (use-package company-lsp
-  :config
-  (push 'company-lsp company-backends))
+  :config (push 'company-lsp company-backends))
 
 ;; lsp-ui: This contains all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
 ;; https://github.com/emacs-lsp/lsp-ui
