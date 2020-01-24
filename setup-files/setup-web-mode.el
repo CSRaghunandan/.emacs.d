@@ -1,5 +1,5 @@
 ;;; setup-web-mode.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-14 01:23:34 csraghunandan>
+;; Time-stamp: <2020-01-24 11:49:40 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -86,6 +86,8 @@
   (defun lsp-html-setup ()
     "Function to setup `lsp-html'"
     (lsp)
+    (lsp-ui-mode)
+    (lsp-ui-doc-mode)
     (my-lsp-html-mode-hook)
     (emmet-mode)
     (setq-local lsp-highlight-symbol-at-point nil)
