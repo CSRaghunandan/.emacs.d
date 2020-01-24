@@ -51,3 +51,6 @@ forge-database.sqlite
 
 # add magit transient folder
 transient/
+
+# org journal file
+org-journal.cache
