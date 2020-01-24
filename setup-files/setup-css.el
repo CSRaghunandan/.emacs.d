@@ -1,5 +1,5 @@
 ;;; setup-css.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-24 11:29:19 csraghunandan>
+;; Time-stamp: <2020-01-24 11:35:16 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,9 +13,10 @@
   (lsp)
   (lsp-ui-mode)
   (lsp-ui-doc-mode)
+  (my-css-mode-hook)
+  (company-mode)
   (eldoc-mode)
   (flycheck-mode)
-  (company-mode)
   (emmet-mode)
   (prettier-js-mode)
   (rainbow-mode))
