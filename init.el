@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 11:31:52 csraghunandan>
+;; Time-stamp: <2020-01-24 11:57:05 csraghunandan>
 
 ;; Copyright (C) 2016-2018 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -83,6 +83,7 @@
 (require 'setup-white-space)
 (require 'setup-mc)
 (require 'setup-js)
+(require 'setup-json)
 (require 'setup-typescript)
 (require 'setup-ocaml)
 (require 'setup-web-mode)
