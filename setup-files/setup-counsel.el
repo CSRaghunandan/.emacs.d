@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-01-14 12:01:27 csraghunandan>
+;; Time-stamp: <2020-01-27 17:04:19 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -77,7 +77,7 @@
            (selected-window))))))
 
   (ivy-add-actions
-   'counsel-ag ; also applies to `counsel-rg' & `counsel-pt'
+   'counsel-rg
    '(("O" +ivy-git-grep-other-window-action "open in other window")))
 
   ;; find file at point
@@ -105,10 +105,16 @@
 
   (bind-key "C-r" #'counsel-shell-history shell-mode-map)
 
+  (defun rag-counsel-rg-working-directory ()
+    "Like `counsel-rg' but always searches from the cwd, not project root."
+    (interactive)
+    (counsel-rg nil default-directory))
+
   (bind-keys
    ([remap bookmark-set] . counsel-bookmark)
    ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
    ("C-c d s" . describe-symbol)
+   ("C-c r w" rag-counsel-rg-working-directory)
    ("C-c d f" . counsel-faces)
    ("C-c P" . counsel-package)
    ("C-c r g" . counsel-rg)))
