@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 14:05:39 csraghunandan>
+;; Time-stamp: <2020-01-27 18:05:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -64,7 +64,11 @@
 
     ;; set face for volatile-highlights to be same as region face
     (set-face-attribute 'vhl/default-face nil :background 'unspecified
-                        :inherit 'region))
+                        :inherit 'region)
+
+    ;; don't underline for column-enforce-face, it looks ugly IMO
+    (set-face-attribute 'column-enforce-face nil :inherit 'font-lock-warning-face
+                        :underline nil :bold t))
 
   (gh/add-theme-hook 'doom-dark+ #'gh/doom-dark+-theme-hook)
 
