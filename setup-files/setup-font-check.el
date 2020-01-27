@@ -1,5 +1,5 @@
 ;;; setup-font-check.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-04-07 18:41:49 csraghunandan>
+;; Time-stamp: <2020-01-27 18:10:53 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -19,7 +19,7 @@
 (add-hook 'after-make-frame-functions #'rag-set-face)
 
 ;; set frame font when running emacs normally
-(when (member "Iosevka" (font-family-list))
+(when (member "Iosevka SS08" (font-family-list))
   (progn
     (if (is-linux-p)
         (set-frame-font "Iosevka SS08-10" nil t)
