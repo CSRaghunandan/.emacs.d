@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 09:29:51 csraghunandan>
+;; Time-stamp: <2020-01-27 18:36:17 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -14,6 +14,10 @@
 (setq inhibit-splash-screen t)
 ;; don't echo startup message of GNU emacs
 (setq inhibit-startup-echo-area-message t)
+
+;; show line numbers globally
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
 
 ;; Supply a random fortune cookie as the *scratch* message.
 (defun my-fortune-scratch-message ()
