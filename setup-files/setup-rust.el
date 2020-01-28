@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 14:16:36 csraghunandan>
+;; Time-stamp: <2020-01-28 09:54:36 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -23,7 +23,6 @@
                         (lsp-ui-doc-mode)
                         (lsp-ui-sideline-mode)
                         (lsp-ui-sideline-toggle-symbols-info)
-                        (flycheck-mode)
                         (smart-dash-mode)
                         (company-mode))))
   :config
