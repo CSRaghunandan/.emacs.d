@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-18 17:16:23 csraghunandan>
+;; Time-stamp: <2020-01-28 09:15:34 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -83,10 +83,6 @@
   ;; ob-http: make http requests with org-mode babel
   ;; https://github.com/zweifisch/ob-http
   (use-package ob-http)
-
-  ;; A helpful sidebar for Org mode
-  ;; https://github.com/alphapapa/org-sidebar
-  (use-package org-sidebar)
 
   (org-babel-do-load-languages
    'org-babel-load-languages
