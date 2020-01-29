@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-28 09:15:34 csraghunandan>
+;; Time-stamp: <2020-01-29 10:59:54 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -83,6 +83,10 @@
   ;; ob-http: make http requests with org-mode babel
   ;; https://github.com/zweifisch/ob-http
   (use-package ob-http)
+
+  ;;  Supercharge your Org daily/weekly agenda by grouping items
+  ;; https://github.com/alphapapa/org-super-agenda
+  (use-package org-super-agenda)
 
   (org-babel-do-load-languages
    'org-babel-load-languages
