@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-29 16:33:55 csraghunandan>
+;; Time-stamp: <2020-02-01 23:40:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -70,7 +70,8 @@ not prevent downloading the actual packages (obviously)."
 
 ;; restart-emacs: A simple emacs package to restart emacs from within emacs
 ;; https://github.com/iqbalansari/restart-emacs
-(use-package restart-emacs)
+(use-package restart-emacs
+  :bind ("C-c r s" . restart-emacs))
 
 (defun rag-suspend-frame ()
   "In a GUI environment, do nothing; otherwise `suspend-frame'."
