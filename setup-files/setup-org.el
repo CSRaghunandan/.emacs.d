@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-29 10:59:54 csraghunandan>
+;; Time-stamp: <2020-02-01 23:48:39 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -145,11 +145,6 @@
 
   ;; make tabs act like they would in the major mode for the source block
   (setq org-src-tab-acts-natively t)
-
-  ;; enable org-indent mode on startup
-  (setq org-startup-indented t)
-
-  (use-package org-indent :ensure nil)
 
   ;; strike through done headlines
   (setq org-fontify-done-headline t)
