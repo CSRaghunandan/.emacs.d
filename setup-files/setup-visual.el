@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 23:54:14 csraghunandan>
+;; Time-stamp: <2020-02-02 00:19:11 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -109,9 +109,6 @@
   ;; enforce a column of 80 for highlighting
   (setq column-enforce-column 80)
   (setq column-enforce-comments nil))
-
-;; make both fringes 4 pixels wide
-(fringe-mode 4)
 
 ;; Easily adjust the font size in all Emacs frames
 ;; https://github.com/purcell/default-text-scale/
