@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 21:47:32 csraghunandan>
+;; Time-stamp: <2020-02-01 22:34:47 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -44,11 +44,6 @@
       (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
                           :background 'unspecified :foreground 'unspecified))
 
-    ;; make comments gray instead of green
-    (set-face-attribute 'font-lock-comment-delimiter-face nil :foreground "gray30")
-    (set-face-attribute 'font-lock-comment-face nil :foreground "gray30")
-    (set-face-attribute 'font-lock-doc-face nil :foreground "gray45")
-
     ;; diff-hl config
     (set-face-attribute 'diff-hl-change nil :background "#339CDB")
     (set-face-attribute 'diff-hl-delete nil :background "#D16969")
@@ -68,7 +63,11 @@
 
     ;; don't underline for column-enforce-face, it looks ugly IMO
     (set-face-attribute 'column-enforce-face nil :inherit 'font-lock-warning-face
-                        :underline nil :bold t))
+                        :underline nil :bold t)
+
+    ;; change doom-modeline-bar face to be a different color
+    (with-eval-after-load "doom-modeline"
+      (set-face-attribute 'doom-modeline-bar nil :background "#339CDB")))
 
   (gh/add-theme-hook 'doom-dark+ #'gh/doom-dark+-theme-hook)
 
