@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-27 18:05:09 csraghunandan>
+;; Time-stamp: <2020-02-01 21:47:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -78,6 +78,16 @@
     (load-theme 'doom-dark+))
   (if (daemonp)
       (add-hook 'after-make-frame-functions #'my/load-theme)
-    (load-theme 'doom-dark+)))
+    (load-theme 'doom-dark+))
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
+  (doom-themes-treemacs-config)
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 (provide 'setup-theme)

@@ -1,14 +1,8 @@
 ;;; setup-mode-line.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 21:14:03 csraghunandan>
+;; Time-stamp: <2020-02-01 22:02:47 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
-
-;; flash the modeline instead of ringing the bell
-;; https://github.com/purcell/mode-line-bell
-(use-package mode-line-bell
-  :defer 1
-  :config (mode-line-bell-mode))
 
 ;;  Run M-x all-the-icons-install-fonts to install the fonts needed for
 ;;  all-the-icons package
@@ -31,13 +25,23 @@
   ;; enable column number mode
   (column-number-mode)
 
+  ;; don't display persp, don't have it installed
+  (setq doom-modeline-persp-name nil)
+
   ;; show minor modes in mode-line, since minions is enabled, it will use
   ;; minions to display all the enabled minor-modes
   (setq doom-modeline-minor-modes t)
 
   ;; Whether display icons in mode-line. Respects `all-the-icons-color-icons'.
   ;; While using the server mode in GUI, should set the value explicitly.
-  (setq doom-modeline-icon t))
+  (setq doom-modeline-icon t)
+
+  ;; display environment version for individual languages
+  (setq doom-modeline-env-enable-python t)
+  (setq doom-modeline-env-enable-go t)
+  (setq doom-modeline-env-go-executable "go")
+  (setq doom-modeline-env-enable-rust t)
+  (setq doom-modeline-env-rust-executable "rustc"))
 
 ;; macro to rename mode-name for major-modes
 (defmacro rename-modeline (package-name mode new-name)
