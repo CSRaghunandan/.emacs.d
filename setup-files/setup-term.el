@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-22 14:48:20 csraghunandan>
+;; Time-stamp: <2020-02-01 20:29:57 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -19,8 +19,10 @@
                                ;; Don't prompt about processes when killing vterm
                                (setq-local confirm-kill-processes nil)
                                ;; Prevent premature horizontal scrolling
-                               (setq-local hscroll-margin 0)
-                               )))
+                               (setq-local hscroll-margin 0)))
+
+  ;; vterm buffers are killed when the associated process is terminated
+  (setq vterm-kill-buffer-on-exit t))
 
 ;; vterm-toggle: toggles between the vterm buffer and whatever buffer you are editing.
 ;; https://github.com/jixiuf/vterm-toggle
