@@ -1,5 +1,5 @@
 ;;; setup-mode-line.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 21:05:08 csraghunandan>
+;; Time-stamp: <2020-02-01 21:14:03 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -14,6 +14,11 @@
 ;;  all-the-icons package
 (use-package all-the-icons)
 
+;; https://github.com/tarsius/minions
+;; A minor-mode menu for the mode line
+(use-package minions
+  :config (minions-mode 1))
+
 ;;  A fancy and fast mode-line inspired by minimalism design.
 ;; https://github.com/seagle0128/doom-modeline/
 (use-package doom-modeline
@@ -25,6 +30,10 @@
 
   ;; enable column number mode
   (column-number-mode)
+
+  ;; show minor modes in mode-line, since minions is enabled, it will use
+  ;; minions to display all the enabled minor-modes
+  (setq doom-modeline-minor-modes t)
 
   ;; Whether display icons in mode-line. Respects `all-the-icons-color-icons'.
   ;; While using the server mode in GUI, should set the value explicitly.
