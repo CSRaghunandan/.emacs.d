@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 22:18:16 csraghunandan>
+;; Time-stamp: <2020-02-01 23:54:14 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -110,9 +110,8 @@
   (setq column-enforce-column 80)
   (setq column-enforce-comments nil))
 
-;; indicate buffer boundaries in the fringe
-(setq-default indicate-buffer-boundaries '((top . right)
-                                           (bottom . right)))
+;; make both fringes 4 pixels wide
+(fringe-mode 4)
 
 ;; Easily adjust the font size in all Emacs frames
 ;; https://github.com/purcell/default-text-scale/
