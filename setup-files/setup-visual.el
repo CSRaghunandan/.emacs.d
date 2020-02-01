@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-27 20:45:05 csraghunandan>
+;; Time-stamp: <2020-02-01 22:18:16 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -125,5 +125,15 @@
 ;; https://github.com/Fuco1/fontify-face/tree/master
 (use-package fontify-face
   :defer t)
+
+;; solaire-mode is an aesthetic plugin that helps visually distinguish
+;; file-visiting windows from other types of windows (like popups or sidebars)
+;; by giving them a slightly different background.
+;; https://github.com/hlissner/emacs-solaire-mode
+(use-package solaire-mode
+  :hook
+  ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  :config
+  (solaire-global-mode +1))
 
 (provide 'setup-visual)
