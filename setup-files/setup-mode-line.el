@@ -1,5 +1,5 @@
 ;;; setup-mode-line.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 22:02:47 csraghunandan>
+;; Time-stamp: <2020-02-01 22:37:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -35,6 +35,9 @@
   ;; Whether display icons in mode-line. Respects `all-the-icons-color-icons'.
   ;; While using the server mode in GUI, should set the value explicitly.
   (setq doom-modeline-icon t)
+
+  ;; How wide the mode-line bar should be. It's only respected in GUI.
+  (setq doom-modeline-bar-width 3)
 
   ;; display environment version for individual languages
   (setq doom-modeline-env-enable-python t)
