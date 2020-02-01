@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 22:34:47 csraghunandan>
+;; Time-stamp: <2020-02-01 23:38:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -60,6 +60,9 @@
     ;; set face for volatile-highlights to be same as region face
     (set-face-attribute 'vhl/default-face nil :background 'unspecified
                         :inherit 'region)
+
+    ;; make org-headline-done more readable when using redshift
+    (set-face-attribute 'org-headline-done nil :foreground "#49585B")
 
     ;; don't underline for column-enforce-face, it looks ugly IMO
     (set-face-attribute 'column-enforce-face nil :inherit 'font-lock-warning-face
