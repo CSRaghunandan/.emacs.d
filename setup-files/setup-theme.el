@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 15:20:26 csraghunandan>
+;; Time-stamp: <2020-02-02 18:04:45 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -71,12 +71,24 @@
     ;;; mode-line configuration
     ;; change doom-modeline-bar face to be a different color
     (with-eval-after-load "doom-modeline"
-      (set-face-attribute 'doom-modeline-bar nil :background "#339CDB"))
+      (set-face-attribute 'doom-modeline-bar nil :background "#339CDB")
+
+      (set-face-attribute 'doom-modeline-buffer-major-mode nil :weight 'bold
+                          :inherit 'unspecified :foreground "#85DDFF")
+      (set-face-attribute 'doom-modeline-buffer-path nil :inherit 'unspecified
+                          :weight 'bold :foreground "#85DDFF")
+      (set-face-attribute 'doom-modeline-buffer-modified nil
+                          :inherit 'font-lock-warning-face
+                          :weight 'bold )
+      (set-face-attribute 'doom-modeline-buffer-file nil
+                          :inherit 'unspecified :weight 'bold
+                          :foreground "#32CD32"))
+    (set-face-attribute 'mode-line nil :box nil :background "gray14"
+                        :foreground "#f4f4f4")
+
     (with-eval-after-load "solaire-mode"
      (set-face-attribute 'solaire-mode-line-face nil :box nil :background "gray20"
-                         :foreground "#f4f4f4"))
-    (set-face-attribute 'mode-line nil :box nil :background "gray14"
-                        :foreground "#f4f4f4"))
+                         :foreground "#f4f4f4")))
 
   (gh/add-theme-hook 'doom-dark+ #'gh/doom-dark+-theme-hook)
 
