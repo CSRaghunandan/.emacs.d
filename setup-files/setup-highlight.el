@@ -1,5 +1,5 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 16:02:59 csraghunandan>
+;; Time-stamp: <2020-02-02 17:10:46 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -78,7 +78,22 @@
         (setq next (text-property-not-all pos limit prop nil str))
         (when next
           (setq pos (text-property-any next limit prop nil str))
-          (remove-text-properties next pos '(display nil face nil) str))))))
+          (remove-text-properties next pos '(display nil face nil) str)))))
+
+  ;; https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-highlight.el#L147
+  ;; Don't display indentations while editing with `company'
+  (with-eval-after-load 'company
+    (add-hook 'company-completion-started-hook
+              (lambda (&rest _)
+                "Trun off indentation highlighting."
+                (when highlight-indent-guides-mode
+                  (highlight-indent-guides-mode -1))))
+    (add-hook 'company-after-completion-hook
+              (lambda (&rest _)
+                "Trun on indentation highlighting."
+                (when (and (derived-mode-p 'prog-mode)
+                           (not highlight-indent-guides-mode))
+                  (highlight-indent-guides-mode 1))))))
 
 ;; hl-todo: Highlight TODO keywords
 ;; https://github.com/tarsius/hl-todo/tree/master
