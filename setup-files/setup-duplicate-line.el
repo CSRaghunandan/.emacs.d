@@ -1,5 +1,5 @@
 ;;; setup-duplicate-line.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:52:47 csraghunandan>
+;; Time-stamp: <2020-02-02 21:37:48 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -44,7 +44,7 @@ If there's no region, the current line will be duplicated."
       (let ((beg (region-beginning))
             (end (region-end)))
         (duplicate-region arg beg end)
-        (one-shot-keybinding "d" (λ (duplicate-region 1 beg end))))
+        (one-shot-keybinding "d" (lambda (duplicate-region 1 beg end))))
     (duplicate-current-line arg)
     (one-shot-keybinding "d" 'duplicate-current-line)))
 
