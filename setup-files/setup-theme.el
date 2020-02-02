@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 18:25:58 csraghunandan>
+;; Time-stamp: <2020-02-02 19:04:00 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -82,7 +82,13 @@
                           :weight 'bold )
       (set-face-attribute 'doom-modeline-buffer-file nil
                           :inherit 'unspecified :weight 'bold
-                          :foreground "#75BA5B"))
+                          :foreground "#75BA5B")
+      (set-face-attribute 'doom-modeline-info nil :inherit 'unspecified
+                          :weight 'bold :foreground "#75BA5B")
+      (set-face-attribute 'doom-modeline-warning nil
+                          :inherit 'font-lock-warning-face :weight 'bold)
+      (set-face-attribute 'doom-modeline-urgent nil
+                          :inherit 'font-lock-string-face :weight 'bold))
     (set-face-attribute 'mode-line nil :box nil :background "gray16"
                         :foreground "#f4f4f4")
 
