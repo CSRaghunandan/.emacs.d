@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 23:38:21 csraghunandan>
+;; Time-stamp: <2020-02-02 10:05:55 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -68,13 +68,23 @@
     (set-face-attribute 'column-enforce-face nil :inherit 'font-lock-warning-face
                         :underline nil :bold t)
 
+    ;;; mode-line configuration
     ;; change doom-modeline-bar face to be a different color
     (with-eval-after-load "doom-modeline"
-      (set-face-attribute 'doom-modeline-bar nil :background "#339CDB")))
+      (set-face-attribute 'doom-modeline-bar nil :background "#339CDB"))
+    (with-eval-after-load "solaire-mode"
+     (set-face-attribute 'solaire-mode-line-face nil :box nil :background "gray20"
+                         :foreground "f4f4f4"))
+    (set-face-attribute 'mode-line nil :box nil :background "gray14"
+                        :foreground "f4f4f4")
+    (set-face-attribute 'doom-modeline-buffer-major-mode nil :inherit nil
+                        :foreground "#339CDB" :weight 'bold))
 
   (gh/add-theme-hook 'doom-dark+ #'gh/doom-dark+-theme-hook)
 
   :config
+
+  ;; load my theme: doom-dark+
   (defun my/load-theme (frame)
     (select-frame frame)
     (load-theme 'doom-dark+))
