@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 10:05:55 csraghunandan>
+;; Time-stamp: <2020-02-02 10:23:03 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -76,9 +76,7 @@
      (set-face-attribute 'solaire-mode-line-face nil :box nil :background "gray20"
                          :foreground "f4f4f4"))
     (set-face-attribute 'mode-line nil :box nil :background "gray14"
-                        :foreground "f4f4f4")
-    (set-face-attribute 'doom-modeline-buffer-major-mode nil :inherit nil
-                        :foreground "#339CDB" :weight 'bold))
+                        :foreground "f4f4f4"))
 
   (gh/add-theme-hook 'doom-dark+ #'gh/doom-dark+-theme-hook)
 
