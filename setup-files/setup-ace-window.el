@@ -1,5 +1,5 @@
 ;;; setup-ace-window.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 21:57:34 csraghunandan>
+;; Time-stamp: <2020-02-02 22:19:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -21,16 +21,20 @@
 
   ;; add hydras to control window size and scroll other window
   (setq aw-dispatch-alist
-   '((?x aw-delete-window " Ace - Delete Window")
-     (?m aw-swap-window " Ace - Swap Window")
-     (?n aw-flip-window)
-     (?u aw-switch-buffer-other-window "Switch Buffer Other Window")
-     (?j aw-switch-buffer-in-window "Select Buffer")
-     (?o delete-other-windows " Ace - Maximize Window")
-     (?c hydra-window-scroll/body)
-     (?t aw-split-window-fair "Ace- split fairly")
-     (?y hydra-window-size/body)
-     (?? aw-show-dispatch-help)))
+        '((?x aw-delete-window "Delete Window")
+          (?m aw-swap-window "Swap Window")
+          (?M aw-move-window "Move Window")
+          (?c aw-copy-window "Copy Window")
+          (?n aw-flip-window "Flip window")
+          (?u aw-switch-buffer-other-window "Switch Buffer Other Window")
+          (?j aw-switch-buffer-in-window "Select Buffer")
+          (?o delete-other-windows "Maximize Window")
+          (?e aw-execute-command-other-window "Execute Command Other Window")
+          (?T aw-transpose-frame "Transpose Frame")
+          (?v hydra-window-scroll/body)
+          (?t aw-split-window-fair "split fairly")
+          (?y hydra-window-size/body)
+          (?? aw-show-dispatch-help)))
 
   (defhydra hydra-window-size (:color red)
     "Windows size"
@@ -57,13 +61,18 @@
 ;; ace-window dispatch operations:
 ;;
 ;; x - delete window
-;; m - swap (move) window
-;; t - split window fairly
+;; m - swap window
+;; M - move window
+;; c - copy window
+;; n - flip window (select previous window)
 ;; u - switch buffer other window
 ;; j - switch buffer in window
-;; n - select the previous window
-;; i - maximize window (select which window)
 ;; o - maximize current window
+;; e - execute command other window
+;; T - transpose frame
+;; v - Hydra scroll
+;; t - split window fairly
+;; y - Hydra window size
 ;; ? - show help for ace-window
 ;;
 ;; Usage: <ace-window BINDING> x <WINDOW-CHAR> will delete that window
