@@ -1,4 +1,7 @@
-[submodule "multi-libvterm"]
+[submodule "elisp/multi-libvterm"]
 	path = elisp/multi-libvterm
 	url = https://github.com/CSRaghunandan/multi-libvterm
-	
+
+[submodule "elisp/ws-butler"]
+	path = elisp/ws-butler
+	url = https://github.com/hlissner/ws-butler
