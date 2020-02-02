@@ -1,5 +1,5 @@
 ;;; setup-ace-window.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-10-16 16:39:24 csraghunandan>
+;; Time-stamp: <2020-02-02 21:57:34 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,6 +15,9 @@
   (setq aw-translate-char-function #'downcase)
   ;; enable aw dispatch even for just one window
   (setq aw-dispatch-always t)
+
+  ;; enable the ace-window number in mode-line
+  (ace-window-display-mode)
 
   ;; add hydras to control window size and scroll other window
   (setq aw-dispatch-alist
