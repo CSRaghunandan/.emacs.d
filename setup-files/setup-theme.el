@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 18:04:45 csraghunandan>
+;; Time-stamp: <2020-02-02 18:15:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -82,7 +82,7 @@
                           :weight 'bold )
       (set-face-attribute 'doom-modeline-buffer-file nil
                           :inherit 'unspecified :weight 'bold
-                          :foreground "#32CD32"))
+                          :foreground "#75BA5B"))
     (set-face-attribute 'mode-line nil :box nil :background "gray14"
                         :foreground "#f4f4f4")
 

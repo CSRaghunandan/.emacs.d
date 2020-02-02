@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 00:19:11 csraghunandan>
+;; Time-stamp: <2020-02-02 18:20:20 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -130,6 +130,7 @@
   :hook
   ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
   :config
-  (solaire-global-mode +1))
+  (solaire-global-mode +1)
+  (solaire-mode-swap-bg))
 
 (provide 'setup-visual)
