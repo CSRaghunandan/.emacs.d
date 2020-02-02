@@ -1,5 +1,5 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 15:19:16 csraghunandan>
+;; Time-stamp: <2020-02-02 16:02:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -27,6 +27,7 @@
   :hook ((helpful-mode . rainbow-mode)
          (web-mode . rainbow-mode))
   :config
+  ;; https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-highlight.el#L192
   ;; HACK: Use overlay instead of text properties to override `hl-line' faces.
   ;; @see https://emacs.stackexchange.com/questions/36420
   (with-no-warnings
@@ -82,7 +83,12 @@
 ;; hl-todo: Highlight TODO keywords
 ;; https://github.com/tarsius/hl-todo/tree/master
 (use-package hl-todo
-  :config (global-hl-todo-mode))
+  :hook (after-init . global-hl-todo-mode)
+  :config
+  (dolist (keyword '("BUG" "DEFECT" "ISSUE"))
+    (cl-pushnew `(,keyword . ,(face-foreground 'error)) hl-todo-keyword-faces))
+  (dolist (keyword '("WORKAROUND" "TRICK"))
+    (cl-pushnew `(,keyword . ,(face-foreground 'warning)) hl-todo-keyword-faces)))
 
 ;; enable some extra syntax highlighting for dash
 (with-eval-after-load 'dash
