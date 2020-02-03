@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-03-07 18:51:22 csraghunandan>
+;; Time-stamp: <2020-02-03 11:29:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -109,8 +109,7 @@
 ;; diff-hl: highlight diffs in the fringe
 ;; https://github.com/dgutov/diff-hl
 (use-package diff-hl
-  :hook ((dired-mode . diff-hl-dired-mode)
-         (magit-post-refresh . diff-hl-magit-post-refresh))
+  :hook ((magit-post-refresh . diff-hl-magit-post-refresh))
   :init
   (global-diff-hl-mode)
   :bind (("C-c h d" . diff-hl-hunk-hydra/body))
