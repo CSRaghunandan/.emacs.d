@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-03 10:59:17 csraghunandan>
+;; Time-stamp: <2020-02-03 16:50:08 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -43,11 +43,6 @@
     (with-eval-after-load "golden-ratio-scroll-screen"
       (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
                           :background 'unspecified :foreground 'unspecified))
-
-    ;; diff-hl config
-    (set-face-attribute 'diff-hl-change nil :background "#339CDB")
-    (set-face-attribute 'diff-hl-delete nil :background "#D16969")
-    (set-face-attribute 'diff-hl-insert nil :background "#579C4C")
 
     ;; markdown config
     (set-face-attribute markdown-header-face-1 nil :inherit 'outline-1)
