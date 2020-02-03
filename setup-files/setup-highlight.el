@@ -1,5 +1,5 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 19:31:36 csraghunandan>
+;; Time-stamp: <2020-02-03 11:40:07 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -52,9 +52,12 @@
   (setq beacon-size 15)
   (beacon-mode)
 
-  ;; don't blink in shell-mode
+  ;; don't blink in shell-mode/term based modes and treemacs
   (add-to-list 'beacon-dont-blink-major-modes #'comint-mode t)
   (add-to-list 'beacon-dont-blink-major-modes #'term-mode t)
+  (add-to-list 'beacon-dont-blink-major-modes #'ansi-term t)
+  (add-to-list 'beacon-dont-blink-major-modes #'vterm-mode t)
+  (add-to-list 'beacon-dont-blink-major-modes #'treemacs-mode t)
   (add-to-list 'beacon-dont-blink-major-modes #'sql-interactive-mode t))
 
 ;; highlight-numbers: fontify numbers
