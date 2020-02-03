@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-03 08:22:29 csraghunandan>
+;; Time-stamp: <2020-02-03 11:02:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,11 @@
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
 (use-package treemacs
+  :hook
+  ;; slightly lower the size of treemacs window
+  ((treemacs-mode . (lambda ()
+                      (setq buffer-face-mode-face '(:height .88))
+                      (buffer-face-mode))))
   :config
   (progn
     (setq treemacs-follow-after-init t
@@ -22,21 +27,15 @@
           treemacs-never-persist nil
           treemacs-is-never-other-window t)
 
-    ;; slightly lower the size of treemacs icons
-    (treemacs-resize-icons 18)
-
-    (defun doom-themes-hide-modeline ()
-      (setq mode-line-format nil))
-
-    ;; The modeline isn't useful in treemacs
-    (add-hook 'treemacs-mode-hook #'doom-themes-hide-modeline)
-
     ;; set the correct python3 executable path. This is needed for
     ;; treemacs-git-mode extended
     (setq treemacs-python-executable (executable-find "python"))
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
+
+    ;; no longer needed since fringe is hidden in doom-themes-treemacs-theme
+    (treemacs-fringe-indicator-mode nil)
 
     (pcase (cons (not (null (executable-find "git")))
                  (not (null (executable-find "python"))))
