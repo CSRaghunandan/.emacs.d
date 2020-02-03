@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2019-02-15 19:47:23 csraghunandan>
+;; Time-stamp: <2020-02-03 07:57:55 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,6 +12,8 @@
                ("E" . ora-ediff-files)
                ("^" . rag/dired-up-dir)
                ("C-a" . dired-back-to-start-of-files)))
+  :hook ((dired-mode . (lambda ()
+                         (setq-local tab-width 1))))
   :config
   (progn
     ;; follow symlinks in dired

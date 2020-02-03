@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 21:41:42 csraghunandan>
+;; Time-stamp: <2020-02-03 07:56:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -56,7 +56,6 @@
 ;; https://github.com/Alexander-Miller/treemacs/blob/master/src/extra/treemacs-icons-dired.el
 (use-package treemacs-icons-dired
   :after treemacs dired
-  :disabled t ;; disable till integration with doom-themes treemacs config is fixed
   :config (treemacs-icons-dired-mode))
 
 (provide 'setup-treemacs)
