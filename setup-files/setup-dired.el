@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-03 07:57:55 csraghunandan>
+;; Time-stamp: <2020-02-03 23:26:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -92,7 +92,7 @@ It added extra strings at the front and back of the default dired buffer name."
   (setq dired-guess-shell-alist-user '(("\\.jpg\\'" "feh")
                                        ("\\.png\\'" "feh")
                                        ("\\.mp4\\'" "vlc")
-                                       ("\\.mkv\\'" "vlc")v
+                                       ("\\.mkv\\'" "vlc")
                                        ("\\.pdf\\'" "zathura")))
 
   (eval-after-load "recentf"
