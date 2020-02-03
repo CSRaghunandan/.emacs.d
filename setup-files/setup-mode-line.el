@@ -1,5 +1,5 @@
 ;;; setup-mode-line.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 22:37:40 csraghunandan>
+;; Time-stamp: <2020-02-03 13:50:15 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -38,6 +38,9 @@
 
   ;; How wide the mode-line bar should be. It's only respected in GUI.
   (setq doom-modeline-bar-width 3)
+
+  ;; enable word counts for text based modes
+  (setq doom-modeline-enable-word-count t)
 
   ;; display environment version for individual languages
   (setq doom-modeline-env-enable-python t)
