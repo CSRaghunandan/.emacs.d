@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 17:45:09 csraghunandan>
+;; Time-stamp: <2020-02-04 17:49:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -57,7 +57,7 @@
                                  (file+headline "~/org/tickler.org" "Tickler")
                                  (file "~/.emacs.d/org-capture-templates/ticker.txt"))
                                 ("b" "Add a book to read list" entry
-                                 (file+headline "~/org/inbox.org" "Read list")
+                                 (file+headline "~/org/books.org" "Read list")
                                  (file "~/.emacs.d/org-capture-templates/book.txt"))
                                 ("p" "Add a new project" entry
                                  (file+headline "~/org/projects.org" "Projects")
