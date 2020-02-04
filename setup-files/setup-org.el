@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 09:52:43 csraghunandan>
+;; Time-stamp: <2020-02-04 10:04:05 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -27,7 +27,8 @@
   ;; org agenda files
   (setq org-agenda-files '("~/org/inbox.org"
                            "~/org/gtd.org"
-                           "~/org/tickler.org"))
+                           "~/org/tickler.org"
+                           "~/org/projects.org"))
 
   (setq org-agenda-skip-scheduled-if-done t
         org-agenda-skip-deadline-if-done t
@@ -39,11 +40,13 @@
                                  (file "~/.emacs.d/org-capture-templates/todo.txt"))
                                 ("r" "Tickler" entry
                                  (file+headline "~/org/tickler.org" "Tickler")
-                                 ;; "* %i%? \n %U"
                                  (file "~/.emacs.d/org-capture-templates/ticker.txt"))
                                 ("b" "Add a book to read list" entry
                                  (file+headline "~/org/inbox.org" "Read list")
                                  (file "~/.emacs.d/org-capture-templates/book.txt"))
+                                ("p" "Add a new project" entry
+                                 (file+headline "~/org/projects.org" "Projects")
+                                 (file "~/.emacs.d/org-capture-templates/projects.txt"))
                                 ("n" "Note" entry
                                  (file "") ;empty string defaults to `org-default-notes-file'
                                  "\n* %?\n  Context:\n    %i\n  Entered on %U")))
