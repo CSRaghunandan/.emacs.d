@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-03 11:29:32 csraghunandan>
+;; Time-stamp: <2020-02-04 23:48:33 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -94,6 +94,7 @@
   :after magit
   :hook (magit-mode . magit-todos-mode)
   :config
+  (setq magit-todos-keyword-suffix "\\(?:([^)]+)\\)?:?") ; make colon optional
   (setq magit-todos-group-by
         '(magit-todos-item-first-path-component magit-todos-item-keyword magit-todos-item-filename)))
 
