@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-01-28 19:45:43 csraghunandan>
+;; Time-stamp: <2020-02-04 08:23:33 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -132,7 +132,8 @@
    ("C-c r w" rag-counsel-rg-working-directory)
    ("C-c d f" . counsel-faces)
    ("C-c P" . counsel-package)
-   ("C-c r g" . counsel-rg)))
+   ("C-c r g" . counsel-rg)
+   ("C-x d" . counsel-dired)))
 
 ;; Add more ivy features for projectile related commands
 ;; https://github.com/ericdanan/counsel-projectile/tree/master
