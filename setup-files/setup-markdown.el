@@ -1,5 +1,5 @@
 ;;; setup-markdown.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-16 15:33:20 csraghunandan>
+;; Time-stamp: <2020-02-04 17:24:39 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,6 +9,8 @@
 ;; https://github.com/defunkt/markdown-moed
 (use-package markdown-mode
   :mode ("/README\\(?:\\.\\(?:markdown\\|md\\)\\)?\\'" . gfm-mode)
+  :hook ((markdown-mode . (lambda ()
+                            (setq-local display-line-numbers-type 'absolute))))
   :init
   (when (executable-find "pandoc")
     (setq markdown-command "pandoc --from=markdown --to=html --standalone --mathjax --highlight-style=pygments"))

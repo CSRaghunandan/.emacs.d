@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 12:03:54 csraghunandan>
+;; Time-stamp: <2020-02-04 17:23:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,7 +11,8 @@
   :hook
   ((org-mode . org-num-mode)
    (org-mode . (lambda () ;; this will make sure auto-fill works for org-mode
-                 (setq-local comment-auto-fill-only-comments nil))))
+                 (setq-local comment-auto-fill-only-comments nil)
+                 (setq-local display-line-numbers-type 'absolute))))
   :preface
   ;; Modules that should always be loaded together with org.el.
   ;; `org-modules' default: (ol-w3m ol-bbdb ol-bibtex ol-docview ol-gnus ol-info
