@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 23:48:39 csraghunandan>
+;; Time-stamp: <2020-02-04 08:41:49 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -278,13 +278,15 @@ function is ever added to that hook."
                              "NEXT(n@/!)"
                              "SOMEDAY(s/!)"
                              "WAITING(w@/!)"
+                             "DELEGATED(d@/!)"
                              "|" "CANCELED(c)"
                              "DONE(d@)")))
   (setq org-todo-keyword-faces
         '(("TODO" . org-todo)
           ("NEXT" . (:foreground "CadetBlue3" :weight bold))
-          ("WAITING" . (:foreground "pink" :weight bold))
+          ("WAITING" . (:foreground "Pink" :weight bold))
           ("SOMEDAY"  . (:foreground "#FFEF9F" :weight bold))
+          ("DELEGATED" . (:inherit outline-2))
           ("CANCELED" . (:foreground "red" :weight bold :strike-through t))
           ("DONE"     . (:foreground "SeaGreen4" :weight bold))))
 
