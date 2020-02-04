@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 10:04:05 csraghunandan>
+;; Time-stamp: <2020-02-04 11:18:46 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -33,6 +33,20 @@
   (setq org-agenda-skip-scheduled-if-done t
         org-agenda-skip-deadline-if-done t
         org-habit-show-habits t)
+
+  ;; set default tags for org
+  (setq org-tag-persistent-alist '(("@EMAIL" . ?e)
+                                   ("@WRITE" . ?W)
+                                   ("@PHONE" . ?p)
+                                   ("@CONFIGURE" . ?C)
+                                   ("@WORK" . ?w)
+                                   ("@PERSONAL" . ?l)
+                                   ("@LEARN" . ?n)
+                                   ("@READ" . ?r)
+                                   ("@WATCH" . ?W)
+                                   ("@COMPUTER" . ?c)
+                                   ("@BILLS" . ?b)
+                                   ("@PURCHASE" . ?P)))
 
   ;; org capture templates
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
