@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 23:23:34 csraghunandan>
+;; Time-stamp: <2020-02-04 23:50:16 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -759,15 +759,5 @@ point."
   :bind (("C-c o j" . org-journal-new-entry))
   :hook ((org-journal-mode . (lambda ()
                                (visual-line-mode -1)))))
-
-;; org-sticky-headers
-;; https://github.com/alphaapapa/org-sticky-header
-(use-package org-sticky-header
-  :hook ((org-mode . org-sticky-header-mode))
-  :config
-  ;; show full path from the org-mode header
-  (setq org-sticky-header-full-path 'full)
-  (setq org-sticky-header-always-show-header
-        (if org-sticky-header-full-path t nil)))
 
 (provide 'setup-org)
