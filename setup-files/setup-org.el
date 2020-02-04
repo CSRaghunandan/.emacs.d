@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 11:18:46 csraghunandan>
+;; Time-stamp: <2020-02-04 11:22:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -71,7 +71,8 @@
   (setq org-refile-allow-creating-parent-nodes 'confirm)
   (setq org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
                              ("~/org/someday.org" :level . 1)
-                             ("~/org/tickler.org" :maxlevel . 2)))
+                             ("~/org/tickler.org" :maxlevel . 3)
+                             ("~/org/projects.org" :maxlevel . 3)))
 
   (with-eval-after-load "ivy"
     (add-to-list
