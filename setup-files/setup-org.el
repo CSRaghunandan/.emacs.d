@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 11:32:31 csraghunandan>
+;; Time-stamp: <2020-02-04 12:03:54 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -309,7 +309,7 @@ function is ever added to that hook."
                              "NEXT(n@/!)"
                              "SOMEDAY(s/!)"
                              "WAITING(w@/!)"
-                             "DELEGATED(d@/!)"
+                             "DELEGATED(e@/!)"
                              "|" "CANCELED(c)"
                              "DONE(d@)")))
   (setq org-todo-keyword-faces
