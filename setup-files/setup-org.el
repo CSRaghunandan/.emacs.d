@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 08:41:49 csraghunandan>
+;; Time-stamp: <2020-02-04 09:52:43 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,15 +8,15 @@
 ;; http://orgmode.org/
 (use-package org
   :ensure nil
+  :hook
+  ((org-mode . org-num-mode)
+   (org-mode . (lambda () ;; this will make sure auto-fill works for org-mode
+                 (setq-local comment-auto-fill-only-comments nil))))
   :preface
   ;; Modules that should always be loaded together with org.el.
   ;; `org-modules' default: (ol-w3m ol-bbdb ol-bibtex ol-docview ol-gnus ol-info
   ;;                         ol-irc ol-mhe ol-rmail ol-eww)
   (setq org-modules '(ol-info ol-irc org-habit ol-gnus))
-
-  ;; this will make sure auto-fill works for org-mode
-  (add-hook 'org-mode-hook (lambda ()
-                             (setq-local comment-auto-fill-only-comments nil)))
 
   ;; Set my default org-export backends. This variable needs to be set before
   ;; org.el is loaded.
@@ -29,13 +29,18 @@
                            "~/org/gtd.org"
                            "~/org/tickler.org"))
 
+  (setq org-agenda-skip-scheduled-if-done t
+        org-agenda-skip-deadline-if-done t
+        org-habit-show-habits t)
+
   ;; org capture templates
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                  (file+headline "~/org/inbox.org" "Tasks")
-                                 "* TODO %i%?")
-                                ("T" "Tickler" entry
+                                 (file "~/.emacs.d/org-capture-templates/todo.txt"))
+                                ("r" "Tickler" entry
                                  (file+headline "~/org/tickler.org" "Tickler")
-                                 "* %i%? \n %U")
+                                 ;; "* %i%? \n %U"
+                                 (file "~/.emacs.d/org-capture-templates/ticker.txt"))
                                 ("b" "Add a book to read list" entry
                                  (file+headline "~/org/inbox.org" "Read list")
                                  (file "~/.emacs.d/org-capture-templates/book.txt"))

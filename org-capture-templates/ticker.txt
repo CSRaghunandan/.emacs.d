@@ -1,6 +1,6 @@
 * TODO %^{Description}
   :PROPERTIES:
-  :CREATED:    %U
+  :CREATED: %U
   :END:
   :LOGBOOK:
   - Note taken on %U \\
@@ -8,6 +8,3 @@
   :END:
   :RESOURCES:
   :END:
-
-  + Next steps:
-    - [ ] %^{next steps}
