@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 11:22:44 csraghunandan>
+;; Time-stamp: <2020-02-04 11:29:02 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -106,6 +106,13 @@
   ;; ob-http: make http requests with org-mode babel
   ;; https://github.com/zweifisch/ob-http
   (use-package ob-http)
+
+  ;; plantuml configuration
+  (use-package ob-plantuml :ensure nil
+    :commands
+    (org-babel-execute:plantuml)
+    :config
+    (setq org-plantuml-jar-path (expand-file-name "/usr/share/java/plantuml/plantuml.jar")))
 
   ;;  Supercharge your Org daily/weekly agenda by grouping items
   ;; https://github.com/alphapapa/org-super-agenda
