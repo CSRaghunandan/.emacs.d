@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 17:23:59 csraghunandan>
+;; Time-stamp: <2020-02-04 17:45:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -394,10 +394,6 @@ Execute this command while the point is on or after the hyper-linked org link."
   ;; ox-gfm: export to github flavored markdown
   ;; https://github.com/larstvei/ox-gfm
   (use-package ox-gfm)
-
-  ;; ox-twbs: Export org-mode docs as HTML compatible with Twitter Bootstrap.
-  ;; https://github.com/marsmining/ox-twbs
-  (use-package ox-twbs)
 
   ;; org-toc: toc-org is an Emacs utility to have an up-to-date table of
   ;; contents in the org files without exporting (useful primarily for readme
