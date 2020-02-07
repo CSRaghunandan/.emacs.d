@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:46:15 csraghunandan>
+;; Time-stamp: <2020-02-07 18:30:23 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -66,5 +66,10 @@
 (use-package hexl
   :ensure nil
   :mode ("\\.\\(?:hex\\|nes\\)\\'" . hexl-mode))
+
+;; major made for crontab files
+;; https://github.com/emacs-pe/crontab-mode
+(use-package crontab-mode
+  :mode "\\.?cron\\(tab\\)?\\'")
 
 (provide 'setup-config-files)
