@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-06 12:44:36 csraghunandan>
+;; Time-stamp: <2020-02-07 18:24:11 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -37,9 +37,15 @@
 (use-package doom-themes
   :init
   (defun gh/doom-challenger-deep-theme-hook()
+
+    ;; don't use obnoxious colors for `golden-ratio-scroll'
     (with-eval-after-load "golden-ratio-scroll-screen"
       (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
-                          :background 'unspecified :foreground 'unspecified)))
+                          :background 'unspecified :foreground 'unspecified))
+
+    ;; make volatile highlights have the same face as region, comments are
+    ;; intangible inside volatile highlights face
+    (set-face-attribute 'vhl/default-face nil :background 'unspecified :inherit 'region))
   (gh/add-theme-hook 'doom-challenger-deep #'gh/doom-challenger-deep-theme-hook)
 
   :config
