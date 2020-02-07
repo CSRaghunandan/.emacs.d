@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-07 18:44:21 csraghunandan>
+;; Time-stamp: <2020-02-07 18:57:16 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -50,7 +50,11 @@
     (with-eval-after-load 'magit
       ;; make `magit-header-line' more readable
       (set-face-attribute 'magit-header-line nil :background "#3D4551"
-                          :box '(:line-width 3 :color "#3D4551"))))
+                          :box '(:line-width 3 :color "#3D4551"))
+      ;; remove ugly box for `magit-branch-remote-head'
+      (set-face-attribute 'magit-branch-remote-head nil
+                          :box nil :weight 'bold
+                          :inherit 'magit-branch-remote)))
   (gh/add-theme-hook 'doom-challenger-deep #'gh/doom-challenger-deep-theme-hook)
 
   :config
