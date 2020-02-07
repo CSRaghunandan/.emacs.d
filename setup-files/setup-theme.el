@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-07 18:24:11 csraghunandan>
+;; Time-stamp: <2020-02-07 18:44:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -45,7 +45,12 @@
 
     ;; make volatile highlights have the same face as region, comments are
     ;; intangible inside volatile highlights face
-    (set-face-attribute 'vhl/default-face nil :background 'unspecified :inherit 'region))
+    (set-face-attribute 'vhl/default-face nil :background 'unspecified :inherit 'region)
+
+    (with-eval-after-load 'magit
+      ;; make `magit-header-line' more readable
+      (set-face-attribute 'magit-header-line nil :background "#3D4551"
+                          :box '(:line-width 3 :color "#3D4551"))))
   (gh/add-theme-hook 'doom-challenger-deep #'gh/doom-challenger-deep-theme-hook)
 
   :config
