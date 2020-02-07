@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-07 18:57:16 csraghunandan>
+;; Time-stamp: <2020-02-07 19:00:12 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -59,7 +59,7 @@
 
   :config
 
-  ;; load my theme: doom-dark+
+  ;; load my theme: doom-challenger-deep
   (defun my/load-theme (frame)
     (select-frame frame)
     (load-theme 'doom-challenger-deep))
