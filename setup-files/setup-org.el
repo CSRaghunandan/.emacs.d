@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-08 21:27:01 csraghunandan>
+;; Time-stamp: <2020-02-08 21:43:55 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -62,6 +62,12 @@
                                 ("p" "Add a new project" entry
                                  (file+headline "~/org/agenda/projects.org" "Projects")
                                  (file "~/.emacs.d/org-capture-templates/projects.txt"))
+                                ("R" "Add a new reference" entry
+                                 (file+headline "~/org/agenda/references.org" "References")
+                                 (file "~/.emacs.d/org-capture-templates/reference.txt"))
+                                ("e" "Add a new code example" entry
+                                 (file+headline "~/org/agenda/examples.org" "Examples")
+                                 (file "~/.emacs.d/org-capture-templates/example.txt"))
                                 ("n" "Note" entry
                                  (file "") ;empty string defaults to `org-default-notes-file'
                                  "\n* %?\n  Context:\n    %i\n  Entered on %U")))
@@ -196,7 +202,7 @@
   ;; preserve indentation inside of source blocks
   (setq org-src-preserve-indentation t)
 
-  (setq org-default-notes-file "~/org/.notes.org")
+  (setq org-default-notes-file "~/org/agenda/.notes.org")
 
   (setq org-catch-invisible-edits 'smart) ; http://emacs.stackexchange.com/a/2091/115
   (setq org-indent-indentation-per-level 1) ; default = 2

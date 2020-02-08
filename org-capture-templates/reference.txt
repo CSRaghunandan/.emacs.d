@@ -1,0 +1,10 @@
+* %^{description}
+  :PROPERTIES:
+  :CREATED:    %U
+  :CATEGORY: %^{category}
+  :SUBJECT:  %^{subject}
+  :END:
+  :RESOURCES:
+  :END:
+
+  %?

@@ -1,0 +1,13 @@
+* %^{example}
+  :PROPERTIES:
+  :CREATED:    %U
+  :SOURCE:  %^{source|Command|Script|Code|Usage}
+  :CATEGORY: %^{category}
+  :SUBJECT: %^{subject}
+  :END:
+
+  #+BEGIN_SRC %^{lang}
+  %x
+  #+END_SRC
+
+  %?
