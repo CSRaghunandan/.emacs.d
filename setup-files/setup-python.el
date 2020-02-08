@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-19 09:44:00 csraghunandan>
+;; Time-stamp: <2020-02-08 12:01:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -21,7 +21,8 @@
 
 ;; Multiple syntax checker for Python in Emacs, using Flycheck
 ;; https://github.com/msherry/flycheck-pycheckers
-(use-package flycheck-pycheckers)
+(use-package flycheck-pycheckers
+  :config (add-to-list 'flycheck-checkers 'flycheck-pycheckers))
 
 ;; TODO: add pyflakes linter
 (use-package python
