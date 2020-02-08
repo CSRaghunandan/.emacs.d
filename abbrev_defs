@@ -401,6 +401,7 @@
     ("fromthe" "from the" nil :count 0)
     ("func" "function" nil :count 63)
     ("functionalties" "functionalities" nil :count 0)
+    ("funtionality" "functionality" nil :count 0)
     ("furneral" "funeral" nil :count 0)
     ("fwe" "few" nil :count 0)
     ("garantee" "guarantee" nil :count 0)
@@ -840,7 +841,7 @@
     ("talkign" "talking" nil :count 0)
     ("tath" "that" nil :count 0)
     ("tecnical" "technical" nil :count 0)
-    ("teh" "the" nil :count 3)
+    ("teh" "the" nil :count 4)
     ("tehy" "they" nil :count 0)
     ("terminiated" "terminated" nil :count 0)
     ("termoil" "turmoil" nil :count 0)
@@ -972,7 +973,7 @@
     ("youre" "you're" nil :count 0)
     ("youve" "you've" nil :count 0)
     ("ytou" "you" nil :count 0)
-    ("yuo" "you" nil :count 0)
+    ("yuo" "you" nil :count 1)
     ("yuor" "your" nil :count 1)
    ))
 
@@ -983,6 +984,6 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
-    ("i" "I" nil :count 32)
+    ("i" "I" nil :count 34)
    ))
 
