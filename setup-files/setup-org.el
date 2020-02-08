@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 23:50:16 csraghunandan>
+;; Time-stamp: <2020-02-08 21:27:01 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -26,10 +26,10 @@
   :config
 
   ;; org agenda files
-  (setq org-agenda-files '("~/org/inbox.org"
-                           "~/org/gtd.org"
-                           "~/org/tickler.org"
-                           "~/org/projects.org"))
+  (setq org-agenda-files '("~/org/agenda/inbox.org"
+                           "~/org/agenda/gtd.org"
+                           "~/org/agenda/tickler.org"
+                           "~/org/agenda/projects.org"))
 
   (setq org-agenda-skip-scheduled-if-done t
         org-agenda-skip-deadline-if-done t
@@ -51,16 +51,16 @@
 
   ;; org capture templates
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
-                                 (file+headline "~/org/inbox.org" "Tasks")
+                                 (file+headline "~/org/agenda/inbox.org" "Tasks")
                                  (file "~/.emacs.d/org-capture-templates/todo.txt"))
                                 ("r" "Tickler" entry
-                                 (file+headline "~/org/tickler.org" "Tickler")
+                                 (file+headline "~/org/agenda/tickler.org" "Tickler")
                                  (file "~/.emacs.d/org-capture-templates/ticker.txt"))
                                 ("b" "Add a book to read list" entry
-                                 (file+headline "~/org/books.org" "Read list")
+                                 (file+headline "~/org/agenda/books.org" "Read list")
                                  (file "~/.emacs.d/org-capture-templates/book.txt"))
                                 ("p" "Add a new project" entry
-                                 (file+headline "~/org/projects.org" "Projects")
+                                 (file+headline "~/org/agenda/projects.org" "Projects")
                                  (file "~/.emacs.d/org-capture-templates/projects.txt"))
                                 ("n" "Note" entry
                                  (file "") ;empty string defaults to `org-default-notes-file'
@@ -70,10 +70,10 @@
   (setq org-refile-use-outline-path 'file
         org-outline-path-complete-in-steps nil)
   (setq org-refile-allow-creating-parent-nodes 'confirm)
-  (setq org-refile-targets '(("~/org/gtd.org" :maxlevel . 3)
-                             ("~/org/someday.org" :level . 1)
-                             ("~/org/tickler.org" :maxlevel . 3)
-                             ("~/org/projects.org" :maxlevel . 3)))
+  (setq org-refile-targets '(("~/org/agenda/gtd.org" :maxlevel . 3)
+                             ("~/org/agenda/someday.org" :level . 1)
+                             ("~/org/agenda/tickler.org" :maxlevel . 3)
+                             ("~/org/agenda/projects.org" :maxlevel . 3)))
 
   (with-eval-after-load "ivy"
     (add-to-list
