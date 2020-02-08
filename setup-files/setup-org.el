@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-08 21:43:55 csraghunandan>
+;; Time-stamp: <2020-02-08 22:21:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -80,6 +80,18 @@
                              ("~/org/agenda/someday.org" :level . 1)
                              ("~/org/agenda/tickler.org" :maxlevel . 3)
                              ("~/org/agenda/projects.org" :maxlevel . 3)))
+
+  (defun rag/org-references-refile (arg)
+    "Process an item to the reference bucket"
+    (interactive "P")
+    (let ((org-refile-targets '(("~/org/agenda/references.org" :maxlevel . 3))))
+      (call-interactively #'org-refile)))
+
+  (defun rag/org-examples-refile (arg)
+    "Process an item to the reference bucket"
+    (interactive "P")
+    (let ((org-refile-targets '(("~/org/agenda/examples.org" :maxlevel . 3))))
+      (call-interactively #'org-refile)))
 
   (with-eval-after-load "ivy"
     (add-to-list
