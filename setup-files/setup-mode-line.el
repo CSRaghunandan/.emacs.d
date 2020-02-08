@@ -1,5 +1,5 @@
 ;;; setup-mode-line.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-03 13:50:15 csraghunandan>
+;; Time-stamp: <2020-02-08 11:52:07 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -40,14 +40,7 @@
   (setq doom-modeline-bar-width 3)
 
   ;; enable word counts for text based modes
-  (setq doom-modeline-enable-word-count t)
-
-  ;; display environment version for individual languages
-  (setq doom-modeline-env-enable-python t)
-  (setq doom-modeline-env-enable-go t)
-  (setq doom-modeline-env-go-executable "go")
-  (setq doom-modeline-env-enable-rust t)
-  (setq doom-modeline-env-rust-executable "rustc"))
+  (setq doom-modeline-enable-word-count t))
 
 ;; macro to rename mode-name for major-modes
 (defmacro rename-modeline (package-name mode new-name)
