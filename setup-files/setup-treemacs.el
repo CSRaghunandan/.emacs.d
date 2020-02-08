@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-08 15:41:33 csraghunandan>
+;; Time-stamp: <2020-02-08 18:45:26 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,14 +15,14 @@
   :config
   (progn
     (setq treemacs-follow-after-init t
-          treemacs-width 35
-          treemacs-indentation 2
-          treemacs-recenter-after-file-follow nil
+          treemacs-recenter-after-file-follow t
+          treemacs-recenter-after-project-expand 'on-distance
+          treemacs-eldoc-display nil
           treemacs-collapse-dirs (if (executable-find "python") 3 0)
           treemacs-silent-refresh t
           treemacs-silent-filewatch t
           treemacs-change-root-without-asking t
-          treemacs-sorting 'alphabetic-desc
+          treemacs-sorting 'alphabetic-asc
           treemacs-show-hidden-files t
           treemacs-never-persist nil
           treemacs-is-never-other-window t)
@@ -38,16 +38,16 @@
     (treemacs-fringe-indicator-mode nil)
 
     (pcase (cons (not (null (executable-find "git")))
-                 (not (null (executable-find "python"))))
+                 (not (null treemacs-python-executable)))
       (`(t . t)
-       (treemacs-git-mode 'extended))
+       (treemacs-git-mode 'deferred))
       (`(t . _)
        (treemacs-git-mode 'simple))))
 
   :bind
   (:map global-map
-        ([f8] . treemacs)
-        ("C-c f" . treemacs-select-window)))
+        ("C-c f" . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)))
 
 (use-package treemacs-projectile
   :after treemacs projectile
@@ -66,7 +66,7 @@
 ;; Integration between lsp-mode and treemacs and implementation of treeview
 ;; controls using treemacs as a tree renderer.
 ;; https://github.com/emacs-lsp/lsp-treemacs
-(use-package lsp-treemacs
+(use-package lsp-treemacs :defer 5
   :config
   (lsp-treemacs-sync-mode 1))
 
