@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 23:40:21 csraghunandan>
+;; Time-stamp: <2020-02-08 22:11:25 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -82,5 +82,9 @@ not prevent downloading the actual packages (obviously)."
 
 (global-unset-key (kbd "C-z"))
 (bind-key "C-z C-z" 'rag-suspend-frame)
+
+;; use firefox-developer-edition as default browser
+(setq browse-url-firefox-program "firefox-developer-edition")
+(setq browse-url-browser-function 'browse-url-firefox)
 
 (provide 'setup-misc)
