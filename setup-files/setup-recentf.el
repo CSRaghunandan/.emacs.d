@@ -1,5 +1,5 @@
 ;;; setup-recentf.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-17 21:20:25 csraghunandan>
+;; Time-stamp: <2020-02-09 20:05:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,6 +25,9 @@
      "loaddefs.el"
      "^/\\(?:ssh\\|su\\|sudo\\)?:" ;; ignore tramp/ssh files
      ))
+  ;; exclude no-littering directories for recentf list
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory)
   (recentf-mode))
 
 (provide 'setup-recentf)
