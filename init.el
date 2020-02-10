@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 09:32:47 csraghunandan>
+;; Time-stamp: <2020-02-10 11:25:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -115,6 +115,7 @@
 (require 'setup-docker)
 (require 'setup-pdf)
 (require 'setup-engine-mode)
+(require 'setup-gcmh)
 
 ;; install all packages (if they already not installed by use-package)
 (package-install-selected-packages)
