@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 18:23:26 csraghunandan>
+;; Time-stamp: <2020-02-10 18:52:14 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -78,7 +78,7 @@
         org-outline-path-complete-in-steps nil)
   (setq org-refile-allow-creating-parent-nodes 'confirm)
   (setq org-refile-targets '(("~/org/agenda/gtd.org" :maxlevel . 3)
-                             ("~/org/agenda/someday.org" :level . 1)
+                             ("~/org/agenda/someday.org" :level . 2)
                              ("~/org/agenda/tickler.org" :maxlevel . 3)
                              ("~/org/agenda/projects.org" :maxlevel . 3)))
 
@@ -97,16 +97,9 @@
   (defun rag/org-books-refile (arg)
     "Process an item to the books file"
     (interactive "P")
-    (let ((org-refile-targets '(("~/org/agenda/books.org" :maxlevel . 3))))
+    (let ((org-refile-targets '(("~/org/agenda/books.org" :maxlevel . 2))))
       (call-interactively #'org-refile)))
 
-  (with-eval-after-load "ivy"
-    (add-to-list
-    'ivy-completing-read-handlers-alist
-    '(org-capture-refile . completing-read-default)))
-
-  ;; override `avy-goto-char-timer' to C-' in org-mode-map
-  (bind-key "C-'" 'avy-goto-char-timer org-mode-map)
   (bind-key "C-c C-/" #'org-refile org-mode-map)
 
   (bind-key "C-c M-a" #'ace-link-org org-mode-map)
@@ -117,17 +110,8 @@
   ;; task as done.
   (setq org-enforce-todo-checkbox-dependencies t)
 
-  (font-lock-add-keywords
-   'org-mode
-   `(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)" 1 'org-headline-done prepend))
-   'append)
-
   ;; clock into a drawer called CLOCKING
   (setq org-clock-into-drawer "CLOCKING")
-
-  ;; Show drawers, e.g. :PROPERTIES:, when we expand a heading.
-  ;; See http://emacs.stackexchange.com/a/22540/304
-  (remove-hook 'org-cycle-hook #'org-cycle-hide-drawers)
 
   ;; ob-http: make http requests with org-mode babel
   ;; https://github.com/zweifisch/ob-http
@@ -192,11 +176,7 @@
   ;; nofold / showall - expand all headlines except the ones with :archive:
   ;;                    tag and property drawers
   ;; showeverything   - same as above but without exceptions
-  (setq org-startup-folded 'showall)
-
-  ;; Prevent auto insertion of blank lines before headings and list items
-  (setq org-blank-before-new-entry '((heading)
-                                     (plain-list-item)))
+  (setq org-startup-folded 'content)
 
   (bind-key "C-c C-j" 'counsel-org-agenda-headlines org-mode-map)
 
@@ -224,16 +204,6 @@
   (setq org-default-notes-file "~/org/agenda/.notes.org")
 
   (setq org-catch-invisible-edits 'smart) ; http://emacs.stackexchange.com/a/2091/115
-  (setq org-indent-indentation-per-level 1) ; default = 2
-
-  (with-eval-after-load 'org-footnote
-    ;; Prevent renumbering/sorting footnotes when a footnote is added/removed.
-    ;; Doing so would create a big diff in an Org file containing lot of
-    ;; footnotes even if only one footnote was added/removed.
-    (setq org-footnote-auto-adjust nil)) ;`'sort' - only sort
-                                        ;`'renumber' - only renumber
-                                        ;`t' - sort and renumber
-                                        ;`nil' - do nothing (default)
 
   ;; imenu should use a depth of 3 instead of 2
   (setq org-imenu-depth 3)
@@ -298,13 +268,6 @@ function is ever added to that hook."
     (:body-pre (org-table-mark-field)
                :color red
                :hint nil)
-    "
-   ^^      ^🠙^     ^^
-   ^^      _p_     ^^
-🠘 _b_  selection  _f_ 🠚          | org table mark ▯field▮ |
-   ^^      _n_     ^^
-   ^^      ^🠛^     ^^
-"
     ("x" exchange-point-and-mark "exchange point/mark")
     ("f" (lambda (arg)
            (interactive "p")
@@ -431,20 +394,6 @@ Execute this command while the point is on or after the hyper-linked org link."
   ;; https://github.com/lolownia/org-pomodoro
   (use-package org-pomodoro
     :config (bind-key "C-c o p" #'org-pomodoro org-mode-map))
-
-  ;; Make C-u C-return insert heading *at point* (not respecting content),
-  ;; even when the point is directly after a list item.
-  ;; Reason: http://lists.gnu.org/r/emacs-orgmode/2018-02/msg00368.html
-  (defun modi/org-insert-heading-respect-content (&optional invisible-ok)
-    "Insert heading with `org-insert-heading-respect-content' set to t.
-With \\[universal-argument] prefix, insert Org heading directly at
-point."
-    (interactive)
-    (let ((respect-content (unless current-prefix-arg
-                             '(4))))
-      (org-insert-heading respect-content invisible-ok)))
-  (advice-add 'org-insert-heading-respect-content :override
-              #'modi/org-insert-heading-respect-content)
 
   (defun bjm/org-headline-to-top ()
     "Move the current org headline to the top of its section"
