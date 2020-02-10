@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-07 19:00:12 csraghunandan>
+;; Time-stamp: <2020-02-10 13:01:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -45,7 +45,15 @@
 
     ;; make volatile highlights have the same face as region, comments are
     ;; intangible inside volatile highlights face
-    (set-face-attribute 'vhl/default-face nil :background 'unspecified :inherit 'region)
+    (set-face-attribute 'vhl/default-face nil :background 'unspecified
+                        :inherit 'region)
+
+    ;; don't use variable pitch for info buffers. Looks jarring
+    (set-face-attribute 'Info-quoted nil :inherit 'font-lock-function)
+    (set-face-attribute 'info-title-4 nil :inherit nil :weight 'bold)
+    (set-face-attribute 'info-menu-header nil :inherit nil :weight 'bold)
+    (set-face-attribute 'info-colors-lisp-code-block nil :inherit nil
+                        :weight 'bold)
 
     (with-eval-after-load 'magit
       ;; make `magit-header-line' more readable
