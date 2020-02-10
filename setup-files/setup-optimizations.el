@@ -1,5 +1,5 @@
 ;;; setup-optimizations.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 12:13:32 csraghunandan>
+;; Time-stamp: <2020-02-10 17:51:17 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -35,7 +35,6 @@
 (use-package gcmh
   :config
   (setq gcmh-idle-delay 10 ; garbage collect after 10s of idle time
-        gcmh-verbose t
         gcmh-high-cons-threshold 16777216) ; 16mb
   )
 
