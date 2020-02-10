@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 18:10:44 csraghunandan>
+;; Time-stamp: <2020-02-10 18:23:26 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -42,10 +42,11 @@
                                    ("@CONFIGURE" . ?C)
                                    ("@WORK" . ?w)
                                    ("@PERSONAL" . ?l)
+                                   ("@HEALTH" . ?h)
+                                   ("@URGENT" . ?u)
                                    ("@LEARN" . ?n)
                                    ("@READ" . ?r)
                                    ("@WATCH" . ?W)
-                                   ("@COMPUTER" . ?c)
                                    ("@BILLS" . ?b)
                                    ("@PURCHASE" . ?P)))
 
@@ -359,6 +360,7 @@ If OPTION is \\='(16), only align the tags in the current heading."
       (org-set-tags-command nil :align-only-current))
      (t
       (counsel-org-tag))))
+  (bind-key "C-c o t" 'modi/counsel-org-tag org-mode-map)
 
   (use-package langtool :defer 1
     :config
