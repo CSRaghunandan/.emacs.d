@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 19:13:34 csraghunandan>
+;; Time-stamp: <2020-02-10 19:20:11 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -99,6 +99,29 @@
     (interactive "P")
     (let ((org-refile-targets '(("~/org/agenda/books.org" :maxlevel . 2))))
       (call-interactively #'org-refile)))
+
+  (bind-keys
+   ("C-c a" . org-agenda)
+   ("C-c c" . org-capture)
+   ("C-c i" . org-store-link))
+
+  (setq org-todo-keywords '((sequence
+                             "TODO(t@/!)"
+                             "NEXT(n@/!)"
+                             "SOMEDAY(s/!)"
+                             "WAITING(w@/!)"
+                             "DELEGATED(e@/!)"
+                             "|" "CANCELED(c)"
+                             "DONE(d@)")))
+
+  (setq org-todo-keyword-faces
+        '(("TODO" . org-todo)
+          ("NEXT" . (:foreground "CadetBlue3"))
+          ("WAITING" . (:foreground "Pink"))
+          ("SOMEDAY"  . (:foreground "#FFEF9F"))
+          ("DELEGATED" . (:inherit outline-2))
+          ("CANCELED" . (:foreground "red" :strike-through t))
+          ("DONE"     . (:inherit org-done))))
 
   (bind-key "C-c C-/" #'org-refile org-mode-map)
 
@@ -287,28 +310,6 @@ function is ever added to that hook."
    :map org-mode-map
    :filter (org-at-table-p)
    ("S-SPC" . hydra-org-table-mark-field/body))
-
-  (bind-keys
-   ("C-c a" . org-agenda)
-   ("C-c c" . org-capture)
-   ("C-c i" . org-store-link))
-
-  (setq org-todo-keywords '((sequence
-                             "TODO(t@/!)"
-                             "NEXT(n@/!)"
-                             "SOMEDAY(s/!)"
-                             "WAITING(w@/!)"
-                             "DELEGATED(e@/!)"
-                             "|" "CANCELED(c)"
-                             "DONE(d@)")))
-  (setq org-todo-keyword-faces
-        '(("TODO" . org-todo)
-          ("NEXT" . (:foreground "CadetBlue3"))
-          ("WAITING" . (:foreground "Pink"))
-          ("SOMEDAY"  . (:foreground "#FFEF9F"))
-          ("DELEGATED" . (:inherit outline-2))
-          ("CANCELED" . (:foreground "red" :strike-through t))
-          ("DONE"     . (:inherit org-done))))
 
   ;; Counsel and Org tags
   (defun modi/counsel-org-tag (&optional option)
