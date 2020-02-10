@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 17:56:37 csraghunandan>
+;; Time-stamp: <2020-02-10 18:10:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -364,7 +364,7 @@ If OPTION is \\='(16), only align the tags in the current heading."
     :config
     ;; place the language-tool directory in $HOME
     (setq langtool-language-tool-jar
-          (concat user-home-directory "/usr/local/Cellar/languagetool/4.1/libexec/languagetool-commandline.jar"))
+          (concat user-home-directory "/usr/share/java/languagetool/languagetool-commandline.jar"))
     (setq langtool-default-language "en-GB")
 
     ;; hydra for langtool check
