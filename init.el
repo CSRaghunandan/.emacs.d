@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 11:25:13 csraghunandan>
+;; Time-stamp: <2020-02-10 12:13:37 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -33,6 +33,7 @@
 ;; load all use-package related configuration
 (load (locate-user-emacs-file "setup-packages.el") nil :nomessage)
 
+(require 'setup-optimizations)
 (require 'setup-no-littering)
 (require 'setup-osx)
 (require 'setup-org)
@@ -115,7 +116,6 @@
 (require 'setup-docker)
 (require 'setup-pdf)
 (require 'setup-engine-mode)
-(require 'setup-gcmh)
 
 ;; install all packages (if they already not installed by use-package)
 (package-install-selected-packages)
@@ -130,5 +130,9 @@
 (setq file-name-handler-alist rag--file-name-handler-alist
       gc-cons-threshold 16777216 ;; use 16MB
       gc-cons-percentage 0.1)
+;; enable gchm mode
+(gcmh-mode +1)
+;; garbage collect when moving out to other applications
+(add-function :after after-focus-change-function #'gcmh-idle-garbage-collect)
 
 ;;; init.el ends here

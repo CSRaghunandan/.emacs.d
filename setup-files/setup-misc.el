@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 09:26:18 csraghunandan>
+;; Time-stamp: <2020-02-10 11:59:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -40,8 +40,6 @@ not prevent downloading the actual packages (obviously)."
 (setq echo-keystrokes 0.01)
 ;; set all yes or no prompts to y or n
 (fset 'yes-or-no-p 'y-or-n-p)
-;; garbage collect when focus out
-(add-hook 'focus-out-hook 'garbage-collect)
 ;; make links clickable
 (add-hook 'prog-mode-hook 'goto-address-prog-mode)
 
@@ -86,8 +84,5 @@ not prevent downloading the actual packages (obviously)."
 ;; use firefox-developer-edition as default browser
 (setq browse-url-firefox-program "firefox-developer-edition")
 (setq browse-url-browser-function 'browse-url-firefox)
-
-;; Increase the amount of data which Emacs reads from the process.
-(setq read-process-output-max (* 1024 1024))
 
 (provide 'setup-misc)

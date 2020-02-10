@@ -1,5 +1,5 @@
 ;;; setup-movement.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:04:38 csraghunandan>
+;; Time-stamp: <2020-02-10 11:54:04 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -18,12 +18,6 @@ Try the repeated popping up to 10 times."
 ;; Ensure that we can quickly pop the mark several times by typing
 ;; C-u C-SPC C-SPC, instead of having to type C-u C-SPC C-u C-SPC.
 (setq set-mark-command-repeat-pop t)
-
-;; Horizontally scroll only the current line
-;; https://www.reddit.com/r/emacs/comments/6au45k/is_it_possible_to_truncate_long_lines_the_same/
-(setq auto-hscroll-mode 'current-line)
-
-(setq fast-but-imprecise-scrolling t)
 
 ;; mwim: move to the beginning or end of line smartly
 ;; https://github.com/alezost/mwim.el
