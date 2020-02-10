@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-08 22:11:25 csraghunandan>
+;; Time-stamp: <2020-02-10 09:26:18 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -86,5 +86,8 @@ not prevent downloading the actual packages (obviously)."
 ;; use firefox-developer-edition as default browser
 (setq browse-url-firefox-program "firefox-developer-edition")
 (setq browse-url-browser-function 'browse-url-firefox)
+
+;; Increase the amount of data which Emacs reads from the process.
+(setq read-process-output-max (* 1024 1024))
 
 (provide 'setup-misc)
