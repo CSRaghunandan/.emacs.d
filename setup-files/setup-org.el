@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 19:32:28 csraghunandan>
+;; Time-stamp: <2020-02-10 19:57:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -310,21 +310,6 @@ function is ever added to that hook."
    :map org-mode-map
    :filter (org-at-table-p)
    ("S-SPC" . hydra-org-table-mark-field/body))
-
-  ;; Counsel and Org tags
-  (defun modi/counsel-org-tag (&optional option)
-    "Set Org tags, or just align tags in current heading or whole buffer.
-If OPTION is \\='(4), only align the tags in the whole buffer.
-If OPTION is \\='(16), only align the tags in the current heading."
-    (interactive "P")
-    (cond
-     ((equal '(4) option)
-      (org-set-tags-command :just-align))
-     ((equal '(16) option)
-      (org-set-tags-command nil :align-only-current))
-     (t
-      (counsel-org-tag))))
-  (bind-key "C-c o t" 'modi/counsel-org-tag org-mode-map)
 
   (use-package langtool :defer 1
     :config
