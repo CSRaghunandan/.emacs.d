@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-09 19:03:52 csraghunandan>
+;; Time-stamp: <2020-02-10 13:24:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -52,22 +52,22 @@
   ;; org capture templates
   (setq org-capture-templates '(("t" "Todo [inbox]" entry
                                  (file+headline "~/org/agenda/inbox.org" "Tasks")
-                                 (file "~/.emacs.d/org-capture-templates/todo.txt"))
+                                 (file "~/.emacs.d/etc/org-capture-templates/todo.txt"))
                                 ("r" "Tickler" entry
                                  (file+headline "~/org/agenda/tickler.org" "Tickler")
-                                 (file "~/.emacs.d/org-capture-templates/ticker.txt"))
+                                 (file "~/.emacs.d/etc/org-capture-templates/ticker.txt"))
                                 ("b" "Add a book to read list" entry
                                  (file+headline "~/org/agenda/books.org" "Read list")
-                                 (file "~/.emacs.d/org-capture-templates/book.txt"))
+                                 (file "~/.emacs.d/etc/org-capture-templates/book.txt"))
                                 ("p" "Add a new project" entry
                                  (file+headline "~/org/agenda/projects.org" "Projects")
-                                 (file "~/.emacs.d/org-capture-templates/projects.txt"))
+                                 (file "~/.emacs.d/etc/org-capture-templates/projects.txt"))
                                 ("R" "Add a new reference" entry
                                  (file+headline "~/org/agenda/references.org" "References")
-                                 (file "~/.emacs.d/org-capture-templates/reference.txt"))
+                                 (file "~/.emacs.d/etc/org-capture-templates/reference.txt"))
                                 ("e" "Add a new code example" entry
                                  (file+headline "~/org/agenda/examples.org" "Examples")
-                                 (file "~/.emacs.d/org-capture-templates/example.txt"))
+                                 (file "~/.emacs.d/etc/org-capture-templates/example.txt"))
                                 ("n" "Note" entry
                                  (file "") ;empty string defaults to `org-default-notes-file'
                                  "\n* %?\n  Context:\n    %i\n  Entered on %U")))
