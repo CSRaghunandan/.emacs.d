@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 13:24:56 csraghunandan>
+;; Time-stamp: <2020-02-10 17:56:37 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -339,12 +339,12 @@ function is ever added to that hook."
                              "DONE(d@)")))
   (setq org-todo-keyword-faces
         '(("TODO" . org-todo)
-          ("NEXT" . (:foreground "CadetBlue3" :weight bold))
-          ("WAITING" . (:foreground "Pink" :weight bold))
-          ("SOMEDAY"  . (:foreground "#FFEF9F" :weight bold))
+          ("NEXT" . (:foreground "CadetBlue3"))
+          ("WAITING" . (:foreground "Pink"))
+          ("SOMEDAY"  . (:foreground "#FFEF9F"))
           ("DELEGATED" . (:inherit outline-2))
-          ("CANCELED" . (:foreground "red" :weight bold :strike-through t))
-          ("DONE"     . (:foreground "SeaGreen4" :weight bold))))
+          ("CANCELED" . (:foreground "red" :strike-through t))
+          ("DONE"     . (:inherit org-done))))
 
   ;; Counsel and Org tags
   (defun modi/counsel-org-tag (&optional option)
