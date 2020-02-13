@@ -1,5 +1,5 @@
 ;;; setup-buffers.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 16:23:14 csraghunandan>
+;; Time-stamp: <2020-02-13 16:27:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -366,7 +366,9 @@ narrowed."
 (bind-key "C-x n n" #'endless/narrow-or-widen-dwim)
 
 ;; Don't kill the important buffers
-(defconst mu-do-not-kill-buffer-names '("*scratch*" "*Messages*")
+(defconst mu-do-not-kill-buffer-names '("*scratch*"
+                                        "*Messages*"
+                                        "*Bookmark List*")
   "Names of buffers that should not be killed.")
 
 ;;;###autoload
