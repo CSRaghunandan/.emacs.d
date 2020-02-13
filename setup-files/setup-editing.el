@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 17:19:51 csraghunandan>
+;; Time-stamp: <2020-02-13 21:26:07 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -250,6 +250,8 @@ abc |ghi        <-- point still after white space after calling this function."
 
 
 
+;;; Cycle Letter Case
+;; http://ergoemacs.org/emacs/modernization_upcase-word.html
 (defun xah-cycle-letter-case (arg)
   "Cycle the letter case of the selected region or the current word.
 Cycles from 'lower' -> 'Capitalize' -> 'UPPER' -> 'lower' -> ..
@@ -289,7 +291,7 @@ C-u C-u C-u M-x xah-cycle-letter-case -> Force capitalize."
       (?l (downcase-region p1 p2)
           ;; lower -> Capitalize
           (put this-command 'next-state "Capitalize"))
-      ;; Capitalization is a better Option here than upcasing the initials
+      ;; Capitalization is a better option here than upcasing the initials
       ;; because (upcase-initials "abc") -> "Abc" (good)
       ;;         (upcase-initials "ABC") -> "ABC" (not what I expect most of the times)
       ;;         (capitalize "abc")      -> "Abc" (good)
@@ -532,7 +534,7 @@ this command."
 (defun modi/delete-blank-lines-in-region (&rest args)
   (let ((do-not-run-orig-fn (use-region-p)))
     (when do-not-run-orig-fn
-      (flush-lines "^\\s-*$" (region-beginning) (region-end)))
+      (flush-lines "^[[:blank:]]*$" (region-beginning) (region-end)))
     do-not-run-orig-fn))
 (advice-add 'delete-blank-lines :before-until #'modi/delete-blank-lines-in-region)
 
