@@ -1,5 +1,5 @@
 ;;; setup-buffers.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 16:27:40 csraghunandan>
+;; Time-stamp: <2020-02-13 16:29:16 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -211,22 +211,6 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
  ("C-c m d" . make-directory)
  ("H-u" . revert-buffer-no-confirm)
  ("C-c s n" . modi/copy-buffer-file-name))
-
-(defun rag/split-below-and-move ()
-  "split window below and move there"
-  (interactive)
-  (split-window-below)
-  (other-window 1))
-
-(defun rag/split-right-and-move ()
-  "split window right and move there"
-  (interactive)
-  (split-window-right)
-  (other-window 1))
-
-(bind-keys
- ("C-x 2" . rag/split-below-and-move)
- ("C-x 3" . rag/split-right-and-move))
 
 ;;; Scratch-and-Back
 ;; http://emacs.stackexchange.com/a/81/115

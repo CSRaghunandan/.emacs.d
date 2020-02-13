@@ -1,5 +1,5 @@
 ;;; setup-ace-window.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 22:19:32 csraghunandan>
+;; Time-stamp: <2020-02-13 16:32:31 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -33,6 +33,8 @@
           (?T aw-transpose-frame "Transpose Frame")
           (?v hydra-window-scroll/body)
           (?t aw-split-window-fair "split fairly")
+          (?2 aw-split-window-vert "split vertically")
+          (?3 aw-split-window-horz "split horizontally")
           (?y hydra-window-size/body)
           (?? aw-show-dispatch-help)))
 
