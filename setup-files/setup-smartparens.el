@@ -1,5 +1,5 @@
 ;;; setup-smartparens.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:08:12 csraghunandan>
+;; Time-stamp: <2020-02-13 15:32:49 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -88,7 +88,7 @@
   (require 'smartparens-config)
 
   ;; indent with braces for C like languages
-  (sp-with-modes '(rust-mode
+  (sp-with-modes '(rustic-mode
                    js2-mode
                    css-mode
                    web-mode

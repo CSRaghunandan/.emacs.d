@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 15:30:22 csraghunandan>
+;; Time-stamp: <2020-02-13 15:32:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -318,7 +318,7 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
 
 (defvar yank-indent-modes '(js2-mode
                             emacs-lisp-mode
-                            rust-mode
+                            rustic-mode
                             web-mode
                             css-mode
                             c++-mode
