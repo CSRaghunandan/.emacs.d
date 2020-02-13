@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 15:32:32 csraghunandan>
+;; Time-stamp: <2020-02-13 17:19:51 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -590,7 +590,7 @@ associated with the original non-sudo filename."
 ;; Python docstrings, in an org-mode buffer instead of in a comment or a string.
 ;; https://github.com/QBobWatson/poporg
 (use-package poporg
-  :bind (("C-c o p" . poporg-dwim)))
+  :bind (("C-c o c" . poporg-dwim)))
 
 ;; adaptive-wrap: Smart line-wrapping with wrap-prefix
 ;; https://github.com/emacsmirror/adaptive-wrap/blob/master/adaptive-wrap.el
