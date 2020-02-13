@@ -1,5 +1,5 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 12:55:27 csraghunandan>
+;; Time-stamp: <2020-02-13 21:02:02 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -16,7 +16,10 @@
 ;; volatile-highlights: highlight specific operations like undo, yank
 ;; https://github.com/k-talo/volatile-highlights.el
 (use-package volatile-highlights
-  :config (volatile-highlights-mode t))
+  :config
+  (volatile-highlights-mode t)
+  (vhl/define-extension 'undo-tree 'undo-tree-yank 'undo-tree-move)
+  (vhl/install-extension 'undo-tree))
 
 ;; enable hl-line-mode globally
 (global-hl-line-mode)
