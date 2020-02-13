@@ -1,5 +1,5 @@
 ;;; setup-movement.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 11:54:04 csraghunandan>
+;; Time-stamp: <2020-02-13 10:01:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -79,8 +79,19 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
 ;; https://github.com/jacktasia/dumb-jump
 (use-package dumb-jump
   :hook ((prog-mode . dumb-jump-mode))
-  :init
-  (setq dumb-jump-selector 'ivy))
+  :config
+  (setq dumb-jump-selector 'ivy)
+
+  (defhydra dumb-jump-hydra (:color blue :columns 3)
+    "Dumb Jump"
+    ("j" dumb-jump-go "Go")
+    ("o" dumb-jump-go-other-window "Other window")
+    ("e" dumb-jump-go-prefer-external "Go external")
+    ("x" dumb-jump-go-prefer-external-other-window "Go external other window")
+    ("i" dumb-jump-go-prompt "Prompt")
+    ("l" dumb-jump-quick-look "Quick look")
+    ("b" dumb-jump-back "Back"))
+  (bind-key "C-c d j" #'dumb-jump-hydra/body prog-mode-map))
 
 ;; A simple-minded way of managing window configs in emacs
 ;; https://github.com/wasamasa/eyebrowse
