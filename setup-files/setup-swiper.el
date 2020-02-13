@@ -1,5 +1,5 @@
 ;;; setup-swiper.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-12 11:54:30 csraghunandan>
+;; Time-stamp: <2020-02-13 13:39:41 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,7 +7,7 @@
 ;; swiper: isearch with an overview!
 ;; https://github.com/abo-abo/swiper
 (use-package swiper
-  :bind (("C-s" . counsel-grep-or-isearch-swiper)
+  :bind (("C-s" . counsel-grep-or-swiper)
          ("H-f" . swiper-isearch)
          ("H-r" . swiper--isearch-backward))
   :config
@@ -15,6 +15,7 @@
         ;; Jump to the beginning of match when leaving Swiper
         swiper-goto-start-of-match t)
 
+  ;; don't use this until this issue is fixed: https://github.com/abo-abo/swiper/issues/2456
   ;;;###autoload
   (defun counsel-grep-or-isearch-swiper (&optional initial-input)
     "Call `swiper' for small buffers and `counsel-grep' for large ones.
