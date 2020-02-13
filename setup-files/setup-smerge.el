@@ -1,13 +1,14 @@
 ;;; setup-smerge.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:08:20 csraghunandan>
+;; Time-stamp: <2020-02-13 16:18:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;;; Smerge - to resolve merge conflicts
-(use-package smerge-mode
-  :ensure nil
+(use-package smerge-mode :ensure nil
+  :after hydra
   :bind (("C-c h r" . hydra-smerge/body))
+
   :init
   (defun modi/enable-smerge-maybe ()
     "Auto-enable `smerge-mode' when merge conflict is detected."
@@ -16,13 +17,10 @@
       (when (re-search-forward "^<<<<<<< " nil :noerror)
         (smerge-mode 1))))
   (add-hook 'find-file-hook #'modi/enable-smerge-maybe :append)
+
   :config
-  (defhydra hydra-smerge (:color pink
-                                 :hint nil
-                                 :pre (smerge-mode 1)
-                                 ;; Disable `smerge-mode' when quitting hydra if
-                                 ;; no merge conflicts remain.
-                                 :post (smerge-auto-leave))
+  (defhydra unpackaged/smerge-hydra
+    (:color pink :hint nil :post (smerge-auto-leave))
     "
 ^Move^       ^Keep^               ^Diff^                 ^Other^
 ^^-----------^^-------------------^^---------------------^^-------
@@ -48,6 +46,15 @@ _p_rev       _u_pper              _=_: upper/lower       _r_esolve
     ("C" smerge-combine-with-next)
     ("r" smerge-resolve)
     ("k" smerge-kill-current)
-    ("q" nil "cancel" :color blue)))
+    ("ZZ" (lambda ()
+            (interactive)
+            (save-buffer)
+            (bury-buffer))
+     "Save and bury buffer" :color blue)
+    ("q" nil "cancel" :color blue))
+
+  :hook (magit-diff-visit-file . (lambda ()
+                                   (when smerge-mode
+                                     (unpackaged/smerge-hydra/body)))))
 
 (provide 'setup-smerge)
