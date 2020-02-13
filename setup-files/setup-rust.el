@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 00:25:54 csraghunandan>
+;; Time-stamp: <2020-02-13 23:20:25 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -28,11 +28,11 @@
   ;; format using rustfmt on save
   (setq rustic-format-on-save t)
 
-  (defun my-rust-mode-hook ()
+  (defun my-rustic-mode-hook ()
     (set (make-local-variable 'company-backends)
          '((company-lsp company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
-  (add-hook 'rustic-mode-hook #'my-rust-mode-hook))
+  (add-hook 'rustic-mode-hook #'my-rustic-mode-hook))
 
 (provide 'setup-rust)
 
