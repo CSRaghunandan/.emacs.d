@@ -1,5 +1,5 @@
 ;;; setup-ace-window.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 16:32:31 csraghunandan>
+;; Time-stamp: <2020-02-13 16:56:19 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,7 +25,7 @@
           (?m aw-swap-window "Swap Window")
           (?M aw-move-window "Move Window")
           (?c aw-copy-window "Copy Window")
-          (?n aw-flip-window "Flip window")
+          (?n aw-flip-window)
           (?u aw-switch-buffer-other-window "Switch Buffer Other Window")
           (?j aw-switch-buffer-in-window "Select Buffer")
           (?o delete-other-windows "Maximize Window")
