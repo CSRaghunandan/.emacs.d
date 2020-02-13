@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-03 23:26:40 csraghunandan>
+;; Time-stamp: <2020-02-13 17:44:10 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -89,11 +89,15 @@ It added extra strings at the front and back of the default dired buffer name."
         (dired dir))))
 
   ;; set some programs to run externally
-  (setq dired-guess-shell-alist-user '(("\\.jpg\\'" "feh")
-                                       ("\\.png\\'" "feh")
-                                       ("\\.mp4\\'" "vlc")
-                                       ("\\.mkv\\'" "vlc")
-                                       ("\\.pdf\\'" "zathura")))
+  (setq dired-guess-shell-alist-user
+        '(("\\.jpg\\'" "feh")
+          ("\\.png\\'" "feh")
+          ("\\.\\(?:mp4\\|mkv\\|avi\\|flv\\|ogv\\|ifo\\|m4v\\|wmv\\|webm\\)\\(?:\\.part\\)?\\'"
+           "vlc")
+          ("\\.html?\\'" "firefox-developer-edition")
+          ("\\.pdf\\'" "zathura")
+          ("\\.\\(?:pptx?\\|od[ts]\\|xls[xbm]?\\|docx?\\)\\'" "libreoffice")
+          ("\\.csv\\'" "libreoffice")))
 
   (eval-after-load "recentf"
     '(progn
