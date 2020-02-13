@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 16:39:53 csraghunandan>
+;; Time-stamp: <2020-02-13 17:04:16 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,13 +8,12 @@
 ;; magit: the git porcelain to manage git
 ;; `magit-status' is bound to `C-x g' by default
 (use-package magit
-  :bind (("C-c m p" . wh/switch-magit-status-buffer)
+  :bind (("C-c m s" . wh/switch-magit-status-buffer)
          ("C-c v c" . magit-clone)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers)
          (:map magit-mode-map
-               ([remap previous-line] . magit-previous-line)
-               ([remap next-line] . magit-next-line))
+               ([remap previous-line] . magit-previous-line))
          (:map dired-mode-map
                ("l" . magit-dired-log)))
   :bind* (("C-c p v" . magit-status))
