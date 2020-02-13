@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 14:10:14 csraghunandan>
+;; Time-stamp: <2020-02-13 16:13:47 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -215,5 +215,9 @@ And the line would be overlaid like:
                                            (string-match-p regexp string)))
                   (overlay-match 2))
                 (goto-char (match-end 2))))))))))
+
+;; Simple way to manipulate overlay for Emacs.
+;; https://github.com/emacsorphanage/ov/
+(use-package ov)
 
 (provide 'setup-visual)
