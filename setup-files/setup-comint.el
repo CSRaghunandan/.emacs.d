@@ -1,5 +1,5 @@
 ;;; setup-comint.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 10:30:19 csraghunandan>
+;; Time-stamp: <2020-02-13 09:46:14 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -28,5 +28,7 @@
 
 (provide 'setup-comint)
 
+;; shell
+;; executing `shell' with a prefix will create a new *shell* buffer
 ;; C-c M-o will clear comint buffers
 ;; `[up]' and `[down]' will cycle the previous and next inputs

@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-01 20:29:57 csraghunandan>
+;; Time-stamp: <2020-02-13 09:45:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -50,8 +50,3 @@
   :hook ((vterm-mode . eterm-256color-mode)))
 
 (provide 'setup-term)
-
-;; shell
-;; executing `shell' with a prefix will create a new *shell* buffer
-;; C-c M-o will clear comint buffers
-;; `[up]' and `[down]' will cycle the previous and next inputs
