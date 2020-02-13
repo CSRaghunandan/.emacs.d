@@ -1,13 +1,12 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-13 17:44:10 csraghunandan>
+;; Time-stamp: <2020-02-13 17:47:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; dired: file system manager for emacs
 (use-package dired :ensure nil
-  :bind (("C-c r d" . bjm/ivy-dired-recent-dirs)
-         (:map dired-mode-map
+  :bind ((:map dired-mode-map
                ("S" . ora-dired-get-size)
                ("E" . ora-ediff-files)
                ("^" . rag/dired-up-dir)
@@ -69,24 +68,6 @@ It added extra strings at the front and back of the default dired buffer name."
       (if (string-match "\\(^[ 0-9.,]+[A-Za-z]+\\).*total$" res)
           (message (match-string 1 res))
         (error "unexpected output %s" res))))
-
-  ;; open recent directory, requires ivy (part of swiper)
-  ;; borrows from http://stackoverflow.com/questions/23328037/in-emacs-how-to-maintain-a-list-of-recent-directories
-  (defun bjm/ivy-dired-recent-dirs ()
-    "Present a list of recently used directories and open the selected one in dired"
-    (interactive)
-    (let ((recent-dirs
-           (delete-dups
-            (mapcar (lambda (file)
-                      (if (file-directory-p file) file (file-name-directory file)))
-                    recentf-list))))
-
-      (let ((dir (ivy-read "Directory: "
-                           recent-dirs
-                           :re-builder #'ivy--regex
-                           :sort nil
-                           :initial-input nil)))
-        (dired dir))))
 
   ;; set some programs to run externally
   (setq dired-guess-shell-alist-user
