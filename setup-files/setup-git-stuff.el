@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 16:14:37 csraghunandan>
+;; Time-stamp: <2020-02-13 16:39:53 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -24,7 +24,7 @@
 
   ;; modify a few magit parameters
   (setq magit-stash-arguments '("--include-untracked")
-        magit-diff-refine-hunk t
+        magit-diff-refine-hunk t ; show word granularity within diff hunks
         magit-log-arguments '("--color" "--decorate" "--graph" "-n1024")
         magit-section-visibility-indicator nil
         magit-refs-show-commit-count 'all)
@@ -41,17 +41,6 @@
   ;; Refresh VC state when Magit refreshes the buffer to keep ibuffer-vc in sync
   (add-hook 'magit-refresh-buffer-hook #'vc-refresh-state)
 
-  ;; Magit Submodule support
-  ;; https://www.reddit.com/r/emacs/comments/6aiwk5/how_to_manage_multiple_gitrepositories_at_once/dhf47dg/
-  (dolist (fn '(;; Below will end up being the last of these newly added fns,
-                ;; and the last element in `magit-status-sections-hook' too.
-                magit-insert-modules-unpulled-from-upstream
-                magit-insert-modules-unpushed-to-pushremote
-                magit-insert-modules-unpushed-to-upstream
-                ;; Below will end up being the first of these newly added fns.
-                magit-insert-modules-unpulled-from-pushremote))
-    (magit-add-section-hook 'magit-status-sections-hook `,fn nil :append))
-
   (setq magit-completing-read-function 'ivy-completing-read)
 
   (defun mu-magit-kill-buffers ()
@@ -60,9 +49,6 @@
     (let ((buffers (magit-mode-get-buffers)))
       (magit-restore-window-configuration)
       (mapc #'kill-buffer buffers)))
-
-  ;; show word granularity within diff hunks
-  (setq-default magit-diff-refine-hunk 'all)
 
   (defun wh/switch-magit-status-buffer ()
     "Allow switching between open magit status buffers."
