@@ -1,5 +1,5 @@
 ;;; setup-ibuffer.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 17:25:20 csraghunandan>
+;; Time-stamp: <2020-02-13 17:27:18 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -62,15 +62,23 @@
 
   (bind-key "C-x C-b" #'ibuffer-jump)
 
+  (defun mu-ibuffer-magit ()
+    "Open `magit-status' for the current buffer."
+    (interactive)
+    (let ((buf (ibuffer-current-buffer t)))
+      (magit-status (cdr (ibuffer-vc-root buf)))))
+
   (defhydra hydra-ibuffer-main (:color pink :hint nil)
     "
-^Mark^         ^Actions^         ^View^          ^Select^              ^Navigation^
-_m_: mark      _D_: delete       _g_: refresh    _q_: quit             _k_:   ↑    _h_
-_u_: unmark    _s_: save marked  _S_: sort       _TAB_: toggle         _RET_: visit
-_*_: specific  _a_: all actions  _/_: filter     _o_: other window     _j_:   ↓    _l_
-_t_: toggle    _._: toggle hydra _H_: help       C-o other win no-select
+^Mark^         ^Actions^           ^View^          ^Select^              ^Navigation^
+_m_: mark      _D_: delete         _g_: refresh    _q_: quit             _k_:   ↑    _h_
+_u_: unmark    _s_: save marked    _S_: sort       _TAB_: toggle         _RET_: visit
+_*_: specific  _a_: all actions    _/_: filter     _o_: other window     _j_:   ↓    _l_
+_t_: toggle    _._: toggle hydra   _H_: help       C-o other win no-select
+             _M_: toggle magit
 "
     ("m" ibuffer-mark-forward)
+    ("M" mu-ibuffer-magit)
     ("u" ibuffer-unmark-forward)
     ("*" hydra-ibuffer-mark/body :color blue)
     ("t" ibuffer-toggle-marks)
