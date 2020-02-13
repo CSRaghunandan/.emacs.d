@@ -1,5 +1,5 @@
 ;;; setup-mc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:03:56 csraghunandan>
+;; Time-stamp: <2020-02-13 22:21:48 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -26,7 +26,6 @@
               ("#" . mc/insert-numbers) ; use num prefix to set the starting number
               ("^" . mc/edit-beginnings-of-lines)
               ("$" . mc/edit-ends-of-lines))
-  :hook ((prog-mode . multiple-cursors-mode))
   :init
   (setq mc/list-file (locate-user-emacs-file "mc-lists")))
 
