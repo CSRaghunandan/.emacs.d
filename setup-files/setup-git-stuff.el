@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 17:04:16 csraghunandan>
+;; Time-stamp: <2020-02-13 21:13:34 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,8 +8,7 @@
 ;; magit: the git porcelain to manage git
 ;; `magit-status' is bound to `C-x g' by default
 (use-package magit
-  :bind (("C-c m s" . wh/switch-magit-status-buffer)
-         ("C-c v c" . magit-clone)
+  :bind (("C-c v c" . magit-clone)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers)
          (:map magit-mode-map
@@ -48,21 +47,6 @@
     (let ((buffers (magit-mode-get-buffers)))
       (magit-restore-window-configuration)
       (mapc #'kill-buffer buffers)))
-
-  (defun wh/switch-magit-status-buffer ()
-    "Allow switching between open magit status buffers."
-    (interactive)
-    (let* ((buffers (--filter (eq #'magit-status-mode (with-current-buffer it major-mode))
-                              (buffer-list)))
-           (bufs-with-names (--map (cons
-                                    (with-current-buffer it
-                                      (projectile-project-name))
-                                    it)
-                                   buffers))
-           (chosen-buf
-            (cdr (assoc (completing-read "Git project: " bufs-with-names)
-                        bufs-with-names))))
-      (switch-to-buffer chosen-buf)))
 
   ;; https://github.com/alphapapa/unpackaged.el/blob/master/unpackaged.el#L1391
   (defun unpackaged/magit-log--add-date-headers (&rest _ignore)
