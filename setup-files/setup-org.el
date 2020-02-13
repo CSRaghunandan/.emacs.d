@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 19:57:13 csraghunandan>
+;; Time-stamp: <2020-02-13 13:16:06 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -539,6 +539,45 @@ text and copying to the killring."
     ("m" org-timer)
     ("t" org-timer-item)
     ("z" (org-info "Timers")))
+
+  ;; https://github.com/alphapapa/unpackaged.el#agenda-for-subtree-or-region
+  ;;;###autoload
+  (defun rag/org-agenda-current-subtree-or-region (only-todos)
+    "Display an agenda view for the current subtree or region.
+ With prefix, display only TODO-keyword items."
+    (interactive "P")
+    (let ((starting-point (point))
+          header)
+      (with-current-buffer (or (buffer-base-buffer (current-buffer))
+                               (current-buffer))
+        (if (use-region-p)
+            (progn
+              (setq header "Region")
+              (put 'org-agenda-files 'org-restrict (list (buffer-file-name (current-buffer))))
+              (setq org-agenda-restrict (current-buffer))
+              (move-marker org-agenda-restrict-begin (region-beginning))
+              (move-marker org-agenda-restrict-end
+                           (save-excursion
+                             ;; If point is at beginning of line, include
+                             ;; heading on that line by moving forward 1.
+                             (goto-char (1+ (region-end)))
+                             (org-end-of-subtree))))
+          ;; No region; restrict to subtree.
+          (save-excursion
+            (save-restriction
+              ;; In case the command was called from an indirect buffer, set point
+              ;; in the base buffer to the same position while setting restriction.
+              (widen)
+              (goto-char starting-point)
+              (setq header "Subtree")
+              (org-agenda-set-restriction-lock))))
+        ;; NOTE: Unlike other agenda commands, binding `org-agenda-sorting-strategy'
+        ;; around `org-search-view' seems to have no effect.
+        (let ((org-agenda-sorting-strategy '(priority-down timestamp-up))
+              (org-agenda-overriding-header header))
+          (org-search-view (if only-todos t nil) "*"))
+        (org-agenda-remove-restriction-lock t)
+        (message nil))))
 
   ;; https://github.com/daviderestivo/galactic-emacs/blob/master/lisp/org-archive-subtree.el
   ;; archive subtrees/headings while also preserving their context
