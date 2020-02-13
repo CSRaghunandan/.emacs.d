@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 12:13:37 csraghunandan>
+;; Time-stamp: <2020-02-13 22:29:54 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -78,7 +78,6 @@
 (require 'setup-python)
 (require 'setup-tex)
 (require 'setup-origami)
-(require 'setup-duplicate-line)
 (require 'setup-white-space)
 (require 'setup-mc)
 (require 'setup-js)
