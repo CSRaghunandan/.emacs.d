@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 21:26:07 csraghunandan>
+;; Time-stamp: <2020-02-13 21:32:24 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -31,24 +31,26 @@
 ;; By default, Emacs thinks a sentence is a full-stop followed by 2 spaces.
 (setq-default sentence-end-double-space nil)
 
+;;;; Pull Up Line
 ;; http://emacs.stackexchange.com/q/7519/115
-(defun rag/pull-up-line ()
-  "Join the following line onto the current one (analogous to `C-e', `C-d') or
-`C-u M-^' or `C-u M-x join-line'.
-If the current line is a comment and the pulled-up line is also a comment,
-remove the comment characters from that line."
+(defun modi/pull-up-line ()
+  "Join the following line onto the current one.
+This is analogous to \\[move-end-of-line] followed by
+\\[delete-foward], or \\[universal-argument] \\[delete-indentation],
+or \\[universal-argument] \\[join-line].
+If the current line is a comment and the pulled-up line is also a
+comment, remove the leading comment characters from that line."
   (interactive)
   (join-line -1)
-  ;; If the current line is a comment
-  (when (nth 4 (syntax-ppss))
-    ;; Remove the comment prefix chars from the pulled-up line if present
+  (when (nth 4 (syntax-ppss))           ;If the current line is a comment
+    ;; Remove comment prefix chars from the pulled-up line if present.
     (save-excursion
-      ;; Delete all comment-start and space characters
-      (while (looking-at (concat "\\s<" ; comment-start char as per syntax table
-                                 "\\|" (substring comment-start 0 1) ; first char of `comment-start'
-                                 "\\|" "\\s-")) ; extra spaces
-        (delete-char 1))
-      (insert-char ? )))) ; insert space
+      ;; Delete all comment-start and space characters, one at a time.
+      (while (looking-at (concat "\\s<"  ;Comment-start char as per syntax table
+                                 "\\|" (substring comment-start 0 1) ;First char of `comment-start'
+                                 "\\|" "[[:blank:]]"))               ;Extra spaces
+        (delete-forward-char 1))
+      (insert-char ? ))))               ;Insert space
 
 (defun rag/push-up-line()
   "Join the current line onto the previous one.
@@ -68,15 +70,32 @@ the comment characters from the joined line."
         (delete-forward-char 1)))))
 
 (bind-keys
- ("M-j" . rag/pull-up-line)
+ ("M-j" . modi/pull-up-line)
  ("H-j" . rag/push-up-line))
 
-(defun rag/smart-open-line ()
-  "Insert an empty line after the current line.
-Position the cursor at its beginning, according to the current mode."
-  (interactive)
-  (move-end-of-line nil)
-  (newline-and-indent))
+;;;; Open Line
+(defun modi/smart-open-line (&optional n)
+  "Move the current line down if there are no word chars between the start of
+line and the cursor. Else, insert empty line after the current line."
+  (interactive "p")
+  (if (derived-mode-p 'org-mode)
+      (dotimes (cnt n)
+        (org-open-line 1))
+    ;; Get the substring from start of line to current cursor position
+    (let ((str-before-point (buffer-substring (line-beginning-position) (point))))
+      ;; (message "%s" str-before-point)
+      (if (not (string-match "\\w" str-before-point))
+          (progn
+            (dotimes (cnt n)
+              (newline-and-indent))
+            ;; (open-line 1)
+            (previous-line n)
+            (indent-relative-maybe))
+        (progn
+          (move-end-of-line nil)
+          (dotimes (cnt n)
+            (newline-and-indent))
+          (previous-line (- n 1)))))))
 
 (defun rag/smart-open-line-above ()
   "Insert an empty line above the current line.
@@ -88,7 +107,7 @@ Position the cursor at it's beginning, according to the current mode."
   (indent-according-to-mode))
 
 (bind-keys
- ("C-o" . rag/smart-open-line)
+ ("C-o" . modi/smart-open-line)
  ("C-S-o" . rag/smart-open-line-above))
 
 
