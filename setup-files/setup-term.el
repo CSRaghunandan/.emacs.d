@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 09:45:44 csraghunandan>
+;; Time-stamp: <2020-02-13 10:08:37 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -14,7 +14,6 @@
                                (yas-minor-mode -1)
                                (whole-line-or-region-local-mode -1)
                                (setq-local global-hl-line-mode nil)
-                               (hungry-delete-mode -1)
 
                                ;; Don't prompt about processes when killing vterm
                                (setq-local confirm-kill-processes nil)

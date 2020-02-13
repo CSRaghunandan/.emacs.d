@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-10 12:13:47 csraghunandan>
+;; Time-stamp: <2020-02-13 10:08:33 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -583,6 +583,8 @@ associated with the original non-sudo filename."
   :config
   (global-hungry-delete-mode)
   (add-to-list 'hungry-delete-except-modes 'wdired-mode)
+  (add-to-list 'hungry-delete-except-modes 'dired-mode)
+  (add-to-list 'hungry-delete-except-modes 'vterm-mode)
   (add-to-list 'hungry-delete-except-modes 'ivy-occur-mode))
 
 ;; poporg is a small Emacs Lisp project to help editing program strings and
