@@ -1,5 +1,5 @@
 ;;; setup-ibuffer.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 21:43:01 csraghunandan>
+;; Time-stamp: <2020-02-13 17:25:20 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -64,32 +64,37 @@
 
   (defhydra hydra-ibuffer-main (:color pink :hint nil)
     "
- ^Navigation^ | ^Mark^        | ^Actions^        | ^View^
--^----------^-+-^----^--------+-^-------^--------+-^----^-------
-  _k_:    ʌ   | _m_: mark     | _D_: delete      | _g_: refresh
- _RET_: visit | _u_: unmark   | _S_: save        | _s_: sort
-  _j_:    v   | _*_: specific | _a_: all actions | _/_: filter
--^----------^-+-^----^--------+-^-------^--------+-^----^-------
+^Mark^         ^Actions^         ^View^          ^Select^              ^Navigation^
+_m_: mark      _D_: delete       _g_: refresh    _q_: quit             _k_:   ↑    _h_
+_u_: unmark    _s_: save marked  _S_: sort       _TAB_: toggle         _RET_: visit
+_*_: specific  _a_: all actions  _/_: filter     _o_: other window     _j_:   ↓    _l_
+_t_: toggle    _._: toggle hydra _H_: help       C-o other win no-select
 "
-    ("j" ibuffer-forward-line)
-    ("RET" ibuffer-visit-buffer :color blue)
-    ("k" ibuffer-backward-line)
-
     ("m" ibuffer-mark-forward)
     ("u" ibuffer-unmark-forward)
     ("*" hydra-ibuffer-mark/body :color blue)
+    ("t" ibuffer-toggle-marks)
 
     ("D" ibuffer-do-delete)
-    ("S" ibuffer-do-save)
+    ("s" ibuffer-do-save)
     ("a" hydra-ibuffer-action/body :color blue)
 
     ("g" ibuffer-update)
-    ("s" hydra-ibuffer-sort/body :color blue)
+    ("S" hydra-ibuffer-sort/body :color blue)
     ("/" hydra-ibuffer-filter/body :color blue)
+    ("H" describe-mode :color blue)
 
-    ("o" ibuffer-visit-buffer-other-window "other window" :color blue)
-    ("q" quit-window "quit ibuffer" :color blue)
-    ("." nil "toggle hydra" :color blue))
+    ("h" ibuffer-backward-filter-group)
+    ("k" ibuffer-backward-line)
+    ("l" ibuffer-forward-filter-group)
+    ("j" ibuffer-forward-line)
+    ("RET" ibuffer-visit-buffer :color blue)
+
+    ("TAB" ibuffer-toggle-filter-group)
+
+    ("o" ibuffer-visit-buffer-other-window :color blue)
+    ("q" quit-window :color blue)
+    ("." nil :color blue))
 
   (defhydra hydra-ibuffer-mark (:color teal :columns 5
                                        :after-exit (hydra-ibuffer-main/body))
@@ -151,7 +156,6 @@
     ("<" ibuffer-filter-by-size-lt "size")
     ("/" ibuffer-filter-disable "disable")
     ("b" hydra-ibuffer-main/body "back" :color blue))
-  (bind-key "." 'hydra-ibuffer-main/body ibuffer-mode-map)
 
   ;; dont ask for confirmation whenever killing a buffer
   (setq ibuffer-expert t))
