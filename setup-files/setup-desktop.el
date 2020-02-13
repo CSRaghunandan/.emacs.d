@@ -1,5 +1,5 @@
 ;;; setup-desktop.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:50:17 csraghunandan>
+;; Time-stamp: <2020-02-13 22:18:48 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,11 +8,7 @@
 (use-package desktop :defer 2
   :ensure nil
   :config
-  (setq desktop-dirname (concat user-emacs-directory "desktop")
-        desktop-base-file-name "emacs.desktop"
-        desktop-base-lock-name "lock"
-        desktop-path (list desktop-dirname)
-        desktop-save t
+  (setq desktop-save t
         desktop-load-locked-desktop nil)
   (desktop-save-mode 0)
 
