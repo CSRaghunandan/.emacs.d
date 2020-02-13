@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 13:28:21 csraghunandan>
+;; Time-stamp: <2020-02-13 14:09:33 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -541,7 +541,7 @@ text and copying to the killring."
     ("z" (org-info "Timers")))
 
   ;; https://github.com/alphapapa/unpackaged.el#agenda-for-subtree-or-region
-  ;;;###autoload
+;;;###autoload
   (defun rag/org-agenda-current-subtree-or-region (only-todos)
     "Display an agenda view for the current subtree or region.
  With prefix, display only TODO-keyword items."
@@ -580,7 +580,7 @@ text and copying to the killring."
         (message nil))))
 
   ;; https://github.com/alphapapa/unpackaged.el/blob/master/unpackaged.el#L687
-  ;;;###autoload
+;;;###autoload
   (defun unpackaged/org-fix-blank-lines (prefix)
     "Ensure that blank lines exist between headings and between headings and their contents.
 With prefix, operate on whole buffer. Ensures that blank lines
