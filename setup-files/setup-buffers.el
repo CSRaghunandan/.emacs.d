@@ -1,5 +1,5 @@
 ;;; setup-buffers.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 15:50:03 csraghunandan>
+;; Time-stamp: <2020-02-13 15:57:52 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -180,18 +180,24 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
       (message "File `%s' successfully deleted." filename))
     (kill-buffer (current-buffer))))
 
-(defun rename-file-and-buffer ()
-  "Rename the current buffer and file it is visiting."
+;; Rename current buffer file
+;; http://www.whattheemacsd.com/
+(defun rename-current-buffer-file ()
+  "Renames current buffer and file it is visiting."
   (interactive)
-  (let ((filename (buffer-file-name)))
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
     (if (not (and filename (file-exists-p filename)))
-        (message "Buffer is not visiting a file!")
+        (error "Buffer `%s' is not visiting a file!" name)
       (let ((new-name (read-file-name "New name: " filename)))
-        (cond
-         ((vc-backend filename) (vc-rename-file filename new-name))
-         (t
-          (rename-file filename new-name t)
-          (set-visited-file-name new-name t t)))))))
+        (if (get-buffer new-name)
+            (error "A buffer named `%s' already exists!" new-name)
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil)
+          (message "File `%s' successfully renamed to `%s'."
+                   name (file-name-nondirectory new-name)))))))
 
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
@@ -201,7 +207,7 @@ Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
  ("C-c o k" . rag/reopen-killed-file)
  ("C-c o K" . rag/reopen-killed-file-fancy)
  ("C-c r m" . modi/delete-current-buffer-file)
- ("C-c m v" . rename-file-and-buffer)
+ ("C-c m v" . rename-current-buffer-file)
  ("C-c m d" . make-directory)
  ("H-u" . revert-buffer-no-confirm)
  ("C-c s n" . modi/copy-buffer-file-name))
@@ -237,24 +243,24 @@ or `dired-mode'), we would want to be able to write in the scratch buffer. So
 the scratch major mode is set to `org-mode' for such cases.
 Return the scratch buffer opened."
   (interactive "p")
-  (if (and (or (null arg)               ; no prefix
-            (= arg 1))
-         (string-match-p "\\*scratch" (buffer-name)))
+  (if (and (or (null arg)               ;No prefix
+               (= arg 1))
+           (string-match-p "\\*scratch" (buffer-name)))
       (switch-to-buffer (other-buffer))
     (let* ((mode-str (cl-case arg
-                       (0  "fundamental-mode") ; C-0
-                       (4  "org-mode") ; C-u
-                       (16 "emacs-lisp-mode") ; C-u C-u
+                       (0 "fundamental-mode") ;C-0
+                       (4 "org-mode")         ;C-u
+                       (16 "emacs-lisp-mode") ;C-u C-u
                        ;; If the major mode turns out to be a `special-mode'
                        ;; derived mode, a read-only mode like `help-mode', open
                        ;; an `org-mode' scratch buffer instead.
-                       (t (if (or (derived-mode-p 'special-mode) ; no prefix
-                                 (derived-mode-p 'dired-mode))
+                       (t (if (or (derived-mode-p 'special-mode) ;No prefix
+                                  (derived-mode-p 'dired-mode))
                               "org-mode"
                             (format "%s" major-mode)))))
            (buf (get-buffer-create (concat "*scratch-" mode-str "*"))))
       (switch-to-buffer buf)
-      (funcall (intern mode-str))   ; http://stackoverflow.com/a/7539787/1219634
+      (funcall (intern mode-str))    ;http://stackoverflow.com/a/7539787/1219634
       buf)))
 (bind-key "C-c s b" 'modi/switch-to-scratch-and-back)
 
@@ -275,13 +281,13 @@ will be killed."
       ;; Revert only buffers containing files, which are not modified;
       ;; do not try to revert non-file buffers like *Messages*.
       (when (and filename
-               (not (buffer-modified-p buf)))
+                 (not (buffer-modified-p buf)))
         (if (file-readable-p filename)
             ;; If the file exists and is readable, revert the buffer.
             (with-current-buffer buf
               (revert-buffer :ignore-auto :noconfirm :preserve-modes))
           ;; Otherwise, kill the buffer.
-          (let (kill-buffer-query-functions) ; No query done when killing buffer
+          (let (kill-buffer-query-functions) ;No query done when killing buffer
             (kill-buffer buf)
             (message "Killed non-existing/unreadable file buffer: %s" filename))))))
   (message "Finished reverting buffers containing unmodified files."))
