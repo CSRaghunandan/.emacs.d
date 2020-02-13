@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 16:13:47 csraghunandan>
+;; Time-stamp: <2020-02-13 22:40:58 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -99,16 +99,10 @@
   :hook ((prog-mode org-mode) . page-break-lines-mode)
   :config (setq page-break-lines-max-width 80))
 
-;; column-enforce-mode: highlight characters which exceed fill-column
-;; https://github.com/jordonbiondo/column-enforce-mode
-(use-package column-enforce-mode
-  :config
-  (add-hook 'prog-mode-hook (lambda ()
-                              (unless (eq major-mode 'web-mode)
-                                (column-enforce-mode))))
-  ;; enforce a column of 80 for highlighting
-  (setq column-enforce-column 80)
-  (setq column-enforce-comments nil))
+;; highlight fill column for emacs.
+;; https://github.com/laishulu/hl-fill-column/
+(use-package hl-fill-column
+  :hook ((text-mode prog-mode conf-mode) . hl-fill-column-mode))
 
 ;; Easily adjust the font size in all Emacs frames
 ;; https://github.com/purcell/default-text-scale/
