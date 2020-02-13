@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-04 23:48:33 csraghunandan>
+;; Time-stamp: <2020-02-13 13:53:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,7 +10,6 @@
 (use-package magit
   :bind (("C-c m p" . wh/switch-magit-status-buffer)
          ("C-c v c" . magit-clone)
-         ("C-c p v" . magit-status)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers)
          (:map magit-mode-map
@@ -18,6 +17,7 @@
                ([remap next-line] . magit-next-line))
          (:map dired-mode-map
                ("l" . magit-dired-log)))
+  :bind* (("C-c p v" . magit-status))
   :config
   ;; Enable the binding for magit-file=popup
   (global-magit-file-mode 1)
