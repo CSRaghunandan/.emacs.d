@@ -1,8 +1,11 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 11:59:29 csraghunandan>
+;; Time-stamp: <2020-02-14 16:18:07 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
+
+;; set scratch major mode to `emacs-lisp-mode'
+(setq initial-major-mode 'emacs-lisp-mode)
 
 (defun my/package-upgrade-packages (&optional no-fetch)
   "Upgrade all packages.  No questions asked.

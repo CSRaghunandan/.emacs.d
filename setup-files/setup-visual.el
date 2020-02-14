@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 22:40:58 csraghunandan>
+;; Time-stamp: <2020-02-14 16:19:07 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -42,9 +42,6 @@
   (when fortune
     (setq initial-scratch-message fortune)))
 
-;; set scratch major mode to `emacs-lisp-mode'
-(setq initial-major-mode 'emacs-lisp-mode)
-
 
 
 ;;; all frame related settings
@@ -57,28 +54,6 @@
 
 (setq frame-resize-pixelwise t) ; Allow frame size to inc/dec by a pixel
 (setq tooltip-mode nil) ; Disable tooltip appearance on mouse hover
-
-(setq frame-title-format
-      `("emacs "
-        ;; If `emacs-git-branch' is non-nil, show that
-        (emacs-git-branch ,(concat "[" emacs-git-branch "]")
-                          ;; Else show the version number
-                          ,(concat (number-to-string emacs-major-version)
-                                   "."
-                                   (number-to-string emacs-minor-version)))
-        "   "
-        (buffer-file-name "%f" ;Show full file path if buffer is showing a file
-                          (dired-directory dired-directory ;Else if in dired mode, show the directory name
-                                           "%b")) ;Else show the buffer name (*scratch*, *Messages*, etc)
-        " %*"))
-
-;; set continuation indicators to right fringe only
-(setf (cdr (assq 'continuation fringe-indicator-alist))
-      ;; '(nil nil) ;; no continuation indicators
-      '(nil right-arrow) ;; right indicator only
-      ;; '(left-curly-arrow nil) ;; left indicator only
-      ;; '(left-curly-arrow right-curly-arrow) ;; default
-      )
 
 ;; make sure emacsclient starts at fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
