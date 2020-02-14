@@ -1,12 +1,12 @@
 ;;; setup-haskell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 19:56:04 csraghunandan>
+;; Time-stamp: <2020-02-14 16:44:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; haskell-mode: major mode for editing haskell files
 ;; https://github.com/haskell/haskell-mode
-(use-package haskell-mode :defer t
+(use-package haskell-mode
   :hook
   ((haskell-mode . (lambda ()
                      (intero-mode)

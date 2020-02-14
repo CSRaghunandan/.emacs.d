@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 10:08:37 csraghunandan>
+;; Time-stamp: <2020-02-14 16:43:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -45,7 +45,7 @@
 
 ;; eterm-256color: Customizable 256 colors for emacs term and ansi-term
 ;; https://github.com/dieggsy/eterm-256color
-(use-package eterm-256color :defer t
+(use-package eterm-256color
   :hook ((vterm-mode . eterm-256color-mode)))
 
 (provide 'setup-term)
