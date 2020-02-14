@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-07 18:30:23 csraghunandan>
+;; Time-stamp: <2020-02-14 16:41:48 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -71,5 +71,11 @@
 ;; https://github.com/emacs-pe/crontab-mode
 (use-package crontab-mode
   :mode "\\.?cron\\(tab\\)?\\'")
+
+;; this package provides direnv integration for emacs.
+;; https://github.com/wbolster/emacs-direnv/
+(use-package direnv :defer 2
+  :config
+  (direnv-mode))
 
 (provide 'setup-config-files)
