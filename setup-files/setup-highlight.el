@@ -1,5 +1,5 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 21:02:02 csraghunandan>
+;; Time-stamp: <2020-02-14 16:14:34 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -59,7 +59,7 @@
   :hook ((prog-mode . highlight-indent-guides-mode))
   :config
   (setq highlight-indent-guides-method 'character)
-  (setq highlight-indent-guides-character ?\ǀ)
+  (setq highlight-indent-guides-character ?\|)
   (setq highlight-indent-guides-responsive 'top)
 
   ;; https://github.com/seagle0128/.emacs.d/blob/36381ec7d7724a7ace6d9995ec8f59f5d9a33871/lisp/init-highlight.el#L161
