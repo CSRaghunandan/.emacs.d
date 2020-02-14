@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-14 16:41:48 csraghunandan>
+;; Time-stamp: <2020-02-14 16:42:36 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,7 +7,6 @@
 ;; yaml-mode: major-mode for editing yaml files
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode
-  :defer t
   :hook ((yaml-mode . (lambda ()
                         (run-hooks 'prog-mode-hook)))))
 
