@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 22:48:26 csraghunandan>
+;; Time-stamp: <2020-02-14 16:24:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -56,8 +56,9 @@
                         :weight 'bold)
 
     ;; make hl-fill-column-face more prominent
-    (set-face-attribute 'hl-fill-column-face nil :background nil
-                        :foreground "red" :weight 'bold :underline t)
+    (with-eval-after-load 'hl-fill-column
+      (set-face-attribute 'hl-fill-column-face nil :background nil
+                          :foreground "red" :weight 'bold :underline t))
 
     (with-eval-after-load 'magit
       ;; make `magit-header-line' more readable
