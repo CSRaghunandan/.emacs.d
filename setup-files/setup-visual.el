@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-14 16:19:07 csraghunandan>
+;; Time-stamp: <2020-02-14 16:50:53 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -82,6 +82,7 @@
 ;; Easily adjust the font size in all Emacs frames
 ;; https://github.com/purcell/default-text-scale/
 (use-package default-text-scale
+  :defer 5
   :config (default-text-scale-mode))
 
 
@@ -106,6 +107,7 @@
 ;; lorem-ipsum: Add filler lorem ipsum text to Emacs
 ;; https://github.com/jschaf/emacs-lorem-ipsum/
 (use-package lorem-ipsum
+  :defer 5
   :config
 
   (defcustom unpackaged/lorem-ipsum-overlay-exclude nil
@@ -187,6 +189,7 @@ And the line would be overlaid like:
 
 ;; Simple way to manipulate overlay for Emacs.
 ;; https://github.com/emacsorphanage/ov/
-(use-package ov)
+(use-package ov
+  :defer t)
 
 (provide 'setup-visual)
