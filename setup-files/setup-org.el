@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 14:09:33 csraghunandan>
+;; Time-stamp: <2020-02-15 17:48:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,7 @@
 ;; Org-mode configuration
 ;; http://orgmode.org/
 (use-package org
+  :defer 2
   :ensure nil
   :hook
   ((org-mode . org-num-mode)
@@ -68,10 +69,7 @@
                                  (file "~/.emacs.d/etc/org-capture-templates/reference.txt"))
                                 ("e" "Add a new code example" entry
                                  (file+headline "~/org/agenda/examples.org" "Examples")
-                                 (file "~/.emacs.d/etc/org-capture-templates/example.txt"))
-                                ("n" "Note" entry
-                                 (file "") ;empty string defaults to `org-default-notes-file'
-                                 "\n* %?\n  Context:\n    %i\n  Entered on %U")))
+                                 (file "~/.emacs.d/etc/org-capture-templates/example.txt"))))
 
   ;; settings for org-refile
   (setq org-refile-use-outline-path 'file
