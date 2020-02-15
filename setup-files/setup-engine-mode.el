@@ -1,5 +1,5 @@
 ;;; setup-engine-mode.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:56:02 csraghunandan>
+;; Time-stamp: <2020-02-14 20:59:03 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,7 @@
 ;; Minor mode for defining and querying search engines through Emacs.
 ;; https://github.com/hrs/engine-mode/
 (use-package engine-mode
+  :defer 5
   :init (setq engine/keybinding-prefix "C-x /")
   :config
   (engine-mode t)

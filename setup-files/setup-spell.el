@@ -1,17 +1,18 @@
 ;;; setup-spell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-26 00:21:34 csraghunandan>
+;; Time-stamp: <2020-02-14 21:23:17 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; flypsell: on the fly spell checking
 (use-package flyspell
+  :defer 2
   :ensure nil
   :hook
   ((org-mode . flyspell-mode)
    (markdown-mode . flyspell-mode)
    (prog-mode . flyspell-prog-mode))
-  :init
+  :config
   (setq ispell-dictionary-alist
         '((nil "[A-Za-z]" "[^A-Za-z]" "[']" t
                ("-d" "en_US" "-i" "utf-8") nil utf-8)
@@ -21,7 +22,7 @@
           ("british"
            "[A-Za-z]" "[^A-Za-z]" "[']" nil
            ("-d" "en_GB") nil utf-8)))
-  :config
+
   ;; Save a new word to personal dictionary without asking
   (setq ispell-silently-savep t)
 
