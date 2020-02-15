@@ -1,5 +1,5 @@
 ;;; setup-pdf.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-02 18:59:32 csraghunandan>
+;; Time-stamp: <2020-02-15 19:03:12 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,7 @@
 ;; pdf-tools: Emacs support library for PDF files.
 ;; https://github.com/politza/pdf-tools
 (use-package pdf-tools
+  :defer 3
   :bind
   (:map pdf-view-mode-map
         ("C-c h p" . hydra-pdftools/bodqy))
