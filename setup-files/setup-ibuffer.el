@@ -1,5 +1,5 @@
 ;;; setup-ibuffer.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 17:27:18 csraghunandan>
+;; Time-stamp: <2020-02-16 23:37:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,49 +8,6 @@
 (use-package ibuffer
   :ensure nil
   :config
-
-  ;; ibuffer-vc: show version control info in ibuffer
-  ;; https://github.com/purcell/ibuffer-vc
-  (use-package ibuffer-vc
-    :config
-    (add-hook 'ibuffer-hook
-              (lambda ()
-                (ibuffer-vc-set-filter-groups-by-vc-root)
-                (unless (eq ibuffer-sorting-mode 'alphabetic)
-                  (ibuffer-do-sort-by-alphabetic))
-                (ibuffer-auto-mode 1)))
-
-    (eval-after-load 'ibuffer
-                ;; Use human readable Size column instead of original one
-                (define-ibuffer-column size-h
-                  (:name "Size" :inline t)
-                  (cond
-                   ((> (buffer-size) 1000000)
-                    (format "%7.1fM" (/ (buffer-size) 1000000.0)))
-                   ((> (buffer-size) 1000)
-                    (format "%7.1fk" (/ (buffer-size) 1000.0)))
-                   (t (format "%8d" (buffer-size))))))
-
-    ;; set format for ibuffer. Show name, size, mode and processes
-    (setq ibuffer-formats
-          '((mark modified read-only " "
-                  (name 25 25 :left :elide)
-                  " "
-                  (size-h 9 -1 :right)
-                  " "
-                  (mode 16 16 :left :elide)
-                  " "
-                  (vc-status-mini)
-                  " "
-                  process)
-            (mark modified read-only " "
-                  (name 18 18 :left :elide)
-                  " "
-                  (size-h 9 -1 :right)
-                  " "
-                  (mode 16 16 :left :elide)
-                  " "
-                  vc-relative-file))))
 
   ;; Don't show scratch and messages in iBuffer
   (require 'ibuf-ext)
@@ -167,5 +124,30 @@ _t_: toggle    _._: toggle hydra   _H_: help       C-o other win no-select
 
   ;; dont ask for confirmation whenever killing a buffer
   (setq ibuffer-expert t))
+
+;; Display icons for all buffers in ibuffer.
+;; https://github.com/seagle0128/all-the-icons-ibuffer
+(use-package all-the-icons-ibuffer
+  :config
+
+  ;; human readable filesize for ibuffer
+  (define-ibuffer-column size-h
+    (:name "Size" :inline t)
+    (file-size-human-readable (buffer-size)))
+
+  (setq all-the-icons-ibuffer-formats
+        `((mark modified read-only locked ,(if (>= emacs-major-version 26) 'locked "")
+                " " (icon 2 2 :left :elide)
+                ,(propertize " " 'display `(space :align-to 8))
+                (name 18 18 :left :elide)
+                " " (size-h 6 -1 :right)
+                " " (mode 16 16 :left :elide)
+                " " filename-and-process)
+          (mark " "
+                (name 16 -1)
+                " " filename)))
+
+  ;; enable ibuffer all-the-icons support
+  (all-the-icons-ibuffer-mode 1))
 
 (provide 'setup-ibuffer)
