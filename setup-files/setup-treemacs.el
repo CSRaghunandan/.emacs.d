@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 17:20:08 csraghunandan>
+;; Time-stamp: <2020-02-17 13:46:52 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -56,12 +56,6 @@
 
 (use-package treemacs-magit
   :after treemacs magit)
-
-;; adds treemacs icons to dired buffers
-;; https://github.com/Alexander-Miller/treemacs/blob/master/src/extra/treemacs-icons-dired.el
-(use-package treemacs-icons-dired
-  :after treemacs dired
-  :config (treemacs-icons-dired-mode))
 
 ;; Integration between lsp-mode and treemacs and implementation of treeview
 ;; controls using treemacs as a tree renderer.
