@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-22 22:52:19 csraghunandan>
+;; Time-stamp: <2020-02-17 21:16:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,13 +25,15 @@
   (setq ivy-use-virtual-buffers t
         ivy-height 13
         ivy-count-format "%d/%d "
-        ivy-initial-inputs-alist nil
         ivy-virtual-abbreviate 'full ; Show the full virtual file paths
         ivy-extra-directories nil ; default value: ("../" "./")
-        ivy-format-function 'ivy-format-function-arrow
         ivy-wrap t
         ivy-action-wrap t
         ivy-use-selectable-prompt t)
+
+  ;; modify default search behaviour of ivy
+  (setq ivy-re-builders-alist
+        '((t . ivy--regex-ignore-order)))
 
   (bind-keys
    :map ivy-occur-grep-mode-map
