@@ -9,3 +9,5 @@ var/*
 !var/abbrev.el
 !var/mc-lists.el
 !var/bookmark-default.el
+
+command-log/
