@@ -1,5 +1,5 @@
 ;;; setup-ibuffer.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-16 23:37:09 csraghunandan>
+;; Time-stamp: <2020-02-18 00:57:41 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -129,24 +129,6 @@ _t_: toggle    _._: toggle hydra   _H_: help       C-o other win no-select
 ;; https://github.com/seagle0128/all-the-icons-ibuffer
 (use-package all-the-icons-ibuffer
   :config
-
-  ;; human readable filesize for ibuffer
-  (define-ibuffer-column size-h
-    (:name "Size" :inline t)
-    (file-size-human-readable (buffer-size)))
-
-  (setq all-the-icons-ibuffer-formats
-        `((mark modified read-only locked ,(if (>= emacs-major-version 26) 'locked "")
-                " " (icon 2 2 :left :elide)
-                ,(propertize " " 'display `(space :align-to 8))
-                (name 18 18 :left :elide)
-                " " (size-h 6 -1 :right)
-                " " (mode 16 16 :left :elide)
-                " " filename-and-process)
-          (mark " "
-                (name 16 -1)
-                " " filename)))
-
   ;; enable ibuffer all-the-icons support
   (all-the-icons-ibuffer-mode 1))
 
