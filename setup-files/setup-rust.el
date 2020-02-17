@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 23:20:25 csraghunandan>
+;; Time-stamp: <2020-02-17 14:02:36 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,19 +9,19 @@
 ;; to work for rust
 ;; https://github.com/brotzeit/rustic
 (use-package rustic
- :init
- ;; We use the superior default client provided by `lsp-mode', not the
- ;; one rustic-mode sets up for us
- (setq rustic-lsp-server 'rust-analyzer)
- ;; disable rustic flycheck error display in modeline. Its redundant
- (setq rustic-flycheck-setup-mode-line-p nil)
+  :init
+  ;; We use the superior default client provided by `lsp-mode', not the
+  ;; one rustic-mode sets up for us
+  (setq rustic-lsp-server 'rust-analyzer)
+  ;; disable rustic flycheck error display in modeline. Its redundant
+  (setq rustic-flycheck-setup-mode-line-p nil)
 
   :hook ((rustic-mode . (lambda ()
-                        (lsp-ui-doc-mode)
-                        (lsp-ui-sideline-mode)
-                        (lsp-ui-sideline-toggle-symbols-info)
-                        (smart-dash-mode)
-                        (company-mode))))
+                          (lsp-ui-doc-mode)
+                          (lsp-ui-sideline-mode)
+                          (lsp-ui-sideline-toggle-symbols-info)
+                          (smart-dash-mode)
+                          (company-mode))))
   :config
   (setq rust-indent-method-chain t)
 
