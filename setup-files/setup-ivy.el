@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-17 21:16:44 csraghunandan>
+;; Time-stamp: <2020-02-17 23:44:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -61,13 +61,8 @@
 ;; `M-o w' to copy the current candidate to the kill ring.
 ;; `M-o i' to insert the current candidate into the buffer.
 ;; `C-d' in `ivy-occur' to delete entries from the ivy-occur file
-;; `counsel-org-capture' ->  completion for org-capture
-;; `counsel-minibuffer-history' -> generalization of counsel-expression-history and counsel-shell-command-history
-;; `counsel-org-file' ->  browse all attachments for the current Org file
-;; `counsel-org-goto' -> completion for Org headings
-;; `counsel-org-goto-all' -> completion for Org headings in all open buffers
+
 ;; `ivy-switch-view' ->  select a window configuration, decoupled from ivy-switch-buffer
-;; `counsel-fzf' -> completion for fzf
 ;; `C-c C-k' in `ivy-switch-buffer' to kill the buffer while still in ivy-minibuffer
 
 ;; Call `ivy-immediate-done' if you want to use whatever you typed in the

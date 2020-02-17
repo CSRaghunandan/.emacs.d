@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-04 08:23:33 csraghunandan>
+;; Time-stamp: <2020-02-17 23:44:55 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -129,7 +129,7 @@
    ([remap bookmark-set] . counsel-bookmark)
    ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
    ("C-c d s" . describe-symbol)
-   ("C-c r w" rag-counsel-rg-working-directory)
+   ("C-c r w" . rag-counsel-rg-working-directory)
    ("C-c d f" . counsel-faces)
    ("C-c P" . counsel-package)
    ("C-c r g" . counsel-rg)
@@ -158,10 +158,14 @@
 ;; `counsel-faces' -> lists all the face colours in emacs
 ;; `counsel-ibuffer' -> run swiper search on content
 ;; `counsel-apropos' -> search apropos through counsel
-;; `counsel-org-entity' -> search through a list of all the available org entities
-;; `counsel-org-got-all' -> search through all headings for the open org files
-;; `modi/counsel-org-tag' -> Adds aligning tags across file/heading
-;; `counsel-org-agenda-headlines' -> search headings of all the files in org agenda list
-;; `counsel-org-file' -> browse through all the attachments for a given org file
 ;; `counsel-yank-directory' -> yank the current directory in minibuffer with `C-M-y'
 ;; `counsel-bookmark' -> Jump to book or set it if it doesn't exist, C-x r b
+;; `counsel-minibuffer-history' -> generalization of counsel-expression-history and counsel-shell-command-history
+;; `modi/counsel-org-tag' -> Adds aligning tags across file/heading
+;; `counsel-org-agenda-headlines' -> search headings of all the files in org agenda list
+;; `counsel-org-capture' ->  completion for org-capture
+;; `counsel-org-file' ->  browse all attachments for the current Org file
+;; `counsel-org-goto' -> completion for Org headings
+;; `counsel-org-goto-all' -> completion for Org headings in all open buffers
+;; `counsel-org-entity' -> search through a list of all the available org entities
+;; `counsel-fzf' -> completion for fzf
