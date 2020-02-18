@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-17 23:44:55 csraghunandan>
+;; Time-stamp: <2020-02-18 09:51:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,9 +25,9 @@
 
   (if (executable-find "rg")
       ;; if rg is installed, use rg for `counsel-grep-or-swiper' and `counsel-rg'
-      (setq counsel-grep-base-command "rg --line-number --smart-case -M 150 --color never --mmap --no-heading %s %s"
+      (setq counsel-grep-base-command "rg --line-number --smart-case --with-filename --color never --mmap --no-heading %s %s"
             ;; add `--follow' option to allow search through symbolic links
-            counsel-rg-base-command "rg --line-number --smart-case -M 150 --color never --follow --mmap --no-heading %s"
+            counsel-rg-base-command "rg --line-number --smart-case --with-filename --color never --follow --mmap --no-heading %s"
             ;; Use ripgrep for counsel-git
             counsel-git-cmd "rg --files")
     ;; ignore case sensitivity for counsel grep
@@ -161,7 +161,6 @@
 ;; `counsel-yank-directory' -> yank the current directory in minibuffer with `C-M-y'
 ;; `counsel-bookmark' -> Jump to book or set it if it doesn't exist, C-x r b
 ;; `counsel-minibuffer-history' -> generalization of counsel-expression-history and counsel-shell-command-history
-;; `modi/counsel-org-tag' -> Adds aligning tags across file/heading
 ;; `counsel-org-agenda-headlines' -> search headings of all the files in org agenda list
 ;; `counsel-org-capture' ->  completion for org-capture
 ;; `counsel-org-file' ->  browse all attachments for the current Org file

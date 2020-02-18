@@ -1,19 +1,19 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-17 23:44:56 csraghunandan>
+;; Time-stamp: <2020-02-18 10:24:31 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; amx: An alternative M-x interface for Emacs.
 ;; https://github.com/DarwinAwardWinner/amx
-(use-package amx :defer 0.5
+(use-package amx :defer 1
   :config (amx-mode))
 
 ;; ivy: incremental narrowing framework for Emacs
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
   :bind (("C-c C-r" . ivy-resume))
-  :defer 0.5
+  :defer 2
   :config
   (ivy-mode)
 

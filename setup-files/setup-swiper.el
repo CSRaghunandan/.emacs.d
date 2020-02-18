@@ -1,5 +1,5 @@
 ;;; setup-swiper.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 13:39:41 csraghunandan>
+;; Time-stamp: <2020-02-18 09:45:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -38,4 +38,3 @@ When non-nil, INITIAL-INPUT is the initial search pattern."
 ;; `M-p' -> previous search item
 ;; `M-n' -> next search item
 ;; `M-n' -> to select the symbol at point in swiper
-;; `C-c s' -> to search regexp from isearch to swiper
