@@ -1,5 +1,5 @@
 ;;; setup-bookmark.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-30 01:13:57 csraghunandan>
+;; Time-stamp: <2020-02-18 12:32:53 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -80,11 +80,3 @@ Bookmark _n_ext (_N_ in lifo order)            toggle book_m_ark        ^^_/_ bm
 (bookmark-bmenu-list)
 
 (provide 'setup-bookmark)
-
-;; bookmark+ -> bookmark anything in Emacs. Allow bookmarking dired, info,
-;; desktop, occur, etc.
-;; `C-x p K' -> set the desktop as a bookmark
-;; `C-x r l' -> access the bookmarks list buffer
-;; `C-x r m' -> set bookmark
-;; `C-x p d' -> delete bookmarks
-;; `C-x j j' -> jump to any bookmark
