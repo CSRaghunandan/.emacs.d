@@ -1,5 +1,5 @@
 ;;; setup-which-key.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:10:27 csraghunandan>
+;; Time-stamp: <2020-02-18 11:28:24 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,7 @@
 ;; which-key : show popup of keybindings starting with a prefix
 ;; https://github.com/justbur/emacs-which-key
 (use-package which-key
+  :bind ("C-h M-m" . which-key-show-full-major-mode)
   :config
   ;; make which-key popup to the right
   (which-key-setup-side-window-right)
@@ -29,11 +30,6 @@
 
           ;; Replacements for how KEY is replaced when which-key displays
           ;;   KEY → FUNCTION
-          ;; Eg: After "C-c", display "right → winner-redo" as "▶ → winner-redo"
-          (("<left>" . nil) . ("◀" . nil))
-          (("<right>" . nil) . ("▶" . nil))
-          (("<up>" . nil) . ("▲" . nil))
-          (("<down>" . nil) . ("▼" . nil))
           (("\\`DEL\\'" . nil) . ("BS" . nil)) ; backspace key
           (("<next>" . nil) . ("PgDn" . nil))
           (("<prior>" . nil) . ("PgUp" . nil))))
