@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-14 16:50:53 csraghunandan>
+;; Time-stamp: <2020-02-18 11:44:43 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -191,5 +191,9 @@ And the line would be overlaid like:
 ;; https://github.com/emacsorphanage/ov/
 (use-package ov
   :defer t)
+
+;; Don't use GTK+ tooltip
+(when (boundp 'x-gtk-use-system-tooltips)
+  (setq x-gtk-use-system-tooltips nil))
 
 (provide 'setup-visual)
