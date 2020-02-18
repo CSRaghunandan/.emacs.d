@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-24 11:15:57 csraghunandan>
+;; Time-stamp: <2020-02-18 11:23:18 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,11 +8,14 @@
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
   :commands lsp
-  :hook ((lsp-after-open . lsp-enable-imenu))
+  :hook ((lsp-after-open . lsp-enable-imenu)
+         (lsp-mode . lsp-enable-which-key-integration))
   :bind (:map lsp-mode-map
               ("C-c C-t" . lsp-describe-thing-at-point))
   :config
-  (setq lsp-prefer-flymake nil))
+  (setq lsp-prefer-flymake nil)
+  (setq lsp-auto-guess-root t ; Detect project root
+        lsp-keep-workspace-alive nil)) ; Auto-kill LSP server
 
 ;; company-lsp: Company completion backend for lsp-mode.
 ;; https://github.com/tigersoldier/company-lsp/
