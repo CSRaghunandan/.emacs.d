@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-15 17:48:44 csraghunandan>
+;; Time-stamp: <2020-02-18 11:53:55 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -775,5 +775,11 @@ appropriate.  In tables, insert a new row or end the table."
   :bind (("C-c o j" . org-journal-new-entry))
   :hook ((org-journal-mode . (lambda ()
                                (visual-line-mode -1)))))
+
+;; Rich text clipboard for org-mode
+;; https://github.com/unhammer/org-rich-yank
+(use-package org-rich-yank
+  :bind (:map org-mode-map
+              ("C-M-y" . org-rich-yank)))
 
 (provide 'setup-org)
