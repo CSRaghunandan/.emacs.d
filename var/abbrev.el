@@ -19,6 +19,7 @@
     ("acommodate" "accommodate" nil :count 0)
     ("acomodate" "accommodate" nil :count 0)
     ("acomplished" "accomplished" nil :count 0)
+    ("acquiantances" "acquaintances" nil :count 0)
     ("actualyl" "actually" nil :count 0)
     ("acurate" "accurate" nil :count 0)
     ("addictional" "additional" nil :count 0)
@@ -863,7 +864,7 @@
     ("theyve" "they've" nil :count 0)
     ("thgat" "that" nil :count 0)
     ("thge" "the" nil :count 1)
-    ("thier" "their" nil :count 0)
+    ("thier" "their" nil :count 1)
     ("thigsn" "things" nil :count 0)
     ("thisyear" "this year" nil :count 0)
     ("thna" "than" nil :count 0)
@@ -985,6 +986,6 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
-    ("i" "I" nil :count 34)
+    ("i" "I" nil :count 45)
    ))
 

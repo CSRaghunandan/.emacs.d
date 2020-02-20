@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-14 16:24:09 csraghunandan>
+;; Time-stamp: <2020-02-20 14:48:06 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -82,10 +82,6 @@
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
-
-  ;; use the colorful treemacs theme
-  (setq doom-themes-treemacs-theme "doom-colors")
-  (doom-themes-treemacs-config)
 
   ;; use my font instead of the default variable pitch font used by
   ;; doom-themes-treemacs-theme
