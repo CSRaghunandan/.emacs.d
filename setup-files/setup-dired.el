@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-20 15:21:01 csraghunandan>
+;; Time-stamp: <2020-02-20 15:50:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -16,33 +16,8 @@
 
     ;; this is just an interactive version of the function found in dired.el
     (defun rag/dired-move-to-filename (&optional raise-error eol)
-      "Move to the beginning of the filename on the current line.
-Return the position of the beginning of the filename, or nil if none found.
-
-If RAISE-ERROR, signal an error if we can't find the filename on
-the current line.
-
-If EOL, it should be an position to use instead of
-`line-end-position' as the end of the line."
-      ;; This is the UNIX version.
       (interactive)
-      (or eol (setq eol (line-end-position)))
-      (beginning-of-line)
-      ;; First try assuming `ls --dired' was used.
-      (let ((change (next-single-property-change (point) 'dired-filename nil eol)))
-        (cond
-         ((and change (< change eol))
-          (goto-char change))
-         ((re-search-forward directory-listing-before-filename-regexp eol t)
-          (goto-char (match-end 0)))
-         ((re-search-forward dired-permission-flags-regexp eol t)
-          ;; Ha!  There *is* a file.  Our regexp-from-hell just failed to find it.
-          (if raise-error
-	          (error "Unrecognized line!  Check directory-listing-before-filename-regexp"))
-          (beginning-of-line)
-          nil)
-         (raise-error
-          (error "No file on this line")))))
+      (dired-move-to-filename raise-error eol))
 
     ;; use the same buffer for going up a directory in dired
     (defun rag/dired-up-dir()
