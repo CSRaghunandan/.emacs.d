@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-20 09:44:56 csraghunandan>
+;; Time-stamp: <2020-02-20 15:20:11 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,19 +9,47 @@
   :bind ((:map dired-mode-map
                ("S" . ora-dired-get-size)
                ("E" . ora-ediff-files)
-               ("^" . rag/dired-up-dir)
-               ("C-a" . dired-back-to-start-of-files)))
-  :hook ((dired-mode . (lambda ()
-                         (setq-local tab-width 1))))
+               ("C-a" . rag-dired-move-to-filename)
+               ("^" . rag/dired-up-dir)))
   :config
   (progn
+
+    ;; this is just an interactive version of the function found in dired.el
+    (defun rag/dired-move-to-filename (&optional raise-error eol)
+      "Move to the beginning of the filename on the current line.
+Return the position of the beginning of the filename, or nil if none found.
+
+If RAISE-ERROR, signal an error if we can't find the filename on
+the current line.
+
+If EOL, it should be an position to use instead of
+`line-end-position' as the end of the line."
+      ;; This is the UNIX version.
+      (interactive)
+      (or eol (setq eol (line-end-position)))
+      (beginning-of-line)
+      ;; First try assuming `ls --dired' was used.
+      (let ((change (next-single-property-change (point) 'dired-filename nil eol)))
+        (cond
+         ((and change (< change eol))
+          (goto-char change))
+         ((re-search-forward directory-listing-before-filename-regexp eol t)
+          (goto-char (match-end 0)))
+         ((re-search-forward dired-permission-flags-regexp eol t)
+          ;; Ha!  There *is* a file.  Our regexp-from-hell just failed to find it.
+          (if raise-error
+	          (error "Unrecognized line!  Check directory-listing-before-filename-regexp"))
+          (beginning-of-line)
+          nil)
+         (raise-error
+          (error "No file on this line")))))
+
+    ;; use the same buffer for going up a directory in dired
+    (defun rag/dired-up-dir()
+      (interactive) (find-alternate-file ".."))
+
     ;; follow symlinks in dired
     (setq find-file-visit-truename t)
-
-    ;; C-a is nicer in dired if it moves back to start of files
-    (defun dired-back-to-start-of-files ()
-      (interactive)
-      (backward-char (- (current-column) 2)))
 
     ;; mark symlinks
     (setq dired-ls-F-marks-symlinks t)
@@ -97,10 +125,6 @@ It added extra strings at the front and back of the default dired buffer name."
            (and buff-name
                 (recentf-remove-if-non-kept buff-name))))
        (add-hook 'dired-after-readin-hook 'recentf-track-opened-file)))
-
-  ;; use the same buffer for going up a directory in dired
-  (defun rag/dired-up-dir()
-    (interactive) (find-alternate-file ".."))
 
   ;; https://oremacs.com/2017/03/18/dired-ediff/
   (defun ora-ediff-files ()
@@ -181,7 +205,6 @@ It added extra strings at the front and back of the default dired buffer name."
     (dired-rainbow-define fonts "#6cb2eb" ("afm" "fon" "fnt" "pfb" "pfm" "ttf" "otf"))
     (dired-rainbow-define partition "#e3342f" ("dmg" "iso" "bin" "nrg" "qcow" "toast" "vcd" "vmdk" "bak"))
     (dired-rainbow-define vc "#0074d9" ("git" "gitignore" "gitattributes" "gitmodules"))
-    (dired-rainbow-define-chmod executable-unix "#38c172" "-.*x.*")
-    ))
+    (dired-rainbow-define-chmod executable-unix "#38c172" "-.*x.*")))
 
 (provide 'setup-dired)
