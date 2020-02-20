@@ -324,7 +324,7 @@
     ("doind" "doing" nil :count 0)
     ("dollers" "dollars" nil :count 0)
     ("donig" "doing" nil :count 0)
-    ("dont" "don't" nil :count 1)
+    ("dont" "don't" nil :count 2)
     ("dosnt" "doesn't" nil :count 0)
     ("driveing" "driving" nil :count 0)
     ("drnik" "drink" nil :count 0)
@@ -745,6 +745,7 @@
     ("responsability" "responsibility" nil :count 0)
     ("responsable" "responsible" nil :count 0)
     ("responsibile" "responsible" nil :count 0)
+    ("responsibilites" "responsibilities" nil :count 0)
     ("responsiblity" "responsibility" nil :count 0)
     ("restaraunt" "restaurant" nil :count 0)
     ("restuarant" "restaurant" nil :count 0)
@@ -986,3 +987,4 @@
   '(
     ("i" "I" nil :count 34)
    ))
+
