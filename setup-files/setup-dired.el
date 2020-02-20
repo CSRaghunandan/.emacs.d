@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-20 15:20:11 csraghunandan>
+;; Time-stamp: <2020-02-20 15:21:01 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,7 +9,7 @@
   :bind ((:map dired-mode-map
                ("S" . ora-dired-get-size)
                ("E" . ora-ediff-files)
-               ("C-a" . rag-dired-move-to-filename)
+               ("C-a" . rag/dired-move-to-filename)
                ("^" . rag/dired-up-dir)))
   :config
   (progn
