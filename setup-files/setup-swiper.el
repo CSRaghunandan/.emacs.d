@@ -1,5 +1,5 @@
 ;;; setup-swiper.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-18 09:45:29 csraghunandan>
+;; Time-stamp: <2020-02-20 17:23:17 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,7 +9,7 @@
 (use-package swiper
   :bind (("C-s" . counsel-grep-or-swiper)
          ("H-f" . swiper-isearch)
-         ("H-r" . swiper--isearch-backward))
+         ("H-r" . swiper-isearch-backward))
   :config
   (setq swiper-action-recenter t
         ;; Jump to the beginning of match when leaving Swiper
