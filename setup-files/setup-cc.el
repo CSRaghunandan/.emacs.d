@@ -1,10 +1,14 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-28 09:55:54 csraghunandan>
+;; Time-stamp: <2020-02-23 16:09:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; all the configuration for C/C++ projects
+
+;; cmake-mode: major mode for cmake files
+;; https://gitlab.kitware.com/cmake/cmake/blob/master/Auxiliary/cmake-mode.el
+(use-package cmake-mode)
 
 ;; cmake-font-lock: emacs font lock rules for CMake
 ;; https://github.com/Lindydancer/cmake-font-lock
