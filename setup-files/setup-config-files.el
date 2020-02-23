@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-14 16:42:36 csraghunandan>
+;; Time-stamp: <2020-02-23 15:50:36 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,7 +8,24 @@
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode
   :hook ((yaml-mode . (lambda ()
-                        (run-hooks 'prog-mode-hook)))))
+                        (run-hooks 'prog-mode-hook)))
+         (yaml-mode . (lambda ()
+                        (lsp)
+                        (lsp-ui-doc-mode)
+                        (lsp-ui-sideline-mode)
+                        (company-mode)
+                        (flycheck-mode)))
+         (before-save . (lambda ()
+                          (add-hook 'before-save-hook
+                                    (lambda ()
+                                      (time-stamp)
+                                      (lsp-format-buffer)) nil t))))
+  :config
+  (defun my-yaml-mode-hook ()
+    (set (make-local-variable 'company-backends)
+         '((company-lsp company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
+  (add-hook 'yaml-mode-hook #'my-yaml-mode-hook))
 
 ;; conf-mode: major-mdoe for editing conf files
 ;; https://github.com/jrockway/emacs/blob/master/lisp/textmodes/conf-mode.el
