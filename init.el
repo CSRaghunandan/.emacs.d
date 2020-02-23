@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-14 21:03:06 csraghunandan>
+;; Time-stamp: <2020-02-23 14:33:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -61,8 +61,8 @@
 (require 'setup-projectile)
 (require 'setup-yas)
 (require 'setup-buffers)
-(require 'setup-ivy)
 (require 'setup-counsel)
+(require 'setup-ivy)
 (require 'setup-swiper)
 (require 'setup-movement)
 (require 'setup-markdown)

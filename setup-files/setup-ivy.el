@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-18 12:30:42 csraghunandan>
+;; Time-stamp: <2020-02-23 14:34:25 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -56,10 +56,12 @@
 
 ;; More friendly interface for ivy
 ;; https://github.com/Yevgnen/ivy-rich
-(use-package ivy-rich
-  :defer 1
-  :ensure t
-  :config (ivy-rich-mode 1))
+(use-package ivy-rich :ensure t
+  :hook (counsel-projectile-mode . ivy-rich-mode)
+  :config
+  ;; For better performance
+  ;; Better experience with icons
+  (setq ivy-rich-parse-remote-buffer nil))
 
 (provide 'setup-ivy)
 
