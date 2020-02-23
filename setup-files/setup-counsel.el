@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-18 09:51:32 csraghunandan>
+;; Time-stamp: <2020-02-23 16:34:30 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -132,6 +132,7 @@
    ("C-c r w" . rag-counsel-rg-working-directory)
    ("C-c d f" . counsel-faces)
    ("C-c P" . counsel-package)
+   ("C-c m u" . counsel-imenu)
    ("C-c r g" . counsel-rg)
    ("C-x d" . counsel-dired)))
 
