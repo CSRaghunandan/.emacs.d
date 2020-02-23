@@ -1,5 +1,5 @@
 ;;; setup-shell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-06 23:28:29 csraghunandan>
+;; Time-stamp: <2020-02-23 16:24:02 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,11 +7,10 @@
 ;; configuration for shell mode
 
 (defvar +sh-builtin-keywords
-  '("cat" "cat" "cd" "chmod" "chown" "cp" "curl" "date" "echo" "find" "git"
-    "grep" "head" "kill" "less" "ls" "make" "mkdir" "mv" "pgrep" "pkill" "pwd"
-    "rm" "sleep" "sudo" "touch" "tee" "tail")
-  "A list of common shell commands and keywords to be fontified especially in
-`sh-mode'.")
+  '("cat" "cd" "chmod" "chown" "cp" "curl" "date" "echo" "find" "git" "grep"
+    "kill" "less" "ln" "ls" "make" "mkdir" "mv" "pgrep" "pkill" "pwd" "rm"
+    "sleep" "sudo" "touch")
+  "A list of common shell commands to be fontified especially in `sh-mode'.")
 
 (use-package sh-script
   :ensure nil
@@ -32,7 +31,7 @@
 
   ;; coloreize shell output
   (setq comint-terminfo-terminal "ansi")
-
+  
   (defun +sh--match-variables-in-quotes (limit)
     "Search for variables in double-quoted strings bounded by LIMIT."
     (with-syntax-table sh-mode-syntax-table
@@ -67,12 +66,12 @@
   ;; 3. Fontify built-in/common commands (see `+sh-builtin-keywords')
   (font-lock-add-keywords
    'sh-mode `((+sh--match-variables-in-quotes
-               (1 'default prepend)
+               (1 'font-lock-constant-face prepend)
                (2 'font-lock-variable-name-face prepend))
               (+sh--match-command-subst-in-quotes
-               (0 'sh-quoted-exec prepend))
-              (,(regexp-opt +sh-builtin-keywords 'words)
-               (0 'font-lock-builtin-face append))))
+               (1 'sh-quoted-exec prepend))
+              (,(regexp-opt +sh-builtin-keywords 'symbols)
+               (0 'font-lock-type-face append))))
 
   (setq sh-indent-after-continuation 'always))
 
