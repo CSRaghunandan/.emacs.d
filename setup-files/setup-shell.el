@@ -1,5 +1,5 @@
 ;;; setup-shell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-23 16:24:02 csraghunandan>
+;; Time-stamp: <2020-02-23 16:28:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,7 +17,9 @@
   :hook ((sh-mode . flycheck-mode))
   :mode (("\\.aliases\\'" . sh-mode)
          ("\\.[a-zA-Z]+rc\\'" . sh-mode)
-         ("crontab.*\\'" . sh-mode))
+         ("crontab.*\\'" . sh-mode)
+         ("\\.zunit\\'" . sh-mode)
+         ("/bspwmrc\\'" . sh-mode))
   :config
   ;; Use sh-mode when opening `.zsh' files, and when opening Prezto runcoms.
   (dolist (pattern '("\\.zsh\\'"
@@ -31,7 +33,7 @@
 
   ;; coloreize shell output
   (setq comint-terminfo-terminal "ansi")
-  
+
   (defun +sh--match-variables-in-quotes (limit)
     "Search for variables in double-quoted strings bounded by LIMIT."
     (with-syntax-table sh-mode-syntax-table
