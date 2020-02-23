@@ -1,5 +1,5 @@
 ;;; setup-comint.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 09:46:14 csraghunandan>
+;; Time-stamp: <2020-02-23 17:30:06 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,6 +25,9 @@
     (goto-char (point-max))
     (let ((recenter-positions '(top bottom)))
       (recenter-top-bottom))))
+
+;; On shells, please handle properly the ansi escape codes
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (provide 'setup-comint)
 

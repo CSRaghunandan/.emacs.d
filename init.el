@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-23 14:33:09 csraghunandan>
+;; Time-stamp: <2020-02-23 17:30:38 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -106,7 +106,7 @@
 (require 'setup-help)
 (require 'setup-config-files)
 (require 'setup-ansible)
-(require 'setup-shell)
+(require 'setup-sh)
 (require 'setup-annotate)
 (require 'setup-smerge)
 (require 'setup-nov)

@@ -1,10 +1,10 @@
-;;; setup-shell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-23 16:28:40 csraghunandan>
+;;; setup-sh.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2020-02-23 17:30:27 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
-;; configuration for shell mode
+;; configuration for sh-mode
 
 (defvar +sh-builtin-keywords
   '("cat" "cd" "chmod" "chown" "cp" "curl" "date" "echo" "find" "git" "grep"
@@ -91,10 +91,7 @@
          '((company-shell company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev)))))
 
-;; On shells, please handle properly the ansi escape codes
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
-(provide 'setup-shell)
+(provide 'setup-sh)
 
 ;; install `shellcheck' for providing linting for shell scripts. It'll
 ;; automatically be enabled by flycheck if installed
