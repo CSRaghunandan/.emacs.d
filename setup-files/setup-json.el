@@ -1,5 +1,5 @@
 ;;; setup-json.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-24 11:56:37 csraghunandan>
+;; Time-stamp: <2020-02-23 15:57:55 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,10 +9,22 @@
 ;; https://github.com/joshwnj/json-mode
 (use-package json-mode
   :mode "\\.js\\(?:on\\|[hl]int\\(rc\\)?\\)\\'"
+  :hook ((json-mode . (lambda ()
+                        (lsp)
+                        (lsp-ui-doc-mode)
+                        (lsp-ui-sideline-mode)
+                        (company-mode)
+                        (flycheck-mode))))
   :config
   (add-hook 'json-mode-hook #'prettier-js-mode)
   (setq json-reformat:indent-width 2)
   (setq json-reformat:pretty-string? t)
-  (setq js-indent-level 2))
+  (setq js-indent-level 2)
+
+  (defun my-json-mode-hook ()
+    (set (make-local-variable 'company-backends)
+         '((company-lsp company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
+  (add-hook 'json-mode-hook #'my-json-mode-hook))
 
 (provide 'setup-json)
