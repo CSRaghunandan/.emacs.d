@@ -1,5 +1,5 @@
 ;;; setup-docker.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-23 15:50:43 csraghunandan>
+;; Time-stamp: <2020-02-24 23:37:15 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -14,11 +14,11 @@
                               (lsp-ui-sideline-mode)
                               (company-mode)
                               (flycheck-mode)))
-         (before-save . (lambda ()
-                          (add-hook 'before-save-hook
-                                    (lambda ()
-                                      (time-stamp)
-                                      (lsp-format-buffer)) nil t))))
+         (dockerfile-mode . (lambda ()
+                              (add-hook 'before-save-hook
+                                        (lambda ()
+                                          (time-stamp)
+                                          (lsp-format-buffer)) nil t))))
   :config
   (defun my-docker-mode-hook ()
     (set (make-local-variable 'company-backends)
