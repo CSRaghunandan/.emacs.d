@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-23 14:34:25 csraghunandan>
+;; Time-stamp: <2020-02-26 20:16:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -49,10 +49,10 @@
 
 ;; Better experience with icons for ivy
 ;; https://github.com/seagle0128/all-the-icons-ivy-rich/
-(use-package all-the-icons-ivy-rich
-  :ensure t
-  :defer 1
-  :config (all-the-icons-ivy-rich-mode 1))
+(use-package all-the-icons-ivy-rich :defer 1
+  :config
+  (all-the-icons-ivy-rich-mode 1)
+  (setq all-the-icons-ivy-rich-icon-size 0.8))
 
 ;; More friendly interface for ivy
 ;; https://github.com/Yevgnen/ivy-rich
