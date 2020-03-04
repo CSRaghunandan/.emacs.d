@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-26 20:16:44 csraghunandan>
+;; Time-stamp: <2020-03-04 19:21:14 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -42,10 +42,7 @@
    ("b" . backward-char)
    ("f" . forward-char)
    ("v" . ivy-occur-press) ; default f
-   ("RET" . ivy-occur-press))
-
-  ;; https://github.com/abo-abo/swiper/issues/2397#issuecomment-572151817
-  (setq ivy-read-action-function 'ivy-hydra-read-action))
+   ("RET" . ivy-occur-press)))
 
 ;; Better experience with icons for ivy
 ;; https://github.com/seagle0128/all-the-icons-ivy-rich/
