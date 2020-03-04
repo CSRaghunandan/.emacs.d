@@ -1,5 +1,5 @@
 ;;; setup-pdf.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-15 19:03:12 csraghunandan>
+;; Time-stamp: <2020-03-04 16:48:04 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,6 +11,8 @@
   :bind
   (:map pdf-view-mode-map
         ("C-c h p" . hydra-pdftools/bodqy))
+  :hook (pdf-tools-enabled . (lambda ()
+                               (display-line-numbers-mode -1)))
   :config
   ;; https://github.com/politza/pdf-tools/issues/312#issuecomment-329537742
   ;; Build the program (if necessary) without asking first, if NO-QUERY-P is
