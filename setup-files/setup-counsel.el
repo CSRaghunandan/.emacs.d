@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-23 16:34:30 csraghunandan>
+;; Time-stamp: <2020-03-11 17:10:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,9 +25,9 @@
 
   (if (executable-find "rg")
       ;; if rg is installed, use rg for `counsel-grep-or-swiper' and `counsel-rg'
-      (setq counsel-grep-base-command "rg --line-number --smart-case --with-filename --color never --mmap --no-heading %s %s"
+      (setq counsel-grep-base-command "rg -M 120 --line-number --smart-case --with-filename --color never --no-heading %s %s"
             ;; add `--follow' option to allow search through symbolic links
-            counsel-rg-base-command "rg --line-number --smart-case --with-filename --color never --follow --mmap --no-heading %s"
+            counsel-rg-base-command "rg -M 120 --line-number --smart-case --with-filename --color never --follow --no-heading %s"
             ;; Use ripgrep for counsel-git
             counsel-git-cmd "rg --files")
     ;; ignore case sensitivity for counsel grep
