@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-20 14:56:27 csraghunandan>
+;; Time-stamp: <2020-03-11 19:09:45 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -31,9 +31,6 @@
     ;; treemacs-git-mode extended
     (setq treemacs-python-executable (executable-find "python"))
 
-    (defun doom-themes-hide-modeline ()
-      (setq mode-line-format nil))
-
     (defun doom-themes-hide-fringes ()
       "Remove fringes in currnent window."
       (when (display-graphic-p)
@@ -43,9 +40,6 @@
     ;; may change due to outside factors)
     (add-hook 'treemacs-mode-hook #'doom-themes-hide-fringes)
     (advice-add #'treemacs-select-window :after #'doom-themes-hide-fringes)
-
-    ;; The modeline isn't useful in treemacs
-    (add-hook 'treemacs-mode-hook #'doom-themes-hide-modeline)
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
@@ -81,7 +75,7 @@
 ;; Integration between lsp-mode and treemacs and implementation of treeview
 ;; controls using treemacs as a tree renderer.
 ;; https://github.com/emacs-lsp/lsp-treemacs
-(use-package lsp-treemacs :defer 5
+(use-package lsp-treemacs :defer 3
   :config
   (lsp-treemacs-sync-mode 1))
 
