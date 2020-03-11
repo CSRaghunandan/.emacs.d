@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-11 18:54:31 csraghunandan>
+;; Time-stamp: <2020-03-11 19:31:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -42,10 +42,8 @@
   ;; call dap-hydra when going to the next breakpoint
   (add-hook 'dap-stopped-hook
             (lambda (arg) (call-interactively #'dap-hydra)))
-  ;; eanble tool
-  (dap-mode 1)
-  (dap-ui-mode 1)
-  (dap-tooltip-mode 1))
+  (add-hook 'dap-mode-hook #'dap-ui-mode) ; use a hook so users can remove it
+  (dap-mode 1))
 
 ;; load gdb-lldb package
 (use-package dap-gdb-lldb

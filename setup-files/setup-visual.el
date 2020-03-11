@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-11 19:07:43 csraghunandan>
+;; Time-stamp: <2020-03-11 19:28:01 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -51,6 +51,7 @@
 (setq mouse-wheel-progressive-speed nil)
 
 (setq frame-resize-pixelwise t) ; Allow frame size to inc/dec by a pixel
+(setq tooltip-mode nil) ; Disable tooltip appearance on mouse hover
 
 ;; make sure emacsclient starts at fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
