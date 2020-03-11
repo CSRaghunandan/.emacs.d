@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-18 11:44:43 csraghunandan>
+;; Time-stamp: <2020-03-11 17:14:35 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -45,8 +45,6 @@
 
 
 ;;; all frame related settings
-;; cursor settings
-(setq-default cursor-type '(bar . 1))
 ;; silence all bell rings
 (setq ring-bell-function 'ignore)
 ;; Do not make mouse wheel accelerate its action (example: scrolling)
