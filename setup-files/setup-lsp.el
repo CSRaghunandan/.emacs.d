@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-11 17:40:58 csraghunandan>
+;; Time-stamp: <2020-03-11 18:33:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -41,5 +41,9 @@
   ;; call dap-hydra when going to the next breakpoint
   (add-hook 'dap-stopped-hook
             (lambda (arg) (call-interactively #'dap-hydra))))
+
+;; load gdb-lldb package
+(use-package dap-gdb-lldb
+  :ensure nil)
 
 (provide 'setup-lsp)
