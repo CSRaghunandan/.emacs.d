@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-18 11:23:18 csraghunandan>
+;; Time-stamp: <2020-03-11 17:40:58 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -33,5 +33,13 @@
         lsp-ui-flycheck-enable t
         lsp-ui-imenu-enable t
         lsp-ui-sideline-ignore-duplicate t))
+
+;; debugger adapter protocol support for emacs
+;; https://github.com/emacs-lsp/dap-mode/
+(use-package dap-mode
+  :config
+  ;; call dap-hydra when going to the next breakpoint
+  (add-hook 'dap-stopped-hook
+            (lambda (arg) (call-interactively #'dap-hydra))))
 
 (provide 'setup-lsp)
