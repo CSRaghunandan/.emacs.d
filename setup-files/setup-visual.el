@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-11 17:14:35 csraghunandan>
+;; Time-stamp: <2020-03-11 17:51:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -193,5 +193,9 @@ And the line would be overlaid like:
 ;; Don't use GTK+ tooltip
 (when (boundp 'x-gtk-use-system-tooltips)
   (setq x-gtk-use-system-tooltips nil))
+
+;; Pop a posframe (just a child-frame) at point
+;; https://github.com/tumashu/posframe
+(use-package posframe)
 
 (provide 'setup-visual)
