@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-24 12:08:21 csraghunandan>
+;; Time-stamp: <2020-03-24 13:04:42 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -29,7 +29,6 @@
         ivy-extra-directories nil ; default value: ("../" "./")
         ivy-wrap t
         ivy-action-wrap t
-        ivy-initial-inputs-alist nil
         ivy-use-selectable-prompt t)
 
   ;; modify default search behaviour of ivy
