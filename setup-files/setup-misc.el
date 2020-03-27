@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-14 16:18:07 csraghunandan>
+;; Time-stamp: <2020-03-27 12:31:55 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -32,6 +32,9 @@ not prevent downloading the actual packages (obviously)."
 
 ;; don't use dialog boxes
 (setq use-dialog-box nil)
+
+;; prevents slowdown when using fancy fonts
+(setq inhibit-compacting-font-caches t)
 
 ;; default idle delay for eldoc is way too long
 (setq eldoc-idle-delay 0.1
