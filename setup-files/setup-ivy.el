@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-24 13:04:42 csraghunandan>
+;; Time-stamp: <2020-04-11 02:27:18 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -59,6 +59,9 @@
   ;; For better performance
   ;; Better experience with icons
   (setq ivy-rich-parse-remote-buffer nil))
+
+;; hydra for ivy, its a part of the same repo as swiper
+(use-package ivy-hydra)
 
 (provide 'setup-ivy)
 
