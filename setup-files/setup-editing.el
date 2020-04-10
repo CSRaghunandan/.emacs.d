@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 22:29:41 csraghunandan>
+;; Time-stamp: <2020-04-11 02:05:00 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -588,5 +588,39 @@ this command."
 ;; https://github.com/ongaeshi/duplicate-thing
 (use-package duplicate-thing
   :bind (("C-c d r" . duplicate-thing)))
+
+;; https://with-emacs.com/posts/tips/quit-current-context/
+(defun keyboard-quit-context+ ()
+  "Quit current context.
+
+This function is a combination of `keyboard-quit' and
+`keyboard-escape-quit' with some parts omitted and some custom
+behavior added."
+  (interactive)
+  (cond ((region-active-p)
+         ;; Avoid adding the region to the window selection.
+         (setq saved-region-selection nil)
+         (let (select-active-regions)
+           (deactivate-mark)))
+        ((eq last-command 'mode-exited) nil)
+        (current-prefix-arg
+         nil)
+        (defining-kbd-macro
+          (message
+           (substitute-command-keys
+            "Quit is ignored during macro defintion, use \\[kmacro-end-macro] if you want to stop macro definition"))
+          (cancel-kbd-macro-events))
+        ((active-minibuffer-window)
+         (when (get-buffer-window "*Completions*")
+           ;; hide completions first so point stays in active window when
+           ;; outside the minibuffer
+           (minibuffer-hide-completions))
+         (abort-recursive-edit))
+        (t
+         ;; if we got this far just use the default so we don't miss
+         ;; any upstream changes
+         (keyboard-quit))))
+
+(bind-keys ([remap keyboard-quit] . keyboard-quit-context+))
 
 (provide 'setup-editing)
