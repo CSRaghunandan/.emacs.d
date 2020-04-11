@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-24 12:31:16 csraghunandan>
+;; Time-stamp: <2020-04-12 00:45:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -368,11 +368,9 @@ Execute this command while the point is on or after the hyper-linked org link."
   ;; https://github.com/larstvei/ox-gfm
   (use-package ox-gfm)
 
-  ;; org-toc: toc-org is an Emacs utility to have an up-to-date table of
-  ;; contents in the org files without exporting (useful primarily for readme
-  ;; files on GitHub)
-  ;; https://github.com/snosov1/toc-org
-  (use-package toc-org)
+  ;;  Automatic tables of contents for Org files
+  ;; https://github.com/alphapapa/org-make-toc
+  (use-package org-make-toc)
 
   ;; pomodoro implementation in org
   ;; https://github.com/lolownia/org-pomodoro
