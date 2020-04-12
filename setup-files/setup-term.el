@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-10 22:18:23 csraghunandan>
+;; Time-stamp: <2020-04-12 11:53:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -27,7 +27,7 @@
 ;; https://github.com/jixiuf/vterm-toggle
 (use-package vterm-toggle)
 
-;; multi-libvterm: manage multiple terminal windows easily within emacs
+;; multi-vterm: manage multiple terminal windows easily within emacs
 ;; https://github.com/suonlight/multi-vterm
 (use-package multi-vterm
   :load-path "~/.emacs.d/elisp/multi-vterm"
@@ -35,12 +35,12 @@
   (bind-key "C-c t"
             (defhydra multi-term-hydra ()
               "multi-term"
-              ("o" multi-libvterm "new terminal")
+              ("o" multi-vterm "new terminal")
               ("t" vterm-toggle-cd "toggle/open")
-              ("n" multi-libvterm-next "Next")
-              ("p" multi-libvterm-prev "Prev")
-              ("d" multi-libvterm-dedicated-toggle "Dedicated terminal")
-              ("r" multi-libvterm-projectile "vterm projectile")
+              ("n" multi-vterm-next "Next")
+              ("p" multi-vterm-prev "Prev")
+              ("d" multi-vterm-dedicated-toggle "Dedicated terminal")
+              ("r" multi-vterm-projectile "vterm projectile")
               ("q" nil "Quit" :color blue))))
 
 ;; eterm-256color: Customizable 256 colors for emacs term and ansi-term
