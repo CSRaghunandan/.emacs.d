@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-02-20 15:50:21 csraghunandan>
+;; Time-stamp: <2020-04-15 19:09:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -34,6 +34,9 @@
     (setq dired-recursive-deletes 'always)
     ;; makes dired guess the target directory
     (setq dired-dwim-target t)
+
+    ;; run dired  commands asynchronously
+    (dired-async-mode 1)
 
     (>=e "27.0"
         (setq dired-create-destination-dirs t))
