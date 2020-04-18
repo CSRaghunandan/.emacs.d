@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-08 12:01:40 csraghunandan>
+;; Time-stamp: <2020-04-18 10:35:26 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,7 +17,7 @@
   :init
   ;; set path of MS python language server
   (setq lsp-python-ms-executable
-        "~/src/dotnet/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer"))
+        "~/src/dotnet/python-language-server/output/bin/Release/Microsoft.Python.LanguageServer"))
 
 ;; Multiple syntax checker for Python in Emacs, using Flycheck
 ;; https://github.com/msherry/flycheck-pycheckers
