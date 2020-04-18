@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-11 02:05:00 csraghunandan>
+;; Time-stamp: <2020-04-18 10:12:08 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -30,6 +30,9 @@
 
 ;; By default, Emacs thinks a sentence is a full-stop followed by 2 spaces.
 (setq-default sentence-end-double-space nil)
+
+;; require a final new line
+(setq require-final-newline t)
 
 ;;;; Pull Up Line
 ;; http://emacs.stackexchange.com/q/7519/115
