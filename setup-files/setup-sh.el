@@ -1,5 +1,5 @@
 ;;; setup-sh.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-23 17:30:27 csraghunandan>
+;; Time-stamp: <2020-04-21 10:38:33 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -90,6 +90,11 @@
     (set (make-local-variable 'company-backends)
          '((company-shell company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev)))))
+
+;; shfmt: Reformat shell script code in Emacs using shfmt
+;; https://github.com/purcell/emacs-shfmt
+(use-package shfmt
+  :hook (sh-mode . shfmt-on-save-mode))
 
 (provide 'setup-sh)
 
