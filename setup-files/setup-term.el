@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-18 12:31:10 csraghunandan>
+;; Time-stamp: <2020-04-24 22:44:07 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,7 +12,6 @@
   ;; disable some unnecessary minor-modes in term-mode
   (add-hook 'vterm-mode-hook (lambda ()
                                (yas-minor-mode -1)
-                               (whole-line-or-region-local-mode -1)
                                (setq-local global-hl-line-mode nil)
 
                                ;; Don't prompt about processes when killing vterm

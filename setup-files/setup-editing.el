@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-18 10:12:08 csraghunandan>
+;; Time-stamp: <2020-04-24 22:40:51 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -115,10 +115,12 @@ Position the cursor at it's beginning, according to the current mode."
 
 
 
-;; operate on current line if no region is defined
-;; https://github.com/purcell/whole-line-or-region/blob/master/whole-line-or-region.el
-(use-package whole-line-or-region
- :config (whole-line-or-region-global-mode))
+;; https://github.com/leoliu/easy-kill
+;; Kill & Mark Things Easily in Emacs
+(use-package easy-kill
+  :bind
+  (([remap kill-ring-save] . easy-kill)
+   ([remap mark-sexp] . easy-mark)))
 
 
 

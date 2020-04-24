@@ -41,7 +41,6 @@
         undefined
         wdired-finish-edit
         wgrep-finish-edit
-        whole-line-or-region-kill-region
         wrap-with-double-quotes
         ))
 
