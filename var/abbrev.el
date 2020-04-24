@@ -182,7 +182,7 @@
     ("claerly" "clearly" nil :count 0)
     ("cliant" "client" nil :count 0)
     ("cliche" "cliche" nil :count 0)
-    ("cna" "can" nil :count 1)
+    ("cna" "can" nil :count 2)
     ("colection" "collection" nil :count 0)
     ("comanies" "companies" nil :count 0)
     ("comany" "company" nil :count 0)
@@ -493,7 +493,7 @@
     ("indenpendent" "independent" nil :count 0)
     ("indepedent" "independent" nil :count 0)
     ("independance" "independence" nil :count 0)
-    ("independant" "independent" nil :count 1)
+    ("independant" "independent" nil :count 2)
     ("indivitual" "individual" nil :count 0)
     ("influance" "influence" nil :count 0)
     ("infomation" "information" nil :count 0)
@@ -632,7 +632,7 @@
     ("orginized" "organized" nil :count 0)
     ("originial" "original" nil :count 0)
     ("orignal" "original" nil :count 0)
-    ("otehr" "other" nil :count 1)
+    ("otehr" "other" nil :count 2)
     ("otu" "out" nil :count 0)
     ("outof" "out of" nil :count 0)
     ("overthe" "over the" nil :count 0)
@@ -702,6 +702,7 @@
     ("quetion" "question" nil :count 0)
     ("quetions" "questions" nil :count 0)
     ("raddress" "#125, 8th Cross, Vidyanagar, Mysore - 570011" nil :count 0)
+    ("realtively" "relatively" nil :count 0)
     ("realyl" "really" nil :count 0)
     ("reccomend" "recommend" nil :count 0)
     ("reccommend" "recommend" nil :count 0)
@@ -778,7 +779,7 @@
     ("seperate" "separate" nil :count 0)
     ("seperated" "separated" nil :count 0)
     ("sercumstances" "circumstances" nil :count 0)
-    ("serveral" "several" nil :count 0)
+    ("serveral" "several" nil :count 1)
     ("sez" "says" nil :count 0)
     ("shcool" "school" nil :count 0)
     ("shesaid" "she said" nil :count 0)
@@ -987,6 +988,6 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
-    ("i" "I" nil :count 46)
+    ("i" "I" nil :count 49)
    ))
 

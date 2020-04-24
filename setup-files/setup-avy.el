@@ -1,5 +1,5 @@
 ;;; setup-avy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 20:56:34 csraghunandan>
+;; Time-stamp: <2020-04-24 18:22:57 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,7 +7,7 @@
 ;; avy: package for jumping to visible text using character based decision tree
 ;; https://github.com/abo-abo/avy
 (use-package avy
-  :bind
+  :bind*
   (("C-'" . avy-goto-char-timer)
    ("M-g M-g" . avy-goto-line))
   :bind*
