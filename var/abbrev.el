@@ -661,7 +661,6 @@
     ("perscriptions" "prescriptions" nil :count 0)
     ("personalyl" "personally" nil :count 0)
     ("pleasent" "pleasant" nil :count 0)
-    ("plugin" "plug-in" nil :count 2)
     ("poeple" "people" nil :count 0)
     ("porblem" "problem" nil :count 0)
     ("porblems" "problems" nil :count 0)

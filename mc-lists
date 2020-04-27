@@ -6,7 +6,9 @@
       '(
         hungry-delete-backward
         hungry-delete-forward
+        indent-for-tab-command
         org-self-insert-command
+        yaml-electric-dash-and-dot
         ))
 
 (setq mc/cmds-to-run-once

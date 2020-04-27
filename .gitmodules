@@ -1,7 +1,3 @@
-[submodule "elisp/multi-vterm"]
-	path = elisp/multi-vterm
-	url = https://github.com/suonlight/multi-vterm.git
-
 [submodule "elisp/ws-butler"]
 	path = elisp/ws-butler
 	url = https://github.com/hlissner/ws-butler

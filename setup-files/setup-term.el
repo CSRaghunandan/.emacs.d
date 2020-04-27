@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-24 22:44:07 csraghunandan>
+;; Time-stamp: <2020-04-27 11:49:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -29,7 +29,6 @@
 ;; multi-vterm: manage multiple terminal windows easily within emacs
 ;; https://github.com/suonlight/multi-vterm
 (use-package multi-vterm
-  :load-path "~/.emacs.d/elisp/multi-vterm"
   :config
   (bind-key "C-c t"
             (defhydra multi-term-hydra ()
