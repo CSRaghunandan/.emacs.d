@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-18 10:07:35 csraghunandan>
+;; Time-stamp: <2020-04-29 11:46:11 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -103,7 +103,9 @@
   :config
   (solaire-global-mode +1)
   (solaire-mode-swap-bg)
-  (setq solaire-mode-remap-fringe nil))
+
+  ;; let solaire remap fringes faces as well. Looks nicer IMO
+  (setq solaire-mode-remap-fringe t))
 
 ;; lorem-ipsum: Add filler lorem ipsum text to Emacs
 ;; https://github.com/jschaf/emacs-lorem-ipsum/
