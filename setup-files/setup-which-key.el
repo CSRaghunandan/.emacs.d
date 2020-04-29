@@ -1,5 +1,5 @@
 ;;; setup-which-key.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-18 11:28:24 csraghunandan>
+;; Time-stamp: <2020-04-29 11:56:28 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,7 @@
 ;; which-key : show popup of keybindings starting with a prefix
 ;; https://github.com/justbur/emacs-which-key
 (use-package which-key
+  :init (which-key-mode)
   :bind ("C-h M-m" . which-key-show-full-major-mode)
   :config
   ;; make which-key popup to the right
@@ -41,8 +42,6 @@
     "C-x a"   "abbrev/expand"
     "C-x r"   "rectangle/register/bookmark"
     "C-x v"   "VC"
-    "C-c C-v" "org-babel")
-
-  (which-key-mode 1))
+    "C-c C-v" "org-babel"))
 
 (provide 'setup-which-key)
