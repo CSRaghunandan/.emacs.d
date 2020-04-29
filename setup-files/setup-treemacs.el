@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-11 19:09:45 csraghunandan>
+;; Time-stamp: <2020-04-29 11:43:12 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -30,6 +30,12 @@
     ;; set the correct python3 executable path. This is needed for
     ;; treemacs-git-mode extended
     (setq treemacs-python-executable (executable-find "python"))
+
+    (defun doom-themes-hide-modeline ()
+      (setq mode-line-format nil))
+
+    ;; The modeline isn't useful in treemacs
+    (add-hook 'treemacs-mode-hook #'doom-themes-hide-modeline)
 
     (defun doom-themes-hide-fringes ()
       "Remove fringes in currnent window."
