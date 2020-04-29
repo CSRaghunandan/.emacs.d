@@ -11,6 +11,7 @@
         org-cycle
         org-end-of-line
         org-self-insert-command
+        sp-kill-word
         yaml-electric-dash-and-dot
         ))
 

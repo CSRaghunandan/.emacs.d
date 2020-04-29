@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-11 17:24:30 csraghunandan>
+;; Time-stamp: <2020-04-29 14:16:36 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -67,6 +67,7 @@
 (require 'setup-movement)
 (require 'setup-markdown)
 (require 'setup-highlight)
+(require 'setup-plantuml)
 (require 'setup-info)
 (require 'setup-mode-line)
 (require 'setup-editing)
