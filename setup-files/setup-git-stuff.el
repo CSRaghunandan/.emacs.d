@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-17 13:25:25 csraghunandan>
+;; Time-stamp: <2020-05-01 14:38:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -164,11 +164,6 @@
 (use-package gitconfig-mode
   :defer t)
 (use-package gitattributes-mode
-  :defer t)
-
-;; gist: Yet another Emacs paste mode, this one for Gist.
-;; https://github.com/defunkt/gist.el
-(use-package gist
   :defer t)
 
 ;; rigid-tabs.el: Rigidify and adjust the visual alignment of TABs
