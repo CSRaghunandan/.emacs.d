@@ -22,7 +22,7 @@
   :config
   (defun my-docker-mode-hook ()
     (set (make-local-variable 'company-backends)
-         '((company-lsp company-files :with company-yasnippet)
+         '((company-capf company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
   (add-hook 'dockerfile-mode-hook #'my-docker-mode-hook))
 

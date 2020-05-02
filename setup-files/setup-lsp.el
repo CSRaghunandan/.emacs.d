@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-11 19:31:21 csraghunandan>
+;; Time-stamp: <2020-05-02 23:29:03 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,12 +15,10 @@
   :config
   (setq lsp-prefer-flymake nil)
   (setq lsp-auto-guess-root t ; Detect project root
-        lsp-keep-workspace-alive nil)) ; Auto-kill LSP server
-
-;; company-lsp: Company completion backend for lsp-mode.
-;; https://github.com/tigersoldier/company-lsp/
-(use-package company-lsp
-  :config (push 'company-lsp company-backends))
+        lsp-keep-workspace-alive nil ; Auto-kill LSP server
+        lsp-prefer-capf t
+        lsp-enable-indentation nil
+        lsp-enable-on-type-formatting nil))
 
 ;; lsp-ui: This contains all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
 ;; https://github.com/emacs-lsp/lsp-ui

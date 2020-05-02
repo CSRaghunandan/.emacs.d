@@ -23,7 +23,7 @@
   :config
   (defun my-yaml-mode-hook ()
     (set (make-local-variable 'company-backends)
-         '((company-lsp company-files :with company-yasnippet)
+         '((company-capf company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
   (add-hook 'yaml-mode-hook #'my-yaml-mode-hook))
 

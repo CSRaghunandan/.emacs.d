@@ -80,7 +80,7 @@
   (defun my-lsp-html-mode-hook ()
     " company hook for `web-mode' for html buffers."
     (set (make-local-variable 'company-backends)
-         '((company-lsp company-files :with company-yasnippet)
+         '((company-capf company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
 
   (defun lsp-html-setup ()
