@@ -1,5 +1,5 @@
 ;;; setup-go.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-13 19:55:02 csraghunandan>
+;; Time-stamp: <2020-05-03 01:24:53 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,69 +9,39 @@
 ;; go-mode: major-mode for editing go files
 ;; https://github.com/dominikh/go-mode.el
 (use-package go-mode
-  :interpreter "go"
+  :hook ((go-mode . (lambda ()
+                      (lsp)
+                      (lsp-ui-doc-mode)
+                      (lsp-ui-sideline-mode)
+                      (lsp-ui-sideline-toggle-symbols-info)
+                      (wh/set-go-tab-width)
+                      (my-go-mode-hook)
+                      (company-mode))))
   :config
-  (setq gofmt-command (executable-find "goimports"))
-  ;; Using -s with goimports is not supported with upstream goimports.
-  ;; See https://github.com/golang/go/issues/8759 . Instead, use
-  ;; $ go get github.com/jzelinskie/tools/cmd/goimports
-  (setq gofmt-args (list "-s"))
 
-  (defun wh/gofmt-before-save ()
-    (set (make-local-variable 'before-save-hook)
-         (append before-save-hook (list #'gofmt-before-save))))
-
-  (add-hook 'go-mode-hook #'wh/gofmt-before-save)
+  (defun my-go-mode-hook()
+      (set (make-local-variable 'company-backends)
+           '((company-capf company-files :with company-yasnippet)
+             (company-dabbrev-code company-dabbrev))))
 
   ;; Go is indented with tabs, so set the tab size in those buffers.
   (defun wh/set-go-tab-width ()
     (setq-local indent-tabs-mode t)
     (setq tab-width 4))
 
-  (add-hook 'go-mode-hook #'wh/set-go-tab-width)
+  ;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks))
 
-  ;; go-eldoc: eldoc for go language
-  ;; https://github.com/syohex/emacs-go-eldoc
-  (use-package go-eldoc
-    :commands go-eldoc-setup
-    :config (add-hook 'go-mode-hook 'go-eldoc-setup))
-
-  (add-hook 'go-mode-hook #'flycheck-mode)
-
-  ;; integrate go-guru analysis tool to emacs
-  (use-package go-guru)
-
-  ;; gorepl-mode: A minor emacs mode for Go REPL.
-  ;; https://github.com/manute/gorepl-mode
-  (use-package gorepl-mode
-    :commands (gorepl-run gorepl-run-load-current-file))
-
-  ;; company-go: company backend for golang
-  ;; https://github.com/nsf/gocode/tree/master/emacs-company
-  (use-package company-go
-    :config
-    (defun my-go-mode-hook()
-      (set (make-local-variable 'company-backends)
-           '((company-go company-files :with company-yasnippet)
-             (company-dabbrev-code company-dabbrev))))
-
-    (add-hook 'go-mode-hook (lambda ()
-                              (company-mode)
-                              (my-go-mode-hook))))
-
-  ;; gotest: Emacs mode to go unit test command line tool
-  ;; https://github.com/nlamirault/gotest.el
-  (use-package gotest)
-
-  ;; go-rename: extra refactoring commands for go
-  (use-package go-rename))
+;; gotest: Emacs mode to go unit test command line tool
+;; https://github.com/nlamirault/gotest.el
+(use-package gotest
+  :after go-mode)
 
 (provide 'setup-go)
 
-;; commands to install all the tools required for go configuration to work
-;; go get -u github.com/motemen/gore
-;; go get -u github.com/nsf/gocode
-;; go get -u golang.org/x/tools/cmd/godoc
-;; go get -u golang.org/x/tools/cmd/goimports
-;; go get -u golang.org/x/tools/cmd/gorename
-;; go get -u golang.org/x/tools/cmd/guru
+;; install gopls
+;; go get golang.org/x/tools/gopls

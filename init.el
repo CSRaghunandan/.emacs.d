@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-29 14:16:36 csraghunandan>
+;; Time-stamp: <2020-05-03 01:05:36 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -73,6 +73,7 @@
 (require 'setup-editing)
 (require 'setup-racket)
 (require 'setup-rust)
+(require 'setup-go)
 (require 'setup-lsp)
 (require 'setup-cc)
 (require 'setup-haskell)

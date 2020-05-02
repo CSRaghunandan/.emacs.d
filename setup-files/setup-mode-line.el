@@ -1,5 +1,5 @@
 ;;; setup-mode-line.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-08 15:31:52 csraghunandan>
+;; Time-stamp: <2020-05-03 01:04:12 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -44,6 +44,7 @@
 
   ;; Don't display environment version
   (setq doom-modeline-env-version nil)
+  (setq doom-modeline-env-enable-go nil)
 
   ;; enable word counts for text based modes
   (setq doom-modeline-enable-word-count t))
