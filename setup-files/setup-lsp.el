@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-02 23:43:50 csraghunandan>
+;; Time-stamp: <2020-05-03 01:23:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -30,7 +30,10 @@
   :config
   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-  (setq lsp-ui-sideline-enable nil
+  (setq lsp-ui-sideline-enable t
+        lsp-ui-sideline-update-mode 'line
+        lsp-ui-sideline-show-code-actions t
+        lsp-ui-sideline-show-hover t
         lsp-ui-doc-enable nil
         lsp-ui-flycheck-enable t
         lsp-ui-imenu-enable t
