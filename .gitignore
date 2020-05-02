@@ -11,3 +11,5 @@ var/*
 !var/bookmark-default.el
 
 command-log/
+
+el-get/
