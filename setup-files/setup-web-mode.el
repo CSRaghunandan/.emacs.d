@@ -1,5 +1,5 @@
 ;;; setup-web-mode.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-24 11:49:40 csraghunandan>
+;; Time-stamp: <2020-05-03 00:06:51 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -77,36 +77,20 @@
          '((company-capf company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
 
-  (defun my-lsp-html-mode-hook ()
-    " company hook for `web-mode' for html buffers."
-    (set (make-local-variable 'company-backends)
-         '((company-capf company-files :with company-yasnippet)
-           (company-dabbrev-code company-dabbrev))))
-
-  (defun lsp-html-setup ()
-    "Function to setup `lsp-html'"
-    (lsp)
-    (lsp-ui-mode)
-    (lsp-ui-doc-mode)
-    (my-lsp-html-mode-hook)
+  (defun html-setup ()
+    "Function to setup `html' configuration"
     (emmet-mode)
-    (setq-local lsp-highlight-symbol-at-point nil)
     (bind-key "C-c o b" #'browse-url-of-file (current-local-map)))
 
   (add-hook 'web-mode-hook
             (lambda ()
               (pcase (file-name-extension buffer-file-name)
                 ("tsx" (my-tide-setup-hook))
-                ("html" (lsp-html-setup))
+                ("html" (html-setup))
                 (_ (my-web-mode-hook)))))
 
   ;; colorize colors in buffers
   (setq web-mode-enable-css-colorization t))
-
-;; impatient mode: Live refresh of web pages
-;; https://github.com/skeeto/impatient-mode
-(use-package impatient-mode
-  :commands (impatient-mode))
 
 ;; emmet-mode: dynamic snippets for HTML
 ;; https://github.com/smihica/emmet-mode
