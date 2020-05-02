@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-02 23:29:03 csraghunandan>
+;; Time-stamp: <2020-05-02 23:43:50 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,7 +9,11 @@
 (use-package lsp-mode
   :commands lsp
   :hook ((lsp-after-open . lsp-enable-imenu)
-         (lsp-mode . lsp-enable-which-key-integration))
+         (lsp-mode . lsp-enable-which-key-integration)
+         (lsp-after-open . (lambda ()
+                            (setq-local company-minimum-prefix-length 1
+                                  company-idle-delay 0.0) ;; default is 0.2
+                            )))
   :bind (:map lsp-mode-map
               ("C-c C-t" . lsp-describe-thing-at-point))
   :config
