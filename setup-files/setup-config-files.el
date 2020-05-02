@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-24 23:36:50 csraghunandan>
+;; Time-stamp: <2020-05-02 08:19:28 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -33,6 +33,7 @@
   :ensure nil
   :mode (("\\.conf\\'"    . conf-space-mode)
          ("\\.setup.*\\'" . conf-space-mode)
+         ("mimeapps.list" . conf-mode)
          ("/\\(Cargo.lock\\|\\.cargo/config\\)\\'" . conf-toml-mode)))
 
 ;; systemd: Major mode for editing systemd units
