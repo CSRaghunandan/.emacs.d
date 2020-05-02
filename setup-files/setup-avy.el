@@ -1,5 +1,5 @@
 ;;; setup-avy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-24 18:22:57 csraghunandan>
+;; Time-stamp: <2020-05-03 00:19:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,7 +11,7 @@
   (("C-'" . avy-goto-char-timer)
    ("M-g M-g" . avy-goto-line))
   :bind*
-  ("C-," . avy-goto-word-1)
+  ("C-`'" . avy-goto-word-1)
   :config
   (setq avy-style 'pre)
   (setq avy-background t
