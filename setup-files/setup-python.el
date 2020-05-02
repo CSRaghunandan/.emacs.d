@@ -10,7 +10,7 @@
   :hook ((python-mode . (lambda ()
                           ;; (require 'lsp-python-ms)
                           (setq-local lsp-ui-flycheck-enable nil)
-                          (lsp)
+                          (lsp-deferred)
                           (lsp-ui-mode)
                           (setq-local flycheck-checker 'python-pycheckers)
                           (lsp-ui-doc-mode))))

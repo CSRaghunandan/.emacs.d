@@ -1,5 +1,5 @@
 ;;; setup-go.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-03 01:24:53 csraghunandan>
+;; Time-stamp: <2020-05-03 01:38:45 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,7 +10,7 @@
 ;; https://github.com/dominikh/go-mode.el
 (use-package go-mode
   :hook ((go-mode . (lambda ()
-                      (lsp)
+                      (lsp-deferred)
                       (lsp-ui-doc-mode)
                       (lsp-ui-sideline-mode)
                       (lsp-ui-sideline-toggle-symbols-info)

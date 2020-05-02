@@ -111,7 +111,7 @@
 (defun ccls//enable ()
   "Enable lsp-ccls"
   (require 'ccls)
-  (lsp))
+  (lsp-deferred))
 
 (use-package cc-mode :ensure nil
   :hook (((c++-mode c-mode) . (lambda ()

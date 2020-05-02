@@ -10,7 +10,7 @@
          (company-dabbrev-code company-dabbrev))))
 
 (defun lsp-css-common-setup()
-  (lsp)
+  (lsp-deferred)
   (lsp-ui-mode)
   (lsp-ui-doc-mode)
   (my-css-mode-hook)

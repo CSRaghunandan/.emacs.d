@@ -9,7 +9,7 @@
 (use-package dockerfile-mode
   :mode ("Dockerfile\\'" . dockerfile-mode)
   :hook ((dockerfile-mode . (lambda ()
-                              (lsp)
+                              (lsp-deferred)
                               (lsp-ui-doc-mode)
                               (lsp-ui-sideline-mode)
                               (company-mode)

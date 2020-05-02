@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-03 01:23:32 csraghunandan>
+;; Time-stamp: <2020-05-03 01:33:43 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,7 +7,7 @@
 ;; lsp-mode:  Emacs client/library for the Language Server Protocol
 ;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
-  :commands lsp
+  :commands lsp lsp-deferred
   :hook ((lsp-after-open . lsp-enable-imenu)
          (lsp-mode . lsp-enable-which-key-integration)
          (lsp-after-open . (lambda ()

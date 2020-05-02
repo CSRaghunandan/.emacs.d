@@ -10,7 +10,7 @@
 (use-package json-mode
   :mode "\\.js\\(?:on\\|[hl]int\\(rc\\)?\\)\\'"
   :hook ((json-mode . (lambda ()
-                        (lsp)
+                        (lsp-deferred)
                         (lsp-ui-doc-mode)
                         (lsp-ui-sideline-mode)
                         (company-mode)

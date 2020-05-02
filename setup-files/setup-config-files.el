@@ -10,7 +10,7 @@
   :hook ((yaml-mode . (lambda ()
                         (run-hooks 'prog-mode-hook)))
          (yaml-mode . (lambda ()
-                        (lsp)
+                        (lsp-deferred)
                         (lsp-ui-doc-mode)
                         (lsp-ui-sideline-mode)
                         (company-mode)
