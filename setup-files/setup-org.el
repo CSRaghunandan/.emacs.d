@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 22:08:50 csraghunandan>
+;; Time-stamp: <2020-05-04 22:14:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -805,5 +805,10 @@ appropriate.  In tables, insert a new row or end the table."
                ("C-c n g" . org-roam-show-graph))
               :map org-mode-map
               (("C-c n i" . org-roam-insert))))
+
+;; Interactively cleanup unreferenced IDs of org-id
+;; https://github.com/marcIhm/org-id-cleanup
+(use-package org-id-cleanup
+  :after org)
 
 (provide 'setup-org)
