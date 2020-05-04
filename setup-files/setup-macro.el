@@ -1,5 +1,5 @@
 ;;; setup-macro.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 03:03:23 csraghunandan>
+;; Time-stamp: <2020-05-04 22:04:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -38,7 +38,7 @@
   ("x" kmacro-to-register)
   ("'" kmacro-edit-macro)
   ("," edit-kbd-macro)
-  ("q" nil :color blue))
+  ("q" nil "Quit" :color blue))
 
 (bind-key "C-c h M" 'hydra-macro/body)
 

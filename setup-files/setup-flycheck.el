@@ -1,5 +1,5 @@
 ;;; setup-flycheck.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2019-02-26 00:20:13 csraghunandan>
+;; Time-stamp: <2020-05-04 22:05:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -23,7 +23,7 @@
   ^^                  _l_ list            _s_ select
   ^^                  ^^                  ^^
   "
-    ("q" nil)
+    ("q" nil "Quit" :color blue)
     ("<" flycheck-previous-error :color pink)
     (">" flycheck-next-error :color pink)
     ("?" flycheck-describe-checker)

@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-24 11:56:01 csraghunandan>
+;; Time-stamp: <2020-05-04 22:07:34 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -108,7 +108,7 @@
     ("sl" js2r-forward-slurp)
     ("ba" js2r-forward-barf)
     ("k" js2r-kill)
-    ("q" nil)))
+    ("q" nil :color blue)))
 
 ;; prettier-emacs: minor-mode to prettify javascript files on save
 ;; https://github.com/prettier/prettier-emacs

@@ -1,5 +1,5 @@
 ;;; setup-calendar.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-12-30 01:14:09 csraghunandan>
+;; Time-stamp: <2020-05-04 22:06:41 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,7 +15,7 @@
                                                          ╭────────────┐
                                                          │ Timestamps │
  ╭───────────────────────────────────────────────────────┴────────────╯
-                                                         Quit [_<SPC>_]
+                                                         Quit [_q_]
   ISO         : date [_d_]
   U.S.        : date [_/_]  year   [_y_] dashes [_-_]  words [_w_]
   Stamp       : UTC  [_s_]  human  [_h_]
@@ -39,7 +39,7 @@
     ("p" org-time-stamp)
     ("i" help/org-time-stamp-inactive-with-seconds-now) ; [2018-05-12 Sat 11:50]
     ("c" org-time-stamp-inactive)
-    ("<SPC>" nil))
+    ("q" nil :color blue))
 
   (defun help/insert-datestamp ()
     "Produces and inserts a partial ISO 8601 format timestamp."

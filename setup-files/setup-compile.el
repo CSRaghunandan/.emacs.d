@@ -1,5 +1,5 @@
 ;;; setup-compile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-09-30 11:53:39 csraghunandan>
+;; Time-stamp: <2020-05-04 22:04:16 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -32,6 +32,6 @@ _q_: quit
               ("c" quickrun-compile-only)
               ("a" quickrun-with-arg)
               ("s" quickrun-shell)
-              ("q" nil :color blue))))
+              ("q" nil "Quit" :color blue))))
 
 (provide 'setup-compile)

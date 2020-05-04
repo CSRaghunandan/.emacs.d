@@ -1,5 +1,5 @@
 ;;; setup-origami.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-23 12:55:41 csraghunandan>
+;; Time-stamp: <2020-05-04 22:05:00 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,7 +22,7 @@ _u_: undo      _n_: next    _o_: open all    _q_: quit
     ("n" origami-next-fold)
     ("o" origami-open-all-nodes)
     ("c" origami-close-all-nodes)
-    ("q" nil :color blue))
+    ("q" nil "Quit" :color blue))
 
   (global-origami-mode))
 

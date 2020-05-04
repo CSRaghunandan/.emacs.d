@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-14 20:35:01 csraghunandan>
+;; Time-stamp: <2020-05-04 22:08:50 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -339,7 +339,7 @@ _C_: correct  _p_: prev error _d_: done checking
       ("c"  langtool-check)
       ("C"  langtool-correct-buffer)
       ("d"  langtool-check-done :color blue)
-      ("q" nil "quit" :color blue))
+      ("q" nil "Quit" :color blue))
     (bind-key "C-c h l" 'hydra-langtool/body org-mode-map))
 
   ;; http://emacs.stackexchange.com/a/10712/115

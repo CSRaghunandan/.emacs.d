@@ -1,5 +1,5 @@
 ;;; setup-movement.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 10:01:59 csraghunandan>
+;; Time-stamp: <2020-05-04 21:50:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -82,7 +82,7 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
   :config
   (setq dumb-jump-selector 'ivy)
 
-  (defhydra dumb-jump-hydra (:color blue :columns 3)
+  (defhydra dumb-jump-hydra (:color red :columns 3)
     "Dumb Jump"
     ("j" dumb-jump-go "Go")
     ("o" dumb-jump-go-other-window "Other window")
@@ -90,7 +90,8 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
     ("x" dumb-jump-go-prefer-external-other-window "Go external other window")
     ("i" dumb-jump-go-prompt "Prompt")
     ("l" dumb-jump-quick-look "Quick look")
-    ("b" dumb-jump-back "Back"))
+    ("b" dumb-jump-back "Back")
+    ("q" nil "Quit" :color blue))
   (bind-key "C-c d j" #'dumb-jump-hydra/body prog-mode-map))
 
 ;; A simple-minded way of managing window configs in emacs

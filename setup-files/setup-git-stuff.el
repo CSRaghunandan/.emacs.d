@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-01 14:38:40 csraghunandan>
+;; Time-stamp: <2020-05-04 22:07:45 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -136,7 +136,7 @@
     ("d" diff-hl-diff-goto-hunk "goto hunk")
     ("r" diff-hl-revert-hunk "revert hunk")
     ("m" diff-hl-mark-hunk "mark hunk")
-    ("q" nil "quit" :color blue)))
+    ("q" nil "Quit" :color blue)))
 
 ;; git-messenger: popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
