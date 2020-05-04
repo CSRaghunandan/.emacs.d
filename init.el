@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-03 01:05:36 csraghunandan>
+;; Time-stamp: <2020-05-04 21:57:08 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -57,7 +57,7 @@
 (require 'setup-smartparens)
 (require 'setup-git-stuff)
 (require 'setup-avy)
-(require 'setup-ace-window)
+(require 'setup-window)
 (require 'setup-projectile)
 (require 'setup-yas)
 (require 'setup-buffers)

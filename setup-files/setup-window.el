@@ -1,8 +1,26 @@
-;;; setup-ace-window.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 17:57:13 csraghunandan>
+;;; setup-window.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2020-05-04 21:56:48 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
+
+;; This program provides some interactive functions which allows users
+;; to transpose windows arrangement in currently selected frame
+;; https://github.com/emacsorphanage/transpose-frame/blob/master/transpose-frame.el
+(use-package transpose-frame
+  :config
+
+  (defhydra hydra-transpose-window (:color red :columns 3)
+    "Transpose window arrangement"
+    ("t" transpose-frame "transpose frame")
+    ("v" flip-frame "flip vertically")
+    ("h" flop-frame "flip horizontally")
+    ("r" rotate-frame "Rotate frame 180 degrees")
+    ("c" rotate-frame-clockwise "Rotate 90 degrees clockwise")
+    ("a" rotate-frame-anticlockwise "Rotate 90 degrees anti clockwise")
+    ("q" nil "Quit" :color blue))
+
+  (bind-key "C-c h w" #'hydra-transpose-window/body))
 
 ;; ace-window: quick switching of windows
 ;; https://github.com/abo-abo/ace-window
@@ -36,7 +54,7 @@
           (?y hydra-window-size/body)
           (?? aw-show-dispatch-help)))
 
-  (defhydra hydra-window-size (:color red)
+  (defhydra hydra-window-size (:color red :columns 3)
     "Windows size"
     ("b" shrink-window-horizontally "shrink horizontal")
     ("p" shrink-window "shrink vertical")
@@ -44,15 +62,15 @@
     ("f" enlarge-window-horizontally "enlarge horizontal")
     ("m" toggle-frame-fullscreen "maximize frame")
     ("r" balance-windows "balance windows")
-    ("q" nil :color blue))
+    ("q" nil "Quit" :color blue))
 
   (defhydra hydra-window-scroll (:color red)
     "Scroll other window"
     ("<SPC>" scroll-other-window "scroll")
     ("b" scroll-other-window-down "scroll down")
-    ("q" nil :color blue)))
+    ("q" nil "Quit" :color blue)))
 
-(provide 'setup-ace-window)
+(provide 'setup-window)
 
 ;;         `ace-window-BINDING' -> `ace-select-window'
 ;;     C-u `ace-window-BINDING' -> `ace-swap-window'
@@ -62,16 +80,16 @@
 ;;
 ;; x - delete window
 ;; m - swap window
-;; M - move window
 ;; c - copy window
 ;; n - flip window (select previous window)
 ;; u - switch buffer other window
 ;; j - switch buffer in window
 ;; o - maximize current window
 ;; e - execute command other window
-;; T - transpose frame
 ;; v - Hydra scroll
 ;; t - split window fairly
+;; 2 - split vertically
+;; 3 - split horizontally
 ;; y - Hydra window size
 ;; ? - show help for ace-window
 ;;
