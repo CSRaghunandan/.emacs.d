@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 22:02:21 csraghunandan>
+;; Time-stamp: <2020-05-04 22:57:31 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -630,7 +630,7 @@ behavior added."
 
 ;; editorconfig integration for emacs
 ;; https://github.com/editorconfig/editorconfig-emacs
-(use-package editorconfig
+(use-package editorconfig :defer 2
   :config
   (editorconfig-mode 1))
 

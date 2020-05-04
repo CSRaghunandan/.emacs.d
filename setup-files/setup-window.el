@@ -1,5 +1,5 @@
 ;;; setup-window.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 21:56:48 csraghunandan>
+;; Time-stamp: <2020-05-04 22:57:55 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,7 +7,7 @@
 ;; This program provides some interactive functions which allows users
 ;; to transpose windows arrangement in currently selected frame
 ;; https://github.com/emacsorphanage/transpose-frame/blob/master/transpose-frame.el
-(use-package transpose-frame
+(use-package transpose-frame :defer 2
   :config
 
   (defhydra hydra-transpose-window (:color red :columns 3)

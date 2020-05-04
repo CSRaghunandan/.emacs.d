@@ -1,5 +1,5 @@
 ;;; setup-info.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 15:34:25 csraghunandan>
+;; Time-stamp: <2020-05-04 22:58:24 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,7 +12,8 @@
 ;; A lips package for the Emacs editor creating links from symbols in Info
 ;; viewer to their help documentation
 ;; https://github.com/dieter-wilhelm/inform
-(use-package inform)
+(use-package inform
+  :defer 2)
 
 (defhydra hydra-info (:color blue
                       :hint nil)
