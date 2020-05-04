@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-20 14:48:06 csraghunandan>
+;; Time-stamp: <2020-05-04 15:08:37 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -59,6 +59,9 @@
     (with-eval-after-load 'hl-fill-column
       (set-face-attribute 'hl-fill-column-face nil :background nil
                           :foreground "red" :weight 'bold :underline t))
+
+    ;; make ivy matches more prominent
+    (set-face-attribute 'ivy-current-match nil :weight 'bold)
 
     (with-eval-after-load 'magit
       ;; make `magit-header-line' more readable
