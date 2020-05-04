@@ -1,5 +1,5 @@
 ;;; setup-ibuffer.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 14:05:13 csraghunandan>
+;; Time-stamp: <2020-05-04 14:16:54 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,6 +9,8 @@
   :ensure nil
   :bind (:map ibuffer-mode-map
               ("h" . hydra-ibuffer-main/body))
+  :init (setq ibuffer-filter-group-name-face
+              '(:inherit (font-lock-type-face bold)))
   :config
 
   ;; Don't show scratch and messages in iBuffer
@@ -123,6 +125,36 @@ _t_: toggle    _h_: toggle hydra                 C-o: other win no-select
 (use-package all-the-icons-ibuffer
   :config
   ;; enable ibuffer all-the-icons support
-  (all-the-icons-ibuffer-mode 1))
+  (all-the-icons-ibuffer-mode 1)
+
+  ;; open counsel-find-file in the same directory as the buffer in ibuffer
+  (with-eval-after-load 'counsel
+    (with-no-warnings
+      (defun my-ibuffer-find-file ()
+        (interactive)
+        (let ((default-directory (let ((buf (ibuffer-current-buffer)))
+                                   (if (buffer-live-p buf)
+                                       (with-current-buffer buf
+                                         default-directory)
+                                     default-directory))))
+          (counsel-find-file default-directory)))
+      (advice-add #'ibuffer-find-file :override #'my-ibuffer-find-file))))
+
+;; Group ibuffer's list by project root
+(use-package ibuffer-projectile
+  :functions all-the-icons-octicon ibuffer-do-sort-by-alphabetic
+  :hook ((ibuffer . (lambda ()
+                      (ibuffer-projectile-set-filter-groups)
+                      (unless (eq ibuffer-sorting-mode 'alphabetic)
+                        (ibuffer-do-sort-by-alphabetic)))))
+  :config
+  (setq ibuffer-projectile-prefix
+        (concat
+         (all-the-icons-octicon "file-directory"
+                                :face ibuffer-filter-group-name-face
+                                :v-adjust 0.0
+                                :height 1.0)
+         " "
+          "Project: ")))
 
 (provide 'setup-ibuffer)
