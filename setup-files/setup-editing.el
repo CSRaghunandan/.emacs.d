@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-24 22:40:51 csraghunandan>
+;; Time-stamp: <2020-05-04 22:02:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -627,5 +627,11 @@ behavior added."
          (keyboard-quit))))
 
 (bind-keys ([remap keyboard-quit] . keyboard-quit-context+))
+
+;; editorconfig integration for emacs
+;; https://github.com/editorconfig/editorconfig-emacs
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
 
 (provide 'setup-editing)
