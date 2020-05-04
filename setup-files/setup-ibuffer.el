@@ -1,5 +1,5 @@
 ;;; setup-ibuffer.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-18 00:57:41 csraghunandan>
+;; Time-stamp: <2020-05-04 14:05:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,8 @@
 ;; ibuffer: for easy management of buffers
 (use-package ibuffer
   :ensure nil
+  :bind (:map ibuffer-mode-map
+              ("h" . hydra-ibuffer-main/body))
   :config
 
   ;; Don't show scratch and messages in iBuffer
@@ -19,23 +21,15 @@
 
   (bind-key "C-x C-b" #'ibuffer-jump)
 
-  (defun mu-ibuffer-magit ()
-    "Open `magit-status' for the current buffer."
-    (interactive)
-    (let ((buf (ibuffer-current-buffer t)))
-      (magit-status (cdr (ibuffer-vc-root buf)))))
-
   (defhydra hydra-ibuffer-main (:color pink :hint nil)
     "
 ^Mark^         ^Actions^           ^View^          ^Select^              ^Navigation^
 _m_: mark      _D_: delete         _g_: refresh    _q_: quit             _k_:   ↑    _h_
 _u_: unmark    _s_: save marked    _S_: sort       _TAB_: toggle         _RET_: visit
 _*_: specific  _a_: all actions    _/_: filter     _o_: other window     _j_:   ↓    _l_
-_t_: toggle    _._: toggle hydra   _H_: help       C-o other win no-select
-             _M_: toggle magit
+_t_: toggle    _h_: toggle hydra                 C-o: other win no-select
 "
     ("m" ibuffer-mark-forward)
-    ("M" mu-ibuffer-magit)
     ("u" ibuffer-unmark-forward)
     ("*" hydra-ibuffer-mark/body :color blue)
     ("t" ibuffer-toggle-marks)
@@ -59,7 +53,7 @@ _t_: toggle    _._: toggle hydra   _H_: help       C-o other win no-select
 
     ("o" ibuffer-visit-buffer-other-window :color blue)
     ("q" quit-window :color blue)
-    ("." nil :color blue))
+    ("h" nil :color blue))
 
   (defhydra hydra-ibuffer-mark (:color teal :columns 5
                                        :after-exit (hydra-ibuffer-main/body))
@@ -72,7 +66,6 @@ _t_: toggle    _._: toggle hydra   _H_: help       C-o other win no-select
     ("r" ibuffer-mark-read-only-buffers "read-only")
     ("/" ibuffer-mark-dired-buffers "dired")
     ("e" ibuffer-mark-dissociated-buffers "dissociated")
-    ("h" ibuffer-mark-help-buffers "help")
     ("z" ibuffer-mark-compressed-file-buffers "compressed")
     ("b" hydra-ibuffer-main/body "back" :color blue))
 

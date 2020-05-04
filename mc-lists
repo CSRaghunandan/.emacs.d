@@ -12,6 +12,7 @@
         org-end-of-line
         org-self-insert-command
         sp-kill-word
+        sp-strict-kill-line-or-region
         yaml-electric-dash-and-dot
         ))
 
