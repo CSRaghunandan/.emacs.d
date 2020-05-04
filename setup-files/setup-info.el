@@ -1,5 +1,5 @@
 ;;; setup-info.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-15 17:24:04 csraghunandan>
+;; Time-stamp: <2020-05-04 15:34:25 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,6 +8,11 @@
 ;; https://github.com/ubolonton/info-colors/tree/a8ebb7b8efa314c08ea8110d8b1876afb562bb45
 (use-package info-colors
   :config (add-hook 'Info-selection-hook 'info-colors-fontify-node))
+
+;; A lips package for the Emacs editor creating links from symbols in Info
+;; viewer to their help documentation
+;; https://github.com/dieter-wilhelm/inform
+(use-package inform)
 
 (defhydra hydra-info (:color blue
                       :hint nil)
