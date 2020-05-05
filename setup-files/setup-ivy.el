@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-11 02:27:18 csraghunandan>
+;; Time-stamp: <2020-05-05 12:32:26 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,6 +8,19 @@
 ;; https://github.com/DarwinAwardWinner/amx
 (use-package amx :defer 0.5
   :config (amx-mode))
+
+;; swiper: isearch with an overview!
+;; https://github.com/abo-abo/swiper
+;; `M-p' -> previous search item
+;; `M-n' -> next search item
+;; `M-n' -> to select the symbol at point in swiper
+(use-package swiper
+  :bind (("C-s" . swiper-isearch)
+         ("H-f" . counsel-grep-or-swiper))
+  :config
+  (setq swiper-action-recenter t
+        ;; Jump to the beginning of match when leaving Swiper
+        swiper-goto-start-of-match t))
 
 ;; ivy: incremental narrowing framework for Emacs
 ;; https://github.com/abo-abo/swiper
