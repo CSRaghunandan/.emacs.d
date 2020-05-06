@@ -1,5 +1,5 @@
 ;;; setup-haskell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-06 22:07:19 csraghunandan>
+;; Time-stamp: <2020-05-06 22:10:02 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -36,3 +36,9 @@
            (company-dabbrev-code company-dabbrev)))))
 
 (provide 'setup-haskell)
+
+;; install haksell by running the command:
+;;     curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+;; install haskell-ide-engine using cabal/stack for to use lsp-haskell
+;; to use lsp-haskell, create a hie.yaml file in your project root which will
+;;     tell GHC how to parse and compile the lib/exec and test files
