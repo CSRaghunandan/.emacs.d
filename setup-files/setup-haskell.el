@@ -1,5 +1,5 @@
 ;;; setup-haskell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-06 20:34:20 csraghunandan>
+;; Time-stamp: <2020-05-06 22:07:19 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,6 +22,13 @@
                      (company-mode)
                      (haskell-collapse-mode))))
   :config
+
+  ;; format and organize imports before save
+  (defun lsp-haskell-save-hooks()
+    (add-hook 'before-save-hook #'lsp-format-buffer t t)
+    (add-hook 'before-save-hook #'lsp-organize-imports t t))
+  (add-hook 'haskell-mode-hook #'lsp-haskell-save-hooks)
+
   (defun my-haskell-mode-hook ()
     "Hook for `haskell-mode'."
     (set (make-local-variable 'company-backends)
