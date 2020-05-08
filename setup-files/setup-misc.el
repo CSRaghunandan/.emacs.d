@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-27 12:31:55 csraghunandan>
+;; Time-stamp: <2020-05-08 12:59:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -56,13 +56,6 @@ not prevent downloading the actual packages (obviously)."
     (rainbow-delimiters-mode -1)
     (highlight-indent-guides-mode -1)))
 (add-hook 'prog-mode-hook 'conditional-disable-modes)
-
-;; for when you want to disable the mouse
-;; https://github.com/purcell/disable-mouse/tree/master
-(use-package disable-mouse
-  :hook ((prog-mode . disable-mouse-mode)
-         (magit-mode . disable-mouse-mode)
-         (minibuffer-setup . disable-mouse-mode)))
 
 ;; prefer new files if one exists while loading
 (setq load-prefer-newer t)

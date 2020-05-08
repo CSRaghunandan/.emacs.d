@@ -4,6 +4,8 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        counsel-M-x
+        counsel-yank-pop
         hungry-delete-backward
         hungry-delete-forward
         indent-for-tab-command
@@ -11,6 +13,8 @@
         org-cycle
         org-end-of-line
         org-self-insert-command
+        sp-backward-delete-char
+        sp-delete-char
         sp-kill-word
         sp-strict-kill-line-or-region
         yaml-electric-dash-and-dot
