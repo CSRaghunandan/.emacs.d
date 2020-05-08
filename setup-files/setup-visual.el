@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-29 11:46:11 csraghunandan>
+;; Time-stamp: <2020-05-08 12:56:17 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -55,9 +55,6 @@
 
 ;; make sure emacsclient starts at fullscreen
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; make emacs frame slightly transparent
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 ;; make the titlebar transparent in mac
 (when (is-mac-p)
