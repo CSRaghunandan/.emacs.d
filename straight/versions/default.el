@@ -150,7 +150,6 @@
  ("nginx-mode" . "a2bab83c2eb233d57d76b236e7c141c2ccc97005")
  ("no-littering" . "e67d7edac513892c5997468899f177a6e7956906")
  ("nov.el" . "55a3b41aa71740826a1cd410fa8d24a313f27b7c")
- ("ob-http" . "b1428ea2a63bcb510e7382a1bf5fe82b19c104a7")
  ("org" . "7801e92369905895aa9494d7d9ea49d2c08d086d")
  ("org-cliplink" . "82402cae7e118d67de7328417fd018a18f95fac2")
  ("org-download" . "d248fcb8f2592a40507682e91eed9a31ead4e4a6")

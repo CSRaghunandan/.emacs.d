@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 10:18:57 csraghunandan>
+;; Time-stamp: <2020-05-11 01:17:24 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -133,21 +133,6 @@
 
   ;; clock into a drawer called CLOCKING
   (setq org-clock-into-drawer "CLOCKING")
-
-  ;; ob-http: make http requests with org-mode babel
-  ;; https://github.com/zweifisch/ob-http
-  (use-package ob-http)
-
-  ;; plantuml configuration
-  (use-package ob-plantuml :straight nil
-    :commands
-    (org-babel-execute:plantuml)
-    :config
-    (setq org-plantuml-jar-path (expand-file-name "/usr/share/java/plantuml/plantuml.jar")))
-
-  ;;  Supercharge your Org daily/weekly agenda by grouping items
-  ;; https://github.com/alphapapa/org-super-agenda
-  (use-package org-super-agenda)
 
   ;; syntax highlight for code-blocks in org-mode PDF export
   (require 'ox-latex)
@@ -320,28 +305,6 @@ function is ever added to that hook."
    :filter (org-at-table-p)
    ("S-SPC" . hydra-org-table-mark-field/body))
 
-  (use-package langtool :defer 1
-    :config
-    ;; place the language-tool directory in $HOME
-    (setq langtool-language-tool-jar
-          (concat user-home-directory "/usr/share/java/languagetool/languagetool-commandline.jar"))
-    (setq langtool-default-language "en-GB")
-
-    ;; hydra for langtool check
-    (defhydra hydra-langtool (:color pink
-                                     :hint nil)
-      "
-_c_: check    _n_: next error
-_C_: correct  _p_: prev error _d_: done checking
-"
-      ("n"  langtool-goto-next-error)
-      ("p"  langtool-goto-previous-error)
-      ("c"  langtool-check)
-      ("C"  langtool-correct-buffer)
-      ("d"  langtool-check-done :color blue)
-      ("q" nil "Quit" :color blue))
-    (bind-key "C-c h l" 'hydra-langtool/body org-mode-map))
-
   ;; http://emacs.stackexchange.com/a/10712/115
   (defun modi/org-delete-link ()
     "Replace an org link of the format [[LINK][DESCRIPTION]] with DESCRIPTION.
@@ -361,28 +324,6 @@ Execute this command while the point is on or after the hyper-linked org link."
               (replace-regexp "\\[\\[.*?\\(\\]\\[\\(.*?\\)\\)*\\]\\]" "\\2"
                               nil start end)))))))
   (bind-key "C-c d l" 'modi/org-delete-link org-mode-map)
-
-  ;; Org Cliplink: insert the link in the clipboard as an org link. Adds the
-  ;; title of the page as the description
-  ;; https://github.com/rexim/org-cliplink
-  (use-package org-cliplink
-    :bind (:map org-mode-map
-                ;; "C-c C-l" is bound to `org-insert-link' by default
-                ;; "C-c C-L" is bound to `org-cliplink'
-                ("C-c C-S-l" . org-cliplink)))
-
-  ;; org-download: easily add images to org buffers
-  ;; https://github.com/abo-abo/org-download
-  (use-package org-download)
-
-  ;;  Automatic tables of contents for Org files
-  ;; https://github.com/alphapapa/org-make-toc
-  (use-package org-make-toc)
-
-  ;; pomodoro implementation in org
-  ;; https://github.com/lolownia/org-pomodoro
-  (use-package org-pomodoro
-    :config (bind-key "C-c o p" #'org-pomodoro org-mode-map))
 
   (defun bjm/org-headline-to-top ()
     "Move the current org headline to the top of its section"
@@ -781,11 +722,66 @@ appropriate.  In tables, insert a new row or end the table."
   :hook ((org-journal-mode . (lambda ()
                                (visual-line-mode -1)))))
 
+;;  Supercharge your Org daily/weekly agenda by grouping items
+;; https://github.com/alphapapa/org-super-agenda
+(use-package org-super-agenda)
+
+;; Org Cliplink: insert the link in the clipboard as an org link. Adds the
+;; title of the page as the description
+;; https://github.com/rexim/org-cliplink
+(use-package org-cliplink
+  :bind (:map org-mode-map
+              ;; "C-c C-l" is bound to `org-insert-link' by default
+              ;; "C-c C-L" is bound to `org-cliplink'
+              ("C-c C-S-l" . org-cliplink)))
+
+;; org-download: easily add images to org buffers
+;; https://github.com/abo-abo/org-download
+(use-package org-download)
+
+;;  Automatic tables of contents for Org files
+;; https://github.com/alphapapa/org-make-toc
+(use-package org-make-toc)
+
+;; pomodoro implementation in org
+;; https://github.com/lolownia/org-pomodoro
+(use-package org-pomodoro
+  :config (bind-key "C-c o p" #'org-pomodoro org-mode-map))
+
 ;; Rich text clipboard for org-mode
 ;; https://github.com/unhammer/org-rich-yank
 (use-package org-rich-yank
   :bind (:map org-mode-map
               ("C-M-y" . org-rich-yank)))
+
+  ;; plantuml configuration
+  (use-package ob-plantuml :straight nil
+    :commands
+    (org-babel-execute:plantuml)
+    :config
+    (setq org-plantuml-jar-path (expand-file-name "/usr/share/java/plantuml/plantuml.jar")))
+
+(use-package langtool :defer 1
+    :config
+    ;; place the language-tool directory in $HOME
+    (setq langtool-language-tool-jar
+          (concat user-home-directory "/usr/share/java/languagetool/languagetool-commandline.jar"))
+    (setq langtool-default-language "en-GB")
+
+    ;; hydra for langtool check
+    (defhydra hydra-langtool (:color pink
+                                     :hint nil)
+      "
+_c_: check    _n_: next error
+_C_: correct  _p_: prev error _d_: done checking
+"
+      ("n"  langtool-goto-next-error)
+      ("p"  langtool-goto-previous-error)
+      ("c"  langtool-check)
+      ("C"  langtool-correct-buffer)
+      ("d"  langtool-check-done :color blue)
+      ("q" nil "Quit" :color blue))
+    (bind-key "C-c h l" 'hydra-langtool/body org-mode-map))
 
 ;; Org-roam is a Roam replica built on top of the all-powerful Org-mode.
 ;; https://org-roam.readthedocs.io/en/master/
