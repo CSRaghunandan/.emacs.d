@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-11 01:43:29 csraghunandan>
+;; Time-stamp: <2020-05-11 01:48:45 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -417,7 +417,8 @@ Return 'left, 'right, 'both or nil."
     (org-agenda-redo))
 
   ;; bind to key 1
-  (bind-key "1" 'bjm/org-agenda-item-to-top org-agenda-mode-map)
+  (with-eval-after-load 'org-agenda
+    (bind-key "1" 'bjm/org-agenda-item-to-top org-agenda-mode-map))
 
   (defun org-archive-done-tasks ()
     (interactive)

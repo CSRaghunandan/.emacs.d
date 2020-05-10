@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 11:01:06 csraghunandan>
+;; Time-stamp: <2020-05-11 01:46:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -28,7 +28,6 @@
 (require 'setup-no-littering)
 (require 'setup-company)
 (require 'setup-osx)
-(require 'setup-org)
 (require 'setup-backup)
 (require 'setup-selected)
 (require 'setup-treemacs)
@@ -45,6 +44,7 @@
 (require 'setup-spell)
 (require 'setup-bookmark)
 (require 'setup-hydra)
+(require 'setup-org)
 (require 'setup-smartparens)
 (require 'setup-git-stuff)
 (require 'setup-avy)
