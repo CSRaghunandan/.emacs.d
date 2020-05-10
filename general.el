@@ -1,5 +1,5 @@
 ;;; general.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-01-24 17:49:22 csraghunandan>
+;; Time-stamp: <2020-05-10 10:55:43 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -21,15 +21,6 @@ Example:
 (when (eq system-type 'darwin)
   (setq source-directory
         (concat user-home-directory "/Library/Caches/Homebrew/emacs--git")))
-
-(defun byte-recompile-elpa ()
-  "Force byte-compile every `.el' file in `package-user-dir'.
-The `.el' files are re-compiled even if the corresponding `.elc' files exist,
-in all the sub-directories under `package-user-dir'.
-If the `.elc' file does not exist, this function *does not* compile the
-corresponding `.el' file."
-  (interactive)
-  (byte-recompile-directory package-user-dir nil :force))
 
 (defvar emacs-git-branch
   (when (and emacs-repository-version

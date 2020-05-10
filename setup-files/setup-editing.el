@@ -183,13 +183,13 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; subword: subword movement and editing for camelCase
 (use-package subword
-  :ensure nil
+  :straight nil
   :defer 1
   :config (global-subword-mode))
 
 ;; save-place: save cursor position when buffer is killed
 (use-package saveplace
-  :ensure nil
+  :straight nil
   :defer 2
   :config (save-place-mode))
 
@@ -391,7 +391,7 @@ _c_apitalize        _U_PCASE        _d_owncase        _<SPC>_ →Cap→UP→down
  ("C-c o o" . xah-clean-whitespace))
 
 ;; configuration for auto-fill-mode
-(use-package simple :ensure nil
+(use-package simple :straight nil
   :chords ((",m" . beginning-of-buffer)
            (",." . end-of-buffer))
   :hook ((prog-mode text-mode org-mode) . auto-fill-mode)

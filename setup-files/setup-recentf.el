@@ -6,7 +6,7 @@
 
 ;; view the list recently opened files
 (use-package recentf :defer 1
-  :ensure nil
+  :straight nil
   :config
   (setq recentf-max-menu-items 300)
   (setq recentf-max-saved-items 300)

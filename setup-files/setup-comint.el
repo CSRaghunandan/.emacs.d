@@ -5,7 +5,7 @@
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; comint: all inferior processes inherit from comint-mode
-(use-package comint :ensure nil
+(use-package comint :straight nil
   :bind
   (:map comint-mode-map
         ("C-l" . my-recenter-top-bottom)

@@ -113,7 +113,7 @@
   (require 'ccls)
   (lsp-deferred))
 
-(use-package cc-mode :ensure nil
+(use-package cc-mode :straight nil
   :hook (((c++-mode c-mode) . (lambda ()
                                 (ccls//enable)
                                 (setq-local ccls-code-lens-mode t)

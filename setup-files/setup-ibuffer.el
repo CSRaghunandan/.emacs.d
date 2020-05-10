@@ -6,7 +6,7 @@
 
 ;; ibuffer: for easy management of buffers
 (use-package ibuffer
-  :ensure nil
+  :straight nil
   :bind (:map ibuffer-mode-map
               ("h" . hydra-ibuffer-main/body))
   :init (setq ibuffer-filter-group-name-face

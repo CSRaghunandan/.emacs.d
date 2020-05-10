@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-05 12:28:06 csraghunandan>
+;; Time-stamp: <2020-05-10 10:54:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,8 +10,6 @@
 (setq file-name-handler-alist nil)
 
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 
 ;; load directory for configuration files for emacs
 (add-to-list 'load-path (concat user-emacs-directory "setup-files/"))
@@ -23,11 +21,6 @@
 
 (load (locate-user-emacs-file "general.el") nil :nomessage)
 
-;; run package-initialize if running emacs version < 27
-(>=e "27.0"
-    nil
-  (package-initialize))
-
 
 
 ;; load all use-package related configuration
@@ -35,6 +28,7 @@
 
 (require 'setup-optimizations)
 (require 'setup-no-littering)
+(require 'setup-company)
 (require 'setup-osx)
 (require 'setup-org)
 (require 'setup-backup)
@@ -53,7 +47,6 @@
 (require 'setup-spell)
 (require 'setup-bookmark)
 (require 'setup-hydra)
-(require 'setup-company)
 (require 'setup-smartparens)
 (require 'setup-git-stuff)
 (require 'setup-avy)
@@ -65,7 +58,6 @@
 (require 'setup-counsel)
 (require 'setup-movement)
 (require 'setup-markdown)
-(require 'setup-highlight)
 (require 'setup-plantuml)
 (require 'setup-info)
 (require 'setup-mode-line)
@@ -98,6 +90,7 @@
 (require 'setup-visual)
 (require 'setup-tramp)
 (require 'setup-theme)
+(require 'setup-highlight)
 (require 'setup-calendar)
 (require 'setup-minibuffer)
 (require 'setup-purescript)
@@ -115,9 +108,6 @@
 (require 'setup-docker)
 (require 'setup-pdf)
 (require 'setup-engine-mode)
-
-;; install all packages (if they already not installed by use-package)
-(package-install-selected-packages)
 
 
 

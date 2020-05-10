@@ -13,7 +13,7 @@
   "A list of common shell commands to be fontified especially in `sh-mode'.")
 
 (use-package sh-script
-  :ensure nil
+  :straight nil
   :hook ((sh-mode . flycheck-mode))
   :mode (("\\.aliases\\'" . sh-mode)
          ("\\.[a-zA-Z]+rc\\'" . sh-mode)

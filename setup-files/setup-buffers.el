@@ -14,7 +14,7 @@
 ;; names unique (using suffixes like <2>, <3> etc.) with a more sensible
 ;; behaviour which use parts of the file names to make the buffer names
 ;; distinguishable.
-(use-package uniquify :ensure nil
+(use-package uniquify :straight nil
   :defer 2
   :config
   (setq uniquify-buffer-name-style 'forward)

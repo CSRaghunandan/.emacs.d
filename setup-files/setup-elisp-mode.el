@@ -1,22 +1,22 @@
 ;;; setup-elisp-mode.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-15 02:55:50 csraghunandan>
+;; Time-stamp: <2020-05-10 10:46:19 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; emacs-lisp-mpde
 ;; configure company mode for emacs-lisp-mode
-(use-package elisp-mode :ensure nil
+(use-package elisp-mode :straight nil
   :bind (:map emacs-lisp-mode-map
               ("C-c C-l" . eval-buffer))
+  :hook ((emacs-lisp-mode . my-elisp-mode-hook)
+         (emacs-lisp-mode . company-mode))
   :config
   (defun my-elisp-mode-hook ()
     "Hook for `emacs-lisp-mode'"
     (set (make-local-variable 'company-backends)
          '((company-capf company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
-  (add-hook 'emacs-lisp-mode-hook 'my-elisp-mode-hook)
-  (add-hook 'emacs-lisp-mode-hook 'company-mode)
 
   (defun byte-compile-current-buffer ()
     "`byte-compile' current buffer if it's emacs-lisp-mode and compiled file exists."

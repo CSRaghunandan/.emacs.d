@@ -6,7 +6,7 @@
 
 ;; ERC: the irc client for emacs
 (use-package erc
-  :ensure nil
+  :straight nil
   :bind (("C-c e" . my/erc-start-or-switch))
   :hook ((erc-send-pre . my/erc-preprocess))
   :config

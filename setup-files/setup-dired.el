@@ -5,7 +5,8 @@
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; dired: file system manager for emacs
-(use-package dired :ensure nil
+(use-package dired
+  :straight nil
   :bind ((:map dired-mode-map
                ("S" . ora-dired-get-size)
                ("E" . ora-ediff-files)
@@ -133,7 +134,7 @@ It added extra strings at the front and back of the default dired buffer name."
           "\\.idx\\|\\.run\\.xml$\\|\\.bbl$\\|\\.bcf$\\|.blg$\\|-blx.bib$\\|.nav$\\|.snm$\\|.out$\\|.synctex.gz$\\|\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|pyg\\)\\)\\'"))
 
   ;; dired-x: to hide uninteresting files in dired
-  (use-package dired-x :ensure nil
+  (use-package dired-x :straight nil
     :demand t
     :hook ((dired-mode . dired-omit-mode))
     :config
@@ -149,7 +150,7 @@ It added extra strings at the front and back of the default dired buffer name."
   :config (diredfl-global-mode))
 
 (use-package wdired :defer t
-  :ensure nil
+  :straight nil
   :config (setq wdired-allow-to-change-permissions t))
 
 ;; dired-quick-sort: hydra to sort files in dired

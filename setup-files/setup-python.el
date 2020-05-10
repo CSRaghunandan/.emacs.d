@@ -26,7 +26,7 @@
 
 ;; TODO: add pyflakes linter
 (use-package python
-  :ensure nil
+  :straight nil
   :hook ((python-mode . (lambda ()
                           (smart-dash-mode)
                           (company-mode)

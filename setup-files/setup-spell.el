@@ -7,7 +7,7 @@
 ;; flypsell: on the fly spell checking
 (use-package flyspell
   :defer 2
-  :ensure nil
+  :straight nil
   :hook
   ((org-mode . flyspell-mode)
    (markdown-mode . flyspell-mode)

@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 22:14:56 csraghunandan>
+;; Time-stamp: <2020-05-10 10:18:57 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,7 +8,7 @@
 ;; http://orgmode.org/
 (use-package org
   :defer 2
-  :ensure nil
+  :straight nil
   :hook
   ((org-mode . org-num-mode)
    (org-mode . (lambda () ;; this will make sure auto-fill works for org-mode
@@ -22,7 +22,7 @@
 
   ;; Set my default org-export backends. This variable needs to be set before
   ;; org.el is loaded.
-  (setq org-export-backends '(ascii html latex md gfm odt))
+  (setq org-export-backends '(ascii html latex md odt))
 
   :config
 
@@ -139,7 +139,7 @@
   (use-package ob-http)
 
   ;; plantuml configuration
-  (use-package ob-plantuml :ensure nil
+  (use-package ob-plantuml :straight nil
     :commands
     (org-babel-execute:plantuml)
     :config
@@ -374,10 +374,6 @@ Execute this command while the point is on or after the hyper-linked org link."
   ;; org-download: easily add images to org buffers
   ;; https://github.com/abo-abo/org-download
   (use-package org-download)
-
-  ;; ox-gfm: export to github flavored markdown
-  ;; https://github.com/larstvei/ox-gfm
-  (use-package ox-gfm)
 
   ;;  Automatic tables of contents for Org files
   ;; https://github.com/alphapapa/org-make-toc

@@ -5,7 +5,7 @@
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; abbrev: expand abbreviations
-(use-package abbrev :ensure nil
+(use-package abbrev :straight nil
   :hook
   ((prog-mode org-mode text-mode erc-mode LaTeX-mode) . abbrev-mode)
   (expand-load

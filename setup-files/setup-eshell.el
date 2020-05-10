@@ -6,7 +6,7 @@
 
 ;; ehsell config
 (use-package eshell
-  :ensure nil
+  :straight nil
   :config
 
   (add-hook 'eshell-mode-hook

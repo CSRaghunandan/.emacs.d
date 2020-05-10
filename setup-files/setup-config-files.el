@@ -30,7 +30,7 @@
 ;; conf-mode: major-mdoe for editing conf files
 ;; https://github.com/jrockway/emacs/blob/master/lisp/textmodes/conf-mode.el
 (use-package conf-mode
-  :ensure nil
+  :straight nil
   :mode (("\\.conf\\'"    . conf-space-mode)
          ("\\.setup.*\\'" . conf-space-mode)
          ("mimeapps.list" . conf-mode)
@@ -81,7 +81,7 @@
 
 ;; major mode to edit hex files
 (use-package hexl
-  :ensure nil
+  :straight nil
   :mode ("\\.\\(?:hex\\|nes\\)\\'" . hexl-mode))
 
 ;; major made for crontab files

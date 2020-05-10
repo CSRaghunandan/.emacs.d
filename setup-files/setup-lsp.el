@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-03 01:33:43 csraghunandan>
+;; Time-stamp: <2020-05-10 09:43:37 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -53,6 +53,6 @@
 ;; load gdb-lldb package
 (use-package dap-gdb-lldb
   :defer 5
-  :ensure nil)
+  :straight nil)
 
 (provide 'setup-lsp)

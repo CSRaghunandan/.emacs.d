@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 15:08:37 csraghunandan>
+;; Time-stamp: <2020-05-10 10:52:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -45,8 +45,10 @@
 
     ;; make volatile highlights have the same face as region, comments are
     ;; intangible inside volatile highlights face
-    (set-face-attribute 'vhl/default-face nil :background 'unspecified
-                        :inherit 'region)
+
+    (with-eval-after-load "volatile-highlights"
+      (set-face-attribute 'vhl/default-face nil :background 'unspecified
+                          :inherit 'region))
 
     ;; don't use variable pitch for info buffers. Looks jarring
     (set-face-attribute 'Info-quoted nil :inherit 'font-lock-function)

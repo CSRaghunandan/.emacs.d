@@ -5,7 +5,7 @@
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;;; Smerge - to resolve merge conflicts
-(use-package smerge-mode :ensure nil
+(use-package smerge-mode :straight nil
   :after hydra
   :bind (("C-c h r" . hydra-smerge/body))
 

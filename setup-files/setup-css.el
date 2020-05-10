@@ -22,13 +22,13 @@
 
 ;; css-mode config
 (use-package css-mode
-  :ensure nil
+  :straight nil
   :hook ((css-mode . lsp-css-common-setup))
   :config
   (setq css-indent-offset 2))
 
 (use-package less-css-mode              ; Mode for Less CSS files
-  :ensure nil
+  :straight nil
   :mode "\\.less\\'"
   :hook ((less-css . lsp-css-common-setup)))
 
@@ -39,7 +39,7 @@
   :hook ((sass-mode . lsp-css-common-setup)))
 
 (use-package scss-mode                  ; Mode for SCSS files
-  :ensure nil
+  :straight nil
   :mode "\\.scss\\'"
   :hook ((sass-mode . lsp-css-common-setup)))
 

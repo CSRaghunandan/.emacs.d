@@ -6,7 +6,7 @@
 
 ;; ediff: show the difference between two files intearctively
 (use-package ediff
-  :ensure nil
+  :straight nil
   :config
   ;; No separate frame for ediff control buffer
   (setq ediff-window-setup-function #'ediff-setup-windows-plain)

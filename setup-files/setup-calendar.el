@@ -6,7 +6,7 @@
 
 ;; calendar config
 (use-package calendar
-  :ensure nil
+  :straight nil
   :hook ((calendar-today-visible . calendar-mark-today))
   :bind (("H-d" . help/hydra/timestamp/body))
   :config

@@ -6,7 +6,7 @@
 
 ;; desktop: save the current emacs session
 (use-package desktop :defer 2
-  :ensure nil
+  :straight nil
   :config
   (setq desktop-save t
         desktop-load-locked-desktop nil)

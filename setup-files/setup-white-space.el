@@ -12,7 +12,7 @@
 
 ;;; Whitespace Mode/Show Long Lines
 (use-package whitespace :defer t
-  :ensure nil
+  :straight nil
   :config
   (setq whitespace-line-column nil)  ;When nil, set the value to `fill-column'
   (setq whitespace-style
