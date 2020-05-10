@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 10:54:40 csraghunandan>
+;; Time-stamp: <2020-05-10 11:01:06 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,8 +8,6 @@
 ;; a proper handler for the file, but during startup, it won’t need any of them.
 (defvar rag--file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
-
-(require 'package)
 
 ;; load directory for configuration files for emacs
 (add-to-list 'load-path (concat user-emacs-directory "setup-files/"))

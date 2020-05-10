@@ -1,11 +1,8 @@
 ;;; setup-packages.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 09:10:31 csraghunandan>
+;; Time-stamp: <2020-05-10 11:03:03 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
-
-;; enable imenu support for `use-package'
-(setq use-package-enable-imenu-support t)
 
 ;; this makes each use-package form also invoke straight.el to install the
 ;; package, unless otherwise specified.
@@ -26,11 +23,9 @@
 
 ;; install use-package
 (straight-use-package 'use-package)
+;; enable imenu support for `use-package'
+(setq use-package-enable-imenu-support t)
 
-;; (unless (package-installed-p 'use-package) ; unless it is already installed
-;;   (package-refresh-contents) ; update packages archive
-;;   (package-install 'use-package)) ; install the latest version of use-package
-;; (eval-when-compile (require 'use-package))
 (require 'bind-key)
 
 ;; https://github.com/emacsorphanage/key-chord/tree/master
