@@ -1,21 +1,114 @@
 * Rag .emacs.d
 My emacs config.
+
+** Configuring Emacs
+
+  + Install *Emacs28* from source by running:
+
+    #+BEGIN_SRC bash
+git clone --depth 1 master https://github.com/emacs-mirror/emacs
+cd emacs
+sh autogen.sh
+./configure --with-modules --with-rsvg --with-dbus --with-imagemagick --without-pop --with-xft --with-xml2 --with-libotf --with-mailutils
+# replce -jX, X is the number of cores in your machine
+make -j8
+make install
+#+END_SRC
+
+    + Optionally, you can also compile emacs native compilation branch, like so
+
+      #+BEGIN_SRC bash
+git clone --depth 1 master https://github.com/emacs-mirror/emacs -b feature/native-comp
+cd emacs
+sh autogen.sh
+./configure --with-modules --with-rsvg --with-dbus --with-imagemagick --without-pop --with-xft --with-xml2 --with-libotf --with-mailutils --with-nativecomp
+# replce -jX, X is the number of cores in your machine
+make -j8 NATIVE_FAST_BOOT=1
+make install  
+#+END_SRC
+
+      + Add the below line to =early-init.el=
+
+        #+BEGIN_SRC emacs-lisp
+;; comment out this line if you are not using emacs native compilation branch
+;; native compile elisp files as they are loaded
+(setq comp-deferred-compilation t)
+#+END_SRC
+
+    + Enable and run the systemd service for emacs:
+
+      #+BEGIN_SRC bash
+systemctl --user enable emacs --now
+#+END_SRC
+
+    + Change the =emacs.desktop= file to launch =emacsclient=, its located in
+      =/usr/local/share/applications/emacs.desktop=:
+
+      #+BEGIN_SRC conf
+[Desktop Entry]
+Name=Emacs
+GenericName=Text Editor
+Comment=Edit text
+MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+Exec=/usr/local/bin/emacsclient -c -a '' %F
+Icon=emacs
+Type=Application
+Terminal=false
+Categories=Development;TextEditor;
+StartupWMClass=Emacs
+Keywords=Text;Editor;
+#+END_SRC
+
+    + Make =emacs= your default text editor by adding the below lines to your
+      =.zshenv= file:
+
+      #+BEGIN_SRC bash
+export EDITOR="emacsclient -n -a \"\""
+export VISUAL="emacsclient -n -a \"\""
+#+END_SRC
+
+    + Setup handy aliases for emacs by adding the below in your =.aliases= file:
+
+      #+BEGIN_SRC bash
+alias ec='emacsclient -nc -a ""'
+alias eg='emacsclient -n -a ""'
+alias et='TERM=xterm-256color emacsclient -t -a ""'
+#+END_SRC
+      + Now you can open emacs by conecting to the emacs daemon using
+        emacsclient using: =ec=
+      + You can open a file on the existing emacs frame by: =eg file-name=
+      + Emacs configuration for =vterm= integration:
+
+        #+BEGIN_SRC bash
+function vterm_printf() {
+	if [ -n "$TMUX" ]; then
+		# tell tmux to pass the escape sequences through
+		# (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+		printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+	elif [ "${TERM%%-*}" = "screen" ]; then
+		# GNU screen (screen, screen-256color, screen-256color-bce)
+		printf "\eP\e]%s\007\e\\" "$1"
+	else
+		printf "\e]%s\e\\" "$1"
+	fi
+}
+
+if [ -n "$INSIDE_EMACS" ]; then
+	vterm_prompt_end() {
+		vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+	}
+	PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
+fi
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+	alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
+  
+#+END_SRC
+
 ** Notes
-- Work in progress and is subject to frequent changes.
-- Ivy as the preferred completion frontend for emacs.
-- Very minimal theme with no toolbar, no scrollbars, no line numbers and use zenburn theme.
-- Tested to work with emacs 26.1 stable and 27.0.50 master on macOS Sierra and linux.
+   - =Ivy= as the preferred completion frontend for emacs.
+   - Very minimal theme with no toolbar, no scrollbars, no line numbers and use
+     =challenger-deep= theme.
+   - Tested to work with Emacs27 and Emacs28 on Linux and MacOS
 
-** Key points
-- =use-package= for faster load times and loading packages only when necessary.
-- Certain packages will only work if you have the associated applications installed
-  - =ripgrep= -> as an alternative for grep and to grep entire project
-  - =hunspell= -> for spellcheck
-  - =LanguageTools= -> check for grammar mistakes
-  - =coreutils= -> only if you’re on macOS. Needed by =dired=
-  - =fortune= -> for getting a random quote in *scratch* buffer
-- I use Iosevka font which can be downloaded [[https://github.com/be5invis/Iosevka/releases/download/v2.2.0/iosevka-ss08-2.2.0.zip][here]]
-
-* Feedback
-Open to any feedback, corrections.
-Thanks :)
