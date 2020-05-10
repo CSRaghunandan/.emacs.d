@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-11 01:46:13 csraghunandan>
+;; Time-stamp: <2020-05-11 01:53:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,7 +11,6 @@
 
 ;; load directory for configuration files for emacs
 (add-to-list 'load-path (concat user-emacs-directory "setup-files/"))
-(add-to-list 'load-path (concat user-emacs-directory "my-elisp-code"))
 
 ;; set home and emacs directories
 (defvar user-home-directory (concat (getenv "HOME") "/"))
