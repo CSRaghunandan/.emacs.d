@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-04-15 19:09:29 csraghunandan>
+;; Time-stamp: <2020-05-11 01:23:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -131,18 +131,18 @@ It added extra strings at the front and back of the default dired buffer name."
         (error "no more than 2 files should be marked")))
 
     (setq dired-garbage-files-regexp
-          "\\.idx\\|\\.run\\.xml$\\|\\.bbl$\\|\\.bcf$\\|.blg$\\|-blx.bib$\\|.nav$\\|.snm$\\|.out$\\|.synctex.gz$\\|\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|pyg\\)\\)\\'"))
+          "\\.idx\\|\\.run\\.xml$\\|\\.bbl$\\|\\.bcf$\\|.blg$\\|-blx.bib$\\|.nav$\\|.snm$\\|.out$\\|.synctex.gz$\\|\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|pyg\\)\\)\\'")))
 
-  ;; dired-x: to hide uninteresting files in dired
-  (use-package dired-x :straight nil
-    :demand t
-    :hook ((dired-mode . dired-omit-mode))
-    :config
-    (setq dired-omit-verbose nil)
-    ;; hide backup, autosave, *.*~ files
-    ;; omit mode can be toggled using `C-x M-o' in dired buffer.
-    (setq dired-omit-files
-          (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$"))))
+;; dired-x: to hide uninteresting files in dired
+(use-package dired-x :straight nil
+  :demand t
+  :hook ((dired-mode . dired-omit-mode))
+  :config
+  (setq dired-omit-verbose nil)
+  ;; hide backup, autosave, *.*~ files
+  ;; omit mode can be toggled using `C-x M-o' in dired buffer.
+  (setq dired-omit-files
+        (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$\\|^.git$")))
 
 ;; diredfl:Extra Emacs font lock rules for a more colourful dired
 ;; https://github.com/purcell/diredfl/tree/085eabf2e70590ec8e31c1e66931d652d8eab432
