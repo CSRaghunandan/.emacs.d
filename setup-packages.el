@@ -1,5 +1,5 @@
 ;;; setup-packages.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 11:03:03 csraghunandan>
+;; Time-stamp: <2020-05-10 11:34:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,11 @@
 ;; this makes each use-package form also invoke straight.el to install the
 ;; package, unless otherwise specified.
 (setq straight-use-package-by-default t)
+;; Use watchexec (if it is installed) and python3 to check for modifications for
+;; elisp packages
+(unless (executable-find "watchexec"
+                         (setq straight-check-for-modifications
+                               `(watch-files find-when-checking))))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
