@@ -1,26 +1,11 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 10:51:38 csraghunandan>
+;; Time-stamp: <2020-05-10 11:12:05 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; set scratch major mode to `emacs-lisp-mode'
 (setq initial-major-mode 'emacs-lisp-mode)
-
-(defun my/package-upgrade-packages (&optional no-fetch)
-  "Upgrade all packages.  No questions asked.
-This function is equivalent to `list-packages', followed by a
-`package-menu-mark-upgrades' and a `package-menu-execute'.  Except
-the user isn't asked to confirm deletion of packages.
-The NO-FETCH prefix argument is passed to `list-packages'.  It
-prevents re-download of information about new versions.  It does
-not prevent downloading the actual packages (obviously)."
-  (interactive "P")
-  (let ((package-menu-async nil)) ; This variable was introduced in emacs 25.0
-    (save-window-excursion
-      (package-list-packages no-fetch)
-      (package-menu-mark-upgrades)
-      (package-menu-execute 'noquery))))
 
 ;; to list all the keys-chord not bound to a command
 ;; https://github.com/Fuco1/free-keys
