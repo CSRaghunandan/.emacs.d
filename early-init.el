@@ -1,10 +1,12 @@
 ;;; early-init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 12:03:14 csraghunandan>
+;; Time-stamp: <2020-05-10 11:08:12 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
-(setq package-quickstart t)
+;; no need of package-quickstart since we are using straight.el for package
+;; management in emacs
+(setq package-quickstart nil)
 
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum

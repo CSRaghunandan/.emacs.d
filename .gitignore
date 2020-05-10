@@ -1,9 +1,6 @@
 # elpa packages
 elpa/
 
-# ignore the quickstart autoloads file
-package-quickstart.el
-
 # ignore var directory
 var/*
 !var/abbrev.el
