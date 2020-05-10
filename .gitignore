@@ -1,6 +1,3 @@
-# elpa packages
-elpa/
-
 # ignore var directory
 var/*
 !var/abbrev.el

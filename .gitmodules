@@ -1,3 +1,0 @@
-[submodule "elisp/ws-butler"]
-	path = elisp/ws-butler
-	url = https://github.com/hlissner/ws-butler

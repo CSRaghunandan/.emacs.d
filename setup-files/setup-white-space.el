@@ -1,5 +1,5 @@
 ;;; setup-white-space.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-02 09:07:42 csraghunandan>
+;; Time-stamp: <2020-05-10 11:17:50 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,7 +7,7 @@
 ;; ws-butler: clean trailing whitespaces unobtrusively
 ;; https://github.com/lewang/ws-butler
 (use-package ws-butler
-  :load-path "~/.emacs.d/elisp/ws-butler"
+  :straight (ws-butler :type git :host github :repo "hlissner/ws-butler")
   :hook ((prog-mode . ws-butler-mode)))
 
 ;;; Whitespace Mode/Show Long Lines
