@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 22:07:45 csraghunandan>
+;; Time-stamp: <2020-05-11 01:04:54 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,8 +12,6 @@
   :bind (("C-c v c" . magit-clone)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers)
-         (:map magit-mode-map
-               ([remap previous-line] . magit-previous-line))
          (:map dired-mode-map
                ("l" . magit-dired-log)))
   :bind* (("C-c p v" . magit-status))
@@ -22,9 +20,7 @@
   (global-magit-file-mode 1)
 
   ;; modify a few magit parameters
-  (setq magit-stash-arguments '("--include-untracked")
-        magit-diff-refine-hunk t ; show word granularity within diff hunks
-        magit-log-arguments '("--color" "--decorate" "--graph" "-n1024")
+  (setq magit-diff-refine-hunk t ; show word granularity within diff hunks
         magit-section-visibility-indicator nil
         magit-refs-show-commit-count 'all)
 
@@ -47,51 +43,7 @@
     (interactive)
     (let ((buffers (magit-mode-get-buffers)))
       (magit-restore-window-configuration)
-      (mapc #'kill-buffer buffers)))
-
-  ;; https://github.com/alphapapa/unpackaged.el/blob/master/unpackaged.el#L1391
-  (defun unpackaged/magit-log--add-date-headers (&rest _ignore)
-    "Add date headers to Magit log buffers."
-    (when (derived-mode-p 'magit-log-mode)
-      (save-excursion
-        (ov-clear 'date-header t)
-        (goto-char (point-min))
-        (cl-loop with last-age
-                 for this-age = (-some--> (ov-in 'before-string 'any (line-beginning-position) (line-end-position))
-                                  car
-                                  (overlay-get it 'before-string)
-                                  (get-text-property 0 'display it)
-                                  cadr
-                                  (s-match (rx (group (1+ digit) ; number
-                                                      " "
-                                                      (1+ (not blank))) ; unit
-                                               (1+ blank) eos)
-                                           it)
-                                  cadr)
-                 do (when (and this-age
-                               (not (equal this-age last-age)))
-                      (ov (line-beginning-position) (line-beginning-position)
-                          'after-string (propertize (concat " " this-age "\n")
-                                                    'face 'magit-section-heading)
-                          'date-header t)
-                      (setq last-age this-age))
-                 do (forward-line 1)
-                 until (eobp)))))
-
-  (define-minor-mode unpackaged/magit-log-date-headers-mode
-    "Display date/time headers in `magit-log' buffers."
-    :global t
-    (if unpackaged/magit-log-date-headers-mode
-        (progn
-          ;; Enable mode
-          (add-hook 'magit-post-refresh-hook #'unpackaged/magit-log--add-date-headers)
-          (advice-add #'magit-setup-buffer-internal :after #'unpackaged/magit-log--add-date-headers))
-      ;; Disable mode
-      (remove-hook 'magit-post-refresh-hook #'unpackaged/magit-log--add-date-headers)
-      (advice-remove #'magit-setup-buffer-internal #'unpackaged/magit-log--add-date-headers)))
-
-  ;; enable unpackaged/magit-log-date-headers-mode
-  (unpackaged/magit-log-date-headers-mode 1))
+      (mapc #'kill-buffer buffers))))
 
 ;; forge: Access Git forges for Magit
 ;; https://github.com/magit/forge
@@ -108,7 +60,6 @@
   :after magit
   :hook (magit-mode . magit-todos-mode)
   :config
-  (setq magit-todos-keyword-suffix "\\(?:([^)]+)\\)?:?") ; make colon optional
   (setq magit-todos-group-by
         '(magit-todos-item-first-path-component magit-todos-item-keyword magit-todos-item-filename)))
 
