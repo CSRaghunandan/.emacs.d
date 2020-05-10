@@ -8,4 +8,7 @@ command-log/
 
 el-get/
 
-straight/
+straight/build/
+straight/repos/
+straight/watcher/
+straight/build-cache.el
