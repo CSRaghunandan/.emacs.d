@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-11 01:17:24 csraghunandan>
+;; Time-stamp: <2020-05-11 01:43:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,7 +13,8 @@
   ((org-mode . org-num-mode)
    (org-mode . (lambda () ;; this will make sure auto-fill works for org-mode
                  (setq-local comment-auto-fill-only-comments nil)
-                 (setq-local display-line-numbers-type 'absolute))))
+                 (setq-local display-line-numbers-type 'absolute)
+                 (setq-local org-use-speed-commands t))))
   :preface
   ;; Modules that should always be loaded together with org.el.
   ;; `org-modules' default: (ol-w3m ol-bbdb ol-bibtex ol-docview ol-gnus ol-info
@@ -150,7 +151,6 @@
      (shell . t)
      (latex . t)
      (css . t)
-     (http . t)
      (C . t)
      (haskell . t)
      (js . t)
@@ -183,8 +183,6 @@
   ;; string is wrapped in braces
   (setq org-use-sub-superscripts '{}) ; in-buffer rendering
 
-  (setq org-use-speed-commands t) ; ? speed-key opens Speed Keys help
-  (setq org-speed-commands-user '(("m" . org-mark-subtree)))
   ;; heading leading stars for headlines
   (setq org-hide-leading-stars t)
 
