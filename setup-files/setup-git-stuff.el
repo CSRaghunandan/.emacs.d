@@ -1,5 +1,5 @@
 ;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-11 01:04:54 csraghunandan>
+;; Time-stamp: <2020-05-15 21:11:37 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,7 +8,6 @@
 ;; magit: the git porcelain to manage git
 ;; `magit-status' is bound to `C-x g' by default
 (use-package magit
-  :defer 2
   :bind (("C-c v c" . magit-clone)
          :map magit-status-mode-map
          ("Q" . mu-magit-kill-buffers)
@@ -48,11 +47,11 @@
 ;; forge: Access Git forges for Magit
 ;; https://github.com/magit/forge
 (use-package forge
-  :after magit
-  :bind ((:map forge-issue-section-map
-               ("C-c C-v" . forge-browse-topic))
-         (:map forge-pullreq-section-map
-               ("C-c C-v" . forge-browse-topic))))
+    :after magit
+    :bind ((:map forge-issue-section-map
+                 ("C-c C-v" . forge-browse-topic))
+           (:map forge-pullreq-section-map
+                 ("C-c C-v" . forge-browse-topic))))
 
 ;; magit-todos: Show source file TODOs in Magit status buffer
 ;; https://github.com/alphapapa/magit-todos

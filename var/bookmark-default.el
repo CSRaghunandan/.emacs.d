@@ -1,4 +1,4 @@
-;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*-
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
@@ -10,12 +10,12 @@
     (position . 876))
 #1=(#("org-refile-last-stored" 0 22
       (bmkp-full-record #1#))
-    (filename . "~/org/agenda/someday.org")
-    (front-context-string . "** TODO test tas")
-    (rear-context-string . "mputer Science\n\n")
-    (position . 439))
+    (filename . "~/Xerus/qualcomm-neutrino/notes/users-list.org")
+    (front-context-string . "** abhilash@    ")
+    (rear-context-string)
+    (position . 15))
 #1=(#("s: SICP book" 0 1
-      (bmkp-full-record #1# idx 2)
+      (idx 2 bmkp-full-record #1#)
       1 12
       (bmkp-full-record #1#))
     (buffer-name . "*info*")
@@ -34,7 +34,7 @@
     (handler . Info-bookmark-jump)
     (defaults "(sicp) Top" "sicp" #3#))
 #1=(#("M: *Messages*" 0 1
-      (bmkp-full-record #1# idx 3)
+      (idx 3 bmkp-full-record #1#)
       1 13
       (bmkp-full-record #1#))
     (filename . "   - no file -")
@@ -48,7 +48,7 @@
     (created 22620 60739 573933 0)
     (position . 7368))
 #1=(#("q: *scratch*" 0 1
-      (idx 4 bmkp-full-record #1#)
+      (bmkp-full-record #1# idx 4)
       1 12
       (bmkp-full-record #1#))
     (end-position . 1)
