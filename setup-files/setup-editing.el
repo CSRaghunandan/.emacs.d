@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 22:57:31 csraghunandan>
+;; Time-stamp: <2020-05-17 14:21:51 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -633,5 +633,10 @@ behavior added."
 (use-package editorconfig :defer 2
   :config
   (editorconfig-mode 1))
+
+;; Preserve the scratch buffer across Emacs sessions
+;; https://github.com/Fanael/persistent-scratch
+(use-package persistent-scratch
+  :config (persistent-scratch-setup-default))
 
 (provide 'setup-editing)
