@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-08 12:56:17 csraghunandan>
+;; Time-stamp: <2020-05-17 14:27:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -18,31 +18,6 @@
 ;; show line numbers globally
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
-
-;; Supply a random fortune cookie as the *scratch* message.
-(defun my-fortune-scratch-message ()
-  (interactive)
-  (let ((fortune
-         (when (executable-find "fortune")
-           (with-temp-buffer
-             (shell-command "fortune" t)
-             (let ((comment-start ";;")
-                   (comment-empty-lines t)
-                   (tab-width 4))
-               (untabify (point-min) (point-max))
-               (comment-region (point-min) (point-max)))
-             (delete-trailing-whitespace (point-min) (point-max))
-             (concat (buffer-string) "\n")))))
-    (if (called-interactively-p 'any)
-        (insert fortune)
-      fortune)))
-
-;; initial-scratch-message
-(let ((fortune (my-fortune-scratch-message)))
-  (when fortune
-    (setq initial-scratch-message fortune)))
-
-
 
 ;;; all frame related settings
 ;; silence all bell rings
