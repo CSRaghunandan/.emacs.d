@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 11:44:18 csraghunandan>
+;; Time-stamp: <2020-05-17 14:06:24 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,7 +25,6 @@
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
   :bind (("C-c u" . ivy-resume))
-  :defer 0.5
   :config
   (ivy-mode)
 

@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-04-24 22:55:36 csraghunandan>
+;; Time-stamp: <2020-05-16 16:08:19 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,13 +9,26 @@
 (use-package counsel
   :after ivy
   :chords ((";'" . counsel-M-x))
-  :defer 0.5
   :bind
   ((:map read-expression-map
          ("C-r" . counsel-expression-history))
    (:map counsel-find-file-map
          ("<left>" . counsel-up-directory)
-         ("<right>" . counsel-down-directory)))
+         ("<right>" . counsel-down-directory))
+   (:map shell-mode-map
+         ("C-r" . counsel-shell-history))
+   (([remap bookmark-set] . counsel-bookmark)
+   ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
+   ("C-c d s" . describe-symbol)
+   ("C-c r w" . rag-counsel-rg-working-directory)
+   ("C-c d f" . counsel-faces)
+   ("C-c P" . counsel-package)
+   ("C-y" . counsel-yank-pop)
+   ("C-c m u" . counsel-imenu)
+   ("C-c r g" . counsel-rg)
+   ("C-x d" . counsel-dired)))
+  :bind*
+  ("C-r" . counsel-minibuffer-history)
 
   :config
 
@@ -115,27 +128,10 @@
   (setq counsel-grep-post-action-hook '(recenter))
   (put 'counsel-find-symbol 'no-counsel-M-x t)
 
-  (bind-keys*
-   ("C-r" . counsel-minibuffer-history))
-
-  (bind-key "C-r" #'counsel-shell-history shell-mode-map)
-
   (defun rag-counsel-rg-working-directory ()
     "Like `counsel-rg' but always searches from the cwd, not project root."
     (interactive)
-    (counsel-rg nil default-directory))
-
-  (bind-keys
-   ([remap bookmark-set] . counsel-bookmark)
-   ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
-   ("C-c d s" . describe-symbol)
-   ("C-c r w" . rag-counsel-rg-working-directory)
-   ("C-c d f" . counsel-faces)
-   ("C-c P" . counsel-package)
-   ("C-y" . counsel-yank-pop)
-   ("C-c m u" . counsel-imenu)
-   ("C-c r g" . counsel-rg)
-   ("C-x d" . counsel-dired)))
+    (counsel-rg nil default-directory)))
 
 ;; Add more ivy features for projectile related commands
 ;; https://github.com/ericdanan/counsel-projectile/tree/master
