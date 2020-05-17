@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-05-16 16:08:19 csraghunandan>
+;; Time-stamp: <2020-05-17 14:08:41 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -92,21 +92,6 @@
   (ivy-add-actions
    'counsel-rg
    '(("O" +ivy-git-grep-other-window-action "open in other window")))
-
-  (defun counsel-fd-jump (&optional initial-input initial-directory)
-    (interactive)
-    (let ((default-directory (or initial-directory default-directory)))
-      (ivy-read "Find file: "
-                (counsel--call '("fd" "--no-ignore" "--type" "f")
-                               (lambda () (split-string (buffer-string))))
-                :matcher #'counsel--find-file-matcher
-                :initial-input initial-input
-                :action #'find-file
-                :preselect (counsel--preselect-file)
-                :require-match 'confirm-after-completion
-                :history 'file-name-history
-                :keymap counsel-find-file-map
-                :caller 'counsel-file-jump)))
 
   ;; find file at point
   (setq counsel-find-file-at-point t)
