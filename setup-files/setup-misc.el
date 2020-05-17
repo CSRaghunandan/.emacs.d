@@ -1,5 +1,5 @@
 ;;; setup-misc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 11:12:05 csraghunandan>
+;; Time-stamp: <2020-05-17 14:42:20 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -38,8 +38,7 @@
   ;; disable heavy minor modes if file is large (above 2MB)
   (when (> (buffer-size) 2000000)
     (flycheck-mode -1)
-    (rainbow-delimiters-mode -1)
-    (highlight-indent-guides-mode -1)))
+    (rainbow-delimiters-mode -1)))
 (add-hook 'prog-mode-hook 'conditional-disable-modes)
 
 ;; prefer new files if one exists while loading

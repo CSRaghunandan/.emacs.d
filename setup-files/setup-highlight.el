@@ -1,5 +1,5 @@
 ;;; setup-highlight.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-14 16:14:34 csraghunandan>
+;; Time-stamp: <2020-05-17 14:40:26 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -52,56 +52,6 @@
 ;; https://github.com/Fanael/highlight-numbers
 (use-package highlight-numbers
   :hook ((prog-mode . highlight-numbers-mode)))
-
-;; highlight-indent-guides: best indent guides solution for emacs
-;; https://github.com/DarthFennec/highlight-indent-guides
-(use-package highlight-indent-guides
-  :hook ((prog-mode . highlight-indent-guides-mode))
-  :config
-  (setq highlight-indent-guides-method 'character)
-  (setq highlight-indent-guides-character ?\|)
-  (setq highlight-indent-guides-responsive 'top)
-
-  ;; https://github.com/seagle0128/.emacs.d/blob/36381ec7d7724a7ace6d9995ec8f59f5d9a33871/lisp/init-highlight.el#L161
-  ;; Don't display first level of indentation
-  (defun my-indent-guides-for-all-but-first-column (level responsive display)
-    (unless (< level 1)
-      (highlight-indent-guides--highlighter-default level responsive display)))
-  (setq highlight-indent-guides-highlighter-function
-        #'my-indent-guides-for-all-but-first-column)
-
-  ;; https://github.com/seagle0128/.emacs.d/blob/36381ec7d7724a7ace6d9995ec8f59f5d9a33871/lisp/init-highlight.el#L168
-  ;; Don't display indentations in `swiper'
-  ;; https://github.com/DarthFennec/highlight-indent-guides/issues/40
-  (with-eval-after-load 'ivy
-    (defun my-ivy-cleanup-indentation (str)
-      "Clean up indentation highlighting in ivy minibuffer."
-      (let ((pos 0)
-            (next 0)
-            (limit (length str))
-            (prop 'highlight-indent-guides-prop))
-        (while (and pos next)
-          (setq next (text-property-not-all pos limit prop nil str))
-          (when next
-            (setq pos (text-property-any next limit prop nil str))
-            (ignore-errors
-              (remove-text-properties next pos '(display nil face nil) str))))))
-    (advice-add #'ivy-cleanup-string :after #'my-ivy-cleanup-indentation))
-
-  ;; https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-highlight.el#L147
-  ;; Don't display indentations while editing with `company'
-  (with-eval-after-load 'company
-    (add-hook 'company-completion-started-hook
-              (lambda (&rest _)
-                "Trun off indentation highlighting."
-                (when highlight-indent-guides-mode
-                  (highlight-indent-guides-mode -1))))
-    (add-hook 'company-after-completion-hook
-              (lambda (&rest _)
-                "Trun on indentation highlighting."
-                (when (and (derived-mode-p 'prog-mode)
-                           (not highlight-indent-guides-mode))
-                  (highlight-indent-guides-mode 1))))))
 
 ;; hl-todo: Highlight TODO keywords
 ;; https://github.com/tarsius/hl-todo/tree/master

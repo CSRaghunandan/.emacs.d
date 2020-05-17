@@ -1,5 +1,5 @@
 ;;; setup-web-mode.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-03 00:06:51 csraghunandan>
+;; Time-stamp: <2020-05-17 14:42:06 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,9 +15,7 @@
          ("\\.as[cp]x\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
          ("\\.hbs\\'" . web-mode))
-  :hook ((web-mode . company-mode)
-         (web-mode . (lambda ()
-                       (highlight-indent-guides-mode -1))))
+  :hook ((web-mode . company-mode))
   :config
 
   (setq web-mode-markup-indent-offset 2)
