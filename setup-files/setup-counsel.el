@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-05-17 14:08:41 csraghunandan>
+;; Time-stamp: <2020-05-17 14:26:45 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -16,21 +16,26 @@
          ("<left>" . counsel-up-directory)
          ("<right>" . counsel-down-directory))
    (:map shell-mode-map
-         ("C-r" . counsel-shell-history))
-   (([remap bookmark-set] . counsel-bookmark)
+         ("C-r" . counsel-shell-history)))
+  :bind
+  (([remap bookmark-set] . counsel-bookmark)
    ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
    ("C-c d s" . describe-symbol)
    ("C-c r w" . rag-counsel-rg-working-directory)
    ("C-c d f" . counsel-faces)
    ("C-c P" . counsel-package)
    ("C-y" . counsel-yank-pop)
+   ("C-x b" . counsel-switch-buffer)
    ("C-c m u" . counsel-imenu)
    ("C-c r g" . counsel-rg)
-   ("C-x d" . counsel-dired)))
+   ("C-x d" . counsel-dired))
   :bind*
   ("C-r" . counsel-minibuffer-history)
 
   :config
+
+  ;; don't preview virtual buffers in `counsel-switch-buffer'
+  (setq counsel-switch-buffer-preview-virtual-buffers nil)
 
   (counsel-mode)
   (with-eval-after-load 'org-agenda
