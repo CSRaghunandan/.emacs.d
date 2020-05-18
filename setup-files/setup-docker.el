@@ -1,5 +1,5 @@
 ;;; setup-docker.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-24 23:37:15 csraghunandan>
+;; Time-stamp: <2020-05-18 23:03:49 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,8 +11,8 @@
   :hook ((dockerfile-mode . (lambda ()
                               (lsp-deferred)
                               (lsp-ui-doc-mode)
-                              (lsp-ui-sideline-mode)
                               (company-mode)
+                              (setq-local lsp-ui-sideline-enable nil)
                               (flycheck-mode)))
          (dockerfile-mode . (lambda ()
                               (add-hook 'before-save-hook
