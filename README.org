@@ -109,6 +109,6 @@ fi
 ** Notes
    - =Ivy= as the preferred completion frontend for emacs.
    - Very minimal theme with no toolbar, no scrollbars, no line numbers and use
-     =challenger-deep= theme.
+     =Nord= theme.
    - Tested to work with Emacs27 and Emacs28 on Linux and MacOS
 

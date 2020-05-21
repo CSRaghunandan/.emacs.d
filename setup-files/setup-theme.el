@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 10:52:44 csraghunandan>
+;; Time-stamp: <2020-05-21 23:06:24 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -36,7 +36,29 @@
 ;; https://github.com/hlissner/emacs-doom-themes/
 (use-package doom-themes
   :init
-  (defun gh/doom-challenger-deep-theme-hook()
+  (defun rag/doom-nord-hook ()
+        ;; don't use obnoxious colors for `golden-ratio-scroll'
+    (with-eval-after-load "golden-ratio-scroll-screen"
+      (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
+                          :background 'unspecified :foreground 'unspecified))
+
+    ;; don't use variable pitch for info buffers. Looks jarring
+    (set-face-attribute 'Info-quoted nil :inherit 'font-lock-function)
+    (set-face-attribute 'info-title-4 nil :inherit nil :weight 'bold)
+    (set-face-attribute 'info-menu-header nil :inherit nil :weight 'bold)
+    (set-face-attribute 'info-colors-lisp-code-block nil :inherit nil
+                        :weight 'bold)
+
+    ;; make ivy matches more prominent
+    (set-face-attribute 'ivy-current-match nil :weight 'bold)
+
+    (with-eval-after-load 'magit
+      ;; remove ugly box for `magit-branch-remote-head'
+      (set-face-attribute 'magit-branch-remote-head nil
+                          :box nil :weight 'bold
+                          :inherit 'magit-branch-remote)))
+
+  (defun rag/doom-challenger-deep-theme-hook()
 
     ;; don't use obnoxious colors for `golden-ratio-scroll'
     (with-eval-after-load "golden-ratio-scroll-screen"
@@ -45,7 +67,6 @@
 
     ;; make volatile highlights have the same face as region, comments are
     ;; intangible inside volatile highlights face
-
     (with-eval-after-load "volatile-highlights"
       (set-face-attribute 'vhl/default-face nil :background 'unspecified
                           :inherit 'region))
@@ -73,17 +94,17 @@
       (set-face-attribute 'magit-branch-remote-head nil
                           :box nil :weight 'bold
                           :inherit 'magit-branch-remote)))
-  (gh/add-theme-hook 'doom-challenger-deep #'gh/doom-challenger-deep-theme-hook)
-
+  (gh/add-theme-hook 'doom-challenger-deep #'rag/doom-challenger-deep-theme-hook)
+  (gh/add-theme-hook 'doom-nord #'rag/doom-nord-hook)
   :config
 
   ;; load my theme: doom-challenger-deep
   (defun my/load-theme (frame)
     (select-frame frame)
-    (load-theme 'doom-challenger-deep))
+    (load-theme 'doom-nord))
   (if (daemonp)
       (add-hook 'after-make-frame-functions #'my/load-theme)
-    (load-theme 'doom-challenger-deep))
+    (load-theme 'doom-nord))
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
