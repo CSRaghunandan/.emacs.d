@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-02 08:19:28 csraghunandan>
+;; Time-stamp: <2020-05-22 22:22:52 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -92,6 +92,7 @@
 ;; this package provides direnv integration for emacs.
 ;; https://github.com/wbolster/emacs-direnv/
 (use-package direnv :defer 2
+  :if (executable-find "direnv")
   :config
   (direnv-mode))
 

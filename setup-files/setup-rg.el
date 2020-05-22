@@ -1,5 +1,5 @@
 ;;; setup-rg -*- lexical-binding: t; -*-
-;; Time-stamp: <2018-08-24 12:46:17 csraghunandan>
+;; Time-stamp: <2020-05-22 23:12:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,7 @@
 ;; fast, friendly searching with ripgrep and Emacs
 ;; https://github.com/Wilfred/deadgrep
 (use-package deadgrep
+  :if (executable-find "rg")
   :bind (("C-c d g" . deadgrep))
   :config
   (setq-default deadgrep--search-type 'regexp) ;Default is 'string
