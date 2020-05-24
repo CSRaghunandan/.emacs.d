@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-29 11:43:12 csraghunandan>
+;; Time-stamp: <2020-05-24 19:57:49 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -31,28 +31,18 @@
     ;; treemacs-git-mode extended
     (setq treemacs-python-executable (executable-find "python"))
 
+    ;; highlight current line in fringe for treemacs window
+    (treemacs-fringe-indicator-mode)
+
     (defun doom-themes-hide-modeline ()
       (setq mode-line-format nil))
 
     ;; The modeline isn't useful in treemacs
     (add-hook 'treemacs-mode-hook #'doom-themes-hide-modeline)
 
-    (defun doom-themes-hide-fringes ()
-      "Remove fringes in currnent window."
-      (when (display-graphic-p)
-        (set-window-fringes nil 0 0)))
-
-    ;; Disable fringes (and reset them everytime treemacs is selected because it
-    ;; may change due to outside factors)
-    (add-hook 'treemacs-mode-hook #'doom-themes-hide-fringes)
-    (advice-add #'treemacs-select-window :after #'doom-themes-hide-fringes)
-
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-resize-icons 16)
-
-    ;; no longer needed since fringe is hidden in doom-themes-treemacs-theme
-    (treemacs-fringe-indicator-mode nil)
 
     (pcase (cons (not (null (executable-find "git")))
                  (not (null treemacs-python-executable)))
