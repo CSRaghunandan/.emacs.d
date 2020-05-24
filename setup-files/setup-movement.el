@@ -1,5 +1,5 @@
 ;;; setup-movement.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 21:50:56 csraghunandan>
+;; Time-stamp: <2020-05-24 21:35:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -94,12 +94,19 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
     ("q" nil "Quit" :color blue))
   (bind-key "C-c d j" #'dumb-jump-hydra/body prog-mode-map))
 
-;; A simple-minded way of managing window configs in emacs
-;; https://github.com/wasamasa/eyebrowse
-(use-package eyebrowse
+;; The Perspective package provides multiple named workspaces (or
+;; "perspectives") in Emacs, similar to multiple desktops in window managers
+;; like Awesome and XMonad, and Spaces on the Mac.
+;; https://github.com/nex3/perspective-el
+(use-package perspective
+  :bind (("C-x b" . persp-counsel-switch-buffer)
+         ("C-x k" . persp-kill-buffer*))
   :config
-  (eyebrowse-mode t)
-  (setq eyebrowse-mode-line-style nil))
+  (persp-mode)
+
+  (setq display-buffer-reuse-frames t)         ; reuse windows in other frames
+  (setq even-window-sizes nil)                 ; display-buffer: avoid resizing
+)
 
 (setq recenter-positions '(0.50 0.07 0.93)) ;default: '(middle top bottom)
 ;; First C-l  -> 0.50: Put point vertically at the middle of the window

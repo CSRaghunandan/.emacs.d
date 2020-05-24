@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-21 23:48:04 csraghunandan>
+;; Time-stamp: <2020-05-24 21:24:44 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -24,7 +24,8 @@
 ;; ivy: incremental narrowing framework for Emacs
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
-  :bind (("C-c u" . ivy-resume))
+  :bind (("C-c u" . ivy-resume)
+         ("C-c TAB" . ivy-switch-buffer))
   :config
   (ivy-mode)
 
@@ -64,8 +65,8 @@
 
 ;; More friendly interface for ivy
 ;; https://github.com/Yevgnen/ivy-rich
-(use-package ivy-rich :ensure t
-  :hook (counsel-projectile-mode . ivy-rich-mode)
+(use-package ivy-rich
+  :hook (counsel-mode . ivy-rich-mode)
   :config
   ;; For better performance
   ;; Better experience with icons
