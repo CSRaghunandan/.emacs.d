@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-27 11:49:09 csraghunandan>
+;; Time-stamp: <2020-05-24 10:13:02 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,6 +7,7 @@
 ;; vterm: Emacs libvterm integration
 ;; https://github.com/akermu/emacs-libvterm
 (use-package vterm
+  :if (executable-find "cmake")
   :config
 
   ;; disable some unnecessary minor-modes in term-mode
@@ -24,14 +25,19 @@
 
 ;; vterm-toggle: toggles between the vterm buffer and whatever buffer you are editing.
 ;; https://github.com/jixiuf/vterm-toggle
-(use-package vterm-toggle)
+(use-package vterm-toggle
+  :if (executable-find "cmake")
+  :after vterm)
 
 ;; multi-vterm: manage multiple terminal windows easily within emacs
 ;; https://github.com/suonlight/multi-vterm
 (use-package multi-vterm
+  :after vterm
+  :if (executable-find "cmake")
+  :bind ("C-c t" . multi-term-hydra/body)
   :config
-  (bind-key "C-c t"
-            (defhydra multi-term-hydra ()
+  ;; hydra for using multi-vterm
+  (defhydra multi-term-hydra ()
               "multi-term"
               ("o" multi-vterm "new terminal")
               ("t" vterm-toggle-cd "toggle/open")
@@ -39,6 +45,6 @@
               ("p" multi-vterm-prev "Prev")
               ("d" multi-vterm-dedicated-toggle "Dedicated terminal")
               ("r" multi-vterm-projectile "vterm projectile")
-              ("q" nil "Quit" :color blue))))
+              ("q" nil "Quit" :color blue)))
 
 (provide 'setup-term)
