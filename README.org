@@ -1,7 +1,32 @@
 * Rag .emacs.d
 My emacs config.
 
-** Configuring Emacs
+** Dependencies needed for compiling emacs28 from source
+
+   Below are the dependencies needed to compile emacs from source:
+   + =automake=, =gcc=, =make=: to build Emacs from source
+   + =imagemagick7=: for imagemagick integration
+   + =librsvg=: for rendering =SVG= files in emacs
+   + =mailutils=: for mailutils integration in emacs
+   + =gnutls=: for security
+   + =gtk3=: library for Gtk3
+   + =dbus=: library for integration of =dbus= with emacs
+   + =texinfo=: needed for documentation
+   + =libpng=, =libjpeg=, =libxpm=, =giflib=, =libtiff=: media dependencies
+
+** Optional dependencies for running my emacs configuration
+
+   These are /optional/, but will definitely improve the experience for using
+   emacs. I recommend installing all the below tools:
+   + [[https://cmake.org/][CMake]]: needed for =vterm.el= package
+   + =libvterm=: needed for =vterm.el= package
+   + [[https://github.com/watchexec/watchexec][watchexec]]: needed for watching for file changes for packages  and running
+     build to update the packages. This is needed for =straight.el=
+   + [[https://github.com/direnv/direnv][direnv]]: for getting =direnv= integration with Emacs
+   + [[https://github.com/BurntSushi/ripgrep][ripgrep]]: for faster search integration in Emacs
+   + [[https://github.com/sharkdp/fd/][fd]]: integrate =fd= into emacs for faster file searches
+
+** Installing and configuring Emacs
 
   + Install *Emacs28* from source by running:
 
@@ -110,5 +135,5 @@ fi
    - =Ivy= as the preferred completion frontend for emacs.
    - Very minimal theme with no toolbar, no scrollbars, no line numbers and use
      =Nord= theme.
-   - Tested to work with Emacs27 and Emacs28 on Linux and MacOS
+   - Tested to work with =Emacs 27= and =Emacs 28= on =Linux= and =MacOS=.
 
