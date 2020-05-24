@@ -1,5 +1,5 @@
 ;;; setup-buffers.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 16:29:16 csraghunandan>
+;; Time-stamp: <2020-05-24 20:11:17 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -127,19 +127,6 @@ Emacs session."
           (setq killed-file-list (cl-delete file killed-file-list :test #'equal))
           (find-file file)))
     (error "No recently-killed files to reopen")))
-
-;; Kill/Bury Buffer
-(defun modi/kill-buffer-dwim (kill-next-error-buffer)
-  "Kill the current buffer.
-When called in the minibuffer, get out of the minibuffer
-using `abort-recursive-edit'.
-If KILL-NEXT-ERROR-BUFFER is non-nil, kill the `next-error' buffer.
-Examples of such buffers: *gtags-global*, *ag*, *Occur*, *Diff*."
-  (interactive "P")
-  (if kill-next-error-buffer
-      (kill-buffer (next-error-find-buffer :avoid-current))
-    (kill-current-buffer)))
-(bind-key "C-x k" 'modi/kill-buffer-dwim)
 
 ;;; Toggle between buffers
 ;; http://www.emacswiki.org/emacs/SwitchingBuffers
