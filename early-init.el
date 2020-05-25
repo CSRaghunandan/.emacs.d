@@ -1,5 +1,5 @@
 ;;; early-init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 15:30:10 csraghunandan>
+;; Time-stamp: <2020-05-25 06:39:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,17 +7,18 @@
 ;; no need of package-quickstart since we are using straight.el for package
 ;; management in emacs
 (setq package-quickstart nil)
-;; Whether to make installed packages available when Emacs starts.
+;; disable package enable at startup, since I'm using `straight.el'
 (setq package-enable-at-startup nil)
+(advice-add #'package--ensure-init-file :override #'ignore)
 
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum
       gc-cons-percentage 0.6)
 
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
-(setq tool-bar-mode nil)
-(when (fboundp 'set-scroll-bar-mode)
-  (set-scroll-bar-mode nil))
+(push '(menu-bar-lines . 0) default-frame-alist)
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
 
 ;; Resizing the Emacs frame can be a terribly expensive part of changing the
 ;; font. By inhibiting this, we easily halve startup times with fonts that are
