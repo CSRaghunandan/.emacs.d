@@ -1,5 +1,5 @@
 ;;; setup-window.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 22:57:55 csraghunandan>
+;; Time-stamp: <2020-05-25 23:51:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -69,6 +69,13 @@
     ("<SPC>" scroll-other-window "scroll")
     ("b" scroll-other-window-down "scroll down")
     ("q" nil "Quit" :color blue)))
+
+;; A simple-minded way of managing window configs in emacs
+;; https://github.com/wasamasa/eyebrowse
+(use-package eyebrowse
+  :config
+  (eyebrowse-mode t)
+  (setq eyebrowse-mode-line-style nil))
 
 (provide 'setup-window)
 
