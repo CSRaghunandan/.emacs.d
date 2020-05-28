@@ -1,5 +1,5 @@
 ;;; setup-window.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-25 23:51:13 csraghunandan>
+;; Time-stamp: <2020-05-28 16:23:51 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,7 +7,8 @@
 ;; This program provides some interactive functions which allows users
 ;; to transpose windows arrangement in currently selected frame
 ;; https://github.com/emacsorphanage/transpose-frame/blob/master/transpose-frame.el
-(use-package transpose-frame :defer 2
+(use-package transpose-frame
+  :bind ("C-c h w" . hydra-transpose-window/body)
   :config
 
   (defhydra hydra-transpose-window (:color red :columns 3)
@@ -18,9 +19,7 @@
     ("r" rotate-frame "Rotate frame 180 degrees")
     ("c" rotate-frame-clockwise "Rotate 90 degrees clockwise")
     ("a" rotate-frame-anticlockwise "Rotate 90 degrees anti clockwise")
-    ("q" nil "Quit" :color blue))
-
-  (bind-key "C-c h w" #'hydra-transpose-window/body))
+    ("q" nil "Quit" :color blue)))
 
 ;; ace-window: quick switching of windows
 ;; https://github.com/abo-abo/ace-window
