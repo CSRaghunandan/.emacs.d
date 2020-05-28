@@ -1,5 +1,5 @@
 ;;; setup-spell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-14 21:23:17 csraghunandan>
+;; Time-stamp: <2020-05-28 16:36:02 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,15 +13,6 @@
    (markdown-mode . flyspell-mode)
    (prog-mode . flyspell-prog-mode))
   :config
-  (setq ispell-dictionary-alist
-        '((nil "[A-Za-z]" "[^A-Za-z]" "[']" t
-               ("-d" "en_US" "-i" "utf-8") nil utf-8)
-          ("american"
-           "[A-Za-z]" "[^A-Za-z]" "[']" nil
-           ("-d" "en_US") nil utf-8)
-          ("british"
-           "[A-Za-z]" "[^A-Za-z]" "[']" nil
-           ("-d" "en_GB") nil utf-8)))
 
   ;; Save a new word to personal dictionary without asking
   (setq ispell-silently-savep t)
@@ -42,7 +33,6 @@
 ;; cd ~/Library/Spelling/
 ;; wget http://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.aff
 ;; wget http://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_GB.dic
-;; TODO: write instructions for linux and windows
 ;;
 ;; for ArchLinux, do the following to install hunspell along with is dictionaries
 ;; sudo pacman -S hunspell
