@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-17 14:27:40 csraghunandan>
+;; Time-stamp: <2020-05-28 16:06:19 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -174,5 +174,12 @@ And the line would be overlaid like:
 ;; Pop a posframe (just a child-frame) at point
 ;; https://github.com/tumashu/posframe
 (use-package posframe)
+
+;; built in mode `image-mode' for viewing images
+(use-package image
+  :straight nil
+  ;; disable line numbers for images
+  :hook (image-mode . (lambda ()
+                        (display-line-numbers-mode -1))))
 
 (provide 'setup-visual)
