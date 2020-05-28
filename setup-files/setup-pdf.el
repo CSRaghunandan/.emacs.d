@@ -1,5 +1,5 @@
 ;;; setup-pdf.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-03-04 16:48:04 csraghunandan>
+;; Time-stamp: <2020-05-28 15:53:18 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,17 +7,20 @@
 ;; pdf-tools: Emacs support library for PDF files.
 ;; https://github.com/politza/pdf-tools
 (use-package pdf-tools
-  :defer 3
   :bind
   (:map pdf-view-mode-map
-        ("C-c h p" . hydra-pdftools/bodqy))
-  :hook (pdf-tools-enabled . (lambda ()
-                               (display-line-numbers-mode -1)))
+        ("C-c h p" . hydra-pdftools/body))
+  :hook ((pdf-tools-enabled . (lambda ()
+                                (display-line-numbers-mode -1))))
+  :mode ("\\.[pP][dD][fF]\\'" . pdf-view-mode)
   :config
   ;; https://github.com/politza/pdf-tools/issues/312#issuecomment-329537742
   ;; Build the program (if necessary) without asking first, if NO-QUERY-P is
   ;; non-nil.
   (pdf-tools-install)
+
+  ;; revert pdf automatically after latex compilation completes in auctex
+  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
 
   ;; automatically annotate highlights
   (setq pdf-annot-activate-created-annotations t)
