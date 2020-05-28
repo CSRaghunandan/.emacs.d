@@ -25,6 +25,7 @@ My emacs config.
    + [[https://github.com/direnv/direnv][direnv]]: for getting =direnv= integration with Emacs
    + [[https://github.com/BurntSushi/ripgrep][ripgrep]]: for faster search integration in Emacs
    + [[https://github.com/sharkdp/fd/][fd]]: integrate =fd= into emacs for faster file searches
+   + [[https://poppler.freedesktop.org/][poppler]]: PDF rendering library. Needed for [[https://github.com/politza/pdf-tools][pdf-tools]]
 
 ** Installing and configuring Emacs
 
