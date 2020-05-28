@@ -1,5 +1,5 @@
 ;;; general.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 10:55:43 csraghunandan>
+;; Time-stamp: <2020-05-28 15:39:26 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -21,30 +21,6 @@ Example:
 (when (eq system-type 'darwin)
   (setq source-directory
         (concat user-home-directory "/Library/Caches/Homebrew/emacs--git")))
-
-(defvar emacs-git-branch
-  (when (and emacs-repository-version
-             (file-exists-p source-directory))
-    (let ((shell-return
-           (replace-regexp-in-string
-            "[\n)]" " "                 ;Replace newline and ) chars with spaces
-            (shell-command-to-string
-             (concat "cd " source-directory " && "
-                     "git branch --contains "
-                     emacs-repository-version)))))
-      ;; Below regexp is tested for following "git branch --contains" values
-      ;; Output for a commit in master branch too
-      ;;   "* (HEAD detached at origin/emacs-25)
-      ;;     master
-      ;;   "
-      ;; Output for a commit only in emacs-25 branch
-      ;;   "* (HEAD detached at origin/emacs-25)
-      ;;   "
-      ;; (message "%S" shell-return)
-      (when (not (string= "" shell-return))
-	(string-match ".*[/ ]\\([^ ]+?\\)\\s-*$" shell-return)
-	(match-string-no-properties 1 shell-return))))
-  "Name of git branch from which the current emacs is built.")
 
 (defun emacs-version-dev (here)
   "Display emacs build info and also save it to the kill-ring.
