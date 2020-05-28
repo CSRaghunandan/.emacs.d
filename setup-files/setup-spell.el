@@ -1,5 +1,5 @@
 ;;; setup-spell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-28 16:36:02 csraghunandan>
+;; Time-stamp: <2020-05-28 16:40:36 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,6 +13,11 @@
    (markdown-mode . flyspell-mode)
    (prog-mode . flyspell-prog-mode))
   :config
+
+  (setq flyspell-issue-welcome-flag nil
+        ;; Significantly speeds up flyspell, which would otherwise print
+        ;; messages for every word when checking the entire buffer
+        flyspell-issue-message-flag nil)
 
   ;; Save a new word to personal dictionary without asking
   (setq ispell-silently-savep t)
