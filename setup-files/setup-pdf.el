@@ -1,5 +1,5 @@
 ;;; setup-pdf.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-28 15:53:18 csraghunandan>
+;; Time-stamp: <2020-05-28 16:00:07 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -18,6 +18,11 @@
   ;; Build the program (if necessary) without asking first, if NO-QUERY-P is
   ;; non-nil.
   (pdf-tools-install)
+
+  (setq-default pdf-view-display-size 'fit-page)
+  ;; Enable hiDPI support, but at the cost of memory! See politza/pdf-tools#51
+  (setq pdf-view-use-scaling t
+        pdf-view-use-imagemagick nil)
 
   ;; revert pdf automatically after latex compilation completes in auctex
   (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
