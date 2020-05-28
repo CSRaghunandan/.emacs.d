@@ -1,5 +1,5 @@
 ;;; setup-spell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-28 16:40:36 csraghunandan>
+;; Time-stamp: <2020-05-28 16:44:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -9,8 +9,11 @@
   :defer 2
   :straight nil
   :hook
-  ((org-mode . flyspell-mode)
-   (markdown-mode . flyspell-mode)
+  (((org-mode
+     markdown-mode
+     TeX-mode
+     rst-mode
+     git-commit-mode) . flyspell-mode)
    (prog-mode . flyspell-prog-mode))
   :config
 
