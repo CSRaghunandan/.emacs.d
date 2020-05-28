@@ -1,12 +1,11 @@
 ;;; setup-spell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-28 16:44:32 csraghunandan>
+;; Time-stamp: <2020-05-28 17:01:46 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; flypsell: on the fly spell checking
 (use-package flyspell
-  :defer 2
   :straight nil
   :hook
   (((org-mode
@@ -14,7 +13,7 @@
      TeX-mode
      rst-mode
      git-commit-mode) . flyspell-mode)
-   (prog-mode . flyspell-prog-mode))
+   ((prog-mode yaml-mode conf-mode) . flyspell-prog-mode))
   :config
 
   (setq flyspell-issue-welcome-flag nil
