@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-24 19:57:49 csraghunandan>
+;; Time-stamp: <2020-05-31 19:35:00 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -7,11 +7,6 @@
 ;; treemacs: a tree layout file explorer for Emacs
 ;; https://github.com/Alexander-Miller/treemacs
 (use-package treemacs
-  :hook
-  ;; slightly lower the size of treemacs window
-  ((treemacs-mode . (lambda ()
-                      (setq buffer-face-mode-face '(:height .88))
-                      (buffer-face-mode))))
   :config
   (progn
     (setq treemacs-follow-after-init t
@@ -42,7 +37,6 @@
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
-    (treemacs-resize-icons 16)
 
     (pcase (cons (not (null (executable-find "git")))
                  (not (null treemacs-python-executable)))
