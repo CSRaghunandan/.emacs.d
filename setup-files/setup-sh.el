@@ -1,5 +1,5 @@
 ;;; setup-sh.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-21 10:38:33 csraghunandan>
+;; Time-stamp: <2020-05-31 22:39:33 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -14,13 +14,25 @@
 
 (use-package sh-script
   :straight nil
-  :hook ((sh-mode . flycheck-mode))
+  :hook ((sh-mode . (lambda ()
+                      (setq-local lsp-diagnostic-package ':none)
+                      (setq flycheck-checker 'sh-bash)
+                      (lsp-deferred)
+                      (company-mode))))
+  :hook (sh-mode . flycheck-mode)
   :mode (("\\.aliases\\'" . sh-mode)
          ("\\.[a-zA-Z]+rc\\'" . sh-mode)
          ("crontab.*\\'" . sh-mode)
          ("\\.zunit\\'" . sh-mode)
          ("/bspwmrc\\'" . sh-mode))
   :config
+  (defun my-sh-mode-hook()
+    (set (make-local-variable 'company-backends)
+         '((company-lsp company-files :with company-yasnippet)
+           (company-dabbrev-code company-dabbrev))))
+
+  (add-hook 'sh-mode-hook 'my-sh-mode-hook)
+
   ;; Use sh-mode when opening `.zsh' files, and when opening Prezto runcoms.
   (dolist (pattern '("\\.zsh\\'"
                      "zlogin\\'"
@@ -76,20 +88,6 @@
                (0 'font-lock-type-face append))))
 
   (setq sh-indent-after-continuation 'always))
-
-;; company-shell: company backend for shell scripts
-;; https://github.com/Alexander-Miller/company-shell
-(use-package company-shell
-  :after sh-script
-  :hook ((sh-mode . my-sh-mode-hook)
-         (sh-mode . company-mode))
-  :config
-  (setq company-shell-delete-duplicates t)
-
-  (defun my-sh-mode-hook()
-    (set (make-local-variable 'company-backends)
-         '((company-shell company-files :with company-yasnippet)
-           (company-dabbrev-code company-dabbrev)))))
 
 ;; shfmt: Reformat shell script code in Emacs using shfmt
 ;; https://github.com/purcell/emacs-shfmt
