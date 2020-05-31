@@ -1,5 +1,5 @@
 ;;; setup-cc.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-02 23:32:50 csraghunandan>
+;; Time-stamp: <2020-05-31 22:38:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -119,8 +119,6 @@
                                 (setq-local ccls-code-lens-mode t)
                                 (eldoc-mode)
                                 (+cc-fontify-constants-h)
-                                (lsp-ui-sideline-mode)
-                                (lsp-ui-sideline-toggle-symbols-info)
                                 (smart-dash-mode)
                                 (company-mode)))
          ((c-mode c++-mode) . (lambda ()

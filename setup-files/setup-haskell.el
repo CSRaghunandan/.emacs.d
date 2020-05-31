@@ -1,5 +1,5 @@
 ;;; setup-haskell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-06 22:10:02 csraghunandan>
+;; Time-stamp: <2020-05-31 22:38:22 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -16,8 +16,6 @@
                      (lsp)
                      (direnv-update-environment)
                      (lsp-ui-doc-mode)
-                     (lsp-ui-sideline-mode)
-                     (lsp-ui-sideline-toggle-symbols-info)
                      (my-haskell-mode-hook)
                      (company-mode)
                      (haskell-collapse-mode))))

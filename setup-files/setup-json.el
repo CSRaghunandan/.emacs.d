@@ -1,5 +1,5 @@
 ;;; setup-json.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-23 15:57:55 csraghunandan>
+;; Time-stamp: <2020-05-31 22:38:14 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,8 +11,6 @@
   :mode "\\.js\\(?:on\\|[hl]int\\(rc\\)?\\)\\'"
   :hook ((json-mode . (lambda ()
                         (lsp-deferred)
-                        (lsp-ui-doc-mode)
-                        (lsp-ui-sideline-mode)
                         (company-mode)
                         (flycheck-mode))))
   :config

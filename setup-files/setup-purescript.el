@@ -1,5 +1,5 @@
 ;;; setup-purescript.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 12:02:20 csraghunandan>
+;; Time-stamp: <2020-05-31 22:38:27 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,8 +12,6 @@
   :hook ((purescript-mode . turn-on-purescript-decl-scan)
          (purescript-mode . (lambda ()
                               (lsp-deferred)
-                              (lsp-ui-sideline-mode)
-                              (lsp-ui-sideline-toggle-symbols-info)
                               (company-mode))))
   :config
   (defun my-purescript-mode-hook()

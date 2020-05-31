@@ -1,5 +1,5 @@
 ;;; setup-rust.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-17 14:02:36 csraghunandan>
+;; Time-stamp: <2020-05-31 22:37:45 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -18,8 +18,6 @@
 
   :hook ((rustic-mode . (lambda ()
                           (lsp-ui-doc-mode)
-                          (lsp-ui-sideline-mode)
-                          (lsp-ui-sideline-toggle-symbols-info)
                           (smart-dash-mode)
                           (company-mode))))
   :config

@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-22 22:22:52 csraghunandan>
+;; Time-stamp: <2020-05-31 22:38:48 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,7 +12,6 @@
          (yaml-mode . (lambda ()
                         (lsp-deferred)
                         (lsp-ui-doc-mode)
-                        (lsp-ui-sideline-mode)
                         (company-mode)
                         (flycheck-mode)))
          (yaml-mode . (lambda ()

@@ -1,5 +1,5 @@
 ;;; setup-go.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-03 01:38:45 csraghunandan>
+;; Time-stamp: <2020-05-31 22:37:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,8 +12,6 @@
   :hook ((go-mode . (lambda ()
                       (lsp-deferred)
                       (lsp-ui-doc-mode)
-                      (lsp-ui-sideline-mode)
-                      (lsp-ui-sideline-toggle-symbols-info)
                       (wh/set-go-tab-width)
                       (my-go-mode-hook)
                       (company-mode))))
