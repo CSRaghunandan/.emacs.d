@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-10 09:43:37 csraghunandan>
+;; Time-stamp: <2020-05-31 21:59:11 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -35,7 +35,6 @@
         lsp-ui-sideline-show-code-actions t
         lsp-ui-sideline-show-hover t
         lsp-ui-doc-enable nil
-        lsp-ui-flycheck-enable t
         lsp-ui-imenu-enable t
         lsp-ui-sideline-ignore-duplicate t))
 
