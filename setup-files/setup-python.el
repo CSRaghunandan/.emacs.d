@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-04-18 10:35:26 csraghunandan>
+;; Time-stamp: <2020-06-03 22:46:52 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -28,7 +28,6 @@
 (use-package python
   :straight nil
   :hook ((python-mode . (lambda ()
-                          (smart-dash-mode)
                           (company-mode)
                           (flycheck-mode)
                           (eldoc-mode)))

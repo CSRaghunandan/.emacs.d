@@ -203,7 +203,6 @@
  ("sass-mode" . "247a0d4b509f10b28e4687cd8763492bca03599b")
  ("selected.el" . "3043fd2609f7e71d809763ae6e8dd4b6c904e63d")
  ("shrink-path.el" . "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
- ("smart-dash" . "20f589bf0954824abbe978d096c15894d29f3448")
  ("smartparens" . "555626a43f9bb1985aa9a0eb675f2b88b29702c8")
  ("sphinx-doc.el" . "f39da2e6cae55d5d7c7ce887e69755b7529bcd67")
  ("spinner" . "2daa167bec1c7566d662d48613a94453536b524a")

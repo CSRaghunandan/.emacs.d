@@ -26,8 +26,6 @@
         org-self-insert-command
         rag/kill-rectangle-replace-with-space
         recursive-widen
-        shm/space
-        smart-dash-insert
         sp-backward-delete-char
         sp-backward-kill-word
         sp-delete-char
@@ -38,7 +36,6 @@
         sp-select-next-thing
         sp-strict-kill-line-or-region
         sp-unwrap-sexp
-        undefined
         wdired-finish-edit
         wgrep-finish-edit
         wrap-with-double-quotes
@@ -48,5 +45,4 @@
       '(
         counsel-grep-or-swiper
         ivy-done
-        shm/del
         ))

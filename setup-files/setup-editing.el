@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-17 14:21:51 csraghunandan>
+;; Time-stamp: <2020-06-03 22:46:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -530,10 +530,6 @@ Version 2017-01-11"
 (setq-default buffer-file-coding-system 'utf-8)
 (when (fboundp 'set-charset-priority)
   (set-charset-priority 'unicode)) ; pretty
-
-;; smart-dash: underscores without having to press shift modifier for dash key
-(use-package smart-dash
-  :config (require 'smart-dash))
 
 ;; cycle-quotes: cycle between single and double quotes
 (use-package cycle-quotes
