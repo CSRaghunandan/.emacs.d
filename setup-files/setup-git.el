@@ -1,5 +1,5 @@
-;;; setup-git-stuff.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-15 21:11:37 csraghunandan>
+;;; setup-git.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2020-06-04 09:46:20 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -122,7 +122,17 @@
   :hook ((diff-mode-hook . rigid-tabs-diff-align)
          (magit-refresh-buffer-hook . rigid-tabs-diff-align)))
 
-(provide 'setup-git-stuff)
+;; Use delta (https://github.com/dandavison/delta) when viewing diffs in Magit
+;; https://github.com/dandavison/magit-delta
+(use-package magit-delta
+  :if (executable-find "delta")
+  :config
+  (magit-delta-mode)
+
+  ;; Use Nord theme for delta
+  (setq magit-delta-default-dark-theme "Nord"))
+
+(provide 'setup-git)
 
 ;; diff-hl
 ;; C-x v [ -> diff-hl-previous-hunk

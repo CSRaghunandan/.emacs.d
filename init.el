@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-11 01:53:56 csraghunandan>
+;; Time-stamp: <2020-06-04 09:46:42 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -45,7 +45,7 @@
 (require 'setup-hydra)
 (require 'setup-org)
 (require 'setup-smartparens)
-(require 'setup-git-stuff)
+(require 'setup-git)
 (require 'setup-avy)
 (require 'setup-window)
 (require 'setup-projectile)
