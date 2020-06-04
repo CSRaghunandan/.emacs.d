@@ -1,5 +1,5 @@
 ;;; setup-sh.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-31 22:55:52 csraghunandan>
+;; Time-stamp: <2020-06-04 20:36:35 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -29,7 +29,7 @@
   :config
   (defun my-sh-mode-hook()
     (set (make-local-variable 'company-backends)
-         '((company-lsp company-files :with company-yasnippet)
+         '((company-capf company-files :with company-yasnippet)
            (company-dabbrev-code company-dabbrev))))
 
   (add-hook 'sh-mode-hook 'my-sh-mode-hook)
