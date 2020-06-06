@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-06 14:18:32 csraghunandan>
+;; Time-stamp: <2020-06-06 19:53:48 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -37,6 +37,9 @@
 
 ;; resize windows proportionally
 (setq window-combination-resize t)
+
+;; show cursor in non-selected window as a hollow
+(setq-default cursor-in-non-selected-windows 'hollow)
 
 
 

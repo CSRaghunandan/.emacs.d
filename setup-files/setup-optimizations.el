@@ -1,5 +1,5 @@
 ;;; setup-optimizations.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-10 17:51:17 csraghunandan>
+;; Time-stamp: <2020-06-06 19:54:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,9 +22,7 @@
 ;; spells of inaccurate fontification immediately after scrolling.
 (setq fast-but-imprecise-scrolling t)
 
-;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
-;; in non-focused windows.
-(setq-default cursor-in-non-selected-windows nil)
+;; don't highlight non selected windows
 (setq highlight-nonselected-windows nil)
 
 ;; Don't ping things that look like domain names.
