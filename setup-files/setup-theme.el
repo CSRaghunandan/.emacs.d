@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-21 23:06:24 csraghunandan>
+;; Time-stamp: <2020-06-06 14:17:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -77,11 +77,6 @@
     (set-face-attribute 'info-menu-header nil :inherit nil :weight 'bold)
     (set-face-attribute 'info-colors-lisp-code-block nil :inherit nil
                         :weight 'bold)
-
-    ;; make hl-fill-column-face more prominent
-    (with-eval-after-load 'hl-fill-column
-      (set-face-attribute 'hl-fill-column-face nil :background nil
-                          :foreground "red" :weight 'bold :underline t))
 
     ;; make ivy matches more prominent
     (set-face-attribute 'ivy-current-match nil :weight 'bold)
