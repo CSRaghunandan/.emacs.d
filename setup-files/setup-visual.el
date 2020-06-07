@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-06 19:53:48 csraghunandan>
+;; Time-stamp: <2020-06-07 23:27:54 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -50,20 +50,17 @@
   :hook ((prog-mode org-mode) . page-break-lines-mode)
   :config (setq page-break-lines-max-width 80))
 
-;; highlight fill column for emacs.
-;; https://github.com/laishulu/hl-fill-column/
-(use-package hl-fill-column
-  :hook ((text-mode prog-mode conf-mode) . hl-fill-column-mode)
-  :config
-  ;; make hl-fill-column-face more prominent
-  (set-face-attribute 'hl-fill-column-face nil :background nil
-                      :foreground "#BF616A" :weight 'bold :underline t))
-
 ;; Easily adjust the font size in all Emacs frames
 ;; https://github.com/purcell/default-text-scale/
 (use-package default-text-scale
   :defer 5
   :config (default-text-scale-mode))
+
+;; turn on the native fill column indicator
+;; requires emacs27 or newer
+(use-package display-fill-column-indicator
+  :straight nil
+  :hook (prog-mode . display-fill-column-indicator-mode))
 
 
 
