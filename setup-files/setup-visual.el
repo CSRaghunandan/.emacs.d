@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-07 23:27:54 csraghunandan>
+;; Time-stamp: <2020-06-07 23:33:30 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -60,7 +60,7 @@
 ;; requires emacs27 or newer
 (use-package display-fill-column-indicator
   :straight nil
-  :hook (prog-mode . display-fill-column-indicator-mode))
+  :hook ((prog-mode conf-mode yaml-mode) . display-fill-column-indicator-mode))
 
 
 
