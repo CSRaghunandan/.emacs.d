@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-07 23:56:53 csraghunandan>
+;; Time-stamp: <2020-06-08 00:01:52 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,6 +22,7 @@
         lsp-keep-workspace-alive nil ; Auto-kill LSP server
         lsp-prefer-capf t
         lsp-enable-indentation nil
+        lsp-enable-symbol-highlighting nil
         lsp-enable-on-type-formatting nil))
 
 ;; lsp-ui: This contains all the higher level UI modules of lsp-mode, like flycheck support and code lenses.
