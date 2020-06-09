@@ -1,5 +1,5 @@
 ;;; setup-projectile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-09 17:42:18 csraghunandan>
+;; Time-stamp: <2020-06-09 18:11:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -33,9 +33,6 @@
 
   ;; include the project root directory in projectile-find-dir list
   (setq projectile-find-dir-includes-top-level t)
-
-  ;; use turbo indexing method for proectile
-  (setq projectile-indexing-method 'alien)
 
 
 
