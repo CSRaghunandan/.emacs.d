@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-09 15:53:27 csraghunandan>
+;; Time-stamp: <2020-06-09 23:46:08 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -63,7 +63,8 @@
   :hook ((prog-mode
           conf-mode
           yaml-mode
-          org-mode) . display-fill-column-indicator-mode))
+          org-mode) . display-fill-column-indicator-mode)
+  :config (setq display-fill-column-indicator-character 124))
 
 
 
