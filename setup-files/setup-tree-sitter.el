@@ -1,5 +1,5 @@
 ;;; setup-tree-sitter.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-09 11:52:11 csraghunandan>
+;; Time-stamp: <2020-06-09 19:41:39 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,7 +22,9 @@
                                :repo "ubolonton/emacs-tree-sitter"
                                :files ("langs/*.el" "langs/queries"))
   :hook ((rustic-mode . tree-sitter-mode)
-         (rustic-mode . tree-sitter-hl-mode))
+         (rustic-mode . tree-sitter-hl-mode)
+         (python-mode . tree-sitter-mode)
+         (python-mode . tree-sitter-hl-mode))
   :init (require 'tree-sitter-langs))
 
 (provide 'setup-tree-sitter)
