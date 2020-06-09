@@ -1,5 +1,5 @@
 ;;; setup-visual.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-09 23:46:08 csraghunandan>
+;; Time-stamp: <2020-06-10 00:03:11 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -48,7 +48,9 @@
 ;; enter page-break character in Emacs by entering `C-q C-l'
 (use-package page-break-lines
   :hook ((prog-mode org-mode) . page-break-lines-mode)
-  :config (setq page-break-lines-max-width 80))
+  :config
+  (setq page-break-lines-max-width 80)
+  (setq page-break-lines-char 45))
 
 ;; Easily adjust the font size in all Emacs frames
 ;; https://github.com/purcell/default-text-scale/
@@ -64,7 +66,7 @@
           conf-mode
           yaml-mode
           org-mode) . display-fill-column-indicator-mode)
-  :config (setq display-fill-column-indicator-character 124))
+  :config (setq-default display-fill-column-indicator-character 124))
 
 
 
