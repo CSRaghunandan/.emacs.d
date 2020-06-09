@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-03 22:46:52 csraghunandan>
+;; Time-stamp: <2020-06-09 19:49:45 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,7 +8,6 @@
 ;; https://github.com/emacs-lsp/lsp-python-ms
 (use-package lsp-python-ms
   :hook ((python-mode . (lambda ()
-                          ;; (require 'lsp-python-ms)
                           (setq-local lsp-ui-flycheck-enable nil)
                           (lsp-deferred)
                           (lsp-ui-mode)
@@ -24,7 +23,6 @@
 (use-package flycheck-pycheckers
   :config (add-to-list 'flycheck-checkers 'flycheck-pycheckers))
 
-;; TODO: add pyflakes linter
 (use-package python
   :straight nil
   :hook ((python-mode . (lambda ()
