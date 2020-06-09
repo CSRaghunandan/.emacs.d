@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-04 09:46:42 csraghunandan>
+;; Time-stamp: <2020-06-08 00:22:49 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -85,6 +85,7 @@
 (require 'setup-font-check)
 (require 'setup-misc)
 (require 'setup-visual)
+(require 'setup-tree-sitter)
 (require 'setup-tramp)
 (require 'setup-theme)
 (require 'setup-highlight)
