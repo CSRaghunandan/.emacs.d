@@ -1,5 +1,5 @@
 ;;; setup-tree-sitter.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-09 19:41:39 csraghunandan>
+;; Time-stamp: <2020-06-09 23:43:14 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,6 +25,7 @@
          (rustic-mode . tree-sitter-hl-mode)
          (python-mode . tree-sitter-mode)
          (python-mode . tree-sitter-hl-mode))
+  :after tree-sitter
   :init (require 'tree-sitter-langs))
 
 (provide 'setup-tree-sitter)
