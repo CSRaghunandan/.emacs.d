@@ -1,5 +1,5 @@
 ;;; setup-sh.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-04 20:36:35 csraghunandan>
+;; Time-stamp: <2020-06-10 00:29:10 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -22,7 +22,6 @@
                       (company-mode))))
   :hook (sh-mode . flycheck-mode)
   :mode (("\\.aliases\\'" . sh-mode)
-         ("\\.[a-zA-Z]+rc\\'" . sh-mode)
          ("crontab.*\\'" . sh-mode)
          ("\\.zunit\\'" . sh-mode)
          ("/bspwmrc\\'" . sh-mode))
