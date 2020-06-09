@@ -1,5 +1,5 @@
 ;;; setup-projectile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-02-13 21:20:55 csraghunandan>
+;; Time-stamp: <2020-06-09 17:42:18 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -26,6 +26,10 @@
   ;; ignore some common files for projectile
   (setq projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o")
         projectile-globally-ignored-files '(".DS_Store" "Icon" "TAGS"))
+
+  (when (executable-find "fd")
+      ;; use `fd' to generate list of files in a git project for projectile
+  (setq projectile-git-command "fd . -0 --type f --color=never"))
 
   ;; include the project root directory in projectile-find-dir list
   (setq projectile-find-dir-includes-top-level t)
