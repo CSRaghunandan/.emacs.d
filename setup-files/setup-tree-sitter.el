@@ -1,5 +1,5 @@
 ;;; setup-tree-sitter.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-10 08:55:28 csraghunandan>
+;; Time-stamp: <2020-06-10 15:18:50 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,6 +13,12 @@
                          :host github
                          :repo "ubolonton/emacs-tree-sitter"
                          :files ("lisp/*.el" "src" "Cargo.toml" "Cargo.lock"))
+  :hook (((rustic-mode
+           python-mode
+           css-mode) . tree-sitter-mode)
+         ((rustic-mode
+           python-mode
+           css-mode) . tree-sitter-hl-mode))
   :config
   (add-to-list 'tree-sitter-major-mode-language-alist
                '(rustic-mode . rust)))
@@ -23,11 +29,6 @@
                                :host github
                                :repo "ubolonton/emacs-tree-sitter"
                                :files ("langs/*.el" "langs/queries"))
-  :hook ((rustic-mode . tree-sitter-mode)
-         (rustic-mode . tree-sitter-hl-mode)
-         (python-mode . tree-sitter-mode)
-         (python-mode . tree-sitter-hl-mode))
-  :after tree-sitter
-  :init (require 'tree-sitter-langs))
+  :after tree-sitter)
 
 (provide 'setup-tree-sitter)
