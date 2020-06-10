@@ -1,5 +1,5 @@
 ;;; setup-tree-sitter.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-09 23:43:14 csraghunandan>
+;; Time-stamp: <2020-06-10 08:55:28 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,6 +8,7 @@
 ;;     languages for tree-sitter
 ;; Also, make sure `tree-sitter'is installed in your system
 (use-package tree-sitter
+  :if (executable-find "tree-sitter")
   :straight (tree-sitter :type git
                          :host github
                          :repo "ubolonton/emacs-tree-sitter"
@@ -17,6 +18,7 @@
                '(rustic-mode . rust)))
 
 (use-package tree-sitter-langs
+  :if (executable-find "tree-sitter")
   :straight (tree-sitter-langs :type git
                                :host github
                                :repo "ubolonton/emacs-tree-sitter"
