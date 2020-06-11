@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-11 19:46:53 csraghunandan>
+;; Time-stamp: <2020-06-11 19:59:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -694,7 +694,7 @@ _C_: correct  _p_: prev error _d_: done checking
               (("C-c n i" . org-roam-insert)))
   :config
   (org-roam-mode)
-  (setq org-roam-directory ~/org/notes))
+  (setq org-roam-directory "~/org/notes"))
 
 ;; Interactively cleanup unreferenced IDs of org-id
 ;; https://github.com/marcIhm/org-id-cleanup
