@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-05-11 01:23:29 csraghunandan>
+;; Time-stamp: <2020-06-11 22:41:09 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -134,8 +134,9 @@ It added extra strings at the front and back of the default dired buffer name."
           "\\.idx\\|\\.run\\.xml$\\|\\.bbl$\\|\\.bcf$\\|.blg$\\|-blx.bib$\\|.nav$\\|.snm$\\|.out$\\|.synctex.gz$\\|\\(?:\\.\\(?:aux\\|bak\\|dvi\\|log\\|orig\\|rej\\|toc\\|pyg\\)\\)\\'")))
 
 ;; dired-x: to hide uninteresting files in dired
-(use-package dired-x :straight nil
-  :demand t
+(use-package dired-x
+  :straight nil
+  :bind ("C-x C-j" . dired-jump)
   :hook ((dired-mode . dired-omit-mode))
   :config
   (setq dired-omit-verbose nil)
@@ -147,9 +148,11 @@ It added extra strings at the front and back of the default dired buffer name."
 ;; diredfl:Extra Emacs font lock rules for a more colourful dired
 ;; https://github.com/purcell/diredfl/tree/085eabf2e70590ec8e31c1e66931d652d8eab432
 (use-package diredfl
-  :config (diredfl-global-mode))
+  :config
+  (with-eval-after-load 'dired
+    (diredfl-global-mode)))
 
-(use-package wdired :defer t
+(use-package wdired
   :straight nil
   :config (setq wdired-allow-to-change-permissions t))
 
