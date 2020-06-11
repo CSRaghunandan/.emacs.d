@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-11 19:59:09 csraghunandan>
+;; Time-stamp: <2020-06-11 23:21:43 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -623,7 +623,9 @@ exist after each headings's drawers."
 
 ;;  Supercharge your Org daily/weekly agenda by grouping items
 ;; https://github.com/alphapapa/org-super-agenda
-(use-package org-super-agenda)
+(use-package org-super-agenda
+  :after org
+  :config (org-super-agenda-mode))
 
 ;; Org Cliplink: insert the link in the clipboard as an org link. Adds the
 ;; title of the page as the description
@@ -636,16 +638,20 @@ exist after each headings's drawers."
 
 ;; org-download: easily add images to org buffers
 ;; https://github.com/abo-abo/org-download
-(use-package org-download)
+(use-package org-download
+  :after org)
 
 ;;  Automatic tables of contents for Org files
 ;; https://github.com/alphapapa/org-make-toc
-(use-package org-make-toc)
+(use-package org-make-toc
+  :after org)
 
 ;; pomodoro implementation in org
 ;; https://github.com/lolownia/org-pomodoro
 (use-package org-pomodoro
-  :config (bind-key "C-c o p" #'org-pomodoro org-mode-map))
+  :bind (:map org-mode-map
+           ("C-c o p" . org-pomodoro))
+  :after org)
 
 ;; Rich text clipboard for org-mode
 ;; https://github.com/unhammer/org-rich-yank
