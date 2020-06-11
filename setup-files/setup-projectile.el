@@ -1,15 +1,15 @@
 ;;; setup-projectile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-09 18:11:59 csraghunandan>
+;; Time-stamp: <2020-06-11 20:00:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; Projectile: Project Interaction Library for Emacs
 ;; https://github.com/bbatsov/projectile
-(use-package projectile :defer 1
+(use-package projectile
+  :bind ((:map projectile-mode-map
+               ("C-c p" . projectile-command-map)))
   :config
-  ;; Set the projectile-prefix-command binding
-  (bind-key "C-c p" 'projectile-command-map projectile-mode-map)
 
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)
