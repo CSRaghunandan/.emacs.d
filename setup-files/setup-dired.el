@@ -1,5 +1,5 @@
 ;;; setup-dired.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-06-11 22:41:09 csraghunandan>
+;; Time-stamp: <2020-06-11 22:49:10 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,57 +13,55 @@
                ("C-a" . rag/dired-move-to-filename)
                ("^" . rag/dired-up-dir)))
   :config
-  (progn
+  ;; this is just an interactive version of the function found in dired.el
+  (defun rag/dired-move-to-filename (&optional raise-error eol)
+    (interactive)
+    (dired-move-to-filename raise-error eol))
 
-    ;; this is just an interactive version of the function found in dired.el
-    (defun rag/dired-move-to-filename (&optional raise-error eol)
-      (interactive)
-      (dired-move-to-filename raise-error eol))
+  ;; use the same buffer for going up a directory in dired
+  (defun rag/dired-up-dir()
+    (interactive) (find-alternate-file ".."))
 
-    ;; use the same buffer for going up a directory in dired
-    (defun rag/dired-up-dir()
-      (interactive) (find-alternate-file ".."))
+  ;; follow symlinks in dired
+  (setq find-file-visit-truename t)
 
-    ;; follow symlinks in dired
-    (setq find-file-visit-truename t)
+  ;; mark symlinks
+  (setq dired-ls-F-marks-symlinks t)
+  ;; Never prompt for recursive copies of a directory
+  (setq dired-recursive-copies 'always)
+  ;; Never prompt for recursive deletes of a directory
+  (setq dired-recursive-deletes 'always)
+  ;; makes dired guess the target directory
+  (setq dired-dwim-target t)
 
-    ;; mark symlinks
-    (setq dired-ls-F-marks-symlinks t)
-    ;; Never prompt for recursive copies of a directory
-    (setq dired-recursive-copies 'always)
-    ;; Never prompt for recursive deletes of a directory
-    (setq dired-recursive-deletes 'always)
-    ;; makes dired guess the target directory
-    (setq dired-dwim-target t)
+  ;; run dired  commands asynchronously
+  (dired-async-mode 1)
 
-    ;; run dired  commands asynchronously
-    (dired-async-mode 1)
+  (>=e "27.0"
+      (setq dired-create-destination-dirs t))
 
-    (>=e "27.0"
-        (setq dired-create-destination-dirs t))
+  ;; Dired listing switches
+  ;;  -a : Do not ignore entries starting with .
+  ;;  -l : Use long listing format.
+  ;;  -h : Human-readable sizes like 1K, 234M, ..
+  ;;  -v : Do natural sort .. so the file names starting with . will show up first.
+  ;;  -F : Classify filenames by appending '*' to executables,'/' to directories, etc.
+  ;; default value for dired: "-al"
+  (setq dired-listing-switches (if (is-windows-p)
+                                   "-alh"
+                                 "-alhvF --group-directories-first"))
 
-    ;; Dired listing switches
-    ;;  -a : Do not ignore entries starting with .
-    ;;  -l : Use long listing format.
-    ;;  -h : Human-readable sizes like 1K, 234M, ..
-    ;;  -v : Do natural sort .. so the file names starting with . will show up first.
-    ;;  -F : Classify filenames by appending '*' to executables,'/' to directories, etc.
-    ;; default value for dired: "-al"
-    (setq dired-listing-switches (if (is-windows-p)
-                                     "-alh"
-                                   "-alhvF --group-directories-first"))
+  ;; auto-revert dired buffers if file changed on disk
+  (setq dired-auto-revert-buffer t)
 
-    ;; auto-revert dired buffers if file changed on disk
-    (setq dired-auto-revert-buffer t)
-
-    (defun rag/dired-rename-buffer-name ()
-      "Rename the dired buffer name to distinguish it from file buffers.
+  (defun rag/dired-rename-buffer-name ()
+    "Rename the dired buffer name to distinguish it from file buffers.
 It added extra strings at the front and back of the default dired buffer name."
-      (let ((name (buffer-name)))
-        (if (not (string-match "/$" name))
-            (rename-buffer (concat "*Dired* " name "/") t))))
+    (let ((name (buffer-name)))
+      (if (not (string-match "/$" name))
+          (rename-buffer (concat "*Dired* " name "/") t))))
 
-    (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name))
+  (add-hook 'dired-mode-hook #'rag/dired-rename-buffer-name)
 
   ;;* rest
   (defun ora-dired-get-size ()
