@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-28 16:26:53 csraghunandan>
+;; Time-stamp: <2020-06-11 16:21:47 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -653,12 +653,12 @@ exist after each headings's drawers."
   :bind (:map org-mode-map
               ("C-M-y" . org-rich-yank)))
 
-  ;; plantuml configuration
-  (use-package ob-plantuml :straight nil
-    :commands
-    (org-babel-execute:plantuml)
-    :config
-    (setq org-plantuml-jar-path (expand-file-name "/usr/share/java/plantuml/plantuml.jar")))
+;; plantuml configuration
+(use-package ob-plantuml :straight nil
+  :commands
+  (org-babel-execute:plantuml)
+  :config
+  (setq org-plantuml-jar-path (expand-file-name "/usr/share/java/plantuml/plantuml.jar")))
 
 (use-package langtool :defer 1
     :config
