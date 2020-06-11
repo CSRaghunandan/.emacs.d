@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-11 16:21:47 csraghunandan>
+;; Time-stamp: <2020-06-11 19:46:53 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -616,7 +616,7 @@ exist after each headings's drawers."
 ;; When viewing a journal entry:
 ;; * C-c C-f to view next entry
 ;; * C-c C-b to view previous entry
-(use-package org-journal :defer 2
+(use-package org-journal
   :bind (("C-c o j" . org-journal-new-entry))
   :hook ((org-journal-mode . (lambda ()
                                (visual-line-mode -1)))))
@@ -685,8 +685,6 @@ _C_: correct  _p_: prev error _d_: done checking
 ;; Org-roam is a Roam replica built on top of the all-powerful Org-mode.
 ;; https://org-roam.readthedocs.io/en/master/
 (use-package org-roam :defer 1
-  :custom
-  (org-roam-directory "~/org/notes/")
   :bind (:map org-roam-mode-map
               (("C-c n l" . org-roam)
                ("C-c n f" . org-roam-find-file)
@@ -694,7 +692,9 @@ _C_: correct  _p_: prev error _d_: done checking
                ("C-c n g" . org-roam-show-graph))
               :map org-mode-map
               (("C-c n i" . org-roam-insert)))
-  :config (org-roam-mode))
+  :config
+  (org-roam-mode)
+  (setq org-roam-directory ~/org/notes))
 
 ;; Interactively cleanup unreferenced IDs of org-id
 ;; https://github.com/marcIhm/org-id-cleanup
