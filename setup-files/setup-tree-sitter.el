@@ -1,5 +1,5 @@
 ;;; setup-tree-sitter.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-10 15:18:50 csraghunandan>
+;; Time-stamp: <2020-06-11 22:56:12 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -12,7 +12,7 @@
   :straight (tree-sitter :type git
                          :host github
                          :repo "ubolonton/emacs-tree-sitter"
-                         :files ("lisp/*.el" "src" "Cargo.toml" "Cargo.lock"))
+                         :files ("lisp/*.el"))
   :hook (((rustic-mode
            python-mode
            css-mode) . tree-sitter-mode)
