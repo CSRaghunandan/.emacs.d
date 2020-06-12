@@ -1,5 +1,5 @@
 ;;; setup-git.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-04 09:46:20 csraghunandan>
+;; Time-stamp: <2020-06-12 11:11:28 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -126,6 +126,7 @@
 ;; https://github.com/dandavison/magit-delta
 (use-package magit-delta
   :if (executable-find "delta")
+  :after magit
   :config
   (magit-delta-mode)
 
