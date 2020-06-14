@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-24 10:13:02 csraghunandan>
+;; Time-stamp: <2020-06-14 11:49:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,6 +8,10 @@
 ;; https://github.com/akermu/emacs-libvterm
 (use-package vterm
   :if (executable-find "cmake")
+  :bind (:map vterm-mode-map
+              ("C-s" . counsel-grep-or-swiper)
+              ("C-y" . vterm-yank))
+  :bind ("C-c t" . multi-term-hydra/body)
   :config
 
   ;; disable some unnecessary minor-modes in term-mode
@@ -34,7 +38,6 @@
 (use-package multi-vterm
   :after vterm
   :if (executable-find "cmake")
-  :bind ("C-c t" . multi-term-hydra/body)
   :config
   ;; hydra for using multi-vterm
   (defhydra multi-term-hydra ()
