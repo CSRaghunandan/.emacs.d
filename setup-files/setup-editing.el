@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-03 22:46:32 csraghunandan>
+;; Time-stamp: <2020-06-15 00:22:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -634,5 +634,15 @@ behavior added."
 ;; https://github.com/Fanael/persistent-scratch
 (use-package persistent-scratch
   :config (persistent-scratch-setup-default))
+
+;; sudo-edit: Utilities for opening files with sudo
+;; https://github.com/nflath/sudo-edit
+(use-package sudo-edit
+  :bind
+  ("C-c s u" . sudo-edit)
+  :config
+  (sudo-edit-indicator-mode)
+  ;; set a less intrusive header for sudo-edit-indicator-mode
+  (set-face-attribute 'sudo-edit-header-face nil :background "#2E3440"))
 
 (provide 'setup-editing)
