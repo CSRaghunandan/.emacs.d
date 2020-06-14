@@ -1,5 +1,5 @@
 ;;; setup-spell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-28 17:01:46 csraghunandan>
+;; Time-stamp: <2020-06-15 00:10:03 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,6 +15,9 @@
      git-commit-mode) . flyspell-mode)
    ((prog-mode yaml-mode conf-mode) . flyspell-prog-mode))
   :config
+
+  ;; disable flyspell mouse integration. Gets annoying very quickly
+  (setq flyspell-mouse-map nil)
 
   (setq flyspell-issue-welcome-flag nil
         ;; Significantly speeds up flyspell, which would otherwise print
