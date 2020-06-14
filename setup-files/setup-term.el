@@ -1,5 +1,5 @@
 ;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-14 11:49:56 csraghunandan>
+;; Time-stamp: <2020-06-14 12:30:46 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -19,8 +19,6 @@
                                (yas-minor-mode -1)
                                (setq-local global-hl-line-mode nil)
 
-                               ;; Don't prompt about processes when killing vterm
-                               (setq-local confirm-kill-processes nil)
                                ;; Prevent premature horizontal scrolling
                                (setq-local hscroll-margin 0)))
 
