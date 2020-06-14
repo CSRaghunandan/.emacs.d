@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-31 22:38:48 csraghunandan>
+;; Time-stamp: <2020-06-15 00:37:56 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -88,11 +88,12 @@
 (use-package crontab-mode
   :mode "\\.?cron\\(tab\\)?\\'")
 
-;; this package provides direnv integration for emacs.
-;; https://github.com/wbolster/emacs-direnv/
-(use-package direnv :defer 2
+;; envrc: Emacs support for direnv which operates buffer-locally
+;; https://github.com/purcell/envrc
+(use-package envrc
   :if (executable-find "direnv")
-  :config
-  (direnv-mode))
+  :bind (:map envrc-mode-map
+              ("C-c d" . envrc-command-map))
+  :config (envrc-global-mode))
 
 (provide 'setup-config-files)

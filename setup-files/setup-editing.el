@@ -1,5 +1,5 @@
 ;;; setup-editing.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-15 00:22:40 csraghunandan>
+;; Time-stamp: <2020-06-15 00:36:46 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -588,7 +588,7 @@ this command."
 ;; duplicate-thing.el is Emacs lisp. Easy duplicate line or region, with comment out.
 ;; https://github.com/ongaeshi/duplicate-thing
 (use-package duplicate-thing
-  :bind (("C-c d r" . duplicate-thing)))
+  :bind (("C-c d t" . duplicate-thing)))
 
 ;; https://with-emacs.com/posts/tips/quit-current-context/
 (defun keyboard-quit-context+ ()
