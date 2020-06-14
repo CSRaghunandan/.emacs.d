@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-14 14:23:48 csraghunandan>
+;; Time-stamp: <2020-06-15 00:01:05 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -92,6 +92,7 @@
 (require 'setup-calendar)
 (require 'setup-minibuffer)
 (require 'setup-purescript)
+(require 'setup-lua)
 (require 'setup-abbrev)
 (require 'setup-compile)
 (require 'setup-macro)
