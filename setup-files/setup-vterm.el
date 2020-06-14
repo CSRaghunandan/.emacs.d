@@ -1,5 +1,5 @@
-;;; setup-term.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-14 12:30:46 csraghunandan>
+;;; setup-vterm.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2020-06-14 14:23:40 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -48,4 +48,4 @@
               ("r" multi-vterm-projectile "vterm projectile")
               ("q" nil "Quit" :color blue)))
 
-(provide 'setup-term)
+(provide 'setup-vterm)

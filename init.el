@@ -1,5 +1,5 @@
 ;;; init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-10 00:27:38 csraghunandan>
+;; Time-stamp: <2020-06-14 14:23:48 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -78,7 +78,7 @@
 (require 'setup-css)
 (require 'setup-eshell)
 (require 'setup-comint)
-(require 'setup-term)
+(require 'setup-vterm)
 (require 'setup-which-key)
 (require 'setup-kurecolor)
 (require 'setup-erc)
