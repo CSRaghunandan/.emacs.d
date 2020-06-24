@@ -1,5 +1,5 @@
 ;;; setup-sh.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-10 00:29:10 csraghunandan>
+;; Time-stamp: <2020-06-22 13:17:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -16,7 +16,7 @@
   :straight nil
   :hook ((sh-mode . (lambda ()
                       (setq-local lsp-diagnostic-package ':none)
-                      (setq flycheck-checker 'sh-bash)
+                      (setq-local flycheck-checker 'sh-shellcheck)
                       (lsp-deferred)
                       (lsp-ui-doc-mode)
                       (company-mode))))
