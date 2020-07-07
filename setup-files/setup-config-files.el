@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-15 00:37:56 csraghunandan>
+;; Time-stamp: <2020-07-07 17:03:26 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -90,7 +90,7 @@
 
 ;; envrc: Emacs support for direnv which operates buffer-locally
 ;; https://github.com/purcell/envrc
-(use-package envrc
+(use-package envrc :defer 2
   :if (executable-find "direnv")
   :bind (:map envrc-mode-map
               ("C-c d" . envrc-command-map))
