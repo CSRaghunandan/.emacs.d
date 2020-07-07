@@ -707,6 +707,7 @@
     ("reccommend" "recommend" nil :count 0)
     ("receieve" "receive" nil :count 0)
     ("recepie" "recipe" nil :count 0)
+    ("reciepents" "recipients" nil :count 0)
     ("recieve" "receive" nil :count 0)
     ("recieved" "received" nil :count 1)
     ("recieving" "receiving" nil :count 0)

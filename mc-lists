@@ -6,9 +6,11 @@
       '(
         counsel-M-x
         counsel-yank-pop
+        forward-sexp
         hungry-delete-backward
         hungry-delete-forward
         indent-for-tab-command
+        kill-region
         org-beginning-of-line
         org-cycle
         org-end-of-line
@@ -16,8 +18,10 @@
         sp-backward-delete-char
         sp-backward-kill-word
         sp-delete-char
+        sp-kill-region
         sp-kill-word
         sp-strict-kill-line-or-region
+        wgrep-finish-edit
         yaml-electric-dash-and-dot
         ))
 

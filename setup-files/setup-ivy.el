@@ -1,5 +1,5 @@
 ;;; setup-ivy.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-25 23:48:36 csraghunandan>
+;; Time-stamp: <2020-07-07 16:28:17 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -44,7 +44,7 @@
 
   ;; modify default search behaviour of ivy
   (setq ivy-re-builders-alist
-        '((t . ivy--regex-ignore-order)))
+        '((t . ivy--regex-plus)))
 
   (bind-keys
    :map ivy-occur-grep-mode-map
