@@ -13,7 +13,6 @@
         hydra-change-case/modi/upcase-and-exit
         hydra-change-case/xah-cycle-letter-case
         indent-for-tab-command
-        isearch-forward-symbol-at-point
         ivy-occur-delete-candidate
         ivy-wgrep-change-to-wgrep-mode
         kill-region
