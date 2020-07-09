@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-31 19:35:00 csraghunandan>
+;; Time-stamp: <2020-07-09 09:42:38 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -20,7 +20,8 @@
           treemacs-sorting 'alphabetic-asc
           treemacs-show-hidden-files t
           treemacs-never-persist nil
-          treemacs-is-never-other-window t)
+          treemacs-is-never-other-window t
+          treemacs-user-mode-line-format 'none)
 
     ;; set the correct python3 executable path. This is needed for
     ;; treemacs-git-mode extended
@@ -28,12 +29,6 @@
 
     ;; highlight current line in fringe for treemacs window
     (treemacs-fringe-indicator-mode)
-
-    (defun doom-themes-hide-modeline ()
-      (setq mode-line-format nil))
-
-    ;; The modeline isn't useful in treemacs
-    (add-hook 'treemacs-mode-hook #'doom-themes-hide-modeline)
 
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
