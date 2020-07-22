@@ -21,6 +21,7 @@
         sp-kill-region
         sp-kill-word
         sp-strict-kill-line-or-region
+        sp-unwrap-sexp
         wgrep-finish-edit
         yaml-electric-dash-and-dot
         ))

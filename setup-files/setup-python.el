@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-09 19:49:45 csraghunandan>
+;; Time-stamp: <2020-07-22 11:41:43 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -8,10 +8,10 @@
 ;; https://github.com/emacs-lsp/lsp-python-ms
 (use-package lsp-python-ms
   :hook ((python-mode . (lambda ()
-                          (setq-local lsp-ui-flycheck-enable nil)
+                          (setq-local lsp-diagnostic-package ':none)
+                          (setq-local flycheck-checker 'python-pycheckers)
                           (lsp-deferred)
                           (lsp-ui-mode)
-                          (setq-local flycheck-checker 'python-pycheckers)
                           (lsp-ui-doc-mode))))
   :init
   ;; set path of MS python language server
@@ -21,7 +21,10 @@
 ;; Multiple syntax checker for Python in Emacs, using Flycheck
 ;; https://github.com/msherry/flycheck-pycheckers
 (use-package flycheck-pycheckers
-  :config (add-to-list 'flycheck-checkers 'flycheck-pycheckers))
+  :hook ((flycheck-mode . flycheck-pycheckers-setup))
+  :config
+  (add-to-list 'flycheck-checkers 'flycheck-pycheckers)
+  (setq flycheck-pycheckers-checkers '(pylint bandit mypy3)))
 
 (use-package python
   :straight nil
