@@ -1,5 +1,5 @@
 ;;; setup-mode-line.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-03 01:04:12 csraghunandan>
+;; Time-stamp: <2020-07-30 10:21:46 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -24,6 +24,13 @@
 
   ;; enable column number mode
   (column-number-mode)
+
+  ;; use ffip for detecting files in project
+  ;; This is needed as projectile as issues with symlinks for doom-modeline
+  (setq doom-modeline-project-detection 'ffip)
+
+  ;; use shorter method to display buffer filenames in doom-modeline
+  (setq doom-modeline-buffer-file-name-style 'truncate-with-project)
 
   ;; don't display persp, don't have it installed
   (setq doom-modeline-persp-name nil)

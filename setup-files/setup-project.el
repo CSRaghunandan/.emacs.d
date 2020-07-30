@@ -1,5 +1,5 @@
-;;; setup-projectile.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-11 20:00:56 csraghunandan>
+;;; setup-project.el -*- lexical-binding: t; -*-
+;; Time-stamp: <2020-07-30 10:22:10 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -110,7 +110,11 @@ files in Fundamental mode."
 
   (projectile-mode))
 
-(provide 'setup-projectile)
+;; ffip: https://github.com/technomancy/find-file-in-project
+;; Find file/directory and review Diff/Patch/Commit quickly everywhere.
+(use-package find-file-in-project)
+
+(provide 'setup-project)
 
 ;; projectile
 ;; This configuration uses `rg'(ripgrep) to generate the project list
