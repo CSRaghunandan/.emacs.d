@@ -1,5 +1,5 @@
 ;;; early-init.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-25 06:39:09 csraghunandan>
+;; Time-stamp: <2020-07-30 15:38:51 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -10,6 +10,10 @@
 ;; disable package enable at startup, since I'm using `straight.el'
 (setq package-enable-at-startup nil)
 (advice-add #'package--ensure-init-file :override #'ignore)
+
+;; comment out this line if you are not using emacs native compilation branch
+;; native compile elisp files as they are loaded
+(setq comp-deferred-compilation t)
 
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum
