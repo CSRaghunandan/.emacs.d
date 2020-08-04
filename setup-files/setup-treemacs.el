@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-07-09 09:42:38 csraghunandan>
+;; Time-stamp: <2020-08-04 16:20:21 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,6 +15,7 @@
           treemacs-eldoc-display nil
           treemacs-collapse-dirs (if (executable-find "python") 3 0)
           treemacs-silent-refresh t
+          treemacs-eldoc-display t
           treemacs-silent-filewatch t
           treemacs-change-root-without-asking t
           treemacs-sorting 'alphabetic-asc
@@ -63,5 +64,9 @@
 (use-package lsp-treemacs :defer 3
   :config
   (lsp-treemacs-sync-mode 1))
+
+;; treemacs theme using all-the-icons
+(use-package treemacs-all-the-icons
+  :config (treemacs-load-theme 'all-the-icons))
 
 (provide 'setup-treemacs)
