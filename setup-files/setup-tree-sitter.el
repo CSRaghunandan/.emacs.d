@@ -1,5 +1,5 @@
 ;;; setup-tree-sitter.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-11 22:56:12 csraghunandan>
+;; Time-stamp: <2020-08-05 13:33:41 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,9 +15,13 @@
                          :files ("lisp/*.el"))
   :hook (((rustic-mode
            python-mode
+           go-mode
+           typescript-mode
            css-mode) . tree-sitter-mode)
          ((rustic-mode
            python-mode
+           go-mode
+           typescript-mode
            css-mode) . tree-sitter-hl-mode))
   :config
   (add-to-list 'tree-sitter-major-mode-language-alist
