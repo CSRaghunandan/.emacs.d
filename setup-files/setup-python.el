@@ -1,22 +1,8 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-07-30 09:30:03 csraghunandan>
+;; Time-stamp: <2020-08-05 11:27:43 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
-
-;; emacs lsp-mode client for Microsoft's python language server
-;; https://github.com/emacs-lsp/lsp-python-ms
-;; (use-package lsp-python-ms
-;;   :hook ((python-mode . (lambda ()
-;;                           (setq-local lsp-diagnostic-package ':none)
-;;                           (setq-local flycheck-checker 'python-pycheckers)
-;;                           (lsp-deferred)
-;;                           (lsp-ui-mode)
-;;                           (lsp-ui-doc-mode))))
-;;   :init
-;;   ;; set path of MS python language server
-;;   (setq lsp-python-ms-executable
-;;         "~/src/dotnet/python-language-server/output/bin/Release/Microsoft.Python.LanguageServer"))
 
 (use-package lsp-pyright
   :straight (lsp-pyright :type git :host github :repo "emacs-lsp/lsp-pyright")
@@ -31,7 +17,7 @@
 (use-package flycheck-pycheckers
   :hook ((flycheck-mode . flycheck-pycheckers-setup))
   :config
-  (add-to-list 'flycheck-checkers 'flycheck-pycheckers)
+  ;; (add-to-list 'flycheck-checkers 'flycheck-pycheckers)
   (setq flycheck-pycheckers-checkers '(pylint bandit mypy3)))
 
 (use-package python
