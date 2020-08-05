@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-04 16:20:21 csraghunandan>
+;; Time-stamp: <2020-08-05 11:16:49 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -11,6 +11,7 @@
   (progn
     (setq treemacs-follow-after-init t
           treemacs-recenter-after-file-follow t
+          treemacs-width 40
           treemacs-recenter-after-project-expand 'on-distance
           treemacs-eldoc-display nil
           treemacs-collapse-dirs (if (executable-find "python") 3 0)
