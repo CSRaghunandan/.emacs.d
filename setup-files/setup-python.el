@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-05 11:27:43 csraghunandan>
+;; Time-stamp: <2020-08-06 11:10:45 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,7 +17,7 @@
 (use-package flycheck-pycheckers
   :hook ((flycheck-mode . flycheck-pycheckers-setup))
   :config
-  ;; (add-to-list 'flycheck-checkers 'flycheck-pycheckers)
+  (add-to-list 'flycheck-checkers 'flycheck-pycheckers)
   (setq flycheck-pycheckers-checkers '(pylint bandit mypy3)))
 
 (use-package python
