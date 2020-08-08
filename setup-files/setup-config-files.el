@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-07-07 17:03:26 csraghunandan>
+;; Time-stamp: <2020-08-08 13:42:46 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -95,5 +95,10 @@
   :bind (:map envrc-mode-map
               ("C-c d" . envrc-command-map))
   :config (envrc-global-mode))
+
+;; major-mode for editing groovy scripts
+;; https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes/
+(use-package groovy-mode
+  :mode "\\.gradle\\'")
 
 (provide 'setup-config-files)
