@@ -1,5 +1,5 @@
 ;;; setup-theme.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-06 14:17:21 csraghunandan>
+;; Time-stamp: <2020-08-08 12:54:31 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -49,9 +49,6 @@
     (set-face-attribute 'info-colors-lisp-code-block nil :inherit nil
                         :weight 'bold)
 
-    ;; make ivy matches more prominent
-    (set-face-attribute 'ivy-current-match nil :weight 'bold)
-
     (with-eval-after-load 'magit
       ;; remove ugly box for `magit-branch-remote-head'
       (set-face-attribute 'magit-branch-remote-head nil
@@ -89,7 +86,6 @@
       (set-face-attribute 'magit-branch-remote-head nil
                           :box nil :weight 'bold
                           :inherit 'magit-branch-remote)))
-  (gh/add-theme-hook 'doom-challenger-deep #'rag/doom-challenger-deep-theme-hook)
   (gh/add-theme-hook 'doom-nord #'rag/doom-nord-hook)
   :config
 
