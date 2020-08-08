@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-08 11:02:28 csraghunandan>
+;; Time-stamp: <2020-08-08 11:47:58 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -62,7 +62,8 @@
 ;; Integration between lsp-mode and treemacs and implementation of treeview
 ;; controls using treemacs as a tree renderer.
 ;; https://github.com/emacs-lsp/lsp-treemacs
-(use-package lsp-treemacs :defer 3
+(use-package lsp-treemacs
+  :after treemacs
   :config
   (lsp-treemacs-sync-mode 1))
 
