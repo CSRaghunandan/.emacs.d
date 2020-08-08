@@ -1,5 +1,5 @@
 ;;; setup-treemacs.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-05 11:16:49 csraghunandan>
+;; Time-stamp: <2020-08-08 11:02:28 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -68,6 +68,7 @@
 
 ;; treemacs theme using all-the-icons
 (use-package treemacs-all-the-icons
+  :after treemacs
   :config (treemacs-load-theme 'all-the-icons))
 
 (provide 'setup-treemacs)
