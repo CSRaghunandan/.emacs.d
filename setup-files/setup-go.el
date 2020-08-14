@@ -1,5 +1,5 @@
 ;;; setup-go.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-31 22:37:59 csraghunandan>
+;; Time-stamp: <2020-08-14 13:03:07 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -41,5 +41,6 @@
 
 (provide 'setup-go)
 
-;; install gopls
+;; install gopls, godef
 ;; go get golang.org/x/tools/gopls
+;; go get github.com/rogpeppe/godef
