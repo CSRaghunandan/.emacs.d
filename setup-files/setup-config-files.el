@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-08 13:42:46 csraghunandan>
+;; Time-stamp: <2020-08-10 14:17:43 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -99,6 +99,7 @@
 ;; major-mode for editing groovy scripts
 ;; https://github.com/Groovy-Emacs-Modes/groovy-emacs-modes/
 (use-package groovy-mode
-  :mode "\\.gradle\\'")
+  :mode (("\\.gradle\\'" . groovy-mode)
+         ("Jenkinsfile" . groovy-mode)))
 
 (provide 'setup-config-files)
