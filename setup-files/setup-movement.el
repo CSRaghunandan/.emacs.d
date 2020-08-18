@@ -1,5 +1,5 @@
 ;;; setup-movement.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-25 23:48:09 csraghunandan>
+;; Time-stamp: <2020-08-19 00:04:26 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -73,7 +73,11 @@ _S_: <- sentence    _A_: <- paragraph    _G_: <- page       _<_: beginning-of-bu
 ;; https://github.com/jixiuf/golden-ratio-scroll-screen
 (use-package golden-ratio-scroll-screen
   :bind (("C-v" . golden-ratio-scroll-screen-up)
-         ("M-v" . golden-ratio-scroll-screen-down)))
+         ("M-v" . golden-ratio-scroll-screen-down))
+  :config
+  ;; don't use obnoxious colors for `golden-ratio-scroll'
+  (set-face-attribute 'golden-ratio-scroll-highlight-line-face nil
+                      :background 'unspecified :foreground 'unspecified))
 
 ;; dumb-jump: jump to definitions using `rg' or `ag'
 ;; https://github.com/jacktasia/dumb-jump
