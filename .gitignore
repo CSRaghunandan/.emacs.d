@@ -12,3 +12,6 @@ straight/build/
 straight/repos/
 straight/watcher/
 straight/build-cache.el
+
+# ignore the emacs lisp nativecomp cache
+eln-cache/
