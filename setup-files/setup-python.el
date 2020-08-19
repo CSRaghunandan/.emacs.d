@@ -1,11 +1,10 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-06 11:10:45 csraghunandan>
+;; Time-stamp: <2020-08-19 18:22:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 (use-package lsp-pyright
-  :straight (lsp-pyright :type git :host github :repo "emacs-lsp/lsp-pyright")
   :hook (python-mode . (lambda()
                          (require 'lsp-pyright)
                          (lsp-deferred)
