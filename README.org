@@ -35,7 +35,7 @@ My emacs config.
 git clone --depth 1 master https://github.com/emacs-mirror/emacs
 cd emacs
 sh autogen.sh
-./configure --with-modules --with-rsvg --with-dbus --with-imagemagick \
+./configure --with-modules --with-rsvg --with-dbus \
      --without-pop --with-xft --with-xml2 --with-libotf --with-mailutils \
      --without-toolkit-scroll-bars --without-xaw3d \
       CFLAGS="-O3 -mtune=native -march=native -fomit-frame-pointer"
@@ -50,7 +50,7 @@ make install
 git clone --depth 1 master https://github.com/emacs-mirror/emacs -b feature/native-comp
 cd emacs
 sh autogen.sh
-./configure --with-modules --with-rsvg --with-dbus --with-imagemagick \
+./configure --with-modules --with-rsvg --with-dbus \
      --without-pop --with-xft --with-xml2 --with-libotf --with-mailutils \
      --with-nativecomp --without-toolkit-scroll-bars --without-xaw3d \
       CFLAGS="-O3 -mtune=native -march=native -fomit-frame-pointer"
