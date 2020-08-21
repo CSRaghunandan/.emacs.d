@@ -1,5 +1,5 @@
 ;;; setup-counsel.el -*- lexical-binding: t -*-
-;; Time-stamp: <2020-05-25 23:48:57 csraghunandan>
+;; Time-stamp: <2020-08-21 17:29:20 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -14,9 +14,7 @@
          ("C-r" . counsel-expression-history))
    (:map counsel-find-file-map
          ("<left>" . counsel-up-directory)
-         ("<right>" . counsel-down-directory))
-   (:map shell-mode-map
-         ("C-r" . counsel-shell-history)))
+         ("<right>" . counsel-down-directory)))
   :bind
   (([remap bookmark-set] . counsel-bookmark)
    ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
