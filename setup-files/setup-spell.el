@@ -1,5 +1,5 @@
 ;;; setup-spell.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-15 00:10:03 csraghunandan>
+;; Time-stamp: <2020-08-21 18:08:59 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,9 +15,6 @@
      git-commit-mode) . flyspell-mode)
    ((prog-mode yaml-mode conf-mode) . flyspell-prog-mode))
   :config
-
-  ;; disable flyspell mouse integration. Gets annoying very quickly
-  (setq flyspell-mouse-map nil)
 
   (setq flyspell-issue-welcome-flag nil
         ;; Significantly speeds up flyspell, which would otherwise print
@@ -35,6 +32,15 @@
     (setq ispell-program-name (executable-find "hunspell"))
     (setq ispell-dictionary "british")
     (setq ispell-really-hunspell t)))
+
+;; flyspell-lazy: Improve Emacs flyspell responsiveness using idle timers
+;; https://github.com/rolandwalker/flyspell-lazy/
+(use-package flyspell-lazy
+  :after flyspell
+  :config
+    (setq flyspell-lazy-idle-seconds 1
+          flyspell-lazy-window-idle-seconds 3)
+    (flyspell-lazy-mode +1))
 
 (provide 'setup-spell)
 
