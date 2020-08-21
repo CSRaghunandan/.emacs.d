@@ -1,13 +1,12 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-11 23:21:43 csraghunandan>
+;; Time-stamp: <2020-08-21 17:29:42 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
 
 ;; Org-mode configuration
 ;; http://orgmode.org/
-(use-package org
-  :straight nil
+(use-package org-plus-contrib
   :hook
   ((org-mode . org-num-mode)
    (org-mode . (lambda () ;; this will make sure auto-fill works for org-mode
