@@ -18,6 +18,7 @@
         org-self-insert-command
         sp-backward-delete-char
         sp-backward-kill-word
+        sp-backward-sexp
         sp-delete-char
         sp-kill-hybrid-sexp
         sp-kill-region
