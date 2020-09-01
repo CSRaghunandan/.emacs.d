@@ -121,7 +121,6 @@
  ("json-mode" . "0e819e519ae17a2686e0881c4ca51fa873fa9b83")
  ("json-process-client" . "422606a7bf08d13646e3db4f6c2bddb69bd61dec")
  ("json-reformat" . "8eb6668ed447988aea06467ba8f42e1f2178246f")
- ("json-snatcher" . "c4cecc0a5051bd364373aa499c47a1bb7a5ac51c")
  ("key-chord" . "72443e9ff3c4f1c3ccaced3130236801efde3d83")
  ("kurecolor" . "3fc84840cbbd75e646cafa2fd3a00004b55e37ec")
  ("let-alist" . "b299c78897cc307f9d5521927376fbd06a26f123")

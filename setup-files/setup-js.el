@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-05-04 22:07:34 csraghunandan>
+;; Time-stamp: <2020-09-01 13:19:32 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -115,16 +115,6 @@
 (use-package prettier-js
   :hook ((js2-mode . prettier-js-mode)
          (rjsx-mode . prettier-js-mode)))
-
-;; json-snatcher: get the path of any JSON element easily
-;; https://github.com/Sterlingg/json-snatcher
-(use-package json-snatcher
-  :hook ((json-mode . js-mode-bindings))
-  :config
-  (defun js-mode-bindings ()
-    "Sets a hotkey for using the json-snatcher plugin"
-    (when (string-match  "\\.json$" (buffer-name))
-      (local-set-key (kbd "C-c C-g") 'jsons-print-path))))
 
 ;; indium: javascript awesome development environment
 ;; https://github.com/NicolasPetton/indium
