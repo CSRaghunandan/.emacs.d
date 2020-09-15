@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-06-08 00:01:52 csraghunandan>
+;; Time-stamp: <2020-09-15 10:39:04 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -38,6 +38,7 @@
         lsp-ui-doc-enable nil
         lsp-ui-doc-include-signature t
         lsp-eldoc-enable-hover nil ; Disable eldoc displays in minibuffer
+        lsp-ui-doc-position 'at-point
         lsp-ui-imenu-enable t
         lsp-ui-sideline-ignore-duplicate t))
 
