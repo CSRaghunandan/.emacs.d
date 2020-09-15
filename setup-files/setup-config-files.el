@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-10 14:17:43 csraghunandan>
+;; Time-stamp: <2020-09-12 15:12:29 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -17,8 +17,7 @@
          (yaml-mode . (lambda ()
                         (add-hook 'before-save-hook
                                   (lambda ()
-                                    (time-stamp)
-                                    (lsp-format-buffer)) nil t))))
+                                    (time-stamp)) nil t))))
   :config
   (defun my-yaml-mode-hook ()
     (set (make-local-variable 'company-backends)
