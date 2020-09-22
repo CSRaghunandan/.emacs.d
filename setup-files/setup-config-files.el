@@ -1,5 +1,5 @@
 ;;; setup-config-files.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-09-12 15:12:29 csraghunandan>
+;; Time-stamp: <2020-09-22 15:42:43 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -100,5 +100,10 @@
 (use-package groovy-mode
   :mode (("\\.gradle\\'" . groovy-mode)
          ("Jenkinsfile" . groovy-mode)))
+
+;; Major mode for editing jsonnet template files
+;; https://github.com/tminor/jsonnet-mode/
+(use-package jsonnet-mode
+  :mode "\\.jsonnet\\'")
 
 (provide 'setup-config-files)
