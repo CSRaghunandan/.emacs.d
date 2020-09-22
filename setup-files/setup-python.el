@@ -1,5 +1,5 @@
 ;;; setup-python.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-19 18:22:29 csraghunandan>
+;; Time-stamp: <2020-09-21 20:34:08 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -23,8 +23,7 @@
   :straight nil
   :hook ((python-mode . (lambda ()
                           (company-mode)
-                          (flycheck-mode)
-                          (eldoc-mode)))
+                          (flycheck-mode)))
          (python-mode . (lambda ()
                           (setq-local tab-width 4)))
          (inferior-python-mode . company-mode))
