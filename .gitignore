@@ -16,3 +16,6 @@ straight/modified
 
 # ignore the emacs lisp nativecomp cache
 eln-cache/
+
+# ignore the org roam database
+org-roam.db
