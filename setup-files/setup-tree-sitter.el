@@ -1,5 +1,5 @@
 ;;; setup-tree-sitter.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-05 13:33:41 csraghunandan>
+;; Time-stamp: <2020-10-22 13:14:11 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -26,6 +26,11 @@
   :config
   (add-to-list 'tree-sitter-major-mode-language-alist
                '(rustic-mode . rust)))
+
+(use-package tsc
+  :straight (tsc :host github
+                 :repo "ubolonton/emacs-tree-sitter"
+                 :files ("core/*.el")))
 
 (use-package tree-sitter-langs
   :if (executable-find "tree-sitter")

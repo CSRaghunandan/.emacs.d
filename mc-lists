@@ -12,6 +12,7 @@
         indent-for-tab-command
         kill-region
         mwim-beginning-of-code-or-line-or-comment
+        mwim-end-of-code-or-line
         org-beginning-of-line
         org-cycle
         org-end-of-line
@@ -31,4 +32,5 @@
 
 (setq mc/cmds-to-run-once
       '(
+        golden-ratio-scroll-screen-up
         ))

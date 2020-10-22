@@ -400,7 +400,6 @@
     ("frmo" "from" nil :count 0)
     ("fromt he" "from the" nil :count 0)
     ("fromthe" "from the" nil :count 0)
-    ("func" "function" nil :count 63)
     ("functionalties" "functionalities" nil :count 0)
     ("funtionality" "functionality" nil :count 0)
     ("furneral" "funeral" nil :count 0)
