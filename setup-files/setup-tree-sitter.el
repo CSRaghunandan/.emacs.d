@@ -1,8 +1,14 @@
 ;;; setup-tree-sitter.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-10-22 13:14:11 csraghunandan>
+;; Time-stamp: <2020-10-23 19:53:57 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
+
+;; dynamic module needed for tree-sitter to work
+(use-package tsc
+  :straight (tsc :host github
+                 :repo "ubolonton/emacs-tree-sitter"
+                 :files ("core/*.el")))
 
 ;; run `tree-sitter-langs-install-grammars' to install the grammar files for
 ;;     languages for tree-sitter
@@ -26,11 +32,6 @@
   :config
   (add-to-list 'tree-sitter-major-mode-language-alist
                '(rustic-mode . rust)))
-
-(use-package tsc
-  :straight (tsc :host github
-                 :repo "ubolonton/emacs-tree-sitter"
-                 :files ("core/*.el")))
 
 (use-package tree-sitter-langs
   :if (executable-find "tree-sitter")
