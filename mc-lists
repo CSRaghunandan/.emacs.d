@@ -6,11 +6,16 @@
       '(
         counsel-M-x
         counsel-yank-pop
+        cycle-quotes
         forward-sexp
         hungry-delete-backward
         hungry-delete-forward
+        hydra-change-case/body
+        hydra-change-case/modi/downcase-and-exit
         indent-for-tab-command
+        ivy-occur-delete-candidate
         kill-region
+        lsp-ui-doc--handle-mouse-movement
         mwim-beginning-of-code-or-line-or-comment
         mwim-end-of-code-or-line
         org-beginning-of-line
@@ -27,10 +32,13 @@
         sp-strict-kill-line-or-region
         sp-unwrap-sexp
         wgrep-finish-edit
+        wrap-with-double-quotes
+        yaml-electric-backspace
         yaml-electric-dash-and-dot
         ))
 
 (setq mc/cmds-to-run-once
       '(
         golden-ratio-scroll-screen-up
+        ivy-wgrep-change-to-wgrep-mode
         ))
