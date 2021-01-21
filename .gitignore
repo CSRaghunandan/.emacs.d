@@ -19,3 +19,6 @@ eln-cache/
 
 # ignore the org roam database
 org-roam.db
+
+# ignore the elpa directory
+elpa/
