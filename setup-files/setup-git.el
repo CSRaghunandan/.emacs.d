@@ -1,5 +1,5 @@
 ;;; setup-git.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-29 16:19:44 csraghunandan>
+;; Time-stamp: <2021-01-21 17:19:26 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -15,8 +15,6 @@
                ("l" . magit-dired-log)))
   :bind* (("C-c p v" . magit-status))
   :config
-  ;; Enable the binding for magit-file=popup
-  (global-magit-file-mode 1)
 
   ;; modify a few magit parameters
   (setq magit-diff-refine-hunk t ; show word granularity within diff hunks
