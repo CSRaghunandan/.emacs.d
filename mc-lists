@@ -12,6 +12,7 @@
         hungry-delete-forward
         hydra-change-case/body
         hydra-change-case/modi/downcase-and-exit
+        hydra-change-case/modi/upcase-and-exit
         indent-for-tab-command
         ivy-occur-delete-candidate
         kill-region

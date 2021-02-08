@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2021-02-08 13:14:17 csraghunandan>
+;; Time-stamp: <2021-02-08 17:29:48 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -25,9 +25,6 @@
   (setq js-indent-level 2
         js2-basic-offset 2
         js-chain-indent t)
-
-  ;; use eslint_d insetad of eslint for faster linting
-  (setq flycheck-javascript-eslint-executable "eslint_d")
 
   ;; Try to highlight most ECMA built-ins
   (setq js2-highlight-level 3)
