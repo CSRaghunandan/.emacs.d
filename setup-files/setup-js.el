@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-09-01 13:19:32 csraghunandan>
+;; Time-stamp: <2021-02-08 13:14:17 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -13,7 +13,8 @@
   :hook ((js2-mode . (lambda ()
                        (flycheck-mode)
                        (my-tide-setup-hook)
-                       (company-mode))))
+                       (company-mode)
+                       (add-node-modules-path))))
   :config
 
   (with-eval-after-load 'projectile
@@ -174,5 +175,11 @@
                 (not (sp-point-in-string-or-comment)))))
   (add-to-list 'magic-mode-alist '(+javascript-jsx-file-p . rjsx-mode))
   :config (unbind-key "C-c C-l" rjsx-mode-map))
+
+;; Adds the node_modules/.bin directory to the buffer exec_path. E.g. support
+;; project local eslint installations.
+;; https://github.com/codesuki/add-node-modules-path
+(use-package add-node-modules-path
+  :after js2-mode)
 
 (provide 'setup-js)
