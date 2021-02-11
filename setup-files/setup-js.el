@@ -1,5 +1,5 @@
 ;;; setup-js.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2021-02-08 17:29:48 csraghunandan>
+;; Time-stamp: <2021-02-11 17:53:28 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -56,7 +56,7 @@
            (company-dabbrev-code company-dabbrev)))
 
     ;; configure javascript-tide checker to run after your default javascript checker
-    (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)))
+    (flycheck-select-checker 'javascript-eslint)))
 
 ;; js2-refactor: refactoring options for emacs
 ;; https://github.com/magnars/js2-refactor.el
