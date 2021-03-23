@@ -1,5 +1,5 @@
 ;;; setup-lsp.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-09-15 10:39:04 csraghunandan>
+;; Time-stamp: <2021-03-24 04:19:13 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -31,11 +31,11 @@
   :config
   (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
   (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-  (setq lsp-ui-sideline-enable nil
+  (setq lsp-ui-sideline-enable t
         lsp-ui-sideline-update-mode 'line
         lsp-ui-sideline-show-code-actions t
         lsp-ui-sideline-show-hover t
-        lsp-ui-doc-enable nil
+        lsp-ui-doc-enable t
         lsp-ui-doc-include-signature t
         lsp-eldoc-enable-hover nil ; Disable eldoc displays in minibuffer
         lsp-ui-doc-position 'at-point
