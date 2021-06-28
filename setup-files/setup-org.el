@@ -1,5 +1,5 @@
 ;;; setup-org.el -*- lexical-binding: t; -*-
-;; Time-stamp: <2020-08-21 17:29:42 csraghunandan>
+;; Time-stamp: <2021-02-21 17:55:49 csraghunandan>
 
 ;; Copyright (C) 2016-2020 Chakravarthy Raghunandan
 ;; Author: Chakravarthy Raghunandan <rnraghunandan@gmail.com>
@@ -640,10 +640,9 @@ exist after each headings's drawers."
 (use-package org-download
   :after org)
 
-;;  Automatic tables of contents for Org files
-;; https://github.com/alphapapa/org-make-toc
-(use-package org-make-toc
-  :after org)
+;; https://github.com/snosov1/toc-org/
+(use-package toc-org
+  :hook ((org-mode . toc-org-mode)))
 
 ;; pomodoro implementation in org
 ;; https://github.com/lolownia/org-pomodoro

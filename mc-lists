@@ -22,6 +22,7 @@
         org-beginning-of-line
         org-cycle
         org-end-of-line
+        org-fill-paragraph
         org-self-insert-command
         sp-backward-delete-char
         sp-backward-kill-word
@@ -40,6 +41,9 @@
 
 (setq mc/cmds-to-run-once
       '(
+        align-hydra/body
+        beginend-prog-mode-goto-end
+        duplicate-thing
         golden-ratio-scroll-screen-up
         ivy-wgrep-change-to-wgrep-mode
         ))
